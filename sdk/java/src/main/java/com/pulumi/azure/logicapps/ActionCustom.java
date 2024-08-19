@@ -145,7 +145,7 @@ public class ActionCustom extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ActionCustom(String name) {
+    public ActionCustom(java.lang.String name) {
         this(name, ActionCustomArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class ActionCustom extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ActionCustom(String name, ActionCustomArgs args) {
+    public ActionCustom(java.lang.String name, ActionCustomArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,15 +162,22 @@ public class ActionCustom extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ActionCustom(String name, ActionCustomArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/actionCustom:ActionCustom", name, args == null ? ActionCustomArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ActionCustom(java.lang.String name, ActionCustomArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/actionCustom:ActionCustom", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ActionCustom(String name, Output<String> id, @Nullable ActionCustomState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/actionCustom:ActionCustom", name, state, makeResourceOptions(options, id));
+    private ActionCustom(java.lang.String name, Output<java.lang.String> id, @Nullable ActionCustomState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/actionCustom:ActionCustom", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ActionCustomArgs makeArgs(ActionCustomArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ActionCustomArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +193,7 @@ public class ActionCustom extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ActionCustom get(String name, Output<String> id, @Nullable ActionCustomState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ActionCustom get(java.lang.String name, Output<java.lang.String> id, @Nullable ActionCustomState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ActionCustom(name, id, state, options);
     }
 }

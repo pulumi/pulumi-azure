@@ -268,7 +268,7 @@ public class SpringCloudAppDynamicsApplicationPerformanceMonitoring extends com.
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudAppDynamicsApplicationPerformanceMonitoring(String name) {
+    public SpringCloudAppDynamicsApplicationPerformanceMonitoring(java.lang.String name) {
         this(name, SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs.Empty);
     }
     /**
@@ -276,7 +276,7 @@ public class SpringCloudAppDynamicsApplicationPerformanceMonitoring extends com.
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudAppDynamicsApplicationPerformanceMonitoring(String name, SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs args) {
+    public SpringCloudAppDynamicsApplicationPerformanceMonitoring(java.lang.String name, SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs args) {
         this(name, args, null);
     }
     /**
@@ -285,15 +285,22 @@ public class SpringCloudAppDynamicsApplicationPerformanceMonitoring extends com.
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudAppDynamicsApplicationPerformanceMonitoring(String name, SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring", name, args == null ? SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudAppDynamicsApplicationPerformanceMonitoring(java.lang.String name, SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudAppDynamicsApplicationPerformanceMonitoring(String name, Output<String> id, @Nullable SpringCloudAppDynamicsApplicationPerformanceMonitoringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring", name, state, makeResourceOptions(options, id));
+    private SpringCloudAppDynamicsApplicationPerformanceMonitoring(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudAppDynamicsApplicationPerformanceMonitoringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs makeArgs(SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -313,7 +320,7 @@ public class SpringCloudAppDynamicsApplicationPerformanceMonitoring extends com.
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudAppDynamicsApplicationPerformanceMonitoring get(String name, Output<String> id, @Nullable SpringCloudAppDynamicsApplicationPerformanceMonitoringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudAppDynamicsApplicationPerformanceMonitoring get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudAppDynamicsApplicationPerformanceMonitoringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudAppDynamicsApplicationPerformanceMonitoring(name, id, state, options);
     }
 }

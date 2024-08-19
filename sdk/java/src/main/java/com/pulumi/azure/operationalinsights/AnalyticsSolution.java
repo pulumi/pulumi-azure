@@ -200,7 +200,7 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AnalyticsSolution(String name) {
+    public AnalyticsSolution(java.lang.String name) {
         this(name, AnalyticsSolutionArgs.Empty);
     }
     /**
@@ -208,7 +208,7 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AnalyticsSolution(String name, AnalyticsSolutionArgs args) {
+    public AnalyticsSolution(java.lang.String name, AnalyticsSolutionArgs args) {
         this(name, args, null);
     }
     /**
@@ -217,15 +217,22 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AnalyticsSolution(String name, AnalyticsSolutionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, args == null ? AnalyticsSolutionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AnalyticsSolution(java.lang.String name, AnalyticsSolutionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AnalyticsSolution(String name, Output<String> id, @Nullable AnalyticsSolutionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, state, makeResourceOptions(options, id));
+    private AnalyticsSolution(java.lang.String name, Output<java.lang.String> id, @Nullable AnalyticsSolutionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AnalyticsSolutionArgs makeArgs(AnalyticsSolutionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AnalyticsSolutionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -241,7 +248,7 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AnalyticsSolution get(String name, Output<String> id, @Nullable AnalyticsSolutionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AnalyticsSolution get(java.lang.String name, Output<java.lang.String> id, @Nullable AnalyticsSolutionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AnalyticsSolution(name, id, state, options);
     }
 }

@@ -184,7 +184,7 @@ public class NetworkInterfaceNatRuleAssociation extends com.pulumi.resources.Cus
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkInterfaceNatRuleAssociation(String name) {
+    public NetworkInterfaceNatRuleAssociation(java.lang.String name) {
         this(name, NetworkInterfaceNatRuleAssociationArgs.Empty);
     }
     /**
@@ -192,7 +192,7 @@ public class NetworkInterfaceNatRuleAssociation extends com.pulumi.resources.Cus
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkInterfaceNatRuleAssociation(String name, NetworkInterfaceNatRuleAssociationArgs args) {
+    public NetworkInterfaceNatRuleAssociation(java.lang.String name, NetworkInterfaceNatRuleAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -201,15 +201,22 @@ public class NetworkInterfaceNatRuleAssociation extends com.pulumi.resources.Cus
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkInterfaceNatRuleAssociation(String name, NetworkInterfaceNatRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, args == null ? NetworkInterfaceNatRuleAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkInterfaceNatRuleAssociation(java.lang.String name, NetworkInterfaceNatRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkInterfaceNatRuleAssociation(String name, Output<String> id, @Nullable NetworkInterfaceNatRuleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, state, makeResourceOptions(options, id));
+    private NetworkInterfaceNatRuleAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkInterfaceNatRuleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkInterfaceNatRuleAssociationArgs makeArgs(NetworkInterfaceNatRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkInterfaceNatRuleAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -225,7 +232,7 @@ public class NetworkInterfaceNatRuleAssociation extends com.pulumi.resources.Cus
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkInterfaceNatRuleAssociation get(String name, Output<String> id, @Nullable NetworkInterfaceNatRuleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkInterfaceNatRuleAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkInterfaceNatRuleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkInterfaceNatRuleAssociation(name, id, state, options);
     }
 }

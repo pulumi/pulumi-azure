@@ -198,7 +198,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LocalNetworkGateway(String name) {
+    public LocalNetworkGateway(java.lang.String name) {
         this(name, LocalNetworkGatewayArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LocalNetworkGateway(String name, LocalNetworkGatewayArgs args) {
+    public LocalNetworkGateway(java.lang.String name, LocalNetworkGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,15 +215,22 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LocalNetworkGateway(String name, LocalNetworkGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/localNetworkGateway:LocalNetworkGateway", name, args == null ? LocalNetworkGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LocalNetworkGateway(java.lang.String name, LocalNetworkGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/localNetworkGateway:LocalNetworkGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LocalNetworkGateway(String name, Output<String> id, @Nullable LocalNetworkGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/localNetworkGateway:LocalNetworkGateway", name, state, makeResourceOptions(options, id));
+    private LocalNetworkGateway(java.lang.String name, Output<java.lang.String> id, @Nullable LocalNetworkGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/localNetworkGateway:LocalNetworkGateway", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LocalNetworkGatewayArgs makeArgs(LocalNetworkGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalNetworkGatewayArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -239,7 +246,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LocalNetworkGateway get(String name, Output<String> id, @Nullable LocalNetworkGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LocalNetworkGateway get(java.lang.String name, Output<java.lang.String> id, @Nullable LocalNetworkGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LocalNetworkGateway(name, id, state, options);
     }
 }

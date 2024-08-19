@@ -248,7 +248,7 @@ public class GlobalVMShutdownSchedule extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GlobalVMShutdownSchedule(String name) {
+    public GlobalVMShutdownSchedule(java.lang.String name) {
         this(name, GlobalVMShutdownScheduleArgs.Empty);
     }
     /**
@@ -256,7 +256,7 @@ public class GlobalVMShutdownSchedule extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GlobalVMShutdownSchedule(String name, GlobalVMShutdownScheduleArgs args) {
+    public GlobalVMShutdownSchedule(java.lang.String name, GlobalVMShutdownScheduleArgs args) {
         this(name, args, null);
     }
     /**
@@ -265,15 +265,22 @@ public class GlobalVMShutdownSchedule extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GlobalVMShutdownSchedule(String name, GlobalVMShutdownScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule", name, args == null ? GlobalVMShutdownScheduleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GlobalVMShutdownSchedule(java.lang.String name, GlobalVMShutdownScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GlobalVMShutdownSchedule(String name, Output<String> id, @Nullable GlobalVMShutdownScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule", name, state, makeResourceOptions(options, id));
+    private GlobalVMShutdownSchedule(java.lang.String name, Output<java.lang.String> id, @Nullable GlobalVMShutdownScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GlobalVMShutdownScheduleArgs makeArgs(GlobalVMShutdownScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GlobalVMShutdownScheduleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -289,7 +296,7 @@ public class GlobalVMShutdownSchedule extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GlobalVMShutdownSchedule get(String name, Output<String> id, @Nullable GlobalVMShutdownScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GlobalVMShutdownSchedule get(java.lang.String name, Output<java.lang.String> id, @Nullable GlobalVMShutdownScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GlobalVMShutdownSchedule(name, id, state, options);
     }
 }

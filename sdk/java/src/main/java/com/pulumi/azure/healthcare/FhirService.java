@@ -318,7 +318,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FhirService(String name) {
+    public FhirService(java.lang.String name) {
         this(name, FhirServiceArgs.Empty);
     }
     /**
@@ -326,7 +326,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FhirService(String name, FhirServiceArgs args) {
+    public FhirService(java.lang.String name, FhirServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -335,15 +335,22 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FhirService(String name, FhirServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:healthcare/fhirService:FhirService", name, args == null ? FhirServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FhirService(java.lang.String name, FhirServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:healthcare/fhirService:FhirService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FhirService(String name, Output<String> id, @Nullable FhirServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:healthcare/fhirService:FhirService", name, state, makeResourceOptions(options, id));
+    private FhirService(java.lang.String name, Output<java.lang.String> id, @Nullable FhirServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:healthcare/fhirService:FhirService", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FhirServiceArgs makeArgs(FhirServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FhirServiceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -359,7 +366,7 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FhirService get(String name, Output<String> id, @Nullable FhirServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FhirService get(java.lang.String name, Output<java.lang.String> id, @Nullable FhirServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FhirService(name, id, state, options);
     }
 }

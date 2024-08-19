@@ -147,6 +147,8 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
      *
+     * > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
+     *
      * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
      */
     public readonly zoneRedundant!: pulumi.Output<boolean>;
@@ -303,6 +305,8 @@ export interface NamespaceState {
     /**
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
      *
+     * > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
+     *
      * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
      */
     zoneRedundant?: pulumi.Input<boolean>;
@@ -369,6 +373,8 @@ export interface NamespaceArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
      *
      * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
      */

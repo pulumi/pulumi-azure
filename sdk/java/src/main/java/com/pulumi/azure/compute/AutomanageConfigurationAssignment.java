@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("westus")
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .size("Standard_F2")
  *             .adminUsername("adminuser")
- *             .adminPassword("P{@literal @}$$w0rd1234!")
+ *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
  *             .disablePasswordAuthentication(false)
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
@@ -118,8 +118,8 @@ import javax.annotation.Nullable;
  *             .configurationId(exampleConfiguration.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -168,7 +168,7 @@ public class AutomanageConfigurationAssignment extends com.pulumi.resources.Cust
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AutomanageConfigurationAssignment(String name) {
+    public AutomanageConfigurationAssignment(java.lang.String name) {
         this(name, AutomanageConfigurationAssignmentArgs.Empty);
     }
     /**
@@ -176,7 +176,7 @@ public class AutomanageConfigurationAssignment extends com.pulumi.resources.Cust
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AutomanageConfigurationAssignment(String name, AutomanageConfigurationAssignmentArgs args) {
+    public AutomanageConfigurationAssignment(java.lang.String name, AutomanageConfigurationAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -185,15 +185,22 @@ public class AutomanageConfigurationAssignment extends com.pulumi.resources.Cust
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AutomanageConfigurationAssignment(String name, AutomanageConfigurationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment", name, args == null ? AutomanageConfigurationAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AutomanageConfigurationAssignment(java.lang.String name, AutomanageConfigurationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AutomanageConfigurationAssignment(String name, Output<String> id, @Nullable AutomanageConfigurationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment", name, state, makeResourceOptions(options, id));
+    private AutomanageConfigurationAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable AutomanageConfigurationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AutomanageConfigurationAssignmentArgs makeArgs(AutomanageConfigurationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AutomanageConfigurationAssignmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -209,7 +216,7 @@ public class AutomanageConfigurationAssignment extends com.pulumi.resources.Cust
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AutomanageConfigurationAssignment get(String name, Output<String> id, @Nullable AutomanageConfigurationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AutomanageConfigurationAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable AutomanageConfigurationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AutomanageConfigurationAssignment(name, id, state, options);
     }
 }

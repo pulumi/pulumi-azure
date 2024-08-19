@@ -267,7 +267,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FailoverGroup(String name) {
+    public FailoverGroup(java.lang.String name) {
         this(name, FailoverGroupArgs.Empty);
     }
     /**
@@ -275,7 +275,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FailoverGroup(String name, FailoverGroupArgs args) {
+    public FailoverGroup(java.lang.String name, FailoverGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -284,15 +284,22 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FailoverGroup(String name, FailoverGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sql/failoverGroup:FailoverGroup", name, args == null ? FailoverGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FailoverGroup(java.lang.String name, FailoverGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sql/failoverGroup:FailoverGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FailoverGroup(String name, Output<String> id, @Nullable FailoverGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sql/failoverGroup:FailoverGroup", name, state, makeResourceOptions(options, id));
+    private FailoverGroup(java.lang.String name, Output<java.lang.String> id, @Nullable FailoverGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sql/failoverGroup:FailoverGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FailoverGroupArgs makeArgs(FailoverGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FailoverGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -308,7 +315,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FailoverGroup get(String name, Output<String> id, @Nullable FailoverGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FailoverGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable FailoverGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FailoverGroup(name, id, state, options);
     }
 }

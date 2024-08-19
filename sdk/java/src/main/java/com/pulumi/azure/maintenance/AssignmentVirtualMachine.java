@@ -189,7 +189,7 @@ public class AssignmentVirtualMachine extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AssignmentVirtualMachine(String name) {
+    public AssignmentVirtualMachine(java.lang.String name) {
         this(name, AssignmentVirtualMachineArgs.Empty);
     }
     /**
@@ -197,7 +197,7 @@ public class AssignmentVirtualMachine extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AssignmentVirtualMachine(String name, AssignmentVirtualMachineArgs args) {
+    public AssignmentVirtualMachine(java.lang.String name, AssignmentVirtualMachineArgs args) {
         this(name, args, null);
     }
     /**
@@ -206,15 +206,22 @@ public class AssignmentVirtualMachine extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AssignmentVirtualMachine(String name, AssignmentVirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine", name, args == null ? AssignmentVirtualMachineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AssignmentVirtualMachine(java.lang.String name, AssignmentVirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AssignmentVirtualMachine(String name, Output<String> id, @Nullable AssignmentVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine", name, state, makeResourceOptions(options, id));
+    private AssignmentVirtualMachine(java.lang.String name, Output<java.lang.String> id, @Nullable AssignmentVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AssignmentVirtualMachineArgs makeArgs(AssignmentVirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssignmentVirtualMachineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -230,7 +237,7 @@ public class AssignmentVirtualMachine extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AssignmentVirtualMachine get(String name, Output<String> id, @Nullable AssignmentVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AssignmentVirtualMachine get(java.lang.String name, Output<java.lang.String> id, @Nullable AssignmentVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AssignmentVirtualMachine(name, id, state, options);
     }
 }

@@ -149,7 +149,7 @@ public class EventhubNamespaceDisasterRecoveryConfig extends com.pulumi.resource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventhubNamespaceDisasterRecoveryConfig(String name) {
+    public EventhubNamespaceDisasterRecoveryConfig(java.lang.String name) {
         this(name, EventhubNamespaceDisasterRecoveryConfigArgs.Empty);
     }
     /**
@@ -157,7 +157,7 @@ public class EventhubNamespaceDisasterRecoveryConfig extends com.pulumi.resource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventhubNamespaceDisasterRecoveryConfig(String name, EventhubNamespaceDisasterRecoveryConfigArgs args) {
+    public EventhubNamespaceDisasterRecoveryConfig(java.lang.String name, EventhubNamespaceDisasterRecoveryConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -166,15 +166,22 @@ public class EventhubNamespaceDisasterRecoveryConfig extends com.pulumi.resource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventhubNamespaceDisasterRecoveryConfig(String name, EventhubNamespaceDisasterRecoveryConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, args == null ? EventhubNamespaceDisasterRecoveryConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EventhubNamespaceDisasterRecoveryConfig(java.lang.String name, EventhubNamespaceDisasterRecoveryConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventhubNamespaceDisasterRecoveryConfig(String name, Output<String> id, @Nullable EventhubNamespaceDisasterRecoveryConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, state, makeResourceOptions(options, id));
+    private EventhubNamespaceDisasterRecoveryConfig(java.lang.String name, Output<java.lang.String> id, @Nullable EventhubNamespaceDisasterRecoveryConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EventhubNamespaceDisasterRecoveryConfigArgs makeArgs(EventhubNamespaceDisasterRecoveryConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventhubNamespaceDisasterRecoveryConfigArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -190,7 +197,7 @@ public class EventhubNamespaceDisasterRecoveryConfig extends com.pulumi.resource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventhubNamespaceDisasterRecoveryConfig get(String name, Output<String> id, @Nullable EventhubNamespaceDisasterRecoveryConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventhubNamespaceDisasterRecoveryConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable EventhubNamespaceDisasterRecoveryConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventhubNamespaceDisasterRecoveryConfig(name, id, state, options);
     }
 }

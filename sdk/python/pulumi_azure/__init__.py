@@ -4059,6 +4059,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "devcenter/networkConnection",
+  "fqn": "pulumi_azure.devcenter",
+  "classes": {
+   "azure:devcenter/networkConnection:NetworkConnection": "NetworkConnection"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "devcenter/project",
   "fqn": "pulumi_azure.devcenter",
   "classes": {
@@ -8679,6 +8687,14 @@ _utilities.register(
   "fqn": "pulumi_azure.stack",
   "classes": {
    "azure:stack/hciCluster:HciCluster": "HciCluster"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "stack/hciLogicalNetwork",
+  "fqn": "pulumi_azure.stack",
+  "classes": {
+   "azure:stack/hciLogicalNetwork:HciLogicalNetwork": "HciLogicalNetwork"
   }
  },
  {

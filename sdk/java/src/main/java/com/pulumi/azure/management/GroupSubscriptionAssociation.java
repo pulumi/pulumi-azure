@@ -110,7 +110,7 @@ public class GroupSubscriptionAssociation extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GroupSubscriptionAssociation(String name) {
+    public GroupSubscriptionAssociation(java.lang.String name) {
         this(name, GroupSubscriptionAssociationArgs.Empty);
     }
     /**
@@ -118,7 +118,7 @@ public class GroupSubscriptionAssociation extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GroupSubscriptionAssociation(String name, GroupSubscriptionAssociationArgs args) {
+    public GroupSubscriptionAssociation(java.lang.String name, GroupSubscriptionAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -127,15 +127,22 @@ public class GroupSubscriptionAssociation extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GroupSubscriptionAssociation(String name, GroupSubscriptionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation", name, args == null ? GroupSubscriptionAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GroupSubscriptionAssociation(java.lang.String name, GroupSubscriptionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GroupSubscriptionAssociation(String name, Output<String> id, @Nullable GroupSubscriptionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation", name, state, makeResourceOptions(options, id));
+    private GroupSubscriptionAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable GroupSubscriptionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GroupSubscriptionAssociationArgs makeArgs(GroupSubscriptionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GroupSubscriptionAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -151,7 +158,7 @@ public class GroupSubscriptionAssociation extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GroupSubscriptionAssociation get(String name, Output<String> id, @Nullable GroupSubscriptionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GroupSubscriptionAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable GroupSubscriptionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GroupSubscriptionAssociation(name, id, state, options);
     }
 }

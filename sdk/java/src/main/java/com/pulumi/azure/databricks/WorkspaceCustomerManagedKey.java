@@ -195,7 +195,7 @@ public class WorkspaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WorkspaceCustomerManagedKey(String name) {
+    public WorkspaceCustomerManagedKey(java.lang.String name) {
         this(name, WorkspaceCustomerManagedKeyArgs.Empty);
     }
     /**
@@ -203,7 +203,7 @@ public class WorkspaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WorkspaceCustomerManagedKey(String name, WorkspaceCustomerManagedKeyArgs args) {
+    public WorkspaceCustomerManagedKey(java.lang.String name, WorkspaceCustomerManagedKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -212,15 +212,22 @@ public class WorkspaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WorkspaceCustomerManagedKey(String name, WorkspaceCustomerManagedKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey", name, args == null ? WorkspaceCustomerManagedKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public WorkspaceCustomerManagedKey(java.lang.String name, WorkspaceCustomerManagedKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WorkspaceCustomerManagedKey(String name, Output<String> id, @Nullable WorkspaceCustomerManagedKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey", name, state, makeResourceOptions(options, id));
+    private WorkspaceCustomerManagedKey(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceCustomerManagedKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkspaceCustomerManagedKeyArgs makeArgs(WorkspaceCustomerManagedKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceCustomerManagedKeyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -236,7 +243,7 @@ public class WorkspaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WorkspaceCustomerManagedKey get(String name, Output<String> id, @Nullable WorkspaceCustomerManagedKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WorkspaceCustomerManagedKey get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceCustomerManagedKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WorkspaceCustomerManagedKey(name, id, state, options);
     }
 }

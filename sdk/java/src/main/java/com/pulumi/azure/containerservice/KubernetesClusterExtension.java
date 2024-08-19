@@ -268,7 +268,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KubernetesClusterExtension(String name) {
+    public KubernetesClusterExtension(java.lang.String name) {
         this(name, KubernetesClusterExtensionArgs.Empty);
     }
     /**
@@ -276,7 +276,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KubernetesClusterExtension(String name, KubernetesClusterExtensionArgs args) {
+    public KubernetesClusterExtension(java.lang.String name, KubernetesClusterExtensionArgs args) {
         this(name, args, null);
     }
     /**
@@ -285,15 +285,22 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KubernetesClusterExtension(String name, KubernetesClusterExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension", name, args == null ? KubernetesClusterExtensionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public KubernetesClusterExtension(java.lang.String name, KubernetesClusterExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KubernetesClusterExtension(String name, Output<String> id, @Nullable KubernetesClusterExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension", name, state, makeResourceOptions(options, id));
+    private KubernetesClusterExtension(java.lang.String name, Output<java.lang.String> id, @Nullable KubernetesClusterExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static KubernetesClusterExtensionArgs makeArgs(KubernetesClusterExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KubernetesClusterExtensionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -309,7 +316,7 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KubernetesClusterExtension get(String name, Output<String> id, @Nullable KubernetesClusterExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KubernetesClusterExtension get(java.lang.String name, Output<java.lang.String> id, @Nullable KubernetesClusterExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KubernetesClusterExtension(name, id, state, options);
     }
 }

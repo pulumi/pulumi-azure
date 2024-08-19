@@ -145,14 +145,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
      */
     @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="enableBatchedOperations", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableBatchedOperations;
+    private Output<Boolean> enableBatchedOperations;
 
     /**
      * @return Boolean flag which controls if server-side batched operations are enabled.
      * 
      */
-    public Output<Optional<Boolean>> enableBatchedOperations() {
-        return Codegen.optional(this.enableBatchedOperations);
+    public Output<Boolean> enableBatchedOperations() {
+        return this.enableBatchedOperations;
     }
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
@@ -163,14 +163,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
      */
     @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="enableExpress", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableExpress;
+    private Output<Boolean> enableExpress;
 
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
      */
-    public Output<Optional<Boolean>> enableExpress() {
-        return Codegen.optional(this.enableExpress);
+    public Output<Boolean> enableExpress() {
+        return this.enableExpress;
     }
     /**
      * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
@@ -183,7 +183,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      */
     @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="enablePartitioning", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enablePartitioning;
+    private Output<Boolean> enablePartitioning;
 
     /**
      * @return Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
@@ -191,8 +191,8 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
      * 
      */
-    public Output<Optional<Boolean>> enablePartitioning() {
-        return Codegen.optional(this.enablePartitioning);
+    public Output<Boolean> enablePartitioning() {
+        return this.enablePartitioning;
     }
     @Export(name="expressEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> expressEnabled;
@@ -321,7 +321,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Topic(String name) {
+    public Topic(java.lang.String name) {
         this(name, TopicArgs.Empty);
     }
     /**
@@ -329,7 +329,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Topic(String name, TopicArgs args) {
+    public Topic(java.lang.String name, TopicArgs args) {
         this(name, args, null);
     }
     /**
@@ -338,15 +338,22 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Topic(String name, TopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicebus/topic:Topic", name, args == null ? TopicArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Topic(java.lang.String name, TopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:servicebus/topic:Topic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Topic(String name, Output<String> id, @Nullable TopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicebus/topic:Topic", name, state, makeResourceOptions(options, id));
+    private Topic(java.lang.String name, Output<java.lang.String> id, @Nullable TopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:servicebus/topic:Topic", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TopicArgs makeArgs(TopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TopicArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -365,7 +372,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Topic get(String name, Output<String> id, @Nullable TopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Topic get(java.lang.String name, Output<java.lang.String> id, @Nullable TopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Topic(name, id, state, options);
     }
 }

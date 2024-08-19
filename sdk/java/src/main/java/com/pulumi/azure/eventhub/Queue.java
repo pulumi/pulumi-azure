@@ -395,7 +395,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Queue(String name) {
+    public Queue(java.lang.String name) {
         this(name, QueueArgs.Empty);
     }
     /**
@@ -403,7 +403,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Queue(String name, QueueArgs args) {
+    public Queue(java.lang.String name, QueueArgs args) {
         this(name, args, null);
     }
     /**
@@ -412,15 +412,22 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Queue(String name, QueueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/queue:Queue", name, args == null ? QueueArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Queue(java.lang.String name, QueueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/queue:Queue", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Queue(String name, Output<String> id, @Nullable QueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/queue:Queue", name, state, makeResourceOptions(options, id));
+    private Queue(java.lang.String name, Output<java.lang.String> id, @Nullable QueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/queue:Queue", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static QueueArgs makeArgs(QueueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? QueueArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -436,7 +443,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Queue get(String name, Output<String> id, @Nullable QueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Queue get(java.lang.String name, Output<java.lang.String> id, @Nullable QueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Queue(name, id, state, options);
     }
 }

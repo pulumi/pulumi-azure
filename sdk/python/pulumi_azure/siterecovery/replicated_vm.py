@@ -1353,7 +1353,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedDisks")
-    def managed_disks(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicatedVMManagedDisk']]]:
+    def managed_disks(self) -> pulumi.Output[Sequence['outputs.ReplicatedVMManagedDisk']]:
         """
         One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
         """
@@ -1529,7 +1529,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="unmanagedDisks")
-    def unmanaged_disks(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicatedVMUnmanagedDisk']]]:
+    def unmanaged_disks(self) -> pulumi.Output[Sequence['outputs.ReplicatedVMUnmanagedDisk']]:
         """
         One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
         """

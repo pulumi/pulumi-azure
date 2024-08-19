@@ -517,7 +517,7 @@ public class Transform extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Transform(String name) {
+    public Transform(java.lang.String name) {
         this(name, TransformArgs.Empty);
     }
     /**
@@ -525,7 +525,7 @@ public class Transform extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Transform(String name, TransformArgs args) {
+    public Transform(java.lang.String name, TransformArgs args) {
         this(name, args, null);
     }
     /**
@@ -534,15 +534,22 @@ public class Transform extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Transform(String name, TransformArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/transform:Transform", name, args == null ? TransformArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Transform(java.lang.String name, TransformArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:media/transform:Transform", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Transform(String name, Output<String> id, @Nullable TransformState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/transform:Transform", name, state, makeResourceOptions(options, id));
+    private Transform(java.lang.String name, Output<java.lang.String> id, @Nullable TransformState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:media/transform:Transform", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TransformArgs makeArgs(TransformArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TransformArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -558,7 +565,7 @@ public class Transform extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Transform get(String name, Output<String> id, @Nullable TransformState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Transform get(java.lang.String name, Output<java.lang.String> id, @Nullable TransformState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Transform(name, id, state, options);
     }
 }

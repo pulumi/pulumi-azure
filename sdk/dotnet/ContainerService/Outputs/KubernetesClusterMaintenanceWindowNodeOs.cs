@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? DayOfWeek;
         /// <summary>
-        /// The duration of the window for maintenance to run in hours.
+        /// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
         /// </summary>
         public readonly int Duration;
         /// <summary>

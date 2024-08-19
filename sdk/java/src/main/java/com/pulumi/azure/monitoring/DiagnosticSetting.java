@@ -324,7 +324,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DiagnosticSetting(String name) {
+    public DiagnosticSetting(java.lang.String name) {
         this(name, DiagnosticSettingArgs.Empty);
     }
     /**
@@ -332,7 +332,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DiagnosticSetting(String name, DiagnosticSettingArgs args) {
+    public DiagnosticSetting(java.lang.String name, DiagnosticSettingArgs args) {
         this(name, args, null);
     }
     /**
@@ -341,15 +341,22 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DiagnosticSetting(String name, DiagnosticSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/diagnosticSetting:DiagnosticSetting", name, args == null ? DiagnosticSettingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DiagnosticSetting(java.lang.String name, DiagnosticSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/diagnosticSetting:DiagnosticSetting", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DiagnosticSetting(String name, Output<String> id, @Nullable DiagnosticSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/diagnosticSetting:DiagnosticSetting", name, state, makeResourceOptions(options, id));
+    private DiagnosticSetting(java.lang.String name, Output<java.lang.String> id, @Nullable DiagnosticSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/diagnosticSetting:DiagnosticSetting", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DiagnosticSettingArgs makeArgs(DiagnosticSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DiagnosticSettingArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -365,7 +372,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DiagnosticSetting get(String name, Output<String> id, @Nullable DiagnosticSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DiagnosticSetting get(java.lang.String name, Output<java.lang.String> id, @Nullable DiagnosticSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DiagnosticSetting(name, id, state, options);
     }
 }

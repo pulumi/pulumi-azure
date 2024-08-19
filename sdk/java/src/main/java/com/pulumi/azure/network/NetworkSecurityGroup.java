@@ -171,7 +171,7 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkSecurityGroup(String name) {
+    public NetworkSecurityGroup(java.lang.String name) {
         this(name, NetworkSecurityGroupArgs.Empty);
     }
     /**
@@ -179,7 +179,7 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkSecurityGroup(String name, NetworkSecurityGroupArgs args) {
+    public NetworkSecurityGroup(java.lang.String name, NetworkSecurityGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -188,15 +188,22 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkSecurityGroup(String name, NetworkSecurityGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, args == null ? NetworkSecurityGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkSecurityGroup(java.lang.String name, NetworkSecurityGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkSecurityGroup(String name, Output<String> id, @Nullable NetworkSecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, state, makeResourceOptions(options, id));
+    private NetworkSecurityGroup(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkSecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkSecurityGroupArgs makeArgs(NetworkSecurityGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkSecurityGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -212,7 +219,7 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkSecurityGroup get(String name, Output<String> id, @Nullable NetworkSecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkSecurityGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkSecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkSecurityGroup(name, id, state, options);
     }
 }

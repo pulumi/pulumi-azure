@@ -222,7 +222,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Hub(String name) {
+    public Hub(java.lang.String name) {
         this(name, HubArgs.Empty);
     }
     /**
@@ -230,7 +230,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Hub(String name, HubArgs args) {
+    public Hub(java.lang.String name, HubArgs args) {
         this(name, args, null);
     }
     /**
@@ -239,15 +239,22 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Hub(String name, HubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:webpubsub/hub:Hub", name, args == null ? HubArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Hub(java.lang.String name, HubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:webpubsub/hub:Hub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Hub(String name, Output<String> id, @Nullable HubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:webpubsub/hub:Hub", name, state, makeResourceOptions(options, id));
+    private Hub(java.lang.String name, Output<java.lang.String> id, @Nullable HubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:webpubsub/hub:Hub", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static HubArgs makeArgs(HubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HubArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -263,7 +270,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Hub get(String name, Output<String> id, @Nullable HubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Hub get(java.lang.String name, Output<java.lang.String> id, @Nullable HubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Hub(name, id, state, options);
     }
 }

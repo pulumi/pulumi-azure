@@ -49,14 +49,14 @@ import (
 //				prefix = param
 //			}
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String(fmt.Sprintf("%v-resources", prefix)),
+//				Name:     pulumi.Sprintf("%v-resources", prefix),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			main, err := network.NewVirtualNetwork(ctx, "main", &network.VirtualNetworkArgs{
-//				Name: pulumi.String(fmt.Sprintf("%v-network", prefix)),
+//				Name: pulumi.Sprintf("%v-network", prefix),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -78,7 +78,7 @@ import (
 //				return err
 //			}
 //			mainNetworkInterface, err := network.NewNetworkInterface(ctx, "main", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-nic", prefix)),
+//				Name:              pulumi.Sprintf("%v-nic", prefix),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
@@ -93,7 +93,7 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewVirtualMachine(ctx, "main", &compute.VirtualMachineArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-vm", prefix)),
+//				Name:              pulumi.Sprintf("%v-vm", prefix),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{

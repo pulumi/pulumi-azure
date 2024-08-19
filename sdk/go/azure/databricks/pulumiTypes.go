@@ -218,7 +218,7 @@ func (o AccessConnectorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type WorkspaceCustomParameters struct {
 	// The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
 	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
-	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
 	NatGatewayName *string `pulumi:"natGatewayName"`
 	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
 	//
@@ -230,7 +230,7 @@ type WorkspaceCustomParameters struct {
 	PrivateSubnetName *string `pulumi:"privateSubnetName"`
 	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
 	PrivateSubnetNetworkSecurityGroupAssociationId *string `pulumi:"privateSubnetNetworkSecurityGroupAssociationId"`
-	// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+	// Name of the Public IP for No Public IP workspace with managed virtual network. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
 	PublicIpName *string `pulumi:"publicIpName"`
 	// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PublicSubnetName *string `pulumi:"publicSubnetName"`
@@ -262,7 +262,7 @@ type WorkspaceCustomParametersInput interface {
 type WorkspaceCustomParametersArgs struct {
 	// The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
 	MachineLearningWorkspaceId pulumi.StringPtrInput `pulumi:"machineLearningWorkspaceId"`
-	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
 	NatGatewayName pulumi.StringPtrInput `pulumi:"natGatewayName"`
 	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
 	//
@@ -274,7 +274,7 @@ type WorkspaceCustomParametersArgs struct {
 	PrivateSubnetName pulumi.StringPtrInput `pulumi:"privateSubnetName"`
 	// The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
 	PrivateSubnetNetworkSecurityGroupAssociationId pulumi.StringPtrInput `pulumi:"privateSubnetNetworkSecurityGroupAssociationId"`
-	// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+	// Name of the Public IP for No Public IP workspace with managed virtual network. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
 	PublicIpName pulumi.StringPtrInput `pulumi:"publicIpName"`
 	// The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
 	PublicSubnetName pulumi.StringPtrInput `pulumi:"publicSubnetName"`
@@ -374,7 +374,7 @@ func (o WorkspaceCustomParametersOutput) MachineLearningWorkspaceId() pulumi.Str
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.MachineLearningWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersOutput) NatGatewayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.NatGatewayName }).(pulumi.StringPtrOutput)
 }
@@ -398,7 +398,7 @@ func (o WorkspaceCustomParametersOutput) PrivateSubnetNetworkSecurityGroupAssoci
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PrivateSubnetNetworkSecurityGroupAssociationId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+// Name of the Public IP for No Public IP workspace with managed virtual network. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersOutput) PublicIpName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PublicIpName }).(pulumi.StringPtrOutput)
 }
@@ -469,7 +469,7 @@ func (o WorkspaceCustomParametersPtrOutput) MachineLearningWorkspaceId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersPtrOutput) NatGatewayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
 		if v == nil {
@@ -513,7 +513,7 @@ func (o WorkspaceCustomParametersPtrOutput) PrivateSubnetNetworkSecurityGroupAss
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+// Name of the Public IP for No Public IP workspace with managed virtual network. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersPtrOutput) PublicIpName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
 		if v == nil {

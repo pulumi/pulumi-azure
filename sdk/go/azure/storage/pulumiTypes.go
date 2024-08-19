@@ -16,6 +16,8 @@ var _ = internal.GetEnvOrDefault
 type AccountAzureFilesAuthentication struct {
 	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
 	ActiveDirectory *AccountAzureFilesAuthenticationActiveDirectory `pulumi:"activeDirectory"`
+	// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+	DefaultShareLevelPermission *string `pulumi:"defaultShareLevelPermission"`
 	// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 	DirectoryType string `pulumi:"directoryType"`
 }
@@ -34,6 +36,8 @@ type AccountAzureFilesAuthenticationInput interface {
 type AccountAzureFilesAuthenticationArgs struct {
 	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
 	ActiveDirectory AccountAzureFilesAuthenticationActiveDirectoryPtrInput `pulumi:"activeDirectory"`
+	// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+	DefaultShareLevelPermission pulumi.StringPtrInput `pulumi:"defaultShareLevelPermission"`
 	// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 	DirectoryType pulumi.StringInput `pulumi:"directoryType"`
 }
@@ -122,6 +126,11 @@ func (o AccountAzureFilesAuthenticationOutput) ActiveDirectory() AccountAzureFil
 	}).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
 }
 
+// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+func (o AccountAzureFilesAuthenticationOutput) DefaultShareLevelPermission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthentication) *string { return v.DefaultShareLevelPermission }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
 func (o AccountAzureFilesAuthenticationOutput) DirectoryType() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountAzureFilesAuthentication) string { return v.DirectoryType }).(pulumi.StringOutput)
@@ -159,6 +168,16 @@ func (o AccountAzureFilesAuthenticationPtrOutput) ActiveDirectory() AccountAzure
 		}
 		return v.ActiveDirectory
 	}).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
+}
+
+// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+func (o AccountAzureFilesAuthenticationPtrOutput) DefaultShareLevelPermission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountAzureFilesAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultShareLevelPermission
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.

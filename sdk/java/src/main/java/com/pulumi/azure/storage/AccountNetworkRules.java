@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:storage/accountNetworkRules:AccountNetworkRules")
 public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `[&#34;AzureServices&#34;]`.
      * 
      * &gt; **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
      * 
@@ -122,7 +122,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
     private Output<List<String>> bypasses;
 
     /**
-     * @return Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+     * @return Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `[&#34;AzureServices&#34;]`.
      * 
      * &gt; **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
      * 
@@ -155,7 +155,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipRules", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> ipRules;
+    private Output</* @Nullable */ List<String>> ipRules;
 
     /**
      * @return List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
@@ -167,8 +167,8 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
      * 
      */
-    public Output<List<String>> ipRules() {
-        return this.ipRules;
+    public Output<Optional<List<String>>> ipRules() {
+        return Codegen.optional(this.ipRules);
     }
     /**
      * One or more `private_link_access` block as defined below.
@@ -205,7 +205,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="virtualNetworkSubnetIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> virtualNetworkSubnetIds;
+    private Output</* @Nullable */ List<String>> virtualNetworkSubnetIds;
 
     /**
      * @return A list of virtual network subnet ids to secure the storage account.
@@ -213,15 +213,15 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
      * 
      */
-    public Output<List<String>> virtualNetworkSubnetIds() {
-        return this.virtualNetworkSubnetIds;
+    public Output<Optional<List<String>>> virtualNetworkSubnetIds() {
+        return Codegen.optional(this.virtualNetworkSubnetIds);
     }
 
     /**
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccountNetworkRules(String name) {
+    public AccountNetworkRules(java.lang.String name) {
         this(name, AccountNetworkRulesArgs.Empty);
     }
     /**
@@ -229,7 +229,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccountNetworkRules(String name, AccountNetworkRulesArgs args) {
+    public AccountNetworkRules(java.lang.String name, AccountNetworkRulesArgs args) {
         this(name, args, null);
     }
     /**
@@ -238,15 +238,22 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccountNetworkRules(String name, AccountNetworkRulesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/accountNetworkRules:AccountNetworkRules", name, args == null ? AccountNetworkRulesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AccountNetworkRules(java.lang.String name, AccountNetworkRulesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/accountNetworkRules:AccountNetworkRules", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccountNetworkRules(String name, Output<String> id, @Nullable AccountNetworkRulesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/accountNetworkRules:AccountNetworkRules", name, state, makeResourceOptions(options, id));
+    private AccountNetworkRules(java.lang.String name, Output<java.lang.String> id, @Nullable AccountNetworkRulesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/accountNetworkRules:AccountNetworkRules", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AccountNetworkRulesArgs makeArgs(AccountNetworkRulesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountNetworkRulesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -262,7 +269,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccountNetworkRules get(String name, Output<String> id, @Nullable AccountNetworkRulesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccountNetworkRules get(java.lang.String name, Output<java.lang.String> id, @Nullable AccountNetworkRulesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccountNetworkRules(name, id, state, options);
     }
 }

@@ -306,7 +306,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RunBook(String name) {
+    public RunBook(java.lang.String name) {
         this(name, RunBookArgs.Empty);
     }
     /**
@@ -314,7 +314,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RunBook(String name, RunBookArgs args) {
+    public RunBook(java.lang.String name, RunBookArgs args) {
         this(name, args, null);
     }
     /**
@@ -323,15 +323,22 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RunBook(String name, RunBookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/runBook:RunBook", name, args == null ? RunBookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RunBook(java.lang.String name, RunBookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/runBook:RunBook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RunBook(String name, Output<String> id, @Nullable RunBookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/runBook:RunBook", name, state, makeResourceOptions(options, id));
+    private RunBook(java.lang.String name, Output<java.lang.String> id, @Nullable RunBookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/runBook:RunBook", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RunBookArgs makeArgs(RunBookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RunBookArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -347,7 +354,7 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RunBook get(String name, Output<String> id, @Nullable RunBookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RunBook get(java.lang.String name, Output<java.lang.String> id, @Nullable RunBookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RunBook(name, id, state, options);
     }
 }

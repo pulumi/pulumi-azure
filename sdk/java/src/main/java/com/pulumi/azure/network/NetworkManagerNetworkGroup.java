@@ -138,7 +138,7 @@ public class NetworkManagerNetworkGroup extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkManagerNetworkGroup(String name) {
+    public NetworkManagerNetworkGroup(java.lang.String name) {
         this(name, NetworkManagerNetworkGroupArgs.Empty);
     }
     /**
@@ -146,7 +146,7 @@ public class NetworkManagerNetworkGroup extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkManagerNetworkGroup(String name, NetworkManagerNetworkGroupArgs args) {
+    public NetworkManagerNetworkGroup(java.lang.String name, NetworkManagerNetworkGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -155,15 +155,22 @@ public class NetworkManagerNetworkGroup extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkManagerNetworkGroup(String name, NetworkManagerNetworkGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup", name, args == null ? NetworkManagerNetworkGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkManagerNetworkGroup(java.lang.String name, NetworkManagerNetworkGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkManagerNetworkGroup(String name, Output<String> id, @Nullable NetworkManagerNetworkGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup", name, state, makeResourceOptions(options, id));
+    private NetworkManagerNetworkGroup(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerNetworkGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkManagerNetworkGroupArgs makeArgs(NetworkManagerNetworkGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkManagerNetworkGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -179,7 +186,7 @@ public class NetworkManagerNetworkGroup extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkManagerNetworkGroup get(String name, Output<String> id, @Nullable NetworkManagerNetworkGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkManagerNetworkGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerNetworkGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkManagerNetworkGroup(name, id, state, options);
     }
 }

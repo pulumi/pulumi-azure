@@ -315,7 +315,7 @@ public class ServicesCommunicationsGateway extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServicesCommunicationsGateway(String name) {
+    public ServicesCommunicationsGateway(java.lang.String name) {
         this(name, ServicesCommunicationsGatewayArgs.Empty);
     }
     /**
@@ -323,7 +323,7 @@ public class ServicesCommunicationsGateway extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServicesCommunicationsGateway(String name, ServicesCommunicationsGatewayArgs args) {
+    public ServicesCommunicationsGateway(java.lang.String name, ServicesCommunicationsGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -332,15 +332,22 @@ public class ServicesCommunicationsGateway extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServicesCommunicationsGateway(String name, ServicesCommunicationsGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway", name, args == null ? ServicesCommunicationsGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServicesCommunicationsGateway(java.lang.String name, ServicesCommunicationsGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServicesCommunicationsGateway(String name, Output<String> id, @Nullable ServicesCommunicationsGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway", name, state, makeResourceOptions(options, id));
+    private ServicesCommunicationsGateway(java.lang.String name, Output<java.lang.String> id, @Nullable ServicesCommunicationsGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServicesCommunicationsGatewayArgs makeArgs(ServicesCommunicationsGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServicesCommunicationsGatewayArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -356,7 +363,7 @@ public class ServicesCommunicationsGateway extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServicesCommunicationsGateway get(String name, Output<String> id, @Nullable ServicesCommunicationsGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServicesCommunicationsGateway get(java.lang.String name, Output<java.lang.String> id, @Nullable ServicesCommunicationsGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServicesCommunicationsGateway(name, id, state, options);
     }
 }

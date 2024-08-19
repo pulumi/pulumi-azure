@@ -211,7 +211,7 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BackupInstanceDisk(String name) {
+    public BackupInstanceDisk(java.lang.String name) {
         this(name, BackupInstanceDiskArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BackupInstanceDisk(String name, BackupInstanceDiskArgs args) {
+    public BackupInstanceDisk(java.lang.String name, BackupInstanceDiskArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,15 +228,22 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BackupInstanceDisk(String name, BackupInstanceDiskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupInstanceDisk:BackupInstanceDisk", name, args == null ? BackupInstanceDiskArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BackupInstanceDisk(java.lang.String name, BackupInstanceDiskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/backupInstanceDisk:BackupInstanceDisk", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BackupInstanceDisk(String name, Output<String> id, @Nullable BackupInstanceDiskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupInstanceDisk:BackupInstanceDisk", name, state, makeResourceOptions(options, id));
+    private BackupInstanceDisk(java.lang.String name, Output<java.lang.String> id, @Nullable BackupInstanceDiskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/backupInstanceDisk:BackupInstanceDisk", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BackupInstanceDiskArgs makeArgs(BackupInstanceDiskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BackupInstanceDiskArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -252,7 +259,7 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BackupInstanceDisk get(String name, Output<String> id, @Nullable BackupInstanceDiskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BackupInstanceDisk get(java.lang.String name, Output<java.lang.String> id, @Nullable BackupInstanceDiskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BackupInstanceDisk(name, id, state, options);
     }
 }

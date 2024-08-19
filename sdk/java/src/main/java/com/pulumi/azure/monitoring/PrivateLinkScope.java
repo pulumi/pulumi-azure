@@ -149,7 +149,7 @@ public class PrivateLinkScope extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PrivateLinkScope(String name) {
+    public PrivateLinkScope(java.lang.String name) {
         this(name, PrivateLinkScopeArgs.Empty);
     }
     /**
@@ -157,7 +157,7 @@ public class PrivateLinkScope extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PrivateLinkScope(String name, PrivateLinkScopeArgs args) {
+    public PrivateLinkScope(java.lang.String name, PrivateLinkScopeArgs args) {
         this(name, args, null);
     }
     /**
@@ -166,15 +166,22 @@ public class PrivateLinkScope extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PrivateLinkScope(String name, PrivateLinkScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/privateLinkScope:PrivateLinkScope", name, args == null ? PrivateLinkScopeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PrivateLinkScope(java.lang.String name, PrivateLinkScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/privateLinkScope:PrivateLinkScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PrivateLinkScope(String name, Output<String> id, @Nullable PrivateLinkScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/privateLinkScope:PrivateLinkScope", name, state, makeResourceOptions(options, id));
+    private PrivateLinkScope(java.lang.String name, Output<java.lang.String> id, @Nullable PrivateLinkScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/privateLinkScope:PrivateLinkScope", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PrivateLinkScopeArgs makeArgs(PrivateLinkScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PrivateLinkScopeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -190,7 +197,7 @@ public class PrivateLinkScope extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PrivateLinkScope get(String name, Output<String> id, @Nullable PrivateLinkScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PrivateLinkScope get(java.lang.String name, Output<java.lang.String> id, @Nullable PrivateLinkScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PrivateLinkScope(name, id, state, options);
     }
 }

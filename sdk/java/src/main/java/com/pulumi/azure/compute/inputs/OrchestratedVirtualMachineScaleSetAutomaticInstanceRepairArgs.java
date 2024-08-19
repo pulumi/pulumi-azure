@@ -18,6 +18,29 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
     public static final OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs Empty = new OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs();
 
     /**
+     * The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+     * 
+     * &gt; **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+     * 
+     * &gt; **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+     * 
+     */
+    @Import(name="action")
+    private @Nullable Output<String> action;
+
+    /**
+     * @return The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+     * 
+     * &gt; **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+     * 
+     * &gt; **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+     * 
+     */
+    public Optional<Output<String>> action() {
+        return Optional.ofNullable(this.action);
+    }
+
+    /**
      * Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
      * 
      */
@@ -33,14 +56,18 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
     }
 
     /**
-     * Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
+     * Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+     * 
+     * &gt; **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
      * 
      */
     @Import(name="gracePeriod")
     private @Nullable Output<String> gracePeriod;
 
     /**
-     * @return Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
+     * @return Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+     * 
+     * &gt; **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
      * 
      */
     public Optional<Output<String>> gracePeriod() {
@@ -50,6 +77,7 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
     private OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs() {}
 
     private OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs $) {
+        this.action = $.action;
         this.enabled = $.enabled;
         this.gracePeriod = $.gracePeriod;
     }
@@ -70,6 +98,35 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
 
         public Builder(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs defaults) {
             $ = new OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param action The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+         * 
+         * &gt; **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+         * 
+         * &gt; **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder action(@Nullable Output<String> action) {
+            $.action = action;
+            return this;
+        }
+
+        /**
+         * @param action The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+         * 
+         * &gt; **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+         * 
+         * &gt; **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder action(String action) {
+            return action(Output.of(action));
         }
 
         /**
@@ -94,7 +151,9 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
         }
 
         /**
-         * @param gracePeriod Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
+         * @param gracePeriod Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+         * 
+         * &gt; **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
          * 
          * @return builder
          * 
@@ -105,7 +164,9 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
         }
 
         /**
-         * @param gracePeriod Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
+         * @param gracePeriod Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+         * 
+         * &gt; **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
          * 
          * @return builder
          * 

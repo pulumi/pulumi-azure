@@ -177,7 +177,7 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ChannelTeams(String name) {
+    public ChannelTeams(java.lang.String name) {
         this(name, ChannelTeamsArgs.Empty);
     }
     /**
@@ -185,7 +185,7 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ChannelTeams(String name, ChannelTeamsArgs args) {
+    public ChannelTeams(java.lang.String name, ChannelTeamsArgs args) {
         this(name, args, null);
     }
     /**
@@ -194,15 +194,22 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ChannelTeams(String name, ChannelTeamsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelTeams:ChannelTeams", name, args == null ? ChannelTeamsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ChannelTeams(java.lang.String name, ChannelTeamsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:bot/channelTeams:ChannelTeams", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ChannelTeams(String name, Output<String> id, @Nullable ChannelTeamsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelTeams:ChannelTeams", name, state, makeResourceOptions(options, id));
+    private ChannelTeams(java.lang.String name, Output<java.lang.String> id, @Nullable ChannelTeamsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:bot/channelTeams:ChannelTeams", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ChannelTeamsArgs makeArgs(ChannelTeamsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChannelTeamsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -218,7 +225,7 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ChannelTeams get(String name, Output<String> id, @Nullable ChannelTeamsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ChannelTeams get(java.lang.String name, Output<java.lang.String> id, @Nullable ChannelTeamsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ChannelTeams(name, id, state, options);
     }
 }

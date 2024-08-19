@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("pub1")
- *             .publisherEmail("pub1{@literal @}email.com")
+ *             .publisherEmail("pub1}{@literal @}{@code email.com")
  *             .skuName("Consumption_0")
  *             .build());
  * 
@@ -94,8 +94,8 @@ import javax.annotation.Nullable;
  *             .isTrusted(true)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -172,7 +172,7 @@ public class GatewayCertificateAuthority extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GatewayCertificateAuthority(String name) {
+    public GatewayCertificateAuthority(java.lang.String name) {
         this(name, GatewayCertificateAuthorityArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class GatewayCertificateAuthority extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GatewayCertificateAuthority(String name, GatewayCertificateAuthorityArgs args) {
+    public GatewayCertificateAuthority(java.lang.String name, GatewayCertificateAuthorityArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,15 +189,22 @@ public class GatewayCertificateAuthority extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GatewayCertificateAuthority(String name, GatewayCertificateAuthorityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority", name, args == null ? GatewayCertificateAuthorityArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GatewayCertificateAuthority(java.lang.String name, GatewayCertificateAuthorityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GatewayCertificateAuthority(String name, Output<String> id, @Nullable GatewayCertificateAuthorityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority", name, state, makeResourceOptions(options, id));
+    private GatewayCertificateAuthority(java.lang.String name, Output<java.lang.String> id, @Nullable GatewayCertificateAuthorityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GatewayCertificateAuthorityArgs makeArgs(GatewayCertificateAuthorityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GatewayCertificateAuthorityArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -213,7 +220,7 @@ public class GatewayCertificateAuthority extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GatewayCertificateAuthority get(String name, Output<String> id, @Nullable GatewayCertificateAuthorityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GatewayCertificateAuthority get(java.lang.String name, Output<java.lang.String> id, @Nullable GatewayCertificateAuthorityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GatewayCertificateAuthority(name, id, state, options);
     }
 }

@@ -198,7 +198,7 @@ public class ObjectReplication extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ObjectReplication(String name) {
+    public ObjectReplication(java.lang.String name) {
         this(name, ObjectReplicationArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class ObjectReplication extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ObjectReplication(String name, ObjectReplicationArgs args) {
+    public ObjectReplication(java.lang.String name, ObjectReplicationArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,15 +215,22 @@ public class ObjectReplication extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ObjectReplication(String name, ObjectReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/objectReplication:ObjectReplication", name, args == null ? ObjectReplicationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ObjectReplication(java.lang.String name, ObjectReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/objectReplication:ObjectReplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ObjectReplication(String name, Output<String> id, @Nullable ObjectReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/objectReplication:ObjectReplication", name, state, makeResourceOptions(options, id));
+    private ObjectReplication(java.lang.String name, Output<java.lang.String> id, @Nullable ObjectReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/objectReplication:ObjectReplication", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ObjectReplicationArgs makeArgs(ObjectReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ObjectReplicationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -239,7 +246,7 @@ public class ObjectReplication extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ObjectReplication get(String name, Output<String> id, @Nullable ObjectReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ObjectReplication get(java.lang.String name, Output<java.lang.String> id, @Nullable ObjectReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ObjectReplication(name, id, state, options);
     }
 }

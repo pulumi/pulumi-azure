@@ -201,7 +201,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SharedPrivateLinkResource(String name) {
+    public SharedPrivateLinkResource(java.lang.String name) {
         this(name, SharedPrivateLinkResourceArgs.Empty);
     }
     /**
@@ -209,7 +209,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SharedPrivateLinkResource(String name, SharedPrivateLinkResourceArgs args) {
+    public SharedPrivateLinkResource(java.lang.String name, SharedPrivateLinkResourceArgs args) {
         this(name, args, null);
     }
     /**
@@ -218,15 +218,22 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SharedPrivateLinkResource(String name, SharedPrivateLinkResourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource", name, args == null ? SharedPrivateLinkResourceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SharedPrivateLinkResource(java.lang.String name, SharedPrivateLinkResourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SharedPrivateLinkResource(String name, Output<String> id, @Nullable SharedPrivateLinkResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource", name, state, makeResourceOptions(options, id));
+    private SharedPrivateLinkResource(java.lang.String name, Output<java.lang.String> id, @Nullable SharedPrivateLinkResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SharedPrivateLinkResourceArgs makeArgs(SharedPrivateLinkResourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SharedPrivateLinkResourceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -242,7 +249,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SharedPrivateLinkResource get(String name, Output<String> id, @Nullable SharedPrivateLinkResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SharedPrivateLinkResource get(java.lang.String name, Output<java.lang.String> id, @Nullable SharedPrivateLinkResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SharedPrivateLinkResource(name, id, state, options);
     }
 }

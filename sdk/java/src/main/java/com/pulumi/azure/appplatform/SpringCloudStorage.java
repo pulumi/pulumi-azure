@@ -151,7 +151,7 @@ public class SpringCloudStorage extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudStorage(String name) {
+    public SpringCloudStorage(java.lang.String name) {
         this(name, SpringCloudStorageArgs.Empty);
     }
     /**
@@ -159,7 +159,7 @@ public class SpringCloudStorage extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudStorage(String name, SpringCloudStorageArgs args) {
+    public SpringCloudStorage(java.lang.String name, SpringCloudStorageArgs args) {
         this(name, args, null);
     }
     /**
@@ -168,15 +168,22 @@ public class SpringCloudStorage extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudStorage(String name, SpringCloudStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudStorage:SpringCloudStorage", name, args == null ? SpringCloudStorageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudStorage(java.lang.String name, SpringCloudStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudStorage:SpringCloudStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudStorage(String name, Output<String> id, @Nullable SpringCloudStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudStorage:SpringCloudStorage", name, state, makeResourceOptions(options, id));
+    private SpringCloudStorage(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudStorage:SpringCloudStorage", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudStorageArgs makeArgs(SpringCloudStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudStorageArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -192,7 +199,7 @@ public class SpringCloudStorage extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudStorage get(String name, Output<String> id, @Nullable SpringCloudStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudStorage get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudStorage(name, id, state, options);
     }
 }

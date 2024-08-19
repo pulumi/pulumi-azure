@@ -264,7 +264,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SnapshotPolicy(String name) {
+    public SnapshotPolicy(java.lang.String name) {
         this(name, SnapshotPolicyArgs.Empty);
     }
     /**
@@ -272,7 +272,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SnapshotPolicy(String name, SnapshotPolicyArgs args) {
+    public SnapshotPolicy(java.lang.String name, SnapshotPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -281,15 +281,22 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SnapshotPolicy(String name, SnapshotPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:netapp/snapshotPolicy:SnapshotPolicy", name, args == null ? SnapshotPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SnapshotPolicy(java.lang.String name, SnapshotPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:netapp/snapshotPolicy:SnapshotPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SnapshotPolicy(String name, Output<String> id, @Nullable SnapshotPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:netapp/snapshotPolicy:SnapshotPolicy", name, state, makeResourceOptions(options, id));
+    private SnapshotPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:netapp/snapshotPolicy:SnapshotPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SnapshotPolicyArgs makeArgs(SnapshotPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SnapshotPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -305,7 +312,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SnapshotPolicy get(String name, Output<String> id, @Nullable SnapshotPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SnapshotPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SnapshotPolicy(name, id, state, options);
     }
 }

@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+        /// &gt; **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
         /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }

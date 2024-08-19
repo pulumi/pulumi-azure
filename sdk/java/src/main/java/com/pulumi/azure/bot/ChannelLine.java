@@ -154,7 +154,7 @@ public class ChannelLine extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ChannelLine(String name) {
+    public ChannelLine(java.lang.String name) {
         this(name, ChannelLineArgs.Empty);
     }
     /**
@@ -162,7 +162,7 @@ public class ChannelLine extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ChannelLine(String name, ChannelLineArgs args) {
+    public ChannelLine(java.lang.String name, ChannelLineArgs args) {
         this(name, args, null);
     }
     /**
@@ -171,15 +171,22 @@ public class ChannelLine extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ChannelLine(String name, ChannelLineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelLine:ChannelLine", name, args == null ? ChannelLineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ChannelLine(java.lang.String name, ChannelLineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:bot/channelLine:ChannelLine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ChannelLine(String name, Output<String> id, @Nullable ChannelLineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelLine:ChannelLine", name, state, makeResourceOptions(options, id));
+    private ChannelLine(java.lang.String name, Output<java.lang.String> id, @Nullable ChannelLineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:bot/channelLine:ChannelLine", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ChannelLineArgs makeArgs(ChannelLineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChannelLineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -195,7 +202,7 @@ public class ChannelLine extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ChannelLine get(String name, Output<String> id, @Nullable ChannelLineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ChannelLine get(java.lang.String name, Output<java.lang.String> id, @Nullable ChannelLineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ChannelLine(name, id, state, options);
     }
 }

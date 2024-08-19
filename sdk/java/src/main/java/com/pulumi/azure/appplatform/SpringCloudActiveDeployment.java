@@ -139,7 +139,7 @@ public class SpringCloudActiveDeployment extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudActiveDeployment(String name) {
+    public SpringCloudActiveDeployment(java.lang.String name) {
         this(name, SpringCloudActiveDeploymentArgs.Empty);
     }
     /**
@@ -147,7 +147,7 @@ public class SpringCloudActiveDeployment extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudActiveDeployment(String name, SpringCloudActiveDeploymentArgs args) {
+    public SpringCloudActiveDeployment(java.lang.String name, SpringCloudActiveDeploymentArgs args) {
         this(name, args, null);
     }
     /**
@@ -156,15 +156,22 @@ public class SpringCloudActiveDeployment extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudActiveDeployment(String name, SpringCloudActiveDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment", name, args == null ? SpringCloudActiveDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudActiveDeployment(java.lang.String name, SpringCloudActiveDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudActiveDeployment(String name, Output<String> id, @Nullable SpringCloudActiveDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment", name, state, makeResourceOptions(options, id));
+    private SpringCloudActiveDeployment(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudActiveDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudActiveDeploymentArgs makeArgs(SpringCloudActiveDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudActiveDeploymentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -180,7 +187,7 @@ public class SpringCloudActiveDeployment extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudActiveDeployment get(String name, Output<String> id, @Nullable SpringCloudActiveDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudActiveDeployment get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudActiveDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudActiveDeployment(name, id, state, options);
     }
 }

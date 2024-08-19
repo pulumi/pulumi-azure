@@ -254,7 +254,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public StreamInputBlob(String name) {
+    public StreamInputBlob(java.lang.String name) {
         this(name, StreamInputBlobArgs.Empty);
     }
     /**
@@ -262,7 +262,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public StreamInputBlob(String name, StreamInputBlobArgs args) {
+    public StreamInputBlob(java.lang.String name, StreamInputBlobArgs args) {
         this(name, args, null);
     }
     /**
@@ -271,15 +271,22 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public StreamInputBlob(String name, StreamInputBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, args == null ? StreamInputBlobArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public StreamInputBlob(java.lang.String name, StreamInputBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private StreamInputBlob(String name, Output<String> id, @Nullable StreamInputBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, state, makeResourceOptions(options, id));
+    private StreamInputBlob(java.lang.String name, Output<java.lang.String> id, @Nullable StreamInputBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static StreamInputBlobArgs makeArgs(StreamInputBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StreamInputBlobArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -298,7 +305,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static StreamInputBlob get(String name, Output<String> id, @Nullable StreamInputBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static StreamInputBlob get(java.lang.String name, Output<java.lang.String> id, @Nullable StreamInputBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new StreamInputBlob(name, id, state, options);
     }
 }

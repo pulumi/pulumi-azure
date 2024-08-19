@@ -224,7 +224,7 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudConnection(String name) {
+    public SpringCloudConnection(java.lang.String name) {
         this(name, SpringCloudConnectionArgs.Empty);
     }
     /**
@@ -232,7 +232,7 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudConnection(String name, SpringCloudConnectionArgs args) {
+    public SpringCloudConnection(java.lang.String name, SpringCloudConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -241,15 +241,22 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudConnection(String name, SpringCloudConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudConnection:SpringCloudConnection", name, args == null ? SpringCloudConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudConnection(java.lang.String name, SpringCloudConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudConnection:SpringCloudConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudConnection(String name, Output<String> id, @Nullable SpringCloudConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudConnection:SpringCloudConnection", name, state, makeResourceOptions(options, id));
+    private SpringCloudConnection(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudConnection:SpringCloudConnection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudConnectionArgs makeArgs(SpringCloudConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudConnectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -265,7 +272,7 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudConnection get(String name, Output<String> id, @Nullable SpringCloudConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudConnection(name, id, state, options);
     }
 }

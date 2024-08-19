@@ -240,7 +240,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpnSite(String name) {
+    public VpnSite(java.lang.String name) {
         this(name, VpnSiteArgs.Empty);
     }
     /**
@@ -248,7 +248,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpnSite(String name, VpnSiteArgs args) {
+    public VpnSite(java.lang.String name, VpnSiteArgs args) {
         this(name, args, null);
     }
     /**
@@ -257,15 +257,22 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpnSite(String name, VpnSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/vpnSite:VpnSite", name, args == null ? VpnSiteArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpnSite(java.lang.String name, VpnSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/vpnSite:VpnSite", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpnSite(String name, Output<String> id, @Nullable VpnSiteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/vpnSite:VpnSite", name, state, makeResourceOptions(options, id));
+    private VpnSite(java.lang.String name, Output<java.lang.String> id, @Nullable VpnSiteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/vpnSite:VpnSite", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpnSiteArgs makeArgs(VpnSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpnSiteArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -281,7 +288,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpnSite get(String name, Output<String> id, @Nullable VpnSiteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpnSite get(java.lang.String name, Output<java.lang.String> id, @Nullable VpnSiteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpnSite(name, id, state, options);
     }
 }

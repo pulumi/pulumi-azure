@@ -278,7 +278,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudContainerDeployment(String name) {
+    public SpringCloudContainerDeployment(java.lang.String name) {
         this(name, SpringCloudContainerDeploymentArgs.Empty);
     }
     /**
@@ -286,7 +286,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudContainerDeployment(String name, SpringCloudContainerDeploymentArgs args) {
+    public SpringCloudContainerDeployment(java.lang.String name, SpringCloudContainerDeploymentArgs args) {
         this(name, args, null);
     }
     /**
@@ -295,15 +295,22 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudContainerDeployment(String name, SpringCloudContainerDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment", name, args == null ? SpringCloudContainerDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudContainerDeployment(java.lang.String name, SpringCloudContainerDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudContainerDeployment(String name, Output<String> id, @Nullable SpringCloudContainerDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment", name, state, makeResourceOptions(options, id));
+    private SpringCloudContainerDeployment(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudContainerDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudContainerDeploymentArgs makeArgs(SpringCloudContainerDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudContainerDeploymentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -319,7 +326,7 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudContainerDeployment get(String name, Output<String> id, @Nullable SpringCloudContainerDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudContainerDeployment get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudContainerDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudContainerDeployment(name, id, state, options);
     }
 }

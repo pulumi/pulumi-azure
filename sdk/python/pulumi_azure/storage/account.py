@@ -37,6 +37,7 @@ class AccountArgs:
                  dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+                 https_traffic_only_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  immutability_policy: Optional[pulumi.Input['AccountImmutabilityPolicyArgs']] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -86,7 +87,7 @@ class AccountArgs:
                
                > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
-        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+        :param pulumi.Input[bool] https_traffic_only_enabled: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['AccountImmutabilityPolicyArgs'] immutability_policy: An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
@@ -157,7 +158,12 @@ class AccountArgs:
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_https_traffic_only is not None:
+            warnings.warn("""The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_https_traffic_only is deprecated: The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+        if enable_https_traffic_only is not None:
             pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
+        if https_traffic_only_enabled is not None:
+            pulumi.set(__self__, "https_traffic_only_enabled", https_traffic_only_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if immutability_policy is not None:
@@ -395,15 +401,25 @@ class AccountArgs:
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
+    @_utilities.deprecated("""The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_https_traffic_only(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
-        """
         return pulumi.get(self, "enable_https_traffic_only")
 
     @enable_https_traffic_only.setter
     def enable_https_traffic_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_https_traffic_only", value)
+
+    @property
+    @pulumi.getter(name="httpsTrafficOnlyEnabled")
+    def https_traffic_only_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+        """
+        return pulumi.get(self, "https_traffic_only_enabled")
+
+    @https_traffic_only_enabled.setter
+    def https_traffic_only_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "https_traffic_only_enabled", value)
 
     @property
     @pulumi.getter
@@ -705,6 +721,7 @@ class _AccountState:
                  dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+                 https_traffic_only_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  immutability_policy: Optional[pulumi.Input['AccountImmutabilityPolicyArgs']] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -826,7 +843,7 @@ class _AccountState:
                
                > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
-        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+        :param pulumi.Input[bool] https_traffic_only_enabled: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['AccountImmutabilityPolicyArgs'] immutability_policy: An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
@@ -971,7 +988,12 @@ class _AccountState:
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_https_traffic_only is not None:
+            warnings.warn("""The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_https_traffic_only is deprecated: The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+        if enable_https_traffic_only is not None:
             pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
+        if https_traffic_only_enabled is not None:
+            pulumi.set(__self__, "https_traffic_only_enabled", https_traffic_only_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if immutability_policy is not None:
@@ -1343,15 +1365,25 @@ class _AccountState:
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
+    @_utilities.deprecated("""The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_https_traffic_only(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
-        """
         return pulumi.get(self, "enable_https_traffic_only")
 
     @enable_https_traffic_only.setter
     def enable_https_traffic_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_https_traffic_only", value)
+
+    @property
+    @pulumi.getter(name="httpsTrafficOnlyEnabled")
+    def https_traffic_only_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+        """
+        return pulumi.get(self, "https_traffic_only_enabled")
+
+    @https_traffic_only_enabled.setter
+    def https_traffic_only_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "https_traffic_only_enabled", value)
 
     @property
     @pulumi.getter
@@ -2531,6 +2563,7 @@ class Account(pulumi.CustomResource):
                  dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+                 https_traffic_only_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
                  immutability_policy: Optional[pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2651,7 +2684,7 @@ class Account(pulumi.CustomResource):
                
                > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
-        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+        :param pulumi.Input[bool] https_traffic_only_enabled: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']] immutability_policy: An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
@@ -2801,6 +2834,7 @@ class Account(pulumi.CustomResource):
                  dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+                 https_traffic_only_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
                  immutability_policy: Optional[pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2852,6 +2886,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["dns_endpoint_type"] = dns_endpoint_type
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
+            __props__.__dict__["https_traffic_only_enabled"] = https_traffic_only_enabled
             __props__.__dict__["identity"] = identity
             __props__.__dict__["immutability_policy"] = immutability_policy
             __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
@@ -2976,6 +3011,7 @@ class Account(pulumi.CustomResource):
             dns_endpoint_type: Optional[pulumi.Input[str]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
             enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+            https_traffic_only_enabled: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
             immutability_policy: Optional[pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -3102,7 +3138,7 @@ class Account(pulumi.CustomResource):
                
                > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
-        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+        :param pulumi.Input[bool] https_traffic_only_enabled: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']] immutability_policy: An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
@@ -3237,6 +3273,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["dns_endpoint_type"] = dns_endpoint_type
         __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
+        __props__.__dict__["https_traffic_only_enabled"] = https_traffic_only_enabled
         __props__.__dict__["identity"] = identity
         __props__.__dict__["immutability_policy"] = immutability_policy
         __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
@@ -3458,11 +3495,17 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
-    def enable_https_traffic_only(self) -> pulumi.Output[Optional[bool]]:
+    @_utilities.deprecated("""The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+    def enable_https_traffic_only(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "enable_https_traffic_only")
+
+    @property
+    @pulumi.getter(name="httpsTrafficOnlyEnabled")
+    def https_traffic_only_enabled(self) -> pulumi.Output[bool]:
         """
         Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         """
-        return pulumi.get(self, "enable_https_traffic_only")
+        return pulumi.get(self, "https_traffic_only_enabled")
 
     @property
     @pulumi.getter

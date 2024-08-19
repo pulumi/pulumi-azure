@@ -499,7 +499,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ThreatIntelligenceIndicator(String name) {
+    public ThreatIntelligenceIndicator(java.lang.String name) {
         this(name, ThreatIntelligenceIndicatorArgs.Empty);
     }
     /**
@@ -507,7 +507,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ThreatIntelligenceIndicator(String name, ThreatIntelligenceIndicatorArgs args) {
+    public ThreatIntelligenceIndicator(java.lang.String name, ThreatIntelligenceIndicatorArgs args) {
         this(name, args, null);
     }
     /**
@@ -516,15 +516,22 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ThreatIntelligenceIndicator(String name, ThreatIntelligenceIndicatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator", name, args == null ? ThreatIntelligenceIndicatorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ThreatIntelligenceIndicator(java.lang.String name, ThreatIntelligenceIndicatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ThreatIntelligenceIndicator(String name, Output<String> id, @Nullable ThreatIntelligenceIndicatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator", name, state, makeResourceOptions(options, id));
+    private ThreatIntelligenceIndicator(java.lang.String name, Output<java.lang.String> id, @Nullable ThreatIntelligenceIndicatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ThreatIntelligenceIndicatorArgs makeArgs(ThreatIntelligenceIndicatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ThreatIntelligenceIndicatorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -540,7 +547,7 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ThreatIntelligenceIndicator get(String name, Output<String> id, @Nullable ThreatIntelligenceIndicatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ThreatIntelligenceIndicator get(java.lang.String name, Output<java.lang.String> id, @Nullable ThreatIntelligenceIndicatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ThreatIntelligenceIndicator(name, id, state, options);
     }
 }

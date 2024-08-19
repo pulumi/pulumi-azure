@@ -597,7 +597,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Pool(String name) {
+    public Pool(java.lang.String name) {
         this(name, PoolArgs.Empty);
     }
     /**
@@ -605,7 +605,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Pool(String name, PoolArgs args) {
+    public Pool(java.lang.String name, PoolArgs args) {
         this(name, args, null);
     }
     /**
@@ -614,15 +614,22 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Pool(String name, PoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:batch/pool:Pool", name, args == null ? PoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Pool(java.lang.String name, PoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:batch/pool:Pool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Pool(String name, Output<String> id, @Nullable PoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:batch/pool:Pool", name, state, makeResourceOptions(options, id));
+    private Pool(java.lang.String name, Output<java.lang.String> id, @Nullable PoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:batch/pool:Pool", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PoolArgs makeArgs(PoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PoolArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -638,7 +645,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Pool get(String name, Output<String> id, @Nullable PoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Pool get(java.lang.String name, Output<java.lang.String> id, @Nullable PoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Pool(name, id, state, options);
     }
 }

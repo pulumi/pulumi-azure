@@ -192,7 +192,7 @@ public class Watchlist extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Watchlist(String name) {
+    public Watchlist(java.lang.String name) {
         this(name, WatchlistArgs.Empty);
     }
     /**
@@ -200,7 +200,7 @@ public class Watchlist extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Watchlist(String name, WatchlistArgs args) {
+    public Watchlist(java.lang.String name, WatchlistArgs args) {
         this(name, args, null);
     }
     /**
@@ -209,15 +209,22 @@ public class Watchlist extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Watchlist(String name, WatchlistArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/watchlist:Watchlist", name, args == null ? WatchlistArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Watchlist(java.lang.String name, WatchlistArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/watchlist:Watchlist", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Watchlist(String name, Output<String> id, @Nullable WatchlistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/watchlist:Watchlist", name, state, makeResourceOptions(options, id));
+    private Watchlist(java.lang.String name, Output<java.lang.String> id, @Nullable WatchlistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/watchlist:Watchlist", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WatchlistArgs makeArgs(WatchlistArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WatchlistArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +240,7 @@ public class Watchlist extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Watchlist get(String name, Output<String> id, @Nullable WatchlistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Watchlist get(java.lang.String name, Output<java.lang.String> id, @Nullable WatchlistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Watchlist(name, id, state, options);
     }
 }

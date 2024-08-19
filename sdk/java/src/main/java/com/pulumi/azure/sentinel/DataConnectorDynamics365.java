@@ -136,7 +136,7 @@ public class DataConnectorDynamics365 extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorDynamics365(String name) {
+    public DataConnectorDynamics365(java.lang.String name) {
         this(name, DataConnectorDynamics365Args.Empty);
     }
     /**
@@ -144,7 +144,7 @@ public class DataConnectorDynamics365 extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorDynamics365(String name, DataConnectorDynamics365Args args) {
+    public DataConnectorDynamics365(java.lang.String name, DataConnectorDynamics365Args args) {
         this(name, args, null);
     }
     /**
@@ -153,15 +153,22 @@ public class DataConnectorDynamics365 extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorDynamics365(String name, DataConnectorDynamics365Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365", name, args == null ? DataConnectorDynamics365Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorDynamics365(java.lang.String name, DataConnectorDynamics365Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorDynamics365(String name, Output<String> id, @Nullable DataConnectorDynamics365State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365", name, state, makeResourceOptions(options, id));
+    private DataConnectorDynamics365(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorDynamics365State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataConnectorDynamics365Args makeArgs(DataConnectorDynamics365Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataConnectorDynamics365Args.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -177,7 +184,7 @@ public class DataConnectorDynamics365 extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorDynamics365 get(String name, Output<String> id, @Nullable DataConnectorDynamics365State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorDynamics365 get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorDynamics365State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorDynamics365(name, id, state, options);
     }
 }

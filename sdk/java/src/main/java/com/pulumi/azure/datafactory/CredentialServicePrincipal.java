@@ -240,7 +240,7 @@ public class CredentialServicePrincipal extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CredentialServicePrincipal(String name) {
+    public CredentialServicePrincipal(java.lang.String name) {
         this(name, CredentialServicePrincipalArgs.Empty);
     }
     /**
@@ -248,7 +248,7 @@ public class CredentialServicePrincipal extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CredentialServicePrincipal(String name, CredentialServicePrincipalArgs args) {
+    public CredentialServicePrincipal(java.lang.String name, CredentialServicePrincipalArgs args) {
         this(name, args, null);
     }
     /**
@@ -257,15 +257,22 @@ public class CredentialServicePrincipal extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CredentialServicePrincipal(String name, CredentialServicePrincipalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal", name, args == null ? CredentialServicePrincipalArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CredentialServicePrincipal(java.lang.String name, CredentialServicePrincipalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CredentialServicePrincipal(String name, Output<String> id, @Nullable CredentialServicePrincipalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal", name, state, makeResourceOptions(options, id));
+    private CredentialServicePrincipal(java.lang.String name, Output<java.lang.String> id, @Nullable CredentialServicePrincipalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CredentialServicePrincipalArgs makeArgs(CredentialServicePrincipalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CredentialServicePrincipalArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -281,7 +288,7 @@ public class CredentialServicePrincipal extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CredentialServicePrincipal get(String name, Output<String> id, @Nullable CredentialServicePrincipalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CredentialServicePrincipal get(java.lang.String name, Output<java.lang.String> id, @Nullable CredentialServicePrincipalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CredentialServicePrincipal(name, id, state, options);
     }
 }

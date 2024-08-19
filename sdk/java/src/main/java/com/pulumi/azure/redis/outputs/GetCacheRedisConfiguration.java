@@ -9,6 +9,8 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCacheRedisConfiguration {
@@ -20,12 +22,17 @@ public final class GetCacheRedisConfiguration {
     private Boolean aofBackupEnabled;
     private String aofStorageConnectionString0;
     private String aofStorageConnectionString1;
+    private Boolean authenticationEnabled;
     private String dataPersistenceAuthenticationMethod;
     /**
      * @return Specifies if authentication is enabled
      * 
+     * @deprecated
+     * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
-    private Boolean enableAuthentication;
+    @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
+    private @Nullable Boolean enableAuthentication;
     private Integer maxclients;
     /**
      * @return Value in megabytes reserved to accommodate for memory fragmentation.
@@ -91,15 +98,22 @@ public final class GetCacheRedisConfiguration {
     public String aofStorageConnectionString1() {
         return this.aofStorageConnectionString1;
     }
+    public Boolean authenticationEnabled() {
+        return this.authenticationEnabled;
+    }
     public String dataPersistenceAuthenticationMethod() {
         return this.dataPersistenceAuthenticationMethod;
     }
     /**
      * @return Specifies if authentication is enabled
      * 
+     * @deprecated
+     * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
-    public Boolean enableAuthentication() {
-        return this.enableAuthentication;
+    @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
+    public Optional<Boolean> enableAuthentication() {
+        return Optional.ofNullable(this.enableAuthentication);
     }
     public Integer maxclients() {
         return this.maxclients;
@@ -184,8 +198,9 @@ public final class GetCacheRedisConfiguration {
         private Boolean aofBackupEnabled;
         private String aofStorageConnectionString0;
         private String aofStorageConnectionString1;
+        private Boolean authenticationEnabled;
         private String dataPersistenceAuthenticationMethod;
-        private Boolean enableAuthentication;
+        private @Nullable Boolean enableAuthentication;
         private Integer maxclients;
         private Integer maxfragmentationmemoryReserved;
         private Integer maxmemoryDelta;
@@ -204,6 +219,7 @@ public final class GetCacheRedisConfiguration {
     	      this.aofBackupEnabled = defaults.aofBackupEnabled;
     	      this.aofStorageConnectionString0 = defaults.aofStorageConnectionString0;
     	      this.aofStorageConnectionString1 = defaults.aofStorageConnectionString1;
+    	      this.authenticationEnabled = defaults.authenticationEnabled;
     	      this.dataPersistenceAuthenticationMethod = defaults.dataPersistenceAuthenticationMethod;
     	      this.enableAuthentication = defaults.enableAuthentication;
     	      this.maxclients = defaults.maxclients;
@@ -252,6 +268,14 @@ public final class GetCacheRedisConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder authenticationEnabled(Boolean authenticationEnabled) {
+            if (authenticationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "authenticationEnabled");
+            }
+            this.authenticationEnabled = authenticationEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder dataPersistenceAuthenticationMethod(String dataPersistenceAuthenticationMethod) {
             if (dataPersistenceAuthenticationMethod == null) {
               throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "dataPersistenceAuthenticationMethod");
@@ -260,10 +284,8 @@ public final class GetCacheRedisConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder enableAuthentication(Boolean enableAuthentication) {
-            if (enableAuthentication == null) {
-              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "enableAuthentication");
-            }
+        public Builder enableAuthentication(@Nullable Boolean enableAuthentication) {
+
             this.enableAuthentication = enableAuthentication;
             return this;
         }
@@ -361,6 +383,7 @@ public final class GetCacheRedisConfiguration {
             _resultValue.aofBackupEnabled = aofBackupEnabled;
             _resultValue.aofStorageConnectionString0 = aofStorageConnectionString0;
             _resultValue.aofStorageConnectionString1 = aofStorageConnectionString1;
+            _resultValue.authenticationEnabled = authenticationEnabled;
             _resultValue.dataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
             _resultValue.enableAuthentication = enableAuthentication;
             _resultValue.maxclients = maxclients;

@@ -233,7 +233,7 @@ public class ResourcePolicyExemption extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourcePolicyExemption(String name) {
+    public ResourcePolicyExemption(java.lang.String name) {
         this(name, ResourcePolicyExemptionArgs.Empty);
     }
     /**
@@ -241,7 +241,7 @@ public class ResourcePolicyExemption extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourcePolicyExemption(String name, ResourcePolicyExemptionArgs args) {
+    public ResourcePolicyExemption(java.lang.String name, ResourcePolicyExemptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -250,15 +250,22 @@ public class ResourcePolicyExemption extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourcePolicyExemption(String name, ResourcePolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourcePolicyExemption:ResourcePolicyExemption", name, args == null ? ResourcePolicyExemptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResourcePolicyExemption(java.lang.String name, ResourcePolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourcePolicyExemption:ResourcePolicyExemption", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourcePolicyExemption(String name, Output<String> id, @Nullable ResourcePolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourcePolicyExemption:ResourcePolicyExemption", name, state, makeResourceOptions(options, id));
+    private ResourcePolicyExemption(java.lang.String name, Output<java.lang.String> id, @Nullable ResourcePolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourcePolicyExemption:ResourcePolicyExemption", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResourcePolicyExemptionArgs makeArgs(ResourcePolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourcePolicyExemptionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -274,7 +281,7 @@ public class ResourcePolicyExemption extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourcePolicyExemption get(String name, Output<String> id, @Nullable ResourcePolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourcePolicyExemption get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourcePolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourcePolicyExemption(name, id, state, options);
     }
 }

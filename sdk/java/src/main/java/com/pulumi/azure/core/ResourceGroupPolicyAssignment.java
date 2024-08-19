@@ -315,7 +315,7 @@ public class ResourceGroupPolicyAssignment extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceGroupPolicyAssignment(String name) {
+    public ResourceGroupPolicyAssignment(java.lang.String name) {
         this(name, ResourceGroupPolicyAssignmentArgs.Empty);
     }
     /**
@@ -323,7 +323,7 @@ public class ResourceGroupPolicyAssignment extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceGroupPolicyAssignment(String name, ResourceGroupPolicyAssignmentArgs args) {
+    public ResourceGroupPolicyAssignment(java.lang.String name, ResourceGroupPolicyAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -332,15 +332,22 @@ public class ResourceGroupPolicyAssignment extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceGroupPolicyAssignment(String name, ResourceGroupPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment", name, args == null ? ResourceGroupPolicyAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResourceGroupPolicyAssignment(java.lang.String name, ResourceGroupPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceGroupPolicyAssignment(String name, Output<String> id, @Nullable ResourceGroupPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment", name, state, makeResourceOptions(options, id));
+    private ResourceGroupPolicyAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResourceGroupPolicyAssignmentArgs makeArgs(ResourceGroupPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceGroupPolicyAssignmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -356,7 +363,7 @@ public class ResourceGroupPolicyAssignment extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceGroupPolicyAssignment get(String name, Output<String> id, @Nullable ResourceGroupPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceGroupPolicyAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceGroupPolicyAssignment(name, id, state, options);
     }
 }

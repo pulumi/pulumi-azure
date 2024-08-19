@@ -196,7 +196,7 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiSchema(String name) {
+    public ApiSchema(java.lang.String name) {
         this(name, ApiSchemaArgs.Empty);
     }
     /**
@@ -204,7 +204,7 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiSchema(String name, ApiSchemaArgs args) {
+    public ApiSchema(java.lang.String name, ApiSchemaArgs args) {
         this(name, args, null);
     }
     /**
@@ -213,15 +213,22 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiSchema(String name, ApiSchemaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiSchema:ApiSchema", name, args == null ? ApiSchemaArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ApiSchema(java.lang.String name, ApiSchemaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/apiSchema:ApiSchema", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiSchema(String name, Output<String> id, @Nullable ApiSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiSchema:ApiSchema", name, state, makeResourceOptions(options, id));
+    private ApiSchema(java.lang.String name, Output<java.lang.String> id, @Nullable ApiSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/apiSchema:ApiSchema", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ApiSchemaArgs makeArgs(ApiSchemaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiSchemaArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -237,7 +244,7 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiSchema get(String name, Output<String> id, @Nullable ApiSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiSchema get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiSchema(name, id, state, options);
     }
 }

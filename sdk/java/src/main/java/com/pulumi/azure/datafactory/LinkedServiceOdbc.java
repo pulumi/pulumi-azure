@@ -227,7 +227,7 @@ public class LinkedServiceOdbc extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedServiceOdbc(String name) {
+    public LinkedServiceOdbc(java.lang.String name) {
         this(name, LinkedServiceOdbcArgs.Empty);
     }
     /**
@@ -235,7 +235,7 @@ public class LinkedServiceOdbc extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedServiceOdbc(String name, LinkedServiceOdbcArgs args) {
+    public LinkedServiceOdbc(java.lang.String name, LinkedServiceOdbcArgs args) {
         this(name, args, null);
     }
     /**
@@ -244,15 +244,22 @@ public class LinkedServiceOdbc extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedServiceOdbc(String name, LinkedServiceOdbcArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc", name, args == null ? LinkedServiceOdbcArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LinkedServiceOdbc(java.lang.String name, LinkedServiceOdbcArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedServiceOdbc(String name, Output<String> id, @Nullable LinkedServiceOdbcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc", name, state, makeResourceOptions(options, id));
+    private LinkedServiceOdbc(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceOdbcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LinkedServiceOdbcArgs makeArgs(LinkedServiceOdbcArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceOdbcArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -268,7 +275,7 @@ public class LinkedServiceOdbc extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedServiceOdbc get(String name, Output<String> id, @Nullable LinkedServiceOdbcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedServiceOdbc get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceOdbcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedServiceOdbc(name, id, state, options);
     }
 }

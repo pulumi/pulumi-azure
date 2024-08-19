@@ -658,7 +658,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualNetworkGatewayConnection(String name) {
+    public VirtualNetworkGatewayConnection(java.lang.String name) {
         this(name, VirtualNetworkGatewayConnectionArgs.Empty);
     }
     /**
@@ -666,7 +666,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualNetworkGatewayConnection(String name, VirtualNetworkGatewayConnectionArgs args) {
+    public VirtualNetworkGatewayConnection(java.lang.String name, VirtualNetworkGatewayConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -675,15 +675,22 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualNetworkGatewayConnection(String name, VirtualNetworkGatewayConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", name, args == null ? VirtualNetworkGatewayConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualNetworkGatewayConnection(java.lang.String name, VirtualNetworkGatewayConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualNetworkGatewayConnection(String name, Output<String> id, @Nullable VirtualNetworkGatewayConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", name, state, makeResourceOptions(options, id));
+    private VirtualNetworkGatewayConnection(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkGatewayConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualNetworkGatewayConnectionArgs makeArgs(VirtualNetworkGatewayConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualNetworkGatewayConnectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -703,7 +710,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualNetworkGatewayConnection get(String name, Output<String> id, @Nullable VirtualNetworkGatewayConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualNetworkGatewayConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkGatewayConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualNetworkGatewayConnection(name, id, state, options);
     }
 }

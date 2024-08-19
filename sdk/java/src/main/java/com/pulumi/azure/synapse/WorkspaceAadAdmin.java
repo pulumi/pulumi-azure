@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -133,8 +133,8 @@ import javax.annotation.Nullable;
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -211,7 +211,7 @@ public class WorkspaceAadAdmin extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WorkspaceAadAdmin(String name) {
+    public WorkspaceAadAdmin(java.lang.String name) {
         this(name, WorkspaceAadAdminArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class WorkspaceAadAdmin extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WorkspaceAadAdmin(String name, WorkspaceAadAdminArgs args) {
+    public WorkspaceAadAdmin(java.lang.String name, WorkspaceAadAdminArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,15 +228,22 @@ public class WorkspaceAadAdmin extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WorkspaceAadAdmin(String name, WorkspaceAadAdminArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin", name, args == null ? WorkspaceAadAdminArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public WorkspaceAadAdmin(java.lang.String name, WorkspaceAadAdminArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WorkspaceAadAdmin(String name, Output<String> id, @Nullable WorkspaceAadAdminState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin", name, state, makeResourceOptions(options, id));
+    private WorkspaceAadAdmin(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceAadAdminState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkspaceAadAdminArgs makeArgs(WorkspaceAadAdminArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceAadAdminArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -252,7 +259,7 @@ public class WorkspaceAadAdmin extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WorkspaceAadAdmin get(String name, Output<String> id, @Nullable WorkspaceAadAdminState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WorkspaceAadAdmin get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceAadAdminState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WorkspaceAadAdmin(name, id, state, options);
     }
 }

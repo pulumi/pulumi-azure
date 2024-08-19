@@ -227,7 +227,7 @@ public class NetworkMapping extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkMapping(String name) {
+    public NetworkMapping(java.lang.String name) {
         this(name, NetworkMappingArgs.Empty);
     }
     /**
@@ -235,7 +235,7 @@ public class NetworkMapping extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkMapping(String name, NetworkMappingArgs args) {
+    public NetworkMapping(java.lang.String name, NetworkMappingArgs args) {
         this(name, args, null);
     }
     /**
@@ -244,15 +244,22 @@ public class NetworkMapping extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkMapping(String name, NetworkMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/networkMapping:NetworkMapping", name, args == null ? NetworkMappingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkMapping(java.lang.String name, NetworkMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/networkMapping:NetworkMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkMapping(String name, Output<String> id, @Nullable NetworkMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/networkMapping:NetworkMapping", name, state, makeResourceOptions(options, id));
+    private NetworkMapping(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/networkMapping:NetworkMapping", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkMappingArgs makeArgs(NetworkMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkMappingArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -268,7 +275,7 @@ public class NetworkMapping extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkMapping get(String name, Output<String> id, @Nullable NetworkMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkMapping get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkMapping(name, id, state, options);
     }
 }

@@ -265,7 +265,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Secret(String name) {
+    public Secret(java.lang.String name) {
         this(name, SecretArgs.Empty);
     }
     /**
@@ -273,7 +273,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Secret(String name, SecretArgs args) {
+    public Secret(java.lang.String name, SecretArgs args) {
         this(name, args, null);
     }
     /**
@@ -282,15 +282,22 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Secret(String name, SecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/secret:Secret", name, args == null ? SecretArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Secret(java.lang.String name, SecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/secret:Secret", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Secret(String name, Output<String> id, @Nullable SecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/secret:Secret", name, state, makeResourceOptions(options, id));
+    private Secret(java.lang.String name, Output<java.lang.String> id, @Nullable SecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/secret:Secret", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecretArgs makeArgs(SecretArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecretArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -309,7 +316,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Secret get(String name, Output<String> id, @Nullable SecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Secret get(java.lang.String name, Output<java.lang.String> id, @Nullable SecretState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Secret(name, id, state, options);
     }
 }

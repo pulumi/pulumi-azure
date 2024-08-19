@@ -14,17 +14,39 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
     /**
+     * @return The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+     * 
+     * &gt; **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+     * 
+     * &gt; **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+     * 
+     */
+    private @Nullable String action;
+    /**
      * @return Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
      * 
      */
     private Boolean enabled;
     /**
-     * @return Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+     * @return Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+     * 
+     * &gt; **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
      * 
      */
     private @Nullable String gracePeriod;
 
     private LinuxVirtualMachineScaleSetAutomaticInstanceRepair() {}
+    /**
+     * @return The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+     * 
+     * &gt; **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+     * 
+     * &gt; **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+     * 
+     */
+    public Optional<String> action() {
+        return Optional.ofNullable(this.action);
+    }
     /**
      * @return Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
      * 
@@ -33,7 +55,9 @@ public final class LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
         return this.enabled;
     }
     /**
-     * @return Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+     * @return Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+     * 
+     * &gt; **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
      * 
      */
     public Optional<String> gracePeriod() {
@@ -49,15 +73,23 @@ public final class LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String action;
         private Boolean enabled;
         private @Nullable String gracePeriod;
         public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetAutomaticInstanceRepair defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.action = defaults.action;
     	      this.enabled = defaults.enabled;
     	      this.gracePeriod = defaults.gracePeriod;
         }
 
+        @CustomType.Setter
+        public Builder action(@Nullable String action) {
+
+            this.action = action;
+            return this;
+        }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             if (enabled == null) {
@@ -74,6 +106,7 @@ public final class LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
         }
         public LinuxVirtualMachineScaleSetAutomaticInstanceRepair build() {
             final var _resultValue = new LinuxVirtualMachineScaleSetAutomaticInstanceRepair();
+            _resultValue.action = action;
             _resultValue.enabled = enabled;
             _resultValue.gracePeriod = gracePeriod;
             return _resultValue;

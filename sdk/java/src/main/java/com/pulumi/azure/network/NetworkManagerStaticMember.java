@@ -169,7 +169,7 @@ public class NetworkManagerStaticMember extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkManagerStaticMember(String name) {
+    public NetworkManagerStaticMember(java.lang.String name) {
         this(name, NetworkManagerStaticMemberArgs.Empty);
     }
     /**
@@ -177,7 +177,7 @@ public class NetworkManagerStaticMember extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkManagerStaticMember(String name, NetworkManagerStaticMemberArgs args) {
+    public NetworkManagerStaticMember(java.lang.String name, NetworkManagerStaticMemberArgs args) {
         this(name, args, null);
     }
     /**
@@ -186,15 +186,22 @@ public class NetworkManagerStaticMember extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkManagerStaticMember(String name, NetworkManagerStaticMemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerStaticMember:NetworkManagerStaticMember", name, args == null ? NetworkManagerStaticMemberArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkManagerStaticMember(java.lang.String name, NetworkManagerStaticMemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManagerStaticMember:NetworkManagerStaticMember", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkManagerStaticMember(String name, Output<String> id, @Nullable NetworkManagerStaticMemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerStaticMember:NetworkManagerStaticMember", name, state, makeResourceOptions(options, id));
+    private NetworkManagerStaticMember(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerStaticMemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManagerStaticMember:NetworkManagerStaticMember", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkManagerStaticMemberArgs makeArgs(NetworkManagerStaticMemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkManagerStaticMemberArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -210,7 +217,7 @@ public class NetworkManagerStaticMember extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkManagerStaticMember get(String name, Output<String> id, @Nullable NetworkManagerStaticMemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkManagerStaticMember get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerStaticMemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkManagerStaticMember(name, id, state, options);
     }
 }

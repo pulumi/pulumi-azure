@@ -164,7 +164,7 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FrontdoorProfile(String name) {
+    public FrontdoorProfile(java.lang.String name) {
         this(name, FrontdoorProfileArgs.Empty);
     }
     /**
@@ -172,7 +172,7 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FrontdoorProfile(String name, FrontdoorProfileArgs args) {
+    public FrontdoorProfile(java.lang.String name, FrontdoorProfileArgs args) {
         this(name, args, null);
     }
     /**
@@ -181,15 +181,22 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FrontdoorProfile(String name, FrontdoorProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorProfile:FrontdoorProfile", name, args == null ? FrontdoorProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FrontdoorProfile(java.lang.String name, FrontdoorProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorProfile:FrontdoorProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FrontdoorProfile(String name, Output<String> id, @Nullable FrontdoorProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorProfile:FrontdoorProfile", name, state, makeResourceOptions(options, id));
+    private FrontdoorProfile(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorProfile:FrontdoorProfile", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FrontdoorProfileArgs makeArgs(FrontdoorProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FrontdoorProfileArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -205,7 +212,7 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FrontdoorProfile get(String name, Output<String> id, @Nullable FrontdoorProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FrontdoorProfile get(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FrontdoorProfile(name, id, state, options);
     }
 }

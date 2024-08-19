@@ -203,7 +203,7 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationAccountAssembly(String name) {
+    public IntegrationAccountAssembly(java.lang.String name) {
         this(name, IntegrationAccountAssemblyArgs.Empty);
     }
     /**
@@ -211,7 +211,7 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationAccountAssembly(String name, IntegrationAccountAssemblyArgs args) {
+    public IntegrationAccountAssembly(java.lang.String name, IntegrationAccountAssemblyArgs args) {
         this(name, args, null);
     }
     /**
@@ -220,15 +220,22 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationAccountAssembly(String name, IntegrationAccountAssemblyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly", name, args == null ? IntegrationAccountAssemblyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IntegrationAccountAssembly(java.lang.String name, IntegrationAccountAssemblyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationAccountAssembly(String name, Output<String> id, @Nullable IntegrationAccountAssemblyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly", name, state, makeResourceOptions(options, id));
+    private IntegrationAccountAssembly(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountAssemblyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IntegrationAccountAssemblyArgs makeArgs(IntegrationAccountAssemblyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationAccountAssemblyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -244,7 +251,7 @@ public class IntegrationAccountAssembly extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationAccountAssembly get(String name, Output<String> id, @Nullable IntegrationAccountAssemblyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationAccountAssembly get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountAssemblyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationAccountAssembly(name, id, state, options);
     }
 }

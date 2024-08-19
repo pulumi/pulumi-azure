@@ -89,13 +89,13 @@ namespace Pulumi.Azure.EventHub
         /// Boolean flag which controls if server-side batched operations are enabled.
         /// </summary>
         [Output("enableBatchedOperations")]
-        public Output<bool?> EnableBatchedOperations { get; private set; } = null!;
+        public Output<bool> EnableBatchedOperations { get; private set; } = null!;
 
         /// <summary>
         /// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         /// </summary>
         [Output("enableExpress")]
-        public Output<bool?> EnableExpress { get; private set; } = null!;
+        public Output<bool> EnableExpress { get; private set; } = null!;
 
         /// <summary>
         /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.EventHub
         /// &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         /// </summary>
         [Output("enablePartitioning")]
-        public Output<bool?> EnablePartitioning { get; private set; } = null!;
+        public Output<bool> EnablePartitioning { get; private set; } = null!;
 
         [Output("expressEnabled")]
         public Output<bool> ExpressEnabled { get; private set; } = null!;

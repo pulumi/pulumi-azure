@@ -301,7 +301,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedServiceAzureBlobStorage(String name) {
+    public LinkedServiceAzureBlobStorage(java.lang.String name) {
         this(name, LinkedServiceAzureBlobStorageArgs.Empty);
     }
     /**
@@ -309,7 +309,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedServiceAzureBlobStorage(String name, LinkedServiceAzureBlobStorageArgs args) {
+    public LinkedServiceAzureBlobStorage(java.lang.String name, LinkedServiceAzureBlobStorageArgs args) {
         this(name, args, null);
     }
     /**
@@ -318,15 +318,22 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedServiceAzureBlobStorage(String name, LinkedServiceAzureBlobStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage", name, args == null ? LinkedServiceAzureBlobStorageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LinkedServiceAzureBlobStorage(java.lang.String name, LinkedServiceAzureBlobStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedServiceAzureBlobStorage(String name, Output<String> id, @Nullable LinkedServiceAzureBlobStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage", name, state, makeResourceOptions(options, id));
+    private LinkedServiceAzureBlobStorage(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceAzureBlobStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LinkedServiceAzureBlobStorageArgs makeArgs(LinkedServiceAzureBlobStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceAzureBlobStorageArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -347,7 +354,7 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedServiceAzureBlobStorage get(String name, Output<String> id, @Nullable LinkedServiceAzureBlobStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedServiceAzureBlobStorage get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceAzureBlobStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedServiceAzureBlobStorage(name, id, state, options);
     }
 }

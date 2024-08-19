@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .storageMb(5120)
  *             .backupRetentionDays(7)
  *             .administratorLogin("psqladmin")
- *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .administratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .version("9.5")
  *             .sslEnforcementEnabled(true)
  *             .build());
@@ -94,8 +94,8 @@ import javax.annotation.Nullable;
  *             .ignoreMissingVnetServiceEndpoint(true)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -198,7 +198,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualNetworkRule(String name) {
+    public VirtualNetworkRule(java.lang.String name) {
         this(name, VirtualNetworkRuleArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualNetworkRule(String name, VirtualNetworkRuleArgs args) {
+    public VirtualNetworkRule(java.lang.String name, VirtualNetworkRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,15 +215,22 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualNetworkRule(String name, VirtualNetworkRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:postgresql/virtualNetworkRule:VirtualNetworkRule", name, args == null ? VirtualNetworkRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualNetworkRule(java.lang.String name, VirtualNetworkRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:postgresql/virtualNetworkRule:VirtualNetworkRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualNetworkRule(String name, Output<String> id, @Nullable VirtualNetworkRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:postgresql/virtualNetworkRule:VirtualNetworkRule", name, state, makeResourceOptions(options, id));
+    private VirtualNetworkRule(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:postgresql/virtualNetworkRule:VirtualNetworkRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualNetworkRuleArgs makeArgs(VirtualNetworkRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualNetworkRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -239,7 +246,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualNetworkRule get(String name, Output<String> id, @Nullable VirtualNetworkRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualNetworkRule get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualNetworkRule(name, id, state, options);
     }
 }

@@ -156,7 +156,7 @@ public class LocalRulestackPrefixList extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LocalRulestackPrefixList(String name) {
+    public LocalRulestackPrefixList(java.lang.String name) {
         this(name, LocalRulestackPrefixListArgs.Empty);
     }
     /**
@@ -164,7 +164,7 @@ public class LocalRulestackPrefixList extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LocalRulestackPrefixList(String name, LocalRulestackPrefixListArgs args) {
+    public LocalRulestackPrefixList(java.lang.String name, LocalRulestackPrefixListArgs args) {
         this(name, args, null);
     }
     /**
@@ -173,15 +173,22 @@ public class LocalRulestackPrefixList extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LocalRulestackPrefixList(String name, LocalRulestackPrefixListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList", name, args == null ? LocalRulestackPrefixListArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LocalRulestackPrefixList(java.lang.String name, LocalRulestackPrefixListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LocalRulestackPrefixList(String name, Output<String> id, @Nullable LocalRulestackPrefixListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList", name, state, makeResourceOptions(options, id));
+    private LocalRulestackPrefixList(java.lang.String name, Output<java.lang.String> id, @Nullable LocalRulestackPrefixListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LocalRulestackPrefixListArgs makeArgs(LocalRulestackPrefixListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalRulestackPrefixListArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -197,7 +204,7 @@ public class LocalRulestackPrefixList extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LocalRulestackPrefixList get(String name, Output<String> id, @Nullable LocalRulestackPrefixListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LocalRulestackPrefixList get(java.lang.String name, Output<java.lang.String> id, @Nullable LocalRulestackPrefixListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LocalRulestackPrefixList(name, id, state, options);
     }
 }

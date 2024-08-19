@@ -74,9 +74,6 @@ class KafkaClusterArgs:
         pulumi.set(__self__, "component_version", component_version)
         pulumi.set(__self__, "gateway", gateway)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if roles is not None:
-            warnings.warn("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""", DeprecationWarning)
-            pulumi.log.warn("""roles is deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "tier", tier)
         if compute_isolation is not None:
@@ -162,7 +159,6 @@ class KafkaClusterArgs:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
     def roles(self) -> pulumi.Input['KafkaClusterRolesArgs']:
         """
         A `roles` block as defined below.
@@ -473,9 +469,6 @@ class _KafkaClusterState:
         if rest_proxy is not None:
             pulumi.set(__self__, "rest_proxy", rest_proxy)
         if roles is not None:
-            warnings.warn("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""", DeprecationWarning)
-            pulumi.log.warn("""roles is deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
-        if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
@@ -700,7 +693,6 @@ class _KafkaClusterState:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
     def roles(self) -> Optional[pulumi.Input['KafkaClusterRolesArgs']]:
         """
         A `roles` block as defined below.
@@ -1319,7 +1311,6 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
     def roles(self) -> pulumi.Output['outputs.KafkaClusterRoles']:
         """
         A `roles` block as defined below.

@@ -201,7 +201,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NatGateway(String name) {
+    public NatGateway(java.lang.String name) {
         this(name, NatGatewayArgs.Empty);
     }
     /**
@@ -209,7 +209,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NatGateway(String name, NatGatewayArgs args) {
+    public NatGateway(java.lang.String name, NatGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -218,15 +218,22 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NatGateway(String name, NatGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/natGateway:NatGateway", name, args == null ? NatGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NatGateway(java.lang.String name, NatGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/natGateway:NatGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NatGateway(String name, Output<String> id, @Nullable NatGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/natGateway:NatGateway", name, state, makeResourceOptions(options, id));
+    private NatGateway(java.lang.String name, Output<java.lang.String> id, @Nullable NatGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/natGateway:NatGateway", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NatGatewayArgs makeArgs(NatGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NatGatewayArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -242,7 +249,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NatGateway get(String name, Output<String> id, @Nullable NatGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NatGateway get(java.lang.String name, Output<java.lang.String> id, @Nullable NatGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NatGateway(name, id, state, options);
     }
 }

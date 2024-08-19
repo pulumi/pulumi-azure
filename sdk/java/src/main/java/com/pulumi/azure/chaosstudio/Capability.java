@@ -150,7 +150,7 @@ public class Capability extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Capability(String name) {
+    public Capability(java.lang.String name) {
         this(name, CapabilityArgs.Empty);
     }
     /**
@@ -158,7 +158,7 @@ public class Capability extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Capability(String name, CapabilityArgs args) {
+    public Capability(java.lang.String name, CapabilityArgs args) {
         this(name, args, null);
     }
     /**
@@ -167,15 +167,22 @@ public class Capability extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Capability(String name, CapabilityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:chaosstudio/capability:Capability", name, args == null ? CapabilityArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Capability(java.lang.String name, CapabilityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:chaosstudio/capability:Capability", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Capability(String name, Output<String> id, @Nullable CapabilityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:chaosstudio/capability:Capability", name, state, makeResourceOptions(options, id));
+    private Capability(java.lang.String name, Output<java.lang.String> id, @Nullable CapabilityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:chaosstudio/capability:Capability", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CapabilityArgs makeArgs(CapabilityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CapabilityArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -191,7 +198,7 @@ public class Capability extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Capability get(String name, Output<String> id, @Nullable CapabilityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Capability get(java.lang.String name, Output<java.lang.String> id, @Nullable CapabilityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Capability(name, id, state, options);
     }
 }

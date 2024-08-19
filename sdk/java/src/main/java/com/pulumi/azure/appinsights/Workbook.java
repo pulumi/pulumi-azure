@@ -253,7 +253,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Workbook(String name) {
+    public Workbook(java.lang.String name) {
         this(name, WorkbookArgs.Empty);
     }
     /**
@@ -261,7 +261,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Workbook(String name, WorkbookArgs args) {
+    public Workbook(java.lang.String name, WorkbookArgs args) {
         this(name, args, null);
     }
     /**
@@ -270,15 +270,22 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Workbook(String name, WorkbookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appinsights/workbook:Workbook", name, args == null ? WorkbookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Workbook(java.lang.String name, WorkbookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appinsights/workbook:Workbook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Workbook(String name, Output<String> id, @Nullable WorkbookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appinsights/workbook:Workbook", name, state, makeResourceOptions(options, id));
+    private Workbook(java.lang.String name, Output<java.lang.String> id, @Nullable WorkbookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appinsights/workbook:Workbook", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkbookArgs makeArgs(WorkbookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkbookArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -294,7 +301,7 @@ public class Workbook extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Workbook get(String name, Output<String> id, @Nullable WorkbookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Workbook get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkbookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Workbook(name, id, state, options);
     }
 }

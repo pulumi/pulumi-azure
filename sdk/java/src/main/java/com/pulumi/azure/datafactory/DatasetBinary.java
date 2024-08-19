@@ -280,7 +280,7 @@ public class DatasetBinary extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DatasetBinary(String name) {
+    public DatasetBinary(java.lang.String name) {
         this(name, DatasetBinaryArgs.Empty);
     }
     /**
@@ -288,7 +288,7 @@ public class DatasetBinary extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DatasetBinary(String name, DatasetBinaryArgs args) {
+    public DatasetBinary(java.lang.String name, DatasetBinaryArgs args) {
         this(name, args, null);
     }
     /**
@@ -297,15 +297,22 @@ public class DatasetBinary extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DatasetBinary(String name, DatasetBinaryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetBinary:DatasetBinary", name, args == null ? DatasetBinaryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DatasetBinary(java.lang.String name, DatasetBinaryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetBinary:DatasetBinary", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DatasetBinary(String name, Output<String> id, @Nullable DatasetBinaryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetBinary:DatasetBinary", name, state, makeResourceOptions(options, id));
+    private DatasetBinary(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetBinaryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetBinary:DatasetBinary", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DatasetBinaryArgs makeArgs(DatasetBinaryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatasetBinaryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -321,7 +328,7 @@ public class DatasetBinary extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DatasetBinary get(String name, Output<String> id, @Nullable DatasetBinaryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DatasetBinary get(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetBinaryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DatasetBinary(name, id, state, options);
     }
 }

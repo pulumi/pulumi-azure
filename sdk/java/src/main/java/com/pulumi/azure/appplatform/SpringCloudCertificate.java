@@ -272,7 +272,7 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudCertificate(String name) {
+    public SpringCloudCertificate(java.lang.String name) {
         this(name, SpringCloudCertificateArgs.Empty);
     }
     /**
@@ -280,7 +280,7 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudCertificate(String name, SpringCloudCertificateArgs args) {
+    public SpringCloudCertificate(java.lang.String name, SpringCloudCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -289,15 +289,22 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudCertificate(String name, SpringCloudCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudCertificate:SpringCloudCertificate", name, args == null ? SpringCloudCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudCertificate(java.lang.String name, SpringCloudCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudCertificate:SpringCloudCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudCertificate(String name, Output<String> id, @Nullable SpringCloudCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudCertificate:SpringCloudCertificate", name, state, makeResourceOptions(options, id));
+    private SpringCloudCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudCertificate:SpringCloudCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudCertificateArgs makeArgs(SpringCloudCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudCertificateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -313,7 +320,7 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudCertificate get(String name, Output<String> id, @Nullable SpringCloudCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudCertificate(name, id, state, options);
     }
 }

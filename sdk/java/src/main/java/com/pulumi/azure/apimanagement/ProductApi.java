@@ -148,7 +148,7 @@ public class ProductApi extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProductApi(String name) {
+    public ProductApi(java.lang.String name) {
         this(name, ProductApiArgs.Empty);
     }
     /**
@@ -156,7 +156,7 @@ public class ProductApi extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProductApi(String name, ProductApiArgs args) {
+    public ProductApi(java.lang.String name, ProductApiArgs args) {
         this(name, args, null);
     }
     /**
@@ -165,15 +165,22 @@ public class ProductApi extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProductApi(String name, ProductApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/productApi:ProductApi", name, args == null ? ProductApiArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ProductApi(java.lang.String name, ProductApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/productApi:ProductApi", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProductApi(String name, Output<String> id, @Nullable ProductApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/productApi:ProductApi", name, state, makeResourceOptions(options, id));
+    private ProductApi(java.lang.String name, Output<java.lang.String> id, @Nullable ProductApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/productApi:ProductApi", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProductApiArgs makeArgs(ProductApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProductApiArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -189,7 +196,7 @@ public class ProductApi extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProductApi get(String name, Output<String> id, @Nullable ProductApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProductApi get(java.lang.String name, Output<java.lang.String> id, @Nullable ProductApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProductApi(name, id, state, options);
     }
 }

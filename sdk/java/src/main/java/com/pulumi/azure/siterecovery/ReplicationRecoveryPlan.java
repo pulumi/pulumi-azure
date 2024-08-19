@@ -462,7 +462,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReplicationRecoveryPlan(String name) {
+    public ReplicationRecoveryPlan(java.lang.String name) {
         this(name, ReplicationRecoveryPlanArgs.Empty);
     }
     /**
@@ -470,7 +470,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReplicationRecoveryPlan(String name, ReplicationRecoveryPlanArgs args) {
+    public ReplicationRecoveryPlan(java.lang.String name, ReplicationRecoveryPlanArgs args) {
         this(name, args, null);
     }
     /**
@@ -479,15 +479,22 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReplicationRecoveryPlan(String name, ReplicationRecoveryPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan", name, args == null ? ReplicationRecoveryPlanArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ReplicationRecoveryPlan(java.lang.String name, ReplicationRecoveryPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReplicationRecoveryPlan(String name, Output<String> id, @Nullable ReplicationRecoveryPlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan", name, state, makeResourceOptions(options, id));
+    private ReplicationRecoveryPlan(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicationRecoveryPlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ReplicationRecoveryPlanArgs makeArgs(ReplicationRecoveryPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicationRecoveryPlanArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -503,7 +510,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReplicationRecoveryPlan get(String name, Output<String> id, @Nullable ReplicationRecoveryPlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReplicationRecoveryPlan get(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicationRecoveryPlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReplicationRecoveryPlan(name, id, state, options);
     }
 }

@@ -281,7 +281,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ExpressRoutePort(String name) {
+    public ExpressRoutePort(java.lang.String name) {
         this(name, ExpressRoutePortArgs.Empty);
     }
     /**
@@ -289,7 +289,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ExpressRoutePort(String name, ExpressRoutePortArgs args) {
+    public ExpressRoutePort(java.lang.String name, ExpressRoutePortArgs args) {
         this(name, args, null);
     }
     /**
@@ -298,15 +298,22 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ExpressRoutePort(String name, ExpressRoutePortArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRoutePort:ExpressRoutePort", name, args == null ? ExpressRoutePortArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ExpressRoutePort(java.lang.String name, ExpressRoutePortArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/expressRoutePort:ExpressRoutePort", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ExpressRoutePort(String name, Output<String> id, @Nullable ExpressRoutePortState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRoutePort:ExpressRoutePort", name, state, makeResourceOptions(options, id));
+    private ExpressRoutePort(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRoutePortState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/expressRoutePort:ExpressRoutePort", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ExpressRoutePortArgs makeArgs(ExpressRoutePortArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExpressRoutePortArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -322,7 +329,7 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ExpressRoutePort get(String name, Output<String> id, @Nullable ExpressRoutePortState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ExpressRoutePort get(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRoutePortState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ExpressRoutePort(name, id, state, options);
     }
 }

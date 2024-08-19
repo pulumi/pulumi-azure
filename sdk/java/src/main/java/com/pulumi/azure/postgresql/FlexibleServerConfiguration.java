@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .version("12")
  *             .administratorLogin("psqladmin")
- *             .administratorPassword("H{@literal @}Sh1CoR3!")
+ *             .administratorPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .storageMb(32768)
  *             .skuName("GP_Standard_D4s_v3")
  *             .build());
@@ -69,8 +69,8 @@ import javax.annotation.Nullable;
  *             .value("on")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -98,12 +98,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .version("12")
  *             .administratorLogin("psqladmin")
- *             .administratorPassword("H{@literal @}Sh1CoR3!")
+ *             .administratorPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .storageMb(32768)
  *             .skuName("GP_Standard_D4s_v3")
  *             .build());
@@ -126,8 +126,8 @@ import javax.annotation.Nullable;
  *             .value("CUBE,CITEXT,BTREE_GIST")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -194,7 +194,7 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FlexibleServerConfiguration(String name) {
+    public FlexibleServerConfiguration(java.lang.String name) {
         this(name, FlexibleServerConfigurationArgs.Empty);
     }
     /**
@@ -202,7 +202,7 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FlexibleServerConfiguration(String name, FlexibleServerConfigurationArgs args) {
+    public FlexibleServerConfiguration(java.lang.String name, FlexibleServerConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -211,15 +211,22 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FlexibleServerConfiguration(String name, FlexibleServerConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration", name, args == null ? FlexibleServerConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FlexibleServerConfiguration(java.lang.String name, FlexibleServerConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FlexibleServerConfiguration(String name, Output<String> id, @Nullable FlexibleServerConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration", name, state, makeResourceOptions(options, id));
+    private FlexibleServerConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable FlexibleServerConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FlexibleServerConfigurationArgs makeArgs(FlexibleServerConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FlexibleServerConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -235,7 +242,7 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FlexibleServerConfiguration get(String name, Output<String> id, @Nullable FlexibleServerConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FlexibleServerConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable FlexibleServerConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FlexibleServerConfiguration(name, id, state, options);
     }
 }

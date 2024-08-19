@@ -296,7 +296,7 @@ public class LinkedServiceSynapse extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedServiceSynapse(String name) {
+    public LinkedServiceSynapse(java.lang.String name) {
         this(name, LinkedServiceSynapseArgs.Empty);
     }
     /**
@@ -304,7 +304,7 @@ public class LinkedServiceSynapse extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedServiceSynapse(String name, LinkedServiceSynapseArgs args) {
+    public LinkedServiceSynapse(java.lang.String name, LinkedServiceSynapseArgs args) {
         this(name, args, null);
     }
     /**
@@ -313,15 +313,22 @@ public class LinkedServiceSynapse extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedServiceSynapse(String name, LinkedServiceSynapseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse", name, args == null ? LinkedServiceSynapseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LinkedServiceSynapse(java.lang.String name, LinkedServiceSynapseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedServiceSynapse(String name, Output<String> id, @Nullable LinkedServiceSynapseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse", name, state, makeResourceOptions(options, id));
+    private LinkedServiceSynapse(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceSynapseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LinkedServiceSynapseArgs makeArgs(LinkedServiceSynapseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceSynapseArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -337,7 +344,7 @@ public class LinkedServiceSynapse extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedServiceSynapse get(String name, Output<String> id, @Nullable LinkedServiceSynapseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedServiceSynapse get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceSynapseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedServiceSynapse(name, id, state, options);
     }
 }

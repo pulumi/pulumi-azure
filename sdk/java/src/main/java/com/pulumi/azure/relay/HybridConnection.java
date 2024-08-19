@@ -160,7 +160,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public HybridConnection(String name) {
+    public HybridConnection(java.lang.String name) {
         this(name, HybridConnectionArgs.Empty);
     }
     /**
@@ -168,7 +168,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public HybridConnection(String name, HybridConnectionArgs args) {
+    public HybridConnection(java.lang.String name, HybridConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -177,15 +177,22 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public HybridConnection(String name, HybridConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:relay/hybridConnection:HybridConnection", name, args == null ? HybridConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public HybridConnection(java.lang.String name, HybridConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:relay/hybridConnection:HybridConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private HybridConnection(String name, Output<String> id, @Nullable HybridConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:relay/hybridConnection:HybridConnection", name, state, makeResourceOptions(options, id));
+    private HybridConnection(java.lang.String name, Output<java.lang.String> id, @Nullable HybridConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:relay/hybridConnection:HybridConnection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static HybridConnectionArgs makeArgs(HybridConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HybridConnectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -201,7 +208,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static HybridConnection get(String name, Output<String> id, @Nullable HybridConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static HybridConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable HybridConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new HybridConnection(name, id, state, options);
     }
 }

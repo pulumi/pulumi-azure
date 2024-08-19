@@ -220,11 +220,14 @@ namespace Pulumi.Azure.Storage
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
 
+        [Output("enableHttpsTrafficOnly")]
+        public Output<bool> EnableHttpsTrafficOnly { get; private set; } = null!;
+
         /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         /// </summary>
-        [Output("enableHttpsTrafficOnly")]
-        public Output<bool?> EnableHttpsTrafficOnly { get; private set; } = null!;
+        [Output("httpsTrafficOnlyEnabled")]
+        public Output<bool> HttpsTrafficOnlyEnabled { get; private set; } = null!;
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -962,11 +965,14 @@ namespace Pulumi.Azure.Storage
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
+        [Input("enableHttpsTrafficOnly")]
+        public Input<bool>? EnableHttpsTrafficOnly { get; set; }
+
         /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         /// </summary>
-        [Input("enableHttpsTrafficOnly")]
-        public Input<bool>? EnableHttpsTrafficOnly { get; set; }
+        [Input("httpsTrafficOnlyEnabled")]
+        public Input<bool>? HttpsTrafficOnlyEnabled { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -1231,11 +1237,14 @@ namespace Pulumi.Azure.Storage
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
+        [Input("enableHttpsTrafficOnly")]
+        public Input<bool>? EnableHttpsTrafficOnly { get; set; }
+
         /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         /// </summary>
-        [Input("enableHttpsTrafficOnly")]
-        public Input<bool>? EnableHttpsTrafficOnly { get; set; }
+        [Input("httpsTrafficOnlyEnabled")]
+        public Input<bool>? HttpsTrafficOnlyEnabled { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.

@@ -340,7 +340,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedCluster(String name) {
+    public ManagedCluster(java.lang.String name) {
         this(name, ManagedClusterArgs.Empty);
     }
     /**
@@ -348,7 +348,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedCluster(String name, ManagedClusterArgs args) {
+    public ManagedCluster(java.lang.String name, ManagedClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -357,15 +357,22 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedCluster(String name, ManagedClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicefabric/managedCluster:ManagedCluster", name, args == null ? ManagedClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ManagedCluster(java.lang.String name, ManagedClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:servicefabric/managedCluster:ManagedCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedCluster(String name, Output<String> id, @Nullable ManagedClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicefabric/managedCluster:ManagedCluster", name, state, makeResourceOptions(options, id));
+    private ManagedCluster(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:servicefabric/managedCluster:ManagedCluster", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ManagedClusterArgs makeArgs(ManagedClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedClusterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -384,7 +391,7 @@ public class ManagedCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedCluster get(String name, Output<String> id, @Nullable ManagedClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedCluster(name, id, state, options);
     }
 }

@@ -499,7 +499,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualNetworkGateway(String name) {
+    public VirtualNetworkGateway(java.lang.String name) {
         this(name, VirtualNetworkGatewayArgs.Empty);
     }
     /**
@@ -507,7 +507,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualNetworkGateway(String name, VirtualNetworkGatewayArgs args) {
+    public VirtualNetworkGateway(java.lang.String name, VirtualNetworkGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -516,15 +516,22 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualNetworkGateway(String name, VirtualNetworkGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualNetworkGateway:VirtualNetworkGateway", name, args == null ? VirtualNetworkGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualNetworkGateway(java.lang.String name, VirtualNetworkGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/virtualNetworkGateway:VirtualNetworkGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualNetworkGateway(String name, Output<String> id, @Nullable VirtualNetworkGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualNetworkGateway:VirtualNetworkGateway", name, state, makeResourceOptions(options, id));
+    private VirtualNetworkGateway(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/virtualNetworkGateway:VirtualNetworkGateway", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualNetworkGatewayArgs makeArgs(VirtualNetworkGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualNetworkGatewayArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -540,7 +547,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualNetworkGateway get(String name, Output<String> id, @Nullable VirtualNetworkGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualNetworkGateway get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualNetworkGateway(name, id, state, options);
     }
 }

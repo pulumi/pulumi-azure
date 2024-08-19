@@ -222,7 +222,7 @@ public class GalleryApplicationAssignment extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GalleryApplicationAssignment(String name) {
+    public GalleryApplicationAssignment(java.lang.String name) {
         this(name, GalleryApplicationAssignmentArgs.Empty);
     }
     /**
@@ -230,7 +230,7 @@ public class GalleryApplicationAssignment extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GalleryApplicationAssignment(String name, GalleryApplicationAssignmentArgs args) {
+    public GalleryApplicationAssignment(java.lang.String name, GalleryApplicationAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -239,15 +239,22 @@ public class GalleryApplicationAssignment extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GalleryApplicationAssignment(String name, GalleryApplicationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment", name, args == null ? GalleryApplicationAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GalleryApplicationAssignment(java.lang.String name, GalleryApplicationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GalleryApplicationAssignment(String name, Output<String> id, @Nullable GalleryApplicationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment", name, state, makeResourceOptions(options, id));
+    private GalleryApplicationAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable GalleryApplicationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GalleryApplicationAssignmentArgs makeArgs(GalleryApplicationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GalleryApplicationAssignmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -263,7 +270,7 @@ public class GalleryApplicationAssignment extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GalleryApplicationAssignment get(String name, Output<String> id, @Nullable GalleryApplicationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GalleryApplicationAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable GalleryApplicationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GalleryApplicationAssignment(name, id, state, options);
     }
 }

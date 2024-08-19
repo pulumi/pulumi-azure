@@ -13,13 +13,25 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+        /// 
+        /// &gt; **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+        /// 
+        /// &gt; **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        /// </summary>
+        [Input("action")]
+        public Input<string>? Action { get; set; }
+
+        /// <summary>
         /// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+        /// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+        /// 
+        /// &gt; **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         /// </summary>
         [Input("gracePeriod")]
         public Input<string>? GracePeriod { get; set; }

@@ -287,7 +287,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Dashboard(String name) {
+    public Dashboard(java.lang.String name) {
         this(name, DashboardArgs.Empty);
     }
     /**
@@ -295,7 +295,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Dashboard(String name, DashboardArgs args) {
+    public Dashboard(java.lang.String name, DashboardArgs args) {
         this(name, args, null);
     }
     /**
@@ -304,15 +304,22 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Dashboard(String name, DashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:portal/dashboard:Dashboard", name, args == null ? DashboardArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Dashboard(java.lang.String name, DashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:portal/dashboard:Dashboard", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Dashboard(String name, Output<String> id, @Nullable DashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:portal/dashboard:Dashboard", name, state, makeResourceOptions(options, id));
+    private Dashboard(java.lang.String name, Output<java.lang.String> id, @Nullable DashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:portal/dashboard:Dashboard", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DashboardArgs makeArgs(DashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DashboardArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -331,7 +338,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Dashboard get(String name, Output<String> id, @Nullable DashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Dashboard get(java.lang.String name, Output<java.lang.String> id, @Nullable DashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Dashboard(name, id, state, options);
     }
 }

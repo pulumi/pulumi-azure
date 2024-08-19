@@ -341,7 +341,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ChannelsRegistration(String name) {
+    public ChannelsRegistration(java.lang.String name) {
         this(name, ChannelsRegistrationArgs.Empty);
     }
     /**
@@ -349,7 +349,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ChannelsRegistration(String name, ChannelsRegistrationArgs args) {
+    public ChannelsRegistration(java.lang.String name, ChannelsRegistrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -358,15 +358,22 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ChannelsRegistration(String name, ChannelsRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelsRegistration:ChannelsRegistration", name, args == null ? ChannelsRegistrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ChannelsRegistration(java.lang.String name, ChannelsRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:bot/channelsRegistration:ChannelsRegistration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ChannelsRegistration(String name, Output<String> id, @Nullable ChannelsRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelsRegistration:ChannelsRegistration", name, state, makeResourceOptions(options, id));
+    private ChannelsRegistration(java.lang.String name, Output<java.lang.String> id, @Nullable ChannelsRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:bot/channelsRegistration:ChannelsRegistration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ChannelsRegistrationArgs makeArgs(ChannelsRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChannelsRegistrationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -385,7 +392,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ChannelsRegistration get(String name, Output<String> id, @Nullable ChannelsRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ChannelsRegistration get(java.lang.String name, Output<java.lang.String> id, @Nullable ChannelsRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ChannelsRegistration(name, id, state, options);
     }
 }

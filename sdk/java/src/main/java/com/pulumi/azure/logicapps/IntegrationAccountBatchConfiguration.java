@@ -177,7 +177,7 @@ public class IntegrationAccountBatchConfiguration extends com.pulumi.resources.C
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationAccountBatchConfiguration(String name) {
+    public IntegrationAccountBatchConfiguration(java.lang.String name) {
         this(name, IntegrationAccountBatchConfigurationArgs.Empty);
     }
     /**
@@ -185,7 +185,7 @@ public class IntegrationAccountBatchConfiguration extends com.pulumi.resources.C
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationAccountBatchConfiguration(String name, IntegrationAccountBatchConfigurationArgs args) {
+    public IntegrationAccountBatchConfiguration(java.lang.String name, IntegrationAccountBatchConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -194,15 +194,22 @@ public class IntegrationAccountBatchConfiguration extends com.pulumi.resources.C
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationAccountBatchConfiguration(String name, IntegrationAccountBatchConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration", name, args == null ? IntegrationAccountBatchConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IntegrationAccountBatchConfiguration(java.lang.String name, IntegrationAccountBatchConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationAccountBatchConfiguration(String name, Output<String> id, @Nullable IntegrationAccountBatchConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration", name, state, makeResourceOptions(options, id));
+    private IntegrationAccountBatchConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountBatchConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IntegrationAccountBatchConfigurationArgs makeArgs(IntegrationAccountBatchConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationAccountBatchConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -218,7 +225,7 @@ public class IntegrationAccountBatchConfiguration extends com.pulumi.resources.C
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationAccountBatchConfiguration get(String name, Output<String> id, @Nullable IntegrationAccountBatchConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationAccountBatchConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountBatchConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationAccountBatchConfiguration(name, id, state, options);
     }
 }

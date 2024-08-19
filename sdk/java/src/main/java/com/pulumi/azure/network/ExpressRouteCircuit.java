@@ -300,7 +300,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ExpressRouteCircuit(String name) {
+    public ExpressRouteCircuit(java.lang.String name) {
         this(name, ExpressRouteCircuitArgs.Empty);
     }
     /**
@@ -308,7 +308,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ExpressRouteCircuit(String name, ExpressRouteCircuitArgs args) {
+    public ExpressRouteCircuit(java.lang.String name, ExpressRouteCircuitArgs args) {
         this(name, args, null);
     }
     /**
@@ -317,15 +317,22 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ExpressRouteCircuit(String name, ExpressRouteCircuitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, args == null ? ExpressRouteCircuitArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ExpressRouteCircuit(java.lang.String name, ExpressRouteCircuitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ExpressRouteCircuit(String name, Output<String> id, @Nullable ExpressRouteCircuitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, state, makeResourceOptions(options, id));
+    private ExpressRouteCircuit(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRouteCircuitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ExpressRouteCircuitArgs makeArgs(ExpressRouteCircuitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExpressRouteCircuitArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -345,7 +352,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ExpressRouteCircuit get(String name, Output<String> id, @Nullable ExpressRouteCircuitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ExpressRouteCircuit get(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRouteCircuitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ExpressRouteCircuit(name, id, state, options);
     }
 }

@@ -136,7 +136,7 @@ public class SpringCloudGatewayCustomDomain extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudGatewayCustomDomain(String name) {
+    public SpringCloudGatewayCustomDomain(java.lang.String name) {
         this(name, SpringCloudGatewayCustomDomainArgs.Empty);
     }
     /**
@@ -144,7 +144,7 @@ public class SpringCloudGatewayCustomDomain extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudGatewayCustomDomain(String name, SpringCloudGatewayCustomDomainArgs args) {
+    public SpringCloudGatewayCustomDomain(java.lang.String name, SpringCloudGatewayCustomDomainArgs args) {
         this(name, args, null);
     }
     /**
@@ -153,15 +153,22 @@ public class SpringCloudGatewayCustomDomain extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudGatewayCustomDomain(String name, SpringCloudGatewayCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain", name, args == null ? SpringCloudGatewayCustomDomainArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudGatewayCustomDomain(java.lang.String name, SpringCloudGatewayCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudGatewayCustomDomain(String name, Output<String> id, @Nullable SpringCloudGatewayCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain", name, state, makeResourceOptions(options, id));
+    private SpringCloudGatewayCustomDomain(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudGatewayCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudGatewayCustomDomainArgs makeArgs(SpringCloudGatewayCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudGatewayCustomDomainArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -177,7 +184,7 @@ public class SpringCloudGatewayCustomDomain extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudGatewayCustomDomain get(String name, Output<String> id, @Nullable SpringCloudGatewayCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudGatewayCustomDomain get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudGatewayCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudGatewayCustomDomain(name, id, state, options);
     }
 }

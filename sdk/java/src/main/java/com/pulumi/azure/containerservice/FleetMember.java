@@ -174,7 +174,7 @@ public class FleetMember extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FleetMember(String name) {
+    public FleetMember(java.lang.String name) {
         this(name, FleetMemberArgs.Empty);
     }
     /**
@@ -182,7 +182,7 @@ public class FleetMember extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FleetMember(String name, FleetMemberArgs args) {
+    public FleetMember(java.lang.String name, FleetMemberArgs args) {
         this(name, args, null);
     }
     /**
@@ -191,15 +191,22 @@ public class FleetMember extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FleetMember(String name, FleetMemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/fleetMember:FleetMember", name, args == null ? FleetMemberArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FleetMember(java.lang.String name, FleetMemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/fleetMember:FleetMember", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FleetMember(String name, Output<String> id, @Nullable FleetMemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/fleetMember:FleetMember", name, state, makeResourceOptions(options, id));
+    private FleetMember(java.lang.String name, Output<java.lang.String> id, @Nullable FleetMemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/fleetMember:FleetMember", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FleetMemberArgs makeArgs(FleetMemberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FleetMemberArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -215,7 +222,7 @@ public class FleetMember extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FleetMember get(String name, Output<String> id, @Nullable FleetMemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FleetMember get(java.lang.String name, Output<java.lang.String> id, @Nullable FleetMemberState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FleetMember(name, id, state, options);
     }
 }

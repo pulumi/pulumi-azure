@@ -480,7 +480,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FunctionAppSlot(String name) {
+    public FunctionAppSlot(java.lang.String name) {
         this(name, FunctionAppSlotArgs.Empty);
     }
     /**
@@ -488,7 +488,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FunctionAppSlot(String name, FunctionAppSlotArgs args) {
+    public FunctionAppSlot(java.lang.String name, FunctionAppSlotArgs args) {
         this(name, args, null);
     }
     /**
@@ -497,15 +497,22 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FunctionAppSlot(String name, FunctionAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/functionAppSlot:FunctionAppSlot", name, args == null ? FunctionAppSlotArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FunctionAppSlot(java.lang.String name, FunctionAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/functionAppSlot:FunctionAppSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FunctionAppSlot(String name, Output<String> id, @Nullable FunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/functionAppSlot:FunctionAppSlot", name, state, makeResourceOptions(options, id));
+    private FunctionAppSlot(java.lang.String name, Output<java.lang.String> id, @Nullable FunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/functionAppSlot:FunctionAppSlot", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FunctionAppSlotArgs makeArgs(FunctionAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FunctionAppSlotArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -524,7 +531,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FunctionAppSlot get(String name, Output<String> id, @Nullable FunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FunctionAppSlot get(java.lang.String name, Output<java.lang.String> id, @Nullable FunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FunctionAppSlot(name, id, state, options);
     }
 }

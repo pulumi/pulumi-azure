@@ -226,7 +226,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataCollectionRule(String name) {
+    public DataCollectionRule(java.lang.String name) {
         this(name, DataCollectionRuleArgs.Empty);
     }
     /**
@@ -234,7 +234,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataCollectionRule(String name, DataCollectionRuleArgs args) {
+    public DataCollectionRule(java.lang.String name, DataCollectionRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -243,15 +243,22 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataCollectionRule(String name, DataCollectionRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/dataCollectionRule:DataCollectionRule", name, args == null ? DataCollectionRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataCollectionRule(java.lang.String name, DataCollectionRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/dataCollectionRule:DataCollectionRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataCollectionRule(String name, Output<String> id, @Nullable DataCollectionRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/dataCollectionRule:DataCollectionRule", name, state, makeResourceOptions(options, id));
+    private DataCollectionRule(java.lang.String name, Output<java.lang.String> id, @Nullable DataCollectionRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/dataCollectionRule:DataCollectionRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataCollectionRuleArgs makeArgs(DataCollectionRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataCollectionRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -267,7 +274,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataCollectionRule get(String name, Output<String> id, @Nullable DataCollectionRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataCollectionRule get(java.lang.String name, Output<java.lang.String> id, @Nullable DataCollectionRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataCollectionRule(name, id, state, options);
     }
 }

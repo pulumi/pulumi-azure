@@ -18,7 +18,7 @@ public final class LinuxVirtualMachineScaleSetAdminSshKey {
     /**
      * @return The Username for which this Public SSH Key should be configured.
      * 
-     * &gt; **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
+     * &gt; **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
      * 
      */
     private String username;
@@ -34,7 +34,7 @@ public final class LinuxVirtualMachineScaleSetAdminSshKey {
     /**
      * @return The Username for which this Public SSH Key should be configured.
      * 
-     * &gt; **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
+     * &gt; **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
      * 
      */
     public String username() {

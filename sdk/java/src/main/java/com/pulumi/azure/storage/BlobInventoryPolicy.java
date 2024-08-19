@@ -137,7 +137,7 @@ public class BlobInventoryPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BlobInventoryPolicy(String name) {
+    public BlobInventoryPolicy(java.lang.String name) {
         this(name, BlobInventoryPolicyArgs.Empty);
     }
     /**
@@ -145,7 +145,7 @@ public class BlobInventoryPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BlobInventoryPolicy(String name, BlobInventoryPolicyArgs args) {
+    public BlobInventoryPolicy(java.lang.String name, BlobInventoryPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -154,15 +154,22 @@ public class BlobInventoryPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BlobInventoryPolicy(String name, BlobInventoryPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/blobInventoryPolicy:BlobInventoryPolicy", name, args == null ? BlobInventoryPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BlobInventoryPolicy(java.lang.String name, BlobInventoryPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/blobInventoryPolicy:BlobInventoryPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BlobInventoryPolicy(String name, Output<String> id, @Nullable BlobInventoryPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/blobInventoryPolicy:BlobInventoryPolicy", name, state, makeResourceOptions(options, id));
+    private BlobInventoryPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable BlobInventoryPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/blobInventoryPolicy:BlobInventoryPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BlobInventoryPolicyArgs makeArgs(BlobInventoryPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BlobInventoryPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -178,7 +185,7 @@ public class BlobInventoryPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BlobInventoryPolicy get(String name, Output<String> id, @Nullable BlobInventoryPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BlobInventoryPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable BlobInventoryPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BlobInventoryPolicy(name, id, state, options);
     }
 }

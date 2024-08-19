@@ -84,18 +84,18 @@ type Topic struct {
 	// Boolean flag which controls if server-side batched operations are enabled.
 	//
 	// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
+	EnableBatchedOperations pulumi.BoolOutput `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	//
 	// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
+	EnableExpress pulumi.BoolOutput `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	//
 	// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
-	ExpressEnabled     pulumi.BoolOutput    `pulumi:"expressEnabled"`
+	EnablePartitioning pulumi.BoolOutput `pulumi:"enablePartitioning"`
+	ExpressEnabled     pulumi.BoolOutput `pulumi:"expressEnabled"`
 	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntOutput `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
@@ -431,15 +431,15 @@ func (o TopicOutput) DuplicateDetectionHistoryTimeWindow() pulumi.StringOutput {
 // Boolean flag which controls if server-side batched operations are enabled.
 //
 // Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
-func (o TopicOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnableBatchedOperations }).(pulumi.BoolPtrOutput)
+func (o TopicOutput) EnableBatchedOperations() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolOutput { return v.EnableBatchedOperations }).(pulumi.BoolOutput)
 }
 
 // Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 //
 // Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
-func (o TopicOutput) EnableExpress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnableExpress }).(pulumi.BoolPtrOutput)
+func (o TopicOutput) EnableExpress() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolOutput { return v.EnableExpress }).(pulumi.BoolOutput)
 }
 
 // Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
@@ -447,8 +447,8 @@ func (o TopicOutput) EnableExpress() pulumi.BoolPtrOutput {
 // > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 //
 // Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
-func (o TopicOutput) EnablePartitioning() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
+func (o TopicOutput) EnablePartitioning() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolOutput { return v.EnablePartitioning }).(pulumi.BoolOutput)
 }
 
 func (o TopicOutput) ExpressEnabled() pulumi.BoolOutput {

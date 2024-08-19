@@ -191,7 +191,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualNetwork(String name) {
+    public VirtualNetwork(java.lang.String name) {
         this(name, VirtualNetworkArgs.Empty);
     }
     /**
@@ -199,7 +199,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualNetwork(String name, VirtualNetworkArgs args) {
+    public VirtualNetwork(java.lang.String name, VirtualNetworkArgs args) {
         this(name, args, null);
     }
     /**
@@ -208,15 +208,22 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualNetwork(String name, VirtualNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devtest/virtualNetwork:VirtualNetwork", name, args == null ? VirtualNetworkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualNetwork(java.lang.String name, VirtualNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:devtest/virtualNetwork:VirtualNetwork", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualNetwork(String name, Output<String> id, @Nullable VirtualNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devtest/virtualNetwork:VirtualNetwork", name, state, makeResourceOptions(options, id));
+    private VirtualNetwork(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:devtest/virtualNetwork:VirtualNetwork", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualNetworkArgs makeArgs(VirtualNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualNetworkArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -232,7 +239,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualNetwork get(String name, Output<String> id, @Nullable VirtualNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualNetwork get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualNetwork(name, id, state, options);
     }
 }

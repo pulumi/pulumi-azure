@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Lab Service Schedule.
  * 
+ * !&gt; **Note:** This resource is being [deprecated by Azure](https://learn.microsoft.com/en-us/azure/lab-services/retirement-guide). This resource will be removed in version 4.0 of the provider.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -210,7 +212,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Schedule(String name) {
+    public Schedule(java.lang.String name) {
         this(name, ScheduleArgs.Empty);
     }
     /**
@@ -218,7 +220,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Schedule(String name, ScheduleArgs args) {
+    public Schedule(java.lang.String name, ScheduleArgs args) {
         this(name, args, null);
     }
     /**
@@ -227,15 +229,22 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Schedule(String name, ScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lab/schedule:Schedule", name, args == null ? ScheduleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Schedule(java.lang.String name, ScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lab/schedule:Schedule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Schedule(String name, Output<String> id, @Nullable ScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lab/schedule:Schedule", name, state, makeResourceOptions(options, id));
+    private Schedule(java.lang.String name, Output<java.lang.String> id, @Nullable ScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lab/schedule:Schedule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ScheduleArgs makeArgs(ScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScheduleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -251,7 +260,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Schedule get(String name, Output<String> id, @Nullable ScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Schedule get(java.lang.String name, Output<java.lang.String> id, @Nullable ScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Schedule(name, id, state, options);
     }
 }

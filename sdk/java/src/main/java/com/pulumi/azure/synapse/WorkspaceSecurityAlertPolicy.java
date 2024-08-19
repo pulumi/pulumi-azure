@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .aadAdmin(WorkspaceAadAdminArgs.builder()
  *                 .login("AzureAD Admin")
  *                 .objectId("00000000-0000-0000-0000-000000000000")
@@ -112,8 +112,8 @@ import javax.annotation.Nullable;
  *             .retentionDays(20)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -246,7 +246,7 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WorkspaceSecurityAlertPolicy(String name) {
+    public WorkspaceSecurityAlertPolicy(java.lang.String name) {
         this(name, WorkspaceSecurityAlertPolicyArgs.Empty);
     }
     /**
@@ -254,7 +254,7 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WorkspaceSecurityAlertPolicy(String name, WorkspaceSecurityAlertPolicyArgs args) {
+    public WorkspaceSecurityAlertPolicy(java.lang.String name, WorkspaceSecurityAlertPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -263,15 +263,22 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WorkspaceSecurityAlertPolicy(String name, WorkspaceSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy", name, args == null ? WorkspaceSecurityAlertPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public WorkspaceSecurityAlertPolicy(java.lang.String name, WorkspaceSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WorkspaceSecurityAlertPolicy(String name, Output<String> id, @Nullable WorkspaceSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy", name, state, makeResourceOptions(options, id));
+    private WorkspaceSecurityAlertPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkspaceSecurityAlertPolicyArgs makeArgs(WorkspaceSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceSecurityAlertPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -290,7 +297,7 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WorkspaceSecurityAlertPolicy get(String name, Output<String> id, @Nullable WorkspaceSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WorkspaceSecurityAlertPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WorkspaceSecurityAlertPolicy(name, id, state, options);
     }
 }

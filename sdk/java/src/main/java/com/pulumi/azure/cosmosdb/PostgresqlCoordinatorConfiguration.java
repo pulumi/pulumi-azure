@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .name("examplecluster")
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
  *             .location(exampleAzurermResourceGroup.location())
- *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .administratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .coordinatorStorageQuotaInMb(131072)
  *             .coordinatorVcoreCount(2)
  *             .nodeCount(2)
@@ -68,8 +68,8 @@ import javax.annotation.Nullable;
  *             .value("on")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -132,7 +132,7 @@ public class PostgresqlCoordinatorConfiguration extends com.pulumi.resources.Cus
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PostgresqlCoordinatorConfiguration(String name) {
+    public PostgresqlCoordinatorConfiguration(java.lang.String name) {
         this(name, PostgresqlCoordinatorConfigurationArgs.Empty);
     }
     /**
@@ -140,7 +140,7 @@ public class PostgresqlCoordinatorConfiguration extends com.pulumi.resources.Cus
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PostgresqlCoordinatorConfiguration(String name, PostgresqlCoordinatorConfigurationArgs args) {
+    public PostgresqlCoordinatorConfiguration(java.lang.String name, PostgresqlCoordinatorConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -149,15 +149,22 @@ public class PostgresqlCoordinatorConfiguration extends com.pulumi.resources.Cus
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PostgresqlCoordinatorConfiguration(String name, PostgresqlCoordinatorConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration", name, args == null ? PostgresqlCoordinatorConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PostgresqlCoordinatorConfiguration(java.lang.String name, PostgresqlCoordinatorConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PostgresqlCoordinatorConfiguration(String name, Output<String> id, @Nullable PostgresqlCoordinatorConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration", name, state, makeResourceOptions(options, id));
+    private PostgresqlCoordinatorConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable PostgresqlCoordinatorConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PostgresqlCoordinatorConfigurationArgs makeArgs(PostgresqlCoordinatorConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PostgresqlCoordinatorConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -173,7 +180,7 @@ public class PostgresqlCoordinatorConfiguration extends com.pulumi.resources.Cus
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PostgresqlCoordinatorConfiguration get(String name, Output<String> id, @Nullable PostgresqlCoordinatorConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PostgresqlCoordinatorConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable PostgresqlCoordinatorConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PostgresqlCoordinatorConfiguration(name, id, state, options);
     }
 }

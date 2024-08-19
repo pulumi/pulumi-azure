@@ -742,7 +742,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FunctionApp(String name) {
+    public FunctionApp(java.lang.String name) {
         this(name, FunctionAppArgs.Empty);
     }
     /**
@@ -750,7 +750,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FunctionApp(String name, FunctionAppArgs args) {
+    public FunctionApp(java.lang.String name, FunctionAppArgs args) {
         this(name, args, null);
     }
     /**
@@ -759,15 +759,22 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FunctionApp(String name, FunctionAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/functionApp:FunctionApp", name, args == null ? FunctionAppArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FunctionApp(java.lang.String name, FunctionAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/functionApp:FunctionApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FunctionApp(String name, Output<String> id, @Nullable FunctionAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/functionApp:FunctionApp", name, state, makeResourceOptions(options, id));
+    private FunctionApp(java.lang.String name, Output<java.lang.String> id, @Nullable FunctionAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/functionApp:FunctionApp", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FunctionAppArgs makeArgs(FunctionAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FunctionAppArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -786,7 +793,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FunctionApp get(String name, Output<String> id, @Nullable FunctionAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FunctionApp get(java.lang.String name, Output<java.lang.String> id, @Nullable FunctionAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FunctionApp(name, id, state, options);
     }
 }

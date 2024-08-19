@@ -126,7 +126,7 @@ public class ZipBlob extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ZipBlob(String name) {
+    public ZipBlob(java.lang.String name) {
         this(name, ZipBlobArgs.Empty);
     }
     /**
@@ -134,7 +134,7 @@ public class ZipBlob extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ZipBlob(String name, ZipBlobArgs args) {
+    public ZipBlob(java.lang.String name, ZipBlobArgs args) {
         this(name, args, null);
     }
     /**
@@ -143,15 +143,22 @@ public class ZipBlob extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ZipBlob(String name, ZipBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/zipBlob:ZipBlob", name, args == null ? ZipBlobArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ZipBlob(java.lang.String name, ZipBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/zipBlob:ZipBlob", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ZipBlob(String name, Output<String> id, @Nullable ZipBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/zipBlob:ZipBlob", name, state, makeResourceOptions(options, id));
+    private ZipBlob(java.lang.String name, Output<java.lang.String> id, @Nullable ZipBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/zipBlob:ZipBlob", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ZipBlobArgs makeArgs(ZipBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ZipBlobArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -167,7 +174,7 @@ public class ZipBlob extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ZipBlob get(String name, Output<String> id, @Nullable ZipBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ZipBlob get(java.lang.String name, Output<java.lang.String> id, @Nullable ZipBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ZipBlob(name, id, state, options);
     }
 }

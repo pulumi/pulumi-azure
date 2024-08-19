@@ -207,7 +207,7 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConnectionServicePrincipal(String name) {
+    public ConnectionServicePrincipal(java.lang.String name) {
         this(name, ConnectionServicePrincipalArgs.Empty);
     }
     /**
@@ -215,7 +215,7 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConnectionServicePrincipal(String name, ConnectionServicePrincipalArgs args) {
+    public ConnectionServicePrincipal(java.lang.String name, ConnectionServicePrincipalArgs args) {
         this(name, args, null);
     }
     /**
@@ -224,15 +224,22 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConnectionServicePrincipal(String name, ConnectionServicePrincipalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal", name, args == null ? ConnectionServicePrincipalArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ConnectionServicePrincipal(java.lang.String name, ConnectionServicePrincipalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConnectionServicePrincipal(String name, Output<String> id, @Nullable ConnectionServicePrincipalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal", name, state, makeResourceOptions(options, id));
+    private ConnectionServicePrincipal(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionServicePrincipalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConnectionServicePrincipalArgs makeArgs(ConnectionServicePrincipalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectionServicePrincipalArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -248,7 +255,7 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConnectionServicePrincipal get(String name, Output<String> id, @Nullable ConnectionServicePrincipalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConnectionServicePrincipal get(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionServicePrincipalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConnectionServicePrincipal(name, id, state, options);
     }
 }

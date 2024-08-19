@@ -82,7 +82,7 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
     /**
      * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
      * 
-     * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
     @Import(name="protectedSettings")
@@ -91,16 +91,28 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
     /**
      * @return A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
      * 
-     * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
     public Optional<Output<String>> protectedSettings() {
         return Optional.ofNullable(this.protectedSettings);
     }
 
+    /**
+     * A `protected_settings_from_key_vault` block as defined below.
+     * 
+     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+     * 
+     */
     @Import(name="protectedSettingsFromKeyVault")
     private @Nullable Output<LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault;
 
+    /**
+     * @return A `protected_settings_from_key_vault` block as defined below.
+     * 
+     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+     * 
+     */
     public Optional<Output<LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs>> protectedSettingsFromKeyVault() {
         return Optional.ofNullable(this.protectedSettingsFromKeyVault);
     }
@@ -138,7 +150,7 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
     /**
      * A JSON String which specifies Settings for the Extension.
      * 
-     * &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * &gt; **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
     @Import(name="settings")
@@ -147,7 +159,7 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
     /**
      * @return A JSON String which specifies Settings for the Extension.
      * 
-     * &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * &gt; **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
     public Optional<Output<String>> settings() {
@@ -305,7 +317,7 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
         /**
          * @param protectedSettings A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          * 
-         * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+         * &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
          * 
          * @return builder
          * 
@@ -318,7 +330,7 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
         /**
          * @param protectedSettings A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          * 
-         * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+         * &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
          * 
          * @return builder
          * 
@@ -327,11 +339,27 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
             return protectedSettings(Output.of(protectedSettings));
         }
 
+        /**
+         * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+         * 
+         * @return builder
+         * 
+         */
         public Builder protectedSettingsFromKeyVault(@Nullable Output<LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault) {
             $.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
             return this;
         }
 
+        /**
+         * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+         * 
+         * @return builder
+         * 
+         */
         public Builder protectedSettingsFromKeyVault(LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs protectedSettingsFromKeyVault) {
             return protectedSettingsFromKeyVault(Output.of(protectedSettingsFromKeyVault));
         }
@@ -391,7 +419,7 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
         /**
          * @param settings A JSON String which specifies Settings for the Extension.
          * 
-         * &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+         * &gt; **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
          * 
          * @return builder
          * 
@@ -404,7 +432,7 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
         /**
          * @param settings A JSON String which specifies Settings for the Extension.
          * 
-         * &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+         * &gt; **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
          * 
          * @return builder
          * 

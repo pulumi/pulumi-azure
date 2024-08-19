@@ -111,7 +111,7 @@ public class IPGroupCIDR extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IPGroupCIDR(String name) {
+    public IPGroupCIDR(java.lang.String name) {
         this(name, IPGroupCIDRArgs.Empty);
     }
     /**
@@ -119,7 +119,7 @@ public class IPGroupCIDR extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IPGroupCIDR(String name, IPGroupCIDRArgs args) {
+    public IPGroupCIDR(java.lang.String name, IPGroupCIDRArgs args) {
         this(name, args, null);
     }
     /**
@@ -128,15 +128,22 @@ public class IPGroupCIDR extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IPGroupCIDR(String name, IPGroupCIDRArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/iPGroupCIDR:IPGroupCIDR", name, args == null ? IPGroupCIDRArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IPGroupCIDR(java.lang.String name, IPGroupCIDRArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/iPGroupCIDR:IPGroupCIDR", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IPGroupCIDR(String name, Output<String> id, @Nullable IPGroupCIDRState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/iPGroupCIDR:IPGroupCIDR", name, state, makeResourceOptions(options, id));
+    private IPGroupCIDR(java.lang.String name, Output<java.lang.String> id, @Nullable IPGroupCIDRState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/iPGroupCIDR:IPGroupCIDR", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IPGroupCIDRArgs makeArgs(IPGroupCIDRArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IPGroupCIDRArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -152,7 +159,7 @@ public class IPGroupCIDR extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IPGroupCIDR get(String name, Output<String> id, @Nullable IPGroupCIDRState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IPGroupCIDR get(java.lang.String name, Output<java.lang.String> id, @Nullable IPGroupCIDRState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IPGroupCIDR(name, id, state, options);
     }
 }

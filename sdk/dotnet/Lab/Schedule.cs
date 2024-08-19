@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Lab
     /// <summary>
     /// Manages a Lab Service Schedule.
     /// 
+    /// !&gt; **Note:** This resource is being [deprecated by Azure](https://learn.microsoft.com/en-us/azure/lab-services/retirement-guide). This resource will be removed in version 4.0 of the provider.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

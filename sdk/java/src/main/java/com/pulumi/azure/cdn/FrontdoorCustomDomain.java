@@ -300,7 +300,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FrontdoorCustomDomain(String name) {
+    public FrontdoorCustomDomain(java.lang.String name) {
         this(name, FrontdoorCustomDomainArgs.Empty);
     }
     /**
@@ -308,7 +308,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FrontdoorCustomDomain(String name, FrontdoorCustomDomainArgs args) {
+    public FrontdoorCustomDomain(java.lang.String name, FrontdoorCustomDomainArgs args) {
         this(name, args, null);
     }
     /**
@@ -317,15 +317,22 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FrontdoorCustomDomain(String name, FrontdoorCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain", name, args == null ? FrontdoorCustomDomainArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FrontdoorCustomDomain(java.lang.String name, FrontdoorCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FrontdoorCustomDomain(String name, Output<String> id, @Nullable FrontdoorCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain", name, state, makeResourceOptions(options, id));
+    private FrontdoorCustomDomain(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FrontdoorCustomDomainArgs makeArgs(FrontdoorCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FrontdoorCustomDomainArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -344,7 +351,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FrontdoorCustomDomain get(String name, Output<String> id, @Nullable FrontdoorCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FrontdoorCustomDomain get(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FrontdoorCustomDomain(name, id, state, options);
     }
 }

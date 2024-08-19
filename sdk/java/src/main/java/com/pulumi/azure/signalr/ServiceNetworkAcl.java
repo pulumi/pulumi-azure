@@ -192,7 +192,7 @@ public class ServiceNetworkAcl extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceNetworkAcl(String name) {
+    public ServiceNetworkAcl(java.lang.String name) {
         this(name, ServiceNetworkAclArgs.Empty);
     }
     /**
@@ -200,7 +200,7 @@ public class ServiceNetworkAcl extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceNetworkAcl(String name, ServiceNetworkAclArgs args) {
+    public ServiceNetworkAcl(java.lang.String name, ServiceNetworkAclArgs args) {
         this(name, args, null);
     }
     /**
@@ -209,15 +209,22 @@ public class ServiceNetworkAcl extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceNetworkAcl(String name, ServiceNetworkAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:signalr/serviceNetworkAcl:ServiceNetworkAcl", name, args == null ? ServiceNetworkAclArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceNetworkAcl(java.lang.String name, ServiceNetworkAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:signalr/serviceNetworkAcl:ServiceNetworkAcl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceNetworkAcl(String name, Output<String> id, @Nullable ServiceNetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:signalr/serviceNetworkAcl:ServiceNetworkAcl", name, state, makeResourceOptions(options, id));
+    private ServiceNetworkAcl(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceNetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:signalr/serviceNetworkAcl:ServiceNetworkAcl", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceNetworkAclArgs makeArgs(ServiceNetworkAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceNetworkAclArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +240,7 @@ public class ServiceNetworkAcl extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceNetworkAcl get(String name, Output<String> id, @Nullable ServiceNetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceNetworkAcl get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceNetworkAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceNetworkAcl(name, id, state, options);
     }
 }

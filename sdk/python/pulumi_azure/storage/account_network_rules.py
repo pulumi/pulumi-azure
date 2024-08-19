@@ -31,7 +31,7 @@ class AccountNetworkRulesInitArgs:
         The set of arguments for constructing a AccountNetworkRules resource.
         :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
                
                > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
@@ -85,7 +85,7 @@ class AccountNetworkRulesInitArgs:
     @pulumi.getter
     def bypasses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 
         > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         """
@@ -151,7 +151,7 @@ class _AccountNetworkRulesState:
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering AccountNetworkRules resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
                
                > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
@@ -185,7 +185,7 @@ class _AccountNetworkRulesState:
     @pulumi.getter
     def bypasses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 
         > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         """
@@ -332,7 +332,7 @@ class AccountNetworkRules(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
                
                > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
@@ -472,7 +472,7 @@ class AccountNetworkRules(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
                
                > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
@@ -505,7 +505,7 @@ class AccountNetworkRules(pulumi.CustomResource):
     @pulumi.getter
     def bypasses(self) -> pulumi.Output[Sequence[str]]:
         """
-        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 
         > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         """
@@ -521,7 +521,7 @@ class AccountNetworkRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> pulumi.Output[Sequence[str]]:
+    def ip_rules(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 
@@ -551,7 +551,7 @@ class AccountNetworkRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetIds")
-    def virtual_network_subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+    def virtual_network_subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of virtual network subnet ids to secure the storage account.
 

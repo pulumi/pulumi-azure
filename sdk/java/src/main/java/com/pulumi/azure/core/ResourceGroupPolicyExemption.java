@@ -226,7 +226,7 @@ public class ResourceGroupPolicyExemption extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceGroupPolicyExemption(String name) {
+    public ResourceGroupPolicyExemption(java.lang.String name) {
         this(name, ResourceGroupPolicyExemptionArgs.Empty);
     }
     /**
@@ -234,7 +234,7 @@ public class ResourceGroupPolicyExemption extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceGroupPolicyExemption(String name, ResourceGroupPolicyExemptionArgs args) {
+    public ResourceGroupPolicyExemption(java.lang.String name, ResourceGroupPolicyExemptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -243,15 +243,22 @@ public class ResourceGroupPolicyExemption extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceGroupPolicyExemption(String name, ResourceGroupPolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption", name, args == null ? ResourceGroupPolicyExemptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResourceGroupPolicyExemption(java.lang.String name, ResourceGroupPolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceGroupPolicyExemption(String name, Output<String> id, @Nullable ResourceGroupPolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption", name, state, makeResourceOptions(options, id));
+    private ResourceGroupPolicyExemption(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupPolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResourceGroupPolicyExemptionArgs makeArgs(ResourceGroupPolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceGroupPolicyExemptionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -267,7 +274,7 @@ public class ResourceGroupPolicyExemption extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceGroupPolicyExemption get(String name, Output<String> id, @Nullable ResourceGroupPolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceGroupPolicyExemption get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupPolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceGroupPolicyExemption(name, id, state, options);
     }
 }

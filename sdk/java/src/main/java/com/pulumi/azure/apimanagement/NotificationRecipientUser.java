@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company{@literal @}terraform.io")
+ *             .publisherEmail("company}{@literal @}{@code terraform.io")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .firstName("Example")
  *             .lastName("User")
- *             .email("foo{@literal @}bar.com")
+ *             .email("foo}{@literal @}{@code bar.com")
  *             .state("active")
  *             .build());
  * 
@@ -77,8 +77,8 @@ import javax.annotation.Nullable;
  *             .userId(exampleUser.userId())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -141,7 +141,7 @@ public class NotificationRecipientUser extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NotificationRecipientUser(String name) {
+    public NotificationRecipientUser(java.lang.String name) {
         this(name, NotificationRecipientUserArgs.Empty);
     }
     /**
@@ -149,7 +149,7 @@ public class NotificationRecipientUser extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NotificationRecipientUser(String name, NotificationRecipientUserArgs args) {
+    public NotificationRecipientUser(java.lang.String name, NotificationRecipientUserArgs args) {
         this(name, args, null);
     }
     /**
@@ -158,15 +158,22 @@ public class NotificationRecipientUser extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NotificationRecipientUser(String name, NotificationRecipientUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/notificationRecipientUser:NotificationRecipientUser", name, args == null ? NotificationRecipientUserArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NotificationRecipientUser(java.lang.String name, NotificationRecipientUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/notificationRecipientUser:NotificationRecipientUser", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NotificationRecipientUser(String name, Output<String> id, @Nullable NotificationRecipientUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/notificationRecipientUser:NotificationRecipientUser", name, state, makeResourceOptions(options, id));
+    private NotificationRecipientUser(java.lang.String name, Output<java.lang.String> id, @Nullable NotificationRecipientUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/notificationRecipientUser:NotificationRecipientUser", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NotificationRecipientUserArgs makeArgs(NotificationRecipientUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NotificationRecipientUserArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -182,7 +189,7 @@ public class NotificationRecipientUser extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NotificationRecipientUser get(String name, Output<String> id, @Nullable NotificationRecipientUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NotificationRecipientUser get(java.lang.String name, Output<java.lang.String> id, @Nullable NotificationRecipientUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NotificationRecipientUser(name, id, state, options);
     }
 }

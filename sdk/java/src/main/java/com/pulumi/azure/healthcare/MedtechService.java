@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("east us")
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                         jsonProperty("templateType", "JsonPathContent"),
  *                         jsonProperty("template", jsonObject(
  *                             jsonProperty("typeName", "heartrate"),
- *                             jsonProperty("typeMatchExpression", "$..[?({@literal @}heartrate)]"),
+ *                             jsonProperty("typeMatchExpression", "$..[?(}{@literal @}{@code heartrate)]"),
  *                             jsonProperty("deviceIdExpression", "$.deviceid"),
  *                             jsonProperty("timestampExpression", "$.measurementdatetime"),
  *                             jsonProperty("values", jsonArray(jsonObject(
@@ -91,8 +91,8 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -239,7 +239,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MedtechService(String name) {
+    public MedtechService(java.lang.String name) {
         this(name, MedtechServiceArgs.Empty);
     }
     /**
@@ -247,7 +247,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MedtechService(String name, MedtechServiceArgs args) {
+    public MedtechService(java.lang.String name, MedtechServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -256,15 +256,22 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MedtechService(String name, MedtechServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:healthcare/medtechService:MedtechService", name, args == null ? MedtechServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MedtechService(java.lang.String name, MedtechServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:healthcare/medtechService:MedtechService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MedtechService(String name, Output<String> id, @Nullable MedtechServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:healthcare/medtechService:MedtechService", name, state, makeResourceOptions(options, id));
+    private MedtechService(java.lang.String name, Output<java.lang.String> id, @Nullable MedtechServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:healthcare/medtechService:MedtechService", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MedtechServiceArgs makeArgs(MedtechServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MedtechServiceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -280,7 +287,7 @@ public class MedtechService extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MedtechService get(String name, Output<String> id, @Nullable MedtechServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MedtechService get(java.lang.String name, Output<java.lang.String> id, @Nullable MedtechServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MedtechService(name, id, state, options);
     }
 }

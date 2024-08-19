@@ -199,7 +199,7 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubscriptionTemplateDeployment(String name) {
+    public SubscriptionTemplateDeployment(java.lang.String name) {
         this(name, SubscriptionTemplateDeploymentArgs.Empty);
     }
     /**
@@ -207,7 +207,7 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubscriptionTemplateDeployment(String name, @Nullable SubscriptionTemplateDeploymentArgs args) {
+    public SubscriptionTemplateDeployment(java.lang.String name, @Nullable SubscriptionTemplateDeploymentArgs args) {
         this(name, args, null);
     }
     /**
@@ -216,15 +216,22 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubscriptionTemplateDeployment(String name, @Nullable SubscriptionTemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment", name, args == null ? SubscriptionTemplateDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SubscriptionTemplateDeployment(java.lang.String name, @Nullable SubscriptionTemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubscriptionTemplateDeployment(String name, Output<String> id, @Nullable SubscriptionTemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment", name, state, makeResourceOptions(options, id));
+    private SubscriptionTemplateDeployment(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionTemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SubscriptionTemplateDeploymentArgs makeArgs(@Nullable SubscriptionTemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubscriptionTemplateDeploymentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -240,7 +247,7 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubscriptionTemplateDeployment get(String name, Output<String> id, @Nullable SubscriptionTemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubscriptionTemplateDeployment get(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionTemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubscriptionTemplateDeployment(name, id, state, options);
     }
 }

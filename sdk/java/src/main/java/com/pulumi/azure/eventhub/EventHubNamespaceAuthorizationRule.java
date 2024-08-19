@@ -265,7 +265,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventHubNamespaceAuthorizationRule(String name) {
+    public EventHubNamespaceAuthorizationRule(java.lang.String name) {
         this(name, EventHubNamespaceAuthorizationRuleArgs.Empty);
     }
     /**
@@ -273,7 +273,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventHubNamespaceAuthorizationRule(String name, EventHubNamespaceAuthorizationRuleArgs args) {
+    public EventHubNamespaceAuthorizationRule(java.lang.String name, EventHubNamespaceAuthorizationRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -282,15 +282,22 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventHubNamespaceAuthorizationRule(String name, EventHubNamespaceAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule", name, args == null ? EventHubNamespaceAuthorizationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EventHubNamespaceAuthorizationRule(java.lang.String name, EventHubNamespaceAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventHubNamespaceAuthorizationRule(String name, Output<String> id, @Nullable EventHubNamespaceAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule", name, state, makeResourceOptions(options, id));
+    private EventHubNamespaceAuthorizationRule(java.lang.String name, Output<java.lang.String> id, @Nullable EventHubNamespaceAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EventHubNamespaceAuthorizationRuleArgs makeArgs(EventHubNamespaceAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventHubNamespaceAuthorizationRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -314,7 +321,7 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventHubNamespaceAuthorizationRule get(String name, Output<String> id, @Nullable EventHubNamespaceAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventHubNamespaceAuthorizationRule get(java.lang.String name, Output<java.lang.String> id, @Nullable EventHubNamespaceAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventHubNamespaceAuthorizationRule(name, id, state, options);
     }
 }

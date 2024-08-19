@@ -249,7 +249,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Script(String name) {
+    public Script(java.lang.String name) {
         this(name, ScriptArgs.Empty);
     }
     /**
@@ -257,7 +257,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Script(String name, ScriptArgs args) {
+    public Script(java.lang.String name, ScriptArgs args) {
         this(name, args, null);
     }
     /**
@@ -266,15 +266,22 @@ public class Script extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Script(String name, ScriptArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:kusto/script:Script", name, args == null ? ScriptArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Script(java.lang.String name, ScriptArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:kusto/script:Script", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Script(String name, Output<String> id, @Nullable ScriptState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:kusto/script:Script", name, state, makeResourceOptions(options, id));
+    private Script(java.lang.String name, Output<java.lang.String> id, @Nullable ScriptState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:kusto/script:Script", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ScriptArgs makeArgs(ScriptArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScriptArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -294,7 +301,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Script get(String name, Output<String> id, @Nullable ScriptState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Script get(java.lang.String name, Output<java.lang.String> id, @Nullable ScriptState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Script(name, id, state, options);
     }
 }

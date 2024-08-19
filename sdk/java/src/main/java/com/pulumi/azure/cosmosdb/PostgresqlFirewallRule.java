@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .name("examplecluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .administratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .coordinatorStorageQuotaInMb(131072)
  *             .coordinatorVcoreCount(2)
  *             .nodeCount(0)
@@ -67,8 +67,8 @@ import javax.annotation.Nullable;
  *             .endIpAddress("10.0.17.64")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -145,7 +145,7 @@ public class PostgresqlFirewallRule extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PostgresqlFirewallRule(String name) {
+    public PostgresqlFirewallRule(java.lang.String name) {
         this(name, PostgresqlFirewallRuleArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class PostgresqlFirewallRule extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PostgresqlFirewallRule(String name, PostgresqlFirewallRuleArgs args) {
+    public PostgresqlFirewallRule(java.lang.String name, PostgresqlFirewallRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,15 +162,22 @@ public class PostgresqlFirewallRule extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PostgresqlFirewallRule(String name, PostgresqlFirewallRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule", name, args == null ? PostgresqlFirewallRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PostgresqlFirewallRule(java.lang.String name, PostgresqlFirewallRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PostgresqlFirewallRule(String name, Output<String> id, @Nullable PostgresqlFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule", name, state, makeResourceOptions(options, id));
+    private PostgresqlFirewallRule(java.lang.String name, Output<java.lang.String> id, @Nullable PostgresqlFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PostgresqlFirewallRuleArgs makeArgs(PostgresqlFirewallRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PostgresqlFirewallRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +193,7 @@ public class PostgresqlFirewallRule extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PostgresqlFirewallRule get(String name, Output<String> id, @Nullable PostgresqlFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PostgresqlFirewallRule get(java.lang.String name, Output<java.lang.String> id, @Nullable PostgresqlFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PostgresqlFirewallRule(name, id, state, options);
     }
 }

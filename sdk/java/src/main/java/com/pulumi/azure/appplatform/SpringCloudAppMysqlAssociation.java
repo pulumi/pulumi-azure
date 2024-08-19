@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .administratorLogin("mysqladminun")
- *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .administratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .skuName("B_Gen5_2")
  *             .storageMb(5120)
  *             .version("5.7")
@@ -99,8 +99,8 @@ import javax.annotation.Nullable;
  *             .password(exampleServer.administratorLoginPassword())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -205,7 +205,7 @@ public class SpringCloudAppMysqlAssociation extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudAppMysqlAssociation(String name) {
+    public SpringCloudAppMysqlAssociation(java.lang.String name) {
         this(name, SpringCloudAppMysqlAssociationArgs.Empty);
     }
     /**
@@ -213,7 +213,7 @@ public class SpringCloudAppMysqlAssociation extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudAppMysqlAssociation(String name, SpringCloudAppMysqlAssociationArgs args) {
+    public SpringCloudAppMysqlAssociation(java.lang.String name, SpringCloudAppMysqlAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -222,15 +222,22 @@ public class SpringCloudAppMysqlAssociation extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudAppMysqlAssociation(String name, SpringCloudAppMysqlAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation", name, args == null ? SpringCloudAppMysqlAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudAppMysqlAssociation(java.lang.String name, SpringCloudAppMysqlAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudAppMysqlAssociation(String name, Output<String> id, @Nullable SpringCloudAppMysqlAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation", name, state, makeResourceOptions(options, id));
+    private SpringCloudAppMysqlAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudAppMysqlAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudAppMysqlAssociationArgs makeArgs(SpringCloudAppMysqlAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudAppMysqlAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -249,7 +256,7 @@ public class SpringCloudAppMysqlAssociation extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudAppMysqlAssociation get(String name, Output<String> id, @Nullable SpringCloudAppMysqlAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudAppMysqlAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudAppMysqlAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudAppMysqlAssociation(name, id, state, options);
     }
 }

@@ -208,7 +208,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DscConfiguration(String name) {
+    public DscConfiguration(java.lang.String name) {
         this(name, DscConfigurationArgs.Empty);
     }
     /**
@@ -216,7 +216,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DscConfiguration(String name, DscConfigurationArgs args) {
+    public DscConfiguration(java.lang.String name, DscConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -225,15 +225,22 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DscConfiguration(String name, DscConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/dscConfiguration:DscConfiguration", name, args == null ? DscConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DscConfiguration(java.lang.String name, DscConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/dscConfiguration:DscConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DscConfiguration(String name, Output<String> id, @Nullable DscConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/dscConfiguration:DscConfiguration", name, state, makeResourceOptions(options, id));
+    private DscConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable DscConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/dscConfiguration:DscConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DscConfigurationArgs makeArgs(DscConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DscConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -249,7 +256,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DscConfiguration get(String name, Output<String> id, @Nullable DscConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DscConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable DscConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DscConfiguration(name, id, state, options);
     }
 }

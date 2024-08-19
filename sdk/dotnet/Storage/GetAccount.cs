@@ -159,11 +159,12 @@ namespace Pulumi.Azure.Storage
         /// Which DNS endpoint type is used - either `Standard` or `AzureDnsZone`.
         /// </summary>
         public readonly string DnsEndpointType;
+        public readonly bool EnableHttpsTrafficOnly;
         /// <summary>
         /// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
         /// for more information.
         /// </summary>
-        public readonly bool EnableHttpsTrafficOnly;
+        public readonly bool HttpsTrafficOnlyEnabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -519,6 +520,8 @@ namespace Pulumi.Azure.Storage
 
             bool enableHttpsTrafficOnly,
 
+            bool httpsTrafficOnlyEnabled,
+
             string id,
 
             ImmutableArray<Outputs.GetAccountIdentityResult> identities,
@@ -696,6 +699,7 @@ namespace Pulumi.Azure.Storage
             CustomDomains = customDomains;
             DnsEndpointType = dnsEndpointType;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
+            HttpsTrafficOnlyEnabled = httpsTrafficOnlyEnabled;
             Id = id;
             Identities = identities;
             InfrastructureEncryptionEnabled = infrastructureEncryptionEnabled;

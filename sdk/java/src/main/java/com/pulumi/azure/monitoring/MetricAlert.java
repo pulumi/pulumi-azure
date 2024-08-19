@@ -370,7 +370,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MetricAlert(String name) {
+    public MetricAlert(java.lang.String name) {
         this(name, MetricAlertArgs.Empty);
     }
     /**
@@ -378,7 +378,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MetricAlert(String name, MetricAlertArgs args) {
+    public MetricAlert(java.lang.String name, MetricAlertArgs args) {
         this(name, args, null);
     }
     /**
@@ -387,15 +387,22 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MetricAlert(String name, MetricAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/metricAlert:MetricAlert", name, args == null ? MetricAlertArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MetricAlert(java.lang.String name, MetricAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/metricAlert:MetricAlert", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MetricAlert(String name, Output<String> id, @Nullable MetricAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/metricAlert:MetricAlert", name, state, makeResourceOptions(options, id));
+    private MetricAlert(java.lang.String name, Output<java.lang.String> id, @Nullable MetricAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/metricAlert:MetricAlert", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MetricAlertArgs makeArgs(MetricAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MetricAlertArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -411,7 +418,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MetricAlert get(String name, Output<String> id, @Nullable MetricAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MetricAlert get(java.lang.String name, Output<java.lang.String> id, @Nullable MetricAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MetricAlert(name, id, state, options);
     }
 }

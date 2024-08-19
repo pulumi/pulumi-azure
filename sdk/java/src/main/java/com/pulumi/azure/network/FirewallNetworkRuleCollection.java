@@ -221,7 +221,7 @@ public class FirewallNetworkRuleCollection extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FirewallNetworkRuleCollection(String name) {
+    public FirewallNetworkRuleCollection(java.lang.String name) {
         this(name, FirewallNetworkRuleCollectionArgs.Empty);
     }
     /**
@@ -229,7 +229,7 @@ public class FirewallNetworkRuleCollection extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FirewallNetworkRuleCollection(String name, FirewallNetworkRuleCollectionArgs args) {
+    public FirewallNetworkRuleCollection(java.lang.String name, FirewallNetworkRuleCollectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -238,15 +238,22 @@ public class FirewallNetworkRuleCollection extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FirewallNetworkRuleCollection(String name, FirewallNetworkRuleCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection", name, args == null ? FirewallNetworkRuleCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FirewallNetworkRuleCollection(java.lang.String name, FirewallNetworkRuleCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FirewallNetworkRuleCollection(String name, Output<String> id, @Nullable FirewallNetworkRuleCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection", name, state, makeResourceOptions(options, id));
+    private FirewallNetworkRuleCollection(java.lang.String name, Output<java.lang.String> id, @Nullable FirewallNetworkRuleCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FirewallNetworkRuleCollectionArgs makeArgs(FirewallNetworkRuleCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FirewallNetworkRuleCollectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -262,7 +269,7 @@ public class FirewallNetworkRuleCollection extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FirewallNetworkRuleCollection get(String name, Output<String> id, @Nullable FirewallNetworkRuleCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FirewallNetworkRuleCollection get(java.lang.String name, Output<java.lang.String> id, @Nullable FirewallNetworkRuleCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FirewallNetworkRuleCollection(name, id, state, options);
     }
 }

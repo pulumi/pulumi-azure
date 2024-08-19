@@ -6430,6 +6430,10 @@
                 "current": "azure:devcenter/gallery:Gallery",
                 "majorVersion": 5
             },
+            "azurerm_dev_center_network_connection": {
+                "current": "azure:devcenter/networkConnection:NetworkConnection",
+                "majorVersion": 5
+            },
             "azurerm_dev_center_project": {
                 "current": "azure:devcenter/project:Project",
                 "majorVersion": 5
@@ -20204,6 +20208,28 @@
                 "fields": {
                     "identity": {
                         "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_stack_hci_logical_network": {
+                "current": "azure:stack/hciLogicalNetwork:HciLogicalNetwork",
+                "majorVersion": 5,
+                "fields": {
+                    "dns_servers": {
+                        "maxItemsOne": false
+                    },
+                    "subnet": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ip_pool": {
+                                    "maxItemsOne": false
+                                },
+                                "route": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },

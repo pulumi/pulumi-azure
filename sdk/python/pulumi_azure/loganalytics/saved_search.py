@@ -34,7 +34,7 @@ class SavedSearchArgs:
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
         :param pulumi.Input[str] function_alias: The function alias if the query serves as a function. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
@@ -115,7 +115,7 @@ class SavedSearchArgs:
     @pulumi.getter(name="functionParameters")
     def function_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         """
         return pulumi.get(self, "function_parameters")
 
@@ -164,7 +164,7 @@ class _SavedSearchState:
         :param pulumi.Input[str] category: The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
         :param pulumi.Input[str] function_alias: The function alias if the query serves as a function. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
@@ -227,7 +227,7 @@ class _SavedSearchState:
     @pulumi.getter(name="functionParameters")
     def function_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         """
         return pulumi.get(self, "function_parameters")
 
@@ -337,7 +337,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] category: The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
         :param pulumi.Input[str] function_alias: The function alias if the query serves as a function. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
@@ -459,7 +459,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] category: The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
         :param pulumi.Input[str] function_alias: The function alias if the query serves as a function. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
@@ -507,7 +507,7 @@ class SavedSearch(pulumi.CustomResource):
     @pulumi.getter(name="functionParameters")
     def function_parameters(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         """
         return pulumi.get(self, "function_parameters")
 

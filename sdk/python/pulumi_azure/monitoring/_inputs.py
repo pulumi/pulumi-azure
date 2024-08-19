@@ -7973,7 +7973,7 @@ if not MYPY:
         """
         sampling_frequency_in_seconds: pulumi.Input[int]
         """
-        The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+        The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
         """
         streams: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
@@ -7992,7 +7992,7 @@ class DataCollectionRuleDataSourcesPerformanceCounterArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-        :param pulumi.Input[int] sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+        :param pulumi.Input[int] sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
         """
         pulumi.set(__self__, "counter_specifiers", counter_specifiers)
@@ -8028,7 +8028,7 @@ class DataCollectionRuleDataSourcesPerformanceCounterArgs:
     @pulumi.getter(name="samplingFrequencyInSeconds")
     def sampling_frequency_in_seconds(self) -> pulumi.Input[int]:
         """
-        The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+        The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
         """
         return pulumi.get(self, "sampling_frequency_in_seconds")
 

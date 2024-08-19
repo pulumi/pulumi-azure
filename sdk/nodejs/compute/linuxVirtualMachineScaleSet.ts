@@ -11,7 +11,8 @@ import * as utilities from "../utilities";
  *
  * ## Disclaimers
  *
- * > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
+ * > **Note:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `azure.compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
+ * rraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
  *
  * ## Example Usage
  *
@@ -114,15 +115,15 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+     * > **Note:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      *
-     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
+     * > **Note:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     public readonly adminPassword!: pulumi.Output<string | undefined>;
     /**
      * One or more `adminSshKey` blocks as defined below.
      *
-     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
+     * > **Note:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     public readonly adminSshKeys!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetAdminSshKey[] | undefined>;
     /**
@@ -132,7 +133,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      *
-     * > **NOTE:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
+     * > **Note:** For more information about Automatic Instance Repair, please refer to the [product documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      */
     public readonly automaticInstanceRepair!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
@@ -146,9 +147,9 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
+     * > **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
      *
-     * > **NOTE:** `singlePlacementGroup` must be set to `false` when `capacityReservationGroupId` is specified.
+     * > **Note:** `singlePlacementGroup` must be set to `false` when `capacityReservationGroupId` is specified.
      */
     public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
     /**
@@ -158,7 +159,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      *
-     * > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
+     * > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      */
     public readonly customData!: pulumi.Output<string | undefined>;
     /**
@@ -170,7 +171,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      *
      * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      *
-     * > **NOTE:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+     * > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
     public readonly disablePasswordAuthentication!: pulumi.Output<boolean | undefined>;
     /**
@@ -188,13 +189,13 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      *
-     * > **NOTE:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+     * > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      */
     public readonly extensionOperationsEnabled!: pulumi.Output<boolean>;
     /**
@@ -238,7 +239,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
      *
-     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
     public readonly maxBidPrice!: pulumi.Output<number | undefined>;
     /**
@@ -260,7 +261,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When using an image from Azure Marketplace a `plan` must be specified.
+     * > **Note:** When using an image from Azure Marketplace a `plan` must be specified.
      */
     public readonly plan!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetPlan | undefined>;
     /**
@@ -270,7 +271,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      *
-     * > **NOTE:** When `priority` is set to `Spot` an `evictionPolicy` must be specified.
+     * > **Note:** When `priority` is set to `Spot` an `evictionPolicy` must be specified.
      */
     public readonly priority!: pulumi.Output<string | undefined>;
     /**
@@ -316,13 +317,13 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      *
-     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
+     * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     public readonly sourceImageId!: pulumi.Output<string | undefined>;
     /**
      * A `sourceImageReference` block as defined below.
      *
-     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
+     * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     public readonly sourceImageReference!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetSourceImageReference | undefined>;
     /**
@@ -361,7 +362,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
+     * > **Note:** This can only be set to `true` when one or more `zones` are configured.
      */
     public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
     /**
@@ -530,15 +531,15 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+     * > **Note:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      *
-     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
+     * > **Note:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     adminPassword?: pulumi.Input<string>;
     /**
      * One or more `adminSshKey` blocks as defined below.
      *
-     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
+     * > **Note:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdminSshKey>[]>;
     /**
@@ -548,7 +549,7 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      *
-     * > **NOTE:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
+     * > **Note:** For more information about Automatic Instance Repair, please refer to the [product documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      */
     automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
@@ -562,9 +563,9 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
+     * > **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
      *
-     * > **NOTE:** `singlePlacementGroup` must be set to `false` when `capacityReservationGroupId` is specified.
+     * > **Note:** `singlePlacementGroup` must be set to `false` when `capacityReservationGroupId` is specified.
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
@@ -574,7 +575,7 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      *
-     * > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
+     * > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      */
     customData?: pulumi.Input<string>;
     /**
@@ -586,7 +587,7 @@ export interface LinuxVirtualMachineScaleSetState {
      *
      * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      *
-     * > **NOTE:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+     * > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
     disablePasswordAuthentication?: pulumi.Input<boolean>;
     /**
@@ -604,13 +605,13 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      *
-     * > **NOTE:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+     * > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      */
     extensionOperationsEnabled?: pulumi.Input<boolean>;
     /**
@@ -654,7 +655,7 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
      *
-     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
     maxBidPrice?: pulumi.Input<number>;
     /**
@@ -676,7 +677,7 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When using an image from Azure Marketplace a `plan` must be specified.
+     * > **Note:** When using an image from Azure Marketplace a `plan` must be specified.
      */
     plan?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetPlan>;
     /**
@@ -686,7 +687,7 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      *
-     * > **NOTE:** When `priority` is set to `Spot` an `evictionPolicy` must be specified.
+     * > **Note:** When `priority` is set to `Spot` an `evictionPolicy` must be specified.
      */
     priority?: pulumi.Input<string>;
     /**
@@ -732,13 +733,13 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      *
-     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
+     * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below.
      *
-     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
+     * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSourceImageReference>;
     /**
@@ -777,7 +778,7 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
+     * > **Note:** This can only be set to `true` when one or more `zones` are configured.
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**
@@ -797,15 +798,15 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+     * > **Note:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      *
-     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
+     * > **Note:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     adminPassword?: pulumi.Input<string>;
     /**
      * One or more `adminSshKey` blocks as defined below.
      *
-     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
+     * > **Note:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdminSshKey>[]>;
     /**
@@ -815,7 +816,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      *
-     * > **NOTE:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
+     * > **Note:** For more information about Automatic Instance Repair, please refer to the [product documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      */
     automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
@@ -829,9 +830,9 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
+     * > **Note:** `capacityReservationGroupId` cannot be used with `proximityPlacementGroupId`
      *
-     * > **NOTE:** `singlePlacementGroup` must be set to `false` when `capacityReservationGroupId` is specified.
+     * > **Note:** `singlePlacementGroup` must be set to `false` when `capacityReservationGroupId` is specified.
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
@@ -841,7 +842,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      *
-     * > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
+     * > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      */
     customData?: pulumi.Input<string>;
     /**
@@ -853,7 +854,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
      *
      * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      *
-     * > **NOTE:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+     * > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
     disablePasswordAuthentication?: pulumi.Input<boolean>;
     /**
@@ -871,13 +872,13 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      *
-     * > **NOTE:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+     * > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      */
     extensionOperationsEnabled?: pulumi.Input<boolean>;
     /**
@@ -921,7 +922,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
      *
-     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
     maxBidPrice?: pulumi.Input<number>;
     /**
@@ -943,7 +944,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When using an image from Azure Marketplace a `plan` must be specified.
+     * > **Note:** When using an image from Azure Marketplace a `plan` must be specified.
      */
     plan?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetPlan>;
     /**
@@ -953,7 +954,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      *
-     * > **NOTE:** When `priority` is set to `Spot` an `evictionPolicy` must be specified.
+     * > **Note:** When `priority` is set to `Spot` an `evictionPolicy` must be specified.
      */
     priority?: pulumi.Input<string>;
     /**
@@ -999,13 +1000,13 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      *
-     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
+     * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below.
      *
-     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
+     * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSourceImageReference>;
     /**
@@ -1040,7 +1041,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
+     * > **Note:** This can only be set to `true` when one or more `zones` are configured.
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**

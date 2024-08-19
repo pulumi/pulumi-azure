@@ -48,12 +48,16 @@ public final class FlexibleServerMaintenanceWindowArgs extends com.pulumi.resour
     /**
      * The start minute for maintenance window. Defaults to `0`.
      * 
+     * &gt; **NOTE** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+     * 
      */
     @Import(name="startMinute")
     private @Nullable Output<Integer> startMinute;
 
     /**
      * @return The start minute for maintenance window. Defaults to `0`.
+     * 
+     * &gt; **NOTE** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
      * 
      */
     public Optional<Output<Integer>> startMinute() {
@@ -131,6 +135,8 @@ public final class FlexibleServerMaintenanceWindowArgs extends com.pulumi.resour
         /**
          * @param startMinute The start minute for maintenance window. Defaults to `0`.
          * 
+         * &gt; **NOTE** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+         * 
          * @return builder
          * 
          */
@@ -141,6 +147,8 @@ public final class FlexibleServerMaintenanceWindowArgs extends com.pulumi.resour
 
         /**
          * @param startMinute The start minute for maintenance window. Defaults to `0`.
+         * 
+         * &gt; **NOTE** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
          * 
          * @return builder
          * 

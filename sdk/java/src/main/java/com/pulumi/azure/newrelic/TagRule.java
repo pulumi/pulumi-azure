@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("East US")
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .effectiveDate("2023-06-06T00:00:00Z")
  *                 .build())
  *             .user(MonitorUserArgs.builder()
- *                 .email("user{@literal @}example.com")
+ *                 .email("user}{@literal @}{@code example.com")
  *                 .firstName("Example")
  *                 .lastName("User")
  *                 .phoneNumber("+12313803556")
@@ -92,8 +92,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -212,7 +212,7 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TagRule(String name) {
+    public TagRule(java.lang.String name) {
         this(name, TagRuleArgs.Empty);
     }
     /**
@@ -220,7 +220,7 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TagRule(String name, TagRuleArgs args) {
+    public TagRule(java.lang.String name, TagRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -229,15 +229,22 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TagRule(String name, TagRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:newrelic/tagRule:TagRule", name, args == null ? TagRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TagRule(java.lang.String name, TagRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:newrelic/tagRule:TagRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TagRule(String name, Output<String> id, @Nullable TagRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:newrelic/tagRule:TagRule", name, state, makeResourceOptions(options, id));
+    private TagRule(java.lang.String name, Output<java.lang.String> id, @Nullable TagRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:newrelic/tagRule:TagRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TagRuleArgs makeArgs(TagRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TagRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -253,7 +260,7 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TagRule get(String name, Output<String> id, @Nullable TagRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TagRule get(java.lang.String name, Output<java.lang.String> id, @Nullable TagRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TagRule(name, id, state, options);
     }
 }

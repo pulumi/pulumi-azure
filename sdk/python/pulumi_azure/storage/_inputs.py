@@ -131,6 +131,10 @@ if not MYPY:
         """
         A `active_directory` block as defined below. Required when `directory_type` is `AD`.
         """
+        default_share_level_permission: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+        """
 elif False:
     AccountAzureFilesAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -138,14 +142,18 @@ elif False:
 class AccountAzureFilesAuthenticationArgs:
     def __init__(__self__, *,
                  directory_type: pulumi.Input[str],
-                 active_directory: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']] = None):
+                 active_directory: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']] = None,
+                 default_share_level_permission: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] directory_type: Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
         :param pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+        :param pulumi.Input[str] default_share_level_permission: Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
         """
         pulumi.set(__self__, "directory_type", directory_type)
         if active_directory is not None:
             pulumi.set(__self__, "active_directory", active_directory)
+        if default_share_level_permission is not None:
+            pulumi.set(__self__, "default_share_level_permission", default_share_level_permission)
 
     @property
     @pulumi.getter(name="directoryType")
@@ -170,6 +178,18 @@ class AccountAzureFilesAuthenticationArgs:
     @active_directory.setter
     def active_directory(self, value: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']]):
         pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="defaultShareLevelPermission")
+    def default_share_level_permission(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+        """
+        return pulumi.get(self, "default_share_level_permission")
+
+    @default_share_level_permission.setter
+    def default_share_level_permission(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_share_level_permission", value)
 
 
 if not MYPY:

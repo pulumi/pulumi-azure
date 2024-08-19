@@ -36,7 +36,7 @@ type Workspace struct {
 	DiskEncryptionSetId pulumi.StringOutput `pulumi:"diskEncryptionSetId"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
-	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
 	LoadBalancerBackendAddressPoolId pulumi.StringPtrOutput `pulumi:"loadBalancerBackendAddressPoolId"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location                 pulumi.StringOutput    `pulumi:"location"`
@@ -128,7 +128,7 @@ type workspaceState struct {
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
-	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
 	LoadBalancerBackendAddressPoolId *string `pulumi:"loadBalancerBackendAddressPoolId"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location                 *string `pulumi:"location"`
@@ -185,7 +185,7 @@ type WorkspaceState struct {
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
-	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
 	LoadBalancerBackendAddressPoolId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location                 pulumi.StringPtrInput
@@ -244,7 +244,7 @@ type workspaceArgs struct {
 	DefaultStorageFirewallEnabled *bool `pulumi:"defaultStorageFirewallEnabled"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
-	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
 	LoadBalancerBackendAddressPoolId *string `pulumi:"loadBalancerBackendAddressPoolId"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location                 *string `pulumi:"location"`
@@ -290,7 +290,7 @@ type WorkspaceArgs struct {
 	DefaultStorageFirewallEnabled pulumi.BoolPtrInput
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
-	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
 	LoadBalancerBackendAddressPoolId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location                 pulumi.StringPtrInput
@@ -441,7 +441,7 @@ func (o WorkspaceOutput) InfrastructureEncryptionEnabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.InfrastructureEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) LoadBalancerBackendAddressPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.LoadBalancerBackendAddressPoolId }).(pulumi.StringPtrOutput)
 }

@@ -461,7 +461,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public HadoopCluster(String name) {
+    public HadoopCluster(java.lang.String name) {
         this(name, HadoopClusterArgs.Empty);
     }
     /**
@@ -469,7 +469,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public HadoopCluster(String name, HadoopClusterArgs args) {
+    public HadoopCluster(java.lang.String name, HadoopClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -478,15 +478,22 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public HadoopCluster(String name, HadoopClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hdinsight/hadoopCluster:HadoopCluster", name, args == null ? HadoopClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public HadoopCluster(java.lang.String name, HadoopClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hdinsight/hadoopCluster:HadoopCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private HadoopCluster(String name, Output<String> id, @Nullable HadoopClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hdinsight/hadoopCluster:HadoopCluster", name, state, makeResourceOptions(options, id));
+    private HadoopCluster(java.lang.String name, Output<java.lang.String> id, @Nullable HadoopClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hdinsight/hadoopCluster:HadoopCluster", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static HadoopClusterArgs makeArgs(HadoopClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HadoopClusterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -502,7 +509,7 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static HadoopCluster get(String name, Output<String> id, @Nullable HadoopClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static HadoopCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable HadoopClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new HadoopCluster(name, id, state, options);
     }
 }

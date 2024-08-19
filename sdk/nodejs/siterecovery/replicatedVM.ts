@@ -232,7 +232,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
     /**
      * One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly managedDisks!: pulumi.Output<outputs.siterecovery.ReplicatedVMManagedDisk[] | undefined>;
+    public readonly managedDisks!: pulumi.Output<outputs.siterecovery.ReplicatedVMManagedDisk[]>;
     /**
      * Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
      */
@@ -320,7 +320,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
     /**
      * One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly unmanagedDisks!: pulumi.Output<outputs.siterecovery.ReplicatedVMUnmanagedDisk[] | undefined>;
+    public readonly unmanagedDisks!: pulumi.Output<outputs.siterecovery.ReplicatedVMUnmanagedDisk[]>;
 
     /**
      * Create a ReplicatedVM resource with the given unique name, arguments, and options.

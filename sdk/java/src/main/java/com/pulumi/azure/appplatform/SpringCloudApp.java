@@ -291,7 +291,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudApp(String name) {
+    public SpringCloudApp(java.lang.String name) {
         this(name, SpringCloudAppArgs.Empty);
     }
     /**
@@ -299,7 +299,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudApp(String name, SpringCloudAppArgs args) {
+    public SpringCloudApp(java.lang.String name, SpringCloudAppArgs args) {
         this(name, args, null);
     }
     /**
@@ -308,15 +308,22 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudApp(String name, SpringCloudAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudApp:SpringCloudApp", name, args == null ? SpringCloudAppArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudApp(java.lang.String name, SpringCloudAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudApp:SpringCloudApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudApp(String name, Output<String> id, @Nullable SpringCloudAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudApp:SpringCloudApp", name, state, makeResourceOptions(options, id));
+    private SpringCloudApp(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudApp:SpringCloudApp", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudAppArgs makeArgs(SpringCloudAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudAppArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -332,7 +339,7 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudApp get(String name, Output<String> id, @Nullable SpringCloudAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudApp get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudApp(name, id, state, options);
     }
 }

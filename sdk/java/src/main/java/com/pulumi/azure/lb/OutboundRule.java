@@ -229,7 +229,7 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OutboundRule(String name) {
+    public OutboundRule(java.lang.String name) {
         this(name, OutboundRuleArgs.Empty);
     }
     /**
@@ -237,7 +237,7 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OutboundRule(String name, OutboundRuleArgs args) {
+    public OutboundRule(java.lang.String name, OutboundRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -246,15 +246,22 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OutboundRule(String name, OutboundRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lb/outboundRule:OutboundRule", name, args == null ? OutboundRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OutboundRule(java.lang.String name, OutboundRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lb/outboundRule:OutboundRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OutboundRule(String name, Output<String> id, @Nullable OutboundRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lb/outboundRule:OutboundRule", name, state, makeResourceOptions(options, id));
+    private OutboundRule(java.lang.String name, Output<java.lang.String> id, @Nullable OutboundRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lb/outboundRule:OutboundRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OutboundRuleArgs makeArgs(OutboundRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OutboundRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -270,7 +277,7 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OutboundRule get(String name, Output<String> id, @Nullable OutboundRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OutboundRule get(java.lang.String name, Output<java.lang.String> id, @Nullable OutboundRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OutboundRule(name, id, state, options);
     }
 }

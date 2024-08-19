@@ -128,7 +128,7 @@ export class FlexibleServer extends pulumi.CustomResource {
     }
 
     /**
-     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      *
      * > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
      *
@@ -342,7 +342,7 @@ export class FlexibleServer extends pulumi.CustomResource {
  */
 export interface FlexibleServerState {
     /**
-     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      *
      * > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
      *
@@ -477,7 +477,7 @@ export interface FlexibleServerState {
  */
 export interface FlexibleServerArgs {
     /**
-     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+     * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      *
      * > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
      *

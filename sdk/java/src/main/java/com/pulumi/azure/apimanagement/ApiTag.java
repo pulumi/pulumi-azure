@@ -126,7 +126,7 @@ public class ApiTag extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiTag(String name) {
+    public ApiTag(java.lang.String name) {
         this(name, ApiTagArgs.Empty);
     }
     /**
@@ -134,7 +134,7 @@ public class ApiTag extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiTag(String name, ApiTagArgs args) {
+    public ApiTag(java.lang.String name, ApiTagArgs args) {
         this(name, args, null);
     }
     /**
@@ -143,15 +143,22 @@ public class ApiTag extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiTag(String name, ApiTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiTag:ApiTag", name, args == null ? ApiTagArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ApiTag(java.lang.String name, ApiTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/apiTag:ApiTag", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiTag(String name, Output<String> id, @Nullable ApiTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiTag:ApiTag", name, state, makeResourceOptions(options, id));
+    private ApiTag(java.lang.String name, Output<java.lang.String> id, @Nullable ApiTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/apiTag:ApiTag", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ApiTagArgs makeArgs(ApiTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiTagArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -167,7 +174,7 @@ public class ApiTag extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiTag get(String name, Output<String> id, @Nullable ApiTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiTag get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiTag(name, id, state, options);
     }
 }

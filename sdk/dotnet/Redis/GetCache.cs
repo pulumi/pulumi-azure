@@ -146,6 +146,7 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         public readonly string MinimumTlsVersion;
         public readonly string Name;
+        public readonly bool NonSslPortEnabled;
         /// <summary>
         /// A list of `patch_schedule` blocks as defined below.
         /// </summary>
@@ -213,6 +214,8 @@ namespace Pulumi.Azure.Redis
 
             string name,
 
+            bool nonSslPortEnabled,
+
             ImmutableArray<Outputs.GetCachePatchScheduleResult> patchSchedules,
 
             int port,
@@ -251,6 +254,7 @@ namespace Pulumi.Azure.Redis
             Location = location;
             MinimumTlsVersion = minimumTlsVersion;
             Name = name;
+            NonSslPortEnabled = nonSslPortEnabled;
             PatchSchedules = patchSchedules;
             Port = port;
             PrimaryAccessKey = primaryAccessKey;

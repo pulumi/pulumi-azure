@@ -292,7 +292,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DatasetAzureBlob(String name) {
+    public DatasetAzureBlob(java.lang.String name) {
         this(name, DatasetAzureBlobArgs.Empty);
     }
     /**
@@ -300,7 +300,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DatasetAzureBlob(String name, DatasetAzureBlobArgs args) {
+    public DatasetAzureBlob(java.lang.String name, DatasetAzureBlobArgs args) {
         this(name, args, null);
     }
     /**
@@ -309,15 +309,22 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DatasetAzureBlob(String name, DatasetAzureBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetAzureBlob:DatasetAzureBlob", name, args == null ? DatasetAzureBlobArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DatasetAzureBlob(java.lang.String name, DatasetAzureBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetAzureBlob:DatasetAzureBlob", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DatasetAzureBlob(String name, Output<String> id, @Nullable DatasetAzureBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetAzureBlob:DatasetAzureBlob", name, state, makeResourceOptions(options, id));
+    private DatasetAzureBlob(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetAzureBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetAzureBlob:DatasetAzureBlob", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DatasetAzureBlobArgs makeArgs(DatasetAzureBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatasetAzureBlobArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -333,7 +340,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DatasetAzureBlob get(String name, Output<String> id, @Nullable DatasetAzureBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DatasetAzureBlob get(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetAzureBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DatasetAzureBlob(name, id, state, options);
     }
 }

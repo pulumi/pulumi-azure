@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Group("example", GroupArgs.builder()
  *             .displayName("example")
  *             .build());
@@ -90,8 +90,8 @@ import javax.annotation.Nullable;
  *                     .threshold(90)
  *                     .operator("EqualTo")
  *                     .contactEmails(                    
- *                         "foo{@literal @}example.com",
- *                         "bar{@literal @}example.com")
+ *                         "foo}{@literal @}{@code example.com",
+ *                         "bar}{@literal @}{@code example.com")
  *                     .build(),
  *                 BudgetManagementGroupNotificationArgs.builder()
  *                     .enabled(false)
@@ -99,13 +99,13 @@ import javax.annotation.Nullable;
  *                     .operator("GreaterThan")
  *                     .thresholdType("Forecasted")
  *                     .contactEmails(                    
- *                         "foo{@literal @}example.com",
- *                         "bar{@literal @}example.com")
+ *                         "foo}{@literal @}{@code example.com",
+ *                         "bar}{@literal @}{@code example.com")
  *                     .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -238,7 +238,7 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BudgetManagementGroup(String name) {
+    public BudgetManagementGroup(java.lang.String name) {
         this(name, BudgetManagementGroupArgs.Empty);
     }
     /**
@@ -246,7 +246,7 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BudgetManagementGroup(String name, BudgetManagementGroupArgs args) {
+    public BudgetManagementGroup(java.lang.String name, BudgetManagementGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -255,15 +255,22 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BudgetManagementGroup(String name, BudgetManagementGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:consumption/budgetManagementGroup:BudgetManagementGroup", name, args == null ? BudgetManagementGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BudgetManagementGroup(java.lang.String name, BudgetManagementGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:consumption/budgetManagementGroup:BudgetManagementGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BudgetManagementGroup(String name, Output<String> id, @Nullable BudgetManagementGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:consumption/budgetManagementGroup:BudgetManagementGroup", name, state, makeResourceOptions(options, id));
+    private BudgetManagementGroup(java.lang.String name, Output<java.lang.String> id, @Nullable BudgetManagementGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:consumption/budgetManagementGroup:BudgetManagementGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BudgetManagementGroupArgs makeArgs(BudgetManagementGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BudgetManagementGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -279,7 +286,7 @@ public class BudgetManagementGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BudgetManagementGroup get(String name, Output<String> id, @Nullable BudgetManagementGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BudgetManagementGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable BudgetManagementGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BudgetManagementGroup(name, id, state, options);
     }
 }

@@ -237,7 +237,7 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RulesEngine(String name) {
+    public RulesEngine(java.lang.String name) {
         this(name, RulesEngineArgs.Empty);
     }
     /**
@@ -245,7 +245,7 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RulesEngine(String name, RulesEngineArgs args) {
+    public RulesEngine(java.lang.String name, RulesEngineArgs args) {
         this(name, args, null);
     }
     /**
@@ -254,15 +254,22 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RulesEngine(String name, RulesEngineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:frontdoor/rulesEngine:RulesEngine", name, args == null ? RulesEngineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RulesEngine(java.lang.String name, RulesEngineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:frontdoor/rulesEngine:RulesEngine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RulesEngine(String name, Output<String> id, @Nullable RulesEngineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:frontdoor/rulesEngine:RulesEngine", name, state, makeResourceOptions(options, id));
+    private RulesEngine(java.lang.String name, Output<java.lang.String> id, @Nullable RulesEngineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:frontdoor/rulesEngine:RulesEngine", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RulesEngineArgs makeArgs(RulesEngineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RulesEngineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -278,7 +285,7 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RulesEngine get(String name, Output<String> id, @Nullable RulesEngineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RulesEngine get(java.lang.String name, Output<java.lang.String> id, @Nullable RulesEngineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RulesEngine(name, id, state, options);
     }
 }

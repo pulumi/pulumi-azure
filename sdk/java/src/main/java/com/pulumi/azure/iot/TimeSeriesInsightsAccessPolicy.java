@@ -159,7 +159,7 @@ public class TimeSeriesInsightsAccessPolicy extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TimeSeriesInsightsAccessPolicy(String name) {
+    public TimeSeriesInsightsAccessPolicy(java.lang.String name) {
         this(name, TimeSeriesInsightsAccessPolicyArgs.Empty);
     }
     /**
@@ -167,7 +167,7 @@ public class TimeSeriesInsightsAccessPolicy extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TimeSeriesInsightsAccessPolicy(String name, TimeSeriesInsightsAccessPolicyArgs args) {
+    public TimeSeriesInsightsAccessPolicy(java.lang.String name, TimeSeriesInsightsAccessPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -176,15 +176,22 @@ public class TimeSeriesInsightsAccessPolicy extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TimeSeriesInsightsAccessPolicy(String name, TimeSeriesInsightsAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy", name, args == null ? TimeSeriesInsightsAccessPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TimeSeriesInsightsAccessPolicy(java.lang.String name, TimeSeriesInsightsAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TimeSeriesInsightsAccessPolicy(String name, Output<String> id, @Nullable TimeSeriesInsightsAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy", name, state, makeResourceOptions(options, id));
+    private TimeSeriesInsightsAccessPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable TimeSeriesInsightsAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TimeSeriesInsightsAccessPolicyArgs makeArgs(TimeSeriesInsightsAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TimeSeriesInsightsAccessPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -200,7 +207,7 @@ public class TimeSeriesInsightsAccessPolicy extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TimeSeriesInsightsAccessPolicy get(String name, Output<String> id, @Nullable TimeSeriesInsightsAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TimeSeriesInsightsAccessPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable TimeSeriesInsightsAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TimeSeriesInsightsAccessPolicy(name, id, state, options);
     }
 }

@@ -174,7 +174,7 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IPGroup(String name) {
+    public IPGroup(java.lang.String name) {
         this(name, IPGroupArgs.Empty);
     }
     /**
@@ -182,7 +182,7 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IPGroup(String name, IPGroupArgs args) {
+    public IPGroup(java.lang.String name, IPGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -191,15 +191,22 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IPGroup(String name, IPGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/iPGroup:IPGroup", name, args == null ? IPGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IPGroup(java.lang.String name, IPGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/iPGroup:IPGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IPGroup(String name, Output<String> id, @Nullable IPGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/iPGroup:IPGroup", name, state, makeResourceOptions(options, id));
+    private IPGroup(java.lang.String name, Output<java.lang.String> id, @Nullable IPGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/iPGroup:IPGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IPGroupArgs makeArgs(IPGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IPGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -215,7 +222,7 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IPGroup get(String name, Output<String> id, @Nullable IPGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IPGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable IPGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IPGroup(name, id, state, options);
     }
 }

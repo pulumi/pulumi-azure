@@ -179,7 +179,7 @@ public class NetworkInterfaceBackendAddressPoolAssociation extends com.pulumi.re
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkInterfaceBackendAddressPoolAssociation(String name) {
+    public NetworkInterfaceBackendAddressPoolAssociation(java.lang.String name) {
         this(name, NetworkInterfaceBackendAddressPoolAssociationArgs.Empty);
     }
     /**
@@ -187,7 +187,7 @@ public class NetworkInterfaceBackendAddressPoolAssociation extends com.pulumi.re
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkInterfaceBackendAddressPoolAssociation(String name, NetworkInterfaceBackendAddressPoolAssociationArgs args) {
+    public NetworkInterfaceBackendAddressPoolAssociation(java.lang.String name, NetworkInterfaceBackendAddressPoolAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -196,15 +196,22 @@ public class NetworkInterfaceBackendAddressPoolAssociation extends com.pulumi.re
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkInterfaceBackendAddressPoolAssociation(String name, NetworkInterfaceBackendAddressPoolAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation", name, args == null ? NetworkInterfaceBackendAddressPoolAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkInterfaceBackendAddressPoolAssociation(java.lang.String name, NetworkInterfaceBackendAddressPoolAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkInterfaceBackendAddressPoolAssociation(String name, Output<String> id, @Nullable NetworkInterfaceBackendAddressPoolAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation", name, state, makeResourceOptions(options, id));
+    private NetworkInterfaceBackendAddressPoolAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkInterfaceBackendAddressPoolAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkInterfaceBackendAddressPoolAssociationArgs makeArgs(NetworkInterfaceBackendAddressPoolAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkInterfaceBackendAddressPoolAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -220,7 +227,7 @@ public class NetworkInterfaceBackendAddressPoolAssociation extends com.pulumi.re
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkInterfaceBackendAddressPoolAssociation get(String name, Output<String> id, @Nullable NetworkInterfaceBackendAddressPoolAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkInterfaceBackendAddressPoolAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkInterfaceBackendAddressPoolAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkInterfaceBackendAddressPoolAssociation(name, id, state, options);
     }
 }

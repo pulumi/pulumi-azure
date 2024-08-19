@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var config = ctx.config();
  *         final var current = CoreFunctions.getClientConfig();
  * 
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *             .addressPrefixes("10.1.0.0/24")
  *             .build());
  * 
- *         final var sshKey = config.get("sshKey").orElse("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform{@literal @}demo.tld");
+ *         final var sshKey = config.get("sshKey").orElse("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform}{@literal @}{@code demo.tld");
  *         var exampleComputeInstance = new ComputeInstance("exampleComputeInstance", ComputeInstanceArgs.builder()
  *             .name("example")
  *             .machineLearningWorkspaceId(exampleWorkspace.id())
@@ -137,8 +137,8 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -349,7 +349,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ComputeInstance(String name) {
+    public ComputeInstance(java.lang.String name) {
         this(name, ComputeInstanceArgs.Empty);
     }
     /**
@@ -357,7 +357,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ComputeInstance(String name, ComputeInstanceArgs args) {
+    public ComputeInstance(java.lang.String name, ComputeInstanceArgs args) {
         this(name, args, null);
     }
     /**
@@ -366,15 +366,22 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ComputeInstance(String name, ComputeInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:machinelearning/computeInstance:ComputeInstance", name, args == null ? ComputeInstanceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ComputeInstance(java.lang.String name, ComputeInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:machinelearning/computeInstance:ComputeInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ComputeInstance(String name, Output<String> id, @Nullable ComputeInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:machinelearning/computeInstance:ComputeInstance", name, state, makeResourceOptions(options, id));
+    private ComputeInstance(java.lang.String name, Output<java.lang.String> id, @Nullable ComputeInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:machinelearning/computeInstance:ComputeInstance", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ComputeInstanceArgs makeArgs(ComputeInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ComputeInstanceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -390,7 +397,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ComputeInstance get(String name, Output<String> id, @Nullable ComputeInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ComputeInstance get(java.lang.String name, Output<java.lang.String> id, @Nullable ComputeInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ComputeInstance(name, id, state, options);
     }
 }

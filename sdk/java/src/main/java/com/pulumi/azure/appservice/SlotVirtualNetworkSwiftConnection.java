@@ -177,7 +177,7 @@ public class SlotVirtualNetworkSwiftConnection extends com.pulumi.resources.Cust
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SlotVirtualNetworkSwiftConnection(String name) {
+    public SlotVirtualNetworkSwiftConnection(java.lang.String name) {
         this(name, SlotVirtualNetworkSwiftConnectionArgs.Empty);
     }
     /**
@@ -185,7 +185,7 @@ public class SlotVirtualNetworkSwiftConnection extends com.pulumi.resources.Cust
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SlotVirtualNetworkSwiftConnection(String name, SlotVirtualNetworkSwiftConnectionArgs args) {
+    public SlotVirtualNetworkSwiftConnection(java.lang.String name, SlotVirtualNetworkSwiftConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -194,15 +194,22 @@ public class SlotVirtualNetworkSwiftConnection extends com.pulumi.resources.Cust
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SlotVirtualNetworkSwiftConnection(String name, SlotVirtualNetworkSwiftConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection", name, args == null ? SlotVirtualNetworkSwiftConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SlotVirtualNetworkSwiftConnection(java.lang.String name, SlotVirtualNetworkSwiftConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SlotVirtualNetworkSwiftConnection(String name, Output<String> id, @Nullable SlotVirtualNetworkSwiftConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection", name, state, makeResourceOptions(options, id));
+    private SlotVirtualNetworkSwiftConnection(java.lang.String name, Output<java.lang.String> id, @Nullable SlotVirtualNetworkSwiftConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SlotVirtualNetworkSwiftConnectionArgs makeArgs(SlotVirtualNetworkSwiftConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SlotVirtualNetworkSwiftConnectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -218,7 +225,7 @@ public class SlotVirtualNetworkSwiftConnection extends com.pulumi.resources.Cust
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SlotVirtualNetworkSwiftConnection get(String name, Output<String> id, @Nullable SlotVirtualNetworkSwiftConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SlotVirtualNetworkSwiftConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable SlotVirtualNetworkSwiftConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SlotVirtualNetworkSwiftConnection(name, id, state, options);
     }
 }

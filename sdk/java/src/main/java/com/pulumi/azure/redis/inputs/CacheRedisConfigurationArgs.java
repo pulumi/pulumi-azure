@@ -85,6 +85,13 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.aofStorageConnectionString1);
     }
 
+    @Import(name="authenticationEnabled")
+    private @Nullable Output<Boolean> authenticationEnabled;
+
+    public Optional<Output<Boolean>> authenticationEnabled() {
+        return Optional.ofNullable(this.authenticationEnabled);
+    }
+
     /**
      * Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
      * 
@@ -105,7 +112,11 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * 
      * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
      * 
+     * @deprecated
+     * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
     @Import(name="enableAuthentication")
     private @Nullable Output<Boolean> enableAuthentication;
 
@@ -114,7 +125,11 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * 
      * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
      * 
+     * @deprecated
+     * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> enableAuthentication() {
         return Optional.ofNullable(this.enableAuthentication);
     }
@@ -305,6 +320,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         this.aofBackupEnabled = $.aofBackupEnabled;
         this.aofStorageConnectionString0 = $.aofStorageConnectionString0;
         this.aofStorageConnectionString1 = $.aofStorageConnectionString1;
+        this.authenticationEnabled = $.authenticationEnabled;
         this.dataPersistenceAuthenticationMethod = $.dataPersistenceAuthenticationMethod;
         this.enableAuthentication = $.enableAuthentication;
         this.maxclients = $.maxclients;
@@ -430,6 +446,15 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
             return aofStorageConnectionString1(Output.of(aofStorageConnectionString1));
         }
 
+        public Builder authenticationEnabled(@Nullable Output<Boolean> authenticationEnabled) {
+            $.authenticationEnabled = authenticationEnabled;
+            return this;
+        }
+
+        public Builder authenticationEnabled(Boolean authenticationEnabled) {
+            return authenticationEnabled(Output.of(authenticationEnabled));
+        }
+
         /**
          * @param dataPersistenceAuthenticationMethod Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
          * 
@@ -458,7 +483,11 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
         public Builder enableAuthentication(@Nullable Output<Boolean> enableAuthentication) {
             $.enableAuthentication = enableAuthentication;
             return this;
@@ -471,7 +500,11 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
         public Builder enableAuthentication(Boolean enableAuthentication) {
             return enableAuthentication(Output.of(enableAuthentication));
         }

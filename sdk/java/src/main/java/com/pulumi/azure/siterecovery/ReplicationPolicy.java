@@ -162,7 +162,7 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReplicationPolicy(String name) {
+    public ReplicationPolicy(java.lang.String name) {
         this(name, ReplicationPolicyArgs.Empty);
     }
     /**
@@ -170,7 +170,7 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReplicationPolicy(String name, ReplicationPolicyArgs args) {
+    public ReplicationPolicy(java.lang.String name, ReplicationPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -179,15 +179,22 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReplicationPolicy(String name, ReplicationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/replicationPolicy:ReplicationPolicy", name, args == null ? ReplicationPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ReplicationPolicy(java.lang.String name, ReplicationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/replicationPolicy:ReplicationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReplicationPolicy(String name, Output<String> id, @Nullable ReplicationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/replicationPolicy:ReplicationPolicy", name, state, makeResourceOptions(options, id));
+    private ReplicationPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/replicationPolicy:ReplicationPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ReplicationPolicyArgs makeArgs(ReplicationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicationPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -203,7 +210,7 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReplicationPolicy get(String name, Output<String> id, @Nullable ReplicationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReplicationPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReplicationPolicy(name, id, state, options);
     }
 }

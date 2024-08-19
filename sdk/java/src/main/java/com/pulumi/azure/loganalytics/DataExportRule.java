@@ -200,7 +200,7 @@ public class DataExportRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataExportRule(String name) {
+    public DataExportRule(java.lang.String name) {
         this(name, DataExportRuleArgs.Empty);
     }
     /**
@@ -208,7 +208,7 @@ public class DataExportRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataExportRule(String name, DataExportRuleArgs args) {
+    public DataExportRule(java.lang.String name, DataExportRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -217,15 +217,22 @@ public class DataExportRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataExportRule(String name, DataExportRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/dataExportRule:DataExportRule", name, args == null ? DataExportRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataExportRule(java.lang.String name, DataExportRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loganalytics/dataExportRule:DataExportRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataExportRule(String name, Output<String> id, @Nullable DataExportRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/dataExportRule:DataExportRule", name, state, makeResourceOptions(options, id));
+    private DataExportRule(java.lang.String name, Output<java.lang.String> id, @Nullable DataExportRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loganalytics/dataExportRule:DataExportRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataExportRuleArgs makeArgs(DataExportRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataExportRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -241,7 +248,7 @@ public class DataExportRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataExportRule get(String name, Output<String> id, @Nullable DataExportRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataExportRule get(java.lang.String name, Output<java.lang.String> id, @Nullable DataExportRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataExportRule(name, id, state, options);
     }
 }

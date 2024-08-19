@@ -241,7 +241,7 @@ public class ManangementLock extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManangementLock(String name) {
+    public ManangementLock(java.lang.String name) {
         this(name, ManangementLockArgs.Empty);
     }
     /**
@@ -249,7 +249,7 @@ public class ManangementLock extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManangementLock(String name, ManangementLockArgs args) {
+    public ManangementLock(java.lang.String name, ManangementLockArgs args) {
         this(name, args, null);
     }
     /**
@@ -258,15 +258,22 @@ public class ManangementLock extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManangementLock(String name, ManangementLockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:managementresource/manangementLock:ManangementLock", name, args == null ? ManangementLockArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ManangementLock(java.lang.String name, ManangementLockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:managementresource/manangementLock:ManangementLock", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManangementLock(String name, Output<String> id, @Nullable ManangementLockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:managementresource/manangementLock:ManangementLock", name, state, makeResourceOptions(options, id));
+    private ManangementLock(java.lang.String name, Output<java.lang.String> id, @Nullable ManangementLockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:managementresource/manangementLock:ManangementLock", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ManangementLockArgs makeArgs(ManangementLockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManangementLockArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -282,7 +289,7 @@ public class ManangementLock extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManangementLock get(String name, Output<String> id, @Nullable ManangementLockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManangementLock get(java.lang.String name, Output<java.lang.String> id, @Nullable ManangementLockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManangementLock(name, id, state, options);
     }
 }

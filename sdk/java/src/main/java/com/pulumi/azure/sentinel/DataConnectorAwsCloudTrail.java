@@ -133,7 +133,7 @@ public class DataConnectorAwsCloudTrail extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorAwsCloudTrail(String name) {
+    public DataConnectorAwsCloudTrail(java.lang.String name) {
         this(name, DataConnectorAwsCloudTrailArgs.Empty);
     }
     /**
@@ -141,7 +141,7 @@ public class DataConnectorAwsCloudTrail extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorAwsCloudTrail(String name, DataConnectorAwsCloudTrailArgs args) {
+    public DataConnectorAwsCloudTrail(java.lang.String name, DataConnectorAwsCloudTrailArgs args) {
         this(name, args, null);
     }
     /**
@@ -150,15 +150,22 @@ public class DataConnectorAwsCloudTrail extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorAwsCloudTrail(String name, DataConnectorAwsCloudTrailArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail", name, args == null ? DataConnectorAwsCloudTrailArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorAwsCloudTrail(java.lang.String name, DataConnectorAwsCloudTrailArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorAwsCloudTrail(String name, Output<String> id, @Nullable DataConnectorAwsCloudTrailState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail", name, state, makeResourceOptions(options, id));
+    private DataConnectorAwsCloudTrail(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorAwsCloudTrailState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataConnectorAwsCloudTrailArgs makeArgs(DataConnectorAwsCloudTrailArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataConnectorAwsCloudTrailArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -174,7 +181,7 @@ public class DataConnectorAwsCloudTrail extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorAwsCloudTrail get(String name, Output<String> id, @Nullable DataConnectorAwsCloudTrailState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorAwsCloudTrail get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorAwsCloudTrailState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorAwsCloudTrail(name, id, state, options);
     }
 }

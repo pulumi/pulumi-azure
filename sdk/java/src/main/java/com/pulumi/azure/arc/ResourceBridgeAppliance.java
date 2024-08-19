@@ -198,7 +198,7 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceBridgeAppliance(String name) {
+    public ResourceBridgeAppliance(java.lang.String name) {
         this(name, ResourceBridgeApplianceArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceBridgeAppliance(String name, ResourceBridgeApplianceArgs args) {
+    public ResourceBridgeAppliance(java.lang.String name, ResourceBridgeApplianceArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,15 +215,22 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceBridgeAppliance(String name, ResourceBridgeApplianceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance", name, args == null ? ResourceBridgeApplianceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResourceBridgeAppliance(java.lang.String name, ResourceBridgeApplianceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceBridgeAppliance(String name, Output<String> id, @Nullable ResourceBridgeApplianceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance", name, state, makeResourceOptions(options, id));
+    private ResourceBridgeAppliance(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceBridgeApplianceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResourceBridgeApplianceArgs makeArgs(ResourceBridgeApplianceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceBridgeApplianceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -239,7 +246,7 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceBridgeAppliance get(String name, Output<String> id, @Nullable ResourceBridgeApplianceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceBridgeAppliance get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceBridgeApplianceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceBridgeAppliance(name, id, state, options);
     }
 }

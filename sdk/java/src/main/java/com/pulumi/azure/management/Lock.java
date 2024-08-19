@@ -239,7 +239,7 @@ public class Lock extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Lock(String name) {
+    public Lock(java.lang.String name) {
         this(name, LockArgs.Empty);
     }
     /**
@@ -247,7 +247,7 @@ public class Lock extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Lock(String name, LockArgs args) {
+    public Lock(java.lang.String name, LockArgs args) {
         this(name, args, null);
     }
     /**
@@ -256,15 +256,22 @@ public class Lock extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Lock(String name, LockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:management/lock:Lock", name, args == null ? LockArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Lock(java.lang.String name, LockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:management/lock:Lock", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Lock(String name, Output<String> id, @Nullable LockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:management/lock:Lock", name, state, makeResourceOptions(options, id));
+    private Lock(java.lang.String name, Output<java.lang.String> id, @Nullable LockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:management/lock:Lock", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LockArgs makeArgs(LockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LockArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -283,7 +290,7 @@ public class Lock extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Lock get(String name, Output<String> id, @Nullable LockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Lock get(java.lang.String name, Output<java.lang.String> id, @Nullable LockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Lock(name, id, state, options);
     }
 }

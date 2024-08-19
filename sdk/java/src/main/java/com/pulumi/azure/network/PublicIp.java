@@ -378,7 +378,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PublicIp(String name) {
+    public PublicIp(java.lang.String name) {
         this(name, PublicIpArgs.Empty);
     }
     /**
@@ -386,7 +386,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PublicIp(String name, PublicIpArgs args) {
+    public PublicIp(java.lang.String name, PublicIpArgs args) {
         this(name, args, null);
     }
     /**
@@ -395,15 +395,22 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PublicIp(String name, PublicIpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/publicIp:PublicIp", name, args == null ? PublicIpArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PublicIp(java.lang.String name, PublicIpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/publicIp:PublicIp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PublicIp(String name, Output<String> id, @Nullable PublicIpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/publicIp:PublicIp", name, state, makeResourceOptions(options, id));
+    private PublicIp(java.lang.String name, Output<java.lang.String> id, @Nullable PublicIpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/publicIp:PublicIp", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PublicIpArgs makeArgs(PublicIpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PublicIpArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -419,7 +426,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PublicIp get(String name, Output<String> id, @Nullable PublicIpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PublicIp get(java.lang.String name, Output<java.lang.String> id, @Nullable PublicIpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PublicIp(name, id, state, options);
     }
 }

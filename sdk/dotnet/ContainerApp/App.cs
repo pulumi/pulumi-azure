@@ -58,7 +58,7 @@ namespace Pulumi.Azure.ContainerApp
     ///                 new Azure.ContainerApp.Inputs.AppTemplateContainerArgs
     ///                 {
     ///                     Name = "examplecontainerapp",
-    ///                     Image = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
+    ///                     Image = "mcr.microsoft.com/k8se/quickstart:latest",
     ///                     Cpu = 0.25,
     ///                     Memory = "0.5Gi",
     ///                 },

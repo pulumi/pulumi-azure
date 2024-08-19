@@ -220,7 +220,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PublicIpPrefix(String name) {
+    public PublicIpPrefix(java.lang.String name) {
         this(name, PublicIpPrefixArgs.Empty);
     }
     /**
@@ -228,7 +228,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PublicIpPrefix(String name, PublicIpPrefixArgs args) {
+    public PublicIpPrefix(java.lang.String name, PublicIpPrefixArgs args) {
         this(name, args, null);
     }
     /**
@@ -237,15 +237,22 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PublicIpPrefix(String name, PublicIpPrefixArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/publicIpPrefix:PublicIpPrefix", name, args == null ? PublicIpPrefixArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PublicIpPrefix(java.lang.String name, PublicIpPrefixArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/publicIpPrefix:PublicIpPrefix", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PublicIpPrefix(String name, Output<String> id, @Nullable PublicIpPrefixState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/publicIpPrefix:PublicIpPrefix", name, state, makeResourceOptions(options, id));
+    private PublicIpPrefix(java.lang.String name, Output<java.lang.String> id, @Nullable PublicIpPrefixState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/publicIpPrefix:PublicIpPrefix", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PublicIpPrefixArgs makeArgs(PublicIpPrefixArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PublicIpPrefixArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -261,7 +268,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PublicIpPrefix get(String name, Output<String> id, @Nullable PublicIpPrefixState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PublicIpPrefix get(java.lang.String name, Output<java.lang.String> id, @Nullable PublicIpPrefixState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PublicIpPrefix(name, id, state, options);
     }
 }

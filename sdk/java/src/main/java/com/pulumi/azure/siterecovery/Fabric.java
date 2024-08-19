@@ -147,7 +147,7 @@ public class Fabric extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Fabric(String name) {
+    public Fabric(java.lang.String name) {
         this(name, FabricArgs.Empty);
     }
     /**
@@ -155,7 +155,7 @@ public class Fabric extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Fabric(String name, FabricArgs args) {
+    public Fabric(java.lang.String name, FabricArgs args) {
         this(name, args, null);
     }
     /**
@@ -164,15 +164,22 @@ public class Fabric extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Fabric(String name, FabricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/fabric:Fabric", name, args == null ? FabricArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Fabric(java.lang.String name, FabricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/fabric:Fabric", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Fabric(String name, Output<String> id, @Nullable FabricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/fabric:Fabric", name, state, makeResourceOptions(options, id));
+    private Fabric(java.lang.String name, Output<java.lang.String> id, @Nullable FabricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/fabric:Fabric", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FabricArgs makeArgs(FabricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FabricArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -188,7 +195,7 @@ public class Fabric extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Fabric get(String name, Output<String> id, @Nullable FabricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Fabric get(java.lang.String name, Output<java.lang.String> id, @Nullable FabricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Fabric(name, id, state, options);
     }
 }

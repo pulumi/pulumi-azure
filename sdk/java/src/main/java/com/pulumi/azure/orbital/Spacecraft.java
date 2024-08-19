@@ -206,7 +206,7 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Spacecraft(String name) {
+    public Spacecraft(java.lang.String name) {
         this(name, SpacecraftArgs.Empty);
     }
     /**
@@ -214,7 +214,7 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Spacecraft(String name, SpacecraftArgs args) {
+    public Spacecraft(java.lang.String name, SpacecraftArgs args) {
         this(name, args, null);
     }
     /**
@@ -223,15 +223,22 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Spacecraft(String name, SpacecraftArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:orbital/spacecraft:Spacecraft", name, args == null ? SpacecraftArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Spacecraft(java.lang.String name, SpacecraftArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:orbital/spacecraft:Spacecraft", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Spacecraft(String name, Output<String> id, @Nullable SpacecraftState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:orbital/spacecraft:Spacecraft", name, state, makeResourceOptions(options, id));
+    private Spacecraft(java.lang.String name, Output<java.lang.String> id, @Nullable SpacecraftState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:orbital/spacecraft:Spacecraft", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpacecraftArgs makeArgs(SpacecraftArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpacecraftArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -247,7 +254,7 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Spacecraft get(String name, Output<String> id, @Nullable SpacecraftState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Spacecraft get(java.lang.String name, Output<java.lang.String> id, @Nullable SpacecraftState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Spacecraft(name, id, state, options);
     }
 }

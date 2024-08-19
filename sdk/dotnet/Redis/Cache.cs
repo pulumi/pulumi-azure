@@ -113,6 +113,9 @@ namespace Pulumi.Azure.Redis
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("nonSslPortEnabled")]
+        public Output<bool> NonSslPortEnabled { get; private set; } = null!;
+
         /// <summary>
         /// A list of `patch_schedule` blocks as defined below.
         /// </summary>
@@ -334,6 +337,9 @@ namespace Pulumi.Azure.Redis
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("nonSslPortEnabled")]
+        public Input<bool>? NonSslPortEnabled { get; set; }
+
         [Input("patchSchedules")]
         private InputList<Inputs.CachePatchScheduleArgs>? _patchSchedules;
 
@@ -503,6 +509,9 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("nonSslPortEnabled")]
+        public Input<bool>? NonSslPortEnabled { get; set; }
 
         [Input("patchSchedules")]
         private InputList<Inputs.CachePatchScheduleGetArgs>? _patchSchedules;

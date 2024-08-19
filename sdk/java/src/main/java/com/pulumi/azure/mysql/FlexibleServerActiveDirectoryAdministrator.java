@@ -56,7 +56,7 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FlexibleServerActiveDirectoryAdministrator(String name) {
+    public FlexibleServerActiveDirectoryAdministrator(java.lang.String name) {
         this(name, FlexibleServerActiveDirectoryAdministratorArgs.Empty);
     }
     /**
@@ -64,7 +64,7 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FlexibleServerActiveDirectoryAdministrator(String name, FlexibleServerActiveDirectoryAdministratorArgs args) {
+    public FlexibleServerActiveDirectoryAdministrator(java.lang.String name, FlexibleServerActiveDirectoryAdministratorArgs args) {
         this(name, args, null);
     }
     /**
@@ -73,15 +73,22 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FlexibleServerActiveDirectoryAdministrator(String name, FlexibleServerActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator", name, args == null ? FlexibleServerActiveDirectoryAdministratorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FlexibleServerActiveDirectoryAdministrator(java.lang.String name, FlexibleServerActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FlexibleServerActiveDirectoryAdministrator(String name, Output<String> id, @Nullable FlexibleServerActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator", name, state, makeResourceOptions(options, id));
+    private FlexibleServerActiveDirectoryAdministrator(java.lang.String name, Output<java.lang.String> id, @Nullable FlexibleServerActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FlexibleServerActiveDirectoryAdministratorArgs makeArgs(FlexibleServerActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FlexibleServerActiveDirectoryAdministratorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -97,7 +104,7 @@ public class FlexibleServerActiveDirectoryAdministrator extends com.pulumi.resou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FlexibleServerActiveDirectoryAdministrator get(String name, Output<String> id, @Nullable FlexibleServerActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FlexibleServerActiveDirectoryAdministrator get(java.lang.String name, Output<java.lang.String> id, @Nullable FlexibleServerActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FlexibleServerActiveDirectoryAdministrator(name, id, state, options);
     }
 }

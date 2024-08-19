@@ -499,7 +499,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AppService(String name) {
+    public AppService(java.lang.String name) {
         this(name, AppServiceArgs.Empty);
     }
     /**
@@ -507,7 +507,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AppService(String name, AppServiceArgs args) {
+    public AppService(java.lang.String name, AppServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -516,15 +516,22 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AppService(String name, AppServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/appService:AppService", name, args == null ? AppServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AppService(java.lang.String name, AppServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/appService:AppService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AppService(String name, Output<String> id, @Nullable AppServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/appService:AppService", name, state, makeResourceOptions(options, id));
+    private AppService(java.lang.String name, Output<java.lang.String> id, @Nullable AppServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/appService:AppService", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AppServiceArgs makeArgs(AppServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppServiceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -540,7 +547,7 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AppService get(String name, Output<String> id, @Nullable AppServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AppService get(java.lang.String name, Output<java.lang.String> id, @Nullable AppServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AppService(name, id, state, options);
     }
 }

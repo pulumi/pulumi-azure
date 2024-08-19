@@ -136,7 +136,7 @@ public class DataConnectorAzureActiveDirectory extends com.pulumi.resources.Cust
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorAzureActiveDirectory(String name) {
+    public DataConnectorAzureActiveDirectory(java.lang.String name) {
         this(name, DataConnectorAzureActiveDirectoryArgs.Empty);
     }
     /**
@@ -144,7 +144,7 @@ public class DataConnectorAzureActiveDirectory extends com.pulumi.resources.Cust
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorAzureActiveDirectory(String name, DataConnectorAzureActiveDirectoryArgs args) {
+    public DataConnectorAzureActiveDirectory(java.lang.String name, DataConnectorAzureActiveDirectoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -153,15 +153,22 @@ public class DataConnectorAzureActiveDirectory extends com.pulumi.resources.Cust
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorAzureActiveDirectory(String name, DataConnectorAzureActiveDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory", name, args == null ? DataConnectorAzureActiveDirectoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorAzureActiveDirectory(java.lang.String name, DataConnectorAzureActiveDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorAzureActiveDirectory(String name, Output<String> id, @Nullable DataConnectorAzureActiveDirectoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory", name, state, makeResourceOptions(options, id));
+    private DataConnectorAzureActiveDirectory(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorAzureActiveDirectoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataConnectorAzureActiveDirectoryArgs makeArgs(DataConnectorAzureActiveDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataConnectorAzureActiveDirectoryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -177,7 +184,7 @@ public class DataConnectorAzureActiveDirectory extends com.pulumi.resources.Cust
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorAzureActiveDirectory get(String name, Output<String> id, @Nullable DataConnectorAzureActiveDirectoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorAzureActiveDirectory get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorAzureActiveDirectoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorAzureActiveDirectory(name, id, state, options);
     }
 }

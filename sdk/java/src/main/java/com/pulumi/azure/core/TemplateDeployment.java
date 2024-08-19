@@ -241,7 +241,7 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TemplateDeployment(String name) {
+    public TemplateDeployment(java.lang.String name) {
         this(name, TemplateDeploymentArgs.Empty);
     }
     /**
@@ -249,7 +249,7 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TemplateDeployment(String name, TemplateDeploymentArgs args) {
+    public TemplateDeployment(java.lang.String name, TemplateDeploymentArgs args) {
         this(name, args, null);
     }
     /**
@@ -258,15 +258,22 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TemplateDeployment(String name, TemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/templateDeployment:TemplateDeployment", name, args == null ? TemplateDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TemplateDeployment(java.lang.String name, TemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/templateDeployment:TemplateDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TemplateDeployment(String name, Output<String> id, @Nullable TemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/templateDeployment:TemplateDeployment", name, state, makeResourceOptions(options, id));
+    private TemplateDeployment(java.lang.String name, Output<java.lang.String> id, @Nullable TemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/templateDeployment:TemplateDeployment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TemplateDeploymentArgs makeArgs(TemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TemplateDeploymentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -282,7 +289,7 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TemplateDeployment get(String name, Output<String> id, @Nullable TemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TemplateDeployment get(java.lang.String name, Output<java.lang.String> id, @Nullable TemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TemplateDeployment(name, id, state, options);
     }
 }

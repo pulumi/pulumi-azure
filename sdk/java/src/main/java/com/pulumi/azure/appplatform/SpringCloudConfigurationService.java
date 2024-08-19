@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
@@ -77,12 +77,12 @@ import javax.annotation.Nullable;
  *                     "dir2")
  *                 .strictHostKeyChecking(false)
  *                 .username("adminuser")
- *                 .password("H{@literal @}Sh1CoR3!")
+ *                 .password("H}{@literal @}{@code Sh1CoR3!")
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -173,7 +173,7 @@ public class SpringCloudConfigurationService extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudConfigurationService(String name) {
+    public SpringCloudConfigurationService(java.lang.String name) {
         this(name, SpringCloudConfigurationServiceArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class SpringCloudConfigurationService extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudConfigurationService(String name, SpringCloudConfigurationServiceArgs args) {
+    public SpringCloudConfigurationService(java.lang.String name, SpringCloudConfigurationServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,15 +190,22 @@ public class SpringCloudConfigurationService extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudConfigurationService(String name, SpringCloudConfigurationServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService", name, args == null ? SpringCloudConfigurationServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudConfigurationService(java.lang.String name, SpringCloudConfigurationServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudConfigurationService(String name, Output<String> id, @Nullable SpringCloudConfigurationServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService", name, state, makeResourceOptions(options, id));
+    private SpringCloudConfigurationService(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudConfigurationServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudConfigurationServiceArgs makeArgs(SpringCloudConfigurationServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudConfigurationServiceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -214,7 +221,7 @@ public class SpringCloudConfigurationService extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudConfigurationService get(String name, Output<String> id, @Nullable SpringCloudConfigurationServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudConfigurationService get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudConfigurationServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudConfigurationService(name, id, state, options);
     }
 }

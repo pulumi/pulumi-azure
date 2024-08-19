@@ -167,7 +167,7 @@ public class ConnectionType extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConnectionType(String name) {
+    public ConnectionType(java.lang.String name) {
         this(name, ConnectionTypeArgs.Empty);
     }
     /**
@@ -175,7 +175,7 @@ public class ConnectionType extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConnectionType(String name, ConnectionTypeArgs args) {
+    public ConnectionType(java.lang.String name, ConnectionTypeArgs args) {
         this(name, args, null);
     }
     /**
@@ -184,15 +184,22 @@ public class ConnectionType extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConnectionType(String name, ConnectionTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/connectionType:ConnectionType", name, args == null ? ConnectionTypeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ConnectionType(java.lang.String name, ConnectionTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/connectionType:ConnectionType", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConnectionType(String name, Output<String> id, @Nullable ConnectionTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/connectionType:ConnectionType", name, state, makeResourceOptions(options, id));
+    private ConnectionType(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/connectionType:ConnectionType", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConnectionTypeArgs makeArgs(ConnectionTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectionTypeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -208,7 +215,7 @@ public class ConnectionType extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConnectionType get(String name, Output<String> id, @Nullable ConnectionTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConnectionType get(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConnectionType(name, id, state, options);
     }
 }

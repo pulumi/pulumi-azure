@@ -182,7 +182,7 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SharedImageGallery(String name) {
+    public SharedImageGallery(java.lang.String name) {
         this(name, SharedImageGalleryArgs.Empty);
     }
     /**
@@ -190,7 +190,7 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SharedImageGallery(String name, SharedImageGalleryArgs args) {
+    public SharedImageGallery(java.lang.String name, SharedImageGalleryArgs args) {
         this(name, args, null);
     }
     /**
@@ -199,15 +199,22 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SharedImageGallery(String name, SharedImageGalleryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/sharedImageGallery:SharedImageGallery", name, args == null ? SharedImageGalleryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SharedImageGallery(java.lang.String name, SharedImageGalleryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/sharedImageGallery:SharedImageGallery", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SharedImageGallery(String name, Output<String> id, @Nullable SharedImageGalleryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/sharedImageGallery:SharedImageGallery", name, state, makeResourceOptions(options, id));
+    private SharedImageGallery(java.lang.String name, Output<java.lang.String> id, @Nullable SharedImageGalleryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/sharedImageGallery:SharedImageGallery", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SharedImageGalleryArgs makeArgs(SharedImageGalleryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SharedImageGalleryArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -223,7 +230,7 @@ public class SharedImageGallery extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SharedImageGallery get(String name, Output<String> id, @Nullable SharedImageGalleryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SharedImageGallery get(java.lang.String name, Output<java.lang.String> id, @Nullable SharedImageGalleryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SharedImageGallery(name, id, state, options);
     }
 }

@@ -210,7 +210,7 @@ public class LinkedServiceAzureTableStorage extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedServiceAzureTableStorage(String name) {
+    public LinkedServiceAzureTableStorage(java.lang.String name) {
         this(name, LinkedServiceAzureTableStorageArgs.Empty);
     }
     /**
@@ -218,7 +218,7 @@ public class LinkedServiceAzureTableStorage extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedServiceAzureTableStorage(String name, LinkedServiceAzureTableStorageArgs args) {
+    public LinkedServiceAzureTableStorage(java.lang.String name, LinkedServiceAzureTableStorageArgs args) {
         this(name, args, null);
     }
     /**
@@ -227,15 +227,22 @@ public class LinkedServiceAzureTableStorage extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedServiceAzureTableStorage(String name, LinkedServiceAzureTableStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage", name, args == null ? LinkedServiceAzureTableStorageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LinkedServiceAzureTableStorage(java.lang.String name, LinkedServiceAzureTableStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedServiceAzureTableStorage(String name, Output<String> id, @Nullable LinkedServiceAzureTableStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage", name, state, makeResourceOptions(options, id));
+    private LinkedServiceAzureTableStorage(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceAzureTableStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LinkedServiceAzureTableStorageArgs makeArgs(LinkedServiceAzureTableStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceAzureTableStorageArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -254,7 +261,7 @@ public class LinkedServiceAzureTableStorage extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedServiceAzureTableStorage get(String name, Output<String> id, @Nullable LinkedServiceAzureTableStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedServiceAzureTableStorage get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceAzureTableStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedServiceAzureTableStorage(name, id, state, options);
     }
 }

@@ -173,7 +173,7 @@ public class LicationLoadBalancerSubnetAssociation extends com.pulumi.resources.
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LicationLoadBalancerSubnetAssociation(String name) {
+    public LicationLoadBalancerSubnetAssociation(java.lang.String name) {
         this(name, LicationLoadBalancerSubnetAssociationArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class LicationLoadBalancerSubnetAssociation extends com.pulumi.resources.
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LicationLoadBalancerSubnetAssociation(String name, LicationLoadBalancerSubnetAssociationArgs args) {
+    public LicationLoadBalancerSubnetAssociation(java.lang.String name, LicationLoadBalancerSubnetAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,15 +190,22 @@ public class LicationLoadBalancerSubnetAssociation extends com.pulumi.resources.
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LicationLoadBalancerSubnetAssociation(String name, LicationLoadBalancerSubnetAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation", name, args == null ? LicationLoadBalancerSubnetAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LicationLoadBalancerSubnetAssociation(java.lang.String name, LicationLoadBalancerSubnetAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LicationLoadBalancerSubnetAssociation(String name, Output<String> id, @Nullable LicationLoadBalancerSubnetAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation", name, state, makeResourceOptions(options, id));
+    private LicationLoadBalancerSubnetAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable LicationLoadBalancerSubnetAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LicationLoadBalancerSubnetAssociationArgs makeArgs(LicationLoadBalancerSubnetAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LicationLoadBalancerSubnetAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -214,7 +221,7 @@ public class LicationLoadBalancerSubnetAssociation extends com.pulumi.resources.
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LicationLoadBalancerSubnetAssociation get(String name, Output<String> id, @Nullable LicationLoadBalancerSubnetAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LicationLoadBalancerSubnetAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable LicationLoadBalancerSubnetAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LicationLoadBalancerSubnetAssociation(name, id, state, options);
     }
 }

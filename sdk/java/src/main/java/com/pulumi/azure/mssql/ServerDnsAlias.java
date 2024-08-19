@@ -128,7 +128,7 @@ public class ServerDnsAlias extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerDnsAlias(String name) {
+    public ServerDnsAlias(java.lang.String name) {
         this(name, ServerDnsAliasArgs.Empty);
     }
     /**
@@ -136,7 +136,7 @@ public class ServerDnsAlias extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerDnsAlias(String name, ServerDnsAliasArgs args) {
+    public ServerDnsAlias(java.lang.String name, ServerDnsAliasArgs args) {
         this(name, args, null);
     }
     /**
@@ -145,15 +145,22 @@ public class ServerDnsAlias extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerDnsAlias(String name, ServerDnsAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/serverDnsAlias:ServerDnsAlias", name, args == null ? ServerDnsAliasArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServerDnsAlias(java.lang.String name, ServerDnsAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/serverDnsAlias:ServerDnsAlias", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerDnsAlias(String name, Output<String> id, @Nullable ServerDnsAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/serverDnsAlias:ServerDnsAlias", name, state, makeResourceOptions(options, id));
+    private ServerDnsAlias(java.lang.String name, Output<java.lang.String> id, @Nullable ServerDnsAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/serverDnsAlias:ServerDnsAlias", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServerDnsAliasArgs makeArgs(ServerDnsAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerDnsAliasArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -169,7 +176,7 @@ public class ServerDnsAlias extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerDnsAlias get(String name, Output<String> id, @Nullable ServerDnsAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerDnsAlias get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerDnsAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerDnsAlias(name, id, state, options);
     }
 }

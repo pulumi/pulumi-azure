@@ -184,7 +184,7 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualMachineGroup(String name) {
+    public VirtualMachineGroup(java.lang.String name) {
         this(name, VirtualMachineGroupArgs.Empty);
     }
     /**
@@ -192,7 +192,7 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualMachineGroup(String name, VirtualMachineGroupArgs args) {
+    public VirtualMachineGroup(java.lang.String name, VirtualMachineGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -201,15 +201,22 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualMachineGroup(String name, VirtualMachineGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/virtualMachineGroup:VirtualMachineGroup", name, args == null ? VirtualMachineGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualMachineGroup(java.lang.String name, VirtualMachineGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/virtualMachineGroup:VirtualMachineGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualMachineGroup(String name, Output<String> id, @Nullable VirtualMachineGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/virtualMachineGroup:VirtualMachineGroup", name, state, makeResourceOptions(options, id));
+    private VirtualMachineGroup(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/virtualMachineGroup:VirtualMachineGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualMachineGroupArgs makeArgs(VirtualMachineGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualMachineGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -225,7 +232,7 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualMachineGroup get(String name, Output<String> id, @Nullable VirtualMachineGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualMachineGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualMachineGroup(name, id, state, options);
     }
 }

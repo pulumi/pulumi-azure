@@ -186,7 +186,7 @@ public class NetworkManagerScopeConnection extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkManagerScopeConnection(String name) {
+    public NetworkManagerScopeConnection(java.lang.String name) {
         this(name, NetworkManagerScopeConnectionArgs.Empty);
     }
     /**
@@ -194,7 +194,7 @@ public class NetworkManagerScopeConnection extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkManagerScopeConnection(String name, NetworkManagerScopeConnectionArgs args) {
+    public NetworkManagerScopeConnection(java.lang.String name, NetworkManagerScopeConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -203,15 +203,22 @@ public class NetworkManagerScopeConnection extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkManagerScopeConnection(String name, NetworkManagerScopeConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection", name, args == null ? NetworkManagerScopeConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkManagerScopeConnection(java.lang.String name, NetworkManagerScopeConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkManagerScopeConnection(String name, Output<String> id, @Nullable NetworkManagerScopeConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection", name, state, makeResourceOptions(options, id));
+    private NetworkManagerScopeConnection(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerScopeConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkManagerScopeConnectionArgs makeArgs(NetworkManagerScopeConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkManagerScopeConnectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -227,7 +234,7 @@ public class NetworkManagerScopeConnection extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkManagerScopeConnection get(String name, Output<String> id, @Nullable NetworkManagerScopeConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkManagerScopeConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerScopeConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkManagerScopeConnection(name, id, state, options);
     }
 }

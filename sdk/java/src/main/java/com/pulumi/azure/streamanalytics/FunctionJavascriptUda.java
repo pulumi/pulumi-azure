@@ -177,7 +177,7 @@ public class FunctionJavascriptUda extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FunctionJavascriptUda(String name) {
+    public FunctionJavascriptUda(java.lang.String name) {
         this(name, FunctionJavascriptUdaArgs.Empty);
     }
     /**
@@ -185,7 +185,7 @@ public class FunctionJavascriptUda extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FunctionJavascriptUda(String name, FunctionJavascriptUdaArgs args) {
+    public FunctionJavascriptUda(java.lang.String name, FunctionJavascriptUdaArgs args) {
         this(name, args, null);
     }
     /**
@@ -194,15 +194,22 @@ public class FunctionJavascriptUda extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FunctionJavascriptUda(String name, FunctionJavascriptUdaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda", name, args == null ? FunctionJavascriptUdaArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FunctionJavascriptUda(java.lang.String name, FunctionJavascriptUdaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FunctionJavascriptUda(String name, Output<String> id, @Nullable FunctionJavascriptUdaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda", name, state, makeResourceOptions(options, id));
+    private FunctionJavascriptUda(java.lang.String name, Output<java.lang.String> id, @Nullable FunctionJavascriptUdaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FunctionJavascriptUdaArgs makeArgs(FunctionJavascriptUdaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FunctionJavascriptUdaArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -218,7 +225,7 @@ public class FunctionJavascriptUda extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FunctionJavascriptUda get(String name, Output<String> id, @Nullable FunctionJavascriptUdaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FunctionJavascriptUda get(java.lang.String name, Output<java.lang.String> id, @Nullable FunctionJavascriptUdaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FunctionJavascriptUda(name, id, state, options);
     }
 }

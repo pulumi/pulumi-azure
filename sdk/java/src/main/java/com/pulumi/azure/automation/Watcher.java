@@ -273,7 +273,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Watcher(String name) {
+    public Watcher(java.lang.String name) {
         this(name, WatcherArgs.Empty);
     }
     /**
@@ -281,7 +281,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Watcher(String name, WatcherArgs args) {
+    public Watcher(java.lang.String name, WatcherArgs args) {
         this(name, args, null);
     }
     /**
@@ -290,15 +290,22 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Watcher(String name, WatcherArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/watcher:Watcher", name, args == null ? WatcherArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Watcher(java.lang.String name, WatcherArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/watcher:Watcher", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Watcher(String name, Output<String> id, @Nullable WatcherState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/watcher:Watcher", name, state, makeResourceOptions(options, id));
+    private Watcher(java.lang.String name, Output<java.lang.String> id, @Nullable WatcherState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/watcher:Watcher", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WatcherArgs makeArgs(WatcherArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WatcherArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -314,7 +321,7 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Watcher get(String name, Output<String> id, @Nullable WatcherState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Watcher get(java.lang.String name, Output<java.lang.String> id, @Nullable WatcherState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Watcher(name, id, state, options);
     }
 }

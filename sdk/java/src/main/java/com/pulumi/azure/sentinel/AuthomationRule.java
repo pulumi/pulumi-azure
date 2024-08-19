@@ -288,7 +288,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AuthomationRule(String name) {
+    public AuthomationRule(java.lang.String name) {
         this(name, AuthomationRuleArgs.Empty);
     }
     /**
@@ -296,7 +296,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AuthomationRule(String name, AuthomationRuleArgs args) {
+    public AuthomationRule(java.lang.String name, AuthomationRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -305,15 +305,22 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AuthomationRule(String name, AuthomationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/authomationRule:AuthomationRule", name, args == null ? AuthomationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AuthomationRule(java.lang.String name, AuthomationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/authomationRule:AuthomationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AuthomationRule(String name, Output<String> id, @Nullable AuthomationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/authomationRule:AuthomationRule", name, state, makeResourceOptions(options, id));
+    private AuthomationRule(java.lang.String name, Output<java.lang.String> id, @Nullable AuthomationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/authomationRule:AuthomationRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AuthomationRuleArgs makeArgs(AuthomationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AuthomationRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -329,7 +336,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AuthomationRule get(String name, Output<String> id, @Nullable AuthomationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AuthomationRule get(java.lang.String name, Output<java.lang.String> id, @Nullable AuthomationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AuthomationRule(name, id, state, options);
     }
 }

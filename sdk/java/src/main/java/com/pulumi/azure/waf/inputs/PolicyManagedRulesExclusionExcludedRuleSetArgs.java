@@ -33,14 +33,14 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetArgs extends com.pu
     }
 
     /**
-     * The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
+     * The rule set type. Possible values are `Microsoft_DefaultRuleSet`, `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
+     * @return The rule set type. Possible values are `Microsoft_DefaultRuleSet`, `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -48,14 +48,14 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetArgs extends com.pu
     }
 
     /**
-     * The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+     * The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+     * @return The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
      * 
      */
     public Optional<Output<String>> version() {
@@ -120,7 +120,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetArgs extends com.pu
         }
 
         /**
-         * @param type The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
+         * @param type The rule set type. Possible values are `Microsoft_DefaultRuleSet`, `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetArgs extends com.pu
         }
 
         /**
-         * @param type The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
+         * @param type The rule set type. Possible values are `Microsoft_DefaultRuleSet`, `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetArgs extends com.pu
         }
 
         /**
-         * @param version The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+         * @param version The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetArgs extends com.pu
         }
 
         /**
-         * @param version The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+         * @param version The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
          * 
          * @return builder
          * 

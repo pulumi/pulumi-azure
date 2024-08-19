@@ -236,7 +236,7 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudApiPortal(String name) {
+    public SpringCloudApiPortal(java.lang.String name) {
         this(name, SpringCloudApiPortalArgs.Empty);
     }
     /**
@@ -244,7 +244,7 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudApiPortal(String name, SpringCloudApiPortalArgs args) {
+    public SpringCloudApiPortal(java.lang.String name, SpringCloudApiPortalArgs args) {
         this(name, args, null);
     }
     /**
@@ -253,15 +253,22 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudApiPortal(String name, SpringCloudApiPortalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudApiPortal:SpringCloudApiPortal", name, args == null ? SpringCloudApiPortalArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudApiPortal(java.lang.String name, SpringCloudApiPortalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudApiPortal:SpringCloudApiPortal", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudApiPortal(String name, Output<String> id, @Nullable SpringCloudApiPortalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudApiPortal:SpringCloudApiPortal", name, state, makeResourceOptions(options, id));
+    private SpringCloudApiPortal(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudApiPortalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudApiPortal:SpringCloudApiPortal", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudApiPortalArgs makeArgs(SpringCloudApiPortalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudApiPortalArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -277,7 +284,7 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudApiPortal get(String name, Output<String> id, @Nullable SpringCloudApiPortalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudApiPortal get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudApiPortalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudApiPortal(name, id, state, options);
     }
 }

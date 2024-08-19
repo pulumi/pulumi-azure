@@ -417,7 +417,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Metadata(String name) {
+    public Metadata(java.lang.String name) {
         this(name, MetadataArgs.Empty);
     }
     /**
@@ -425,7 +425,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Metadata(String name, MetadataArgs args) {
+    public Metadata(java.lang.String name, MetadataArgs args) {
         this(name, args, null);
     }
     /**
@@ -434,15 +434,22 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Metadata(String name, MetadataArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/metadata:Metadata", name, args == null ? MetadataArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Metadata(java.lang.String name, MetadataArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/metadata:Metadata", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Metadata(String name, Output<String> id, @Nullable MetadataState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/metadata:Metadata", name, state, makeResourceOptions(options, id));
+    private Metadata(java.lang.String name, Output<java.lang.String> id, @Nullable MetadataState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/metadata:Metadata", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MetadataArgs makeArgs(MetadataArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MetadataArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -458,7 +465,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Metadata get(String name, Output<String> id, @Nullable MetadataState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Metadata get(java.lang.String name, Output<java.lang.String> id, @Nullable MetadataState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Metadata(name, id, state, options);
     }
 }

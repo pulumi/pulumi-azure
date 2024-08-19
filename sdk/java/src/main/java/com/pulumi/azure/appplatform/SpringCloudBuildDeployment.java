@@ -222,7 +222,7 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudBuildDeployment(String name) {
+    public SpringCloudBuildDeployment(java.lang.String name) {
         this(name, SpringCloudBuildDeploymentArgs.Empty);
     }
     /**
@@ -230,7 +230,7 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudBuildDeployment(String name, SpringCloudBuildDeploymentArgs args) {
+    public SpringCloudBuildDeployment(java.lang.String name, SpringCloudBuildDeploymentArgs args) {
         this(name, args, null);
     }
     /**
@@ -239,15 +239,22 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudBuildDeployment(String name, SpringCloudBuildDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment", name, args == null ? SpringCloudBuildDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudBuildDeployment(java.lang.String name, SpringCloudBuildDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudBuildDeployment(String name, Output<String> id, @Nullable SpringCloudBuildDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment", name, state, makeResourceOptions(options, id));
+    private SpringCloudBuildDeployment(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudBuildDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudBuildDeploymentArgs makeArgs(SpringCloudBuildDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudBuildDeploymentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -263,7 +270,7 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudBuildDeployment get(String name, Output<String> id, @Nullable SpringCloudBuildDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudBuildDeployment get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudBuildDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudBuildDeployment(name, id, state, options);
     }
 }

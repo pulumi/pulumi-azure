@@ -173,7 +173,7 @@ public class IntVariable extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntVariable(String name) {
+    public IntVariable(java.lang.String name) {
         this(name, IntVariableArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class IntVariable extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntVariable(String name, IntVariableArgs args) {
+    public IntVariable(java.lang.String name, IntVariableArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,15 +190,22 @@ public class IntVariable extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntVariable(String name, IntVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/intVariable:IntVariable", name, args == null ? IntVariableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IntVariable(java.lang.String name, IntVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/intVariable:IntVariable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntVariable(String name, Output<String> id, @Nullable IntVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/intVariable:IntVariable", name, state, makeResourceOptions(options, id));
+    private IntVariable(java.lang.String name, Output<java.lang.String> id, @Nullable IntVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/intVariable:IntVariable", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IntVariableArgs makeArgs(IntVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntVariableArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -214,7 +221,7 @@ public class IntVariable extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntVariable get(String name, Output<String> id, @Nullable IntVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntVariable get(java.lang.String name, Output<java.lang.String> id, @Nullable IntVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntVariable(name, id, state, options);
     }
 }

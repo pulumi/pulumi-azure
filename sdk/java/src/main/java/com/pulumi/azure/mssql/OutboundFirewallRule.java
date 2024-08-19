@@ -115,7 +115,7 @@ public class OutboundFirewallRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OutboundFirewallRule(String name) {
+    public OutboundFirewallRule(java.lang.String name) {
         this(name, OutboundFirewallRuleArgs.Empty);
     }
     /**
@@ -123,7 +123,7 @@ public class OutboundFirewallRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OutboundFirewallRule(String name, OutboundFirewallRuleArgs args) {
+    public OutboundFirewallRule(java.lang.String name, OutboundFirewallRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -132,15 +132,22 @@ public class OutboundFirewallRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OutboundFirewallRule(String name, OutboundFirewallRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/outboundFirewallRule:OutboundFirewallRule", name, args == null ? OutboundFirewallRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OutboundFirewallRule(java.lang.String name, OutboundFirewallRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/outboundFirewallRule:OutboundFirewallRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OutboundFirewallRule(String name, Output<String> id, @Nullable OutboundFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/outboundFirewallRule:OutboundFirewallRule", name, state, makeResourceOptions(options, id));
+    private OutboundFirewallRule(java.lang.String name, Output<java.lang.String> id, @Nullable OutboundFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/outboundFirewallRule:OutboundFirewallRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OutboundFirewallRuleArgs makeArgs(OutboundFirewallRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OutboundFirewallRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -156,7 +163,7 @@ public class OutboundFirewallRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OutboundFirewallRule get(String name, Output<String> id, @Nullable OutboundFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OutboundFirewallRule get(java.lang.String name, Output<java.lang.String> id, @Nullable OutboundFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OutboundFirewallRule(name, id, state, options);
     }
 }

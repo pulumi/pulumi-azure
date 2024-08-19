@@ -75,6 +75,12 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<bool?> OverrideSubscriptionSettingsEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+        /// </summary>
+        [Output("scanResultsEventGridTopicId")]
+        public Output<string?> ScanResultsEventGridTopicId { get; private set; } = null!;
+
+        /// <summary>
         /// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         /// </summary>
         [Output("sensitiveDataDiscoveryEnabled")]
@@ -151,6 +157,12 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<bool>? OverrideSubscriptionSettingsEnabled { get; set; }
 
         /// <summary>
+        /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+        /// </summary>
+        [Input("scanResultsEventGridTopicId")]
+        public Input<string>? ScanResultsEventGridTopicId { get; set; }
+
+        /// <summary>
         /// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         /// </summary>
         [Input("sensitiveDataDiscoveryEnabled")]
@@ -187,6 +199,12 @@ namespace Pulumi.Azure.SecurityCenter
         /// </summary>
         [Input("overrideSubscriptionSettingsEnabled")]
         public Input<bool>? OverrideSubscriptionSettingsEnabled { get; set; }
+
+        /// <summary>
+        /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+        /// </summary>
+        [Input("scanResultsEventGridTopicId")]
+        public Input<string>? ScanResultsEventGridTopicId { get; set; }
 
         /// <summary>
         /// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.

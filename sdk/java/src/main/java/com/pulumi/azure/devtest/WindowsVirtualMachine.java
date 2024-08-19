@@ -379,7 +379,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WindowsVirtualMachine(String name) {
+    public WindowsVirtualMachine(java.lang.String name) {
         this(name, WindowsVirtualMachineArgs.Empty);
     }
     /**
@@ -387,7 +387,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WindowsVirtualMachine(String name, WindowsVirtualMachineArgs args) {
+    public WindowsVirtualMachine(java.lang.String name, WindowsVirtualMachineArgs args) {
         this(name, args, null);
     }
     /**
@@ -396,15 +396,22 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WindowsVirtualMachine(String name, WindowsVirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, args == null ? WindowsVirtualMachineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public WindowsVirtualMachine(java.lang.String name, WindowsVirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WindowsVirtualMachine(String name, Output<String> id, @Nullable WindowsVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, state, makeResourceOptions(options, id));
+    private WindowsVirtualMachine(java.lang.String name, Output<java.lang.String> id, @Nullable WindowsVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WindowsVirtualMachineArgs makeArgs(WindowsVirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WindowsVirtualMachineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -423,7 +430,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WindowsVirtualMachine get(String name, Output<String> id, @Nullable WindowsVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WindowsVirtualMachine get(java.lang.String name, Output<java.lang.String> id, @Nullable WindowsVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WindowsVirtualMachine(name, id, state, options);
     }
 }

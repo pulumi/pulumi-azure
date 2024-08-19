@@ -720,6 +720,8 @@ type FlexibleServerMaintenanceWindow struct {
 	// The start hour for maintenance window. Defaults to `0`.
 	StartHour *int `pulumi:"startHour"`
 	// The start minute for maintenance window. Defaults to `0`.
+	//
+	// > **NOTE** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 	StartMinute *int `pulumi:"startMinute"`
 }
 
@@ -740,6 +742,8 @@ type FlexibleServerMaintenanceWindowArgs struct {
 	// The start hour for maintenance window. Defaults to `0`.
 	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
 	// The start minute for maintenance window. Defaults to `0`.
+	//
+	// > **NOTE** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
 }
 
@@ -831,6 +835,8 @@ func (o FlexibleServerMaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
 }
 
 // The start minute for maintenance window. Defaults to `0`.
+//
+// > **NOTE** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 func (o FlexibleServerMaintenanceWindowOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
 }
@@ -880,6 +886,8 @@ func (o FlexibleServerMaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutpu
 }
 
 // The start minute for maintenance window. Defaults to `0`.
+//
+// > **NOTE** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 func (o FlexibleServerMaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
 		if v == nil {

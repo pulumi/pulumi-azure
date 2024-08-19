@@ -154,7 +154,7 @@ public class JobAgent extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public JobAgent(String name) {
+    public JobAgent(java.lang.String name) {
         this(name, JobAgentArgs.Empty);
     }
     /**
@@ -162,7 +162,7 @@ public class JobAgent extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public JobAgent(String name, JobAgentArgs args) {
+    public JobAgent(java.lang.String name, JobAgentArgs args) {
         this(name, args, null);
     }
     /**
@@ -171,15 +171,22 @@ public class JobAgent extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public JobAgent(String name, JobAgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/jobAgent:JobAgent", name, args == null ? JobAgentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public JobAgent(java.lang.String name, JobAgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/jobAgent:JobAgent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private JobAgent(String name, Output<String> id, @Nullable JobAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/jobAgent:JobAgent", name, state, makeResourceOptions(options, id));
+    private JobAgent(java.lang.String name, Output<java.lang.String> id, @Nullable JobAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/jobAgent:JobAgent", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static JobAgentArgs makeArgs(JobAgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? JobAgentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -195,7 +202,7 @@ public class JobAgent extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static JobAgent get(String name, Output<String> id, @Nullable JobAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static JobAgent get(java.lang.String name, Output<java.lang.String> id, @Nullable JobAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new JobAgent(name, id, state, options);
     }
 }

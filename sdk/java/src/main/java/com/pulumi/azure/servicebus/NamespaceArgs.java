@@ -226,6 +226,8 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
+     * 
      * @deprecated
      * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
      * 
@@ -236,6 +238,8 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
      * 
      * @deprecated
      * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
@@ -565,6 +569,8 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zoneRedundant Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -579,6 +585,8 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zoneRedundant Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
          * 
          * @return builder
          * 

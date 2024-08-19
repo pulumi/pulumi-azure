@@ -273,7 +273,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualHub(String name) {
+    public VirtualHub(java.lang.String name) {
         this(name, VirtualHubArgs.Empty);
     }
     /**
@@ -281,7 +281,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualHub(String name, VirtualHubArgs args) {
+    public VirtualHub(java.lang.String name, VirtualHubArgs args) {
         this(name, args, null);
     }
     /**
@@ -290,15 +290,22 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualHub(String name, VirtualHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualHub:VirtualHub", name, args == null ? VirtualHubArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualHub(java.lang.String name, VirtualHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/virtualHub:VirtualHub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualHub(String name, Output<String> id, @Nullable VirtualHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualHub:VirtualHub", name, state, makeResourceOptions(options, id));
+    private VirtualHub(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/virtualHub:VirtualHub", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualHubArgs makeArgs(VirtualHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualHubArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -314,7 +321,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualHub get(String name, Output<String> id, @Nullable VirtualHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualHub get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualHub(name, id, state, options);
     }
 }

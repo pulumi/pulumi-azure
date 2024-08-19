@@ -164,7 +164,7 @@ public class ActiveDirectoryAdministrator extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ActiveDirectoryAdministrator(String name) {
+    public ActiveDirectoryAdministrator(java.lang.String name) {
         this(name, ActiveDirectoryAdministratorArgs.Empty);
     }
     /**
@@ -172,7 +172,7 @@ public class ActiveDirectoryAdministrator extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ActiveDirectoryAdministrator(String name, ActiveDirectoryAdministratorArgs args) {
+    public ActiveDirectoryAdministrator(java.lang.String name, ActiveDirectoryAdministratorArgs args) {
         this(name, args, null);
     }
     /**
@@ -181,15 +181,22 @@ public class ActiveDirectoryAdministrator extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ActiveDirectoryAdministrator(String name, ActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator", name, args == null ? ActiveDirectoryAdministratorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ActiveDirectoryAdministrator(java.lang.String name, ActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ActiveDirectoryAdministrator(String name, Output<String> id, @Nullable ActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator", name, state, makeResourceOptions(options, id));
+    private ActiveDirectoryAdministrator(java.lang.String name, Output<java.lang.String> id, @Nullable ActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ActiveDirectoryAdministratorArgs makeArgs(ActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ActiveDirectoryAdministratorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -205,7 +212,7 @@ public class ActiveDirectoryAdministrator extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ActiveDirectoryAdministrator get(String name, Output<String> id, @Nullable ActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ActiveDirectoryAdministrator get(java.lang.String name, Output<java.lang.String> id, @Nullable ActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ActiveDirectoryAdministrator(name, id, state, options);
     }
 }

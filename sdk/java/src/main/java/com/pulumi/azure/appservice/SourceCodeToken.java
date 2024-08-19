@@ -116,7 +116,7 @@ public class SourceCodeToken extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SourceCodeToken(String name) {
+    public SourceCodeToken(java.lang.String name) {
         this(name, SourceCodeTokenArgs.Empty);
     }
     /**
@@ -124,7 +124,7 @@ public class SourceCodeToken extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SourceCodeToken(String name, SourceCodeTokenArgs args) {
+    public SourceCodeToken(java.lang.String name, SourceCodeTokenArgs args) {
         this(name, args, null);
     }
     /**
@@ -133,15 +133,22 @@ public class SourceCodeToken extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SourceCodeToken(String name, SourceCodeTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/sourceCodeToken:SourceCodeToken", name, args == null ? SourceCodeTokenArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SourceCodeToken(java.lang.String name, SourceCodeTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/sourceCodeToken:SourceCodeToken", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SourceCodeToken(String name, Output<String> id, @Nullable SourceCodeTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/sourceCodeToken:SourceCodeToken", name, state, makeResourceOptions(options, id));
+    private SourceCodeToken(java.lang.String name, Output<java.lang.String> id, @Nullable SourceCodeTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/sourceCodeToken:SourceCodeToken", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SourceCodeTokenArgs makeArgs(SourceCodeTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SourceCodeTokenArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -161,7 +168,7 @@ public class SourceCodeToken extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SourceCodeToken get(String name, Output<String> id, @Nullable SourceCodeTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SourceCodeToken get(java.lang.String name, Output<java.lang.String> id, @Nullable SourceCodeTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SourceCodeToken(name, id, state, options);
     }
 }

@@ -58,12 +58,13 @@ public final class GetAccountResult {
      * 
      */
     private String dnsEndpointType;
+    private Boolean enableHttpsTrafficOnly;
     /**
      * @return Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
      * for more information.
      * 
      */
-    private Boolean enableHttpsTrafficOnly;
+    private Boolean httpsTrafficOnlyEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -539,13 +540,16 @@ public final class GetAccountResult {
     public String dnsEndpointType() {
         return this.dnsEndpointType;
     }
+    public Boolean enableHttpsTrafficOnly() {
+        return this.enableHttpsTrafficOnly;
+    }
     /**
      * @return Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
      * for more information.
      * 
      */
-    public Boolean enableHttpsTrafficOnly() {
-        return this.enableHttpsTrafficOnly;
+    public Boolean httpsTrafficOnlyEnabled() {
+        return this.httpsTrafficOnlyEnabled;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -1151,6 +1155,7 @@ public final class GetAccountResult {
         private List<GetAccountCustomDomain> customDomains;
         private String dnsEndpointType;
         private Boolean enableHttpsTrafficOnly;
+        private Boolean httpsTrafficOnlyEnabled;
         private String id;
         private List<GetAccountIdentity> identities;
         private Boolean infrastructureEncryptionEnabled;
@@ -1247,6 +1252,7 @@ public final class GetAccountResult {
     	      this.customDomains = defaults.customDomains;
     	      this.dnsEndpointType = defaults.dnsEndpointType;
     	      this.enableHttpsTrafficOnly = defaults.enableHttpsTrafficOnly;
+    	      this.httpsTrafficOnlyEnabled = defaults.httpsTrafficOnlyEnabled;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
     	      this.infrastructureEncryptionEnabled = defaults.infrastructureEncryptionEnabled;
@@ -1409,6 +1415,14 @@ public final class GetAccountResult {
               throw new MissingRequiredPropertyException("GetAccountResult", "enableHttpsTrafficOnly");
             }
             this.enableHttpsTrafficOnly = enableHttpsTrafficOnly;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder httpsTrafficOnlyEnabled(Boolean httpsTrafficOnlyEnabled) {
+            if (httpsTrafficOnlyEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "httpsTrafficOnlyEnabled");
+            }
+            this.httpsTrafficOnlyEnabled = httpsTrafficOnlyEnabled;
             return this;
         }
         @CustomType.Setter
@@ -2093,6 +2107,7 @@ public final class GetAccountResult {
             _resultValue.customDomains = customDomains;
             _resultValue.dnsEndpointType = dnsEndpointType;
             _resultValue.enableHttpsTrafficOnly = enableHttpsTrafficOnly;
+            _resultValue.httpsTrafficOnlyEnabled = httpsTrafficOnlyEnabled;
             _resultValue.id = id;
             _resultValue.identities = identities;
             _resultValue.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;

@@ -250,7 +250,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NamespaceAuthorizationRule(String name) {
+    public NamespaceAuthorizationRule(java.lang.String name) {
         this(name, NamespaceAuthorizationRuleArgs.Empty);
     }
     /**
@@ -258,7 +258,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NamespaceAuthorizationRule(String name, NamespaceAuthorizationRuleArgs args) {
+    public NamespaceAuthorizationRule(java.lang.String name, NamespaceAuthorizationRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -267,15 +267,22 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NamespaceAuthorizationRule(String name, NamespaceAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, args == null ? NamespaceAuthorizationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NamespaceAuthorizationRule(java.lang.String name, NamespaceAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NamespaceAuthorizationRule(String name, Output<String> id, @Nullable NamespaceAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, state, makeResourceOptions(options, id));
+    private NamespaceAuthorizationRule(java.lang.String name, Output<java.lang.String> id, @Nullable NamespaceAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NamespaceAuthorizationRuleArgs makeArgs(NamespaceAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NamespaceAuthorizationRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -302,7 +309,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NamespaceAuthorizationRule get(String name, Output<String> id, @Nullable NamespaceAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NamespaceAuthorizationRule get(java.lang.String name, Output<java.lang.String> id, @Nullable NamespaceAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NamespaceAuthorizationRule(name, id, state, options);
     }
 }

@@ -30,6 +30,7 @@ class CacheArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_ssl_port_enabled: Optional[pulumi.Input[bool]] = None,
                  patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]] = None,
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -77,6 +78,9 @@ class CacheArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
         if enable_non_ssl_port is not None:
+            warnings.warn("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_non_ssl_port is deprecated: `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
+        if enable_non_ssl_port is not None:
             pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -86,6 +90,8 @@ class CacheArgs:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if non_ssl_port_enabled is not None:
+            pulumi.set(__self__, "non_ssl_port_enabled", non_ssl_port_enabled)
         if patch_schedules is not None:
             pulumi.set(__self__, "patch_schedules", patch_schedules)
         if private_static_ip_address is not None:
@@ -163,6 +169,7 @@ class CacheArgs:
 
     @property
     @pulumi.getter(name="enableNonSslPort")
+    @_utilities.deprecated("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
     def enable_non_ssl_port(self) -> Optional[pulumi.Input[bool]]:
         """
         Enable the non-SSL port (6379) - disabled by default.
@@ -220,6 +227,15 @@ class CacheArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nonSslPortEnabled")
+    def non_ssl_port_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "non_ssl_port_enabled")
+
+    @non_ssl_port_enabled.setter
+    def non_ssl_port_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "non_ssl_port_enabled", value)
 
     @property
     @pulumi.getter(name="patchSchedules")
@@ -381,6 +397,7 @@ class _CacheState:
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_ssl_port_enabled: Optional[pulumi.Input[bool]] = None,
                  patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  primary_access_key: Optional[pulumi.Input[str]] = None,
@@ -441,6 +458,9 @@ class _CacheState:
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
         if enable_non_ssl_port is not None:
+            warnings.warn("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_non_ssl_port is deprecated: `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
+        if enable_non_ssl_port is not None:
             pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
         if family is not None:
             pulumi.set(__self__, "family", family)
@@ -454,6 +474,8 @@ class _CacheState:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if non_ssl_port_enabled is not None:
+            pulumi.set(__self__, "non_ssl_port_enabled", non_ssl_port_enabled)
         if patch_schedules is not None:
             pulumi.set(__self__, "patch_schedules", patch_schedules)
         if port is not None:
@@ -509,6 +531,7 @@ class _CacheState:
 
     @property
     @pulumi.getter(name="enableNonSslPort")
+    @_utilities.deprecated("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
     def enable_non_ssl_port(self) -> Optional[pulumi.Input[bool]]:
         """
         Enable the non-SSL port (6379) - disabled by default.
@@ -590,6 +613,15 @@ class _CacheState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nonSslPortEnabled")
+    def non_ssl_port_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "non_ssl_port_enabled")
+
+    @non_ssl_port_enabled.setter
+    def non_ssl_port_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "non_ssl_port_enabled", value)
 
     @property
     @pulumi.getter(name="patchSchedules")
@@ -850,6 +882,7 @@ class Cache(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_ssl_port_enabled: Optional[pulumi.Input[bool]] = None,
                  patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]]] = None,
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1007,6 +1040,7 @@ class Cache(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_ssl_port_enabled: Optional[pulumi.Input[bool]] = None,
                  patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]]] = None,
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1041,6 +1075,7 @@ class Cache(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["name"] = name
+            __props__.__dict__["non_ssl_port_enabled"] = non_ssl_port_enabled
             __props__.__dict__["patch_schedules"] = patch_schedules
             __props__.__dict__["private_static_ip_address"] = private_static_ip_address
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -1086,6 +1121,7 @@ class Cache(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             minimum_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            non_ssl_port_enabled: Optional[pulumi.Input[bool]] = None,
             patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]]] = None,
             port: Optional[pulumi.Input[int]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
@@ -1160,6 +1196,7 @@ class Cache(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["minimum_tls_version"] = minimum_tls_version
         __props__.__dict__["name"] = name
+        __props__.__dict__["non_ssl_port_enabled"] = non_ssl_port_enabled
         __props__.__dict__["patch_schedules"] = patch_schedules
         __props__.__dict__["port"] = port
         __props__.__dict__["primary_access_key"] = primary_access_key
@@ -1192,6 +1229,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableNonSslPort")
+    @_utilities.deprecated("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
     def enable_non_ssl_port(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable the non-SSL port (6379) - disabled by default.
@@ -1245,6 +1283,11 @@ class Cache(pulumi.CustomResource):
         The name of the Redis instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nonSslPortEnabled")
+    def non_ssl_port_enabled(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "non_ssl_port_enabled")
 
     @property
     @pulumi.getter(name="patchSchedules")

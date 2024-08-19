@@ -130,7 +130,7 @@ public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.reso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedHardwareSecurityModuleRoleAssignment(String name) {
+    public ManagedHardwareSecurityModuleRoleAssignment(java.lang.String name) {
         this(name, ManagedHardwareSecurityModuleRoleAssignmentArgs.Empty);
     }
     /**
@@ -138,7 +138,7 @@ public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.reso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedHardwareSecurityModuleRoleAssignment(String name, ManagedHardwareSecurityModuleRoleAssignmentArgs args) {
+    public ManagedHardwareSecurityModuleRoleAssignment(java.lang.String name, ManagedHardwareSecurityModuleRoleAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -147,15 +147,22 @@ public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.reso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedHardwareSecurityModuleRoleAssignment(String name, ManagedHardwareSecurityModuleRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment", name, args == null ? ManagedHardwareSecurityModuleRoleAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ManagedHardwareSecurityModuleRoleAssignment(java.lang.String name, ManagedHardwareSecurityModuleRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedHardwareSecurityModuleRoleAssignment(String name, Output<String> id, @Nullable ManagedHardwareSecurityModuleRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment", name, state, makeResourceOptions(options, id));
+    private ManagedHardwareSecurityModuleRoleAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedHardwareSecurityModuleRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ManagedHardwareSecurityModuleRoleAssignmentArgs makeArgs(ManagedHardwareSecurityModuleRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedHardwareSecurityModuleRoleAssignmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -171,7 +178,7 @@ public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.reso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedHardwareSecurityModuleRoleAssignment get(String name, Output<String> id, @Nullable ManagedHardwareSecurityModuleRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedHardwareSecurityModuleRoleAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedHardwareSecurityModuleRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedHardwareSecurityModuleRoleAssignment(name, id, state, options);
     }
 }

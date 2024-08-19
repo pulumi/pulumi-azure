@@ -240,7 +240,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedServiceAzureFunction(String name) {
+    public LinkedServiceAzureFunction(java.lang.String name) {
         this(name, LinkedServiceAzureFunctionArgs.Empty);
     }
     /**
@@ -248,7 +248,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedServiceAzureFunction(String name, LinkedServiceAzureFunctionArgs args) {
+    public LinkedServiceAzureFunction(java.lang.String name, LinkedServiceAzureFunctionArgs args) {
         this(name, args, null);
     }
     /**
@@ -257,15 +257,22 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedServiceAzureFunction(String name, LinkedServiceAzureFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction", name, args == null ? LinkedServiceAzureFunctionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LinkedServiceAzureFunction(java.lang.String name, LinkedServiceAzureFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedServiceAzureFunction(String name, Output<String> id, @Nullable LinkedServiceAzureFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction", name, state, makeResourceOptions(options, id));
+    private LinkedServiceAzureFunction(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceAzureFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LinkedServiceAzureFunctionArgs makeArgs(LinkedServiceAzureFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceAzureFunctionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -284,7 +291,7 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedServiceAzureFunction get(String name, Output<String> id, @Nullable LinkedServiceAzureFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedServiceAzureFunction get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceAzureFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedServiceAzureFunction(name, id, state, options);
     }
 }

@@ -164,7 +164,7 @@ public class AzureTrafficCollector extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AzureTrafficCollector(String name) {
+    public AzureTrafficCollector(java.lang.String name) {
         this(name, AzureTrafficCollectorArgs.Empty);
     }
     /**
@@ -172,7 +172,7 @@ public class AzureTrafficCollector extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AzureTrafficCollector(String name, AzureTrafficCollectorArgs args) {
+    public AzureTrafficCollector(java.lang.String name, AzureTrafficCollectorArgs args) {
         this(name, args, null);
     }
     /**
@@ -181,15 +181,22 @@ public class AzureTrafficCollector extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AzureTrafficCollector(String name, AzureTrafficCollectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:networkfunction/azureTrafficCollector:AzureTrafficCollector", name, args == null ? AzureTrafficCollectorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AzureTrafficCollector(java.lang.String name, AzureTrafficCollectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:networkfunction/azureTrafficCollector:AzureTrafficCollector", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AzureTrafficCollector(String name, Output<String> id, @Nullable AzureTrafficCollectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:networkfunction/azureTrafficCollector:AzureTrafficCollector", name, state, makeResourceOptions(options, id));
+    private AzureTrafficCollector(java.lang.String name, Output<java.lang.String> id, @Nullable AzureTrafficCollectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:networkfunction/azureTrafficCollector:AzureTrafficCollector", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AzureTrafficCollectorArgs makeArgs(AzureTrafficCollectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AzureTrafficCollectorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -205,7 +212,7 @@ public class AzureTrafficCollector extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AzureTrafficCollector get(String name, Output<String> id, @Nullable AzureTrafficCollectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AzureTrafficCollector get(java.lang.String name, Output<java.lang.String> id, @Nullable AzureTrafficCollectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AzureTrafficCollector(name, id, state, options);
     }
 }

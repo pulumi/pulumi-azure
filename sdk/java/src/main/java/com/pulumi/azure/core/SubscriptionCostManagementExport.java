@@ -225,7 +225,7 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubscriptionCostManagementExport(String name) {
+    public SubscriptionCostManagementExport(java.lang.String name) {
         this(name, SubscriptionCostManagementExportArgs.Empty);
     }
     /**
@@ -233,7 +233,7 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubscriptionCostManagementExport(String name, SubscriptionCostManagementExportArgs args) {
+    public SubscriptionCostManagementExport(java.lang.String name, SubscriptionCostManagementExportArgs args) {
         this(name, args, null);
     }
     /**
@@ -242,15 +242,22 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubscriptionCostManagementExport(String name, SubscriptionCostManagementExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport", name, args == null ? SubscriptionCostManagementExportArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SubscriptionCostManagementExport(java.lang.String name, SubscriptionCostManagementExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubscriptionCostManagementExport(String name, Output<String> id, @Nullable SubscriptionCostManagementExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport", name, state, makeResourceOptions(options, id));
+    private SubscriptionCostManagementExport(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionCostManagementExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SubscriptionCostManagementExportArgs makeArgs(SubscriptionCostManagementExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubscriptionCostManagementExportArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -266,7 +273,7 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubscriptionCostManagementExport get(String name, Output<String> id, @Nullable SubscriptionCostManagementExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubscriptionCostManagementExport get(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionCostManagementExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubscriptionCostManagementExport(name, id, state, options);
     }
 }

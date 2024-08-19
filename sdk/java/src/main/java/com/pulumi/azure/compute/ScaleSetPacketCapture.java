@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .sku("Standard_F2")
  *             .instances(4)
  *             .adminUsername("adminuser")
- *             .adminPassword("P{@literal @}ssword1234!")
+ *             .adminPassword("P}{@literal @}{@code ssword1234!")
  *             .computerNamePrefix("my-linux-computer-name-prefix")
  *             .upgradeMode("Automatic")
  *             .disablePasswordAuthentication(false)
@@ -147,8 +147,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleVirtualMachineScaleSetExtension)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -297,7 +297,7 @@ public class ScaleSetPacketCapture extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ScaleSetPacketCapture(String name) {
+    public ScaleSetPacketCapture(java.lang.String name) {
         this(name, ScaleSetPacketCaptureArgs.Empty);
     }
     /**
@@ -305,7 +305,7 @@ public class ScaleSetPacketCapture extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ScaleSetPacketCapture(String name, ScaleSetPacketCaptureArgs args) {
+    public ScaleSetPacketCapture(java.lang.String name, ScaleSetPacketCaptureArgs args) {
         this(name, args, null);
     }
     /**
@@ -314,15 +314,22 @@ public class ScaleSetPacketCapture extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ScaleSetPacketCapture(String name, ScaleSetPacketCaptureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture", name, args == null ? ScaleSetPacketCaptureArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ScaleSetPacketCapture(java.lang.String name, ScaleSetPacketCaptureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ScaleSetPacketCapture(String name, Output<String> id, @Nullable ScaleSetPacketCaptureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture", name, state, makeResourceOptions(options, id));
+    private ScaleSetPacketCapture(java.lang.String name, Output<java.lang.String> id, @Nullable ScaleSetPacketCaptureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ScaleSetPacketCaptureArgs makeArgs(ScaleSetPacketCaptureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScaleSetPacketCaptureArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -338,7 +345,7 @@ public class ScaleSetPacketCapture extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ScaleSetPacketCapture get(String name, Output<String> id, @Nullable ScaleSetPacketCaptureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ScaleSetPacketCapture get(java.lang.String name, Output<java.lang.String> id, @Nullable ScaleSetPacketCaptureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ScaleSetPacketCapture(name, id, state, options);
     }
 }

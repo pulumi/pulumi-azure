@@ -324,7 +324,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualMachine(String name) {
+    public VirtualMachine(java.lang.String name) {
         this(name, VirtualMachineArgs.Empty);
     }
     /**
@@ -332,7 +332,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualMachine(String name, VirtualMachineArgs args) {
+    public VirtualMachine(java.lang.String name, VirtualMachineArgs args) {
         this(name, args, null);
     }
     /**
@@ -341,15 +341,22 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualMachine(String name, VirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/virtualMachine:VirtualMachine", name, args == null ? VirtualMachineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualMachine(java.lang.String name, VirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/virtualMachine:VirtualMachine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualMachine(String name, Output<String> id, @Nullable VirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/virtualMachine:VirtualMachine", name, state, makeResourceOptions(options, id));
+    private VirtualMachine(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/virtualMachine:VirtualMachine", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualMachineArgs makeArgs(VirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualMachineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -369,7 +376,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualMachine get(String name, Output<String> id, @Nullable VirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualMachine get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualMachine(name, id, state, options);
     }
 }

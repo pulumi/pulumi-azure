@@ -229,7 +229,7 @@ public class CertificateBinding extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CertificateBinding(String name) {
+    public CertificateBinding(java.lang.String name) {
         this(name, CertificateBindingArgs.Empty);
     }
     /**
@@ -237,7 +237,7 @@ public class CertificateBinding extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CertificateBinding(String name, CertificateBindingArgs args) {
+    public CertificateBinding(java.lang.String name, CertificateBindingArgs args) {
         this(name, args, null);
     }
     /**
@@ -246,15 +246,22 @@ public class CertificateBinding extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CertificateBinding(String name, CertificateBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/certificateBinding:CertificateBinding", name, args == null ? CertificateBindingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CertificateBinding(java.lang.String name, CertificateBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/certificateBinding:CertificateBinding", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CertificateBinding(String name, Output<String> id, @Nullable CertificateBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/certificateBinding:CertificateBinding", name, state, makeResourceOptions(options, id));
+    private CertificateBinding(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/certificateBinding:CertificateBinding", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CertificateBindingArgs makeArgs(CertificateBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CertificateBindingArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -270,7 +277,7 @@ public class CertificateBinding extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CertificateBinding get(String name, Output<String> id, @Nullable CertificateBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CertificateBinding get(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CertificateBinding(name, id, state, options);
     }
 }

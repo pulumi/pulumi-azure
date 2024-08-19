@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-logz")
  *             .location("West Europe")
@@ -67,15 +67,15 @@ import javax.annotation.Nullable;
  *                 .usageType("COMMITTED")
  *                 .build())
  *             .user(LogzMonitorUserArgs.builder()
- *                 .email("user{@literal @}example.com")
+ *                 .email("user}{@literal @}{@code example.com")
  *                 .firstName("Example")
  *                 .lastName("User")
  *                 .phoneNumber("+12313803556")
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -254,7 +254,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogzMonitor(String name) {
+    public LogzMonitor(java.lang.String name) {
         this(name, LogzMonitorArgs.Empty);
     }
     /**
@@ -262,7 +262,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogzMonitor(String name, LogzMonitorArgs args) {
+    public LogzMonitor(java.lang.String name, LogzMonitorArgs args) {
         this(name, args, null);
     }
     /**
@@ -271,15 +271,22 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogzMonitor(String name, LogzMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/logzMonitor:LogzMonitor", name, args == null ? LogzMonitorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LogzMonitor(java.lang.String name, LogzMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/logzMonitor:LogzMonitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogzMonitor(String name, Output<String> id, @Nullable LogzMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/logzMonitor:LogzMonitor", name, state, makeResourceOptions(options, id));
+    private LogzMonitor(java.lang.String name, Output<java.lang.String> id, @Nullable LogzMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/logzMonitor:LogzMonitor", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LogzMonitorArgs makeArgs(LogzMonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogzMonitorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -295,7 +302,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogzMonitor get(String name, Output<String> id, @Nullable LogzMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogzMonitor get(java.lang.String name, Output<java.lang.String> id, @Nullable LogzMonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogzMonitor(name, id, state, options);
     }
 }

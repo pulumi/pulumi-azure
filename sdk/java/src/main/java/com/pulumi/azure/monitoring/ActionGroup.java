@@ -66,12 +66,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("monitoring-resources")
  *             .location("West Europe")
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .azureAppPushReceivers(ActionGroupAzureAppPushReceiverArgs.builder()
  *                 .name("pushtoadmin")
- *                 .emailAddress("admin{@literal @}contoso.com")
+ *                 .emailAddress("admin}{@literal @}{@code contoso.com")
  *                 .build())
  *             .azureFunctionReceivers(ActionGroupAzureFunctionReceiverArgs.builder()
  *                 .name("funcaction")
@@ -117,11 +117,11 @@ import javax.annotation.Nullable;
  *             .emailReceivers(            
  *                 ActionGroupEmailReceiverArgs.builder()
  *                     .name("sendtoadmin")
- *                     .emailAddress("admin{@literal @}contoso.com")
+ *                     .emailAddress("admin}{@literal @}{@code contoso.com")
  *                     .build(),
  *                 ActionGroupEmailReceiverArgs.builder()
  *                     .name("sendtodevops")
- *                     .emailAddress("devops{@literal @}contoso.com")
+ *                     .emailAddress("devops}{@literal @}{@code contoso.com")
  *                     .useCommonAlertSchema(true)
  *                     .build())
  *             .eventHubReceivers(ActionGroupEventHubReceiverArgs.builder()
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *                 .name("createorupdateticket")
  *                 .workspaceId(exampleAnalyticsWorkspace.workspaceId().applyValue(workspaceId -> String.format("%s|%s", current.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId()),workspaceId)))
  *                 .connectionId("53de6956-42b4-41ba-be3c-b154cdf17b13")
- *                 .ticketConfiguration("{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{}\",\"CreateOneWIPerCI\":false}")
+ *                 .ticketConfiguration("}{{@code \"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"}{}{@code \",\"CreateOneWIPerCI\":false}}{@code ")
  *                 .region("southcentralus")
  *                 .build())
  *             .logicAppReceivers(ActionGroupLogicAppReceiverArgs.builder()
@@ -161,8 +161,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -421,7 +421,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ActionGroup(String name) {
+    public ActionGroup(java.lang.String name) {
         this(name, ActionGroupArgs.Empty);
     }
     /**
@@ -429,7 +429,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ActionGroup(String name, ActionGroupArgs args) {
+    public ActionGroup(java.lang.String name, ActionGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -438,15 +438,22 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ActionGroup(String name, ActionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/actionGroup:ActionGroup", name, args == null ? ActionGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ActionGroup(java.lang.String name, ActionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/actionGroup:ActionGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ActionGroup(String name, Output<String> id, @Nullable ActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/actionGroup:ActionGroup", name, state, makeResourceOptions(options, id));
+    private ActionGroup(java.lang.String name, Output<java.lang.String> id, @Nullable ActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/actionGroup:ActionGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ActionGroupArgs makeArgs(ActionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ActionGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -462,7 +469,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ActionGroup get(String name, Output<String> id, @Nullable ActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ActionGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable ActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ActionGroup(name, id, state, options);
     }
 }

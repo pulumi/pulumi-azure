@@ -184,18 +184,22 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.serviceLevel;
     }
     /**
-     * Provisioned size of the pool in TB. Value must be between `2` and `500`.
+     * Provisioned size of the pool in TB. Value must be between `2` and `2048`.
      * 
      * &gt; **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+     * 
+     * &gt; **NOTE** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
      * 
      */
     @Export(name="sizeInTb", refs={Integer.class}, tree="[0]")
     private Output<Integer> sizeInTb;
 
     /**
-     * @return Provisioned size of the pool in TB. Value must be between `2` and `500`.
+     * @return Provisioned size of the pool in TB. Value must be between `2` and `2048`.
      * 
      * &gt; **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+     * 
+     * &gt; **NOTE** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
      * 
      */
     public Output<Integer> sizeInTb() {
@@ -220,7 +224,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Pool(String name) {
+    public Pool(java.lang.String name) {
         this(name, PoolArgs.Empty);
     }
     /**
@@ -228,7 +232,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Pool(String name, PoolArgs args) {
+    public Pool(java.lang.String name, PoolArgs args) {
         this(name, args, null);
     }
     /**
@@ -237,15 +241,22 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Pool(String name, PoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:netapp/pool:Pool", name, args == null ? PoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Pool(java.lang.String name, PoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:netapp/pool:Pool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Pool(String name, Output<String> id, @Nullable PoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:netapp/pool:Pool", name, state, makeResourceOptions(options, id));
+    private Pool(java.lang.String name, Output<java.lang.String> id, @Nullable PoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:netapp/pool:Pool", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PoolArgs makeArgs(PoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PoolArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -261,7 +272,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Pool get(String name, Output<String> id, @Nullable PoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Pool get(java.lang.String name, Output<java.lang.String> id, @Nullable PoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Pool(name, id, state, options);
     }
 }

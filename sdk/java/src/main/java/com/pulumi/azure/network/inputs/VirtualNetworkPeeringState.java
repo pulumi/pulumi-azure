@@ -49,14 +49,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+     * Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
      * 
      */
     @Import(name="allowVirtualNetworkAccess")
     private @Nullable Output<Boolean> allowVirtualNetworkAccess;
 
     /**
-     * @return Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+     * @return Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> allowVirtualNetworkAccess() {
@@ -296,7 +296,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowVirtualNetworkAccess Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+         * @param allowVirtualNetworkAccess Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param allowVirtualNetworkAccess Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+         * @param allowVirtualNetworkAccess Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
          * 
          * @return builder
          * 

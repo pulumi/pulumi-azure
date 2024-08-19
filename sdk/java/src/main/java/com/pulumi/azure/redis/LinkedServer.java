@@ -214,7 +214,7 @@ public class LinkedServer extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedServer(String name) {
+    public LinkedServer(java.lang.String name) {
         this(name, LinkedServerArgs.Empty);
     }
     /**
@@ -222,7 +222,7 @@ public class LinkedServer extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedServer(String name, LinkedServerArgs args) {
+    public LinkedServer(java.lang.String name, LinkedServerArgs args) {
         this(name, args, null);
     }
     /**
@@ -231,15 +231,22 @@ public class LinkedServer extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedServer(String name, LinkedServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:redis/linkedServer:LinkedServer", name, args == null ? LinkedServerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LinkedServer(java.lang.String name, LinkedServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:redis/linkedServer:LinkedServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedServer(String name, Output<String> id, @Nullable LinkedServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:redis/linkedServer:LinkedServer", name, state, makeResourceOptions(options, id));
+    private LinkedServer(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:redis/linkedServer:LinkedServer", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LinkedServerArgs makeArgs(LinkedServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServerArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -255,7 +262,7 @@ public class LinkedServer extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedServer get(String name, Output<String> id, @Nullable LinkedServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedServer get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedServer(name, id, state, options);
     }
 }

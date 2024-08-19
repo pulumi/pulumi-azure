@@ -241,7 +241,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedServiceAzureSearch(String name) {
+    public LinkedServiceAzureSearch(java.lang.String name) {
         this(name, LinkedServiceAzureSearchArgs.Empty);
     }
     /**
@@ -249,7 +249,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedServiceAzureSearch(String name, LinkedServiceAzureSearchArgs args) {
+    public LinkedServiceAzureSearch(java.lang.String name, LinkedServiceAzureSearchArgs args) {
         this(name, args, null);
     }
     /**
@@ -258,15 +258,22 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedServiceAzureSearch(String name, LinkedServiceAzureSearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch", name, args == null ? LinkedServiceAzureSearchArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LinkedServiceAzureSearch(java.lang.String name, LinkedServiceAzureSearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedServiceAzureSearch(String name, Output<String> id, @Nullable LinkedServiceAzureSearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch", name, state, makeResourceOptions(options, id));
+    private LinkedServiceAzureSearch(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceAzureSearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LinkedServiceAzureSearchArgs makeArgs(LinkedServiceAzureSearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceAzureSearchArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -282,7 +289,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedServiceAzureSearch get(String name, Output<String> id, @Nullable LinkedServiceAzureSearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedServiceAzureSearch get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceAzureSearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedServiceAzureSearch(name, id, state, options);
     }
 }

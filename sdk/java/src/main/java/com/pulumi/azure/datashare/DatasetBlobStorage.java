@@ -238,7 +238,7 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DatasetBlobStorage(String name) {
+    public DatasetBlobStorage(java.lang.String name) {
         this(name, DatasetBlobStorageArgs.Empty);
     }
     /**
@@ -246,7 +246,7 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DatasetBlobStorage(String name, DatasetBlobStorageArgs args) {
+    public DatasetBlobStorage(java.lang.String name, DatasetBlobStorageArgs args) {
         this(name, args, null);
     }
     /**
@@ -255,15 +255,22 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DatasetBlobStorage(String name, DatasetBlobStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datashare/datasetBlobStorage:DatasetBlobStorage", name, args == null ? DatasetBlobStorageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DatasetBlobStorage(java.lang.String name, DatasetBlobStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datashare/datasetBlobStorage:DatasetBlobStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DatasetBlobStorage(String name, Output<String> id, @Nullable DatasetBlobStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datashare/datasetBlobStorage:DatasetBlobStorage", name, state, makeResourceOptions(options, id));
+    private DatasetBlobStorage(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetBlobStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datashare/datasetBlobStorage:DatasetBlobStorage", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DatasetBlobStorageArgs makeArgs(DatasetBlobStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatasetBlobStorageArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -279,7 +286,7 @@ public class DatasetBlobStorage extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DatasetBlobStorage get(String name, Output<String> id, @Nullable DatasetBlobStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DatasetBlobStorage get(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetBlobStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DatasetBlobStorage(name, id, state, options);
     }
 }

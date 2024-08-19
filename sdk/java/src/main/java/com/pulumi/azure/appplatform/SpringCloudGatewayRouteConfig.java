@@ -254,7 +254,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudGatewayRouteConfig(String name) {
+    public SpringCloudGatewayRouteConfig(java.lang.String name) {
         this(name, SpringCloudGatewayRouteConfigArgs.Empty);
     }
     /**
@@ -262,7 +262,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudGatewayRouteConfig(String name, SpringCloudGatewayRouteConfigArgs args) {
+    public SpringCloudGatewayRouteConfig(java.lang.String name, SpringCloudGatewayRouteConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -271,15 +271,22 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudGatewayRouteConfig(String name, SpringCloudGatewayRouteConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig", name, args == null ? SpringCloudGatewayRouteConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudGatewayRouteConfig(java.lang.String name, SpringCloudGatewayRouteConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudGatewayRouteConfig(String name, Output<String> id, @Nullable SpringCloudGatewayRouteConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig", name, state, makeResourceOptions(options, id));
+    private SpringCloudGatewayRouteConfig(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudGatewayRouteConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudGatewayRouteConfigArgs makeArgs(SpringCloudGatewayRouteConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudGatewayRouteConfigArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -295,7 +302,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudGatewayRouteConfig get(String name, Output<String> id, @Nullable SpringCloudGatewayRouteConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudGatewayRouteConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudGatewayRouteConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudGatewayRouteConfig(name, id, state, options);
     }
 }

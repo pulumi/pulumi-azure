@@ -40,12 +40,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("West Europe")
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("pub1")
- *             .publisherEmail("pub1{@literal @}email.com")
+ *             .publisherEmail("pub1}{@literal @}{@code email.com")
  *             .skuName("Consumption_0")
  *             .build());
  * 
@@ -70,8 +70,8 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -176,7 +176,7 @@ public class GlobalSchema extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GlobalSchema(String name) {
+    public GlobalSchema(java.lang.String name) {
         this(name, GlobalSchemaArgs.Empty);
     }
     /**
@@ -184,7 +184,7 @@ public class GlobalSchema extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GlobalSchema(String name, GlobalSchemaArgs args) {
+    public GlobalSchema(java.lang.String name, GlobalSchemaArgs args) {
         this(name, args, null);
     }
     /**
@@ -193,15 +193,22 @@ public class GlobalSchema extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GlobalSchema(String name, GlobalSchemaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/globalSchema:GlobalSchema", name, args == null ? GlobalSchemaArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GlobalSchema(java.lang.String name, GlobalSchemaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/globalSchema:GlobalSchema", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GlobalSchema(String name, Output<String> id, @Nullable GlobalSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/globalSchema:GlobalSchema", name, state, makeResourceOptions(options, id));
+    private GlobalSchema(java.lang.String name, Output<java.lang.String> id, @Nullable GlobalSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/globalSchema:GlobalSchema", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GlobalSchemaArgs makeArgs(GlobalSchemaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GlobalSchemaArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -217,7 +224,7 @@ public class GlobalSchema extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GlobalSchema get(String name, Output<String> id, @Nullable GlobalSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GlobalSchema get(java.lang.String name, Output<java.lang.String> id, @Nullable GlobalSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GlobalSchema(name, id, state, options);
     }
 }

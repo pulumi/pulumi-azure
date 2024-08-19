@@ -198,7 +198,7 @@ public class MxRecord extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MxRecord(String name) {
+    public MxRecord(java.lang.String name) {
         this(name, MxRecordArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class MxRecord extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MxRecord(String name, MxRecordArgs args) {
+    public MxRecord(java.lang.String name, MxRecordArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,15 +215,22 @@ public class MxRecord extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MxRecord(String name, MxRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/mxRecord:MxRecord", name, args == null ? MxRecordArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MxRecord(java.lang.String name, MxRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:privatedns/mxRecord:MxRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MxRecord(String name, Output<String> id, @Nullable MxRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/mxRecord:MxRecord", name, state, makeResourceOptions(options, id));
+    private MxRecord(java.lang.String name, Output<java.lang.String> id, @Nullable MxRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:privatedns/mxRecord:MxRecord", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MxRecordArgs makeArgs(MxRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MxRecordArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -239,7 +246,7 @@ public class MxRecord extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MxRecord get(String name, Output<String> id, @Nullable MxRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MxRecord get(java.lang.String name, Output<java.lang.String> id, @Nullable MxRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MxRecord(name, id, state, options);
     }
 }

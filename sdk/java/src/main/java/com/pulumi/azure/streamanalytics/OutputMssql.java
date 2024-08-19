@@ -269,7 +269,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OutputMssql(String name) {
+    public OutputMssql(java.lang.String name) {
         this(name, OutputMssqlArgs.Empty);
     }
     /**
@@ -277,7 +277,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OutputMssql(String name, OutputMssqlArgs args) {
+    public OutputMssql(java.lang.String name, OutputMssqlArgs args) {
         this(name, args, null);
     }
     /**
@@ -286,15 +286,22 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OutputMssql(String name, OutputMssqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputMssql:OutputMssql", name, args == null ? OutputMssqlArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OutputMssql(java.lang.String name, OutputMssqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputMssql:OutputMssql", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OutputMssql(String name, Output<String> id, @Nullable OutputMssqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputMssql:OutputMssql", name, state, makeResourceOptions(options, id));
+    private OutputMssql(java.lang.String name, Output<java.lang.String> id, @Nullable OutputMssqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputMssql:OutputMssql", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OutputMssqlArgs makeArgs(OutputMssqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OutputMssqlArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -313,7 +320,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OutputMssql get(String name, Output<String> id, @Nullable OutputMssqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OutputMssql get(java.lang.String name, Output<java.lang.String> id, @Nullable OutputMssqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OutputMssql(name, id, state, options);
     }
 }

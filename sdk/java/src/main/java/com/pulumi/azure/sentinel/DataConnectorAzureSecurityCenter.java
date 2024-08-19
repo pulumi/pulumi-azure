@@ -132,7 +132,7 @@ public class DataConnectorAzureSecurityCenter extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorAzureSecurityCenter(String name) {
+    public DataConnectorAzureSecurityCenter(java.lang.String name) {
         this(name, DataConnectorAzureSecurityCenterArgs.Empty);
     }
     /**
@@ -140,7 +140,7 @@ public class DataConnectorAzureSecurityCenter extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorAzureSecurityCenter(String name, DataConnectorAzureSecurityCenterArgs args) {
+    public DataConnectorAzureSecurityCenter(java.lang.String name, DataConnectorAzureSecurityCenterArgs args) {
         this(name, args, null);
     }
     /**
@@ -149,15 +149,22 @@ public class DataConnectorAzureSecurityCenter extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorAzureSecurityCenter(String name, DataConnectorAzureSecurityCenterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter", name, args == null ? DataConnectorAzureSecurityCenterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorAzureSecurityCenter(java.lang.String name, DataConnectorAzureSecurityCenterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorAzureSecurityCenter(String name, Output<String> id, @Nullable DataConnectorAzureSecurityCenterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter", name, state, makeResourceOptions(options, id));
+    private DataConnectorAzureSecurityCenter(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorAzureSecurityCenterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataConnectorAzureSecurityCenterArgs makeArgs(DataConnectorAzureSecurityCenterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataConnectorAzureSecurityCenterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -173,7 +180,7 @@ public class DataConnectorAzureSecurityCenter extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorAzureSecurityCenter get(String name, Output<String> id, @Nullable DataConnectorAzureSecurityCenterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorAzureSecurityCenter get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorAzureSecurityCenterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorAzureSecurityCenter(name, id, state, options);
     }
 }

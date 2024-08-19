@@ -182,7 +182,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorMicrosoftThreatIntelligence(String name) {
+    public DataConnectorMicrosoftThreatIntelligence(java.lang.String name) {
         this(name, DataConnectorMicrosoftThreatIntelligenceArgs.Empty);
     }
     /**
@@ -190,7 +190,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorMicrosoftThreatIntelligence(String name, DataConnectorMicrosoftThreatIntelligenceArgs args) {
+    public DataConnectorMicrosoftThreatIntelligence(java.lang.String name, DataConnectorMicrosoftThreatIntelligenceArgs args) {
         this(name, args, null);
     }
     /**
@@ -199,15 +199,22 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorMicrosoftThreatIntelligence(String name, DataConnectorMicrosoftThreatIntelligenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence", name, args == null ? DataConnectorMicrosoftThreatIntelligenceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorMicrosoftThreatIntelligence(java.lang.String name, DataConnectorMicrosoftThreatIntelligenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorMicrosoftThreatIntelligence(String name, Output<String> id, @Nullable DataConnectorMicrosoftThreatIntelligenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence", name, state, makeResourceOptions(options, id));
+    private DataConnectorMicrosoftThreatIntelligence(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorMicrosoftThreatIntelligenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataConnectorMicrosoftThreatIntelligenceArgs makeArgs(DataConnectorMicrosoftThreatIntelligenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataConnectorMicrosoftThreatIntelligenceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -223,7 +230,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorMicrosoftThreatIntelligence get(String name, Output<String> id, @Nullable DataConnectorMicrosoftThreatIntelligenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorMicrosoftThreatIntelligence get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorMicrosoftThreatIntelligenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorMicrosoftThreatIntelligence(name, id, state, options);
     }
 }

@@ -436,7 +436,7 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FrontdoorRule(String name) {
+    public FrontdoorRule(java.lang.String name) {
         this(name, FrontdoorRuleArgs.Empty);
     }
     /**
@@ -444,7 +444,7 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FrontdoorRule(String name, FrontdoorRuleArgs args) {
+    public FrontdoorRule(java.lang.String name, FrontdoorRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -453,15 +453,22 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FrontdoorRule(String name, FrontdoorRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorRule:FrontdoorRule", name, args == null ? FrontdoorRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public FrontdoorRule(java.lang.String name, FrontdoorRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorRule:FrontdoorRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FrontdoorRule(String name, Output<String> id, @Nullable FrontdoorRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorRule:FrontdoorRule", name, state, makeResourceOptions(options, id));
+    private FrontdoorRule(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorRule:FrontdoorRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static FrontdoorRuleArgs makeArgs(FrontdoorRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FrontdoorRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -477,7 +484,7 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FrontdoorRule get(String name, Output<String> id, @Nullable FrontdoorRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FrontdoorRule get(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FrontdoorRule(name, id, state, options);
     }
 }

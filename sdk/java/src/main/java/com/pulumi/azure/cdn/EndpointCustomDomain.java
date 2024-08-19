@@ -203,7 +203,7 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EndpointCustomDomain(String name) {
+    public EndpointCustomDomain(java.lang.String name) {
         this(name, EndpointCustomDomainArgs.Empty);
     }
     /**
@@ -211,7 +211,7 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EndpointCustomDomain(String name, EndpointCustomDomainArgs args) {
+    public EndpointCustomDomain(java.lang.String name, EndpointCustomDomainArgs args) {
         this(name, args, null);
     }
     /**
@@ -220,15 +220,22 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EndpointCustomDomain(String name, EndpointCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/endpointCustomDomain:EndpointCustomDomain", name, args == null ? EndpointCustomDomainArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EndpointCustomDomain(java.lang.String name, EndpointCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/endpointCustomDomain:EndpointCustomDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EndpointCustomDomain(String name, Output<String> id, @Nullable EndpointCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/endpointCustomDomain:EndpointCustomDomain", name, state, makeResourceOptions(options, id));
+    private EndpointCustomDomain(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/endpointCustomDomain:EndpointCustomDomain", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EndpointCustomDomainArgs makeArgs(EndpointCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EndpointCustomDomainArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -244,7 +251,7 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EndpointCustomDomain get(String name, Output<String> id, @Nullable EndpointCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EndpointCustomDomain get(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EndpointCustomDomain(name, id, state, options);
     }
 }

@@ -294,7 +294,7 @@ public class EventHubAuthorizationRule extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventHubAuthorizationRule(String name) {
+    public EventHubAuthorizationRule(java.lang.String name) {
         this(name, EventHubAuthorizationRuleArgs.Empty);
     }
     /**
@@ -302,7 +302,7 @@ public class EventHubAuthorizationRule extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventHubAuthorizationRule(String name, EventHubAuthorizationRuleArgs args) {
+    public EventHubAuthorizationRule(java.lang.String name, EventHubAuthorizationRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -311,15 +311,22 @@ public class EventHubAuthorizationRule extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventHubAuthorizationRule(String name, EventHubAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule", name, args == null ? EventHubAuthorizationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EventHubAuthorizationRule(java.lang.String name, EventHubAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventHubAuthorizationRule(String name, Output<String> id, @Nullable EventHubAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule", name, state, makeResourceOptions(options, id));
+    private EventHubAuthorizationRule(java.lang.String name, Output<java.lang.String> id, @Nullable EventHubAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EventHubAuthorizationRuleArgs makeArgs(EventHubAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventHubAuthorizationRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -343,7 +350,7 @@ public class EventHubAuthorizationRule extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventHubAuthorizationRule get(String name, Output<String> id, @Nullable EventHubAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventHubAuthorizationRule get(java.lang.String name, Output<java.lang.String> id, @Nullable EventHubAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventHubAuthorizationRule(name, id, state, options);
     }
 }

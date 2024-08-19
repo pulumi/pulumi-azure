@@ -158,7 +158,7 @@ public class DataSourceWindowsEvent extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataSourceWindowsEvent(String name) {
+    public DataSourceWindowsEvent(java.lang.String name) {
         this(name, DataSourceWindowsEventArgs.Empty);
     }
     /**
@@ -166,7 +166,7 @@ public class DataSourceWindowsEvent extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataSourceWindowsEvent(String name, DataSourceWindowsEventArgs args) {
+    public DataSourceWindowsEvent(java.lang.String name, DataSourceWindowsEventArgs args) {
         this(name, args, null);
     }
     /**
@@ -175,15 +175,22 @@ public class DataSourceWindowsEvent extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataSourceWindowsEvent(String name, DataSourceWindowsEventArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent", name, args == null ? DataSourceWindowsEventArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DataSourceWindowsEvent(java.lang.String name, DataSourceWindowsEventArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataSourceWindowsEvent(String name, Output<String> id, @Nullable DataSourceWindowsEventState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent", name, state, makeResourceOptions(options, id));
+    private DataSourceWindowsEvent(java.lang.String name, Output<java.lang.String> id, @Nullable DataSourceWindowsEventState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DataSourceWindowsEventArgs makeArgs(DataSourceWindowsEventArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataSourceWindowsEventArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -199,7 +206,7 @@ public class DataSourceWindowsEvent extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataSourceWindowsEvent get(String name, Output<String> id, @Nullable DataSourceWindowsEventState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataSourceWindowsEvent get(java.lang.String name, Output<java.lang.String> id, @Nullable DataSourceWindowsEventState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataSourceWindowsEvent(name, id, state, options);
     }
 }

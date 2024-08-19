@@ -160,7 +160,7 @@ public class Creator extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Creator(String name) {
+    public Creator(java.lang.String name) {
         this(name, CreatorArgs.Empty);
     }
     /**
@@ -168,7 +168,7 @@ public class Creator extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Creator(String name, CreatorArgs args) {
+    public Creator(java.lang.String name, CreatorArgs args) {
         this(name, args, null);
     }
     /**
@@ -177,15 +177,22 @@ public class Creator extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Creator(String name, CreatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:maps/creator:Creator", name, args == null ? CreatorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Creator(java.lang.String name, CreatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:maps/creator:Creator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Creator(String name, Output<String> id, @Nullable CreatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:maps/creator:Creator", name, state, makeResourceOptions(options, id));
+    private Creator(java.lang.String name, Output<java.lang.String> id, @Nullable CreatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:maps/creator:Creator", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CreatorArgs makeArgs(CreatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CreatorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -201,7 +208,7 @@ public class Creator extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Creator get(String name, Output<String> id, @Nullable CreatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Creator get(java.lang.String name, Output<java.lang.String> id, @Nullable CreatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Creator(name, id, state, options);
     }
 }

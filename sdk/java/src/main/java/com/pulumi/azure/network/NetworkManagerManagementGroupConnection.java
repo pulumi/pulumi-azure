@@ -192,7 +192,7 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkManagerManagementGroupConnection(String name) {
+    public NetworkManagerManagementGroupConnection(java.lang.String name) {
         this(name, NetworkManagerManagementGroupConnectionArgs.Empty);
     }
     /**
@@ -200,7 +200,7 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkManagerManagementGroupConnection(String name, NetworkManagerManagementGroupConnectionArgs args) {
+    public NetworkManagerManagementGroupConnection(java.lang.String name, NetworkManagerManagementGroupConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -209,15 +209,22 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkManagerManagementGroupConnection(String name, NetworkManagerManagementGroupConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection", name, args == null ? NetworkManagerManagementGroupConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkManagerManagementGroupConnection(java.lang.String name, NetworkManagerManagementGroupConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkManagerManagementGroupConnection(String name, Output<String> id, @Nullable NetworkManagerManagementGroupConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection", name, state, makeResourceOptions(options, id));
+    private NetworkManagerManagementGroupConnection(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerManagementGroupConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkManagerManagementGroupConnectionArgs makeArgs(NetworkManagerManagementGroupConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkManagerManagementGroupConnectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +240,7 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkManagerManagementGroupConnection get(String name, Output<String> id, @Nullable NetworkManagerManagementGroupConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkManagerManagementGroupConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerManagementGroupConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkManagerManagementGroupConnection(name, id, state, options);
     }
 }

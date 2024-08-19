@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Lab Service Lab.
  * 
+ * !&gt; **Note:** This resource is being [deprecated by Azure](https://learn.microsoft.com/en-us/azure/lab-services/retirement-guide). This resource will be removed in version 4.0 of the provider.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -291,7 +293,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Lab(String name) {
+    public Lab(java.lang.String name) {
         this(name, LabArgs.Empty);
     }
     /**
@@ -299,7 +301,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Lab(String name, LabArgs args) {
+    public Lab(java.lang.String name, LabArgs args) {
         this(name, args, null);
     }
     /**
@@ -308,15 +310,22 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Lab(String name, LabArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lab/lab:Lab", name, args == null ? LabArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Lab(java.lang.String name, LabArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lab/lab:Lab", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Lab(String name, Output<String> id, @Nullable LabState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lab/lab:Lab", name, state, makeResourceOptions(options, id));
+    private Lab(java.lang.String name, Output<java.lang.String> id, @Nullable LabState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lab/lab:Lab", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LabArgs makeArgs(LabArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LabArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -332,7 +341,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Lab get(String name, Output<String> id, @Nullable LabState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Lab get(java.lang.String name, Output<java.lang.String> id, @Nullable LabState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Lab(name, id, state, options);
     }
 }

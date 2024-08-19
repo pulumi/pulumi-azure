@@ -267,7 +267,7 @@ public class SpringCloudNewRelicApplicationPerformanceMonitoring extends com.pul
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudNewRelicApplicationPerformanceMonitoring(String name) {
+    public SpringCloudNewRelicApplicationPerformanceMonitoring(java.lang.String name) {
         this(name, SpringCloudNewRelicApplicationPerformanceMonitoringArgs.Empty);
     }
     /**
@@ -275,7 +275,7 @@ public class SpringCloudNewRelicApplicationPerformanceMonitoring extends com.pul
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudNewRelicApplicationPerformanceMonitoring(String name, SpringCloudNewRelicApplicationPerformanceMonitoringArgs args) {
+    public SpringCloudNewRelicApplicationPerformanceMonitoring(java.lang.String name, SpringCloudNewRelicApplicationPerformanceMonitoringArgs args) {
         this(name, args, null);
     }
     /**
@@ -284,15 +284,22 @@ public class SpringCloudNewRelicApplicationPerformanceMonitoring extends com.pul
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudNewRelicApplicationPerformanceMonitoring(String name, SpringCloudNewRelicApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring", name, args == null ? SpringCloudNewRelicApplicationPerformanceMonitoringArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudNewRelicApplicationPerformanceMonitoring(java.lang.String name, SpringCloudNewRelicApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudNewRelicApplicationPerformanceMonitoring(String name, Output<String> id, @Nullable SpringCloudNewRelicApplicationPerformanceMonitoringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring", name, state, makeResourceOptions(options, id));
+    private SpringCloudNewRelicApplicationPerformanceMonitoring(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudNewRelicApplicationPerformanceMonitoringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpringCloudNewRelicApplicationPerformanceMonitoringArgs makeArgs(SpringCloudNewRelicApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudNewRelicApplicationPerformanceMonitoringArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -311,7 +318,7 @@ public class SpringCloudNewRelicApplicationPerformanceMonitoring extends com.pul
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudNewRelicApplicationPerformanceMonitoring get(String name, Output<String> id, @Nullable SpringCloudNewRelicApplicationPerformanceMonitoringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudNewRelicApplicationPerformanceMonitoring get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudNewRelicApplicationPerformanceMonitoringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudNewRelicApplicationPerformanceMonitoring(name, id, state, options);
     }
 }

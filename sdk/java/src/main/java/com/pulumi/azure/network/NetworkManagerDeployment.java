@@ -332,7 +332,7 @@ public class NetworkManagerDeployment extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkManagerDeployment(String name) {
+    public NetworkManagerDeployment(java.lang.String name) {
         this(name, NetworkManagerDeploymentArgs.Empty);
     }
     /**
@@ -340,7 +340,7 @@ public class NetworkManagerDeployment extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkManagerDeployment(String name, NetworkManagerDeploymentArgs args) {
+    public NetworkManagerDeployment(java.lang.String name, NetworkManagerDeploymentArgs args) {
         this(name, args, null);
     }
     /**
@@ -349,15 +349,22 @@ public class NetworkManagerDeployment extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkManagerDeployment(String name, NetworkManagerDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerDeployment:NetworkManagerDeployment", name, args == null ? NetworkManagerDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkManagerDeployment(java.lang.String name, NetworkManagerDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManagerDeployment:NetworkManagerDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkManagerDeployment(String name, Output<String> id, @Nullable NetworkManagerDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerDeployment:NetworkManagerDeployment", name, state, makeResourceOptions(options, id));
+    private NetworkManagerDeployment(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManagerDeployment:NetworkManagerDeployment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkManagerDeploymentArgs makeArgs(NetworkManagerDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkManagerDeploymentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -373,7 +380,7 @@ public class NetworkManagerDeployment extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkManagerDeployment get(String name, Output<String> id, @Nullable NetworkManagerDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkManagerDeployment get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkManagerDeployment(name, id, state, options);
     }
 }

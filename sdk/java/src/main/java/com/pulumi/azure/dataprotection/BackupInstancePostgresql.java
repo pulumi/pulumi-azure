@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .geoRedundantBackupEnabled(false)
  *             .autoGrowEnabled(true)
  *             .administratorLogin("psqladmin")
- *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .administratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .version("9.5")
  *             .sslEnforcementEnabled(true)
  *             .build());
@@ -152,12 +152,12 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()
  *             .name("example")
- *             .value(Output.tuple(exampleServer.name(), exampleDatabase.name(), exampleServer.name()).applyValue(values -> {
+ *             .value(Output.tuple(exampleServer.name(), exampleDatabase.name(), exampleServer.name()).applyValue(values -> }{{@code
  *                 var exampleServerName = values.t1;
  *                 var exampleDatabaseName = values.t2;
  *                 var exampleServerName1 = values.t3;
- *                 return String.format("Server=%s.postgres.database.azure.com;Database=%s;Port=5432;User Id=psqladmin{@literal @}%s;Password=H{@literal @}Sh1CoR3!;Ssl Mode=Require;", exampleServerName,exampleDatabaseName,exampleServerName1);
- *             }))
+ *                 return String.format("Server=%s.postgres.database.azure.com;Database=%s;Port=5432;User Id=psqladmin}{@literal @}{@code %s;Password=H}{@literal @}{@code Sh1CoR3!;Ssl Mode=Require;", exampleServerName,exampleDatabaseName,exampleServerName1);
+ *             }}{@code ))
  *             .keyVaultId(exampleKeyVault.id())
  *             .build());
  * 
@@ -184,8 +184,8 @@ import javax.annotation.Nullable;
  *             .databaseCredentialKeyVaultSecretId(exampleSecret.versionlessId())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -290,7 +290,7 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BackupInstancePostgresql(String name) {
+    public BackupInstancePostgresql(java.lang.String name) {
         this(name, BackupInstancePostgresqlArgs.Empty);
     }
     /**
@@ -298,7 +298,7 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BackupInstancePostgresql(String name, BackupInstancePostgresqlArgs args) {
+    public BackupInstancePostgresql(java.lang.String name, BackupInstancePostgresqlArgs args) {
         this(name, args, null);
     }
     /**
@@ -307,15 +307,22 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BackupInstancePostgresql(String name, BackupInstancePostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql", name, args == null ? BackupInstancePostgresqlArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BackupInstancePostgresql(java.lang.String name, BackupInstancePostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BackupInstancePostgresql(String name, Output<String> id, @Nullable BackupInstancePostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql", name, state, makeResourceOptions(options, id));
+    private BackupInstancePostgresql(java.lang.String name, Output<java.lang.String> id, @Nullable BackupInstancePostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BackupInstancePostgresqlArgs makeArgs(BackupInstancePostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BackupInstancePostgresqlArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -331,7 +338,7 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BackupInstancePostgresql get(String name, Output<String> id, @Nullable BackupInstancePostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BackupInstancePostgresql get(java.lang.String name, Output<java.lang.String> id, @Nullable BackupInstancePostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BackupInstancePostgresql(name, id, state, options);
     }
 }

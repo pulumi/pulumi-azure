@@ -169,7 +169,7 @@ public class DatastoreFileshare extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DatastoreFileshare(String name) {
+    public DatastoreFileshare(java.lang.String name) {
         this(name, DatastoreFileshareArgs.Empty);
     }
     /**
@@ -177,7 +177,7 @@ public class DatastoreFileshare extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DatastoreFileshare(String name, DatastoreFileshareArgs args) {
+    public DatastoreFileshare(java.lang.String name, DatastoreFileshareArgs args) {
         this(name, args, null);
     }
     /**
@@ -186,15 +186,22 @@ public class DatastoreFileshare extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DatastoreFileshare(String name, DatastoreFileshareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:machinelearning/datastoreFileshare:DatastoreFileshare", name, args == null ? DatastoreFileshareArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DatastoreFileshare(java.lang.String name, DatastoreFileshareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:machinelearning/datastoreFileshare:DatastoreFileshare", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DatastoreFileshare(String name, Output<String> id, @Nullable DatastoreFileshareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:machinelearning/datastoreFileshare:DatastoreFileshare", name, state, makeResourceOptions(options, id));
+    private DatastoreFileshare(java.lang.String name, Output<java.lang.String> id, @Nullable DatastoreFileshareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:machinelearning/datastoreFileshare:DatastoreFileshare", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DatastoreFileshareArgs makeArgs(DatastoreFileshareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatastoreFileshareArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -214,7 +221,7 @@ public class DatastoreFileshare extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DatastoreFileshare get(String name, Output<String> id, @Nullable DatastoreFileshareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DatastoreFileshare get(java.lang.String name, Output<java.lang.String> id, @Nullable DatastoreFileshareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DatastoreFileshare(name, id, state, options);
     }
 }

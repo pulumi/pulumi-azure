@@ -153,7 +153,7 @@ public class CacheAccessPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CacheAccessPolicy(String name) {
+    public CacheAccessPolicy(java.lang.String name) {
         this(name, CacheAccessPolicyArgs.Empty);
     }
     /**
@@ -161,7 +161,7 @@ public class CacheAccessPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CacheAccessPolicy(String name, CacheAccessPolicyArgs args) {
+    public CacheAccessPolicy(java.lang.String name, CacheAccessPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -170,15 +170,22 @@ public class CacheAccessPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CacheAccessPolicy(String name, CacheAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hpc/cacheAccessPolicy:CacheAccessPolicy", name, args == null ? CacheAccessPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CacheAccessPolicy(java.lang.String name, CacheAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hpc/cacheAccessPolicy:CacheAccessPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CacheAccessPolicy(String name, Output<String> id, @Nullable CacheAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hpc/cacheAccessPolicy:CacheAccessPolicy", name, state, makeResourceOptions(options, id));
+    private CacheAccessPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable CacheAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hpc/cacheAccessPolicy:CacheAccessPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CacheAccessPolicyArgs makeArgs(CacheAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CacheAccessPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -194,7 +201,7 @@ public class CacheAccessPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CacheAccessPolicy get(String name, Output<String> id, @Nullable CacheAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CacheAccessPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable CacheAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CacheAccessPolicy(name, id, state, options);
     }
 }

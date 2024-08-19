@@ -172,7 +172,7 @@ public class BoolVariable extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BoolVariable(String name) {
+    public BoolVariable(java.lang.String name) {
         this(name, BoolVariableArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class BoolVariable extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BoolVariable(String name, BoolVariableArgs args) {
+    public BoolVariable(java.lang.String name, BoolVariableArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,15 +189,22 @@ public class BoolVariable extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BoolVariable(String name, BoolVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/boolVariable:BoolVariable", name, args == null ? BoolVariableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BoolVariable(java.lang.String name, BoolVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/boolVariable:BoolVariable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BoolVariable(String name, Output<String> id, @Nullable BoolVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/boolVariable:BoolVariable", name, state, makeResourceOptions(options, id));
+    private BoolVariable(java.lang.String name, Output<java.lang.String> id, @Nullable BoolVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/boolVariable:BoolVariable", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BoolVariableArgs makeArgs(BoolVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BoolVariableArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -213,7 +220,7 @@ public class BoolVariable extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BoolVariable get(String name, Output<String> id, @Nullable BoolVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BoolVariable get(java.lang.String name, Output<java.lang.String> id, @Nullable BoolVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BoolVariable(name, id, state, options);
     }
 }

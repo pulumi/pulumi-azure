@@ -158,7 +158,7 @@ public class GremlinDatabase extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GremlinDatabase(String name) {
+    public GremlinDatabase(java.lang.String name) {
         this(name, GremlinDatabaseArgs.Empty);
     }
     /**
@@ -166,7 +166,7 @@ public class GremlinDatabase extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GremlinDatabase(String name, GremlinDatabaseArgs args) {
+    public GremlinDatabase(java.lang.String name, GremlinDatabaseArgs args) {
         this(name, args, null);
     }
     /**
@@ -175,15 +175,22 @@ public class GremlinDatabase extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GremlinDatabase(String name, GremlinDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/gremlinDatabase:GremlinDatabase", name, args == null ? GremlinDatabaseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GremlinDatabase(java.lang.String name, GremlinDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/gremlinDatabase:GremlinDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GremlinDatabase(String name, Output<String> id, @Nullable GremlinDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/gremlinDatabase:GremlinDatabase", name, state, makeResourceOptions(options, id));
+    private GremlinDatabase(java.lang.String name, Output<java.lang.String> id, @Nullable GremlinDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/gremlinDatabase:GremlinDatabase", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GremlinDatabaseArgs makeArgs(GremlinDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GremlinDatabaseArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -199,7 +206,7 @@ public class GremlinDatabase extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GremlinDatabase get(String name, Output<String> id, @Nullable GremlinDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GremlinDatabase get(java.lang.String name, Output<java.lang.String> id, @Nullable GremlinDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GremlinDatabase(name, id, state, options);
     }
 }

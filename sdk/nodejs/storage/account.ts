@@ -177,9 +177,13 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
     /**
+     * @deprecated The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
+     */
+    public readonly enableHttpsTrafficOnly!: pulumi.Output<boolean>;
+    /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      */
-    public readonly enableHttpsTrafficOnly!: pulumi.Output<boolean | undefined>;
+    public readonly httpsTrafficOnlyEnabled!: pulumi.Output<boolean>;
     /**
      * An `identity` block as defined below.
      */
@@ -606,6 +610,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["dnsEndpointType"] = state ? state.dnsEndpointType : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
+            resourceInputs["httpsTrafficOnlyEnabled"] = state ? state.httpsTrafficOnlyEnabled : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["immutabilityPolicy"] = state ? state.immutabilityPolicy : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
@@ -727,6 +732,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["dnsEndpointType"] = args ? args.dnsEndpointType : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
+            resourceInputs["httpsTrafficOnlyEnabled"] = args ? args.httpsTrafficOnlyEnabled : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["immutabilityPolicy"] = args ? args.immutabilityPolicy : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
@@ -901,9 +907,13 @@ export interface AccountState {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+     * @deprecated The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enableHttpsTrafficOnly?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+     */
+    httpsTrafficOnlyEnabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
      */
@@ -1374,9 +1384,13 @@ export interface AccountArgs {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+     * @deprecated The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enableHttpsTrafficOnly?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+     */
+    httpsTrafficOnlyEnabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
      */

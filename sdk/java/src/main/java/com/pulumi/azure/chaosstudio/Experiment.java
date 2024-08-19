@@ -268,7 +268,7 @@ public class Experiment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Experiment(String name) {
+    public Experiment(java.lang.String name) {
         this(name, ExperimentArgs.Empty);
     }
     /**
@@ -276,7 +276,7 @@ public class Experiment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Experiment(String name, ExperimentArgs args) {
+    public Experiment(java.lang.String name, ExperimentArgs args) {
         this(name, args, null);
     }
     /**
@@ -285,15 +285,22 @@ public class Experiment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Experiment(String name, ExperimentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:chaosstudio/experiment:Experiment", name, args == null ? ExperimentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Experiment(java.lang.String name, ExperimentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:chaosstudio/experiment:Experiment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Experiment(String name, Output<String> id, @Nullable ExperimentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:chaosstudio/experiment:Experiment", name, state, makeResourceOptions(options, id));
+    private Experiment(java.lang.String name, Output<java.lang.String> id, @Nullable ExperimentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:chaosstudio/experiment:Experiment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ExperimentArgs makeArgs(ExperimentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExperimentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -309,7 +316,7 @@ public class Experiment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Experiment get(String name, Output<String> id, @Nullable ExperimentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Experiment get(java.lang.String name, Output<java.lang.String> id, @Nullable ExperimentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Experiment(name, id, state, options);
     }
 }

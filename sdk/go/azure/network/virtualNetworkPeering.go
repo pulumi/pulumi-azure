@@ -186,7 +186,7 @@ type VirtualNetworkPeering struct {
 	AllowForwardedTraffic pulumi.BoolPtrOutput `pulumi:"allowForwardedTraffic"`
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
 	AllowGatewayTransit pulumi.BoolPtrOutput `pulumi:"allowGatewayTransit"`
-	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+	// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrOutput `pulumi:"allowVirtualNetworkAccess"`
 	// A list of local Subnet names that are Subnet peered with remote Virtual Network.
 	LocalSubnetNames pulumi.StringArrayOutput `pulumi:"localSubnetNames"`
@@ -255,7 +255,7 @@ type virtualNetworkPeeringState struct {
 	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
-	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+	// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// A list of local Subnet names that are Subnet peered with remote Virtual Network.
 	LocalSubnetNames []string `pulumi:"localSubnetNames"`
@@ -286,7 +286,7 @@ type VirtualNetworkPeeringState struct {
 	AllowForwardedTraffic pulumi.BoolPtrInput
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
 	AllowGatewayTransit pulumi.BoolPtrInput
-	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+	// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
 	// A list of local Subnet names that are Subnet peered with remote Virtual Network.
 	LocalSubnetNames pulumi.StringArrayInput
@@ -321,7 +321,7 @@ type virtualNetworkPeeringArgs struct {
 	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
-	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+	// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// A list of local Subnet names that are Subnet peered with remote Virtual Network.
 	LocalSubnetNames []string `pulumi:"localSubnetNames"`
@@ -353,7 +353,7 @@ type VirtualNetworkPeeringArgs struct {
 	AllowForwardedTraffic pulumi.BoolPtrInput
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
 	AllowGatewayTransit pulumi.BoolPtrInput
-	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+	// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
 	// A list of local Subnet names that are Subnet peered with remote Virtual Network.
 	LocalSubnetNames pulumi.StringArrayInput
@@ -476,7 +476,7 @@ func (o VirtualNetworkPeeringOutput) AllowGatewayTransit() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolPtrOutput { return v.AllowGatewayTransit }).(pulumi.BoolPtrOutput)
 }
 
-// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
 func (o VirtualNetworkPeeringOutput) AllowVirtualNetworkAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolPtrOutput { return v.AllowVirtualNetworkAccess }).(pulumi.BoolPtrOutput)
 }

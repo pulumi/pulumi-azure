@@ -493,16 +493,12 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     /**
      * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise it forces a new resource to be created.
      * 
-     * &gt; **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
-     * 
      */
     @Export(name="osSku", refs={String.class}, tree="[0]")
     private Output<String> osSku;
 
     /**
      * @return Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise it forces a new resource to be created.
-     * 
-     * &gt; **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
      * 
      */
     public Output<String> osSku() {
@@ -747,7 +743,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KubernetesClusterNodePool(String name) {
+    public KubernetesClusterNodePool(java.lang.String name) {
         this(name, KubernetesClusterNodePoolArgs.Empty);
     }
     /**
@@ -755,7 +751,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KubernetesClusterNodePool(String name, KubernetesClusterNodePoolArgs args) {
+    public KubernetesClusterNodePool(java.lang.String name, KubernetesClusterNodePoolArgs args) {
         this(name, args, null);
     }
     /**
@@ -764,15 +760,22 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KubernetesClusterNodePool(String name, KubernetesClusterNodePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, args == null ? KubernetesClusterNodePoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public KubernetesClusterNodePool(java.lang.String name, KubernetesClusterNodePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KubernetesClusterNodePool(String name, Output<String> id, @Nullable KubernetesClusterNodePoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, state, makeResourceOptions(options, id));
+    private KubernetesClusterNodePool(java.lang.String name, Output<java.lang.String> id, @Nullable KubernetesClusterNodePoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static KubernetesClusterNodePoolArgs makeArgs(KubernetesClusterNodePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KubernetesClusterNodePoolArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -788,7 +791,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KubernetesClusterNodePool get(String name, Output<String> id, @Nullable KubernetesClusterNodePoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KubernetesClusterNodePool get(java.lang.String name, Output<java.lang.String> id, @Nullable KubernetesClusterNodePoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KubernetesClusterNodePool(name, id, state, options);
     }
 }

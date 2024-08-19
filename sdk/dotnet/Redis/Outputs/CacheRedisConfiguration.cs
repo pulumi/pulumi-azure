@@ -33,6 +33,7 @@ namespace Pulumi.Azure.Redis.Outputs
         /// Example usage:
         /// </summary>
         public readonly string? AofStorageConnectionString1;
+        public readonly bool? AuthenticationEnabled;
         /// <summary>
         /// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
         /// </summary>
@@ -102,6 +103,8 @@ namespace Pulumi.Azure.Redis.Outputs
 
             string? aofStorageConnectionString1,
 
+            bool? authenticationEnabled,
+
             string? dataPersistenceAuthenticationMethod,
 
             bool? enableAuthentication,
@@ -132,6 +135,7 @@ namespace Pulumi.Azure.Redis.Outputs
             AofBackupEnabled = aofBackupEnabled;
             AofStorageConnectionString0 = aofStorageConnectionString0;
             AofStorageConnectionString1 = aofStorageConnectionString1;
+            AuthenticationEnabled = authenticationEnabled;
             DataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
             EnableAuthentication = enableAuthentication;
             Maxclients = maxclients;

@@ -256,7 +256,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AttachedDatabaseConfiguration(String name) {
+    public AttachedDatabaseConfiguration(java.lang.String name) {
         this(name, AttachedDatabaseConfigurationArgs.Empty);
     }
     /**
@@ -264,7 +264,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AttachedDatabaseConfiguration(String name, AttachedDatabaseConfigurationArgs args) {
+    public AttachedDatabaseConfiguration(java.lang.String name, AttachedDatabaseConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -273,15 +273,22 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AttachedDatabaseConfiguration(String name, AttachedDatabaseConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration", name, args == null ? AttachedDatabaseConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AttachedDatabaseConfiguration(java.lang.String name, AttachedDatabaseConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AttachedDatabaseConfiguration(String name, Output<String> id, @Nullable AttachedDatabaseConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration", name, state, makeResourceOptions(options, id));
+    private AttachedDatabaseConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable AttachedDatabaseConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AttachedDatabaseConfigurationArgs makeArgs(AttachedDatabaseConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AttachedDatabaseConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -297,7 +304,7 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AttachedDatabaseConfiguration get(String name, Output<String> id, @Nullable AttachedDatabaseConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AttachedDatabaseConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable AttachedDatabaseConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AttachedDatabaseConfiguration(name, id, state, options);
     }
 }

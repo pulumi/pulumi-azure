@@ -271,7 +271,7 @@ public class ResourceGroupPolicyRemediation extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceGroupPolicyRemediation(String name) {
+    public ResourceGroupPolicyRemediation(java.lang.String name) {
         this(name, ResourceGroupPolicyRemediationArgs.Empty);
     }
     /**
@@ -279,7 +279,7 @@ public class ResourceGroupPolicyRemediation extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceGroupPolicyRemediation(String name, ResourceGroupPolicyRemediationArgs args) {
+    public ResourceGroupPolicyRemediation(java.lang.String name, ResourceGroupPolicyRemediationArgs args) {
         this(name, args, null);
     }
     /**
@@ -288,15 +288,22 @@ public class ResourceGroupPolicyRemediation extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceGroupPolicyRemediation(String name, ResourceGroupPolicyRemediationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation", name, args == null ? ResourceGroupPolicyRemediationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResourceGroupPolicyRemediation(java.lang.String name, ResourceGroupPolicyRemediationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceGroupPolicyRemediation(String name, Output<String> id, @Nullable ResourceGroupPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation", name, state, makeResourceOptions(options, id));
+    private ResourceGroupPolicyRemediation(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResourceGroupPolicyRemediationArgs makeArgs(ResourceGroupPolicyRemediationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceGroupPolicyRemediationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -312,7 +319,7 @@ public class ResourceGroupPolicyRemediation extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceGroupPolicyRemediation get(String name, Output<String> id, @Nullable ResourceGroupPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceGroupPolicyRemediation get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceGroupPolicyRemediation(name, id, state, options);
     }
 }

@@ -188,7 +188,7 @@ public class EndpointEventHub extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EndpointEventHub(String name) {
+    public EndpointEventHub(java.lang.String name) {
         this(name, EndpointEventHubArgs.Empty);
     }
     /**
@@ -196,7 +196,7 @@ public class EndpointEventHub extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EndpointEventHub(String name, EndpointEventHubArgs args) {
+    public EndpointEventHub(java.lang.String name, EndpointEventHubArgs args) {
         this(name, args, null);
     }
     /**
@@ -205,15 +205,22 @@ public class EndpointEventHub extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EndpointEventHub(String name, EndpointEventHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:digitaltwins/endpointEventHub:EndpointEventHub", name, args == null ? EndpointEventHubArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EndpointEventHub(java.lang.String name, EndpointEventHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:digitaltwins/endpointEventHub:EndpointEventHub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EndpointEventHub(String name, Output<String> id, @Nullable EndpointEventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:digitaltwins/endpointEventHub:EndpointEventHub", name, state, makeResourceOptions(options, id));
+    private EndpointEventHub(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointEventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:digitaltwins/endpointEventHub:EndpointEventHub", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EndpointEventHubArgs makeArgs(EndpointEventHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EndpointEventHubArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -234,7 +241,7 @@ public class EndpointEventHub extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EndpointEventHub get(String name, Output<String> id, @Nullable EndpointEventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EndpointEventHub get(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointEventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EndpointEventHub(name, id, state, options);
     }
 }

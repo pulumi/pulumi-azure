@@ -381,18 +381,30 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.edgeZone);
     }
     /**
+     * @deprecated
+     * The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider. */
+    @Export(name="enableHttpsTrafficOnly", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableHttpsTrafficOnly;
+
+    public Output<Boolean> enableHttpsTrafficOnly() {
+        return this.enableHttpsTrafficOnly;
+    }
+    /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      * 
      */
-    @Export(name="enableHttpsTrafficOnly", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableHttpsTrafficOnly;
+    @Export(name="httpsTrafficOnlyEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> httpsTrafficOnlyEnabled;
 
     /**
      * @return Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      * 
      */
-    public Output<Optional<Boolean>> enableHttpsTrafficOnly() {
-        return Codegen.optional(this.enableHttpsTrafficOnly);
+    public Output<Boolean> httpsTrafficOnlyEnabled() {
+        return this.httpsTrafficOnlyEnabled;
     }
     /**
      * An `identity` block as defined below.
@@ -1761,7 +1773,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Account(String name) {
+    public Account(java.lang.String name) {
         this(name, AccountArgs.Empty);
     }
     /**
@@ -1769,7 +1781,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Account(String name, AccountArgs args) {
+    public Account(java.lang.String name, AccountArgs args) {
         this(name, args, null);
     }
     /**
@@ -1778,15 +1790,22 @@ public class Account extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Account(String name, AccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/account:Account", name, args == null ? AccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Account(java.lang.String name, AccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/account:Account", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Account(String name, Output<String> id, @Nullable AccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/account:Account", name, state, makeResourceOptions(options, id));
+    private Account(java.lang.String name, Output<java.lang.String> id, @Nullable AccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/account:Account", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AccountArgs makeArgs(AccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -1810,7 +1829,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Account get(String name, Output<String> id, @Nullable AccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Account get(java.lang.String name, Output<java.lang.String> id, @Nullable AccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Account(name, id, state, options);
     }
 }

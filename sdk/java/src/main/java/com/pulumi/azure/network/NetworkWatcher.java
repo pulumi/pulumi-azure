@@ -134,7 +134,7 @@ public class NetworkWatcher extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkWatcher(String name) {
+    public NetworkWatcher(java.lang.String name) {
         this(name, NetworkWatcherArgs.Empty);
     }
     /**
@@ -142,7 +142,7 @@ public class NetworkWatcher extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkWatcher(String name, NetworkWatcherArgs args) {
+    public NetworkWatcher(java.lang.String name, NetworkWatcherArgs args) {
         this(name, args, null);
     }
     /**
@@ -151,15 +151,22 @@ public class NetworkWatcher extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkWatcher(String name, NetworkWatcherArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkWatcher:NetworkWatcher", name, args == null ? NetworkWatcherArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkWatcher(java.lang.String name, NetworkWatcherArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkWatcher:NetworkWatcher", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkWatcher(String name, Output<String> id, @Nullable NetworkWatcherState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkWatcher:NetworkWatcher", name, state, makeResourceOptions(options, id));
+    private NetworkWatcher(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkWatcherState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkWatcher:NetworkWatcher", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkWatcherArgs makeArgs(NetworkWatcherArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkWatcherArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -175,7 +182,7 @@ public class NetworkWatcher extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkWatcher get(String name, Output<String> id, @Nullable NetworkWatcherState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkWatcher get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkWatcherState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkWatcher(name, id, state, options);
     }
 }

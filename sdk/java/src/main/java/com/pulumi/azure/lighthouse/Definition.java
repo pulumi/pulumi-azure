@@ -199,7 +199,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Definition(String name) {
+    public Definition(java.lang.String name) {
         this(name, DefinitionArgs.Empty);
     }
     /**
@@ -207,7 +207,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Definition(String name, DefinitionArgs args) {
+    public Definition(java.lang.String name, DefinitionArgs args) {
         this(name, args, null);
     }
     /**
@@ -216,15 +216,22 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Definition(String name, DefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lighthouse/definition:Definition", name, args == null ? DefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Definition(java.lang.String name, DefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lighthouse/definition:Definition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Definition(String name, Output<String> id, @Nullable DefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lighthouse/definition:Definition", name, state, makeResourceOptions(options, id));
+    private Definition(java.lang.String name, Output<java.lang.String> id, @Nullable DefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lighthouse/definition:Definition", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DefinitionArgs makeArgs(DefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DefinitionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -240,7 +247,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Definition get(String name, Output<String> id, @Nullable DefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Definition get(java.lang.String name, Output<java.lang.String> id, @Nullable DefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Definition(name, id, state, options);
     }
 }

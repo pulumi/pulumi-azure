@@ -280,7 +280,7 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public StreamingPolicy(String name) {
+    public StreamingPolicy(java.lang.String name) {
         this(name, StreamingPolicyArgs.Empty);
     }
     /**
@@ -288,7 +288,7 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public StreamingPolicy(String name, StreamingPolicyArgs args) {
+    public StreamingPolicy(java.lang.String name, StreamingPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -297,15 +297,22 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public StreamingPolicy(String name, StreamingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/streamingPolicy:StreamingPolicy", name, args == null ? StreamingPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public StreamingPolicy(java.lang.String name, StreamingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:media/streamingPolicy:StreamingPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private StreamingPolicy(String name, Output<String> id, @Nullable StreamingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/streamingPolicy:StreamingPolicy", name, state, makeResourceOptions(options, id));
+    private StreamingPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable StreamingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:media/streamingPolicy:StreamingPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static StreamingPolicyArgs makeArgs(StreamingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StreamingPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -321,7 +328,7 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static StreamingPolicy get(String name, Output<String> id, @Nullable StreamingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static StreamingPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable StreamingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new StreamingPolicy(name, id, state, options);
     }
 }

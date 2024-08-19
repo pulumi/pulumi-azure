@@ -282,7 +282,7 @@ public class DatasetJson extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DatasetJson(String name) {
+    public DatasetJson(java.lang.String name) {
         this(name, DatasetJsonArgs.Empty);
     }
     /**
@@ -290,7 +290,7 @@ public class DatasetJson extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DatasetJson(String name, DatasetJsonArgs args) {
+    public DatasetJson(java.lang.String name, DatasetJsonArgs args) {
         this(name, args, null);
     }
     /**
@@ -299,15 +299,22 @@ public class DatasetJson extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DatasetJson(String name, DatasetJsonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetJson:DatasetJson", name, args == null ? DatasetJsonArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DatasetJson(java.lang.String name, DatasetJsonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetJson:DatasetJson", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DatasetJson(String name, Output<String> id, @Nullable DatasetJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetJson:DatasetJson", name, state, makeResourceOptions(options, id));
+    private DatasetJson(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetJson:DatasetJson", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DatasetJsonArgs makeArgs(DatasetJsonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatasetJsonArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -323,7 +330,7 @@ public class DatasetJson extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DatasetJson get(String name, Output<String> id, @Nullable DatasetJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DatasetJson get(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DatasetJson(name, id, state, options);
     }
 }

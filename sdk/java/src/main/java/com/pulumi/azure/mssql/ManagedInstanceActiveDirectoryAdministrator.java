@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("West Europe")
@@ -106,10 +106,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var admin = new User("admin", UserArgs.builder()
- *             .userPrincipalName("ms.admin{@literal @}example.com")
+ *             .userPrincipalName("ms.admin}{@literal @}{@code example.com")
  *             .displayName("Ms Admin")
  *             .mailNickname("ms.admin")
- *             .password("SecretP{@literal @}sswd99!")
+ *             .password("SecretP}{@literal @}{@code sswd99!")
  *             .build());
  * 
  *         var exampleManagedInstanceActiveDirectoryAdministrator = new ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", ManagedInstanceActiveDirectoryAdministratorArgs.builder()
@@ -119,8 +119,8 @@ import javax.annotation.Nullable;
  *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -211,7 +211,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedInstanceActiveDirectoryAdministrator(String name) {
+    public ManagedInstanceActiveDirectoryAdministrator(java.lang.String name) {
         this(name, ManagedInstanceActiveDirectoryAdministratorArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedInstanceActiveDirectoryAdministrator(String name, ManagedInstanceActiveDirectoryAdministratorArgs args) {
+    public ManagedInstanceActiveDirectoryAdministrator(java.lang.String name, ManagedInstanceActiveDirectoryAdministratorArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,15 +228,22 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedInstanceActiveDirectoryAdministrator(String name, ManagedInstanceActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator", name, args == null ? ManagedInstanceActiveDirectoryAdministratorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ManagedInstanceActiveDirectoryAdministrator(java.lang.String name, ManagedInstanceActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedInstanceActiveDirectoryAdministrator(String name, Output<String> id, @Nullable ManagedInstanceActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator", name, state, makeResourceOptions(options, id));
+    private ManagedInstanceActiveDirectoryAdministrator(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedInstanceActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ManagedInstanceActiveDirectoryAdministratorArgs makeArgs(ManagedInstanceActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedInstanceActiveDirectoryAdministratorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -252,7 +259,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedInstanceActiveDirectoryAdministrator get(String name, Output<String> id, @Nullable ManagedInstanceActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedInstanceActiveDirectoryAdministrator get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedInstanceActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedInstanceActiveDirectoryAdministrator(name, id, state, options);
     }
 }

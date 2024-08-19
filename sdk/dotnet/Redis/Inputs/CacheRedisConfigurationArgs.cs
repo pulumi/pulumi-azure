@@ -60,6 +60,9 @@ namespace Pulumi.Azure.Redis.Inputs
             }
         }
 
+        [Input("authenticationEnabled")]
+        public Input<bool>? AuthenticationEnabled { get; set; }
+
         /// <summary>
         /// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
         /// </summary>

@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -59,14 +59,14 @@ import javax.annotation.Nullable;
  *             .name("example-cluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .administratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .coordinatorStorageQuotaInMb(131072)
  *             .coordinatorVcoreCount(2)
  *             .nodeCount(0)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -441,7 +441,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PostgresqlCluster(String name) {
+    public PostgresqlCluster(java.lang.String name) {
         this(name, PostgresqlClusterArgs.Empty);
     }
     /**
@@ -449,7 +449,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PostgresqlCluster(String name, PostgresqlClusterArgs args) {
+    public PostgresqlCluster(java.lang.String name, PostgresqlClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -458,15 +458,22 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PostgresqlCluster(String name, PostgresqlClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlCluster:PostgresqlCluster", name, args == null ? PostgresqlClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PostgresqlCluster(java.lang.String name, PostgresqlClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/postgresqlCluster:PostgresqlCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PostgresqlCluster(String name, Output<String> id, @Nullable PostgresqlClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlCluster:PostgresqlCluster", name, state, makeResourceOptions(options, id));
+    private PostgresqlCluster(java.lang.String name, Output<java.lang.String> id, @Nullable PostgresqlClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/postgresqlCluster:PostgresqlCluster", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PostgresqlClusterArgs makeArgs(PostgresqlClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PostgresqlClusterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -485,7 +492,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PostgresqlCluster get(String name, Output<String> id, @Nullable PostgresqlClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PostgresqlCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable PostgresqlClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PostgresqlCluster(name, id, state, options);
     }
 }

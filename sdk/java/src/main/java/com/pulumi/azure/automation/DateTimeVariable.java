@@ -172,7 +172,7 @@ public class DateTimeVariable extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DateTimeVariable(String name) {
+    public DateTimeVariable(java.lang.String name) {
         this(name, DateTimeVariableArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class DateTimeVariable extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DateTimeVariable(String name, DateTimeVariableArgs args) {
+    public DateTimeVariable(java.lang.String name, DateTimeVariableArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,15 +189,22 @@ public class DateTimeVariable extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DateTimeVariable(String name, DateTimeVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/dateTimeVariable:DateTimeVariable", name, args == null ? DateTimeVariableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DateTimeVariable(java.lang.String name, DateTimeVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/dateTimeVariable:DateTimeVariable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DateTimeVariable(String name, Output<String> id, @Nullable DateTimeVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/dateTimeVariable:DateTimeVariable", name, state, makeResourceOptions(options, id));
+    private DateTimeVariable(java.lang.String name, Output<java.lang.String> id, @Nullable DateTimeVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/dateTimeVariable:DateTimeVariable", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DateTimeVariableArgs makeArgs(DateTimeVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DateTimeVariableArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -213,7 +220,7 @@ public class DateTimeVariable extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DateTimeVariable get(String name, Output<String> id, @Nullable DateTimeVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DateTimeVariable get(java.lang.String name, Output<java.lang.String> id, @Nullable DateTimeVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DateTimeVariable(name, id, state, options);
     }
 }

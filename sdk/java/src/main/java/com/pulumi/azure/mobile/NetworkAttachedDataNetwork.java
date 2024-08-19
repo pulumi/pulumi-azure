@@ -213,7 +213,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkAttachedDataNetwork(String name) {
+    public NetworkAttachedDataNetwork(java.lang.String name) {
         this(name, NetworkAttachedDataNetworkArgs.Empty);
     }
     /**
@@ -221,7 +221,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkAttachedDataNetwork(String name, NetworkAttachedDataNetworkArgs args) {
+    public NetworkAttachedDataNetwork(java.lang.String name, NetworkAttachedDataNetworkArgs args) {
         this(name, args, null);
     }
     /**
@@ -230,15 +230,22 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkAttachedDataNetwork(String name, NetworkAttachedDataNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork", name, args == null ? NetworkAttachedDataNetworkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public NetworkAttachedDataNetwork(java.lang.String name, NetworkAttachedDataNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkAttachedDataNetwork(String name, Output<String> id, @Nullable NetworkAttachedDataNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork", name, state, makeResourceOptions(options, id));
+    private NetworkAttachedDataNetwork(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkAttachedDataNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NetworkAttachedDataNetworkArgs makeArgs(NetworkAttachedDataNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkAttachedDataNetworkArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -254,7 +261,7 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkAttachedDataNetwork get(String name, Output<String> id, @Nullable NetworkAttachedDataNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkAttachedDataNetwork get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkAttachedDataNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkAttachedDataNetwork(name, id, state, options);
     }
 }

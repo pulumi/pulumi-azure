@@ -50,7 +50,7 @@ class FlexibleServerArgs:
         """
         The set of arguments for constructing a FlexibleServer resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+        :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
                
                > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
                
@@ -167,7 +167,7 @@ class FlexibleServerArgs:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> Optional[pulumi.Input[str]]:
         """
-        The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+        The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
 
         > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
 
@@ -517,7 +517,7 @@ class _FlexibleServerState:
                  zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServer resources.
-        :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+        :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
                
                > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
                
@@ -627,7 +627,7 @@ class _FlexibleServerState:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> Optional[pulumi.Input[str]]:
         """
-        The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+        The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
 
         > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
 
@@ -1088,7 +1088,7 @@ class FlexibleServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+        :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
                
                > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
                
@@ -1354,7 +1354,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+        :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
                
                > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
                
@@ -1442,7 +1442,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> pulumi.Output[str]:
         """
-        The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+        The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
 
         > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
 

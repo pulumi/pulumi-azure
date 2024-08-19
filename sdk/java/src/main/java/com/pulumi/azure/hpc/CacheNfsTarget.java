@@ -305,7 +305,7 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CacheNfsTarget(String name) {
+    public CacheNfsTarget(java.lang.String name) {
         this(name, CacheNfsTargetArgs.Empty);
     }
     /**
@@ -313,7 +313,7 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CacheNfsTarget(String name, CacheNfsTargetArgs args) {
+    public CacheNfsTarget(java.lang.String name, CacheNfsTargetArgs args) {
         this(name, args, null);
     }
     /**
@@ -322,15 +322,22 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CacheNfsTarget(String name, CacheNfsTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hpc/cacheNfsTarget:CacheNfsTarget", name, args == null ? CacheNfsTargetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CacheNfsTarget(java.lang.String name, CacheNfsTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hpc/cacheNfsTarget:CacheNfsTarget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CacheNfsTarget(String name, Output<String> id, @Nullable CacheNfsTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hpc/cacheNfsTarget:CacheNfsTarget", name, state, makeResourceOptions(options, id));
+    private CacheNfsTarget(java.lang.String name, Output<java.lang.String> id, @Nullable CacheNfsTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hpc/cacheNfsTarget:CacheNfsTarget", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CacheNfsTargetArgs makeArgs(CacheNfsTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CacheNfsTargetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -346,7 +353,7 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CacheNfsTarget get(String name, Output<String> id, @Nullable CacheNfsTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CacheNfsTarget get(java.lang.String name, Output<java.lang.String> id, @Nullable CacheNfsTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CacheNfsTarget(name, id, state, options);
     }
 }

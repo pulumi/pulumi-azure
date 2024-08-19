@@ -272,7 +272,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConfigurationFeature(String name) {
+    public ConfigurationFeature(java.lang.String name) {
         this(name, ConfigurationFeatureArgs.Empty);
     }
     /**
@@ -280,7 +280,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConfigurationFeature(String name, ConfigurationFeatureArgs args) {
+    public ConfigurationFeature(java.lang.String name, ConfigurationFeatureArgs args) {
         this(name, args, null);
     }
     /**
@@ -289,15 +289,22 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConfigurationFeature(String name, ConfigurationFeatureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appconfiguration/configurationFeature:ConfigurationFeature", name, args == null ? ConfigurationFeatureArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ConfigurationFeature(java.lang.String name, ConfigurationFeatureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appconfiguration/configurationFeature:ConfigurationFeature", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConfigurationFeature(String name, Output<String> id, @Nullable ConfigurationFeatureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appconfiguration/configurationFeature:ConfigurationFeature", name, state, makeResourceOptions(options, id));
+    private ConfigurationFeature(java.lang.String name, Output<java.lang.String> id, @Nullable ConfigurationFeatureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appconfiguration/configurationFeature:ConfigurationFeature", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConfigurationFeatureArgs makeArgs(ConfigurationFeatureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConfigurationFeatureArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -313,7 +320,7 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConfigurationFeature get(String name, Output<String> id, @Nullable ConfigurationFeatureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConfigurationFeature get(java.lang.String name, Output<java.lang.String> id, @Nullable ConfigurationFeatureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConfigurationFeature(name, id, state, options);
     }
 }

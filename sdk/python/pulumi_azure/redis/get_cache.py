@@ -27,7 +27,7 @@ class GetCacheResult:
     """
     A collection of values returned by getCache.
     """
-    def __init__(__self__, capacity=None, enable_non_ssl_port=None, family=None, hostname=None, id=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, port=None, primary_access_key=None, primary_connection_string=None, private_static_ip_address=None, redis_configurations=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None):
+    def __init__(__self__, capacity=None, enable_non_ssl_port=None, family=None, hostname=None, id=None, location=None, minimum_tls_version=None, name=None, non_ssl_port_enabled=None, patch_schedules=None, port=None, primary_access_key=None, primary_connection_string=None, private_static_ip_address=None, redis_configurations=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None):
         if capacity and not isinstance(capacity, int):
             raise TypeError("Expected argument 'capacity' to be a int")
         pulumi.set(__self__, "capacity", capacity)
@@ -52,6 +52,9 @@ class GetCacheResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if non_ssl_port_enabled and not isinstance(non_ssl_port_enabled, bool):
+            raise TypeError("Expected argument 'non_ssl_port_enabled' to be a bool")
+        pulumi.set(__self__, "non_ssl_port_enabled", non_ssl_port_enabled)
         if patch_schedules and not isinstance(patch_schedules, list):
             raise TypeError("Expected argument 'patch_schedules' to be a list")
         pulumi.set(__self__, "patch_schedules", patch_schedules)
@@ -108,6 +111,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="enableNonSslPort")
+    @_utilities.deprecated("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
     def enable_non_ssl_port(self) -> bool:
         """
         Whether the SSL port is enabled.
@@ -158,6 +162,11 @@ class GetCacheResult:
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nonSslPortEnabled")
+    def non_ssl_port_enabled(self) -> bool:
+        return pulumi.get(self, "non_ssl_port_enabled")
 
     @property
     @pulumi.getter(name="patchSchedules")
@@ -282,6 +291,7 @@ class AwaitableGetCacheResult(GetCacheResult):
             location=self.location,
             minimum_tls_version=self.minimum_tls_version,
             name=self.name,
+            non_ssl_port_enabled=self.non_ssl_port_enabled,
             patch_schedules=self.patch_schedules,
             port=self.port,
             primary_access_key=self.primary_access_key,
@@ -336,6 +346,7 @@ def get_cache(name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         minimum_tls_version=pulumi.get(__ret__, 'minimum_tls_version'),
         name=pulumi.get(__ret__, 'name'),
+        non_ssl_port_enabled=pulumi.get(__ret__, 'non_ssl_port_enabled'),
         patch_schedules=pulumi.get(__ret__, 'patch_schedules'),
         port=pulumi.get(__ret__, 'port'),
         primary_access_key=pulumi.get(__ret__, 'primary_access_key'),

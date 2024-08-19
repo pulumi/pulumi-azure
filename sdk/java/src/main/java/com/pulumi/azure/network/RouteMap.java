@@ -153,7 +153,7 @@ public class RouteMap extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RouteMap(String name) {
+    public RouteMap(java.lang.String name) {
         this(name, RouteMapArgs.Empty);
     }
     /**
@@ -161,7 +161,7 @@ public class RouteMap extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RouteMap(String name, RouteMapArgs args) {
+    public RouteMap(java.lang.String name, RouteMapArgs args) {
         this(name, args, null);
     }
     /**
@@ -170,15 +170,22 @@ public class RouteMap extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RouteMap(String name, RouteMapArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/routeMap:RouteMap", name, args == null ? RouteMapArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RouteMap(java.lang.String name, RouteMapArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/routeMap:RouteMap", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RouteMap(String name, Output<String> id, @Nullable RouteMapState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/routeMap:RouteMap", name, state, makeResourceOptions(options, id));
+    private RouteMap(java.lang.String name, Output<java.lang.String> id, @Nullable RouteMapState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/routeMap:RouteMap", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RouteMapArgs makeArgs(RouteMapArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RouteMapArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -194,7 +201,7 @@ public class RouteMap extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RouteMap get(String name, Output<String> id, @Nullable RouteMapState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RouteMap get(java.lang.String name, Output<java.lang.String> id, @Nullable RouteMapState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RouteMap(name, id, state, options);
     }
 }

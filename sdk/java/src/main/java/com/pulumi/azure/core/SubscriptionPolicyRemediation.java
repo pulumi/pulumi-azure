@@ -249,7 +249,7 @@ public class SubscriptionPolicyRemediation extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubscriptionPolicyRemediation(String name) {
+    public SubscriptionPolicyRemediation(java.lang.String name) {
         this(name, SubscriptionPolicyRemediationArgs.Empty);
     }
     /**
@@ -257,7 +257,7 @@ public class SubscriptionPolicyRemediation extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubscriptionPolicyRemediation(String name, SubscriptionPolicyRemediationArgs args) {
+    public SubscriptionPolicyRemediation(java.lang.String name, SubscriptionPolicyRemediationArgs args) {
         this(name, args, null);
     }
     /**
@@ -266,15 +266,22 @@ public class SubscriptionPolicyRemediation extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubscriptionPolicyRemediation(String name, SubscriptionPolicyRemediationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionPolicyRemediation:SubscriptionPolicyRemediation", name, args == null ? SubscriptionPolicyRemediationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SubscriptionPolicyRemediation(java.lang.String name, SubscriptionPolicyRemediationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionPolicyRemediation:SubscriptionPolicyRemediation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubscriptionPolicyRemediation(String name, Output<String> id, @Nullable SubscriptionPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionPolicyRemediation:SubscriptionPolicyRemediation", name, state, makeResourceOptions(options, id));
+    private SubscriptionPolicyRemediation(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionPolicyRemediation:SubscriptionPolicyRemediation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SubscriptionPolicyRemediationArgs makeArgs(SubscriptionPolicyRemediationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubscriptionPolicyRemediationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -290,7 +297,7 @@ public class SubscriptionPolicyRemediation extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubscriptionPolicyRemediation get(String name, Output<String> id, @Nullable SubscriptionPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubscriptionPolicyRemediation get(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubscriptionPolicyRemediation(name, id, state, options);
     }
 }

@@ -40,12 +40,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company{@literal @}mycompany.io")
+ *             .publisherEmail("company}{@literal @}{@code mycompany.io")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -67,8 +67,8 @@ import javax.annotation.Nullable;
  *             .clientSecret("00000000000000000000000000000000")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -145,7 +145,7 @@ public class IdentityProviderGoogle extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IdentityProviderGoogle(String name) {
+    public IdentityProviderGoogle(java.lang.String name) {
         this(name, IdentityProviderGoogleArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class IdentityProviderGoogle extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IdentityProviderGoogle(String name, IdentityProviderGoogleArgs args) {
+    public IdentityProviderGoogle(java.lang.String name, IdentityProviderGoogleArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,15 +162,22 @@ public class IdentityProviderGoogle extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IdentityProviderGoogle(String name, IdentityProviderGoogleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle", name, args == null ? IdentityProviderGoogleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IdentityProviderGoogle(java.lang.String name, IdentityProviderGoogleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IdentityProviderGoogle(String name, Output<String> id, @Nullable IdentityProviderGoogleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle", name, state, makeResourceOptions(options, id));
+    private IdentityProviderGoogle(java.lang.String name, Output<java.lang.String> id, @Nullable IdentityProviderGoogleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IdentityProviderGoogleArgs makeArgs(IdentityProviderGoogleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IdentityProviderGoogleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -189,7 +196,7 @@ public class IdentityProviderGoogle extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IdentityProviderGoogle get(String name, Output<String> id, @Nullable IdentityProviderGoogleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IdentityProviderGoogle get(java.lang.String name, Output<java.lang.String> id, @Nullable IdentityProviderGoogleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IdentityProviderGoogle(name, id, state, options);
     }
 }

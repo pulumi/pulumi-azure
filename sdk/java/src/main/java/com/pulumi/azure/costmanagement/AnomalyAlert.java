@@ -39,22 +39,22 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new AnomalyAlert("example", AnomalyAlertArgs.builder()
  *             .name("alertname")
  *             .displayName("Alert DisplayName")
  *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000")
  *             .emailSubject("My Test Anomaly Alert")
- *             .emailAddresses("example{@literal @}test.net")
+ *             .emailAddresses("example}{@literal @}{@code test.net")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -159,7 +159,7 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AnomalyAlert(String name) {
+    public AnomalyAlert(java.lang.String name) {
         this(name, AnomalyAlertArgs.Empty);
     }
     /**
@@ -167,7 +167,7 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AnomalyAlert(String name, AnomalyAlertArgs args) {
+    public AnomalyAlert(java.lang.String name, AnomalyAlertArgs args) {
         this(name, args, null);
     }
     /**
@@ -176,15 +176,22 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AnomalyAlert(String name, AnomalyAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:costmanagement/anomalyAlert:AnomalyAlert", name, args == null ? AnomalyAlertArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AnomalyAlert(java.lang.String name, AnomalyAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:costmanagement/anomalyAlert:AnomalyAlert", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AnomalyAlert(String name, Output<String> id, @Nullable AnomalyAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:costmanagement/anomalyAlert:AnomalyAlert", name, state, makeResourceOptions(options, id));
+    private AnomalyAlert(java.lang.String name, Output<java.lang.String> id, @Nullable AnomalyAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:costmanagement/anomalyAlert:AnomalyAlert", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AnomalyAlertArgs makeArgs(AnomalyAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AnomalyAlertArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -200,7 +207,7 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AnomalyAlert get(String name, Output<String> id, @Nullable AnomalyAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AnomalyAlert get(java.lang.String name, Output<java.lang.String> id, @Nullable AnomalyAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AnomalyAlert(name, id, state, options);
     }
 }

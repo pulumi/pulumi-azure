@@ -302,7 +302,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubscriptionPolicyAssignment(String name) {
+    public SubscriptionPolicyAssignment(java.lang.String name) {
         this(name, SubscriptionPolicyAssignmentArgs.Empty);
     }
     /**
@@ -310,7 +310,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubscriptionPolicyAssignment(String name, SubscriptionPolicyAssignmentArgs args) {
+    public SubscriptionPolicyAssignment(java.lang.String name, SubscriptionPolicyAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -319,15 +319,22 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubscriptionPolicyAssignment(String name, SubscriptionPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment", name, args == null ? SubscriptionPolicyAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SubscriptionPolicyAssignment(java.lang.String name, SubscriptionPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubscriptionPolicyAssignment(String name, Output<String> id, @Nullable SubscriptionPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment", name, state, makeResourceOptions(options, id));
+    private SubscriptionPolicyAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SubscriptionPolicyAssignmentArgs makeArgs(SubscriptionPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubscriptionPolicyAssignmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -343,7 +350,7 @@ public class SubscriptionPolicyAssignment extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubscriptionPolicyAssignment get(String name, Output<String> id, @Nullable SubscriptionPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubscriptionPolicyAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubscriptionPolicyAssignment(name, id, state, options);
     }
 }

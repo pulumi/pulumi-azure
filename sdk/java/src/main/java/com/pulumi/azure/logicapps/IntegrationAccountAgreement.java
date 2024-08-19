@@ -268,7 +268,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationAccountAgreement(String name) {
+    public IntegrationAccountAgreement(java.lang.String name) {
         this(name, IntegrationAccountAgreementArgs.Empty);
     }
     /**
@@ -276,7 +276,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationAccountAgreement(String name, IntegrationAccountAgreementArgs args) {
+    public IntegrationAccountAgreement(java.lang.String name, IntegrationAccountAgreementArgs args) {
         this(name, args, null);
     }
     /**
@@ -285,15 +285,22 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationAccountAgreement(String name, IntegrationAccountAgreementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement", name, args == null ? IntegrationAccountAgreementArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IntegrationAccountAgreement(java.lang.String name, IntegrationAccountAgreementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationAccountAgreement(String name, Output<String> id, @Nullable IntegrationAccountAgreementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement", name, state, makeResourceOptions(options, id));
+    private IntegrationAccountAgreement(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountAgreementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IntegrationAccountAgreementArgs makeArgs(IntegrationAccountAgreementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationAccountAgreementArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -309,7 +316,7 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationAccountAgreement get(String name, Output<String> id, @Nullable IntegrationAccountAgreementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationAccountAgreement get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountAgreementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationAccountAgreement(name, id, state, options);
     }
 }

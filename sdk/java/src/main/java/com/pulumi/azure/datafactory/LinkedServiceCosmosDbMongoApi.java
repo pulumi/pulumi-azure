@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -65,12 +65,12 @@ import javax.annotation.Nullable;
  *         var exampleLinkedServiceCosmosDbMongoApi = new LinkedServiceCosmosDbMongoApi("exampleLinkedServiceCosmosDbMongoApi", LinkedServiceCosmosDbMongoApiArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString("mongodb://testinstance:testkey{@literal @}testinstance.documents.azure.com:10255/?ssl=true")
+ *             .connectionString("mongodb://testinstance:testkey}{@literal @}{@code testinstance.documents.azure.com:10255/?ssl=true")
  *             .database("foo")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -235,7 +235,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedServiceCosmosDbMongoApi(String name) {
+    public LinkedServiceCosmosDbMongoApi(java.lang.String name) {
         this(name, LinkedServiceCosmosDbMongoApiArgs.Empty);
     }
     /**
@@ -243,7 +243,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedServiceCosmosDbMongoApi(String name, LinkedServiceCosmosDbMongoApiArgs args) {
+    public LinkedServiceCosmosDbMongoApi(java.lang.String name, LinkedServiceCosmosDbMongoApiArgs args) {
         this(name, args, null);
     }
     /**
@@ -252,15 +252,22 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedServiceCosmosDbMongoApi(String name, LinkedServiceCosmosDbMongoApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi", name, args == null ? LinkedServiceCosmosDbMongoApiArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LinkedServiceCosmosDbMongoApi(java.lang.String name, LinkedServiceCosmosDbMongoApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedServiceCosmosDbMongoApi(String name, Output<String> id, @Nullable LinkedServiceCosmosDbMongoApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi", name, state, makeResourceOptions(options, id));
+    private LinkedServiceCosmosDbMongoApi(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceCosmosDbMongoApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LinkedServiceCosmosDbMongoApiArgs makeArgs(LinkedServiceCosmosDbMongoApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceCosmosDbMongoApiArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -279,7 +286,7 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedServiceCosmosDbMongoApi get(String name, Output<String> id, @Nullable LinkedServiceCosmosDbMongoApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedServiceCosmosDbMongoApi get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceCosmosDbMongoApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedServiceCosmosDbMongoApi(name, id, state, options);
     }
 }

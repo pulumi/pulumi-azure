@@ -203,14 +203,14 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowGatewayTransit);
     }
     /**
-     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+     * Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
      * 
      */
     @Export(name="allowVirtualNetworkAccess", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowVirtualNetworkAccess;
 
     /**
-     * @return Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+     * @return Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> allowVirtualNetworkAccess() {
@@ -365,7 +365,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualNetworkPeering(String name) {
+    public VirtualNetworkPeering(java.lang.String name) {
         this(name, VirtualNetworkPeeringArgs.Empty);
     }
     /**
@@ -373,7 +373,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualNetworkPeering(String name, VirtualNetworkPeeringArgs args) {
+    public VirtualNetworkPeering(java.lang.String name, VirtualNetworkPeeringArgs args) {
         this(name, args, null);
     }
     /**
@@ -382,15 +382,22 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualNetworkPeering(String name, VirtualNetworkPeeringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, args == null ? VirtualNetworkPeeringArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualNetworkPeering(java.lang.String name, VirtualNetworkPeeringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualNetworkPeering(String name, Output<String> id, @Nullable VirtualNetworkPeeringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, state, makeResourceOptions(options, id));
+    private VirtualNetworkPeering(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkPeeringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualNetworkPeeringArgs makeArgs(VirtualNetworkPeeringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualNetworkPeeringArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -406,7 +413,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualNetworkPeering get(String name, Output<String> id, @Nullable VirtualNetworkPeeringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualNetworkPeering get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkPeeringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualNetworkPeering(name, id, state, options);
     }
 }

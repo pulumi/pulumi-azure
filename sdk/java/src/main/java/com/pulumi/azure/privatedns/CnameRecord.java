@@ -186,7 +186,7 @@ public class CnameRecord extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CnameRecord(String name) {
+    public CnameRecord(java.lang.String name) {
         this(name, CnameRecordArgs.Empty);
     }
     /**
@@ -194,7 +194,7 @@ public class CnameRecord extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CnameRecord(String name, CnameRecordArgs args) {
+    public CnameRecord(java.lang.String name, CnameRecordArgs args) {
         this(name, args, null);
     }
     /**
@@ -203,15 +203,22 @@ public class CnameRecord extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CnameRecord(String name, CnameRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/cnameRecord:CnameRecord", name, args == null ? CnameRecordArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CnameRecord(java.lang.String name, CnameRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:privatedns/cnameRecord:CnameRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CnameRecord(String name, Output<String> id, @Nullable CnameRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/cnameRecord:CnameRecord", name, state, makeResourceOptions(options, id));
+    private CnameRecord(java.lang.String name, Output<java.lang.String> id, @Nullable CnameRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:privatedns/cnameRecord:CnameRecord", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CnameRecordArgs makeArgs(CnameRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CnameRecordArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -227,7 +234,7 @@ public class CnameRecord extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CnameRecord get(String name, Output<String> id, @Nullable CnameRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CnameRecord get(java.lang.String name, Output<java.lang.String> id, @Nullable CnameRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CnameRecord(name, id, state, options);
     }
 }

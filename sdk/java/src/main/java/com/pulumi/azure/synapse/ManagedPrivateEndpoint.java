@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .managedVirtualNetworkEnabled(true)
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
@@ -111,8 +111,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleFirewallRule)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -197,7 +197,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedPrivateEndpoint(String name) {
+    public ManagedPrivateEndpoint(java.lang.String name) {
         this(name, ManagedPrivateEndpointArgs.Empty);
     }
     /**
@@ -205,7 +205,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedPrivateEndpoint(String name, ManagedPrivateEndpointArgs args) {
+    public ManagedPrivateEndpoint(java.lang.String name, ManagedPrivateEndpointArgs args) {
         this(name, args, null);
     }
     /**
@@ -214,15 +214,22 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedPrivateEndpoint(String name, ManagedPrivateEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint", name, args == null ? ManagedPrivateEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ManagedPrivateEndpoint(java.lang.String name, ManagedPrivateEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedPrivateEndpoint(String name, Output<String> id, @Nullable ManagedPrivateEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint", name, state, makeResourceOptions(options, id));
+    private ManagedPrivateEndpoint(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedPrivateEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ManagedPrivateEndpointArgs makeArgs(ManagedPrivateEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedPrivateEndpointArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -238,7 +245,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedPrivateEndpoint get(String name, Output<String> id, @Nullable ManagedPrivateEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedPrivateEndpoint get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedPrivateEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedPrivateEndpoint(name, id, state, options);
     }
 }

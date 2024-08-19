@@ -39,7 +39,7 @@ class VirtualNetworkPeeringArgs:
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
-        :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        :param pulumi.Input[bool] allow_virtual_network_access: Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_subnet_names: A list of local Subnet names that are Subnet peered with remote Virtual Network.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] only_ipv6_peering_enabled: Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
@@ -138,7 +138,7 @@ class VirtualNetworkPeeringArgs:
     @pulumi.getter(name="allowVirtualNetworkAccess")
     def allow_virtual_network_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
         """
         return pulumi.get(self, "allow_virtual_network_access")
 
@@ -253,7 +253,7 @@ class _VirtualNetworkPeeringState:
         Input properties used for looking up and filtering VirtualNetworkPeering resources.
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
-        :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        :param pulumi.Input[bool] allow_virtual_network_access: Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_subnet_names: A list of local Subnet names that are Subnet peered with remote Virtual Network.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] only_ipv6_peering_enabled: Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
@@ -322,7 +322,7 @@ class _VirtualNetworkPeeringState:
     @pulumi.getter(name="allowVirtualNetworkAccess")
     def allow_virtual_network_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
         """
         return pulumi.get(self, "allow_virtual_network_access")
 
@@ -563,7 +563,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
-        :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        :param pulumi.Input[bool] allow_virtual_network_access: Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_subnet_names: A list of local Subnet names that are Subnet peered with remote Virtual Network.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] only_ipv6_peering_enabled: Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
@@ -758,7 +758,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
-        :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        :param pulumi.Input[bool] allow_virtual_network_access: Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_subnet_names: A list of local Subnet names that are Subnet peered with remote Virtual Network.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] only_ipv6_peering_enabled: Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
@@ -811,7 +811,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     @pulumi.getter(name="allowVirtualNetworkAccess")
     def allow_virtual_network_access(self) -> pulumi.Output[Optional[bool]]:
         """
-        Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
         """
         return pulumi.get(self, "allow_virtual_network_access")
 

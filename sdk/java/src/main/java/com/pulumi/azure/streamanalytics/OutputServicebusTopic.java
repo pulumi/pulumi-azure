@@ -274,7 +274,7 @@ public class OutputServicebusTopic extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OutputServicebusTopic(String name) {
+    public OutputServicebusTopic(java.lang.String name) {
         this(name, OutputServicebusTopicArgs.Empty);
     }
     /**
@@ -282,7 +282,7 @@ public class OutputServicebusTopic extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OutputServicebusTopic(String name, OutputServicebusTopicArgs args) {
+    public OutputServicebusTopic(java.lang.String name, OutputServicebusTopicArgs args) {
         this(name, args, null);
     }
     /**
@@ -291,15 +291,22 @@ public class OutputServicebusTopic extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OutputServicebusTopic(String name, OutputServicebusTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic", name, args == null ? OutputServicebusTopicArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OutputServicebusTopic(java.lang.String name, OutputServicebusTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OutputServicebusTopic(String name, Output<String> id, @Nullable OutputServicebusTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic", name, state, makeResourceOptions(options, id));
+    private OutputServicebusTopic(java.lang.String name, Output<java.lang.String> id, @Nullable OutputServicebusTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OutputServicebusTopicArgs makeArgs(OutputServicebusTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OutputServicebusTopicArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -318,7 +325,7 @@ public class OutputServicebusTopic extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OutputServicebusTopic get(String name, Output<String> id, @Nullable OutputServicebusTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OutputServicebusTopic get(java.lang.String name, Output<java.lang.String> id, @Nullable OutputServicebusTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OutputServicebusTopic(name, id, state, options);
     }
 }

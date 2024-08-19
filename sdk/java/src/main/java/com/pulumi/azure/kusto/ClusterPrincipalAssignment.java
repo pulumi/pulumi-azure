@@ -222,7 +222,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ClusterPrincipalAssignment(String name) {
+    public ClusterPrincipalAssignment(java.lang.String name) {
         this(name, ClusterPrincipalAssignmentArgs.Empty);
     }
     /**
@@ -230,7 +230,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ClusterPrincipalAssignment(String name, ClusterPrincipalAssignmentArgs args) {
+    public ClusterPrincipalAssignment(java.lang.String name, ClusterPrincipalAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -239,15 +239,22 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ClusterPrincipalAssignment(String name, ClusterPrincipalAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment", name, args == null ? ClusterPrincipalAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ClusterPrincipalAssignment(java.lang.String name, ClusterPrincipalAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ClusterPrincipalAssignment(String name, Output<String> id, @Nullable ClusterPrincipalAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment", name, state, makeResourceOptions(options, id));
+    private ClusterPrincipalAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterPrincipalAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ClusterPrincipalAssignmentArgs makeArgs(ClusterPrincipalAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterPrincipalAssignmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -263,7 +270,7 @@ public class ClusterPrincipalAssignment extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ClusterPrincipalAssignment get(String name, Output<String> id, @Nullable ClusterPrincipalAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ClusterPrincipalAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterPrincipalAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ClusterPrincipalAssignment(name, id, state, options);
     }
 }

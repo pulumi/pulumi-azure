@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .managedVirtualNetworkEnabled(true)
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
@@ -110,9 +110,9 @@ import javax.annotation.Nullable;
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .type("AzureBlobStorage")
  *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -> """
- * {
+ * }{{@code
  *   "connectionString": "%s"
- * }
+ * }}{@code
  * ", primaryConnectionString)))
  *             .integrationRuntime(LinkedServiceIntegrationRuntimeArgs.builder()
  *                 .name(exampleIntegrationRuntimeAzure.name())
@@ -121,8 +121,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleFirewallRule)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -285,7 +285,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedService(String name) {
+    public LinkedService(java.lang.String name) {
         this(name, LinkedServiceArgs.Empty);
     }
     /**
@@ -293,7 +293,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedService(String name, LinkedServiceArgs args) {
+    public LinkedService(java.lang.String name, LinkedServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -302,15 +302,22 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedService(String name, LinkedServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/linkedService:LinkedService", name, args == null ? LinkedServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LinkedService(java.lang.String name, LinkedServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/linkedService:LinkedService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedService(String name, Output<String> id, @Nullable LinkedServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/linkedService:LinkedService", name, state, makeResourceOptions(options, id));
+    private LinkedService(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/linkedService:LinkedService", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LinkedServiceArgs makeArgs(LinkedServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -326,7 +333,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedService get(String name, Output<String> id, @Nullable LinkedServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedService get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedService(name, id, state, options);
     }
 }

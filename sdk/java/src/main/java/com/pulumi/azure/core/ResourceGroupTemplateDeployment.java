@@ -170,7 +170,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceGroupTemplateDeployment(String name) {
+    public ResourceGroupTemplateDeployment(java.lang.String name) {
         this(name, ResourceGroupTemplateDeploymentArgs.Empty);
     }
     /**
@@ -178,7 +178,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceGroupTemplateDeployment(String name, ResourceGroupTemplateDeploymentArgs args) {
+    public ResourceGroupTemplateDeployment(java.lang.String name, ResourceGroupTemplateDeploymentArgs args) {
         this(name, args, null);
     }
     /**
@@ -187,15 +187,22 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceGroupTemplateDeployment(String name, ResourceGroupTemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment", name, args == null ? ResourceGroupTemplateDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResourceGroupTemplateDeployment(java.lang.String name, ResourceGroupTemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceGroupTemplateDeployment(String name, Output<String> id, @Nullable ResourceGroupTemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment", name, state, makeResourceOptions(options, id));
+    private ResourceGroupTemplateDeployment(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupTemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResourceGroupTemplateDeploymentArgs makeArgs(ResourceGroupTemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceGroupTemplateDeploymentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -211,7 +218,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceGroupTemplateDeployment get(String name, Output<String> id, @Nullable ResourceGroupTemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceGroupTemplateDeployment get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupTemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceGroupTemplateDeployment(name, id, state, options);
     }
 }

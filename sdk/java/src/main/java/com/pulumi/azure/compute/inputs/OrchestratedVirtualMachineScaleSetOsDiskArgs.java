@@ -52,7 +52,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
     /**
      * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
      * 
      */
     @Import(name="diskEncryptionSetId")
@@ -61,7 +61,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
     /**
      * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
      * 
      */
     public Optional<Output<String>> diskEncryptionSetId() {
@@ -187,7 +187,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         /**
          * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         /**
          * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
          * 
          * @return builder
          * 

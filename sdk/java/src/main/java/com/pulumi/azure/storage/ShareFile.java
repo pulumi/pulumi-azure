@@ -132,17 +132,9 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
     public Output<Integer> contentLength() {
         return this.contentLength;
     }
-    /**
-     * The MD5 sum of the file contents. Changing this forces a new resource to be created.
-     * 
-     */
     @Export(name="contentMd5", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentMd5;
 
-    /**
-     * @return The MD5 sum of the file contents. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<Optional<String>> contentMd5() {
         return Codegen.optional(this.contentMd5);
     }
@@ -239,7 +231,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ShareFile(String name) {
+    public ShareFile(java.lang.String name) {
         this(name, ShareFileArgs.Empty);
     }
     /**
@@ -247,7 +239,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ShareFile(String name, ShareFileArgs args) {
+    public ShareFile(java.lang.String name, ShareFileArgs args) {
         this(name, args, null);
     }
     /**
@@ -256,15 +248,22 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ShareFile(String name, ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/shareFile:ShareFile", name, args == null ? ShareFileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ShareFile(java.lang.String name, ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/shareFile:ShareFile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ShareFile(String name, Output<String> id, @Nullable ShareFileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/shareFile:ShareFile", name, state, makeResourceOptions(options, id));
+    private ShareFile(java.lang.String name, Output<java.lang.String> id, @Nullable ShareFileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/shareFile:ShareFile", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ShareFileArgs makeArgs(ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ShareFileArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -280,7 +279,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ShareFile get(String name, Output<String> id, @Nullable ShareFileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ShareFile get(java.lang.String name, Output<java.lang.String> id, @Nullable ShareFileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ShareFile(name, id, state, options);
     }
 }

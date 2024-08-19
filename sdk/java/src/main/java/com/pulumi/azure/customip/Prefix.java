@@ -311,7 +311,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Prefix(String name) {
+    public Prefix(java.lang.String name) {
         this(name, PrefixArgs.Empty);
     }
     /**
@@ -319,7 +319,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Prefix(String name, PrefixArgs args) {
+    public Prefix(java.lang.String name, PrefixArgs args) {
         this(name, args, null);
     }
     /**
@@ -328,15 +328,22 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Prefix(String name, PrefixArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:customip/prefix:Prefix", name, args == null ? PrefixArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Prefix(java.lang.String name, PrefixArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:customip/prefix:Prefix", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Prefix(String name, Output<String> id, @Nullable PrefixState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:customip/prefix:Prefix", name, state, makeResourceOptions(options, id));
+    private Prefix(java.lang.String name, Output<java.lang.String> id, @Nullable PrefixState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:customip/prefix:Prefix", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PrefixArgs makeArgs(PrefixArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PrefixArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -352,7 +359,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Prefix get(String name, Output<String> id, @Nullable PrefixState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Prefix get(java.lang.String name, Output<java.lang.String> id, @Nullable PrefixState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Prefix(name, id, state, options);
     }
 }

@@ -8673,7 +8673,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -13866,7 +13866,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -18617,18 +18617,28 @@ export namespace compute {
         /**
          * The Username for which this Public SSH Key should be configured.
          *
-         * > **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
+         * > **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
          */
         username: pulumi.Input<string>;
     }
 
     export interface LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
         /**
+         * The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+         *
+         * > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+         *
+         * > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+         */
+        action?: pulumi.Input<string>;
+        /**
          * Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+         * Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+         *
+         * > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
          */
         gracePeriod?: pulumi.Input<string>;
     }
@@ -18648,7 +18658,7 @@ export namespace compute {
         /**
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          *
-         * > **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+         * > **Note:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
          */
         storageAccountUri?: pulumi.Input<string>;
     }
@@ -18665,9 +18675,9 @@ export namespace compute {
         /**
          * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+         * > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
          *
-         * > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
          */
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
@@ -18685,7 +18695,7 @@ export namespace compute {
         /**
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          *
-         * > **NOTE:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
+         * > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
          */
         storageAccountType: pulumi.Input<string>;
         /**
@@ -18699,7 +18709,7 @@ export namespace compute {
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
          *
-         * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * > **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          */
         writeAcceleratorEnabled?: pulumi.Input<boolean>;
     }
@@ -18724,9 +18734,14 @@ export namespace compute {
         /**
          * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          *
-         * > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+         * > **Note:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
          */
         protectedSettings?: pulumi.Input<string>;
+        /**
+         * A `protectedSettingsFromKeyVault` block as defined below.
+         *
+         * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+         */
         protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault>;
         /**
          * An ordered list of Extension names which this should be provisioned after.
@@ -18739,7 +18754,7 @@ export namespace compute {
         /**
          * A JSON String which specifies Settings for the Extension.
          *
-         * > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+         * > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
          */
         settings?: pulumi.Input<string>;
         /**
@@ -18783,7 +18798,7 @@ export namespace compute {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
          *
-         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -18828,7 +18843,7 @@ export namespace compute {
         /**
          * Is this the Primary IP Configuration?
          *
-         * > **NOTE:** If multiple `networkInterface` blocks are specified, one must be set to `primary`.
+         * > **Note:** If multiple `networkInterface` blocks are specified, one must be set to `primary`.
          */
         primary?: pulumi.Input<boolean>;
     }
@@ -18845,15 +18860,15 @@ export namespace compute {
         /**
          * A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          *
-         * > **NOTE:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+         * > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
          *
-         * > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
+         * > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
          */
         loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          *
-         * > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
+         * > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
          */
         loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -18863,7 +18878,7 @@ export namespace compute {
         /**
          * Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
          *
-         * > **NOTE:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
+         * > **Note:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
          */
         primary?: pulumi.Input<boolean>;
         /**
@@ -18902,7 +18917,7 @@ export namespace compute {
         /**
          * The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
+         * > **Note:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
          */
         publicIpPrefixId?: pulumi.Input<string>;
         /**
@@ -18934,29 +18949,29 @@ export namespace compute {
         /**
          * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+         * > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
          *
-         * > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
          */
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
          * The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
          *
-         * > **NOTE:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+         * > **Note:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
          */
         diskSizeGb?: pulumi.Input<number>;
         /**
          * The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
+         * > **Note:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          */
         secureVmDiskEncryptionSetId?: pulumi.Input<string>;
         /**
          * Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
+         * > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
          *
-         * > **NOTE:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
+         * > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          */
         securityEncryptionType?: pulumi.Input<string>;
         /**
@@ -18966,7 +18981,7 @@ export namespace compute {
         /**
          * Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
          *
-         * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * > **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          */
         writeAcceleratorEnabled?: pulumi.Input<boolean>;
     }
@@ -19017,7 +19032,7 @@ export namespace compute {
         /**
          * Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
          *
-         * > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+         * > **Note:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
          */
         maximumSurgeInstancesEnabled?: pulumi.Input<boolean>;
         /**
@@ -19056,9 +19071,9 @@ export namespace compute {
         /**
          * The Secret URL of a Key Vault Certificate.
          *
-         * > **NOTE:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
+         * > **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          *
-         * > **NOTE:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
+         * > **Note:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
          */
         url: pulumi.Input<string>;
     }
@@ -19101,7 +19116,7 @@ export namespace compute {
         /**
          * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          *
-         * > **NOTE:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
+         * > **Note:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
          */
         timeout?: pulumi.Input<string>;
     }
@@ -19114,7 +19129,7 @@ export namespace compute {
         /**
          * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          *
-         * > **NOTE:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
+         * > **Note:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
          */
         timeout?: pulumi.Input<string>;
     }
@@ -19217,11 +19232,21 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
         /**
+         * The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+         *
+         * > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+         *
+         * > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+         */
+        action?: pulumi.Input<string>;
+        /**
          * Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
+         * Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+         *
+         * > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
          */
         gracePeriod?: pulumi.Input<string>;
     }
@@ -19284,7 +19309,7 @@ export namespace compute {
         /**
          * Should failures from the extension be suppressed? Possible values are `true` or `false`.
          *
-         * > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
+         * > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
          */
         failureSuppressionEnabled?: pulumi.Input<boolean>;
         /**
@@ -19298,7 +19323,7 @@ export namespace compute {
         /**
          * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          *
-         * > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+         * > **Note:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
          */
         protectedSettings?: pulumi.Input<string>;
         /**
@@ -19375,7 +19400,7 @@ export namespace compute {
         /**
          * Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
          *
-         * > **NOTE:** If multiple `networkInterface` blocks are specified, one must be set to `primary`.
+         * > **Note:** If multiple `networkInterface` blocks are specified, one must be set to `primary`.
          */
         primary?: pulumi.Input<boolean>;
     }
@@ -19392,7 +19417,7 @@ export namespace compute {
         /**
          * A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          *
-         * > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a dependsOn between this resource and the Load Balancer Rule.
+         * > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a dependsOn between this resource and the Load Balancer Rule.
          */
         loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -19402,7 +19427,7 @@ export namespace compute {
         /**
          * Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
          *
-         * > **NOTE:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
+         * > **Note:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
          */
         primary?: pulumi.Input<boolean>;
         /**
@@ -19412,7 +19437,7 @@ export namespace compute {
         /**
          * The ID of the Subnet which this IP Configuration should be connected to.
          *
-         * > **NOTE:** `subnetId` is required if version is set to `IPv4`.
+         * > **Note:** `subnetId` is required if version is set to `IPv4`.
          */
         subnetId?: pulumi.Input<string>;
         /**
@@ -19475,7 +19500,7 @@ export namespace compute {
         /**
          * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
          */
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
@@ -19507,7 +19532,7 @@ export namespace compute {
         /**
          * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
          *
-         * > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
+         * > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
          */
         customData?: pulumi.Input<string>;
         /**
@@ -19540,19 +19565,19 @@ export namespace compute {
         /**
          * When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
          *
-         * > **NOTE:** Either `adminPassword` or `adminSshKey` must be specified.
+         * > **Note:** Either `adminPassword` or `adminSshKey` must be specified.
          */
         disablePasswordAuthentication?: pulumi.Input<boolean>;
         /**
          * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          *
-         * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+         * > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
          */
         patchAssessmentMode?: pulumi.Input<string>;
         /**
          * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          *
-         * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+         * > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
          */
         patchMode?: pulumi.Input<string>;
         /**
@@ -19573,7 +19598,7 @@ export namespace compute {
         /**
          * The Username for which this Public SSH Key should be configured.
          *
-         * > **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
+         * > **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
          */
         username: pulumi.Input<string>;
     }
@@ -19593,7 +19618,7 @@ export namespace compute {
         /**
          * The Secret URL of a Key Vault Certificate.
          *
-         * > **NOTE:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
+         * > **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          */
         url: pulumi.Input<string>;
     }
@@ -19622,19 +19647,19 @@ export namespace compute {
         /**
          * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
          *
-         * > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM's `skuName` is set to a Azure generation 2 directory within the GitHub Repository.
+         * > **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM's `skuName` is set to a Azure generation 2 directory within the GitHub Repository.
          */
         hotpatchingEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          *
-         * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+         * > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
          */
         patchAssessmentMode?: pulumi.Input<string>;
         /**
          * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          *
-         * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
+         * > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
          */
         patchMode?: pulumi.Input<string>;
         /**
@@ -19685,7 +19710,7 @@ export namespace compute {
         /**
          * The Secret URL of a Key Vault Certificate.
          *
-         * > **NOTE:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
+         * > **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          */
         url: pulumi.Input<string>;
     }
@@ -19694,7 +19719,7 @@ export namespace compute {
         /**
          * The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
+         * > **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          */
         certificateUrl?: pulumi.Input<string>;
         /**
@@ -20993,11 +21018,21 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetAutomaticInstanceRepair {
         /**
+         * The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+         *
+         * > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+         *
+         * > **Note:**  If you wish to update the repair `action` of an existing `automaticInstanceRepair` policy, you must first `disable` the `automaticInstanceRepair` policy before you can re-enable the `automaticInstanceRepair` policy with the new repair `action` defined.
+         */
+        action?: pulumi.Input<string>;
+        /**
          * Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+         * Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+         *
+         * > **Note:**  Once the `gracePeriod` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
          */
         gracePeriod?: pulumi.Input<string>;
     }
@@ -21017,7 +21052,7 @@ export namespace compute {
         /**
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          *
-         * > **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics
+         * > **Note:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics
          */
         storageAccountUri?: pulumi.Input<string>;
     }
@@ -21034,9 +21069,9 @@ export namespace compute {
         /**
          * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+         * > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
          *
-         * > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
          */
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
@@ -21054,7 +21089,7 @@ export namespace compute {
         /**
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          *
-         * > **NOTE:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
+         * > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
          */
         storageAccountType: pulumi.Input<string>;
         /**
@@ -21068,7 +21103,7 @@ export namespace compute {
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
          *
-         * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * > **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          */
         writeAcceleratorEnabled?: pulumi.Input<boolean>;
     }
@@ -21093,9 +21128,14 @@ export namespace compute {
         /**
          * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          *
-         * > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+         * > **Note:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
          */
         protectedSettings?: pulumi.Input<string>;
+        /**
+         * A `protectedSettingsFromKeyVault` block as defined below.
+         *
+         * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+         */
         protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault>;
         /**
          * An ordered list of Extension names which this should be provisioned after.
@@ -21108,7 +21148,7 @@ export namespace compute {
         /**
          * A JSON String which specifies Settings for the Extension.
          *
-         * > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+         * > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
          */
         settings?: pulumi.Input<string>;
         /**
@@ -21152,7 +21192,7 @@ export namespace compute {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
          *
-         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -21197,7 +21237,7 @@ export namespace compute {
         /**
          * Is this the Primary IP Configuration?
          *
-         * > **NOTE:** If multiple `networkInterface` blocks are specified, one must be set to `primary`.
+         * > **Note:** If multiple `networkInterface` blocks are specified, one must be set to `primary`.
          */
         primary?: pulumi.Input<boolean>;
     }
@@ -21214,15 +21254,15 @@ export namespace compute {
         /**
          * A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          *
-         * > **NOTE:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+         * > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
          *
-         * > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
+         * > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
          */
         loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          *
-         * > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
+         * > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
          */
         loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -21232,7 +21272,7 @@ export namespace compute {
         /**
          * Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
          *
-         * > **NOTE:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
+         * > **Note:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
          */
         primary?: pulumi.Input<boolean>;
         /**
@@ -21271,7 +21311,7 @@ export namespace compute {
         /**
          * The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
+         * > **Note:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
          */
         publicIpPrefixId?: pulumi.Input<string>;
         /**
@@ -21303,29 +21343,29 @@ export namespace compute {
         /**
          * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+         * > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
          *
-         * > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
          */
         diskEncryptionSetId?: pulumi.Input<string>;
         /**
          * The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
          *
-         * > **NOTE:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+         * > **Note:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
          */
         diskSizeGb?: pulumi.Input<number>;
         /**
          * The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
+         * > **Note:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          */
         secureVmDiskEncryptionSetId?: pulumi.Input<string>;
         /**
          * Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
+         * > **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
          *
-         * > **NOTE:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
+         * > **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          */
         securityEncryptionType?: pulumi.Input<string>;
         /**
@@ -21335,7 +21375,7 @@ export namespace compute {
         /**
          * Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
          *
-         * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * > **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          */
         writeAcceleratorEnabled?: pulumi.Input<boolean>;
     }
@@ -21386,7 +21426,7 @@ export namespace compute {
         /**
          * Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
          *
-         * > **NOTE:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
+         * > **Note:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
          */
         maximumSurgeInstancesEnabled?: pulumi.Input<boolean>;
         /**
@@ -21429,7 +21469,7 @@ export namespace compute {
         /**
          * The Secret URL of a Key Vault Certificate.
          *
-         * > **NOTE:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
+         * > **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          */
         url: pulumi.Input<string>;
     }
@@ -21485,7 +21525,7 @@ export namespace compute {
         /**
          * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          *
-         * > **NOTE:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
+         * > **Note:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
          */
         timeout?: pulumi.Input<string>;
     }
@@ -21494,7 +21534,7 @@ export namespace compute {
         /**
          * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
+         * > **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          */
         certificateUrl?: pulumi.Input<string>;
         /**
@@ -24204,8 +24244,6 @@ export namespace containerservice {
         osDiskType?: pulumi.Input<string>;
         /**
          * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
-         *
-         * > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
          */
         osSku?: pulumi.Input<string>;
         /**
@@ -24787,7 +24825,7 @@ export namespace containerservice {
          */
         dayOfWeek?: pulumi.Input<string>;
         /**
-         * The duration of the window for maintenance to run in hours.
+         * The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
          */
         duration: pulumi.Input<number>;
         /**
@@ -24842,7 +24880,7 @@ export namespace containerservice {
          */
         dayOfWeek?: pulumi.Input<string>;
         /**
-         * The duration of the window for maintenance to run in hours.
+         * The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
          */
         duration: pulumi.Input<number>;
         /**
@@ -27266,7 +27304,7 @@ export namespace databricks {
          */
         machineLearningWorkspaceId?: pulumi.Input<string>;
         /**
-         * Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+         * Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
          */
         natGatewayName?: pulumi.Input<string>;
         /**
@@ -27286,7 +27324,7 @@ export namespace databricks {
          */
         privateSubnetNetworkSecurityGroupAssociationId?: pulumi.Input<string>;
         /**
-         * Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+         * Name of the Public IP for No Public IP workspace with managed virtual network. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
          */
         publicIpName?: pulumi.Input<string>;
         /**
@@ -34435,7 +34473,11 @@ export namespace hdinsight {
          */
         subnetId?: pulumi.Input<string>;
         /**
-         * The Username of the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+         * The Username of the local administrator for the Kafka Management Nodes.
+         *
+         * > **NOTE:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+         *
+         * @deprecated `username` will become Computed only in version 4.0 of the AzureRM Provider as the service auto-generates a value for this property
          */
         username: pulumi.Input<string>;
         /**
@@ -42286,7 +42328,7 @@ export namespace monitoring {
          */
         name: pulumi.Input<string>;
         /**
-         * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+         * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
          */
         samplingFrequencyInSeconds: pulumi.Input<number>;
         /**
@@ -48928,6 +48970,8 @@ export namespace postgresql {
         startHour?: pulumi.Input<number>;
         /**
          * The start minute for maintenance window. Defaults to `0`.
+         *
+         * > **NOTE** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
          */
         startMinute?: pulumi.Input<number>;
     }
@@ -49243,9 +49287,11 @@ export namespace privatelink {
          */
         requestMessage?: pulumi.Input<string>;
         /**
-         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
+         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
          *
          * > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+         *
+         * > **NOTE:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
          */
         subresourceNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -49542,6 +49588,7 @@ export namespace redis {
          * Example usage:
          */
         aofStorageConnectionString1?: pulumi.Input<string>;
+        authenticationEnabled?: pulumi.Input<boolean>;
         /**
          * Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
          */
@@ -49550,6 +49597,8 @@ export namespace redis {
          * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
          *
          * > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
+         *
+         * @deprecated `enableAuthentication` will be removed in favour of the property `authenticationEnabled` in version 4.0 of the AzureRM Provider.
          */
         enableAuthentication?: pulumi.Input<boolean>;
         /**
@@ -52004,6 +52053,55 @@ export namespace stack {
          */
         type: pulumi.Input<string>;
     }
+
+    export interface HciLogicalNetworkSubnet {
+        /**
+         * The address prefix in CIDR notation. Changing this forces a new resource to be created.
+         */
+        addressPrefix?: pulumi.Input<string>;
+        /**
+         * The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
+         */
+        ipAllocationMethod: pulumi.Input<string>;
+        /**
+         * One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
+         */
+        ipPools?: pulumi.Input<pulumi.Input<inputs.stack.HciLogicalNetworkSubnetIpPool>[]>;
+        /**
+         * One or more `route` block as defined above. Changing this forces a new resource to be created.
+         */
+        routes?: pulumi.Input<pulumi.Input<inputs.stack.HciLogicalNetworkSubnetRoute>[]>;
+        /**
+         * The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
+         */
+        vlanId?: pulumi.Input<number>;
+    }
+
+    export interface HciLogicalNetworkSubnetIpPool {
+        /**
+         * The IPv4 address of the end of the IP address pool. Changing this forces a new resource to be created.
+         */
+        end: pulumi.Input<string>;
+        /**
+         * The IPv4 address of the start of the IP address pool. Changing this forces a new resource to be created.
+         */
+        start: pulumi.Input<string>;
+    }
+
+    export interface HciLogicalNetworkSubnetRoute {
+        /**
+         * The Address in CIDR notation. Changing this forces a new resource to be created.
+         */
+        addressPrefix: pulumi.Input<string>;
+        /**
+         * The name of the route. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The IPv4 address of the next hop. Changing this forces a new resource to be created.
+         */
+        nextHopIpAddress: pulumi.Input<string>;
+    }
 }
 
 export namespace storage {
@@ -52012,6 +52110,10 @@ export namespace storage {
          * A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
          */
         activeDirectory?: pulumi.Input<inputs.storage.AccountAzureFilesAuthenticationActiveDirectory>;
+        /**
+         * Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+         */
+        defaultShareLevelPermission?: pulumi.Input<string>;
         /**
          * Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
          */
@@ -53865,11 +53967,11 @@ export namespace waf {
          */
         ruleGroups?: pulumi.Input<pulumi.Input<inputs.waf.PolicyManagedRulesExclusionExcludedRuleSetRuleGroup>[]>;
         /**
-         * The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
+         * The rule set type. Possible values are `Microsoft_DefaultRuleSet`, `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
          */
         type?: pulumi.Input<string>;
         /**
-         * The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+         * The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
          */
         version?: pulumi.Input<string>;
     }
