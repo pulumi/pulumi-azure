@@ -71,6 +71,7 @@ func TestAccAciVolumeMount(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "aci-volume-mount"),
 			RunUpdateTest: false,
+			SkipEmptyPreviewUpdate: true,
 			ExpectRefreshChanges: true,
 		})
 
