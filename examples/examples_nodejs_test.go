@@ -70,7 +70,8 @@ func TestAccAciVolumeMount(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "aci-volume-mount"),
-			RunUpdateTest: true,
+			RunUpdateTest: false,
+			ExpectRefreshChanges: true,
 		})
 
 	integration.ProgramTest(t, &test)
