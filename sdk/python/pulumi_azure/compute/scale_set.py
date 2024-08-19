@@ -1164,11 +1164,7 @@ class ScaleSet(pulumi.CustomResource):
                 "name": "osDiskProfile",
                 "caching": "ReadWrite",
                 "create_option": "FromImage",
-                "vhd_containers": [pulumi.Output.all(
-                    primary_blob_endpoint=example_account.primary_blob_endpoint,
-                    name=example_container.name
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['primary_blob_endpoint']}{resolved_outputs['name']}")
-        ],
+                "vhd_containers": [pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
             },
             storage_profile_image_reference={
                 "publisher": "Canonical",
@@ -1431,11 +1427,7 @@ class ScaleSet(pulumi.CustomResource):
                 "name": "osDiskProfile",
                 "caching": "ReadWrite",
                 "create_option": "FromImage",
-                "vhd_containers": [pulumi.Output.all(
-                    primary_blob_endpoint=example_account.primary_blob_endpoint,
-                    name=example_container.name
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['primary_blob_endpoint']}{resolved_outputs['name']}")
-        ],
+                "vhd_containers": [pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
             },
             storage_profile_image_reference={
                 "publisher": "Canonical",

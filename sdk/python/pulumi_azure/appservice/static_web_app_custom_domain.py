@@ -166,11 +166,7 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
             record=example_static_web_app.default_host_name)
         example_static_web_app_custom_domain = azure.appservice.StaticWebAppCustomDomain("example",
             static_web_app_id=example_static_web_app.id,
-            domain_name=pulumi.Output.all(
-                name=example_c_name_record.name,
-                zone_name=example_c_name_record.zone_name
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['name']}.{resolved_outputs['zone_name']}")
-        ,
+            domain_name=pulumi.Output.all(example_c_name_record.name, example_c_name_record.zone_name).apply(lambda name, zone_name: f"{name}.{zone_name}"),
             validation_type="cname-delegation")
         ```
 
@@ -244,11 +240,7 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
             record=example_static_web_app.default_host_name)
         example_static_web_app_custom_domain = azure.appservice.StaticWebAppCustomDomain("example",
             static_web_app_id=example_static_web_app.id,
-            domain_name=pulumi.Output.all(
-                name=example_c_name_record.name,
-                zone_name=example_c_name_record.zone_name
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['name']}.{resolved_outputs['zone_name']}")
-        ,
+            domain_name=pulumi.Output.all(example_c_name_record.name, example_c_name_record.zone_name).apply(lambda name, zone_name: f"{name}.{zone_name}"),
             validation_type="cname-delegation")
         ```
 

@@ -644,22 +644,10 @@ class RunCommand(pulumi.CustomResource):
             virtual_machine_id=example_linux_virtual_machine.id,
             run_as_password="P@$$w0rd1234!",
             run_as_user="adminuser",
-            error_blob_uri=pulumi.Output.all(
-                id=example3.id,
-                example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
-        ,
-            output_blob_uri=pulumi.Output.all(
-                id=example2.id,
-                example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
-        ,
+            error_blob_uri=pulumi.Output.all(example3.id, example).apply(lambda id, example: f"{id}{example.sas}"),
+            output_blob_uri=pulumi.Output.all(example2.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             source={
-                "script_uri": pulumi.Output.all(
-                    id=example1.id,
-                    example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
-        ,
+                "script_uri": pulumi.Output.all(example1.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             },
             parameters=[{
                 "name": "example-vm1",
@@ -866,22 +854,10 @@ class RunCommand(pulumi.CustomResource):
             virtual_machine_id=example_linux_virtual_machine.id,
             run_as_password="P@$$w0rd1234!",
             run_as_user="adminuser",
-            error_blob_uri=pulumi.Output.all(
-                id=example3.id,
-                example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
-        ,
-            output_blob_uri=pulumi.Output.all(
-                id=example2.id,
-                example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
-        ,
+            error_blob_uri=pulumi.Output.all(example3.id, example).apply(lambda id, example: f"{id}{example.sas}"),
+            output_blob_uri=pulumi.Output.all(example2.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             source={
-                "script_uri": pulumi.Output.all(
-                    id=example1.id,
-                    example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
-        ,
+                "script_uri": pulumi.Output.all(example1.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             },
             parameters=[{
                 "name": "example-vm1",
