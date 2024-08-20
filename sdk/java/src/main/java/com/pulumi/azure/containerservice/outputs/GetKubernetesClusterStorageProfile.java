@@ -22,9 +22,11 @@ public final class GetKubernetesClusterStorageProfile {
      */
     private Boolean diskDriverEnabled;
     /**
-     * @return The configured Disk CSI Driver version.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     private String diskDriverVersion;
     /**
      * @return Is the File CSI driver enabled?
@@ -53,9 +55,11 @@ public final class GetKubernetesClusterStorageProfile {
         return this.diskDriverEnabled;
     }
     /**
-     * @return The configured Disk CSI Driver version.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     public String diskDriverVersion() {
         return this.diskDriverVersion;
     }

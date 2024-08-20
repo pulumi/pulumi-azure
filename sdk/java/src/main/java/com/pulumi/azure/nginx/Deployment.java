@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()
  *             .name("example-nginx")
  *             .resourceGroupName(example.name())
- *             .sku("publicpreview_Monthly_gmz7xq9ge3py")
+ *             .sku("standard_Monthly")
  *             .location(example.location())
  *             .managedResourceGroup("example")
  *             .diagnoseSupportEnabled(true)
@@ -164,7 +164,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.automaticUpgradeChannel);
     }
     /**
-     * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+     * Specify the number of NGINX capacity units for this NGINX deployment.
      * 
      * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 
@@ -173,7 +173,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> capacity;
 
     /**
-     * @return Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+     * @return Specify the number of NGINX capacity units for this NGINX deployment.
      * 
      * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 

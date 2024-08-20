@@ -229,6 +229,12 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<AccountBackup> backup() {
         return this.backup;
     }
+    @Export(name="burstCapacityEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> burstCapacityEnabled;
+
+    public Output<Optional<Boolean>> burstCapacityEnabled() {
+        return Codegen.optional(this.burstCapacityEnabled);
+    }
     @Export(name="capabilities", refs={List.class,AccountCapability.class}, tree="[0,1]")
     private Output<List<AccountCapability>> capabilities;
 

@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly int? FileUploadLimitInMb;
         /// <summary>
+        /// Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+        /// </summary>
+        public readonly int? JsChallengeCookieExpirationInMinutes;
+        /// <summary>
         /// One `log_scrubbing` block as defined below.
         /// </summary>
         public readonly Outputs.PolicyPolicySettingsLogScrubbing? LogScrubbing;
@@ -48,6 +52,8 @@ namespace Pulumi.Azure.Waf.Outputs
 
             int? fileUploadLimitInMb,
 
+            int? jsChallengeCookieExpirationInMinutes,
+
             Outputs.PolicyPolicySettingsLogScrubbing? logScrubbing,
 
             int? maxRequestBodySizeInKb,
@@ -60,6 +66,7 @@ namespace Pulumi.Azure.Waf.Outputs
         {
             Enabled = enabled;
             FileUploadLimitInMb = fileUploadLimitInMb;
+            JsChallengeCookieExpirationInMinutes = jsChallengeCookieExpirationInMinutes;
             LogScrubbing = logScrubbing;
             MaxRequestBodySizeInKb = maxRequestBodySizeInKb;
             Mode = mode;

@@ -109,14 +109,14 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+     * Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
      * 
      */
     @Import(name="privateLinkFastPathEnabled")
     private @Nullable Output<Boolean> privateLinkFastPathEnabled;
 
     /**
-     * @return Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+     * @return Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
      * 
      */
     public Optional<Output<Boolean>> privateLinkFastPathEnabled() {
@@ -312,7 +312,7 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param privateLinkFastPathEnabled Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+         * @param privateLinkFastPathEnabled Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param privateLinkFastPathEnabled Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
+         * @param privateLinkFastPathEnabled Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
          * 
          * @return builder
          * 

@@ -547,6 +547,306 @@ func (o DevCenterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ProjectEnvironmentTypeIdentity struct {
+	// The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
+	//
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// The type of identity used for this Dev Center Project Environment Type. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// ProjectEnvironmentTypeIdentityInput is an input type that accepts ProjectEnvironmentTypeIdentityArgs and ProjectEnvironmentTypeIdentityOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentTypeIdentityInput` via:
+//
+//	ProjectEnvironmentTypeIdentityArgs{...}
+type ProjectEnvironmentTypeIdentityInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentTypeIdentityOutput() ProjectEnvironmentTypeIdentityOutput
+	ToProjectEnvironmentTypeIdentityOutputWithContext(context.Context) ProjectEnvironmentTypeIdentityOutput
+}
+
+type ProjectEnvironmentTypeIdentityArgs struct {
+	// The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
+	//
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// The type of identity used for this Dev Center Project Environment Type. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectEnvironmentTypeIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentTypeIdentity)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentTypeIdentityArgs) ToProjectEnvironmentTypeIdentityOutput() ProjectEnvironmentTypeIdentityOutput {
+	return i.ToProjectEnvironmentTypeIdentityOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentTypeIdentityArgs) ToProjectEnvironmentTypeIdentityOutputWithContext(ctx context.Context) ProjectEnvironmentTypeIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentTypeIdentityOutput)
+}
+
+func (i ProjectEnvironmentTypeIdentityArgs) ToProjectEnvironmentTypeIdentityPtrOutput() ProjectEnvironmentTypeIdentityPtrOutput {
+	return i.ToProjectEnvironmentTypeIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentTypeIdentityArgs) ToProjectEnvironmentTypeIdentityPtrOutputWithContext(ctx context.Context) ProjectEnvironmentTypeIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentTypeIdentityOutput).ToProjectEnvironmentTypeIdentityPtrOutputWithContext(ctx)
+}
+
+// ProjectEnvironmentTypeIdentityPtrInput is an input type that accepts ProjectEnvironmentTypeIdentityArgs, ProjectEnvironmentTypeIdentityPtr and ProjectEnvironmentTypeIdentityPtrOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentTypeIdentityPtrInput` via:
+//
+//	        ProjectEnvironmentTypeIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectEnvironmentTypeIdentityPtrInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentTypeIdentityPtrOutput() ProjectEnvironmentTypeIdentityPtrOutput
+	ToProjectEnvironmentTypeIdentityPtrOutputWithContext(context.Context) ProjectEnvironmentTypeIdentityPtrOutput
+}
+
+type projectEnvironmentTypeIdentityPtrType ProjectEnvironmentTypeIdentityArgs
+
+func ProjectEnvironmentTypeIdentityPtr(v *ProjectEnvironmentTypeIdentityArgs) ProjectEnvironmentTypeIdentityPtrInput {
+	return (*projectEnvironmentTypeIdentityPtrType)(v)
+}
+
+func (*projectEnvironmentTypeIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectEnvironmentTypeIdentity)(nil)).Elem()
+}
+
+func (i *projectEnvironmentTypeIdentityPtrType) ToProjectEnvironmentTypeIdentityPtrOutput() ProjectEnvironmentTypeIdentityPtrOutput {
+	return i.ToProjectEnvironmentTypeIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *projectEnvironmentTypeIdentityPtrType) ToProjectEnvironmentTypeIdentityPtrOutputWithContext(ctx context.Context) ProjectEnvironmentTypeIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentTypeIdentityPtrOutput)
+}
+
+type ProjectEnvironmentTypeIdentityOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentTypeIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentTypeIdentity)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentTypeIdentityOutput) ToProjectEnvironmentTypeIdentityOutput() ProjectEnvironmentTypeIdentityOutput {
+	return o
+}
+
+func (o ProjectEnvironmentTypeIdentityOutput) ToProjectEnvironmentTypeIdentityOutputWithContext(ctx context.Context) ProjectEnvironmentTypeIdentityOutput {
+	return o
+}
+
+func (o ProjectEnvironmentTypeIdentityOutput) ToProjectEnvironmentTypeIdentityPtrOutput() ProjectEnvironmentTypeIdentityPtrOutput {
+	return o.ToProjectEnvironmentTypeIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectEnvironmentTypeIdentityOutput) ToProjectEnvironmentTypeIdentityPtrOutputWithContext(ctx context.Context) ProjectEnvironmentTypeIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectEnvironmentTypeIdentity) *ProjectEnvironmentTypeIdentity {
+		return &v
+	}).(ProjectEnvironmentTypeIdentityPtrOutput)
+}
+
+// The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
+//
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o ProjectEnvironmentTypeIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectEnvironmentTypeIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ProjectEnvironmentTypeIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironmentTypeIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectEnvironmentTypeIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironmentTypeIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for this Dev Center Project Environment Type. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+func (o ProjectEnvironmentTypeIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironmentTypeIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectEnvironmentTypeIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentTypeIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectEnvironmentTypeIdentity)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentTypeIdentityPtrOutput) ToProjectEnvironmentTypeIdentityPtrOutput() ProjectEnvironmentTypeIdentityPtrOutput {
+	return o
+}
+
+func (o ProjectEnvironmentTypeIdentityPtrOutput) ToProjectEnvironmentTypeIdentityPtrOutputWithContext(ctx context.Context) ProjectEnvironmentTypeIdentityPtrOutput {
+	return o
+}
+
+func (o ProjectEnvironmentTypeIdentityPtrOutput) Elem() ProjectEnvironmentTypeIdentityOutput {
+	return o.ApplyT(func(v *ProjectEnvironmentTypeIdentity) ProjectEnvironmentTypeIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectEnvironmentTypeIdentity
+		return ret
+	}).(ProjectEnvironmentTypeIdentityOutput)
+}
+
+// The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
+//
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o ProjectEnvironmentTypeIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectEnvironmentTypeIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ProjectEnvironmentTypeIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironmentTypeIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectEnvironmentTypeIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironmentTypeIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for this Dev Center Project Environment Type. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+func (o ProjectEnvironmentTypeIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironmentTypeIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectEnvironmentTypeUserRoleAssignment struct {
+	// A list of roles to assign to the `userId`.
+	Roles []string `pulumi:"roles"`
+	// The user object ID that is assigned roles.
+	UserId string `pulumi:"userId"`
+}
+
+// ProjectEnvironmentTypeUserRoleAssignmentInput is an input type that accepts ProjectEnvironmentTypeUserRoleAssignmentArgs and ProjectEnvironmentTypeUserRoleAssignmentOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentTypeUserRoleAssignmentInput` via:
+//
+//	ProjectEnvironmentTypeUserRoleAssignmentArgs{...}
+type ProjectEnvironmentTypeUserRoleAssignmentInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentTypeUserRoleAssignmentOutput() ProjectEnvironmentTypeUserRoleAssignmentOutput
+	ToProjectEnvironmentTypeUserRoleAssignmentOutputWithContext(context.Context) ProjectEnvironmentTypeUserRoleAssignmentOutput
+}
+
+type ProjectEnvironmentTypeUserRoleAssignmentArgs struct {
+	// A list of roles to assign to the `userId`.
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+	// The user object ID that is assigned roles.
+	UserId pulumi.StringInput `pulumi:"userId"`
+}
+
+func (ProjectEnvironmentTypeUserRoleAssignmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentTypeUserRoleAssignment)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentTypeUserRoleAssignmentArgs) ToProjectEnvironmentTypeUserRoleAssignmentOutput() ProjectEnvironmentTypeUserRoleAssignmentOutput {
+	return i.ToProjectEnvironmentTypeUserRoleAssignmentOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentTypeUserRoleAssignmentArgs) ToProjectEnvironmentTypeUserRoleAssignmentOutputWithContext(ctx context.Context) ProjectEnvironmentTypeUserRoleAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentTypeUserRoleAssignmentOutput)
+}
+
+// ProjectEnvironmentTypeUserRoleAssignmentArrayInput is an input type that accepts ProjectEnvironmentTypeUserRoleAssignmentArray and ProjectEnvironmentTypeUserRoleAssignmentArrayOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentTypeUserRoleAssignmentArrayInput` via:
+//
+//	ProjectEnvironmentTypeUserRoleAssignmentArray{ ProjectEnvironmentTypeUserRoleAssignmentArgs{...} }
+type ProjectEnvironmentTypeUserRoleAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentTypeUserRoleAssignmentArrayOutput() ProjectEnvironmentTypeUserRoleAssignmentArrayOutput
+	ToProjectEnvironmentTypeUserRoleAssignmentArrayOutputWithContext(context.Context) ProjectEnvironmentTypeUserRoleAssignmentArrayOutput
+}
+
+type ProjectEnvironmentTypeUserRoleAssignmentArray []ProjectEnvironmentTypeUserRoleAssignmentInput
+
+func (ProjectEnvironmentTypeUserRoleAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectEnvironmentTypeUserRoleAssignment)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentTypeUserRoleAssignmentArray) ToProjectEnvironmentTypeUserRoleAssignmentArrayOutput() ProjectEnvironmentTypeUserRoleAssignmentArrayOutput {
+	return i.ToProjectEnvironmentTypeUserRoleAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentTypeUserRoleAssignmentArray) ToProjectEnvironmentTypeUserRoleAssignmentArrayOutputWithContext(ctx context.Context) ProjectEnvironmentTypeUserRoleAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentTypeUserRoleAssignmentArrayOutput)
+}
+
+type ProjectEnvironmentTypeUserRoleAssignmentOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentTypeUserRoleAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentTypeUserRoleAssignment)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentTypeUserRoleAssignmentOutput) ToProjectEnvironmentTypeUserRoleAssignmentOutput() ProjectEnvironmentTypeUserRoleAssignmentOutput {
+	return o
+}
+
+func (o ProjectEnvironmentTypeUserRoleAssignmentOutput) ToProjectEnvironmentTypeUserRoleAssignmentOutputWithContext(ctx context.Context) ProjectEnvironmentTypeUserRoleAssignmentOutput {
+	return o
+}
+
+// A list of roles to assign to the `userId`.
+func (o ProjectEnvironmentTypeUserRoleAssignmentOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectEnvironmentTypeUserRoleAssignment) []string { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// The user object ID that is assigned roles.
+func (o ProjectEnvironmentTypeUserRoleAssignmentOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironmentTypeUserRoleAssignment) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+type ProjectEnvironmentTypeUserRoleAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentTypeUserRoleAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectEnvironmentTypeUserRoleAssignment)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentTypeUserRoleAssignmentArrayOutput) ToProjectEnvironmentTypeUserRoleAssignmentArrayOutput() ProjectEnvironmentTypeUserRoleAssignmentArrayOutput {
+	return o
+}
+
+func (o ProjectEnvironmentTypeUserRoleAssignmentArrayOutput) ToProjectEnvironmentTypeUserRoleAssignmentArrayOutputWithContext(ctx context.Context) ProjectEnvironmentTypeUserRoleAssignmentArrayOutput {
+	return o
+}
+
+func (o ProjectEnvironmentTypeUserRoleAssignmentArrayOutput) Index(i pulumi.IntInput) ProjectEnvironmentTypeUserRoleAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectEnvironmentTypeUserRoleAssignment {
+		return vs[0].([]ProjectEnvironmentTypeUserRoleAssignment)[vs[1].(int)]
+	}).(ProjectEnvironmentTypeUserRoleAssignmentOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogAdogitInput)(nil)).Elem(), CatalogCatalogAdogitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogAdogitPtrInput)(nil)).Elem(), CatalogCatalogAdogitArgs{})
@@ -554,10 +854,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogGithubPtrInput)(nil)).Elem(), CatalogCatalogGithubArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DevCenterIdentityInput)(nil)).Elem(), DevCenterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DevCenterIdentityPtrInput)(nil)).Elem(), DevCenterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentTypeIdentityInput)(nil)).Elem(), ProjectEnvironmentTypeIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentTypeIdentityPtrInput)(nil)).Elem(), ProjectEnvironmentTypeIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentTypeUserRoleAssignmentInput)(nil)).Elem(), ProjectEnvironmentTypeUserRoleAssignmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentTypeUserRoleAssignmentArrayInput)(nil)).Elem(), ProjectEnvironmentTypeUserRoleAssignmentArray{})
 	pulumi.RegisterOutputType(CatalogCatalogAdogitOutput{})
 	pulumi.RegisterOutputType(CatalogCatalogAdogitPtrOutput{})
 	pulumi.RegisterOutputType(CatalogCatalogGithubOutput{})
 	pulumi.RegisterOutputType(CatalogCatalogGithubPtrOutput{})
 	pulumi.RegisterOutputType(DevCenterIdentityOutput{})
 	pulumi.RegisterOutputType(DevCenterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentTypeIdentityOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentTypeIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentTypeUserRoleAssignmentOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentTypeUserRoleAssignmentArrayOutput{})
 }

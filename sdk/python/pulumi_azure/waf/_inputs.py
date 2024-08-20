@@ -880,6 +880,10 @@ if not MYPY:
         """
         The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
         """
+        js_challenge_cookie_expiration_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+        """
         log_scrubbing: NotRequired[pulumi.Input['PolicyPolicySettingsLogScrubbingArgsDict']]
         """
         One `log_scrubbing` block as defined below.
@@ -908,6 +912,7 @@ class PolicyPolicySettingsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  file_upload_limit_in_mb: Optional[pulumi.Input[int]] = None,
+                 js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
                  log_scrubbing: Optional[pulumi.Input['PolicyPolicySettingsLogScrubbingArgs']] = None,
                  max_request_body_size_in_kb: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
@@ -916,6 +921,7 @@ class PolicyPolicySettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
         :param pulumi.Input[int] file_upload_limit_in_mb: The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
+        :param pulumi.Input[int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
         :param pulumi.Input['PolicyPolicySettingsLogScrubbingArgs'] log_scrubbing: One `log_scrubbing` block as defined below.
         :param pulumi.Input[int] max_request_body_size_in_kb: The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
         :param pulumi.Input[str] mode: Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
@@ -926,6 +932,8 @@ class PolicyPolicySettingsArgs:
             pulumi.set(__self__, "enabled", enabled)
         if file_upload_limit_in_mb is not None:
             pulumi.set(__self__, "file_upload_limit_in_mb", file_upload_limit_in_mb)
+        if js_challenge_cookie_expiration_in_minutes is not None:
+            pulumi.set(__self__, "js_challenge_cookie_expiration_in_minutes", js_challenge_cookie_expiration_in_minutes)
         if log_scrubbing is not None:
             pulumi.set(__self__, "log_scrubbing", log_scrubbing)
         if max_request_body_size_in_kb is not None:
@@ -960,6 +968,18 @@ class PolicyPolicySettingsArgs:
     @file_upload_limit_in_mb.setter
     def file_upload_limit_in_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "file_upload_limit_in_mb", value)
+
+    @property
+    @pulumi.getter(name="jsChallengeCookieExpirationInMinutes")
+    def js_challenge_cookie_expiration_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+        """
+        return pulumi.get(self, "js_challenge_cookie_expiration_in_minutes")
+
+    @js_challenge_cookie_expiration_in_minutes.setter
+    def js_challenge_cookie_expiration_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "js_challenge_cookie_expiration_in_minutes", value)
 
     @property
     @pulumi.getter(name="logScrubbing")

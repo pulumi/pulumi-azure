@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:cognitive/aIServices:AIServices":
+		r = &AIServices{}
 	case "azure:cognitive/account:Account":
 		r = &Account{}
 	case "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/aIServices",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cognitive/account",

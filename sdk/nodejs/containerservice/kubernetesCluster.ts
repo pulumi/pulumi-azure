@@ -123,9 +123,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly currentKubernetesVersion!: pulumi.Output<string>;
     /**
-     * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-     *
-     * > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
+     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      */
     public readonly customCaTrustCertificatesBase64s!: pulumi.Output<string[] | undefined>;
     /**
@@ -643,9 +641,7 @@ export interface KubernetesClusterState {
      */
     currentKubernetesVersion?: pulumi.Input<string>;
     /**
-     * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-     *
-     * > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
+     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      */
     customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -993,9 +989,7 @@ export interface KubernetesClusterArgs {
      */
     costAnalysisEnabled?: pulumi.Input<boolean>;
     /**
-     * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-     *
-     * > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
+     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      */
     customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -131,9 +131,6 @@ namespace Pulumi.Azure.ContainerService
         /// Contains the current version of Kubernetes running on the Cluster.
         /// </summary>
         public readonly string CurrentKubernetesVersion;
-        /// <summary>
-        /// A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
-        /// </summary>
         public readonly ImmutableArray<string> CustomCaTrustCertificatesBase64s;
         /// <summary>
         /// The ID of the Disk Encryption Set used for the Nodes and Volumes.

@@ -24,11 +24,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("diskDriverEnabled")]
         public Input<bool>? DiskDriverEnabled { get; set; }
 
-        /// <summary>
-        /// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-        /// 
-        /// &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
-        /// </summary>
         [Input("diskDriverVersion")]
         public Input<string>? DiskDriverVersion { get; set; }
 

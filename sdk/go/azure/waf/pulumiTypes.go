@@ -1345,6 +1345,8 @@ type PolicyPolicySettings struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
 	FileUploadLimitInMb *int `pulumi:"fileUploadLimitInMb"`
+	// Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+	JsChallengeCookieExpirationInMinutes *int `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// One `logScrubbing` block as defined below.
 	LogScrubbing *PolicyPolicySettingsLogScrubbing `pulumi:"logScrubbing"`
 	// The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
@@ -1373,6 +1375,8 @@ type PolicyPolicySettingsArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
 	FileUploadLimitInMb pulumi.IntPtrInput `pulumi:"fileUploadLimitInMb"`
+	// Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+	JsChallengeCookieExpirationInMinutes pulumi.IntPtrInput `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// One `logScrubbing` block as defined below.
 	LogScrubbing PolicyPolicySettingsLogScrubbingPtrInput `pulumi:"logScrubbing"`
 	// The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
@@ -1472,6 +1476,11 @@ func (o PolicyPolicySettingsOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.FileUploadLimitInMb }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+func (o PolicyPolicySettingsOutput) JsChallengeCookieExpirationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.JsChallengeCookieExpirationInMinutes }).(pulumi.IntPtrOutput)
+}
+
 // One `logScrubbing` block as defined below.
 func (o PolicyPolicySettingsOutput) LogScrubbing() PolicyPolicySettingsLogScrubbingPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *PolicyPolicySettingsLogScrubbing { return v.LogScrubbing }).(PolicyPolicySettingsLogScrubbingPtrOutput)
@@ -1538,6 +1547,16 @@ func (o PolicyPolicySettingsPtrOutput) FileUploadLimitInMb() pulumi.IntPtrOutput
 			return nil
 		}
 		return v.FileUploadLimitInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+func (o PolicyPolicySettingsPtrOutput) JsChallengeCookieExpirationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyPolicySettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.JsChallengeCookieExpirationInMinutes
 	}).(pulumi.IntPtrOutput)
 }
 

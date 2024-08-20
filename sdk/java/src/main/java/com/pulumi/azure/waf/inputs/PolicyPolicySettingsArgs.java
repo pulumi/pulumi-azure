@@ -49,6 +49,21 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+     * 
+     */
+    @Import(name="jsChallengeCookieExpirationInMinutes")
+    private @Nullable Output<Integer> jsChallengeCookieExpirationInMinutes;
+
+    /**
+     * @return Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+     * 
+     */
+    public Optional<Output<Integer>> jsChallengeCookieExpirationInMinutes() {
+        return Optional.ofNullable(this.jsChallengeCookieExpirationInMinutes);
+    }
+
+    /**
      * One `log_scrubbing` block as defined below.
      * 
      */
@@ -128,6 +143,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
     private PolicyPolicySettingsArgs(PolicyPolicySettingsArgs $) {
         this.enabled = $.enabled;
         this.fileUploadLimitInMb = $.fileUploadLimitInMb;
+        this.jsChallengeCookieExpirationInMinutes = $.jsChallengeCookieExpirationInMinutes;
         this.logScrubbing = $.logScrubbing;
         this.maxRequestBodySizeInKb = $.maxRequestBodySizeInKb;
         this.mode = $.mode;
@@ -193,6 +209,27 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
          */
         public Builder fileUploadLimitInMb(Integer fileUploadLimitInMb) {
             return fileUploadLimitInMb(Output.of(fileUploadLimitInMb));
+        }
+
+        /**
+         * @param jsChallengeCookieExpirationInMinutes Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jsChallengeCookieExpirationInMinutes(@Nullable Output<Integer> jsChallengeCookieExpirationInMinutes) {
+            $.jsChallengeCookieExpirationInMinutes = jsChallengeCookieExpirationInMinutes;
+            return this;
+        }
+
+        /**
+         * @param jsChallengeCookieExpirationInMinutes Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jsChallengeCookieExpirationInMinutes(Integer jsChallengeCookieExpirationInMinutes) {
+            return jsChallengeCookieExpirationInMinutes(Output.of(jsChallengeCookieExpirationInMinutes));
         }
 
         /**

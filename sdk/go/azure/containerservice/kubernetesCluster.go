@@ -102,9 +102,7 @@ type KubernetesCluster struct {
 	CostAnalysisEnabled pulumi.BoolPtrOutput `pulumi:"costAnalysisEnabled"`
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion pulumi.StringOutput `pulumi:"currentKubernetesVersion"`
-	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-	//
-	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustCertificatesBase64s pulumi.StringArrayOutput `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
@@ -384,9 +382,7 @@ type kubernetesClusterState struct {
 	CostAnalysisEnabled *bool `pulumi:"costAnalysisEnabled"`
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion *string `pulumi:"currentKubernetesVersion"`
-	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-	//
-	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
@@ -624,9 +620,7 @@ type KubernetesClusterState struct {
 	CostAnalysisEnabled pulumi.BoolPtrInput
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion pulumi.StringPtrInput
-	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-	//
-	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustCertificatesBase64s pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
@@ -866,9 +860,7 @@ type kubernetesClusterArgs struct {
 	ConfidentialComputing *KubernetesClusterConfidentialComputing `pulumi:"confidentialComputing"`
 	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
 	CostAnalysisEnabled *bool `pulumi:"costAnalysisEnabled"`
-	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-	//
-	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
@@ -1085,9 +1077,7 @@ type KubernetesClusterArgs struct {
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrInput
 	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
 	CostAnalysisEnabled pulumi.BoolPtrInput
-	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-	//
-	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustCertificatesBase64s pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
@@ -1427,9 +1417,7 @@ func (o KubernetesClusterOutput) CurrentKubernetesVersion() pulumi.StringOutput 
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.CurrentKubernetesVersion }).(pulumi.StringOutput)
 }
 
-// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
-//
-// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterOutput) CustomCaTrustCertificatesBase64s() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringArrayOutput { return v.CustomCaTrustCertificatesBase64s }).(pulumi.StringArrayOutput)
 }

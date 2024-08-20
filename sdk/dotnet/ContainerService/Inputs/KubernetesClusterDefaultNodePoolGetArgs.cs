@@ -18,11 +18,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
 
-        /// <summary>
-        /// Specifies whether to trust a Custom CA.
-        /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-        /// </summary>
         [Input("customCaTrustEnabled")]
         public Input<bool>? CustomCaTrustEnabled { get; set; }
 
@@ -95,9 +90,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("maxPods")]
         public Input<int>? MaxPods { get; set; }
 
-        /// <summary>
-        /// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
-        /// </summary>
         [Input("messageOfTheDay")]
         public Input<string>? MessageOfTheDay { get; set; }
 
@@ -257,9 +249,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? VnetSubnetId { get; set; }
 
         /// <summary>
-        /// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-        /// 
-        /// &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+        /// Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
         /// </summary>
         [Input("workloadRuntime")]
         public Input<string>? WorkloadRuntime { get; set; }

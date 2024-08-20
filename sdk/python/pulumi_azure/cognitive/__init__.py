@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .account import *
 from .account_customer_managed_key import *
+from .ai_services import *
 from .deployment import *
 from .get_account import *
 from ._inputs import *

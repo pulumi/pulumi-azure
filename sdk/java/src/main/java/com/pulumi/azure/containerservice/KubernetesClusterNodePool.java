@@ -123,20 +123,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.capacityReservationGroupId);
     }
     /**
-     * Specifies whether to trust a Custom CA.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     @Export(name="customCaTrustEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> customCaTrustEnabled;
 
-    /**
-     * @return Specifies whether to trust a Custom CA.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-     * 
-     */
     public Output<Optional<Boolean>> customCaTrustEnabled() {
         return Codegen.optional(this.customCaTrustEnabled);
     }
@@ -331,16 +325,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return this.maxPods;
     }
     /**
-     * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     @Export(name="messageOfTheDay", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> messageOfTheDay;
 
-    /**
-     * @return A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
-     * 
-     */
     public Output<Optional<String>> messageOfTheDay() {
         return Codegen.optional(this.messageOfTheDay);
     }
@@ -703,22 +695,18 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.windowsProfile);
     }
     /**
-     * Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      * 
      * &gt; **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
-     * 
-     * &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
      * 
      */
     @Export(name="workloadRuntime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workloadRuntime;
 
     /**
-     * @return Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+     * @return Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      * 
      * &gt; **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
-     * 
-     * &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
      * 
      */
     public Output<Optional<String>> workloadRuntime() {

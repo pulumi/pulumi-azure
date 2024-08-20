@@ -86,7 +86,7 @@ import (
 //			_, err = nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
 //				Name:                    pulumi.String("example-nginx"),
 //				ResourceGroupName:       example.Name,
-//				Sku:                     pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
+//				Sku:                     pulumi.String("standard_Monthly"),
 //				Location:                example.Location,
 //				ManagedResourceGroup:    pulumi.String("example"),
 //				DiagnoseSupportEnabled:  pulumi.Bool(true),
@@ -127,7 +127,7 @@ type Deployment struct {
 	AutoScaleProfiles DeploymentAutoScaleProfileArrayOutput `pulumi:"autoScaleProfiles"`
 	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
 	AutomaticUpgradeChannel pulumi.StringPtrOutput `pulumi:"automaticUpgradeChannel"`
-	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+	// Specify the number of NGINX capacity units for this NGINX deployment.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
@@ -204,7 +204,7 @@ type deploymentState struct {
 	AutoScaleProfiles []DeploymentAutoScaleProfile `pulumi:"autoScaleProfiles"`
 	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
 	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
-	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+	// Specify the number of NGINX capacity units for this NGINX deployment.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
@@ -246,7 +246,7 @@ type DeploymentState struct {
 	AutoScaleProfiles DeploymentAutoScaleProfileArrayInput
 	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
 	AutomaticUpgradeChannel pulumi.StringPtrInput
-	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+	// Specify the number of NGINX capacity units for this NGINX deployment.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
@@ -292,7 +292,7 @@ type deploymentArgs struct {
 	AutoScaleProfiles []DeploymentAutoScaleProfile `pulumi:"autoScaleProfiles"`
 	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
 	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
-	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+	// Specify the number of NGINX capacity units for this NGINX deployment.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
@@ -331,7 +331,7 @@ type DeploymentArgs struct {
 	AutoScaleProfiles DeploymentAutoScaleProfileArrayInput
 	// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
 	AutomaticUpgradeChannel pulumi.StringPtrInput
-	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+	// Specify the number of NGINX capacity units for this NGINX deployment.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
@@ -461,7 +461,7 @@ func (o DeploymentOutput) AutomaticUpgradeChannel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.AutomaticUpgradeChannel }).(pulumi.StringPtrOutput)
 }
 
-// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+// Specify the number of NGINX capacity units for this NGINX deployment.
 //
 // > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 func (o DeploymentOutput) Capacity() pulumi.IntPtrOutput {

@@ -83,6 +83,8 @@ type LookupServiceResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Key used for Search Service Administration.
 	SecondaryKey string `pulumi:"secondaryKey"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -172,6 +174,11 @@ func (o LookupServiceResultOutput) ResourceGroupName() pulumi.StringOutput {
 // The Secondary Key used for Search Service Administration.
 func (o LookupServiceResultOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

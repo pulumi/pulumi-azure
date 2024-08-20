@@ -3,9 +3,11 @@
 
 package com.pulumi.azure.recoveryservices.outputs;
 
+import com.pulumi.azure.recoveryservices.outputs.GetVaultIdentity;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -16,6 +18,11 @@ public final class GetVaultResult {
      * 
      */
     private String id;
+    /**
+     * @return (Optional) An `identity` block as defined below.
+     * 
+     */
+    private List<GetVaultIdentity> identities;
     /**
      * @return The Azure location where the resource resides.
      * 
@@ -41,6 +48,13 @@ public final class GetVaultResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return (Optional) An `identity` block as defined below.
+     * 
+     */
+    public List<GetVaultIdentity> identities() {
+        return this.identities;
     }
     /**
      * @return The Azure location where the resource resides.
@@ -80,6 +94,7 @@ public final class GetVaultResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private List<GetVaultIdentity> identities;
         private String location;
         private String name;
         private String resourceGroupName;
@@ -89,6 +104,7 @@ public final class GetVaultResult {
         public Builder(GetVaultResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
@@ -103,6 +119,17 @@ public final class GetVaultResult {
             }
             this.id = id;
             return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetVaultIdentity> identities) {
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetVaultResult", "identities");
+            }
+            this.identities = identities;
+            return this;
+        }
+        public Builder identities(GetVaultIdentity... identities) {
+            return identities(List.of(identities));
         }
         @CustomType.Setter
         public Builder location(String location) {
@@ -147,6 +174,7 @@ public final class GetVaultResult {
         public GetVaultResult build() {
             final var _resultValue = new GetVaultResult();
             _resultValue.id = id;
+            _resultValue.identities = identities;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;

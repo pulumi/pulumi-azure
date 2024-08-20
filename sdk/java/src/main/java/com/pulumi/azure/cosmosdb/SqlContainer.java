@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
  *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
  *             .databaseName(exampleSqlDatabase.name())
- *             .partitionKeyPath("/definition/id")
+ *             .partitionKeyPaths("/definition/id")
  *             .partitionKeyVersion(1)
  *             .throughput(400)
  *             .indexingPolicy(SqlContainerIndexingPolicyArgs.builder()
@@ -139,7 +139,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.analyticalStorageTtl);
     }
     /**
-     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 
@@ -148,7 +148,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ SqlContainerAutoscaleSettings> autoscaleSettings;
 
     /**
-     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 

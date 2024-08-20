@@ -239,14 +239,14 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="nodeCount", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> nodeCount;
+    private Output<Integer> nodeCount;
 
     /**
      * @return The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
      * 
      */
-    public Output<Optional<Integer>> nodeCount() {
-        return Codegen.optional(this.nodeCount);
+    public Output<Integer> nodeCount() {
+        return this.nodeCount;
     }
     /**
      * The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.

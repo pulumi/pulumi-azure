@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Nginx
     ///     {
     ///         Name = "example-nginx",
     ///         ResourceGroupName = example.Name,
-    ///         Sku = "publicpreview_Monthly_gmz7xq9ge3py",
+    ///         Sku = "standard_Monthly",
     ///         Location = example.Location,
     ///         ManagedResourceGroup = "example",
     ///         DiagnoseSupportEnabled = true,
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Nginx
         public Output<string?> AutomaticUpgradeChannel { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+        /// Specify the number of NGINX capacity units for this NGINX deployment.
         /// 
         /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         /// </summary>
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.Nginx
         public Input<string>? AutomaticUpgradeChannel { get; set; }
 
         /// <summary>
-        /// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+        /// Specify the number of NGINX capacity units for this NGINX deployment.
         /// 
         /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         /// </summary>
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.Nginx
         public Input<string>? AutomaticUpgradeChannel { get; set; }
 
         /// <summary>
-        /// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+        /// Specify the number of NGINX capacity units for this NGINX deployment.
         /// 
         /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         /// </summary>

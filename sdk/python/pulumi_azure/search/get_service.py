@@ -27,7 +27,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, id=None, identities=None, name=None, partition_count=None, primary_key=None, public_network_access_enabled=None, query_keys=None, replica_count=None, resource_group_name=None, secondary_key=None):
+    def __init__(__self__, id=None, identities=None, name=None, partition_count=None, primary_key=None, public_network_access_enabled=None, query_keys=None, replica_count=None, resource_group_name=None, secondary_key=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -58,6 +58,9 @@ class GetServiceResult:
         if secondary_key and not isinstance(secondary_key, str):
             raise TypeError("Expected argument 'secondary_key' to be a str")
         pulumi.set(__self__, "secondary_key", secondary_key)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -136,6 +139,14 @@ class GetServiceResult:
         """
         return pulumi.get(self, "secondary_key")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
@@ -152,7 +163,8 @@ class AwaitableGetServiceResult(GetServiceResult):
             query_keys=self.query_keys,
             replica_count=self.replica_count,
             resource_group_name=self.resource_group_name,
-            secondary_key=self.secondary_key)
+            secondary_key=self.secondary_key,
+            tags=self.tags)
 
 
 def get_service(name: Optional[str] = None,
@@ -194,7 +206,8 @@ def get_service(name: Optional[str] = None,
         query_keys=pulumi.get(__ret__, 'query_keys'),
         replica_count=pulumi.get(__ret__, 'replica_count'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
-        secondary_key=pulumi.get(__ret__, 'secondary_key'))
+        secondary_key=pulumi.get(__ret__, 'secondary_key'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_service)

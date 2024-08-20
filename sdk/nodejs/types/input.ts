@@ -18044,6 +18044,79 @@ export namespace chaosstudio {
 }
 
 export namespace cognitive {
+    export interface AIServicesCustomerManagedKey {
+        /**
+         * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there are multiple identities attached to the Azure AI Service.
+         */
+        identityClientId?: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+         */
+        keyVaultKeyId?: pulumi.Input<string>;
+        /**
+         * The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+         */
+        managedHsmKeyId?: pulumi.Input<string>;
+    }
+
+    export interface AIServicesIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface AIServicesNetworkAcls {
+        /**
+         * The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
+         */
+        defaultAction: pulumi.Input<string>;
+        /**
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
+         */
+        ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `virtualNetworkRules` block as defined below.
+         */
+        virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.cognitive.AIServicesNetworkAclsVirtualNetworkRule>[]>;
+    }
+
+    export interface AIServicesNetworkAclsVirtualNetworkRule {
+        /**
+         * Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
+         */
+        ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
+        /**
+         * The ID of the subnet which should be able to access this AI Services Account.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+
+    export interface AIServicesStorage {
+        /**
+         * The client ID of the Managed Identity associated with the Storage Account.
+         */
+        identityClientId?: pulumi.Input<string>;
+        /**
+         * The ID of the Storage Account.
+         */
+        storageAccountId: pulumi.Input<string>;
+    }
+
     export interface AccountCustomerManagedKey {
         /**
          * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
@@ -24022,13 +24095,17 @@ export namespace containerservice {
          */
         authorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The ID of the Subnet where the API server endpoint is delegated to.
+         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         *
+         * > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
+         *
+         * > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
+         *
+         * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
          */
         subnetId?: pulumi.Input<string>;
         /**
-         * Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
+         * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
          */
         vnetIntegrationEnabled?: pulumi.Input<boolean>;
     }
@@ -24146,9 +24223,7 @@ export namespace containerservice {
          */
         capacityReservationGroupId?: pulumi.Input<string>;
         /**
-         * Specifies whether to trust a Custom CA.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+         * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
          */
         customCaTrustEnabled?: pulumi.Input<boolean>;
         /**
@@ -24199,7 +24274,7 @@ export namespace containerservice {
          */
         maxPods?: pulumi.Input<number>;
         /**
-         * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+         * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
          */
         messageOfTheDay?: pulumi.Input<string>;
         minCount?: pulumi.Input<number>;
@@ -24297,9 +24372,7 @@ export namespace containerservice {
          */
         vnetSubnetId?: pulumi.Input<string>;
         /**
-         * Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-         *
-         * > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+         * Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
          */
         workloadRuntime?: pulumi.Input<string>;
         /**
@@ -25452,9 +25525,7 @@ export namespace containerservice {
          */
         diskDriverEnabled?: pulumi.Input<boolean>;
         /**
-         * Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-         *
-         * > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
+         * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
          */
         diskDriverVersion?: pulumi.Input<string>;
         /**
@@ -29657,6 +29728,32 @@ export namespace devcenter {
         tenantId?: pulumi.Input<string>;
         type: pulumi.Input<string>;
     }
+
+    export interface ProjectEnvironmentTypeIdentity {
+        /**
+         * The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
+         *
+         * > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of identity used for this Dev Center Project Environment Type. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ProjectEnvironmentTypeUserRoleAssignment {
+        /**
+         * A list of roles to assign to the `userId`.
+         */
+        roles: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The user object ID that is assigned roles.
+         */
+        userId: pulumi.Input<string>;
+    }
 }
 
 export namespace devtest {
@@ -32095,6 +32192,19 @@ export namespace eventhub {
          * Address to send to.
          */
         to?: pulumi.Input<string>;
+    }
+}
+
+export namespace extendedlocation {
+    export interface CustomLocationAuthentication {
+        /**
+         * Specifies the type of authentication.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Specifies the value of authentication.
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -37605,7 +37715,7 @@ export namespace logicapps {
          */
         cors?: pulumi.Input<inputs.logicapps.StandardSiteConfigCors>;
         /**
-         * The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+         * The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0`, `v6.0` and `v8.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: pulumi.Input<string>;
         /**
@@ -54042,6 +54152,10 @@ export namespace waf {
          * The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
          */
         fileUploadLimitInMb?: pulumi.Input<number>;
+        /**
+         * Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+         */
+        jsChallengeCookieExpirationInMinutes?: pulumi.Input<number>;
         /**
          * One `logScrubbing` block as defined below.
          */

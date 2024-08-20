@@ -129,7 +129,7 @@ type SparkPool struct {
 	// The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
-	NodeCount pulumi.IntPtrOutput `pulumi:"nodeCount"`
+	NodeCount pulumi.IntOutput `pulumi:"nodeCount"`
 	// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
 	NodeSize pulumi.StringOutput `pulumi:"nodeSize"`
 	// The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
@@ -440,8 +440,8 @@ func (o SparkPoolOutput) Name() pulumi.StringOutput {
 }
 
 // The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
-func (o SparkPoolOutput) NodeCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SparkPool) pulumi.IntPtrOutput { return v.NodeCount }).(pulumi.IntPtrOutput)
+func (o SparkPoolOutput) NodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *SparkPool) pulumi.IntOutput { return v.NodeCount }).(pulumi.IntOutput)
 }
 
 // The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.

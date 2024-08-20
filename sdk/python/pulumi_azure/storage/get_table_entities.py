@@ -27,7 +27,7 @@ class GetTableEntitiesResult:
     """
     A collection of values returned by getTableEntities.
     """
-    def __init__(__self__, filter=None, id=None, items=None, selects=None, storage_account_name=None, table_name=None):
+    def __init__(__self__, filter=None, id=None, items=None, selects=None, storage_account_name=None, storage_table_id=None, table_name=None):
         if filter and not isinstance(filter, str):
             raise TypeError("Expected argument 'filter' to be a str")
         pulumi.set(__self__, "filter", filter)
@@ -43,6 +43,9 @@ class GetTableEntitiesResult:
         if storage_account_name and not isinstance(storage_account_name, str):
             raise TypeError("Expected argument 'storage_account_name' to be a str")
         pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_table_id and not isinstance(storage_table_id, str):
+            raise TypeError("Expected argument 'storage_table_id' to be a str")
+        pulumi.set(__self__, "storage_table_id", storage_table_id)
         if table_name and not isinstance(table_name, str):
             raise TypeError("Expected argument 'table_name' to be a str")
         pulumi.set(__self__, "table_name", table_name)
@@ -75,11 +78,18 @@ class GetTableEntitiesResult:
 
     @property
     @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def storage_account_name(self) -> str:
         return pulumi.get(self, "storage_account_name")
 
     @property
+    @pulumi.getter(name="storageTableId")
+    def storage_table_id(self) -> str:
+        return pulumi.get(self, "storage_table_id")
+
+    @property
     @pulumi.getter(name="tableName")
+    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
     def table_name(self) -> str:
         return pulumi.get(self, "table_name")
 
@@ -95,12 +105,14 @@ class AwaitableGetTableEntitiesResult(GetTableEntitiesResult):
             items=self.items,
             selects=self.selects,
             storage_account_name=self.storage_account_name,
+            storage_table_id=self.storage_table_id,
             table_name=self.table_name)
 
 
 def get_table_entities(filter: Optional[str] = None,
                        selects: Optional[Sequence[str]] = None,
                        storage_account_name: Optional[str] = None,
+                       storage_table_id: Optional[str] = None,
                        table_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableEntitiesResult:
     """
@@ -120,13 +132,13 @@ def get_table_entities(filter: Optional[str] = None,
 
     :param str filter: The filter used to retrieve the entities.
     :param Sequence[str] selects: A list of properties to select from the returned Storage Table Entities.
-    :param str storage_account_name: The name of the Storage Account where the Table exists.
-    :param str table_name: The name of the Table.
+    :param str storage_table_id: The Storage Table ID where the entities exist.
     """
     __args__ = dict()
     __args__['filter'] = filter
     __args__['selects'] = selects
     __args__['storageAccountName'] = storage_account_name
+    __args__['storageTableId'] = storage_table_id
     __args__['tableName'] = table_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:storage/getTableEntities:getTableEntities', __args__, opts=opts, typ=GetTableEntitiesResult).value
@@ -137,14 +149,16 @@ def get_table_entities(filter: Optional[str] = None,
         items=pulumi.get(__ret__, 'items'),
         selects=pulumi.get(__ret__, 'selects'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
+        storage_table_id=pulumi.get(__ret__, 'storage_table_id'),
         table_name=pulumi.get(__ret__, 'table_name'))
 
 
 @_utilities.lift_output_func(get_table_entities)
 def get_table_entities_output(filter: Optional[pulumi.Input[str]] = None,
                               selects: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                              storage_account_name: Optional[pulumi.Input[str]] = None,
-                              table_name: Optional[pulumi.Input[str]] = None,
+                              storage_account_name: Optional[pulumi.Input[Optional[str]]] = None,
+                              storage_table_id: Optional[pulumi.Input[Optional[str]]] = None,
+                              table_name: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableEntitiesResult]:
     """
     Use this data source to access information about an existing Storage Table Entity.
@@ -163,7 +177,6 @@ def get_table_entities_output(filter: Optional[pulumi.Input[str]] = None,
 
     :param str filter: The filter used to retrieve the entities.
     :param Sequence[str] selects: A list of properties to select from the returned Storage Table Entities.
-    :param str storage_account_name: The name of the Storage Account where the Table exists.
-    :param str table_name: The name of the Table.
+    :param str storage_table_id: The Storage Table ID where the entities exist.
     """
     ...

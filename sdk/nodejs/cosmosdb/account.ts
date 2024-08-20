@@ -149,6 +149,7 @@ export class Account extends pulumi.CustomResource {
     public readonly analyticalStorageEnabled!: pulumi.Output<boolean | undefined>;
     public readonly automaticFailoverEnabled!: pulumi.Output<boolean>;
     public readonly backup!: pulumi.Output<outputs.cosmosdb.AccountBackup>;
+    public readonly burstCapacityEnabled!: pulumi.Output<boolean | undefined>;
     public readonly capabilities!: pulumi.Output<outputs.cosmosdb.AccountCapability[]>;
     /**
      * A `capacity` block as defined below.
@@ -301,6 +302,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["analyticalStorageEnabled"] = state ? state.analyticalStorageEnabled : undefined;
             resourceInputs["automaticFailoverEnabled"] = state ? state.automaticFailoverEnabled : undefined;
             resourceInputs["backup"] = state ? state.backup : undefined;
+            resourceInputs["burstCapacityEnabled"] = state ? state.burstCapacityEnabled : undefined;
             resourceInputs["capabilities"] = state ? state.capabilities : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
             resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
@@ -367,6 +369,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["analyticalStorageEnabled"] = args ? args.analyticalStorageEnabled : undefined;
             resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
             resourceInputs["backup"] = args ? args.backup : undefined;
+            resourceInputs["burstCapacityEnabled"] = args ? args.burstCapacityEnabled : undefined;
             resourceInputs["capabilities"] = args ? args.capabilities : undefined;
             resourceInputs["capacity"] = args ? args.capacity : undefined;
             resourceInputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
@@ -434,6 +437,7 @@ export interface AccountState {
     analyticalStorageEnabled?: pulumi.Input<boolean>;
     automaticFailoverEnabled?: pulumi.Input<boolean>;
     backup?: pulumi.Input<inputs.cosmosdb.AccountBackup>;
+    burstCapacityEnabled?: pulumi.Input<boolean>;
     capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
     /**
      * A `capacity` block as defined below.
@@ -581,6 +585,7 @@ export interface AccountArgs {
     analyticalStorageEnabled?: pulumi.Input<boolean>;
     automaticFailoverEnabled?: pulumi.Input<boolean>;
     backup?: pulumi.Input<inputs.cosmosdb.AccountBackup>;
+    burstCapacityEnabled?: pulumi.Input<boolean>;
     capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
     /**
      * A `capacity` block as defined below.

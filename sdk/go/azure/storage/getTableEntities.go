@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storage.GetTableEntities(ctx, &storage.GetTableEntitiesArgs{
-//				TableName:          "example-table-name",
-//				StorageAccountName: "example-storage-account-name",
+//				TableName:          pulumi.StringRef("example-table-name"),
+//				StorageAccountName: pulumi.StringRef("example-storage-account-name"),
 //				Filter:             "PartitionKey eq 'example'",
 //			}, nil)
 //			if err != nil {
@@ -56,10 +56,12 @@ type GetTableEntitiesArgs struct {
 	Filter string `pulumi:"filter"`
 	// A list of properties to select from the returned Storage Table Entities.
 	Selects []string `pulumi:"selects"`
-	// The name of the Storage Account where the Table exists.
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// The name of the Table.
-	TableName string `pulumi:"tableName"`
+	// Deprecated: the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
+	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The Storage Table ID where the entities exist.
+	StorageTableId *string `pulumi:"storageTableId"`
+	// Deprecated: the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
+	TableName *string `pulumi:"tableName"`
 }
 
 // A collection of values returned by getTableEntities.
@@ -68,10 +70,13 @@ type GetTableEntitiesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of `items` blocks as defined below.
-	Items              []GetTableEntitiesItem `pulumi:"items"`
-	Selects            []string               `pulumi:"selects"`
-	StorageAccountName string                 `pulumi:"storageAccountName"`
-	TableName          string                 `pulumi:"tableName"`
+	Items   []GetTableEntitiesItem `pulumi:"items"`
+	Selects []string               `pulumi:"selects"`
+	// Deprecated: the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
+	StorageAccountName string `pulumi:"storageAccountName"`
+	StorageTableId     string `pulumi:"storageTableId"`
+	// Deprecated: the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
+	TableName string `pulumi:"tableName"`
 }
 
 func GetTableEntitiesOutput(ctx *pulumi.Context, args GetTableEntitiesOutputArgs, opts ...pulumi.InvokeOption) GetTableEntitiesResultOutput {
@@ -93,10 +98,12 @@ type GetTableEntitiesOutputArgs struct {
 	Filter pulumi.StringInput `pulumi:"filter"`
 	// A list of properties to select from the returned Storage Table Entities.
 	Selects pulumi.StringArrayInput `pulumi:"selects"`
-	// The name of the Storage Account where the Table exists.
-	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
-	// The name of the Table.
-	TableName pulumi.StringInput `pulumi:"tableName"`
+	// Deprecated: the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+	// The Storage Table ID where the entities exist.
+	StorageTableId pulumi.StringPtrInput `pulumi:"storageTableId"`
+	// Deprecated: the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
+	TableName pulumi.StringPtrInput `pulumi:"tableName"`
 }
 
 func (GetTableEntitiesOutputArgs) ElementType() reflect.Type {
@@ -136,10 +143,16 @@ func (o GetTableEntitiesResultOutput) Selects() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTableEntitiesResult) []string { return v.Selects }).(pulumi.StringArrayOutput)
 }
 
+// Deprecated: the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
 func (o GetTableEntitiesResultOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableEntitiesResult) string { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
+func (o GetTableEntitiesResultOutput) StorageTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableEntitiesResult) string { return v.StorageTableId }).(pulumi.StringOutput)
+}
+
+// Deprecated: the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
 func (o GetTableEntitiesResultOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableEntitiesResult) string { return v.TableName }).(pulumi.StringOutput)
 }

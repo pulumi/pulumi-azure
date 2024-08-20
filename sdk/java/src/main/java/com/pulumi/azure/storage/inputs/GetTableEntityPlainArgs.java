@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTableEntityPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -44,33 +46,56 @@ public final class GetTableEntityPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The name of the Storage Account where the Table exists.
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
-    @Import(name="storageAccountName", required=true)
-    private String storageAccountName;
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+    @Import(name="storageAccountName")
+    private @Nullable String storageAccountName;
 
     /**
-     * @return The name of the Storage Account where the Table exists.
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
-    public String storageAccountName() {
-        return this.storageAccountName;
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+    public Optional<String> storageAccountName() {
+        return Optional.ofNullable(this.storageAccountName);
     }
 
     /**
-     * The name of the Table.
+     * The Storage Table ID where the entity exists.
      * 
      */
-    @Import(name="tableName", required=true)
-    private String tableName;
+    @Import(name="storageTableId")
+    private @Nullable String storageTableId;
 
     /**
-     * @return The name of the Table.
+     * @return The Storage Table ID where the entity exists.
      * 
      */
-    public String tableName() {
-        return this.tableName;
+    public Optional<String> storageTableId() {
+        return Optional.ofNullable(this.storageTableId);
+    }
+
+    /**
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+    @Import(name="tableName")
+    private @Nullable String tableName;
+
+    /**
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+    public Optional<String> tableName() {
+        return Optional.ofNullable(this.tableName);
     }
 
     private GetTableEntityPlainArgs() {}
@@ -79,6 +104,7 @@ public final class GetTableEntityPlainArgs extends com.pulumi.resources.InvokeAr
         this.partitionKey = $.partitionKey;
         this.rowKey = $.rowKey;
         this.storageAccountName = $.storageAccountName;
+        this.storageTableId = $.storageTableId;
         this.tableName = $.tableName;
     }
 
@@ -123,23 +149,38 @@ public final class GetTableEntityPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Table exists.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
          */
-        public Builder storageAccountName(String storageAccountName) {
+        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+        public Builder storageAccountName(@Nullable String storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
 
         /**
-         * @param tableName The name of the Table.
+         * @param storageTableId The Storage Table ID where the entity exists.
          * 
          * @return builder
          * 
          */
-        public Builder tableName(String tableName) {
+        public Builder storageTableId(@Nullable String storageTableId) {
+            $.storageTableId = storageTableId;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
+         */
+        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+        public Builder tableName(@Nullable String tableName) {
             $.tableName = tableName;
             return this;
         }
@@ -150,12 +191,6 @@ public final class GetTableEntityPlainArgs extends com.pulumi.resources.InvokeAr
             }
             if ($.rowKey == null) {
                 throw new MissingRequiredPropertyException("GetTableEntityPlainArgs", "rowKey");
-            }
-            if ($.storageAccountName == null) {
-                throw new MissingRequiredPropertyException("GetTableEntityPlainArgs", "storageAccountName");
-            }
-            if ($.tableName == null) {
-                throw new MissingRequiredPropertyException("GetTableEntityPlainArgs", "tableName");
             }
             return $;
         }

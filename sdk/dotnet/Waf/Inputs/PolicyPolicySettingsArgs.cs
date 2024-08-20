@@ -25,6 +25,12 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<int>? FileUploadLimitInMb { get; set; }
 
         /// <summary>
+        /// Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+        /// </summary>
+        [Input("jsChallengeCookieExpirationInMinutes")]
+        public Input<int>? JsChallengeCookieExpirationInMinutes { get; set; }
+
+        /// <summary>
         /// One `log_scrubbing` block as defined below.
         /// </summary>
         [Input("logScrubbing")]

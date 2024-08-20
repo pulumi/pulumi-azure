@@ -62,9 +62,11 @@ public final class GetKubernetesClusterResult {
      */
     private String currentKubernetesVersion;
     /**
-     * @return A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     private List<String> customCaTrustCertificatesBase64s;
     /**
      * @return The ID of the Disk Encryption Set used for the Nodes and Volumes.
@@ -283,9 +285,11 @@ public final class GetKubernetesClusterResult {
         return this.currentKubernetesVersion;
     }
     /**
-     * @return A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     public List<String> customCaTrustCertificatesBase64s() {
         return this.customCaTrustCertificatesBase64s;
     }

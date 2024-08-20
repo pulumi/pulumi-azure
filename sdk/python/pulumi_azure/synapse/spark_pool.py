@@ -941,7 +941,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> pulumi.Output[Optional[int]]:
+    def node_count(self) -> pulumi.Output[int]:
         """
         The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         """

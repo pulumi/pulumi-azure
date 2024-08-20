@@ -208,10 +208,8 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="customCaTrustCertificatesBase64s")
+    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
     def custom_ca_trust_certificates_base64s(self) -> Sequence[str]:
-        """
-        A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
-        """
         return pulumi.get(self, "custom_ca_trust_certificates_base64s")
 
     @property

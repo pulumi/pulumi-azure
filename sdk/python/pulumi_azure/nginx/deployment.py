@@ -43,7 +43,7 @@ class DeploymentArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
-        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
@@ -143,7 +143,7 @@ class DeploymentArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+        Specify the number of NGINX capacity units for this NGINX deployment.
 
         > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """
@@ -322,7 +322,7 @@ class _DeploymentState:
         Input properties used for looking up and filtering Deployment resources.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
-        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
@@ -410,7 +410,7 @@ class _DeploymentState:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+        Specify the number of NGINX capacity units for this NGINX deployment.
 
         > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """
@@ -672,7 +672,7 @@ class Deployment(pulumi.CustomResource):
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
-            sku="publicpreview_Monthly_gmz7xq9ge3py",
+            sku="standard_Monthly",
             location=example.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
@@ -699,7 +699,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
-        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
@@ -762,7 +762,7 @@ class Deployment(pulumi.CustomResource):
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
-            sku="publicpreview_Monthly_gmz7xq9ge3py",
+            sku="standard_Monthly",
             location=example.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
@@ -887,7 +887,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
-        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
@@ -950,7 +950,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def capacity(self) -> pulumi.Output[Optional[int]]:
         """
-        Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+        Specify the number of NGINX capacity units for this NGINX deployment.
 
         > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """

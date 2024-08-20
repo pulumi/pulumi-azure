@@ -71,6 +71,13 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.backup);
     }
 
+    @Import(name="burstCapacityEnabled")
+    private @Nullable Output<Boolean> burstCapacityEnabled;
+
+    public Optional<Output<Boolean>> burstCapacityEnabled() {
+        return Optional.ofNullable(this.burstCapacityEnabled);
+    }
+
     @Import(name="capabilities")
     private @Nullable Output<List<AccountCapabilityArgs>> capabilities;
 
@@ -652,6 +659,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.analyticalStorageEnabled = $.analyticalStorageEnabled;
         this.automaticFailoverEnabled = $.automaticFailoverEnabled;
         this.backup = $.backup;
+        this.burstCapacityEnabled = $.burstCapacityEnabled;
         this.capabilities = $.capabilities;
         this.capacity = $.capacity;
         this.connectionStrings = $.connectionStrings;
@@ -774,6 +782,15 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
         public Builder backup(AccountBackupArgs backup) {
             return backup(Output.of(backup));
+        }
+
+        public Builder burstCapacityEnabled(@Nullable Output<Boolean> burstCapacityEnabled) {
+            $.burstCapacityEnabled = burstCapacityEnabled;
+            return this;
+        }
+
+        public Builder burstCapacityEnabled(Boolean burstCapacityEnabled) {
+            return burstCapacityEnabled(Output.of(burstCapacityEnabled));
         }
 
         public Builder capabilities(@Nullable Output<List<AccountCapabilityArgs>> capabilities) {

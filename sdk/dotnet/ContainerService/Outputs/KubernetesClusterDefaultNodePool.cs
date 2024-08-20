@@ -17,11 +17,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? CapacityReservationGroupId;
-        /// <summary>
-        /// Specifies whether to trust a Custom CA.
-        /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-        /// </summary>
         public readonly bool? CustomCaTrustEnabled;
         /// <summary>
         /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
@@ -70,9 +65,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
         /// </summary>
         public readonly int? MaxPods;
-        /// <summary>
-        /// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
-        /// </summary>
         public readonly string? MessageOfTheDay;
         public readonly int? MinCount;
         /// <summary>
@@ -166,9 +158,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? VnetSubnetId;
         /// <summary>
-        /// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-        /// 
-        /// &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+        /// Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
         /// </summary>
         public readonly string? WorkloadRuntime;
         /// <summary>

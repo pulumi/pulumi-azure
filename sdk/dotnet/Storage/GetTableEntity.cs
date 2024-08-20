@@ -81,17 +81,17 @@ namespace Pulumi.Azure.Storage
         [Input("rowKey", required: true)]
         public string RowKey { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the Storage Account where the Table exists.
-        /// </summary>
-        [Input("storageAccountName", required: true)]
-        public string StorageAccountName { get; set; } = null!;
+        [Input("storageAccountName")]
+        public string? StorageAccountName { get; set; }
 
         /// <summary>
-        /// The name of the Table.
+        /// The Storage Table ID where the entity exists.
         /// </summary>
-        [Input("tableName", required: true)]
-        public string TableName { get; set; } = null!;
+        [Input("storageTableId")]
+        public string? StorageTableId { get; set; }
+
+        [Input("tableName")]
+        public string? TableName { get; set; }
 
         public GetTableEntityArgs()
         {
@@ -113,17 +113,17 @@ namespace Pulumi.Azure.Storage
         [Input("rowKey", required: true)]
         public Input<string> RowKey { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the Storage Account where the Table exists.
-        /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
-        /// The name of the Table.
+        /// The Storage Table ID where the entity exists.
         /// </summary>
-        [Input("tableName", required: true)]
-        public Input<string> TableName { get; set; } = null!;
+        [Input("storageTableId")]
+        public Input<string>? StorageTableId { get; set; }
+
+        [Input("tableName")]
+        public Input<string>? TableName { get; set; }
 
         public GetTableEntityInvokeArgs()
         {
@@ -146,6 +146,7 @@ namespace Pulumi.Azure.Storage
         public readonly string PartitionKey;
         public readonly string RowKey;
         public readonly string StorageAccountName;
+        public readonly string StorageTableId;
         public readonly string TableName;
 
         [OutputConstructor]
@@ -160,6 +161,8 @@ namespace Pulumi.Azure.Storage
 
             string storageAccountName,
 
+            string storageTableId,
+
             string tableName)
         {
             Entity = entity;
@@ -167,6 +170,7 @@ namespace Pulumi.Azure.Storage
             PartitionKey = partitionKey;
             RowKey = rowKey;
             StorageAccountName = storageAccountName;
+            StorageTableId = storageTableId;
             TableName = tableName;
         }
     }

@@ -132,11 +132,6 @@ namespace Pulumi.Azure.ContainerService
         [Output("currentKubernetesVersion")]
         public Output<string> CurrentKubernetesVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-        /// 
-        /// &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
-        /// </summary>
         [Output("customCaTrustCertificatesBase64s")]
         public Output<ImmutableArray<string>> CustomCaTrustCertificatesBase64s { get; private set; } = null!;
 
@@ -683,12 +678,7 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("customCaTrustCertificatesBase64s")]
         private InputList<string>? _customCaTrustCertificatesBase64s;
-
-        /// <summary>
-        /// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-        /// 
-        /// &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
-        /// </summary>
+        [Obsolete(@"This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.")]
         public InputList<string> CustomCaTrustCertificatesBase64s
         {
             get => _customCaTrustCertificatesBase64s ?? (_customCaTrustCertificatesBase64s = new InputList<string>());
@@ -1145,12 +1135,7 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("customCaTrustCertificatesBase64s")]
         private InputList<string>? _customCaTrustCertificatesBase64s;
-
-        /// <summary>
-        /// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-        /// 
-        /// &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
-        /// </summary>
+        [Obsolete(@"This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.")]
         public InputList<string> CustomCaTrustCertificatesBase64s
         {
             get => _customCaTrustCertificatesBase64s ?? (_customCaTrustCertificatesBase64s = new InputList<string>());

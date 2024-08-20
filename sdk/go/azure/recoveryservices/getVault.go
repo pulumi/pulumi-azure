@@ -61,6 +61,8 @@ type LookupVaultArgs struct {
 type LookupVaultResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// (Optional) An `identity` block as defined below.
+	Identities []GetVaultIdentity `pulumi:"identities"`
 	// The Azure location where the resource resides.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
@@ -114,6 +116,11 @@ func (o LookupVaultResultOutput) ToLookupVaultResultOutputWithContext(ctx contex
 // The provider-assigned unique ID for this managed resource.
 func (o LookupVaultResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVaultResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Optional) An `identity` block as defined below.
+func (o LookupVaultResultOutput) Identities() GetVaultIdentityArrayOutput {
+	return o.ApplyT(func(v LookupVaultResult) []GetVaultIdentity { return v.Identities }).(GetVaultIdentityArrayOutput)
 }
 
 // The Azure location where the resource resides.

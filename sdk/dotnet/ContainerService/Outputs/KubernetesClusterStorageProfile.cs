@@ -21,11 +21,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Is the Disk CSI driver enabled? Defaults to `true`.
         /// </summary>
         public readonly bool? DiskDriverEnabled;
-        /// <summary>
-        /// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-        /// 
-        /// &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
-        /// </summary>
         public readonly string? DiskDriverVersion;
         /// <summary>
         /// Is the File CSI driver enabled? Defaults to `true`.

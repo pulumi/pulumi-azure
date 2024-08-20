@@ -6279,11 +6279,15 @@ func (o KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput) Index(i 
 type KubernetesClusterApiServerAccessProfile struct {
 	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 	AuthorizedIpRanges []string `pulumi:"authorizedIpRanges"`
-	// The ID of the Subnet where the API server endpoint is delegated to.
-	SubnetId *string `pulumi:"subnetId"`
-	// Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
+	// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
+	//
+	// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
+	//
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
+	SubnetId *string `pulumi:"subnetId"`
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	VnetIntegrationEnabled *bool `pulumi:"vnetIntegrationEnabled"`
 }
 
@@ -6301,11 +6305,15 @@ type KubernetesClusterApiServerAccessProfileInput interface {
 type KubernetesClusterApiServerAccessProfileArgs struct {
 	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 	AuthorizedIpRanges pulumi.StringArrayInput `pulumi:"authorizedIpRanges"`
-	// The ID of the Subnet where the API server endpoint is delegated to.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
+	// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
+	//
+	// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
+	//
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	VnetIntegrationEnabled pulumi.BoolPtrInput `pulumi:"vnetIntegrationEnabled"`
 }
 
@@ -6391,14 +6399,18 @@ func (o KubernetesClusterApiServerAccessProfileOutput) AuthorizedIpRanges() pulu
 	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) []string { return v.AuthorizedIpRanges }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Subnet where the API server endpoint is delegated to.
+// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+//
+// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
+//
+// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
+//
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterApiServerAccessProfileOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterApiServerAccessProfileOutput) VnetIntegrationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) *bool { return v.VnetIntegrationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -6437,7 +6449,13 @@ func (o KubernetesClusterApiServerAccessProfilePtrOutput) AuthorizedIpRanges() p
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Subnet where the API server endpoint is delegated to.
+// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+//
+// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
+//
+// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
+//
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterApiServerAccessProfilePtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterApiServerAccessProfile) *string {
 		if v == nil {
@@ -6447,9 +6465,7 @@ func (o KubernetesClusterApiServerAccessProfilePtrOutput) SubnetId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterApiServerAccessProfilePtrOutput) VnetIntegrationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterApiServerAccessProfile) *bool {
 		if v == nil {
@@ -7301,9 +7317,7 @@ func (o KubernetesClusterConfidentialComputingPtrOutput) SgxQuoteHelperEnabled()
 type KubernetesClusterDefaultNodePool struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// Specifies whether to trust a Custom CA.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	//
@@ -7332,7 +7346,7 @@ type KubernetesClusterDefaultNodePool struct {
 	MaxCount      *int                                           `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
 	MaxPods *int `pulumi:"maxPods"`
-	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	MessageOfTheDay *string `pulumi:"messageOfTheDay"`
 	MinCount        *int    `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool.
@@ -7386,9 +7400,7 @@ type KubernetesClusterDefaultNodePool struct {
 	//
 	// > **Note:** A Route Table must be configured on this Subnet.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
-	// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-	//
-	// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+	// Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. `temporaryNameForRotation` must be specified when changing this property.
 	//
@@ -7410,9 +7422,7 @@ type KubernetesClusterDefaultNodePoolInput interface {
 type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
-	// Specifies whether to trust a Custom CA.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustEnabled pulumi.BoolPtrInput `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	//
@@ -7441,7 +7451,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	MaxCount      pulumi.IntPtrInput                                    `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
 	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
-	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	MessageOfTheDay pulumi.StringPtrInput `pulumi:"messageOfTheDay"`
 	MinCount        pulumi.IntPtrInput    `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool.
@@ -7495,9 +7505,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	//
 	// > **Note:** A Route Table must be configured on this Subnet.
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
-	// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-	//
-	// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+	// Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
 	WorkloadRuntime pulumi.StringPtrInput `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. `temporaryNameForRotation` must be specified when changing this property.
 	//
@@ -7587,9 +7595,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pul
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to trust a Custom CA.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterDefaultNodePoolOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.CustomCaTrustEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7658,7 +7664,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) MaxPods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
-// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterDefaultNodePoolOutput) MessageOfTheDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.MessageOfTheDay }).(pulumi.StringPtrOutput)
 }
@@ -7788,9 +7794,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) VnetSubnetId() pulumi.StringPtrO
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-//
-// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+// Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
 func (o KubernetesClusterDefaultNodePoolOutput) WorkloadRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.WorkloadRuntime }).(pulumi.StringPtrOutput)
 }
@@ -7836,9 +7840,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) CapacityReservationGroupId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to trust a Custom CA.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -7963,7 +7965,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxPods() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MessageOfTheDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -8209,9 +8211,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-//
-// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+// Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) WorkloadRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -17473,9 +17473,7 @@ type KubernetesClusterStorageProfile struct {
 	BlobDriverEnabled *bool `pulumi:"blobDriverEnabled"`
 	// Is the Disk CSI driver enabled? Defaults to `true`.
 	DiskDriverEnabled *bool `pulumi:"diskDriverEnabled"`
-	// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-	//
-	// > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	DiskDriverVersion *string `pulumi:"diskDriverVersion"`
 	// Is the File CSI driver enabled? Defaults to `true`.
 	FileDriverEnabled *bool `pulumi:"fileDriverEnabled"`
@@ -17499,9 +17497,7 @@ type KubernetesClusterStorageProfileArgs struct {
 	BlobDriverEnabled pulumi.BoolPtrInput `pulumi:"blobDriverEnabled"`
 	// Is the Disk CSI driver enabled? Defaults to `true`.
 	DiskDriverEnabled pulumi.BoolPtrInput `pulumi:"diskDriverEnabled"`
-	// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-	//
-	// > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	DiskDriverVersion pulumi.StringPtrInput `pulumi:"diskDriverVersion"`
 	// Is the File CSI driver enabled? Defaults to `true`.
 	FileDriverEnabled pulumi.BoolPtrInput `pulumi:"fileDriverEnabled"`
@@ -17596,9 +17592,7 @@ func (o KubernetesClusterStorageProfileOutput) DiskDriverEnabled() pulumi.BoolPt
 	return o.ApplyT(func(v KubernetesClusterStorageProfile) *bool { return v.DiskDriverEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-//
-// > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterStorageProfileOutput) DiskDriverVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterStorageProfile) *string { return v.DiskDriverVersion }).(pulumi.StringPtrOutput)
 }
@@ -17657,9 +17651,7 @@ func (o KubernetesClusterStorageProfilePtrOutput) DiskDriverEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-//
-// > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterStorageProfilePtrOutput) DiskDriverVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterStorageProfile) *string {
 		if v == nil {
@@ -25654,7 +25646,7 @@ type GetKubernetesClusterStorageProfile struct {
 	BlobDriverEnabled bool `pulumi:"blobDriverEnabled"`
 	// Is the Disk CSI driver enabled?
 	DiskDriverEnabled bool `pulumi:"diskDriverEnabled"`
-	// The configured Disk CSI Driver version.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	DiskDriverVersion string `pulumi:"diskDriverVersion"`
 	// Is the File CSI driver enabled?
 	FileDriverEnabled bool `pulumi:"fileDriverEnabled"`
@@ -25678,7 +25670,7 @@ type GetKubernetesClusterStorageProfileArgs struct {
 	BlobDriverEnabled pulumi.BoolInput `pulumi:"blobDriverEnabled"`
 	// Is the Disk CSI driver enabled?
 	DiskDriverEnabled pulumi.BoolInput `pulumi:"diskDriverEnabled"`
-	// The configured Disk CSI Driver version.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	DiskDriverVersion pulumi.StringInput `pulumi:"diskDriverVersion"`
 	// Is the File CSI driver enabled?
 	FileDriverEnabled pulumi.BoolInput `pulumi:"fileDriverEnabled"`
@@ -25747,7 +25739,7 @@ func (o GetKubernetesClusterStorageProfileOutput) DiskDriverEnabled() pulumi.Boo
 	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) bool { return v.DiskDriverEnabled }).(pulumi.BoolOutput)
 }
 
-// The configured Disk CSI Driver version.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o GetKubernetesClusterStorageProfileOutput) DiskDriverVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) string { return v.DiskDriverVersion }).(pulumi.StringOutput)
 }

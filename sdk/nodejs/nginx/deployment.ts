@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * const exampleDeployment = new azure.nginx.Deployment("example", {
  *     name: "example-nginx",
  *     resourceGroupName: example.name,
- *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
+ *     sku: "standard_Monthly",
  *     location: example.location,
  *     managedResourceGroup: "example",
  *     diagnoseSupportEnabled: true,
@@ -112,7 +112,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly automaticUpgradeChannel!: pulumi.Output<string | undefined>;
     /**
-     * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+     * Specify the number of NGINX capacity units for this NGINX deployment.
      *
      * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
@@ -257,7 +257,7 @@ export interface DeploymentState {
      */
     automaticUpgradeChannel?: pulumi.Input<string>;
     /**
-     * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+     * Specify the number of NGINX capacity units for this NGINX deployment.
      *
      * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
@@ -338,7 +338,7 @@ export interface DeploymentArgs {
      */
     automaticUpgradeChannel?: pulumi.Input<string>;
     /**
-     * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+     * Specify the number of NGINX capacity units for this NGINX deployment.
      *
      * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */

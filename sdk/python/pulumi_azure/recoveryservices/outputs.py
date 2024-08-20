@@ -18,6 +18,7 @@ __all__ = [
     'VaultEncryption',
     'VaultIdentity',
     'VaultMonitoring',
+    'GetVaultIdentityResult',
 ]
 
 @pulumi.output_type
@@ -231,5 +232,52 @@ class VaultMonitoring(dict):
         Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
         """
         return pulumi.get(self, "alerts_for_critical_operation_failures_enabled")
+
+
+@pulumi.output_type
+class GetVaultIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
+        :param str type: The identity type of this Managed Service Identity.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The identity type of this Managed Service Identity.
+        """
+        return pulumi.get(self, "type")
 
 

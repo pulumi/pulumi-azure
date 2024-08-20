@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountAzureFilesAuthenticationActiveDirectoryResult> ActiveDirectories;
         /// <summary>
+        /// The default share level permissions applied to all users.
+        /// </summary>
+        public readonly string DefaultShareLevelPermission;
+        /// <summary>
         /// The directory service used for this Storage Account.
         /// </summary>
         public readonly string DirectoryType;
@@ -26,9 +30,12 @@ namespace Pulumi.Azure.Storage.Outputs
         private GetAccountAzureFilesAuthenticationResult(
             ImmutableArray<Outputs.GetAccountAzureFilesAuthenticationActiveDirectoryResult> activeDirectories,
 
+            string defaultShareLevelPermission,
+
             string directoryType)
         {
             ActiveDirectories = activeDirectories;
+            DefaultShareLevelPermission = defaultShareLevelPermission;
             DirectoryType = directoryType;
         }
     }

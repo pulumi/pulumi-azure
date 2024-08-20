@@ -21,6 +21,10 @@ __all__ = [
     'CatalogCatalogGithubArgsDict',
     'DevCenterIdentityArgs',
     'DevCenterIdentityArgsDict',
+    'ProjectEnvironmentTypeIdentityArgs',
+    'ProjectEnvironmentTypeIdentityArgsDict',
+    'ProjectEnvironmentTypeUserRoleAssignmentArgs',
+    'ProjectEnvironmentTypeUserRoleAssignmentArgsDict',
 ]
 
 MYPY = False
@@ -200,5 +204,138 @@ class DevCenterIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class ProjectEnvironmentTypeIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of identity used for this Dev Center Project Environment Type. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
+
+        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ProjectEnvironmentTypeIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectEnvironmentTypeIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of identity used for this Dev Center Project Environment Type. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
+               
+               > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of identity used for this Dev Center Project Environment Type. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ID of the User Assigned Identity which should be assigned to this Dev Center Project Environment Type.
+
+        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class ProjectEnvironmentTypeUserRoleAssignmentArgsDict(TypedDict):
+        roles: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of roles to assign to the `user_id`.
+        """
+        user_id: pulumi.Input[str]
+        """
+        The user object ID that is assigned roles.
+        """
+elif False:
+    ProjectEnvironmentTypeUserRoleAssignmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectEnvironmentTypeUserRoleAssignmentArgs:
+    def __init__(__self__, *,
+                 roles: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 user_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to assign to the `user_id`.
+        :param pulumi.Input[str] user_id: The user object ID that is assigned roles.
+        """
+        pulumi.set(__self__, "roles", roles)
+        pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of roles to assign to the `user_id`.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[str]:
+        """
+        The user object ID that is assigned roles.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_id", value)
 
 
