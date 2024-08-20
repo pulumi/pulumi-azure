@@ -122,6 +122,8 @@ if typing.TYPE_CHECKING:
     eventhub = __eventhub
     import pulumi_azure.expressroute as __expressroute
     expressroute = __expressroute
+    import pulumi_azure.extendedlocation as __extendedlocation
+    extendedlocation = __extendedlocation
     import pulumi_azure.fluidrelay as __fluidrelay
     fluidrelay = __fluidrelay
     import pulumi_azure.frontdoor as __frontdoor
@@ -335,6 +337,7 @@ else:
     eventgrid = _utilities.lazy_import('pulumi_azure.eventgrid')
     eventhub = _utilities.lazy_import('pulumi_azure.eventhub')
     expressroute = _utilities.lazy_import('pulumi_azure.expressroute')
+    extendedlocation = _utilities.lazy_import('pulumi_azure.extendedlocation')
     fluidrelay = _utilities.lazy_import('pulumi_azure.fluidrelay')
     frontdoor = _utilities.lazy_import('pulumi_azure.frontdoor')
     graph = _utilities.lazy_import('pulumi_azure.graph')
@@ -2227,6 +2230,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cognitive/aIServices",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/aIServices:AIServices": "AIServices"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cognitive/account",
   "fqn": "pulumi_azure.cognitive",
   "classes": {
@@ -2271,6 +2282,14 @@ _utilities.register(
   "fqn": "pulumi_azure.communication",
   "classes": {
    "azure:communication/service:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "communication/serviceEmailDomainAssociation",
+  "fqn": "pulumi_azure.communication",
+  "classes": {
+   "azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation": "ServiceEmailDomainAssociation"
   }
  },
  {
@@ -4075,6 +4094,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "devcenter/projectEnvironmentType",
+  "fqn": "pulumi_azure.devcenter",
+  "classes": {
+   "azure:devcenter/projectEnvironmentType:ProjectEnvironmentType": "ProjectEnvironmentType"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "devtest/globalVMShutdownSchedule",
   "fqn": "pulumi_azure.devtest",
   "classes": {
@@ -4527,6 +4554,14 @@ _utilities.register(
   "fqn": "pulumi_azure.eventhub",
   "classes": {
    "azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule": "TopicAuthorizationRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "extendedlocation/customLocation",
+  "fqn": "pulumi_azure.extendedlocation",
+  "classes": {
+   "azure:extendedlocation/customLocation:CustomLocation": "CustomLocation"
   }
  },
  {
@@ -7639,6 +7674,14 @@ _utilities.register(
   "fqn": "pulumi_azure.postgresql",
   "classes": {
    "azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule": "FlexibleServerFirewallRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "postgresql/flexibleServerVirtualEndpoint",
+  "fqn": "pulumi_azure.postgresql",
+  "classes": {
+   "azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint": "FlexibleServerVirtualEndpoint"
   }
  },
  {

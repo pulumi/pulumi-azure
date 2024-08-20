@@ -135,7 +135,7 @@ export class SparkPool extends pulumi.CustomResource {
     /**
      * The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
      */
-    public readonly nodeCount!: pulumi.Output<number | undefined>;
+    public readonly nodeCount!: pulumi.Output<number>;
     /**
      * The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
      */

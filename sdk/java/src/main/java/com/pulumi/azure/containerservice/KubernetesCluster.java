@@ -267,20 +267,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.currentKubernetesVersion;
     }
     /**
-     * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-     * 
-     * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     @Export(name="customCaTrustCertificatesBase64s", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customCaTrustCertificatesBase64s;
 
-    /**
-     * @return A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
-     * 
-     * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
-     * 
-     */
     public Output<Optional<List<String>>> customCaTrustCertificatesBase64s() {
         return Codegen.optional(this.customCaTrustCertificatesBase64s);
     }

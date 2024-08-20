@@ -154,7 +154,7 @@ namespace Pulumi.Azure.Synapse
         /// The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         /// </summary>
         [Output("nodeCount")]
-        public Output<int?> NodeCount { get; private set; } = null!;
+        public Output<int> NodeCount { get; private set; } = null!;
 
         /// <summary>
         /// The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.

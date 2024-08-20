@@ -13,6 +13,770 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AIServicesCustomerManagedKey struct {
+	// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there are multiple identities attached to the Azure AI Service.
+	IdentityClientId *string `pulumi:"identityClientId"`
+	// The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
+}
+
+// AIServicesCustomerManagedKeyInput is an input type that accepts AIServicesCustomerManagedKeyArgs and AIServicesCustomerManagedKeyOutput values.
+// You can construct a concrete instance of `AIServicesCustomerManagedKeyInput` via:
+//
+//	AIServicesCustomerManagedKeyArgs{...}
+type AIServicesCustomerManagedKeyInput interface {
+	pulumi.Input
+
+	ToAIServicesCustomerManagedKeyOutput() AIServicesCustomerManagedKeyOutput
+	ToAIServicesCustomerManagedKeyOutputWithContext(context.Context) AIServicesCustomerManagedKeyOutput
+}
+
+type AIServicesCustomerManagedKeyArgs struct {
+	// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there are multiple identities attached to the Azure AI Service.
+	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
+	// The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
+	// The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+	ManagedHsmKeyId pulumi.StringPtrInput `pulumi:"managedHsmKeyId"`
+}
+
+func (AIServicesCustomerManagedKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AIServicesCustomerManagedKey)(nil)).Elem()
+}
+
+func (i AIServicesCustomerManagedKeyArgs) ToAIServicesCustomerManagedKeyOutput() AIServicesCustomerManagedKeyOutput {
+	return i.ToAIServicesCustomerManagedKeyOutputWithContext(context.Background())
+}
+
+func (i AIServicesCustomerManagedKeyArgs) ToAIServicesCustomerManagedKeyOutputWithContext(ctx context.Context) AIServicesCustomerManagedKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesCustomerManagedKeyOutput)
+}
+
+func (i AIServicesCustomerManagedKeyArgs) ToAIServicesCustomerManagedKeyPtrOutput() AIServicesCustomerManagedKeyPtrOutput {
+	return i.ToAIServicesCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i AIServicesCustomerManagedKeyArgs) ToAIServicesCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AIServicesCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesCustomerManagedKeyOutput).ToAIServicesCustomerManagedKeyPtrOutputWithContext(ctx)
+}
+
+// AIServicesCustomerManagedKeyPtrInput is an input type that accepts AIServicesCustomerManagedKeyArgs, AIServicesCustomerManagedKeyPtr and AIServicesCustomerManagedKeyPtrOutput values.
+// You can construct a concrete instance of `AIServicesCustomerManagedKeyPtrInput` via:
+//
+//	        AIServicesCustomerManagedKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AIServicesCustomerManagedKeyPtrInput interface {
+	pulumi.Input
+
+	ToAIServicesCustomerManagedKeyPtrOutput() AIServicesCustomerManagedKeyPtrOutput
+	ToAIServicesCustomerManagedKeyPtrOutputWithContext(context.Context) AIServicesCustomerManagedKeyPtrOutput
+}
+
+type aiservicesCustomerManagedKeyPtrType AIServicesCustomerManagedKeyArgs
+
+func AIServicesCustomerManagedKeyPtr(v *AIServicesCustomerManagedKeyArgs) AIServicesCustomerManagedKeyPtrInput {
+	return (*aiservicesCustomerManagedKeyPtrType)(v)
+}
+
+func (*aiservicesCustomerManagedKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AIServicesCustomerManagedKey)(nil)).Elem()
+}
+
+func (i *aiservicesCustomerManagedKeyPtrType) ToAIServicesCustomerManagedKeyPtrOutput() AIServicesCustomerManagedKeyPtrOutput {
+	return i.ToAIServicesCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *aiservicesCustomerManagedKeyPtrType) ToAIServicesCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AIServicesCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesCustomerManagedKeyPtrOutput)
+}
+
+type AIServicesCustomerManagedKeyOutput struct{ *pulumi.OutputState }
+
+func (AIServicesCustomerManagedKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AIServicesCustomerManagedKey)(nil)).Elem()
+}
+
+func (o AIServicesCustomerManagedKeyOutput) ToAIServicesCustomerManagedKeyOutput() AIServicesCustomerManagedKeyOutput {
+	return o
+}
+
+func (o AIServicesCustomerManagedKeyOutput) ToAIServicesCustomerManagedKeyOutputWithContext(ctx context.Context) AIServicesCustomerManagedKeyOutput {
+	return o
+}
+
+func (o AIServicesCustomerManagedKeyOutput) ToAIServicesCustomerManagedKeyPtrOutput() AIServicesCustomerManagedKeyPtrOutput {
+	return o.ToAIServicesCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (o AIServicesCustomerManagedKeyOutput) ToAIServicesCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AIServicesCustomerManagedKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AIServicesCustomerManagedKey) *AIServicesCustomerManagedKey {
+		return &v
+	}).(AIServicesCustomerManagedKeyPtrOutput)
+}
+
+// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there are multiple identities attached to the Azure AI Service.
+func (o AIServicesCustomerManagedKeyOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AIServicesCustomerManagedKey) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+func (o AIServicesCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AIServicesCustomerManagedKey) *string { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+func (o AIServicesCustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AIServicesCustomerManagedKey) *string { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
+}
+
+type AIServicesCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (AIServicesCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AIServicesCustomerManagedKey)(nil)).Elem()
+}
+
+func (o AIServicesCustomerManagedKeyPtrOutput) ToAIServicesCustomerManagedKeyPtrOutput() AIServicesCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o AIServicesCustomerManagedKeyPtrOutput) ToAIServicesCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AIServicesCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o AIServicesCustomerManagedKeyPtrOutput) Elem() AIServicesCustomerManagedKeyOutput {
+	return o.ApplyT(func(v *AIServicesCustomerManagedKey) AIServicesCustomerManagedKey {
+		if v != nil {
+			return *v
+		}
+		var ret AIServicesCustomerManagedKey
+		return ret
+	}).(AIServicesCustomerManagedKeyOutput)
+}
+
+// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there are multiple identities attached to the Azure AI Service.
+func (o AIServicesCustomerManagedKeyPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AIServicesCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+func (o AIServicesCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AIServicesCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+func (o AIServicesCustomerManagedKeyPtrOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AIServicesCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedHsmKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AIServicesIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
+	Type string `pulumi:"type"`
+}
+
+// AIServicesIdentityInput is an input type that accepts AIServicesIdentityArgs and AIServicesIdentityOutput values.
+// You can construct a concrete instance of `AIServicesIdentityInput` via:
+//
+//	AIServicesIdentityArgs{...}
+type AIServicesIdentityInput interface {
+	pulumi.Input
+
+	ToAIServicesIdentityOutput() AIServicesIdentityOutput
+	ToAIServicesIdentityOutputWithContext(context.Context) AIServicesIdentityOutput
+}
+
+type AIServicesIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AIServicesIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AIServicesIdentity)(nil)).Elem()
+}
+
+func (i AIServicesIdentityArgs) ToAIServicesIdentityOutput() AIServicesIdentityOutput {
+	return i.ToAIServicesIdentityOutputWithContext(context.Background())
+}
+
+func (i AIServicesIdentityArgs) ToAIServicesIdentityOutputWithContext(ctx context.Context) AIServicesIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesIdentityOutput)
+}
+
+func (i AIServicesIdentityArgs) ToAIServicesIdentityPtrOutput() AIServicesIdentityPtrOutput {
+	return i.ToAIServicesIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i AIServicesIdentityArgs) ToAIServicesIdentityPtrOutputWithContext(ctx context.Context) AIServicesIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesIdentityOutput).ToAIServicesIdentityPtrOutputWithContext(ctx)
+}
+
+// AIServicesIdentityPtrInput is an input type that accepts AIServicesIdentityArgs, AIServicesIdentityPtr and AIServicesIdentityPtrOutput values.
+// You can construct a concrete instance of `AIServicesIdentityPtrInput` via:
+//
+//	        AIServicesIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type AIServicesIdentityPtrInput interface {
+	pulumi.Input
+
+	ToAIServicesIdentityPtrOutput() AIServicesIdentityPtrOutput
+	ToAIServicesIdentityPtrOutputWithContext(context.Context) AIServicesIdentityPtrOutput
+}
+
+type aiservicesIdentityPtrType AIServicesIdentityArgs
+
+func AIServicesIdentityPtr(v *AIServicesIdentityArgs) AIServicesIdentityPtrInput {
+	return (*aiservicesIdentityPtrType)(v)
+}
+
+func (*aiservicesIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AIServicesIdentity)(nil)).Elem()
+}
+
+func (i *aiservicesIdentityPtrType) ToAIServicesIdentityPtrOutput() AIServicesIdentityPtrOutput {
+	return i.ToAIServicesIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *aiservicesIdentityPtrType) ToAIServicesIdentityPtrOutputWithContext(ctx context.Context) AIServicesIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesIdentityPtrOutput)
+}
+
+type AIServicesIdentityOutput struct{ *pulumi.OutputState }
+
+func (AIServicesIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AIServicesIdentity)(nil)).Elem()
+}
+
+func (o AIServicesIdentityOutput) ToAIServicesIdentityOutput() AIServicesIdentityOutput {
+	return o
+}
+
+func (o AIServicesIdentityOutput) ToAIServicesIdentityOutputWithContext(ctx context.Context) AIServicesIdentityOutput {
+	return o
+}
+
+func (o AIServicesIdentityOutput) ToAIServicesIdentityPtrOutput() AIServicesIdentityPtrOutput {
+	return o.ToAIServicesIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o AIServicesIdentityOutput) ToAIServicesIdentityPtrOutputWithContext(ctx context.Context) AIServicesIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AIServicesIdentity) *AIServicesIdentity {
+		return &v
+	}).(AIServicesIdentityPtrOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o AIServicesIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AIServicesIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o AIServicesIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AIServicesIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o AIServicesIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AIServicesIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
+func (o AIServicesIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AIServicesIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AIServicesIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (AIServicesIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AIServicesIdentity)(nil)).Elem()
+}
+
+func (o AIServicesIdentityPtrOutput) ToAIServicesIdentityPtrOutput() AIServicesIdentityPtrOutput {
+	return o
+}
+
+func (o AIServicesIdentityPtrOutput) ToAIServicesIdentityPtrOutputWithContext(ctx context.Context) AIServicesIdentityPtrOutput {
+	return o
+}
+
+func (o AIServicesIdentityPtrOutput) Elem() AIServicesIdentityOutput {
+	return o.ApplyT(func(v *AIServicesIdentity) AIServicesIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AIServicesIdentity
+		return ret
+	}).(AIServicesIdentityOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o AIServicesIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AIServicesIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o AIServicesIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AIServicesIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o AIServicesIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AIServicesIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
+func (o AIServicesIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AIServicesIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AIServicesNetworkAcls struct {
+	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
+	DefaultAction string `pulumi:"defaultAction"`
+	// One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
+	IpRules []string `pulumi:"ipRules"`
+	// A `virtualNetworkRules` block as defined below.
+	VirtualNetworkRules []AIServicesNetworkAclsVirtualNetworkRule `pulumi:"virtualNetworkRules"`
+}
+
+// AIServicesNetworkAclsInput is an input type that accepts AIServicesNetworkAclsArgs and AIServicesNetworkAclsOutput values.
+// You can construct a concrete instance of `AIServicesNetworkAclsInput` via:
+//
+//	AIServicesNetworkAclsArgs{...}
+type AIServicesNetworkAclsInput interface {
+	pulumi.Input
+
+	ToAIServicesNetworkAclsOutput() AIServicesNetworkAclsOutput
+	ToAIServicesNetworkAclsOutputWithContext(context.Context) AIServicesNetworkAclsOutput
+}
+
+type AIServicesNetworkAclsArgs struct {
+	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
+	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
+	// One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
+	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
+	// A `virtualNetworkRules` block as defined below.
+	VirtualNetworkRules AIServicesNetworkAclsVirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
+}
+
+func (AIServicesNetworkAclsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AIServicesNetworkAcls)(nil)).Elem()
+}
+
+func (i AIServicesNetworkAclsArgs) ToAIServicesNetworkAclsOutput() AIServicesNetworkAclsOutput {
+	return i.ToAIServicesNetworkAclsOutputWithContext(context.Background())
+}
+
+func (i AIServicesNetworkAclsArgs) ToAIServicesNetworkAclsOutputWithContext(ctx context.Context) AIServicesNetworkAclsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesNetworkAclsOutput)
+}
+
+func (i AIServicesNetworkAclsArgs) ToAIServicesNetworkAclsPtrOutput() AIServicesNetworkAclsPtrOutput {
+	return i.ToAIServicesNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (i AIServicesNetworkAclsArgs) ToAIServicesNetworkAclsPtrOutputWithContext(ctx context.Context) AIServicesNetworkAclsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesNetworkAclsOutput).ToAIServicesNetworkAclsPtrOutputWithContext(ctx)
+}
+
+// AIServicesNetworkAclsPtrInput is an input type that accepts AIServicesNetworkAclsArgs, AIServicesNetworkAclsPtr and AIServicesNetworkAclsPtrOutput values.
+// You can construct a concrete instance of `AIServicesNetworkAclsPtrInput` via:
+//
+//	        AIServicesNetworkAclsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AIServicesNetworkAclsPtrInput interface {
+	pulumi.Input
+
+	ToAIServicesNetworkAclsPtrOutput() AIServicesNetworkAclsPtrOutput
+	ToAIServicesNetworkAclsPtrOutputWithContext(context.Context) AIServicesNetworkAclsPtrOutput
+}
+
+type aiservicesNetworkAclsPtrType AIServicesNetworkAclsArgs
+
+func AIServicesNetworkAclsPtr(v *AIServicesNetworkAclsArgs) AIServicesNetworkAclsPtrInput {
+	return (*aiservicesNetworkAclsPtrType)(v)
+}
+
+func (*aiservicesNetworkAclsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AIServicesNetworkAcls)(nil)).Elem()
+}
+
+func (i *aiservicesNetworkAclsPtrType) ToAIServicesNetworkAclsPtrOutput() AIServicesNetworkAclsPtrOutput {
+	return i.ToAIServicesNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (i *aiservicesNetworkAclsPtrType) ToAIServicesNetworkAclsPtrOutputWithContext(ctx context.Context) AIServicesNetworkAclsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesNetworkAclsPtrOutput)
+}
+
+type AIServicesNetworkAclsOutput struct{ *pulumi.OutputState }
+
+func (AIServicesNetworkAclsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AIServicesNetworkAcls)(nil)).Elem()
+}
+
+func (o AIServicesNetworkAclsOutput) ToAIServicesNetworkAclsOutput() AIServicesNetworkAclsOutput {
+	return o
+}
+
+func (o AIServicesNetworkAclsOutput) ToAIServicesNetworkAclsOutputWithContext(ctx context.Context) AIServicesNetworkAclsOutput {
+	return o
+}
+
+func (o AIServicesNetworkAclsOutput) ToAIServicesNetworkAclsPtrOutput() AIServicesNetworkAclsPtrOutput {
+	return o.ToAIServicesNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (o AIServicesNetworkAclsOutput) ToAIServicesNetworkAclsPtrOutputWithContext(ctx context.Context) AIServicesNetworkAclsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AIServicesNetworkAcls) *AIServicesNetworkAcls {
+		return &v
+	}).(AIServicesNetworkAclsPtrOutput)
+}
+
+// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
+func (o AIServicesNetworkAclsOutput) DefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v AIServicesNetworkAcls) string { return v.DefaultAction }).(pulumi.StringOutput)
+}
+
+// One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
+func (o AIServicesNetworkAclsOutput) IpRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AIServicesNetworkAcls) []string { return v.IpRules }).(pulumi.StringArrayOutput)
+}
+
+// A `virtualNetworkRules` block as defined below.
+func (o AIServicesNetworkAclsOutput) VirtualNetworkRules() AIServicesNetworkAclsVirtualNetworkRuleArrayOutput {
+	return o.ApplyT(func(v AIServicesNetworkAcls) []AIServicesNetworkAclsVirtualNetworkRule { return v.VirtualNetworkRules }).(AIServicesNetworkAclsVirtualNetworkRuleArrayOutput)
+}
+
+type AIServicesNetworkAclsPtrOutput struct{ *pulumi.OutputState }
+
+func (AIServicesNetworkAclsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AIServicesNetworkAcls)(nil)).Elem()
+}
+
+func (o AIServicesNetworkAclsPtrOutput) ToAIServicesNetworkAclsPtrOutput() AIServicesNetworkAclsPtrOutput {
+	return o
+}
+
+func (o AIServicesNetworkAclsPtrOutput) ToAIServicesNetworkAclsPtrOutputWithContext(ctx context.Context) AIServicesNetworkAclsPtrOutput {
+	return o
+}
+
+func (o AIServicesNetworkAclsPtrOutput) Elem() AIServicesNetworkAclsOutput {
+	return o.ApplyT(func(v *AIServicesNetworkAcls) AIServicesNetworkAcls {
+		if v != nil {
+			return *v
+		}
+		var ret AIServicesNetworkAcls
+		return ret
+	}).(AIServicesNetworkAclsOutput)
+}
+
+// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
+func (o AIServicesNetworkAclsPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AIServicesNetworkAcls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
+func (o AIServicesNetworkAclsPtrOutput) IpRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AIServicesNetworkAcls) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(pulumi.StringArrayOutput)
+}
+
+// A `virtualNetworkRules` block as defined below.
+func (o AIServicesNetworkAclsPtrOutput) VirtualNetworkRules() AIServicesNetworkAclsVirtualNetworkRuleArrayOutput {
+	return o.ApplyT(func(v *AIServicesNetworkAcls) []AIServicesNetworkAclsVirtualNetworkRule {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworkRules
+	}).(AIServicesNetworkAclsVirtualNetworkRuleArrayOutput)
+}
+
+type AIServicesNetworkAclsVirtualNetworkRule struct {
+	// Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// The ID of the subnet which should be able to access this AI Services Account.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// AIServicesNetworkAclsVirtualNetworkRuleInput is an input type that accepts AIServicesNetworkAclsVirtualNetworkRuleArgs and AIServicesNetworkAclsVirtualNetworkRuleOutput values.
+// You can construct a concrete instance of `AIServicesNetworkAclsVirtualNetworkRuleInput` via:
+//
+//	AIServicesNetworkAclsVirtualNetworkRuleArgs{...}
+type AIServicesNetworkAclsVirtualNetworkRuleInput interface {
+	pulumi.Input
+
+	ToAIServicesNetworkAclsVirtualNetworkRuleOutput() AIServicesNetworkAclsVirtualNetworkRuleOutput
+	ToAIServicesNetworkAclsVirtualNetworkRuleOutputWithContext(context.Context) AIServicesNetworkAclsVirtualNetworkRuleOutput
+}
+
+type AIServicesNetworkAclsVirtualNetworkRuleArgs struct {
+	// Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// The ID of the subnet which should be able to access this AI Services Account.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (AIServicesNetworkAclsVirtualNetworkRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AIServicesNetworkAclsVirtualNetworkRule)(nil)).Elem()
+}
+
+func (i AIServicesNetworkAclsVirtualNetworkRuleArgs) ToAIServicesNetworkAclsVirtualNetworkRuleOutput() AIServicesNetworkAclsVirtualNetworkRuleOutput {
+	return i.ToAIServicesNetworkAclsVirtualNetworkRuleOutputWithContext(context.Background())
+}
+
+func (i AIServicesNetworkAclsVirtualNetworkRuleArgs) ToAIServicesNetworkAclsVirtualNetworkRuleOutputWithContext(ctx context.Context) AIServicesNetworkAclsVirtualNetworkRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesNetworkAclsVirtualNetworkRuleOutput)
+}
+
+// AIServicesNetworkAclsVirtualNetworkRuleArrayInput is an input type that accepts AIServicesNetworkAclsVirtualNetworkRuleArray and AIServicesNetworkAclsVirtualNetworkRuleArrayOutput values.
+// You can construct a concrete instance of `AIServicesNetworkAclsVirtualNetworkRuleArrayInput` via:
+//
+//	AIServicesNetworkAclsVirtualNetworkRuleArray{ AIServicesNetworkAclsVirtualNetworkRuleArgs{...} }
+type AIServicesNetworkAclsVirtualNetworkRuleArrayInput interface {
+	pulumi.Input
+
+	ToAIServicesNetworkAclsVirtualNetworkRuleArrayOutput() AIServicesNetworkAclsVirtualNetworkRuleArrayOutput
+	ToAIServicesNetworkAclsVirtualNetworkRuleArrayOutputWithContext(context.Context) AIServicesNetworkAclsVirtualNetworkRuleArrayOutput
+}
+
+type AIServicesNetworkAclsVirtualNetworkRuleArray []AIServicesNetworkAclsVirtualNetworkRuleInput
+
+func (AIServicesNetworkAclsVirtualNetworkRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AIServicesNetworkAclsVirtualNetworkRule)(nil)).Elem()
+}
+
+func (i AIServicesNetworkAclsVirtualNetworkRuleArray) ToAIServicesNetworkAclsVirtualNetworkRuleArrayOutput() AIServicesNetworkAclsVirtualNetworkRuleArrayOutput {
+	return i.ToAIServicesNetworkAclsVirtualNetworkRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AIServicesNetworkAclsVirtualNetworkRuleArray) ToAIServicesNetworkAclsVirtualNetworkRuleArrayOutputWithContext(ctx context.Context) AIServicesNetworkAclsVirtualNetworkRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesNetworkAclsVirtualNetworkRuleArrayOutput)
+}
+
+type AIServicesNetworkAclsVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
+
+func (AIServicesNetworkAclsVirtualNetworkRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AIServicesNetworkAclsVirtualNetworkRule)(nil)).Elem()
+}
+
+func (o AIServicesNetworkAclsVirtualNetworkRuleOutput) ToAIServicesNetworkAclsVirtualNetworkRuleOutput() AIServicesNetworkAclsVirtualNetworkRuleOutput {
+	return o
+}
+
+func (o AIServicesNetworkAclsVirtualNetworkRuleOutput) ToAIServicesNetworkAclsVirtualNetworkRuleOutputWithContext(ctx context.Context) AIServicesNetworkAclsVirtualNetworkRuleOutput {
+	return o
+}
+
+// Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
+func (o AIServicesNetworkAclsVirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AIServicesNetworkAclsVirtualNetworkRule) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the subnet which should be able to access this AI Services Account.
+func (o AIServicesNetworkAclsVirtualNetworkRuleOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v AIServicesNetworkAclsVirtualNetworkRule) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type AIServicesNetworkAclsVirtualNetworkRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AIServicesNetworkAclsVirtualNetworkRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AIServicesNetworkAclsVirtualNetworkRule)(nil)).Elem()
+}
+
+func (o AIServicesNetworkAclsVirtualNetworkRuleArrayOutput) ToAIServicesNetworkAclsVirtualNetworkRuleArrayOutput() AIServicesNetworkAclsVirtualNetworkRuleArrayOutput {
+	return o
+}
+
+func (o AIServicesNetworkAclsVirtualNetworkRuleArrayOutput) ToAIServicesNetworkAclsVirtualNetworkRuleArrayOutputWithContext(ctx context.Context) AIServicesNetworkAclsVirtualNetworkRuleArrayOutput {
+	return o
+}
+
+func (o AIServicesNetworkAclsVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) AIServicesNetworkAclsVirtualNetworkRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AIServicesNetworkAclsVirtualNetworkRule {
+		return vs[0].([]AIServicesNetworkAclsVirtualNetworkRule)[vs[1].(int)]
+	}).(AIServicesNetworkAclsVirtualNetworkRuleOutput)
+}
+
+type AIServicesStorage struct {
+	// The client ID of the Managed Identity associated with the Storage Account.
+	IdentityClientId *string `pulumi:"identityClientId"`
+	// The ID of the Storage Account.
+	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+// AIServicesStorageInput is an input type that accepts AIServicesStorageArgs and AIServicesStorageOutput values.
+// You can construct a concrete instance of `AIServicesStorageInput` via:
+//
+//	AIServicesStorageArgs{...}
+type AIServicesStorageInput interface {
+	pulumi.Input
+
+	ToAIServicesStorageOutput() AIServicesStorageOutput
+	ToAIServicesStorageOutputWithContext(context.Context) AIServicesStorageOutput
+}
+
+type AIServicesStorageArgs struct {
+	// The client ID of the Managed Identity associated with the Storage Account.
+	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
+	// The ID of the Storage Account.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+}
+
+func (AIServicesStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AIServicesStorage)(nil)).Elem()
+}
+
+func (i AIServicesStorageArgs) ToAIServicesStorageOutput() AIServicesStorageOutput {
+	return i.ToAIServicesStorageOutputWithContext(context.Background())
+}
+
+func (i AIServicesStorageArgs) ToAIServicesStorageOutputWithContext(ctx context.Context) AIServicesStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesStorageOutput)
+}
+
+// AIServicesStorageArrayInput is an input type that accepts AIServicesStorageArray and AIServicesStorageArrayOutput values.
+// You can construct a concrete instance of `AIServicesStorageArrayInput` via:
+//
+//	AIServicesStorageArray{ AIServicesStorageArgs{...} }
+type AIServicesStorageArrayInput interface {
+	pulumi.Input
+
+	ToAIServicesStorageArrayOutput() AIServicesStorageArrayOutput
+	ToAIServicesStorageArrayOutputWithContext(context.Context) AIServicesStorageArrayOutput
+}
+
+type AIServicesStorageArray []AIServicesStorageInput
+
+func (AIServicesStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AIServicesStorage)(nil)).Elem()
+}
+
+func (i AIServicesStorageArray) ToAIServicesStorageArrayOutput() AIServicesStorageArrayOutput {
+	return i.ToAIServicesStorageArrayOutputWithContext(context.Background())
+}
+
+func (i AIServicesStorageArray) ToAIServicesStorageArrayOutputWithContext(ctx context.Context) AIServicesStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AIServicesStorageArrayOutput)
+}
+
+type AIServicesStorageOutput struct{ *pulumi.OutputState }
+
+func (AIServicesStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AIServicesStorage)(nil)).Elem()
+}
+
+func (o AIServicesStorageOutput) ToAIServicesStorageOutput() AIServicesStorageOutput {
+	return o
+}
+
+func (o AIServicesStorageOutput) ToAIServicesStorageOutputWithContext(ctx context.Context) AIServicesStorageOutput {
+	return o
+}
+
+// The client ID of the Managed Identity associated with the Storage Account.
+func (o AIServicesStorageOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AIServicesStorage) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Storage Account.
+func (o AIServicesStorageOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AIServicesStorage) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+type AIServicesStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (AIServicesStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AIServicesStorage)(nil)).Elem()
+}
+
+func (o AIServicesStorageArrayOutput) ToAIServicesStorageArrayOutput() AIServicesStorageArrayOutput {
+	return o
+}
+
+func (o AIServicesStorageArrayOutput) ToAIServicesStorageArrayOutputWithContext(ctx context.Context) AIServicesStorageArrayOutput {
+	return o
+}
+
+func (o AIServicesStorageArrayOutput) Index(i pulumi.IntInput) AIServicesStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AIServicesStorage {
+		return vs[0].([]AIServicesStorage)[vs[1].(int)]
+	}).(AIServicesStorageOutput)
+}
+
 type AccountCustomerManagedKeyType struct {
 	// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
 	IdentityClientId *string `pulumi:"identityClientId"`
@@ -1277,6 +2041,16 @@ func (o GetAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetAccountIdenti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesCustomerManagedKeyInput)(nil)).Elem(), AIServicesCustomerManagedKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesCustomerManagedKeyPtrInput)(nil)).Elem(), AIServicesCustomerManagedKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesIdentityInput)(nil)).Elem(), AIServicesIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesIdentityPtrInput)(nil)).Elem(), AIServicesIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesNetworkAclsInput)(nil)).Elem(), AIServicesNetworkAclsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesNetworkAclsPtrInput)(nil)).Elem(), AIServicesNetworkAclsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesNetworkAclsVirtualNetworkRuleInput)(nil)).Elem(), AIServicesNetworkAclsVirtualNetworkRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesNetworkAclsVirtualNetworkRuleArrayInput)(nil)).Elem(), AIServicesNetworkAclsVirtualNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesStorageInput)(nil)).Elem(), AIServicesStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AIServicesStorageArrayInput)(nil)).Elem(), AIServicesStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyTypeInput)(nil)).Elem(), AccountCustomerManagedKeyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyTypePtrInput)(nil)).Elem(), AccountCustomerManagedKeyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
@@ -1293,6 +2067,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentScalePtrInput)(nil)).Elem(), DeploymentScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityArrayInput)(nil)).Elem(), GetAccountIdentityArray{})
+	pulumi.RegisterOutputType(AIServicesCustomerManagedKeyOutput{})
+	pulumi.RegisterOutputType(AIServicesCustomerManagedKeyPtrOutput{})
+	pulumi.RegisterOutputType(AIServicesIdentityOutput{})
+	pulumi.RegisterOutputType(AIServicesIdentityPtrOutput{})
+	pulumi.RegisterOutputType(AIServicesNetworkAclsOutput{})
+	pulumi.RegisterOutputType(AIServicesNetworkAclsPtrOutput{})
+	pulumi.RegisterOutputType(AIServicesNetworkAclsVirtualNetworkRuleOutput{})
+	pulumi.RegisterOutputType(AIServicesNetworkAclsVirtualNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(AIServicesStorageOutput{})
+	pulumi.RegisterOutputType(AIServicesStorageArrayOutput{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyTypeOutput{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})

@@ -25,6 +25,11 @@ export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
+export { ServiceEmailDomainAssociationArgs, ServiceEmailDomainAssociationState } from "./serviceEmailDomainAssociation";
+export type ServiceEmailDomainAssociation = import("./serviceEmailDomainAssociation").ServiceEmailDomainAssociation;
+export const ServiceEmailDomainAssociation: typeof import("./serviceEmailDomainAssociation").ServiceEmailDomainAssociation = null as any;
+utilities.lazyLoad(exports, ["ServiceEmailDomainAssociation"], () => require("./serviceEmailDomainAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -36,6 +41,8 @@ const _module = {
                 return new EmailServiceDomain(name, <any>undefined, { urn })
             case "azure:communication/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation":
+                return new ServiceEmailDomainAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -44,3 +51,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "communication/emailService", _module)
 pulumi.runtime.registerResourceModule("azure", "communication/emailServiceDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "communication/service", _module)
+pulumi.runtime.registerResourceModule("azure", "communication/serviceEmailDomainAssociation", _module)

@@ -3956,14 +3956,13 @@ if not MYPY:
         """
         subnet_id: NotRequired[pulumi.Input[str]]
         """
-        The ID of the Subnet where the API server endpoint is delegated to.
+        The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+
+        > **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
+
+        > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
         """
         vnet_integration_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
-        """
 elif False:
     KubernetesClusterApiServerAccessProfileArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3975,15 +3974,22 @@ class KubernetesClusterApiServerAccessProfileArgs:
                  vnet_integration_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet where the API server endpoint is delegated to.
-        :param pulumi.Input[bool] vnet_integration_enabled: Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+        :param pulumi.Input[str] subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
                
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
+               > **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
+               
+               > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
         """
         if authorized_ip_ranges is not None:
             pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
         if subnet_id is not None:
+            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
+            pulumi.log.warn("""subnet_id is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
+        if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
+        if vnet_integration_enabled is not None:
+            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
+            pulumi.log.warn("""vnet_integration_enabled is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
         if vnet_integration_enabled is not None:
             pulumi.set(__self__, "vnet_integration_enabled", vnet_integration_enabled)
 
@@ -4001,9 +4007,14 @@ class KubernetesClusterApiServerAccessProfileArgs:
 
     @property
     @pulumi.getter(name="subnetId")
+    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet where the API server endpoint is delegated to.
+        The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+
+        > **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
+
+        > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4013,12 +4024,8 @@ class KubernetesClusterApiServerAccessProfileArgs:
 
     @property
     @pulumi.getter(name="vnetIntegrationEnabled")
+    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
     def vnet_integration_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
-        """
         return pulumi.get(self, "vnet_integration_enabled")
 
     @vnet_integration_enabled.setter
@@ -4563,11 +4570,6 @@ if not MYPY:
         Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         """
         custom_ca_trust_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies whether to trust a Custom CA.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-        """
         enable_auto_scaling: NotRequired[pulumi.Input[bool]]
         """
         Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
@@ -4616,9 +4618,6 @@ if not MYPY:
         The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
         """
         message_of_the_day: NotRequired[pulumi.Input[str]]
-        """
-        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
-        """
         min_count: NotRequired[pulumi.Input[int]]
         node_count: NotRequired[pulumi.Input[int]]
         node_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
@@ -4704,9 +4703,7 @@ if not MYPY:
         """
         workload_runtime: NotRequired[pulumi.Input[str]]
         """
-        Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-
-        > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+        Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
         """
         zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -4763,9 +4760,6 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] name: The name which should be used for the default Kubernetes Node Pool.
         :param pulumi.Input[str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
                
                > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
@@ -4782,7 +4776,6 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
-        :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
@@ -4809,9 +4802,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist.
                
                > **Note:** A Route Table must be configured on this Subnet.
-        :param pulumi.Input[str] workload_runtime: Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-               
-               > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+        :param pulumi.Input[str] workload_runtime: Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. `temporary_name_for_rotation` must be specified when changing this property.
                
                > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
@@ -4820,6 +4811,9 @@ class KubernetesClusterDefaultNodePoolArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if capacity_reservation_group_id is not None:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+        if custom_ca_trust_enabled is not None:
+            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
+            pulumi.log.warn("""custom_ca_trust_enabled is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
         if custom_ca_trust_enabled is not None:
             pulumi.set(__self__, "custom_ca_trust_enabled", custom_ca_trust_enabled)
         if enable_auto_scaling is not None:
@@ -4844,6 +4838,9 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
             pulumi.set(__self__, "max_pods", max_pods)
+        if message_of_the_day is not None:
+            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
+            pulumi.log.warn("""message_of_the_day is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
         if message_of_the_day is not None:
             pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
@@ -4934,12 +4931,8 @@ class KubernetesClusterDefaultNodePoolArgs:
 
     @property
     @pulumi.getter(name="customCaTrustEnabled")
+    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
     def custom_ca_trust_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether to trust a Custom CA.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
-        """
         return pulumi.get(self, "custom_ca_trust_enabled")
 
     @custom_ca_trust_enabled.setter
@@ -5083,10 +5076,8 @@ class KubernetesClusterDefaultNodePoolArgs:
 
     @property
     @pulumi.getter(name="messageOfTheDay")
+    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
     def message_of_the_day(self) -> Optional[pulumi.Input[str]]:
-        """
-        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "message_of_the_day")
 
     @message_of_the_day.setter
@@ -5349,9 +5340,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-
-        > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+        Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
         """
         return pulumi.get(self, "workload_runtime")
 
@@ -10755,11 +10744,6 @@ if not MYPY:
         Is the Disk CSI driver enabled? Defaults to `true`.
         """
         disk_driver_version: NotRequired[pulumi.Input[str]]
-        """
-        Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-
-        > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
-        """
         file_driver_enabled: NotRequired[pulumi.Input[bool]]
         """
         Is the File CSI driver enabled? Defaults to `true`.
@@ -10782,9 +10766,6 @@ class KubernetesClusterStorageProfileArgs:
         """
         :param pulumi.Input[bool] blob_driver_enabled: Is the Blob CSI driver enabled? Defaults to `false`.
         :param pulumi.Input[bool] disk_driver_enabled: Is the Disk CSI driver enabled? Defaults to `true`.
-        :param pulumi.Input[str] disk_driver_version: Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-               
-               > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
         :param pulumi.Input[bool] file_driver_enabled: Is the File CSI driver enabled? Defaults to `true`.
         :param pulumi.Input[bool] snapshot_controller_enabled: Is the Snapshot Controller enabled? Defaults to `true`.
         """
@@ -10792,6 +10773,9 @@ class KubernetesClusterStorageProfileArgs:
             pulumi.set(__self__, "blob_driver_enabled", blob_driver_enabled)
         if disk_driver_enabled is not None:
             pulumi.set(__self__, "disk_driver_enabled", disk_driver_enabled)
+        if disk_driver_version is not None:
+            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
+            pulumi.log.warn("""disk_driver_version is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
         if disk_driver_version is not None:
             pulumi.set(__self__, "disk_driver_version", disk_driver_version)
         if file_driver_enabled is not None:
@@ -10825,12 +10809,8 @@ class KubernetesClusterStorageProfileArgs:
 
     @property
     @pulumi.getter(name="diskDriverVersion")
+    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
     def disk_driver_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-
-        > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
-        """
         return pulumi.get(self, "disk_driver_version")
 
     @disk_driver_version.setter

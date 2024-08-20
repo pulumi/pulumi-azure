@@ -50,6 +50,11 @@ export type FlexibleServerFirewallRule = import("./flexibleServerFirewallRule").
 export const FlexibleServerFirewallRule: typeof import("./flexibleServerFirewallRule").FlexibleServerFirewallRule = null as any;
 utilities.lazyLoad(exports, ["FlexibleServerFirewallRule"], () => require("./flexibleServerFirewallRule"));
 
+export { FlexibleServerVirtualEndpointArgs, FlexibleServerVirtualEndpointState } from "./flexibleServerVirtualEndpoint";
+export type FlexibleServerVirtualEndpoint = import("./flexibleServerVirtualEndpoint").FlexibleServerVirtualEndpoint;
+export const FlexibleServerVirtualEndpoint: typeof import("./flexibleServerVirtualEndpoint").FlexibleServerVirtualEndpoint = null as any;
+utilities.lazyLoad(exports, ["FlexibleServerVirtualEndpoint"], () => require("./flexibleServerVirtualEndpoint"));
+
 export { GetFlexibleServerArgs, GetFlexibleServerResult, GetFlexibleServerOutputArgs } from "./getFlexibleServer";
 export const getFlexibleServer: typeof import("./getFlexibleServer").getFlexibleServer = null as any;
 export const getFlexibleServerOutput: typeof import("./getFlexibleServer").getFlexibleServerOutput = null as any;
@@ -98,6 +103,8 @@ const _module = {
                 return new FlexibleServerDatabase(name, <any>undefined, { urn })
             case "azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule":
                 return new FlexibleServerFirewallRule(name, <any>undefined, { urn })
+            case "azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint":
+                return new FlexibleServerVirtualEndpoint(name, <any>undefined, { urn })
             case "azure:postgresql/server:Server":
                 return new Server(name, <any>undefined, { urn })
             case "azure:postgresql/serverKey:ServerKey":
@@ -118,6 +125,7 @@ pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerActiveD
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerFirewallRule", _module)
+pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerVirtualEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/server", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/serverKey", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/virtualNetworkRule", _module)

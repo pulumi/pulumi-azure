@@ -7420,6 +7420,8 @@ func (o TableAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) TableAclAccess
 type GetAccountAzureFilesAuthentication struct {
 	// An `activeDirectory` block as documented below.
 	ActiveDirectories []GetAccountAzureFilesAuthenticationActiveDirectory `pulumi:"activeDirectories"`
+	// The default share level permissions applied to all users.
+	DefaultShareLevelPermission string `pulumi:"defaultShareLevelPermission"`
 	// The directory service used for this Storage Account.
 	DirectoryType string `pulumi:"directoryType"`
 }
@@ -7438,6 +7440,8 @@ type GetAccountAzureFilesAuthenticationInput interface {
 type GetAccountAzureFilesAuthenticationArgs struct {
 	// An `activeDirectory` block as documented below.
 	ActiveDirectories GetAccountAzureFilesAuthenticationActiveDirectoryArrayInput `pulumi:"activeDirectories"`
+	// The default share level permissions applied to all users.
+	DefaultShareLevelPermission pulumi.StringInput `pulumi:"defaultShareLevelPermission"`
 	// The directory service used for this Storage Account.
 	DirectoryType pulumi.StringInput `pulumi:"directoryType"`
 }
@@ -7498,6 +7502,11 @@ func (o GetAccountAzureFilesAuthenticationOutput) ActiveDirectories() GetAccount
 	return o.ApplyT(func(v GetAccountAzureFilesAuthentication) []GetAccountAzureFilesAuthenticationActiveDirectory {
 		return v.ActiveDirectories
 	}).(GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput)
+}
+
+// The default share level permissions applied to all users.
+func (o GetAccountAzureFilesAuthenticationOutput) DefaultShareLevelPermission() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountAzureFilesAuthentication) string { return v.DefaultShareLevelPermission }).(pulumi.StringOutput)
 }
 
 // The directory service used for this Storage Account.

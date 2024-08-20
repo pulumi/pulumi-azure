@@ -9,5 +9,6 @@ from .email_service import *
 from .email_service_domain import *
 from .get_service import *
 from .service import *
+from .service_email_domain_association import *
 from ._inputs import *
 from . import outputs

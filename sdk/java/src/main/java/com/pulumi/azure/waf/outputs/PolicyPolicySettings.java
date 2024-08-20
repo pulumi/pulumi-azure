@@ -25,6 +25,11 @@ public final class PolicyPolicySettings {
      */
     private @Nullable Integer fileUploadLimitInMb;
     /**
+     * @return Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+     * 
+     */
+    private @Nullable Integer jsChallengeCookieExpirationInMinutes;
+    /**
      * @return One `log_scrubbing` block as defined below.
      * 
      */
@@ -64,6 +69,13 @@ public final class PolicyPolicySettings {
      */
     public Optional<Integer> fileUploadLimitInMb() {
         return Optional.ofNullable(this.fileUploadLimitInMb);
+    }
+    /**
+     * @return Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
+     * 
+     */
+    public Optional<Integer> jsChallengeCookieExpirationInMinutes() {
+        return Optional.ofNullable(this.jsChallengeCookieExpirationInMinutes);
     }
     /**
      * @return One `log_scrubbing` block as defined below.
@@ -112,6 +124,7 @@ public final class PolicyPolicySettings {
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Integer fileUploadLimitInMb;
+        private @Nullable Integer jsChallengeCookieExpirationInMinutes;
         private @Nullable PolicyPolicySettingsLogScrubbing logScrubbing;
         private @Nullable Integer maxRequestBodySizeInKb;
         private @Nullable String mode;
@@ -122,6 +135,7 @@ public final class PolicyPolicySettings {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.fileUploadLimitInMb = defaults.fileUploadLimitInMb;
+    	      this.jsChallengeCookieExpirationInMinutes = defaults.jsChallengeCookieExpirationInMinutes;
     	      this.logScrubbing = defaults.logScrubbing;
     	      this.maxRequestBodySizeInKb = defaults.maxRequestBodySizeInKb;
     	      this.mode = defaults.mode;
@@ -139,6 +153,12 @@ public final class PolicyPolicySettings {
         public Builder fileUploadLimitInMb(@Nullable Integer fileUploadLimitInMb) {
 
             this.fileUploadLimitInMb = fileUploadLimitInMb;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jsChallengeCookieExpirationInMinutes(@Nullable Integer jsChallengeCookieExpirationInMinutes) {
+
+            this.jsChallengeCookieExpirationInMinutes = jsChallengeCookieExpirationInMinutes;
             return this;
         }
         @CustomType.Setter
@@ -175,6 +195,7 @@ public final class PolicyPolicySettings {
             final var _resultValue = new PolicyPolicySettings();
             _resultValue.enabled = enabled;
             _resultValue.fileUploadLimitInMb = fileUploadLimitInMb;
+            _resultValue.jsChallengeCookieExpirationInMinutes = jsChallengeCookieExpirationInMinutes;
             _resultValue.logScrubbing = logScrubbing;
             _resultValue.maxRequestBodySizeInKb = maxRequestBodySizeInKb;
             _resultValue.mode = mode;

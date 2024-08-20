@@ -38,7 +38,7 @@ public final class StandardSiteConfig {
      */
     private @Nullable StandardSiteConfigCors cors;
     /**
-     * @return The version of the .NET framework&#39;s CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you&#39;re targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+     * @return The version of the .NET framework&#39;s CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0`, `v6.0` and `v8.0`. [For more information on which .NET Framework version to use based on the runtime version you&#39;re targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
      * 
      */
     private @Nullable String dotnetFrameworkVersion;
@@ -164,7 +164,7 @@ public final class StandardSiteConfig {
         return Optional.ofNullable(this.cors);
     }
     /**
-     * @return The version of the .NET framework&#39;s CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you&#39;re targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+     * @return The version of the .NET framework&#39;s CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0`, `v6.0` and `v8.0`. [For more information on which .NET Framework version to use based on the runtime version you&#39;re targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
      * 
      */
     public Optional<String> dotnetFrameworkVersion() {

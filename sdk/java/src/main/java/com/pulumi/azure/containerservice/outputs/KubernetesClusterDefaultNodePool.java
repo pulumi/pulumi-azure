@@ -26,11 +26,11 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String capacityReservationGroupId;
     /**
-     * @return Specifies whether to trust a Custom CA.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     private @Nullable Boolean customCaTrustEnabled;
     /**
      * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
@@ -90,9 +90,11 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Integer maxPods;
     /**
-     * @return A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     private @Nullable String messageOfTheDay;
     private @Nullable Integer minCount;
     /**
@@ -212,9 +214,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String vnetSubnetId;
     /**
-     * @return Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-     * 
-     * &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+     * @return Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
      * 
      */
     private @Nullable String workloadRuntime;
@@ -235,11 +235,11 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.capacityReservationGroupId);
     }
     /**
-     * @return Specifies whether to trust a Custom CA.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     public Optional<Boolean> customCaTrustEnabled() {
         return Optional.ofNullable(this.customCaTrustEnabled);
     }
@@ -323,9 +323,11 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.maxPods);
     }
     /**
-     * @return A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     public Optional<String> messageOfTheDay() {
         return Optional.ofNullable(this.messageOfTheDay);
     }
@@ -493,9 +495,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.vnetSubnetId);
     }
     /**
-     * @return Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
-     * 
-     * &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+     * @return Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
      * 
      */
     public Optional<String> workloadRuntime() {

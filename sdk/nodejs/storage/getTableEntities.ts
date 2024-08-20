@@ -29,6 +29,7 @@ export function getTableEntities(args: GetTableEntitiesArgs, opts?: pulumi.Invok
         "filter": args.filter,
         "selects": args.selects,
         "storageAccountName": args.storageAccountName,
+        "storageTableId": args.storageTableId,
         "tableName": args.tableName,
     }, opts);
 }
@@ -46,13 +47,17 @@ export interface GetTableEntitiesArgs {
      */
     selects?: string[];
     /**
-     * The name of the Storage Account where the Table exists.
+     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
      */
-    storageAccountName: string;
+    storageAccountName?: string;
     /**
-     * The name of the Table.
+     * The Storage Table ID where the entities exist.
      */
-    tableName: string;
+    storageTableId?: string;
+    /**
+     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
+     */
+    tableName?: string;
 }
 
 /**
@@ -69,7 +74,14 @@ export interface GetTableEntitiesResult {
      */
     readonly items: outputs.storage.GetTableEntitiesItem[];
     readonly selects?: string[];
+    /**
+     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
+     */
     readonly storageAccountName: string;
+    readonly storageTableId: string;
+    /**
+     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
+     */
     readonly tableName: string;
 }
 /**
@@ -105,11 +117,15 @@ export interface GetTableEntitiesOutputArgs {
      */
     selects?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the Storage Account where the Table exists.
+     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
     /**
-     * The name of the Table.
+     * The Storage Table ID where the entities exist.
      */
-    tableName: pulumi.Input<string>;
+    storageTableId?: pulumi.Input<string>;
+    /**
+     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
+     */
+    tableName?: pulumi.Input<string>;
 }

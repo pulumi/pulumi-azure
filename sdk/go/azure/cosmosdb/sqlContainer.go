@@ -44,11 +44,13 @@ import (
 //				return err
 //			}
 //			_, err = cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
-//				Name:                pulumi.String("example-container"),
-//				ResourceGroupName:   pulumi.String(example.ResourceGroupName),
-//				AccountName:         pulumi.String(example.Name),
-//				DatabaseName:        exampleSqlDatabase.Name,
-//				PartitionKeyPath:    pulumi.String("/definition/id"),
+//				Name:              pulumi.String("example-container"),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
+//				DatabaseName:      exampleSqlDatabase.Name,
+//				PartitionKeyPaths: pulumi.StringArray{
+//					pulumi.String("/definition/id"),
+//				},
 //				PartitionKeyVersion: pulumi.Int(1),
 //				Throughput:          pulumi.Int(400),
 //				IndexingPolicy: &cosmosdb.SqlContainerIndexingPolicyArgs{
@@ -99,7 +101,7 @@ type SqlContainer struct {
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrOutput `pulumi:"analyticalStorageTtl"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	//
 	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
@@ -172,7 +174,7 @@ type sqlContainerState struct {
 	AccountName *string `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	//
 	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
@@ -207,7 +209,7 @@ type SqlContainerState struct {
 	AccountName pulumi.StringPtrInput
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	//
 	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
@@ -246,7 +248,7 @@ type sqlContainerArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	//
 	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
@@ -282,7 +284,7 @@ type SqlContainerArgs struct {
 	AccountName pulumi.StringInput
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 	//
 	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
@@ -409,7 +411,7 @@ func (o SqlContainerOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlContainer) pulumi.IntPtrOutput { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
 }
 
-// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 //
 // > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 func (o SqlContainerOutput) AutoscaleSettings() SqlContainerAutoscaleSettingsPtrOutput {

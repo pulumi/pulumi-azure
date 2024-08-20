@@ -3268,12 +3268,15 @@ class TableAclAccessPolicy(dict):
 class GetAccountAzureFilesAuthenticationResult(dict):
     def __init__(__self__, *,
                  active_directories: Sequence['outputs.GetAccountAzureFilesAuthenticationActiveDirectoryResult'],
+                 default_share_level_permission: str,
                  directory_type: str):
         """
         :param Sequence['GetAccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directories: An `active_directory` block as documented below.
+        :param str default_share_level_permission: The default share level permissions applied to all users.
         :param str directory_type: The directory service used for this Storage Account.
         """
         pulumi.set(__self__, "active_directories", active_directories)
+        pulumi.set(__self__, "default_share_level_permission", default_share_level_permission)
         pulumi.set(__self__, "directory_type", directory_type)
 
     @property
@@ -3283,6 +3286,14 @@ class GetAccountAzureFilesAuthenticationResult(dict):
         An `active_directory` block as documented below.
         """
         return pulumi.get(self, "active_directories")
+
+    @property
+    @pulumi.getter(name="defaultShareLevelPermission")
+    def default_share_level_permission(self) -> str:
+        """
+        The default share level permissions applied to all users.
+        """
+        return pulumi.get(self, "default_share_level_permission")
 
     @property
     @pulumi.getter(name="directoryType")

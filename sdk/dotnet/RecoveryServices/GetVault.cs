@@ -112,6 +112,10 @@ namespace Pulumi.Azure.RecoveryServices
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// (Optional) An `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVaultIdentityResult> Identities;
+        /// <summary>
         /// The Azure location where the resource resides.
         /// </summary>
         public readonly string Location;
@@ -130,6 +134,8 @@ namespace Pulumi.Azure.RecoveryServices
         private GetVaultResult(
             string id,
 
+            ImmutableArray<Outputs.GetVaultIdentityResult> identities,
+
             string location,
 
             string name,
@@ -141,6 +147,7 @@ namespace Pulumi.Azure.RecoveryServices
             ImmutableDictionary<string, string> tags)
         {
             Id = id;
+            Identities = identities;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;

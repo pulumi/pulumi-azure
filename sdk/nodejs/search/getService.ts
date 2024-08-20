@@ -89,6 +89,10 @@ export interface GetServiceResult {
      * The Secondary Key used for Search Service Administration.
      */
     readonly secondaryKey: string;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    readonly tags: {[key: string]: string};
 }
 /**
  * Manages a Search Service.

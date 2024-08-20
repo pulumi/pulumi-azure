@@ -30,6 +30,7 @@ class AccountArgs:
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
+                 burst_capacity_enabled: Optional[pulumi.Input[bool]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
                  capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
                  cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
@@ -86,6 +87,8 @@ class AccountArgs:
             pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
+        if burst_capacity_enabled is not None:
+            pulumi.set(__self__, "burst_capacity_enabled", burst_capacity_enabled)
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
         if capacity is not None:
@@ -239,6 +242,15 @@ class AccountArgs:
     @backup.setter
     def backup(self, value: Optional[pulumi.Input['AccountBackupArgs']]):
         pulumi.set(self, "backup", value)
+
+    @property
+    @pulumi.getter(name="burstCapacityEnabled")
+    def burst_capacity_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "burst_capacity_enabled")
+
+    @burst_capacity_enabled.setter
+    def burst_capacity_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "burst_capacity_enabled", value)
 
     @property
     @pulumi.getter
@@ -518,6 +530,7 @@ class _AccountState:
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
+                 burst_capacity_enabled: Optional[pulumi.Input[bool]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
                  capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -605,6 +618,8 @@ class _AccountState:
             pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
+        if burst_capacity_enabled is not None:
+            pulumi.set(__self__, "burst_capacity_enabled", burst_capacity_enabled)
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
         if capacity is not None:
@@ -759,6 +774,15 @@ class _AccountState:
     @backup.setter
     def backup(self, value: Optional[pulumi.Input['AccountBackupArgs']]):
         pulumi.set(self, "backup", value)
+
+    @property
+    @pulumi.getter(name="burstCapacityEnabled")
+    def burst_capacity_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "burst_capacity_enabled")
+
+    @burst_capacity_enabled.setter
+    def burst_capacity_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "burst_capacity_enabled", value)
 
     @property
     @pulumi.getter
@@ -1272,6 +1296,7 @@ class Account(pulumi.CustomResource):
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
+                 burst_capacity_enabled: Optional[pulumi.Input[bool]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
                  capacity: Optional[pulumi.Input[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
                  consistency_policy: Optional[pulumi.Input[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
@@ -1545,6 +1570,7 @@ class Account(pulumi.CustomResource):
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
+                 burst_capacity_enabled: Optional[pulumi.Input[bool]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
                  capacity: Optional[pulumi.Input[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
                  consistency_policy: Optional[pulumi.Input[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
@@ -1590,6 +1616,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
             __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
             __props__.__dict__["backup"] = backup
+            __props__.__dict__["burst_capacity_enabled"] = burst_capacity_enabled
             __props__.__dict__["capabilities"] = capabilities
             __props__.__dict__["capacity"] = capacity
             if consistency_policy is None and not opts.urn:
@@ -1662,6 +1689,7 @@ class Account(pulumi.CustomResource):
             analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
             automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
             backup: Optional[pulumi.Input[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
+            burst_capacity_enabled: Optional[pulumi.Input[bool]] = None,
             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
             capacity: Optional[pulumi.Input[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1753,6 +1781,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
         __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
         __props__.__dict__["backup"] = backup
+        __props__.__dict__["burst_capacity_enabled"] = burst_capacity_enabled
         __props__.__dict__["capabilities"] = capabilities
         __props__.__dict__["capacity"] = capacity
         __props__.__dict__["connection_strings"] = connection_strings
@@ -1829,6 +1858,11 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def backup(self) -> pulumi.Output['outputs.AccountBackup']:
         return pulumi.get(self, "backup")
+
+    @property
+    @pulumi.getter(name="burstCapacityEnabled")
+    def burst_capacity_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "burst_capacity_enabled")
 
     @property
     @pulumi.getter

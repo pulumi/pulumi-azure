@@ -581,6 +581,127 @@ func (o VaultMonitoringPtrOutput) AlertsForCriticalOperationFailuresEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetVaultIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type of this Managed Service Identity.
+	Type string `pulumi:"type"`
+}
+
+// GetVaultIdentityInput is an input type that accepts GetVaultIdentityArgs and GetVaultIdentityOutput values.
+// You can construct a concrete instance of `GetVaultIdentityInput` via:
+//
+//	GetVaultIdentityArgs{...}
+type GetVaultIdentityInput interface {
+	pulumi.Input
+
+	ToGetVaultIdentityOutput() GetVaultIdentityOutput
+	ToGetVaultIdentityOutputWithContext(context.Context) GetVaultIdentityOutput
+}
+
+type GetVaultIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type of this Managed Service Identity.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetVaultIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVaultIdentity)(nil)).Elem()
+}
+
+func (i GetVaultIdentityArgs) ToGetVaultIdentityOutput() GetVaultIdentityOutput {
+	return i.ToGetVaultIdentityOutputWithContext(context.Background())
+}
+
+func (i GetVaultIdentityArgs) ToGetVaultIdentityOutputWithContext(ctx context.Context) GetVaultIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVaultIdentityOutput)
+}
+
+// GetVaultIdentityArrayInput is an input type that accepts GetVaultIdentityArray and GetVaultIdentityArrayOutput values.
+// You can construct a concrete instance of `GetVaultIdentityArrayInput` via:
+//
+//	GetVaultIdentityArray{ GetVaultIdentityArgs{...} }
+type GetVaultIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetVaultIdentityArrayOutput() GetVaultIdentityArrayOutput
+	ToGetVaultIdentityArrayOutputWithContext(context.Context) GetVaultIdentityArrayOutput
+}
+
+type GetVaultIdentityArray []GetVaultIdentityInput
+
+func (GetVaultIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVaultIdentity)(nil)).Elem()
+}
+
+func (i GetVaultIdentityArray) ToGetVaultIdentityArrayOutput() GetVaultIdentityArrayOutput {
+	return i.ToGetVaultIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetVaultIdentityArray) ToGetVaultIdentityArrayOutputWithContext(ctx context.Context) GetVaultIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVaultIdentityArrayOutput)
+}
+
+type GetVaultIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetVaultIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVaultIdentity)(nil)).Elem()
+}
+
+func (o GetVaultIdentityOutput) ToGetVaultIdentityOutput() GetVaultIdentityOutput {
+	return o
+}
+
+func (o GetVaultIdentityOutput) ToGetVaultIdentityOutputWithContext(ctx context.Context) GetVaultIdentityOutput {
+	return o
+}
+
+func (o GetVaultIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVaultIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o GetVaultIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVaultIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o GetVaultIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVaultIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type of this Managed Service Identity.
+func (o GetVaultIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVaultIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetVaultIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVaultIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVaultIdentity)(nil)).Elem()
+}
+
+func (o GetVaultIdentityArrayOutput) ToGetVaultIdentityArrayOutput() GetVaultIdentityArrayOutput {
+	return o
+}
+
+func (o GetVaultIdentityArrayOutput) ToGetVaultIdentityArrayOutputWithContext(ctx context.Context) GetVaultIdentityArrayOutput {
+	return o
+}
+
+func (o GetVaultIdentityArrayOutput) Index(i pulumi.IntInput) GetVaultIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVaultIdentity {
+		return vs[0].([]GetVaultIdentity)[vs[1].(int)]
+	}).(GetVaultIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultEncryptionInput)(nil)).Elem(), VaultEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultEncryptionPtrInput)(nil)).Elem(), VaultEncryptionArgs{})
@@ -588,10 +709,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultIdentityPtrInput)(nil)).Elem(), VaultIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultMonitoringInput)(nil)).Elem(), VaultMonitoringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultMonitoringPtrInput)(nil)).Elem(), VaultMonitoringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVaultIdentityInput)(nil)).Elem(), GetVaultIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVaultIdentityArrayInput)(nil)).Elem(), GetVaultIdentityArray{})
 	pulumi.RegisterOutputType(VaultEncryptionOutput{})
 	pulumi.RegisterOutputType(VaultEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(VaultIdentityOutput{})
 	pulumi.RegisterOutputType(VaultIdentityPtrOutput{})
 	pulumi.RegisterOutputType(VaultMonitoringOutput{})
 	pulumi.RegisterOutputType(VaultMonitoringPtrOutput{})
+	pulumi.RegisterOutputType(GetVaultIdentityOutput{})
+	pulumi.RegisterOutputType(GetVaultIdentityArrayOutput{})
 }

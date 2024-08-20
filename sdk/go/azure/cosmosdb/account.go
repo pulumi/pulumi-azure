@@ -179,6 +179,7 @@ type Account struct {
 	AnalyticalStorageEnabled pulumi.BoolPtrOutput           `pulumi:"analyticalStorageEnabled"`
 	AutomaticFailoverEnabled pulumi.BoolOutput              `pulumi:"automaticFailoverEnabled"`
 	Backup                   AccountBackupOutput            `pulumi:"backup"`
+	BurstCapacityEnabled     pulumi.BoolPtrOutput           `pulumi:"burstCapacityEnabled"`
 	Capabilities             AccountCapabilityArrayOutput   `pulumi:"capabilities"`
 	// A `capacity` block as defined below.
 	Capacity AccountCapacityOutput `pulumi:"capacity"`
@@ -322,6 +323,7 @@ type accountState struct {
 	AnalyticalStorageEnabled *bool                     `pulumi:"analyticalStorageEnabled"`
 	AutomaticFailoverEnabled *bool                     `pulumi:"automaticFailoverEnabled"`
 	Backup                   *AccountBackup            `pulumi:"backup"`
+	BurstCapacityEnabled     *bool                     `pulumi:"burstCapacityEnabled"`
 	Capabilities             []AccountCapability       `pulumi:"capabilities"`
 	// A `capacity` block as defined below.
 	Capacity *AccountCapacity `pulumi:"capacity"`
@@ -408,6 +410,7 @@ type AccountState struct {
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	Backup                   AccountBackupPtrInput
+	BurstCapacityEnabled     pulumi.BoolPtrInput
 	Capabilities             AccountCapabilityArrayInput
 	// A `capacity` block as defined below.
 	Capacity AccountCapacityPtrInput
@@ -498,6 +501,7 @@ type accountArgs struct {
 	AnalyticalStorageEnabled *bool                     `pulumi:"analyticalStorageEnabled"`
 	AutomaticFailoverEnabled *bool                     `pulumi:"automaticFailoverEnabled"`
 	Backup                   *AccountBackup            `pulumi:"backup"`
+	BurstCapacityEnabled     *bool                     `pulumi:"burstCapacityEnabled"`
 	Capabilities             []AccountCapability       `pulumi:"capabilities"`
 	// A `capacity` block as defined below.
 	Capacity          *AccountCapacity         `pulumi:"capacity"`
@@ -553,6 +557,7 @@ type AccountArgs struct {
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	Backup                   AccountBackupPtrInput
+	BurstCapacityEnabled     pulumi.BoolPtrInput
 	Capabilities             AccountCapabilityArrayInput
 	// A `capacity` block as defined below.
 	Capacity          AccountCapacityPtrInput
@@ -706,6 +711,10 @@ func (o AccountOutput) AutomaticFailoverEnabled() pulumi.BoolOutput {
 
 func (o AccountOutput) Backup() AccountBackupOutput {
 	return o.ApplyT(func(v *Account) AccountBackupOutput { return v.Backup }).(AccountBackupOutput)
+}
+
+func (o AccountOutput) BurstCapacityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.BurstCapacityEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o AccountOutput) Capabilities() AccountCapabilityArrayOutput {

@@ -90,9 +90,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether to trust a Custom CA.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      */
     public readonly customCaTrustEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -153,7 +151,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly maxPods!: pulumi.Output<number>;
     /**
-     * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      */
     public readonly messageOfTheDay!: pulumi.Output<string | undefined>;
     public readonly minCount!: pulumi.Output<number | undefined>;
@@ -263,11 +261,9 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolWindowsProfile | undefined>;
     /**
-     * Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      *
      * > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
-     *
-     * > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
      */
     public readonly workloadRuntime!: pulumi.Output<string | undefined>;
     /**
@@ -397,9 +393,7 @@ export interface KubernetesClusterNodePoolState {
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
-     * Specifies whether to trust a Custom CA.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      */
     customCaTrustEnabled?: pulumi.Input<boolean>;
     /**
@@ -460,7 +454,7 @@ export interface KubernetesClusterNodePoolState {
      */
     maxPods?: pulumi.Input<number>;
     /**
-     * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      */
     messageOfTheDay?: pulumi.Input<string>;
     minCount?: pulumi.Input<number>;
@@ -570,11 +564,9 @@ export interface KubernetesClusterNodePoolState {
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolWindowsProfile>;
     /**
-     * Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      *
      * > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
-     *
-     * > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
      */
     workloadRuntime?: pulumi.Input<string>;
     /**
@@ -592,9 +584,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
-     * Specifies whether to trust a Custom CA.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      */
     customCaTrustEnabled?: pulumi.Input<boolean>;
     /**
@@ -655,7 +645,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     maxPods?: pulumi.Input<number>;
     /**
-     * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      */
     messageOfTheDay?: pulumi.Input<string>;
     minCount?: pulumi.Input<number>;
@@ -765,11 +755,9 @@ export interface KubernetesClusterNodePoolArgs {
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolWindowsProfile>;
     /**
-     * Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      *
      * > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
-     *
-     * > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
      */
     workloadRuntime?: pulumi.Input<string>;
     /**

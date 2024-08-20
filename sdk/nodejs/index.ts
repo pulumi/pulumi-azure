@@ -70,6 +70,7 @@ import * as elasticsan from "./elasticsan";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
 import * as expressroute from "./expressroute";
+import * as extendedlocation from "./extendedlocation";
 import * as fluidrelay from "./fluidrelay";
 import * as frontdoor from "./frontdoor";
 import * as graph from "./graph";
@@ -207,6 +208,7 @@ export {
     eventgrid,
     eventhub,
     expressroute,
+    extendedlocation,
     fluidrelay,
     frontdoor,
     graph,

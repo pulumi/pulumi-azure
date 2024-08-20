@@ -47,20 +47,20 @@ public final class KubernetesClusterStorageProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-     * 
-     * &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     @Import(name="diskDriverVersion")
     private @Nullable Output<String> diskDriverVersion;
 
     /**
-     * @return Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-     * 
-     * &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     public Optional<Output<String>> diskDriverVersion() {
         return Optional.ofNullable(this.diskDriverVersion);
     }
@@ -166,26 +166,26 @@ public final class KubernetesClusterStorageProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param diskDriverVersion Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-         * 
-         * &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
+         * 
          */
+        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
         public Builder diskDriverVersion(@Nullable Output<String> diskDriverVersion) {
             $.diskDriverVersion = diskDriverVersion;
             return this;
         }
 
         /**
-         * @param diskDriverVersion Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-         * 
-         * &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
+         * 
          */
+        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
         public Builder diskDriverVersion(String diskDriverVersion) {
             return diskDriverVersion(Output.of(diskDriverVersion));
         }

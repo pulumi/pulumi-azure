@@ -107,6 +107,7 @@ const (
 	azureDomainServices        = "DomainServices"        // DomainServices
 	azureElasticCloud          = "ElasticCloud"          // Elastic Cloud
 	azureExpressRoute          = "ExpressRoute"          // ExpressRoute
+	azureExtendedLocation      = "ExtendedLocation"      // Extended Location
 	azureFluidRelay            = "FluidRelay"            // Fluid Relay
 	azureFrontdoor             = "FrontDoor"             // Frontdoor
 	azureGraph                 = "Graph"                 // Graph
@@ -219,6 +220,7 @@ var moduleMap = map[string]string{
 	"bot":             azureBot,
 	"cdn":             azureCDN,
 	"cognitive":       azureCognitive,
+	"ai_services":     azureCognitive,
 	"communication":   azureCommunication,
 	"virtual_machine": azureCompute,
 	// Ignored: azureCompute. No clear token pattern. Tokens that map to azureCompute include:
@@ -352,6 +354,7 @@ var moduleMap = map[string]string{
 	"redhat_openshift":         azureRedHatOpenShift,
 	"system_center":            azureSystemCenter,
 	"express_route":            azureExpressRoute,
+	"custom_extended_location": azureExtendedLocation,
 
 	// We don't apply mappings to legacy roles, so they are omitted here.
 }
@@ -1016,6 +1019,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Cognitive
 			"azurerm_cognitive_account":                      {Tok: azureResource(azureCognitive, "Account")},
 			"azurerm_cognitive_account_customer_managed_key": {Tok: azureResource(azureCognitive, "AccountCustomerManagedKey")},
+			"azurerm_ai_services":                            {Tok: azureResource(azureCognitive, "AIServices")},
 			"azurerm_cognitive_deployment":                   {Tok: azureResource(azureCognitive, "Deployment")},
 			// Compute
 			"azurerm_availability_set": {
@@ -1293,6 +1297,13 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Eventgrid
 			"azurerm_eventgrid_system_topic_event_subscription": {Tok: azureResource(azureEventGrid, "SystemTopicEventSubscription")},
+
+			"azurerm_extended_custom_location": {
+				Tok: azureResource(azureExtendedLocation, "CustomLocation"),
+				Docs: &tfbridge.DocInfo{
+					Source: "extended_location_custom_location.html.markdown",
+				},
+			},
 
 			// IoT Resources
 			"azurerm_iothub": {

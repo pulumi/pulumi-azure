@@ -88,9 +88,7 @@ type KubernetesClusterNodePool struct {
 
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
-	// Specifies whether to trust a Custom CA.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustEnabled pulumi.BoolPtrOutput `pulumi:"customCaTrustEnabled"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
@@ -125,7 +123,7 @@ type KubernetesClusterNodePool struct {
 	MaxCount      pulumi.IntPtrOutput                             `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntOutput `pulumi:"maxPods"`
-	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	MessageOfTheDay pulumi.StringPtrOutput `pulumi:"messageOfTheDay"`
 	MinCount        pulumi.IntPtrOutput    `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
@@ -187,11 +185,9 @@ type KubernetesClusterNodePool struct {
 	VnetSubnetId pulumi.StringPtrOutput `pulumi:"vnetSubnetId"`
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrOutput `pulumi:"windowsProfile"`
-	// Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	//
 	// > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
-	//
-	// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
 	WorkloadRuntime pulumi.StringPtrOutput `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
@@ -235,9 +231,7 @@ func GetKubernetesClusterNodePool(ctx *pulumi.Context,
 type kubernetesClusterNodePoolState struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// Specifies whether to trust a Custom CA.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
@@ -272,7 +266,7 @@ type kubernetesClusterNodePoolState struct {
 	MaxCount      *int                                    `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods *int `pulumi:"maxPods"`
-	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	MessageOfTheDay *string `pulumi:"messageOfTheDay"`
 	MinCount        *int    `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
@@ -334,11 +328,9 @@ type kubernetesClusterNodePoolState struct {
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
-	// Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	//
 	// > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
-	//
-	// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
 	Zones []string `pulumi:"zones"`
@@ -347,9 +339,7 @@ type kubernetesClusterNodePoolState struct {
 type KubernetesClusterNodePoolState struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	// Specifies whether to trust a Custom CA.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustEnabled pulumi.BoolPtrInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling pulumi.BoolPtrInput
@@ -384,7 +374,7 @@ type KubernetesClusterNodePoolState struct {
 	MaxCount      pulumi.IntPtrInput
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntPtrInput
-	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	MessageOfTheDay pulumi.StringPtrInput
 	MinCount        pulumi.IntPtrInput
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
@@ -446,11 +436,9 @@ type KubernetesClusterNodePoolState struct {
 	VnetSubnetId pulumi.StringPtrInput
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
-	// Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	//
 	// > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
-	//
-	// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
 	WorkloadRuntime pulumi.StringPtrInput
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
 	Zones pulumi.StringArrayInput
@@ -463,9 +451,7 @@ func (KubernetesClusterNodePoolState) ElementType() reflect.Type {
 type kubernetesClusterNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// Specifies whether to trust a Custom CA.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
@@ -500,7 +486,7 @@ type kubernetesClusterNodePoolArgs struct {
 	MaxCount      *int                                    `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods *int `pulumi:"maxPods"`
-	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	MessageOfTheDay *string `pulumi:"messageOfTheDay"`
 	MinCount        *int    `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
@@ -562,11 +548,9 @@ type kubernetesClusterNodePoolArgs struct {
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
-	// Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	//
 	// > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
-	//
-	// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
 	Zones []string `pulumi:"zones"`
@@ -576,9 +560,7 @@ type kubernetesClusterNodePoolArgs struct {
 type KubernetesClusterNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	// Specifies whether to trust a Custom CA.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustEnabled pulumi.BoolPtrInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling pulumi.BoolPtrInput
@@ -613,7 +595,7 @@ type KubernetesClusterNodePoolArgs struct {
 	MaxCount      pulumi.IntPtrInput
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntPtrInput
-	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	MessageOfTheDay pulumi.StringPtrInput
 	MinCount        pulumi.IntPtrInput
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
@@ -675,11 +657,9 @@ type KubernetesClusterNodePoolArgs struct {
 	VnetSubnetId pulumi.StringPtrInput
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
-	// Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	//
 	// > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
-	//
-	// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
 	WorkloadRuntime pulumi.StringPtrInput
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
 	Zones pulumi.StringArrayInput
@@ -777,9 +757,7 @@ func (o KubernetesClusterNodePoolOutput) CapacityReservationGroupId() pulumi.Str
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to trust a Custom CA.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterNodePoolOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.CustomCaTrustEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -860,7 +838,7 @@ func (o KubernetesClusterNodePoolOutput) MaxPods() pulumi.IntOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.IntOutput { return v.MaxPods }).(pulumi.IntOutput)
 }
 
-// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o KubernetesClusterNodePoolOutput) MessageOfTheDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.MessageOfTheDay }).(pulumi.StringPtrOutput)
 }
@@ -1006,11 +984,9 @@ func (o KubernetesClusterNodePoolOutput) WindowsProfile() KubernetesClusterNodeP
 	}).(KubernetesClusterNodePoolWindowsProfilePtrOutput)
 }
 
-// Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
+// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 //
 // > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
-//
-// > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
 func (o KubernetesClusterNodePoolOutput) WorkloadRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.WorkloadRuntime }).(pulumi.StringPtrOutput)
 }

@@ -23,11 +23,11 @@ public final class KubernetesClusterStorageProfile {
      */
     private @Nullable Boolean diskDriverEnabled;
     /**
-     * @return Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-     * 
-     * &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     private @Nullable String diskDriverVersion;
     /**
      * @return Is the File CSI driver enabled? Defaults to `true`.
@@ -56,11 +56,11 @@ public final class KubernetesClusterStorageProfile {
         return Optional.ofNullable(this.diskDriverEnabled);
     }
     /**
-     * @return Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
-     * 
-     * &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
+     * @deprecated
+     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
      * 
      */
+    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
     public Optional<String> diskDriverVersion() {
         return Optional.ofNullable(this.diskDriverVersion);
     }

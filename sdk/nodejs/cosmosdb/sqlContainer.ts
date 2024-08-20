@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.then(example => example.resourceGroupName),
  *     accountName: example.then(example => example.name),
  *     databaseName: exampleSqlDatabase.name,
- *     partitionKeyPath: "/definition/id",
+ *     partitionKeyPaths: ["/definition/id"],
  *     partitionKeyVersion: 1,
  *     throughput: 400,
  *     indexingPolicy: {
@@ -100,7 +100,7 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
     /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
@@ -227,7 +227,7 @@ export interface SqlContainerState {
      */
     analyticalStorageTtl?: pulumi.Input<number>;
     /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
@@ -295,7 +295,7 @@ export interface SqlContainerArgs {
      */
     analyticalStorageTtl?: pulumi.Input<number>;
     /**
-     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */

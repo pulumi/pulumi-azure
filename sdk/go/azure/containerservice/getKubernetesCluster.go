@@ -71,7 +71,7 @@ type LookupKubernetesClusterResult struct {
 	AzurePolicyEnabled bool `pulumi:"azurePolicyEnabled"`
 	// Contains the current version of Kubernetes running on the Cluster.
 	CurrentKubernetesVersion string `pulumi:"currentKubernetesVersion"`
-	// A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
+	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// The ID of the Disk Encryption Set used for the Nodes and Volumes.
 	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
@@ -221,7 +221,7 @@ func (o LookupKubernetesClusterResultOutput) CurrentKubernetesVersion() pulumi.S
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.CurrentKubernetesVersion }).(pulumi.StringOutput)
 }
 
-// A list of custom base64 encoded CAs used by this Managed Kubernetes Cluster.
+// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
 func (o LookupKubernetesClusterResultOutput) CustomCaTrustCertificatesBase64s() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) []string { return v.CustomCaTrustCertificatesBase64s }).(pulumi.StringArrayOutput)
 }

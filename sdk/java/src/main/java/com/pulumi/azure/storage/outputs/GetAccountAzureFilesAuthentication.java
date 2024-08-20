@@ -18,6 +18,11 @@ public final class GetAccountAzureFilesAuthentication {
      */
     private List<GetAccountAzureFilesAuthenticationActiveDirectory> activeDirectories;
     /**
+     * @return The default share level permissions applied to all users.
+     * 
+     */
+    private String defaultShareLevelPermission;
+    /**
      * @return The directory service used for this Storage Account.
      * 
      */
@@ -30,6 +35,13 @@ public final class GetAccountAzureFilesAuthentication {
      */
     public List<GetAccountAzureFilesAuthenticationActiveDirectory> activeDirectories() {
         return this.activeDirectories;
+    }
+    /**
+     * @return The default share level permissions applied to all users.
+     * 
+     */
+    public String defaultShareLevelPermission() {
+        return this.defaultShareLevelPermission;
     }
     /**
      * @return The directory service used for this Storage Account.
@@ -49,11 +61,13 @@ public final class GetAccountAzureFilesAuthentication {
     @CustomType.Builder
     public static final class Builder {
         private List<GetAccountAzureFilesAuthenticationActiveDirectory> activeDirectories;
+        private String defaultShareLevelPermission;
         private String directoryType;
         public Builder() {}
         public Builder(GetAccountAzureFilesAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectories = defaults.activeDirectories;
+    	      this.defaultShareLevelPermission = defaults.defaultShareLevelPermission;
     	      this.directoryType = defaults.directoryType;
         }
 
@@ -69,6 +83,14 @@ public final class GetAccountAzureFilesAuthentication {
             return activeDirectories(List.of(activeDirectories));
         }
         @CustomType.Setter
+        public Builder defaultShareLevelPermission(String defaultShareLevelPermission) {
+            if (defaultShareLevelPermission == null) {
+              throw new MissingRequiredPropertyException("GetAccountAzureFilesAuthentication", "defaultShareLevelPermission");
+            }
+            this.defaultShareLevelPermission = defaultShareLevelPermission;
+            return this;
+        }
+        @CustomType.Setter
         public Builder directoryType(String directoryType) {
             if (directoryType == null) {
               throw new MissingRequiredPropertyException("GetAccountAzureFilesAuthentication", "directoryType");
@@ -79,6 +101,7 @@ public final class GetAccountAzureFilesAuthentication {
         public GetAccountAzureFilesAuthentication build() {
             final var _resultValue = new GetAccountAzureFilesAuthentication();
             _resultValue.activeDirectories = activeDirectories;
+            _resultValue.defaultShareLevelPermission = defaultShareLevelPermission;
             _resultValue.directoryType = directoryType;
             return _resultValue;
         }

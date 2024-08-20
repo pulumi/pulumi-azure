@@ -21,9 +21,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Is the Disk CSI driver enabled?
         /// </summary>
         public readonly bool DiskDriverEnabled;
-        /// <summary>
-        /// The configured Disk CSI Driver version.
-        /// </summary>
         public readonly string DiskDriverVersion;
         /// <summary>
         /// Is the File CSI driver enabled?

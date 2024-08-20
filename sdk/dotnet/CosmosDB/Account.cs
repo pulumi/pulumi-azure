@@ -181,6 +181,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("backup")]
         public Output<Outputs.AccountBackup> Backup { get; private set; } = null!;
 
+        [Output("burstCapacityEnabled")]
+        public Output<bool?> BurstCapacityEnabled { get; private set; } = null!;
+
         [Output("capabilities")]
         public Output<ImmutableArray<Outputs.AccountCapability>> Capabilities { get; private set; } = null!;
 
@@ -476,6 +479,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("backup")]
         public Input<Inputs.AccountBackupArgs>? Backup { get; set; }
 
+        [Input("burstCapacityEnabled")]
+        public Input<bool>? BurstCapacityEnabled { get; set; }
+
         [Input("capabilities")]
         private InputList<Inputs.AccountCapabilityArgs>? _capabilities;
         public InputList<Inputs.AccountCapabilityArgs> Capabilities
@@ -649,6 +655,9 @@ namespace Pulumi.Azure.CosmosDB
 
         [Input("backup")]
         public Input<Inputs.AccountBackupGetArgs>? Backup { get; set; }
+
+        [Input("burstCapacityEnabled")]
+        public Input<bool>? BurstCapacityEnabled { get; set; }
 
         [Input("capabilities")]
         private InputList<Inputs.AccountCapabilityGetArgs>? _capabilities;

@@ -12,5 +12,6 @@ from .environment_type import *
 from .gallery import *
 from .network_connection import *
 from .project import *
+from .project_environment_type import *
 from ._inputs import *
 from . import outputs

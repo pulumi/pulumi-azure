@@ -156,6 +156,10 @@ namespace Pulumi.Azure.Search
         /// The Secondary Key used for Search Service Administration.
         /// </summary>
         public readonly string SecondaryKey;
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetServiceResult(
@@ -177,7 +181,9 @@ namespace Pulumi.Azure.Search
 
             string resourceGroupName,
 
-            string secondaryKey)
+            string secondaryKey,
+
+            ImmutableDictionary<string, string> tags)
         {
             Id = id;
             Identities = identities;
@@ -189,6 +195,7 @@ namespace Pulumi.Azure.Search
             ReplicaCount = replicaCount;
             ResourceGroupName = resourceGroupName;
             SecondaryKey = secondaryKey;
+            Tags = tags;
         }
     }
 }

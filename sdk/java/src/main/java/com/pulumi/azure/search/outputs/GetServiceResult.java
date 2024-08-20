@@ -11,6 +11,7 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -61,6 +62,11 @@ public final class GetServiceResult {
      * 
      */
     private String secondaryKey;
+    /**
+     * @return A mapping of tags assigned to the resource.
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetServiceResult() {}
     /**
@@ -129,6 +135,13 @@ public final class GetServiceResult {
     public String secondaryKey() {
         return this.secondaryKey;
     }
+    /**
+     * @return A mapping of tags assigned to the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -149,6 +162,7 @@ public final class GetServiceResult {
         private Integer replicaCount;
         private String resourceGroupName;
         private String secondaryKey;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -162,6 +176,7 @@ public final class GetServiceResult {
     	      this.replicaCount = defaults.replicaCount;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryKey = defaults.secondaryKey;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -250,6 +265,14 @@ public final class GetServiceResult {
             this.secondaryKey = secondaryKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetServiceResult build() {
             final var _resultValue = new GetServiceResult();
             _resultValue.id = id;
@@ -262,6 +285,7 @@ public final class GetServiceResult {
             _resultValue.replicaCount = replicaCount;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.secondaryKey = secondaryKey;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

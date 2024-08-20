@@ -41,7 +41,10 @@ namespace Pulumi.Azure.CosmosDB
     ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
     ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
     ///         DatabaseName = exampleSqlDatabase.Name,
-    ///         PartitionKeyPath = "/definition/id",
+    ///         PartitionKeyPaths = new[]
+    ///         {
+    ///             "/definition/id",
+    ///         },
     ///         PartitionKeyVersion = 1,
     ///         Throughput = 400,
     ///         IndexingPolicy = new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyArgs
@@ -106,7 +109,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// 
         /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>
@@ -241,7 +244,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// 
         /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>
@@ -350,7 +353,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// 
         /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>

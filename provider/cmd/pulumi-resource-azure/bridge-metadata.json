@@ -59,6 +59,44 @@
                 "current": "azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection",
                 "majorVersion": 5
             },
+            "azurerm_ai_services": {
+                "current": "azure:cognitive/aIServices:AIServices",
+                "majorVersion": 5,
+                "fields": {
+                    "customer_managed_key": {
+                        "maxItemsOne": true
+                    },
+                    "fqdns": {
+                        "maxItemsOne": false
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_acls": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "ip_rules": {
+                                    "maxItemsOne": false
+                                },
+                                "virtual_network_rules": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "storage": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_analysis_services_server": {
                 "current": "azure:analysisservices/server:Server",
                 "majorVersion": 5,
@@ -3657,6 +3695,10 @@
                 "current": "azure:communication/service:Service",
                 "majorVersion": 5
             },
+            "azurerm_communication_service_email_domain_association": {
+                "current": "azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation",
+                "majorVersion": 5
+            },
             "azurerm_confidential_ledger": {
                 "current": "azure:confidentialledger/ledger:Ledger",
                 "majorVersion": 5,
@@ -6438,6 +6480,35 @@
                 "current": "azure:devcenter/project:Project",
                 "majorVersion": 5
             },
+            "azurerm_dev_center_project_environment_type": {
+                "current": "azure:devcenter/projectEnvironmentType:ProjectEnvironmentType",
+                "majorVersion": 5,
+                "fields": {
+                    "creator_role_assignment_roles": {
+                        "maxItemsOne": false
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "user_role_assignment": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "roles": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_dev_test_global_vm_shutdown_schedule": {
                 "current": "azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule",
                 "majorVersion": 5,
@@ -7683,6 +7754,18 @@
             "azurerm_express_route_port_authorization": {
                 "current": "azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization",
                 "majorVersion": 5
+            },
+            "azurerm_extended_custom_location": {
+                "current": "azure:extendedlocation/customLocation:CustomLocation",
+                "majorVersion": 5,
+                "fields": {
+                    "authentication": {
+                        "maxItemsOne": true
+                    },
+                    "cluster_extension_ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_federated_identity_credential": {
                 "current": "azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential",
@@ -17339,6 +17422,10 @@
             },
             "azurerm_postgresql_flexible_server_firewall_rule": {
                 "current": "azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule",
+                "majorVersion": 5
+            },
+            "azurerm_postgresql_flexible_server_virtual_endpoint": {
+                "current": "azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint",
                 "majorVersion": 5
             },
             "azurerm_postgresql_server": {
@@ -29744,7 +29831,19 @@
             },
             "azurerm_recovery_services_vault": {
                 "current": "azure:recoveryservices/getVault:getVault",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_redis_cache": {
                 "current": "azure:redis/getCache:getCache",

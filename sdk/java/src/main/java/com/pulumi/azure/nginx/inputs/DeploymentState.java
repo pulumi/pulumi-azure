@@ -57,7 +57,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+     * Specify the number of NGINX capacity units for this NGINX deployment.
      * 
      * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 
@@ -66,7 +66,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> capacity;
 
     /**
-     * @return Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+     * @return Specify the number of NGINX capacity units for this NGINX deployment.
      * 
      * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 
@@ -406,7 +406,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacity Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+         * @param capacity Specify the number of NGINX capacity units for this NGINX deployment.
          * 
          * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
          * 
@@ -419,7 +419,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacity Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
+         * @param capacity Specify the number of NGINX capacity units for this NGINX deployment.
          * 
          * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
          * 

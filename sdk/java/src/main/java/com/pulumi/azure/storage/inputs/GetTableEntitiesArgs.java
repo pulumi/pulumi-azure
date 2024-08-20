@@ -48,33 +48,56 @@ public final class GetTableEntitiesArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The name of the Storage Account where the Table exists.
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
-    @Import(name="storageAccountName", required=true)
-    private Output<String> storageAccountName;
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+    @Import(name="storageAccountName")
+    private @Nullable Output<String> storageAccountName;
 
     /**
-     * @return The name of the Storage Account where the Table exists.
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
      * 
      */
-    public Output<String> storageAccountName() {
-        return this.storageAccountName;
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+    public Optional<Output<String>> storageAccountName() {
+        return Optional.ofNullable(this.storageAccountName);
     }
 
     /**
-     * The name of the Table.
+     * The Storage Table ID where the entities exist.
      * 
      */
-    @Import(name="tableName", required=true)
-    private Output<String> tableName;
+    @Import(name="storageTableId")
+    private @Nullable Output<String> storageTableId;
 
     /**
-     * @return The name of the Table.
+     * @return The Storage Table ID where the entities exist.
      * 
      */
-    public Output<String> tableName() {
-        return this.tableName;
+    public Optional<Output<String>> storageTableId() {
+        return Optional.ofNullable(this.storageTableId);
+    }
+
+    /**
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+    @Import(name="tableName")
+    private @Nullable Output<String> tableName;
+
+    /**
+     * @deprecated
+     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+    public Optional<Output<String>> tableName() {
+        return Optional.ofNullable(this.tableName);
     }
 
     private GetTableEntitiesArgs() {}
@@ -83,6 +106,7 @@ public final class GetTableEntitiesArgs extends com.pulumi.resources.InvokeArgs 
         this.filter = $.filter;
         this.selects = $.selects;
         this.storageAccountName = $.storageAccountName;
+        this.storageTableId = $.storageTableId;
         this.tableName = $.tableName;
     }
 
@@ -157,43 +181,72 @@ public final class GetTableEntitiesArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Table exists.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
          */
-        public Builder storageAccountName(Output<String> storageAccountName) {
+        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+        public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Table exists.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
         public Builder storageAccountName(String storageAccountName) {
             return storageAccountName(Output.of(storageAccountName));
         }
 
         /**
-         * @param tableName The name of the Table.
+         * @param storageTableId The Storage Table ID where the entities exist.
          * 
          * @return builder
          * 
          */
-        public Builder tableName(Output<String> tableName) {
+        public Builder storageTableId(@Nullable Output<String> storageTableId) {
+            $.storageTableId = storageTableId;
+            return this;
+        }
+
+        /**
+         * @param storageTableId The Storage Table ID where the entities exist.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageTableId(String storageTableId) {
+            return storageTableId(Output.of(storageTableId));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
+         */
+        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
+        public Builder tableName(@Nullable Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
         /**
-         * @param tableName The name of the Table.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }
@@ -201,12 +254,6 @@ public final class GetTableEntitiesArgs extends com.pulumi.resources.InvokeArgs 
         public GetTableEntitiesArgs build() {
             if ($.filter == null) {
                 throw new MissingRequiredPropertyException("GetTableEntitiesArgs", "filter");
-            }
-            if ($.storageAccountName == null) {
-                throw new MissingRequiredPropertyException("GetTableEntitiesArgs", "storageAccountName");
-            }
-            if ($.tableName == null) {
-                throw new MissingRequiredPropertyException("GetTableEntitiesArgs", "tableName");
             }
             return $;
         }
