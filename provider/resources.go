@@ -3285,6 +3285,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Namespaces: namespaceMap,
 		},
+		EnableZeroDefaultSchemaVersion: true,
 	}
 
 	// Move the dashboard resources
