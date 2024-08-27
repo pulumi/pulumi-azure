@@ -92,3 +92,7 @@ require (
 	lukechampine.com/frand v1.4.2 // indirect
 	pgregory.net/rapid v0.6.1 // indirect
 )
+
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.130.1-0.20240827213336-06e8f1a6b0d8
+
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.130.1-0.20240827213336-06e8f1a6b0d8
