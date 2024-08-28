@@ -42,7 +42,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
-	"github.com/pulumi/pulumi-azure/provider/v5/pkg/version"
+	"github.com/pulumi/pulumi-azure/provider/v6/pkg/version"
 )
 
 const (

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 
-	"github.com/pulumi/pulumi-azure/provider/v5/pkg/version"
+	"github.com/pulumi/pulumi-azure/provider/v6/pkg/version"
 )
 
 func providerServer() pulumirpc.ResourceProviderServer {
