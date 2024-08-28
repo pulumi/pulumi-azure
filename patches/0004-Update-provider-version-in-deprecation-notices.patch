@@ -84,7 +84,7 @@ index 957314cfe5..9a5f9adac7 100644
  ~> **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
  
 diff --git a/website/docs/r/function_app.html.markdown b/website/docs/r/function_app.html.markdown
-index 4fad99cea6..138d8e5b99 100644
+index e52e87003b..d4c341247a 100644
 --- a/website/docs/r/function_app.html.markdown
 +++ b/website/docs/r/function_app.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -108,43 +108,4 @@ index 39b679a016..b88cc5d709 100644
 +!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_linux_function_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app_slot) and [`azurerm_windows_function_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app_slot) resources instead.
  
  ## Example Usage (with App Service Plan)
- 
-diff --git a/website/docs/r/graph_account.html.markdown b/website/docs/r/graph_account.html.markdown
-index 95a06ce97d..924908a58f 100644
---- a/website/docs/r/graph_account.html.markdown
-+++ b/website/docs/r/graph_account.html.markdown
-@@ -10,7 +10,7 @@ description: |-
- 
- Manages a Microsoft Graph Services Account.
- 
--!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_graph_services_account`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/graph_services_account) resource instead.
-+!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_graph_services_account`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/graph_services_account) resource instead.
- 
- ## Example Usage
- 
-diff --git a/website/docs/r/monitor_action_rule_action_group.html.markdown b/website/docs/r/monitor_action_rule_action_group.html.markdown
-index fe9f0ff258..223aed2bb8 100644
---- a/website/docs/r/monitor_action_rule_action_group.html.markdown
-+++ b/website/docs/r/monitor_action_rule_action_group.html.markdown
-@@ -10,7 +10,7 @@ description: |-
- 
- Manages a Monitor Action Rule which type is action group.
- 
--!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_monitor_alert_processing_rule_action_group`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_alert_processing_rule_action_group) resource instead.
-+!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_monitor_alert_processing_rule_action_group`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_alert_processing_rule_action_group) resource instead.
- 
- ## Example Usage
- 
-diff --git a/website/docs/r/monitor_action_rule_suppression.html.markdown b/website/docs/r/monitor_action_rule_suppression.html.markdown
-index 0c56416d94..03caddf571 100644
---- a/website/docs/r/monitor_action_rule_suppression.html.markdown
-+++ b/website/docs/r/monitor_action_rule_suppression.html.markdown
-@@ -10,7 +10,7 @@ description: |-
- 
- Manages a Monitor Action Rule which type is suppression.
- 
--!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_monitor_alert_processing_rule_suppression`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_alert_processing_rule_suppression) resource instead.
-+!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_monitor_alert_processing_rule_suppression`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_alert_processing_rule_suppression) resource instead.
- 
- ## Example Usage
  

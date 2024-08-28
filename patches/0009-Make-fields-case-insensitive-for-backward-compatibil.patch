@@ -8,7 +8,7 @@ Try to make diffs as robust and mergable as possible:
 - Put added import lines in own block to avoid conflicts.
 
 diff --git a/internal/features/four_point_oh.go b/internal/features/four_point_oh.go
-index 1921cf3887..cb10ba1bbe 100644
+index cb63f60555..c807830589 100644
 --- a/internal/features/four_point_oh.go
 +++ b/internal/features/four_point_oh.go
 @@ -47,3 +47,9 @@ func FourPointOh() bool {
@@ -185,7 +185,7 @@ index 67956f15c9..0b70ccb184 100644
  
  			"tags": tags.Schema(),
 diff --git a/internal/services/compute/image_resource.go b/internal/services/compute/image_resource.go
-index 849e119542..790462f8e4 100644
+index dd65c7cac1..ba3036809b 100644
 --- a/internal/services/compute/image_resource.go
 +++ b/internal/services/compute/image_resource.go
 @@ -91,7 +91,7 @@ func resourceImage() *pluginsdk.Resource {
@@ -313,10 +313,10 @@ index da09e66dfa..7413a4326e 100644
  
  			"dns_name_label": {
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index ddbf84a8b6..4d52bb9960 100644
+index a10233de5a..7d5c6baebf 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -1064,7 +1064,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -1065,7 +1065,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -1042,7 +1042,7 @@ index 2766565528..acaa0496c4 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index 0e851a3faf..037ecf52ea 100644
+index 1e48729907..97d4bc0b3f 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -1083,7 +1083,7 @@ index 0e851a3faf..037ecf52ea 100644
  
  					"storage_account_access_key": {
 diff --git a/internal/services/mssql/mssql_elasticpool_resource.go b/internal/services/mssql/mssql_elasticpool_resource.go
-index 471d716371..0cbeb184da 100644
+index 15492686c0..230b3c124e 100644
 --- a/internal/services/mssql/mssql_elasticpool_resource.go
 +++ b/internal/services/mssql/mssql_elasticpool_resource.go
 @@ -10,6 +10,9 @@ import (
@@ -1096,17 +1096,17 @@ index 471d716371..0cbeb184da 100644
  	"github.com/Azure/azure-sdk-for-go/services/preview/sql/mgmt/v5.0/sql" // nolint: staticcheck
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
  	"github.com/hashicorp/go-azure-helpers/lang/response"
-@@ -91,7 +94,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
- 								"BC_DC",
+@@ -92,7 +95,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
  								"HS_Gen5",
  								"HS_PRMS",
+ 								"HS_MOPRMS",
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  						},
  
  						"capacity": {
-@@ -110,7 +114,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
+@@ -111,7 +115,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
  								"GeneralPurpose",
  								"BusinessCritical",
  								"Hyperscale",
@@ -1116,10 +1116,10 @@ index 471d716371..0cbeb184da 100644
  						},
  
  						"family": {
-@@ -121,7 +126,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
- 								"Gen5",
+@@ -123,7 +128,8 @@ func resourceMsSqlElasticPool() *pluginsdk.Resource {
  								"Fsv2",
  								"DC",
+ 								"MOPRMS",
 -							}, false),
 +							}, features.CaseInsensitive()),
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -1177,7 +1177,7 @@ index a7553589e1..99c6655b1f 100644
  		},
  
 diff --git a/internal/services/network/application_gateway_resource.go b/internal/services/network/application_gateway_resource.go
-index 293e89acd0..30e9cf75d1 100644
+index 2f31b16846..3a734e34a1 100644
 --- a/internal/services/network/application_gateway_resource.go
 +++ b/internal/services/network/application_gateway_resource.go
 @@ -11,6 +11,9 @@ import (
@@ -1502,7 +1502,7 @@ index 6e880d1d78..ffd5969fa3 100644
  
  						"next_hop_in_ip_address": {
 diff --git a/internal/services/network/virtual_network_gateway_connection_resource.go b/internal/services/network/virtual_network_gateway_connection_resource.go
-index 803d967899..3bbe66f793 100644
+index e9a9ceba86..0506faa230 100644
 --- a/internal/services/network/virtual_network_gateway_connection_resource.go
 +++ b/internal/services/network/virtual_network_gateway_connection_resource.go
 @@ -9,6 +9,8 @@ import (
@@ -1729,7 +1729,7 @@ index 5f1de4952f..1d4cc0f40a 100644
  
  						"target_disk_encryption_set_id": {
 diff --git a/internal/services/redis/redis_cache_resource.go b/internal/services/redis/redis_cache_resource.go
-index d2072b15db..4d16a57269 100644
+index b26089b58b..4c2ca974fe 100644
 --- a/internal/services/redis/redis_cache_resource.go
 +++ b/internal/services/redis/redis_cache_resource.go
 @@ -97,7 +97,8 @@ func resourceRedisCache() *pluginsdk.Resource {
@@ -2031,7 +2031,7 @@ index 16797800a2..6d74e94b4f 100644
  
  						"storage_account_access_key": {
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index 2343dc63c3..eadf3d2479 100644
+index 565aca1bd7..cd2e95ebf4 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -11,6 +11,8 @@ import (

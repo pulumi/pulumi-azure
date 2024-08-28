@@ -74,7 +74,7 @@ index 5dbdb7d11e..2f4f4c2ff9 100644
  
  ```hcl
 diff --git a/website/docs/d/kubernetes_cluster.html.markdown b/website/docs/d/kubernetes_cluster.html.markdown
-index 1985203f44..6f8b7e8942 100644
+index 3550ec06b3..57ebb065d4 100644
 --- a/website/docs/d/kubernetes_cluster.html.markdown
 +++ b/website/docs/d/kubernetes_cluster.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -87,7 +87,7 @@ index 1985203f44..6f8b7e8942 100644
  ## Example Usage
  
  ```hcl
-@@ -220,19 +217,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -214,19 +211,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -121,7 +121,7 @@ index 7cb6a50006..0f4645b9e9 100644
  ## Attributes Reference
  
 diff --git a/website/docs/d/monitor_action_group.html.markdown b/website/docs/d/monitor_action_group.html.markdown
-index c95b92e697..24559cf509 100644
+index 56f23be067..042d96c665 100644
 --- a/website/docs/d/monitor_action_group.html.markdown
 +++ b/website/docs/d/monitor_action_group.html.markdown
 @@ -14,7 +14,7 @@ Use this data source to access the properties of an Action Group.
@@ -186,10 +186,10 @@ index 96e5faf55a..8d6316a6e8 100644
  
  * `parameter_values` - The parameter values for the referenced policy rule. This field is a JSON object.
 diff --git a/website/docs/d/redis_cache.html.markdown b/website/docs/d/redis_cache.html.markdown
-index 511a4ef999..8e6ea72f51 100644
+index efac25cc23..ead76e47e5 100644
 --- a/website/docs/d/redis_cache.html.markdown
 +++ b/website/docs/d/redis_cache.html.markdown
-@@ -108,10 +108,10 @@ A `redis_configuration` block exports the following:
+@@ -110,10 +110,10 @@ A `redis_configuration` block exports the following:
  
  * `rdb_storage_connection_string` - The Connection String to the Storage Account. Only supported for Premium SKUs.
  
@@ -262,7 +262,7 @@ index a2e59b2cc0..d9dc21a792 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_api.html.markdown b/website/docs/r/api_management_api.html.markdown
-index eb9f6021fd..115ff7ced8 100644
+index 57d9ed9a2d..5c797d632f 100644
 --- a/website/docs/r/api_management_api.html.markdown
 +++ b/website/docs/r/api_management_api.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -274,7 +274,7 @@ index eb9f6021fd..115ff7ced8 100644
  
    sku_name = "Developer_1"
  }
-@@ -136,7 +136,7 @@ A `license` block supports the following:
+@@ -132,7 +132,7 @@ A `license` block supports the following:
  
  A `oauth2_authorization` block supports the following:
  
@@ -283,7 +283,7 @@ index eb9f6021fd..115ff7ced8 100644
  
  * `scope` - (Optional) Operations scope.
  
-@@ -144,7 +144,7 @@ A `oauth2_authorization` block supports the following:
+@@ -140,7 +140,7 @@ A `oauth2_authorization` block supports the following:
  
  A `openid_authentication` block supports the following:
  
@@ -367,7 +367,7 @@ index fe0d28921f..88823eb505 100644
  * `host_name` - (Required) The Hostname to use for the API Proxy Endpoint.
  
 diff --git a/website/docs/r/api_management_diagnostic.html.markdown b/website/docs/r/api_management_diagnostic.html.markdown
-index 5ff71b2f10..d42851f157 100644
+index e9d5b915ce..7edf86c266 100644
 --- a/website/docs/r/api_management_diagnostic.html.markdown
 +++ b/website/docs/r/api_management_diagnostic.html.markdown
 @@ -34,7 +34,7 @@ resource "azurerm_api_management" "example" {
@@ -975,10 +975,10 @@ index 0000000000..2789c4e8a4
 +terraform import azurerm_connection_monitor.monitor1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/monitor1
 +```
 diff --git a/website/docs/r/container_group.html.markdown b/website/docs/r/container_group.html.markdown
-index c3c80d41e9..cf11da37b5 100644
+index ed1f00c577..a4568c1ce0 100644
 --- a/website/docs/r/container_group.html.markdown
 +++ b/website/docs/r/container_group.html.markdown
-@@ -14,7 +14,7 @@ Manages as an Azure Container Group instance.
+@@ -12,7 +12,7 @@ Manages as an Azure Container Group instance.
  
  ## Example Usage
  
@@ -987,7 +987,7 @@ index c3c80d41e9..cf11da37b5 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -255,7 +255,7 @@ A `volume` block supports:
+@@ -253,7 +253,7 @@ A `volume` block supports:
  
  ~> **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
  
@@ -997,7 +997,7 @@ index c3c80d41e9..cf11da37b5 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index c824ba842e..4e2de96ed0 100644
+index 01a845deab..6d790e8b1a 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1194,78 +1194,6 @@ index 9e93c39f0e..39fb29509c 100644
 +~> **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed. 
  
  ---
- 
-diff --git a/website/docs/r/dashboard.html.markdown b/website/docs/r/dashboard.html.markdown
-index 3798b59a70..c2978eedbe 100644
---- a/website/docs/r/dashboard.html.markdown
-+++ b/website/docs/r/dashboard.html.markdown
-@@ -37,7 +37,7 @@ resource "azurerm_dashboard" "my-board" {
-   resource_group_name = azurerm_resource_group.example.name
-   location            = azurerm_resource_group.example.location
-   tags = {
--    source = "terraform"
-+    source = "managed"
-   }
-   dashboard_properties = <<DASH
- {
-@@ -193,35 +193,7 @@ Since the contents of the dashboard JSON can be quite lengthy, use a template fi
-                  ...
- ```
- 
--This is then referenced in the `.tf` file by using a [`template_file`](https://www.terraform.io/docs/providers/template/d/file.html) data source (terraform 0.11 or earlier), or the [`templatefile`](https://www.terraform.io/docs/configuration/functions/templatefile.html) function (terraform 0.12+).
--
--`main.tf` (terraform 0.11 or earlier):
--
--```hcl
--data "template_file" "dash-template" {
--  template = "${file("${path.module}/dash.tpl")}"
--  vars = {
--    md_content = "Variable content here!"
--    video_link = "https://www.youtube.com/watch?v=......"
--    sub_id     = data.azurerm_subscription.current.subscription_id
--  }
--}
--
--#...
--
--resource "azurerm_dashboard" "my-board" {
--  name                = "my-cool-dashboard"
--  resource_group_name = azurerm_resource_group.example.name
--  location            = azurerm_resource_group.example.location
--  tags = {
--    source = "terraform"
--  }
--  dashboard_properties = data.template_file.dash-template.rendered
--}
--
--```
--
--`main.tf` (terraform 0.12+)
-+`main.tf`
- 
- ```hcl
- resource "azurerm_dashboard" "my-board" {
-@@ -229,7 +201,7 @@ resource "azurerm_dashboard" "my-board" {
-   resource_group_name = azurerm_resource_group.example.name
-   location            = azurerm_resource_group.example.location
-   tags = {
--    source = "terraform"
-+    source = "managed"
-   }
-   dashboard_properties = templatefile("dash.tpl",
-     {
-diff --git a/website/docs/r/data_factory_integration_runtime_managed.html.markdown b/website/docs/r/data_factory_integration_runtime_managed.html.markdown
-index 20581a02c2..392d3276c0 100644
---- a/website/docs/r/data_factory_integration_runtime_managed.html.markdown
-+++ b/website/docs/r/data_factory_integration_runtime_managed.html.markdown
-@@ -10,7 +10,7 @@ description: |-
- 
- Manages an Azure Data Factory Managed Integration Runtime.
- 
--~> **NOTE:** The `azurerm_data_factory_integration_runtime_managed` resource has been superseded by the [`azurerm_data_factory_integration_runtime_azure_ssis`](data_factory_integration_runtime_azure_ssis.html) resource. The existing `azurerm_data_factory_integration_runtime_managed` resource will be deprecated (but still available) in version 3.0 of the AzureRM Terraform Provider - we recommend using the [`azurerm_data_factory_integration_runtime_azure_ssis`](data_factory_integration_runtime_azure_ssis.html) resource for new deployments.
-+~> **NOTE:** The `azurerm_data_factory_integration_runtime_managed` resource has been superseded by the `azurerm_data_factory_integration_runtime_azure_ssis` resource. We recommend using the `azurerm_data_factory_integration_runtime_azure_ssis` resource for new deployments.
- 
- ## Example Usage
  
 diff --git a/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown b/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown
 index 3bfeb2ad0b..360443e61d 100644
@@ -1537,7 +1465,7 @@ index 6b06ca628f..a2e544d3ef 100644
  
  ```hcl
 diff --git a/website/docs/r/function_app.html.markdown b/website/docs/r/function_app.html.markdown
-index 138d8e5b99..6ac7206ed5 100644
+index d4c341247a..1af082b738 100644
 --- a/website/docs/r/function_app.html.markdown
 +++ b/website/docs/r/function_app.html.markdown
 @@ -237,7 +237,7 @@ The following arguments are supported:
@@ -1645,7 +1573,7 @@ index 18197f4acd..f7991b35d9 100644
  
  ---
 diff --git a/website/docs/r/iothub.html.markdown b/website/docs/r/iothub.html.markdown
-index 5d11b28af1..80aed3083f 100644
+index 55d4066dc3..84dabfde45 100644
 --- a/website/docs/r/iothub.html.markdown
 +++ b/website/docs/r/iothub.html.markdown
 @@ -161,6 +161,10 @@ The following arguments are supported:
@@ -1794,7 +1722,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index bc488d45dd..341926fe41 100644
+index b9569b502a..aa39f76d02 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1814,16 +1742,16 @@ index bc488d45dd..341926fe41 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -366,7 +360,7 @@ A `default_node_pool` block supports the following:
+@@ -360,7 +354,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
 --> **Note:** If you're using AutoScaling, you may wish to use [Terraform's `ignore_changes` functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the `node_count` field.
 +-> **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
  
- * `enable_host_encryption` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
+ * `host_encryption_enabled` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -422,7 +416,7 @@ A `default_node_pool` block supports the following:
+@@ -416,7 +410,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1832,16 +1760,16 @@ index bc488d45dd..341926fe41 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -446,7 +440,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -440,7 +434,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
 --> **Note:** If specified you may wish to use [Terraform's `ignore_changes` functionality](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) to ignore changes to this field.
 +-> **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
  
- -> **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
+ -> **Note:** If `auto_scaling_enabled` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -685,8 +679,6 @@ A `network_profile` block supports the following:
+@@ -673,8 +667,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -1850,7 +1778,7 @@ index bc488d45dd..341926fe41 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1047,19 +1039,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1039,19 +1031,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -1871,7 +1799,7 @@ index bc488d45dd..341926fe41 100644
  
  The `ingress_application_gateway` block exports the following:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index ffd20bd6b8..3623d083ba 100644
+index 5eef5f3d0e..89ec33da99 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,13 +10,11 @@ description: |-
@@ -1898,14 +1826,14 @@ index ffd20bd6b8..3623d083ba 100644
  
  * `scale_down_mode` - (Optional) Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
  
-@@ -168,7 +166,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -168,7 +166,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
  
 --> **NOTE:** If you're specifying an initial number of nodes you may wish to use [Terraform's `ignore_changes` functionality](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) to ignore changes to this field.
 +-> **NOTE:** If you're specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
  
- If `enable_auto_scaling` is set to `false`, then the following fields can also be configured:
+ If `auto_scaling_enabled` is set to `false`, then the following fields can also be configured:
  
 diff --git a/website/docs/r/lighthouse_definition.html.markdown b/website/docs/r/lighthouse_definition.html.markdown
 index 656e81119f..b9a4cae44f 100644
@@ -1946,7 +1874,7 @@ index e4518f2e9a..1d953d6407 100644
  ```hcl
  resource "azurerm_resource_group" "example" {
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index 10758be329..9ab632bb82 100644
+index bcc6e83b66..cf66b63226 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -13,14 +13,11 @@ Manages a Linux Virtual Machine Scale Set.
@@ -1975,7 +1903,7 @@ index 10758be329..9ab632bb82 100644
  
  * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
  
-@@ -358,8 +355,6 @@ An `extension` block supports the following:
+@@ -354,8 +351,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
@@ -1984,7 +1912,7 @@ index 10758be329..9ab632bb82 100644
  * `protected_settings_from_key_vault` - (Optional) A `protected_settings_from_key_vault` block as defined below.
  
  ~> **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
-@@ -370,8 +365,6 @@ An `extension` block supports the following:
+@@ -366,8 +361,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
@@ -2099,24 +2027,11 @@ index 5581db562f..59d329aa24 100644
  
  ~> **NOTE:** When upgrading `disk_size_gb` from value less than 4095 to a value greater than 4095, the disk will be detached from its associated Virtual Machine as required by Azure to action the change. Terraform will attempt to reattach the disk again after the update.
  
-diff --git a/website/docs/r/mariadb_virtual_network_rule.html.markdown b/website/docs/r/mariadb_virtual_network_rule.html.markdown
-index 7c909a8c31..796cef0b18 100644
---- a/website/docs/r/mariadb_virtual_network_rule.html.markdown
-+++ b/website/docs/r/mariadb_virtual_network_rule.html.markdown
-@@ -73,7 +73,7 @@ The following arguments are supported:
- 
- * `subnet_id` - (Required) The ID of the subnet that the MariaDB server will be connected to.
- 
--~> **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. Terraform will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
-+~> **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
- 
- ## Attributes Reference
- 
 diff --git a/website/docs/r/monitor_activity_log_alert.html.markdown b/website/docs/r/monitor_activity_log_alert.html.markdown
-index 2dd9d7e10d..21e3a2d8c8 100644
+index 64c18a4d5e..541b8ef092 100644
 --- a/website/docs/r/monitor_activity_log_alert.html.markdown
 +++ b/website/docs/r/monitor_activity_log_alert.html.markdown
-@@ -53,7 +53,7 @@ resource "azurerm_monitor_activity_log_alert" "main" {
+@@ -54,7 +54,7 @@ resource "azurerm_monitor_activity_log_alert" "main" {
      action_group_id = azurerm_monitor_action_group.main.id
  
      webhook_properties = {
@@ -2126,10 +2041,10 @@ index 2dd9d7e10d..21e3a2d8c8 100644
    }
  }
 diff --git a/website/docs/r/monitor_diagnostic_setting.html.markdown b/website/docs/r/monitor_diagnostic_setting.html.markdown
-index 03f2f27deb..f48028f10c 100644
+index 6ce94c3f96..96a0bc66c1 100644
 --- a/website/docs/r/monitor_diagnostic_setting.html.markdown
 +++ b/website/docs/r/monitor_diagnostic_setting.html.markdown
-@@ -198,4 +198,4 @@ Diagnostic Settings can be imported using the `resource id`, e.g.
+@@ -145,4 +145,4 @@ Diagnostic Settings can be imported using the `resource id`, e.g.
  terraform import azurerm_monitor_diagnostic_setting.example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1"
  ```
  
@@ -2162,19 +2077,6 @@ index 4289b3af47..30eccc2326 100644
  
  ```hcl
  data "azurerm_virtual_machine" "example" {
-diff --git a/website/docs/r/mysql_virtual_network_rule.html.markdown b/website/docs/r/mysql_virtual_network_rule.html.markdown
-index a28f55218f..54d6c8cd9d 100644
---- a/website/docs/r/mysql_virtual_network_rule.html.markdown
-+++ b/website/docs/r/mysql_virtual_network_rule.html.markdown
-@@ -84,7 +84,7 @@ The following arguments are supported:
- 
- * `subnet_id` - (Required) The ID of the subnet that the MySQL server will be connected to.
- 
--~> **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. Terraform will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
-+~> **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignore_missing_vnet_service_endpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
- 
- ## Attributes Reference
- 
 diff --git a/website/docs/r/nat_gateway_public_ip_association.html.markdown b/website/docs/r/nat_gateway_public_ip_association.html.markdown
 index e717ee3aee..cdef8e4c39 100644
 --- a/website/docs/r/nat_gateway_public_ip_association.html.markdown
@@ -2347,10 +2249,10 @@ index a2a63e6897..c09a419039 100644
  At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
  
 diff --git a/website/docs/r/notification_hub.html.markdown b/website/docs/r/notification_hub.html.markdown
-index 06e3f57418..0ac142e857 100644
+index f6a6a080dc..f0bac4d1d3 100644
 --- a/website/docs/r/notification_hub.html.markdown
 +++ b/website/docs/r/notification_hub.html.markdown
-@@ -64,7 +64,7 @@ A `apns_credential` block contains:
+@@ -66,7 +66,7 @@ A `apns_credential` supports the following:
  
  * `application_mode` - (Required) The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
  
@@ -2373,7 +2275,7 @@ index dc6b71544f..424dbbc59a 100644
  * How to connect a `Private Endpoint` to a [Cosmos PostgreSQL](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/cosmos-db/postgresql)
  * How to connect a `Private Endpoint` to a [PostgreSQL Server](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/postgresql)
 diff --git a/website/docs/r/public_ip.html.markdown b/website/docs/r/public_ip.html.markdown
-index 51e7e1da87..a0da5028ed 100644
+index 1f4eccb6de..7d2d700d1c 100644
 --- a/website/docs/r/public_ip.html.markdown
 +++ b/website/docs/r/public_ip.html.markdown
 @@ -94,7 +94,7 @@ In addition to the Arguments listed above - the following Attributes are exporte
@@ -2398,7 +2300,7 @@ index c82917be5a..131701e1d9 100644
  * `cross_region_restore_enabled` - (Optional) Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
  
 diff --git a/website/docs/r/redis_cache.html.markdown b/website/docs/r/redis_cache.html.markdown
-index 5f504153f6..6e8a67c494 100644
+index a90100d447..af92891cf8 100644
 --- a/website/docs/r/redis_cache.html.markdown
 +++ b/website/docs/r/redis_cache.html.markdown
 @@ -15,7 +15,7 @@ Manages a Redis Cache.
@@ -2410,7 +2312,7 @@ index 5f504153f6..6e8a67c494 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -158,7 +158,7 @@ redis_configuration {
+@@ -160,7 +160,7 @@ redis_configuration {
  * `rdb_backup_max_snapshot_count` - (Optional) The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
  * `rdb_storage_connection_string` - (Optional) The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
  
@@ -2513,7 +2415,7 @@ index ac4af43300..89c3969ee4 100644
  At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
  
 diff --git a/website/docs/r/route_table.html.markdown b/website/docs/r/route_table.html.markdown
-index 2536411881..dd2916c58c 100644
+index 3795e39b28..e401b9f4a0 100644
 --- a/website/docs/r/route_table.html.markdown
 +++ b/website/docs/r/route_table.html.markdown
 @@ -11,8 +11,7 @@ description: |-
@@ -2526,7 +2428,7 @@ index 2536411881..dd2916c58c 100644
  At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
  
  ## Example Usage
-@@ -51,7 +50,7 @@ The following arguments are supported:
+@@ -50,7 +49,7 @@ The following arguments are supported:
  
  * `location` - (Required) Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
  
@@ -2536,7 +2438,7 @@ index 2536411881..dd2916c58c 100644
  -> **NOTE** Since `route` can be configured both inline and via the separate `azurerm_route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
  
 diff --git a/website/docs/r/servicebus_namespace.html.markdown b/website/docs/r/servicebus_namespace.html.markdown
-index cd295476d9..7e927dfd93 100644
+index dad83f7c87..cc92bf91dd 100644
 --- a/website/docs/r/servicebus_namespace.html.markdown
 +++ b/website/docs/r/servicebus_namespace.html.markdown
 @@ -18,7 +18,7 @@ provider "azurerm" {
@@ -2582,7 +2484,7 @@ index 1e67c40d11..97e4bc8354 100644
  }
  
 diff --git a/website/docs/r/servicebus_queue.html.markdown b/website/docs/r/servicebus_queue.html.markdown
-index 0791e08ecd..7957b743b8 100644
+index 82dfc08917..14bf56bf55 100644
 --- a/website/docs/r/servicebus_queue.html.markdown
 +++ b/website/docs/r/servicebus_queue.html.markdown
 @@ -14,7 +14,7 @@ Manages a ServiceBus Queue.
@@ -2628,7 +2530,7 @@ index 85cdf12b7c..022e669454 100644
  }
  
 diff --git a/website/docs/r/servicebus_subscription.html.markdown b/website/docs/r/servicebus_subscription.html.markdown
-index 44aa620ed5..9b5b75d9d9 100644
+index 94003e8ab8..4b2abe65c0 100644
 --- a/website/docs/r/servicebus_subscription.html.markdown
 +++ b/website/docs/r/servicebus_subscription.html.markdown
 @@ -25,7 +25,7 @@ resource "azurerm_servicebus_namespace" "example" {
@@ -2663,7 +2565,7 @@ index 6d9c021a59..194133d93b 100644
  }
  
 diff --git a/website/docs/r/servicebus_topic.html.markdown b/website/docs/r/servicebus_topic.html.markdown
-index bc2d0ee559..09479a7627 100644
+index f9a0dd284a..16a7d87b23 100644
 --- a/website/docs/r/servicebus_topic.html.markdown
 +++ b/website/docs/r/servicebus_topic.html.markdown
 @@ -27,7 +27,7 @@ resource "azurerm_servicebus_namespace" "example" {
@@ -2702,7 +2604,7 @@ index 06660e1381..3562812668 100644
  -> **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
  
 diff --git a/website/docs/r/signalr_service.html.markdown b/website/docs/r/signalr_service.html.markdown
-index ea6e5aa12e..596c16baba 100644
+index 90c61ffe39..0bcae5bfb2 100644
 --- a/website/docs/r/signalr_service.html.markdown
 +++ b/website/docs/r/signalr_service.html.markdown
 @@ -14,8 +14,8 @@ Manages an Azure SignalR service.
@@ -2716,34 +2618,6 @@ index ea6e5aa12e..596c16baba 100644
  }
  
  resource "azurerm_signalr_service" "example" {
-diff --git a/website/docs/r/sql_failover_group.html.markdown b/website/docs/r/sql_failover_group.html.markdown
-index 840b9c5189..bb0a73467b 100644
---- a/website/docs/r/sql_failover_group.html.markdown
-+++ b/website/docs/r/sql_failover_group.html.markdown
-@@ -73,7 +73,7 @@ The following arguments are supported:
- 
- * `databases` - (Optional) A list of database ids to add to the failover group
- 
---> **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through Terraform, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first. Please refer to the detailed example which can be found in [the `./examples/sql-azure/failover_group` directory within the GitHub Repository](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/sql-azure/failover_group)
-+-> **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
- 
- * `partner_servers` - (Required) A list of `partner_servers` blocks as documented below.
- 
-diff --git a/website/docs/r/sql_server.html.markdown b/website/docs/r/sql_server.html.markdown
-index 8f57c91d06..e08781fa67 100644
---- a/website/docs/r/sql_server.html.markdown
-+++ b/website/docs/r/sql_server.html.markdown
-@@ -11,10 +11,6 @@ description: |-
- 
- Manages a Microsoft SQL Azure Database Server.
- 
--~> **Note:** The `azurerm_sql_server` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the [`azurerm_mssql_server`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server) resource instead.
--
--~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/language/state/sensitive-data).
--
- ## Example Usage
- 
- ```hcl
 diff --git a/website/docs/r/storage_blob.html.markdown b/website/docs/r/storage_blob.html.markdown
 index d5b970d394..34cf87d1ae 100644
 --- a/website/docs/r/storage_blob.html.markdown
@@ -2836,67 +2710,6 @@ index 6615ced1a0..8cdbb9f9bd 100644
  
 --> **NOTE:** This ID is specific to Terraform - and is of the format `{synapseScope}|{synapseRoleAssignmentId}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{synapseScope}|{synapseRoleAssignmentId}`.
-diff --git a/website/docs/r/template_deployment.html.markdown b/website/docs/r/template_deployment.html.markdown
-index c3ce72277d..2c0cbbeeaf 100644
---- a/website/docs/r/template_deployment.html.markdown
-+++ b/website/docs/r/template_deployment.html.markdown
-@@ -10,13 +10,13 @@ description: |-
- 
- Manages a template deployment of resources
- 
--~> **Note:** The `azurerm_template_deployment` resource has been superseded by the [`azurerm_resource_group_template_deployment`](resource_group_template_deployment.html) resource. The existing `azurerm_template_deployment` resource will be deprecated (but still available) in version 3.0 of the AzureRM Terraform Provider - we recommend using the `azurerm_resource_group_template_deployment` resource for new deployments.
--
---> **Note:** This resource will not clean up nested resources deployed by the ARM Template Deployment. We recommend using the [`azurerm_resource_group_template_deployment`](resource_group_template_deployment.html) resource for new deployments, which can do this.
-+~> **Note on ARM Template Deployments:** Due to the way the underlying Azure API is designed, this provider can only manage the deployment of the ARM Template - and not any resources which are created by it.
-+This means that when deleting the `azurerm_template_deployment` resource, this provider will only remove the reference to the deployment, whilst leaving any resources created by that ARM Template Deployment.
-+One workaround for this is to use a unique Resource Group for each ARM Template Deployment, which means deleting the Resource Group would contain any resources created within it - however this isn't ideal. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
- 
- ## Example Usage
- 
--~> **Note:** This example uses [Storage Accounts](storage_account.html) and [Public IP's](public_ip.html) which are natively supported by Terraform - we'd highly recommend using the Native Resources where possible instead rather than an ARM Template, for the reasons outlined above.
-+~> **Note:** This example uses [Storage Accounts](storage_account.html) and [Public IP's](public_ip.html) which are natively supported by this provider - we'd highly recommend using the Native Resources where possible instead rather than an ARM Template, for the reasons outlined above.
- 
- ```hcl
- resource "azurerm_resource_group" "example" {
-@@ -52,7 +52,7 @@ resource "azurerm_template_deployment" "example" {
-     "publicIPAddressName": "[concat('myPublicIp', uniquestring(resourceGroup().id))]",
-     "publicIPAddressType": "Dynamic",
-     "apiVersion": "2015-06-15",
--    "dnsLabelPrefix": "terraform-acctest"
-+    "dnsLabelPrefix": "example-acctest"
-   },
-   "resources": [
-     {
-@@ -108,19 +108,13 @@ The following arguments are supported:
- * `resource_group_name` - (Required) The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
- * `deployment_mode` - (Required) Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
-     Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
--    specified within the template, and Terraform will not be aware of this.
-+    specified within the template, and this provider will not be aware of this.
- * `template_body` - (Optional) Specifies the JSON definition for the template.
- 
--~> **Note:** There's a [`file` function available](https://www.terraform.io/docs/configuration/functions/file.html) which allows you to read this from an external file, which helps makes this more resource more readable.
--
- * `parameters` - (Optional) Specifies the name and value pairs that define the deployment parameters for the template.
- 
- * `parameters_body` - (Optional) Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
- 
--~> **Note:** There's a [`file` function available](https://www.terraform.io/docs/configuration/functions/file.html) which allows you to read this from an external file, which helps makes this more resource more readable.
--
--~> **Also Note:** This is NOT an Azure deployment parameters file, as defined in the [`Microsoft schema's`](https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#). It is effectively the object supplied to the "parameters" attribute in that schema. If you are providing, or generating via [`template_file`](https://www.terraform.io/docs/providers/template/d/file.html), this argument, do not provide a full deployment parameters JSON file with "$schema" and "contentVersion" attributes, just provide the object for the "parameters" attribute of that schema.
--
- ## Attributes Reference
- 
- In addition to the Arguments listed above - the following Attributes are exported:
-@@ -131,7 +125,7 @@ In addition to the Arguments listed above - the following Attributes are exporte
- 
- ## Note
- 
--Terraform does not know about the individual resources created by Azure using a deployment template and therefore cannot delete these resources during a destroy. Destroying a template deployment removes the associated deployment operations, but will not delete the Azure resources created by the deployment. In order to delete these resources, the containing resource group must also be destroyed. [More information](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Delete).
-+This provider does not know about the individual resources created by Azure using a deployment template and therefore cannot delete these resources during a destroy. Destroying a template deployment removes the associated deployment operations, but will not delete the Azure resources created by the deployment. In order to delete these resources, the containing resource group must also be destroyed. [More information](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Delete).
- 
- ## Timeouts
- 
 diff --git a/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown b/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
 index a77a466231..a4c7275acf 100644
 --- a/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
@@ -3014,7 +2827,7 @@ index f96d4cc7bd..416bf679b8 100644
  ---
  
 diff --git a/website/docs/r/virtual_network.html.markdown b/website/docs/r/virtual_network.html.markdown
-index ec5ffc78a6..91e07e2778 100644
+index 7306d3c64b..337ff43dee 100644
 --- a/website/docs/r/virtual_network.html.markdown
 +++ b/website/docs/r/virtual_network.html.markdown
 @@ -11,10 +11,10 @@ description: |-
@@ -3058,7 +2871,7 @@ index 45781e8d0b..7a87d33337 100644
  ```hcl
  provider "azurerm" {
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index 934a2d1b6b..34ab38e6d8 100644
+index ea1c14e83e..2ba2c339ad 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,17 @@ Manages a Windows Virtual Machine Scale Set.
@@ -3091,7 +2904,7 @@ index 934a2d1b6b..34ab38e6d8 100644
  
  * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
  
-@@ -347,8 +347,6 @@ An `extension` block supports the following:
+@@ -343,8 +343,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
@@ -3100,7 +2913,7 @@ index 934a2d1b6b..34ab38e6d8 100644
  * `protected_settings_from_key_vault` - (Optional) A `protected_settings_from_key_vault` block as defined below.
  
  ~> **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
-@@ -359,8 +357,6 @@ An `extension` block supports the following:
+@@ -355,8 +353,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
