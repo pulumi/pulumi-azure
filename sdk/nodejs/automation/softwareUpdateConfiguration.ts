@@ -44,19 +44,18 @@ import * as utilities from "../utilities";
  * const exampleSoftwareUpdateConfiguration = new azure.automation.SoftwareUpdateConfiguration("example", {
  *     name: "example",
  *     automationAccountId: exampleAccount.id,
- *     operatingSystem: "Linux",
- *     linuxes: [{
- *         classificationIncluded: "Security",
+ *     linux: {
+ *         classificationsIncludeds: "Security",
  *         excludedPackages: ["apt"],
  *         includedPackages: ["vim"],
  *         reboot: "IfRequired",
- *     }],
- *     preTasks: [{
+ *     },
+ *     preTask: {
  *         source: exampleRunBook.name,
  *         parameters: {
  *             COMPUTER_NAME: "Foo",
  *         },
- *     }],
+ *     },
  *     duration: "PT2H2M2S",
  * });
  * ```
@@ -111,15 +110,12 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
     public /*out*/ readonly errorCode!: pulumi.Output<string>;
     /**
      * The Error message indicating why the operation failed.
-     *
-     * @deprecated `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
      */
-    public /*out*/ readonly errorMeesage!: pulumi.Output<string>;
     public /*out*/ readonly errorMessage!: pulumi.Output<string>;
     /**
      * A `linux` block as defined below.
      */
-    public readonly linuxes!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationLinux[] | undefined>;
+    public readonly linux!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationLinux | undefined>;
     /**
      * The name which should be used for this Automation. Changing this forces a new Automation to be created.
      */
@@ -129,21 +125,17 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
      */
     public readonly nonAzureComputerNames!: pulumi.Output<string[] | undefined>;
     /**
-     * @deprecated This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-     */
-    public readonly operatingSystem!: pulumi.Output<string>;
-    /**
      * A `postTask` blocks as defined below.
      */
-    public readonly postTasks!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationPostTask[] | undefined>;
+    public readonly postTask!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationPostTask | undefined>;
     /**
      * A `preTask` blocks as defined below.
      */
-    public readonly preTasks!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationPreTask[] | undefined>;
+    public readonly preTask!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationPreTask | undefined>;
     /**
      * A `schedule` blocks as defined below.
      */
-    public readonly schedules!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationSchedule[]>;
+    public readonly schedule!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationSchedule>;
     /**
      * A `target` blocks as defined below.
      */
@@ -175,15 +167,13 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
             resourceInputs["automationAccountId"] = state ? state.automationAccountId : undefined;
             resourceInputs["duration"] = state ? state.duration : undefined;
             resourceInputs["errorCode"] = state ? state.errorCode : undefined;
-            resourceInputs["errorMeesage"] = state ? state.errorMeesage : undefined;
             resourceInputs["errorMessage"] = state ? state.errorMessage : undefined;
-            resourceInputs["linuxes"] = state ? state.linuxes : undefined;
+            resourceInputs["linux"] = state ? state.linux : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nonAzureComputerNames"] = state ? state.nonAzureComputerNames : undefined;
-            resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
-            resourceInputs["postTasks"] = state ? state.postTasks : undefined;
-            resourceInputs["preTasks"] = state ? state.preTasks : undefined;
-            resourceInputs["schedules"] = state ? state.schedules : undefined;
+            resourceInputs["postTask"] = state ? state.postTask : undefined;
+            resourceInputs["preTask"] = state ? state.preTask : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
             resourceInputs["target"] = state ? state.target : undefined;
             resourceInputs["virtualMachineIds"] = state ? state.virtualMachineIds : undefined;
             resourceInputs["windows"] = state ? state.windows : undefined;
@@ -192,23 +182,21 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
             if ((!args || args.automationAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountId'");
             }
-            if ((!args || args.schedules === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'schedules'");
+            if ((!args || args.schedule === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'schedule'");
             }
             resourceInputs["automationAccountId"] = args ? args.automationAccountId : undefined;
             resourceInputs["duration"] = args ? args.duration : undefined;
-            resourceInputs["linuxes"] = args ? args.linuxes : undefined;
+            resourceInputs["linux"] = args ? args.linux : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nonAzureComputerNames"] = args ? args.nonAzureComputerNames : undefined;
-            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            resourceInputs["postTasks"] = args ? args.postTasks : undefined;
-            resourceInputs["preTasks"] = args ? args.preTasks : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
+            resourceInputs["postTask"] = args ? args.postTask : undefined;
+            resourceInputs["preTask"] = args ? args.preTask : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
             resourceInputs["virtualMachineIds"] = args ? args.virtualMachineIds : undefined;
             resourceInputs["windows"] = args ? args.windows : undefined;
             resourceInputs["errorCode"] = undefined /*out*/;
-            resourceInputs["errorMeesage"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -234,15 +222,12 @@ export interface SoftwareUpdateConfigurationState {
     errorCode?: pulumi.Input<string>;
     /**
      * The Error message indicating why the operation failed.
-     *
-     * @deprecated `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
      */
-    errorMeesage?: pulumi.Input<string>;
     errorMessage?: pulumi.Input<string>;
     /**
      * A `linux` block as defined below.
      */
-    linuxes?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationLinux>[]>;
+    linux?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationLinux>;
     /**
      * The name which should be used for this Automation. Changing this forces a new Automation to be created.
      */
@@ -252,21 +237,17 @@ export interface SoftwareUpdateConfigurationState {
      */
     nonAzureComputerNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-     */
-    operatingSystem?: pulumi.Input<string>;
-    /**
      * A `postTask` blocks as defined below.
      */
-    postTasks?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPostTask>[]>;
+    postTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPostTask>;
     /**
      * A `preTask` blocks as defined below.
      */
-    preTasks?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPreTask>[]>;
+    preTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPreTask>;
     /**
      * A `schedule` blocks as defined below.
      */
-    schedules?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationSchedule>[]>;
+    schedule?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationSchedule>;
     /**
      * A `target` blocks as defined below.
      */
@@ -298,7 +279,7 @@ export interface SoftwareUpdateConfigurationArgs {
     /**
      * A `linux` block as defined below.
      */
-    linuxes?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationLinux>[]>;
+    linux?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationLinux>;
     /**
      * The name which should be used for this Automation. Changing this forces a new Automation to be created.
      */
@@ -308,21 +289,17 @@ export interface SoftwareUpdateConfigurationArgs {
      */
     nonAzureComputerNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-     */
-    operatingSystem?: pulumi.Input<string>;
-    /**
      * A `postTask` blocks as defined below.
      */
-    postTasks?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPostTask>[]>;
+    postTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPostTask>;
     /**
      * A `preTask` blocks as defined below.
      */
-    preTasks?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPreTask>[]>;
+    preTask?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationPreTask>;
     /**
      * A `schedule` blocks as defined below.
      */
-    schedules: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationSchedule>[]>;
+    schedule: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationSchedule>;
     /**
      * A `target` blocks as defined below.
      */

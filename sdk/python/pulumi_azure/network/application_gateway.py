@@ -1168,7 +1168,7 @@ class ApplicationGateway(pulumi.CustomResource):
             name="example-pip",
             resource_group_name=example.name,
             location=example.location,
-            allocation_method="Dynamic")
+            allocation_method="Static")
         backend_address_pool_name = example_virtual_network.name.apply(lambda name: f"{name}-beap")
         frontend_port_name = example_virtual_network.name.apply(lambda name: f"{name}-feport")
         frontend_ip_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-feip")
@@ -1300,7 +1300,7 @@ class ApplicationGateway(pulumi.CustomResource):
             name="example-pip",
             resource_group_name=example.name,
             location=example.location,
-            allocation_method="Dynamic")
+            allocation_method="Static")
         backend_address_pool_name = example_virtual_network.name.apply(lambda name: f"{name}-beap")
         frontend_port_name = example_virtual_network.name.apply(lambda name: f"{name}-feport")
         frontend_ip_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-feip")

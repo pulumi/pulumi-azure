@@ -392,7 +392,7 @@ class Module(pulumi.CustomResource):
             name="example-pip",
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Dynamic")
+            allocation_method="Static")
         example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
             name="example-vnetgateway",
             location=example.location,
@@ -503,7 +503,7 @@ class Module(pulumi.CustomResource):
             name="example-pip",
             location=example.location,
             resource_group_name=example.name,
-            allocation_method="Dynamic")
+            allocation_method="Static")
         example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
             name="example-vnetgateway",
             location=example.location,

@@ -38,19 +38,19 @@ class ConfigurationStoreArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input['ConfigurationStoreEncryptionArgs'] encryption: An `encryption` block as defined below.
         :param pulumi.Input['ConfigurationStoreIdentityArgs'] identity: An `identity` block as defined below.
-               
-               > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_network_access: The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
                
-               > **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+               > **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         :param pulumi.Input[bool] purge_protection_enabled: Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
                
                !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]] replicas: One or more `replica` blocks as defined below.
         :param pulumi.Input[str] sku: The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+               
+               > **Note:** Azure does not allow a downgrade from `standard` to `free`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
                
                > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
@@ -109,8 +109,6 @@ class ConfigurationStoreArgs:
     def identity(self) -> Optional[pulumi.Input['ConfigurationStoreIdentityArgs']]:
         """
         An `identity` block as defined below.
-
-        > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
         """
         return pulumi.get(self, "identity")
 
@@ -160,7 +158,7 @@ class ConfigurationStoreArgs:
         """
         The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 
-        > **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+        > **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -199,6 +197,8 @@ class ConfigurationStoreArgs:
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+
+        > **Note:** Azure does not allow a downgrade from `standard` to `free`.
         """
         return pulumi.get(self, "sku")
 
@@ -258,8 +258,6 @@ class _ConfigurationStoreState:
         :param pulumi.Input['ConfigurationStoreEncryptionArgs'] encryption: An `encryption` block as defined below.
         :param pulumi.Input[str] endpoint: The URL of the App Configuration Replica.
         :param pulumi.Input['ConfigurationStoreIdentityArgs'] identity: An `identity` block as defined below.
-               
-               > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
@@ -267,7 +265,7 @@ class _ConfigurationStoreState:
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]] primary_write_keys: A `primary_write_key` block as defined below containing the primary write access key.
         :param pulumi.Input[str] public_network_access: The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
                
-               > **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+               > **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         :param pulumi.Input[bool] purge_protection_enabled: Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
                
                !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
@@ -276,6 +274,8 @@ class _ConfigurationStoreState:
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
         :param pulumi.Input[str] sku: The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+               
+               > **Note:** Azure does not allow a downgrade from `standard` to `free`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
                
                > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
@@ -345,8 +345,6 @@ class _ConfigurationStoreState:
     def identity(self) -> Optional[pulumi.Input['ConfigurationStoreIdentityArgs']]:
         """
         An `identity` block as defined below.
-
-        > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
         """
         return pulumi.get(self, "identity")
 
@@ -420,7 +418,7 @@ class _ConfigurationStoreState:
         """
         The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 
-        > **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+        > **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -495,6 +493,8 @@ class _ConfigurationStoreState:
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+
+        > **Note:** Azure does not allow a downgrade from `standard` to `free`.
         """
         return pulumi.get(self, "sku")
 
@@ -675,20 +675,20 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']] encryption: An `encryption` block as defined below.
         :param pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']] identity: An `identity` block as defined below.
-               
-               > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_network_access: The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
                
-               > **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+               > **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         :param pulumi.Input[bool] purge_protection_enabled: Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
                
                !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]] replicas: One or more `replica` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+               
+               > **Note:** Azure does not allow a downgrade from `standard` to `free`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
                
                > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
@@ -916,8 +916,6 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']] encryption: An `encryption` block as defined below.
         :param pulumi.Input[str] endpoint: The URL of the App Configuration Replica.
         :param pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']] identity: An `identity` block as defined below.
-               
-               > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
@@ -925,7 +923,7 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryWriteKeyArgs', 'ConfigurationStorePrimaryWriteKeyArgsDict']]]] primary_write_keys: A `primary_write_key` block as defined below containing the primary write access key.
         :param pulumi.Input[str] public_network_access: The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
                
-               > **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+               > **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         :param pulumi.Input[bool] purge_protection_enabled: Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
                
                !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
@@ -934,6 +932,8 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryReadKeyArgs', 'ConfigurationStoreSecondaryReadKeyArgsDict']]]] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryWriteKeyArgs', 'ConfigurationStoreSecondaryWriteKeyArgsDict']]]] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
         :param pulumi.Input[str] sku: The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+               
+               > **Note:** Azure does not allow a downgrade from `standard` to `free`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
                
                > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
@@ -983,8 +983,6 @@ class ConfigurationStore(pulumi.CustomResource):
     def identity(self) -> pulumi.Output[Optional['outputs.ConfigurationStoreIdentity']]:
         """
         An `identity` block as defined below.
-
-        > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
         """
         return pulumi.get(self, "identity")
 
@@ -1034,7 +1032,7 @@ class ConfigurationStore(pulumi.CustomResource):
         """
         The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 
-        > **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+        > **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -1085,6 +1083,8 @@ class ConfigurationStore(pulumi.CustomResource):
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
         The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+
+        > **Note:** Azure does not allow a downgrade from `standard` to `free`.
         """
         return pulumi.get(self, "sku")
 

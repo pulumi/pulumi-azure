@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/streamanalytics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,8 +77,8 @@ type Job struct {
 	CompatibilityLevel pulumi.StringOutput `pulumi:"compatibilityLevel"`
 	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
 	ContentStoragePolicy pulumi.StringPtrOutput `pulumi:"contentStoragePolicy"`
-	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
-	DataLocale pulumi.StringOutput `pulumi:"dataLocale"`
+	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>). Defaults to `en-US`.
+	DataLocale pulumi.StringPtrOutput `pulumi:"dataLocale"`
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
 	EventsLateArrivalMaxDelayInSeconds pulumi.IntPtrOutput `pulumi:"eventsLateArrivalMaxDelayInSeconds"`
 	// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
@@ -157,7 +157,7 @@ type jobState struct {
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
 	ContentStoragePolicy *string `pulumi:"contentStoragePolicy"`
-	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
+	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>). Defaults to `en-US`.
 	DataLocale *string `pulumi:"dataLocale"`
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
 	EventsLateArrivalMaxDelayInSeconds *int `pulumi:"eventsLateArrivalMaxDelayInSeconds"`
@@ -202,7 +202,7 @@ type JobState struct {
 	CompatibilityLevel pulumi.StringPtrInput
 	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
 	ContentStoragePolicy pulumi.StringPtrInput
-	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
+	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>). Defaults to `en-US`.
 	DataLocale pulumi.StringPtrInput
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
 	EventsLateArrivalMaxDelayInSeconds pulumi.IntPtrInput
@@ -251,7 +251,7 @@ type jobArgs struct {
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
 	ContentStoragePolicy *string `pulumi:"contentStoragePolicy"`
-	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
+	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>). Defaults to `en-US`.
 	DataLocale *string `pulumi:"dataLocale"`
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
 	EventsLateArrivalMaxDelayInSeconds *int `pulumi:"eventsLateArrivalMaxDelayInSeconds"`
@@ -295,7 +295,7 @@ type JobArgs struct {
 	CompatibilityLevel pulumi.StringPtrInput
 	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
 	ContentStoragePolicy pulumi.StringPtrInput
-	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
+	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>). Defaults to `en-US`.
 	DataLocale pulumi.StringPtrInput
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
 	EventsLateArrivalMaxDelayInSeconds pulumi.IntPtrInput
@@ -430,9 +430,9 @@ func (o JobOutput) ContentStoragePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.ContentStoragePolicy }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
-func (o JobOutput) DataLocale() pulumi.StringOutput {
-	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.DataLocale }).(pulumi.StringOutput)
+// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>). Defaults to `en-US`.
+func (o JobOutput) DataLocale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.DataLocale }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.

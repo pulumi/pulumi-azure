@@ -98,17 +98,9 @@ export class ChannelsRegistration extends pulumi.CustomResource {
      */
     public readonly endpoint!: pulumi.Output<string | undefined>;
     /**
-     * The icon URL to visually identify the Bot Channels Registration.
+     * The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
-    public readonly iconUrl!: pulumi.Output<string>;
-    /**
-     * Is the Bot Channels Registration in an isolated network?
-     *
-     * > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
-     *
-     * @deprecated `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
-     */
-    public readonly isolatedNetworkEnabled!: pulumi.Output<boolean>;
+    public readonly iconUrl!: pulumi.Output<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -124,7 +116,7 @@ export class ChannelsRegistration extends pulumi.CustomResource {
     /**
      * Is the Bot Channels Registration in an isolated network?
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean>;
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
      */
@@ -163,7 +155,6 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["iconUrl"] = state ? state.iconUrl : undefined;
-            resourceInputs["isolatedNetworkEnabled"] = state ? state.isolatedNetworkEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["microsoftAppId"] = state ? state.microsoftAppId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -191,7 +182,6 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["iconUrl"] = args ? args.iconUrl : undefined;
-            resourceInputs["isolatedNetworkEnabled"] = args ? args.isolatedNetworkEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -245,17 +235,9 @@ export interface ChannelsRegistrationState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The icon URL to visually identify the Bot Channels Registration.
+     * The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
     iconUrl?: pulumi.Input<string>;
-    /**
-     * Is the Bot Channels Registration in an isolated network?
-     *
-     * > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
-     *
-     * @deprecated `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
-     */
-    isolatedNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -327,17 +309,9 @@ export interface ChannelsRegistrationArgs {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The icon URL to visually identify the Bot Channels Registration.
+     * The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
     iconUrl?: pulumi.Input<string>;
-    /**
-     * Is the Bot Channels Registration in an isolated network?
-     *
-     * > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
-     *
-     * @deprecated `isolatedNetworkEnabled` will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
-     */
-    isolatedNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

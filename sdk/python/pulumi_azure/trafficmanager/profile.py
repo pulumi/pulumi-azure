@@ -664,7 +664,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="profileStatus")
-    def profile_status(self) -> pulumi.Output[str]:
+    def profile_status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         """

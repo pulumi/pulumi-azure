@@ -48,7 +48,7 @@ class DiagnosticArgs:
         :param pulumi.Input['DiagnosticFrontendResponseArgs'] frontend_response: A `frontend_response` block as defined below.
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
-        :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
@@ -213,7 +213,7 @@ class DiagnosticArgs:
     @pulumi.getter(name="operationNameFormat")
     def operation_name_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         """
         return pulumi.get(self, "operation_name_format")
 
@@ -275,7 +275,7 @@ class _DiagnosticState:
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
-        :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
@@ -433,7 +433,7 @@ class _DiagnosticState:
     @pulumi.getter(name="operationNameFormat")
     def operation_name_format(self) -> Optional[pulumi.Input[str]]:
         """
-        The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         """
         return pulumi.get(self, "operation_name_format")
 
@@ -593,7 +593,7 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
-        :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
@@ -788,7 +788,7 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
-        :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
@@ -897,7 +897,7 @@ class Diagnostic(pulumi.CustomResource):
     @pulumi.getter(name="operationNameFormat")
     def operation_name_format(self) -> pulumi.Output[Optional[str]]:
         """
-        The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         """
         return pulumi.get(self, "operation_name_format")
 

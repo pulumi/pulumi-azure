@@ -8,70 +8,11 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages a Sentinel Threat Intelligence Indicator.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-rg"),
-//				Location: pulumi.String("east us"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("example-law"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//				RetentionInDays:   pulumi.Int(30),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				ResourceGroupName: example.Name,
-//				WorkspaceName:     exampleAnalyticsWorkspace.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sentinel.NewThreatIntelligenceIndicator(ctx, "example", &sentinel.ThreatIntelligenceIndicatorArgs{
-//				WorkspaceId:     exampleAnalyticsWorkspace.ID(),
-//				PatternType:     pulumi.String("domain-name"),
-//				Pattern:         pulumi.String("http://example.com"),
-//				Source:          pulumi.String("Microsoft Sentinel"),
-//				ValidateFromUtc: pulumi.String("2022-12-14T16:00:00Z"),
-//				DisplayName:     pulumi.String("example-indicator"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				test,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

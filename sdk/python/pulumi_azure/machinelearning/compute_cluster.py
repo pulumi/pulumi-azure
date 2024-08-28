@@ -48,7 +48,7 @@ class ComputeClusterArgs:
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[bool] node_public_ip_enabled: Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input['ComputeClusterSshArgs'] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
@@ -213,7 +213,7 @@ class ComputeClusterArgs:
     @pulumi.getter(name="sshPublicAccessEnabled")
     def ssh_public_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
         return pulumi.get(self, "ssh_public_access_enabled")
 
@@ -274,7 +274,7 @@ class _ComputeClusterState:
         :param pulumi.Input[bool] node_public_ip_enabled: Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input['ComputeClusterScaleSettingsArgs'] scale_settings: A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input['ComputeClusterSshArgs'] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
@@ -421,7 +421,7 @@ class _ComputeClusterState:
     @pulumi.getter(name="sshPublicAccessEnabled")
     def ssh_public_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
         return pulumi.get(self, "ssh_public_access_enabled")
 
@@ -589,7 +589,7 @@ class ComputeCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] node_public_ip_enabled: Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict']] scale_settings: A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict']] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
@@ -781,7 +781,7 @@ class ComputeCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] node_public_ip_enabled: Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict']] scale_settings: A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict']] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] vm_priority: The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
@@ -881,9 +881,9 @@ class ComputeCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshPublicAccessEnabled")
-    def ssh_public_access_enabled(self) -> pulumi.Output[bool]:
+    def ssh_public_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
         return pulumi.get(self, "ssh_public_access_enabled")
 

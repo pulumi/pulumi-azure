@@ -19,10 +19,6 @@ __all__ = [
     'AadDiagnosticSettingEnabledLogArgsDict',
     'AadDiagnosticSettingEnabledLogRetentionPolicyArgs',
     'AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict',
-    'AadDiagnosticSettingLogArgs',
-    'AadDiagnosticSettingLogArgsDict',
-    'AadDiagnosticSettingLogRetentionPolicyArgs',
-    'AadDiagnosticSettingLogRetentionPolicyArgsDict',
     'ActionGroupArmRoleReceiverArgs',
     'ActionGroupArmRoleReceiverArgsDict',
     'ActionGroupAutomationRunbookReceiverArgs',
@@ -47,46 +43,6 @@ __all__ = [
     'ActionGroupWebhookReceiverArgsDict',
     'ActionGroupWebhookReceiverAadAuthArgs',
     'ActionGroupWebhookReceiverAadAuthArgsDict',
-    'ActionRuleActionGroupConditionArgs',
-    'ActionRuleActionGroupConditionArgsDict',
-    'ActionRuleActionGroupConditionAlertContextArgs',
-    'ActionRuleActionGroupConditionAlertContextArgsDict',
-    'ActionRuleActionGroupConditionAlertRuleIdArgs',
-    'ActionRuleActionGroupConditionAlertRuleIdArgsDict',
-    'ActionRuleActionGroupConditionDescriptionArgs',
-    'ActionRuleActionGroupConditionDescriptionArgsDict',
-    'ActionRuleActionGroupConditionMonitorArgs',
-    'ActionRuleActionGroupConditionMonitorArgsDict',
-    'ActionRuleActionGroupConditionMonitorServiceArgs',
-    'ActionRuleActionGroupConditionMonitorServiceArgsDict',
-    'ActionRuleActionGroupConditionSeverityArgs',
-    'ActionRuleActionGroupConditionSeverityArgsDict',
-    'ActionRuleActionGroupConditionTargetResourceTypeArgs',
-    'ActionRuleActionGroupConditionTargetResourceTypeArgsDict',
-    'ActionRuleActionGroupScopeArgs',
-    'ActionRuleActionGroupScopeArgsDict',
-    'ActionRuleSuppressionConditionArgs',
-    'ActionRuleSuppressionConditionArgsDict',
-    'ActionRuleSuppressionConditionAlertContextArgs',
-    'ActionRuleSuppressionConditionAlertContextArgsDict',
-    'ActionRuleSuppressionConditionAlertRuleIdArgs',
-    'ActionRuleSuppressionConditionAlertRuleIdArgsDict',
-    'ActionRuleSuppressionConditionDescriptionArgs',
-    'ActionRuleSuppressionConditionDescriptionArgsDict',
-    'ActionRuleSuppressionConditionMonitorArgs',
-    'ActionRuleSuppressionConditionMonitorArgsDict',
-    'ActionRuleSuppressionConditionMonitorServiceArgs',
-    'ActionRuleSuppressionConditionMonitorServiceArgsDict',
-    'ActionRuleSuppressionConditionSeverityArgs',
-    'ActionRuleSuppressionConditionSeverityArgsDict',
-    'ActionRuleSuppressionConditionTargetResourceTypeArgs',
-    'ActionRuleSuppressionConditionTargetResourceTypeArgsDict',
-    'ActionRuleSuppressionScopeArgs',
-    'ActionRuleSuppressionScopeArgsDict',
-    'ActionRuleSuppressionSuppressionArgs',
-    'ActionRuleSuppressionSuppressionArgsDict',
-    'ActionRuleSuppressionSuppressionScheduleArgs',
-    'ActionRuleSuppressionSuppressionScheduleArgsDict',
     'ActivityLogAlertActionArgs',
     'ActivityLogAlertActionArgsDict',
     'ActivityLogAlertCriteriaArgs',
@@ -253,26 +209,10 @@ __all__ = [
     'DiagnosticSettingEnabledLogArgsDict',
     'DiagnosticSettingEnabledLogRetentionPolicyArgs',
     'DiagnosticSettingEnabledLogRetentionPolicyArgsDict',
-    'DiagnosticSettingLogArgs',
-    'DiagnosticSettingLogArgsDict',
-    'DiagnosticSettingLogRetentionPolicyArgs',
-    'DiagnosticSettingLogRetentionPolicyArgsDict',
     'DiagnosticSettingMetricArgs',
     'DiagnosticSettingMetricArgsDict',
     'DiagnosticSettingMetricRetentionPolicyArgs',
     'DiagnosticSettingMetricRetentionPolicyArgsDict',
-    'LogProfileRetentionPolicyArgs',
-    'LogProfileRetentionPolicyArgsDict',
-    'LogzMonitorPlanArgs',
-    'LogzMonitorPlanArgsDict',
-    'LogzMonitorUserArgs',
-    'LogzMonitorUserArgsDict',
-    'LogzSubAccountTagRuleTagFilterArgs',
-    'LogzSubAccountTagRuleTagFilterArgsDict',
-    'LogzSubAccountUserArgs',
-    'LogzSubAccountUserArgsDict',
-    'LogzTagRuleTagFilterArgs',
-    'LogzTagRuleTagFilterArgsDict',
     'MetricAlertActionArgs',
     'MetricAlertActionArgsDict',
     'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs',
@@ -376,128 +316,6 @@ elif False:
 
 @pulumi.input_type
 class AadDiagnosticSettingEnabledLogRetentionPolicyArgs:
-    def __init__(__self__, *,
-                 days: Optional[pulumi.Input[int]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply. Defaults to `0`.
-        :param pulumi.Input[bool] enabled: Is this Retention Policy enabled? Defaults to `false`.
-        """
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of days for which this Retention Policy should apply. Defaults to `0`.
-        """
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "days", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is this Retention Policy enabled? Defaults to `false`.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-if not MYPY:
-    class AadDiagnosticSettingLogArgsDict(TypedDict):
-        category: pulumi.Input[str]
-        """
-        The log category for the Azure Active Directory Diagnostic.
-        """
-        retention_policy: pulumi.Input['AadDiagnosticSettingLogRetentionPolicyArgsDict']
-        """
-        A `retention_policy` block as defined below.
-        """
-        enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Is this Diagnostic Log enabled? Defaults to `true`.
-        """
-elif False:
-    AadDiagnosticSettingLogArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AadDiagnosticSettingLogArgs:
-    def __init__(__self__, *,
-                 category: pulumi.Input[str],
-                 retention_policy: pulumi.Input['AadDiagnosticSettingLogRetentionPolicyArgs'],
-                 enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] category: The log category for the Azure Active Directory Diagnostic.
-        :param pulumi.Input['AadDiagnosticSettingLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
-        :param pulumi.Input[bool] enabled: Is this Diagnostic Log enabled? Defaults to `true`.
-        """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "retention_policy", retention_policy)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def category(self) -> pulumi.Input[str]:
-        """
-        The log category for the Azure Active Directory Diagnostic.
-        """
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: pulumi.Input[str]):
-        pulumi.set(self, "category", value)
-
-    @property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> pulumi.Input['AadDiagnosticSettingLogRetentionPolicyArgs']:
-        """
-        A `retention_policy` block as defined below.
-        """
-        return pulumi.get(self, "retention_policy")
-
-    @retention_policy.setter
-    def retention_policy(self, value: pulumi.Input['AadDiagnosticSettingLogRetentionPolicyArgs']):
-        pulumi.set(self, "retention_policy", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is this Diagnostic Log enabled? Defaults to `true`.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-if not MYPY:
-    class AadDiagnosticSettingLogRetentionPolicyArgsDict(TypedDict):
-        days: NotRequired[pulumi.Input[int]]
-        """
-        The number of days for which this Retention Policy should apply. Defaults to `0`.
-        """
-        enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Is this Retention Policy enabled? Defaults to `false`.
-        """
-elif False:
-    AadDiagnosticSettingLogRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AadDiagnosticSettingLogRetentionPolicyArgs:
     def __init__(__self__, *,
                  days: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
@@ -981,27 +799,21 @@ class ActionGroupEmailReceiverArgs:
 
 if not MYPY:
     class ActionGroupEventHubReceiverArgsDict(TypedDict):
+        event_hub_name: pulumi.Input[str]
+        """
+        The name of the specific Event Hub queue.
+        """
+        event_hub_namespace: pulumi.Input[str]
+        """
+        The namespace name of the Event Hub.
+        """
         name: pulumi.Input[str]
         """
         The name of the EventHub Receiver, must be unique within action group.
         """
-        event_hub_id: NotRequired[pulumi.Input[str]]
-        """
-        The resource ID of the respective Event Hub.
-        """
-        event_hub_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the specific Event Hub queue.
-        """
-        event_hub_namespace: NotRequired[pulumi.Input[str]]
-        """
-        The namespace name of the Event Hub.
-        """
         subscription_id: NotRequired[pulumi.Input[str]]
         """
         The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
-
-        > **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
         """
         tenant_id: NotRequired[pulumi.Input[str]]
         """
@@ -1017,40 +829,53 @@ elif False:
 @pulumi.input_type
 class ActionGroupEventHubReceiverArgs:
     def __init__(__self__, *,
+                 event_hub_name: pulumi.Input[str],
+                 event_hub_namespace: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 event_hub_id: Optional[pulumi.Input[str]] = None,
-                 event_hub_name: Optional[pulumi.Input[str]] = None,
-                 event_hub_namespace: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] name: The name of the EventHub Receiver, must be unique within action group.
-        :param pulumi.Input[str] event_hub_id: The resource ID of the respective Event Hub.
         :param pulumi.Input[str] event_hub_name: The name of the specific Event Hub queue.
         :param pulumi.Input[str] event_hub_namespace: The namespace name of the Event Hub.
+        :param pulumi.Input[str] name: The name of the EventHub Receiver, must be unique within action group.
         :param pulumi.Input[str] subscription_id: The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
-               
-               > **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the subscription containing this Event Hub.
         :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
         """
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        pulumi.set(__self__, "event_hub_namespace", event_hub_namespace)
         pulumi.set(__self__, "name", name)
-        if event_hub_id is not None:
-            warnings.warn("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""", DeprecationWarning)
-            pulumi.log.warn("""event_hub_id is deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
-        if event_hub_id is not None:
-            pulumi.set(__self__, "event_hub_id", event_hub_id)
-        if event_hub_name is not None:
-            pulumi.set(__self__, "event_hub_name", event_hub_name)
-        if event_hub_namespace is not None:
-            pulumi.set(__self__, "event_hub_namespace", event_hub_namespace)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
         if use_common_alert_schema is not None:
             pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> pulumi.Input[str]:
+        """
+        The name of the specific Event Hub queue.
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @event_hub_name.setter
+    def event_hub_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_hub_name", value)
+
+    @property
+    @pulumi.getter(name="eventHubNamespace")
+    def event_hub_namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace name of the Event Hub.
+        """
+        return pulumi.get(self, "event_hub_namespace")
+
+    @event_hub_namespace.setter
+    def event_hub_namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_hub_namespace", value)
 
     @property
     @pulumi.getter
@@ -1065,49 +890,10 @@ class ActionGroupEventHubReceiverArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="eventHubId")
-    @_utilities.deprecated("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
-    def event_hub_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource ID of the respective Event Hub.
-        """
-        return pulumi.get(self, "event_hub_id")
-
-    @event_hub_id.setter
-    def event_hub_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "event_hub_id", value)
-
-    @property
-    @pulumi.getter(name="eventHubName")
-    def event_hub_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the specific Event Hub queue.
-        """
-        return pulumi.get(self, "event_hub_name")
-
-    @event_hub_name.setter
-    def event_hub_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "event_hub_name", value)
-
-    @property
-    @pulumi.getter(name="eventHubNamespace")
-    def event_hub_namespace(self) -> Optional[pulumi.Input[str]]:
-        """
-        The namespace name of the Event Hub.
-        """
-        return pulumi.get(self, "event_hub_namespace")
-
-    @event_hub_namespace.setter
-    def event_hub_namespace(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "event_hub_namespace", value)
-
-    @property
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
-
-        > **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -1648,1251 +1434,6 @@ class ActionGroupWebhookReceiverAadAuthArgs:
 
 
 if not MYPY:
-    class ActionRuleActionGroupConditionArgsDict(TypedDict):
-        alert_context: NotRequired[pulumi.Input['ActionRuleActionGroupConditionAlertContextArgsDict']]
-        """
-        A `alert_context` block as defined below.
-        """
-        alert_rule_id: NotRequired[pulumi.Input['ActionRuleActionGroupConditionAlertRuleIdArgsDict']]
-        """
-        A `alert_rule_id` block as defined below.
-        """
-        description: NotRequired[pulumi.Input['ActionRuleActionGroupConditionDescriptionArgsDict']]
-        """
-        A `description` block as defined below.
-        """
-        monitor: NotRequired[pulumi.Input['ActionRuleActionGroupConditionMonitorArgsDict']]
-        """
-        A `monitor` block as defined below.
-        """
-        monitor_service: NotRequired[pulumi.Input['ActionRuleActionGroupConditionMonitorServiceArgsDict']]
-        """
-        A `monitor_service` block as defined below.
-        """
-        severity: NotRequired[pulumi.Input['ActionRuleActionGroupConditionSeverityArgsDict']]
-        """
-        A `severity` block as defined below.
-        """
-        target_resource_type: NotRequired[pulumi.Input['ActionRuleActionGroupConditionTargetResourceTypeArgsDict']]
-        """
-        A `target_resource_type` block as defined below.
-        """
-elif False:
-    ActionRuleActionGroupConditionArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleActionGroupConditionArgs:
-    def __init__(__self__, *,
-                 alert_context: Optional[pulumi.Input['ActionRuleActionGroupConditionAlertContextArgs']] = None,
-                 alert_rule_id: Optional[pulumi.Input['ActionRuleActionGroupConditionAlertRuleIdArgs']] = None,
-                 description: Optional[pulumi.Input['ActionRuleActionGroupConditionDescriptionArgs']] = None,
-                 monitor: Optional[pulumi.Input['ActionRuleActionGroupConditionMonitorArgs']] = None,
-                 monitor_service: Optional[pulumi.Input['ActionRuleActionGroupConditionMonitorServiceArgs']] = None,
-                 severity: Optional[pulumi.Input['ActionRuleActionGroupConditionSeverityArgs']] = None,
-                 target_resource_type: Optional[pulumi.Input['ActionRuleActionGroupConditionTargetResourceTypeArgs']] = None):
-        """
-        :param pulumi.Input['ActionRuleActionGroupConditionAlertContextArgs'] alert_context: A `alert_context` block as defined below.
-        :param pulumi.Input['ActionRuleActionGroupConditionAlertRuleIdArgs'] alert_rule_id: A `alert_rule_id` block as defined below.
-        :param pulumi.Input['ActionRuleActionGroupConditionDescriptionArgs'] description: A `description` block as defined below.
-        :param pulumi.Input['ActionRuleActionGroupConditionMonitorArgs'] monitor: A `monitor` block as defined below.
-        :param pulumi.Input['ActionRuleActionGroupConditionMonitorServiceArgs'] monitor_service: A `monitor_service` block as defined below.
-        :param pulumi.Input['ActionRuleActionGroupConditionSeverityArgs'] severity: A `severity` block as defined below.
-        :param pulumi.Input['ActionRuleActionGroupConditionTargetResourceTypeArgs'] target_resource_type: A `target_resource_type` block as defined below.
-        """
-        if alert_context is not None:
-            pulumi.set(__self__, "alert_context", alert_context)
-        if alert_rule_id is not None:
-            pulumi.set(__self__, "alert_rule_id", alert_rule_id)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
-        if monitor_service is not None:
-            pulumi.set(__self__, "monitor_service", monitor_service)
-        if severity is not None:
-            pulumi.set(__self__, "severity", severity)
-        if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
-
-    @property
-    @pulumi.getter(name="alertContext")
-    def alert_context(self) -> Optional[pulumi.Input['ActionRuleActionGroupConditionAlertContextArgs']]:
-        """
-        A `alert_context` block as defined below.
-        """
-        return pulumi.get(self, "alert_context")
-
-    @alert_context.setter
-    def alert_context(self, value: Optional[pulumi.Input['ActionRuleActionGroupConditionAlertContextArgs']]):
-        pulumi.set(self, "alert_context", value)
-
-    @property
-    @pulumi.getter(name="alertRuleId")
-    def alert_rule_id(self) -> Optional[pulumi.Input['ActionRuleActionGroupConditionAlertRuleIdArgs']]:
-        """
-        A `alert_rule_id` block as defined below.
-        """
-        return pulumi.get(self, "alert_rule_id")
-
-    @alert_rule_id.setter
-    def alert_rule_id(self, value: Optional[pulumi.Input['ActionRuleActionGroupConditionAlertRuleIdArgs']]):
-        pulumi.set(self, "alert_rule_id", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input['ActionRuleActionGroupConditionDescriptionArgs']]:
-        """
-        A `description` block as defined below.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input['ActionRuleActionGroupConditionDescriptionArgs']]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input['ActionRuleActionGroupConditionMonitorArgs']]:
-        """
-        A `monitor` block as defined below.
-        """
-        return pulumi.get(self, "monitor")
-
-    @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input['ActionRuleActionGroupConditionMonitorArgs']]):
-        pulumi.set(self, "monitor", value)
-
-    @property
-    @pulumi.getter(name="monitorService")
-    def monitor_service(self) -> Optional[pulumi.Input['ActionRuleActionGroupConditionMonitorServiceArgs']]:
-        """
-        A `monitor_service` block as defined below.
-        """
-        return pulumi.get(self, "monitor_service")
-
-    @monitor_service.setter
-    def monitor_service(self, value: Optional[pulumi.Input['ActionRuleActionGroupConditionMonitorServiceArgs']]):
-        pulumi.set(self, "monitor_service", value)
-
-    @property
-    @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input['ActionRuleActionGroupConditionSeverityArgs']]:
-        """
-        A `severity` block as defined below.
-        """
-        return pulumi.get(self, "severity")
-
-    @severity.setter
-    def severity(self, value: Optional[pulumi.Input['ActionRuleActionGroupConditionSeverityArgs']]):
-        pulumi.set(self, "severity", value)
-
-    @property
-    @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> Optional[pulumi.Input['ActionRuleActionGroupConditionTargetResourceTypeArgs']]:
-        """
-        A `target_resource_type` block as defined below.
-        """
-        return pulumi.get(self, "target_resource_type")
-
-    @target_resource_type.setter
-    def target_resource_type(self, value: Optional[pulumi.Input['ActionRuleActionGroupConditionTargetResourceTypeArgs']]):
-        pulumi.set(self, "target_resource_type", value)
-
-
-if not MYPY:
-    class ActionRuleActionGroupConditionAlertContextArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition.
-        """
-elif False:
-    ActionRuleActionGroupConditionAlertContextArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleActionGroupConditionAlertContextArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleActionGroupConditionAlertRuleIdArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition.
-        """
-elif False:
-    ActionRuleActionGroupConditionAlertRuleIdArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleActionGroupConditionAlertRuleIdArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleActionGroupConditionDescriptionArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition.
-        """
-elif False:
-    ActionRuleActionGroupConditionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleActionGroupConditionDescriptionArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleActionGroupConditionMonitorArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-        """
-elif False:
-    ActionRuleActionGroupConditionMonitorArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleActionGroupConditionMonitorArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleActionGroupConditionMonitorServiceArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-        """
-elif False:
-    ActionRuleActionGroupConditionMonitorServiceArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleActionGroupConditionMonitorServiceArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleActionGroupConditionSeverityArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-        """
-elif False:
-    ActionRuleActionGroupConditionSeverityArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleActionGroupConditionSeverityArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleActionGroupConditionTargetResourceTypeArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition. The values should be valid resource types.
-        """
-elif False:
-    ActionRuleActionGroupConditionTargetResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleActionGroupConditionTargetResourceTypeArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource types.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition. The values should be valid resource types.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleActionGroupScopeArgsDict(TypedDict):
-        resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of resource IDs of the given scope type which will be the target of action rule.
-        """
-        type: pulumi.Input[str]
-        """
-        Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-        """
-elif False:
-    ActionRuleActionGroupScopeArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleActionGroupScopeArgs:
-    def __init__(__self__, *,
-                 resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_ids: A list of resource IDs of the given scope type which will be the target of action rule.
-        :param pulumi.Input[str] type: Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-        """
-        pulumi.set(__self__, "resource_ids", resource_ids)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="resourceIds")
-    def resource_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of resource IDs of the given scope type which will be the target of action rule.
-        """
-        return pulumi.get(self, "resource_ids")
-
-    @resource_ids.setter
-    def resource_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "resource_ids", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-
-if not MYPY:
-    class ActionRuleSuppressionConditionArgsDict(TypedDict):
-        alert_context: NotRequired[pulumi.Input['ActionRuleSuppressionConditionAlertContextArgsDict']]
-        """
-        A `alert_context` block as defined below.
-        """
-        alert_rule_id: NotRequired[pulumi.Input['ActionRuleSuppressionConditionAlertRuleIdArgsDict']]
-        """
-        A `alert_rule_id` block as defined below.
-        """
-        description: NotRequired[pulumi.Input['ActionRuleSuppressionConditionDescriptionArgsDict']]
-        """
-        A `description` block as defined below.
-        """
-        monitor: NotRequired[pulumi.Input['ActionRuleSuppressionConditionMonitorArgsDict']]
-        """
-        A `monitor` block as defined below.
-        """
-        monitor_service: NotRequired[pulumi.Input['ActionRuleSuppressionConditionMonitorServiceArgsDict']]
-        """
-        A `monitor_service` block as defined below.
-        """
-        severity: NotRequired[pulumi.Input['ActionRuleSuppressionConditionSeverityArgsDict']]
-        """
-        A `severity` block as defined below.
-        """
-        target_resource_type: NotRequired[pulumi.Input['ActionRuleSuppressionConditionTargetResourceTypeArgsDict']]
-        """
-        A `target_resource_type` block as defined below.
-        """
-elif False:
-    ActionRuleSuppressionConditionArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleSuppressionConditionArgs:
-    def __init__(__self__, *,
-                 alert_context: Optional[pulumi.Input['ActionRuleSuppressionConditionAlertContextArgs']] = None,
-                 alert_rule_id: Optional[pulumi.Input['ActionRuleSuppressionConditionAlertRuleIdArgs']] = None,
-                 description: Optional[pulumi.Input['ActionRuleSuppressionConditionDescriptionArgs']] = None,
-                 monitor: Optional[pulumi.Input['ActionRuleSuppressionConditionMonitorArgs']] = None,
-                 monitor_service: Optional[pulumi.Input['ActionRuleSuppressionConditionMonitorServiceArgs']] = None,
-                 severity: Optional[pulumi.Input['ActionRuleSuppressionConditionSeverityArgs']] = None,
-                 target_resource_type: Optional[pulumi.Input['ActionRuleSuppressionConditionTargetResourceTypeArgs']] = None):
-        """
-        :param pulumi.Input['ActionRuleSuppressionConditionAlertContextArgs'] alert_context: A `alert_context` block as defined below.
-        :param pulumi.Input['ActionRuleSuppressionConditionAlertRuleIdArgs'] alert_rule_id: A `alert_rule_id` block as defined below.
-        :param pulumi.Input['ActionRuleSuppressionConditionDescriptionArgs'] description: A `description` block as defined below.
-        :param pulumi.Input['ActionRuleSuppressionConditionMonitorArgs'] monitor: A `monitor` block as defined below.
-        :param pulumi.Input['ActionRuleSuppressionConditionMonitorServiceArgs'] monitor_service: A `monitor_service` block as defined below.
-        :param pulumi.Input['ActionRuleSuppressionConditionSeverityArgs'] severity: A `severity` block as defined below.
-        :param pulumi.Input['ActionRuleSuppressionConditionTargetResourceTypeArgs'] target_resource_type: A `target_resource_type` block as defined below.
-        """
-        if alert_context is not None:
-            pulumi.set(__self__, "alert_context", alert_context)
-        if alert_rule_id is not None:
-            pulumi.set(__self__, "alert_rule_id", alert_rule_id)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
-        if monitor_service is not None:
-            pulumi.set(__self__, "monitor_service", monitor_service)
-        if severity is not None:
-            pulumi.set(__self__, "severity", severity)
-        if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
-
-    @property
-    @pulumi.getter(name="alertContext")
-    def alert_context(self) -> Optional[pulumi.Input['ActionRuleSuppressionConditionAlertContextArgs']]:
-        """
-        A `alert_context` block as defined below.
-        """
-        return pulumi.get(self, "alert_context")
-
-    @alert_context.setter
-    def alert_context(self, value: Optional[pulumi.Input['ActionRuleSuppressionConditionAlertContextArgs']]):
-        pulumi.set(self, "alert_context", value)
-
-    @property
-    @pulumi.getter(name="alertRuleId")
-    def alert_rule_id(self) -> Optional[pulumi.Input['ActionRuleSuppressionConditionAlertRuleIdArgs']]:
-        """
-        A `alert_rule_id` block as defined below.
-        """
-        return pulumi.get(self, "alert_rule_id")
-
-    @alert_rule_id.setter
-    def alert_rule_id(self, value: Optional[pulumi.Input['ActionRuleSuppressionConditionAlertRuleIdArgs']]):
-        pulumi.set(self, "alert_rule_id", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input['ActionRuleSuppressionConditionDescriptionArgs']]:
-        """
-        A `description` block as defined below.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input['ActionRuleSuppressionConditionDescriptionArgs']]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input['ActionRuleSuppressionConditionMonitorArgs']]:
-        """
-        A `monitor` block as defined below.
-        """
-        return pulumi.get(self, "monitor")
-
-    @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input['ActionRuleSuppressionConditionMonitorArgs']]):
-        pulumi.set(self, "monitor", value)
-
-    @property
-    @pulumi.getter(name="monitorService")
-    def monitor_service(self) -> Optional[pulumi.Input['ActionRuleSuppressionConditionMonitorServiceArgs']]:
-        """
-        A `monitor_service` block as defined below.
-        """
-        return pulumi.get(self, "monitor_service")
-
-    @monitor_service.setter
-    def monitor_service(self, value: Optional[pulumi.Input['ActionRuleSuppressionConditionMonitorServiceArgs']]):
-        pulumi.set(self, "monitor_service", value)
-
-    @property
-    @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input['ActionRuleSuppressionConditionSeverityArgs']]:
-        """
-        A `severity` block as defined below.
-        """
-        return pulumi.get(self, "severity")
-
-    @severity.setter
-    def severity(self, value: Optional[pulumi.Input['ActionRuleSuppressionConditionSeverityArgs']]):
-        pulumi.set(self, "severity", value)
-
-    @property
-    @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> Optional[pulumi.Input['ActionRuleSuppressionConditionTargetResourceTypeArgs']]:
-        """
-        A `target_resource_type` block as defined below.
-        """
-        return pulumi.get(self, "target_resource_type")
-
-    @target_resource_type.setter
-    def target_resource_type(self, value: Optional[pulumi.Input['ActionRuleSuppressionConditionTargetResourceTypeArgs']]):
-        pulumi.set(self, "target_resource_type", value)
-
-
-if not MYPY:
-    class ActionRuleSuppressionConditionAlertContextArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition.
-        """
-elif False:
-    ActionRuleSuppressionConditionAlertContextArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleSuppressionConditionAlertContextArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleSuppressionConditionAlertRuleIdArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition.
-        """
-elif False:
-    ActionRuleSuppressionConditionAlertRuleIdArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleSuppressionConditionAlertRuleIdArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleSuppressionConditionDescriptionArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition.
-        """
-elif False:
-    ActionRuleSuppressionConditionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleSuppressionConditionDescriptionArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleSuppressionConditionMonitorArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-        """
-elif False:
-    ActionRuleSuppressionConditionMonitorArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleSuppressionConditionMonitorArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleSuppressionConditionMonitorServiceArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-        """
-elif False:
-    ActionRuleSuppressionConditionMonitorServiceArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleSuppressionConditionMonitorServiceArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleSuppressionConditionSeverityArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-        """
-elif False:
-    ActionRuleSuppressionConditionSeverityArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleSuppressionConditionSeverityArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleSuppressionConditionTargetResourceTypeArgsDict(TypedDict):
-        operator: pulumi.Input[str]
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of values to match for a given condition. The values should be valid resource types.
-        """
-elif False:
-    ActionRuleSuppressionConditionTargetResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleSuppressionConditionTargetResourceTypeArgs:
-    def __init__(__self__, *,
-                 operator: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource types.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of values to match for a given condition. The values should be valid resource types.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class ActionRuleSuppressionScopeArgsDict(TypedDict):
-        resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of resource IDs of the given scope type which will be the target of action rule.
-        """
-        type: pulumi.Input[str]
-        """
-        Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-        """
-elif False:
-    ActionRuleSuppressionScopeArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleSuppressionScopeArgs:
-    def __init__(__self__, *,
-                 resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_ids: A list of resource IDs of the given scope type which will be the target of action rule.
-        :param pulumi.Input[str] type: Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-        """
-        pulumi.set(__self__, "resource_ids", resource_ids)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="resourceIds")
-    def resource_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of resource IDs of the given scope type which will be the target of action rule.
-        """
-        return pulumi.get(self, "resource_ids")
-
-    @resource_ids.setter
-    def resource_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "resource_ids", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-
-if not MYPY:
-    class ActionRuleSuppressionSuppressionArgsDict(TypedDict):
-        recurrence_type: pulumi.Input[str]
-        """
-        Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
-        """
-        schedule: NotRequired[pulumi.Input['ActionRuleSuppressionSuppressionScheduleArgsDict']]
-        """
-        A `schedule` block as defined below. Required if `recurrence_type` is `Daily`, `Monthly`, `Once` or `Weekly`.
-        """
-elif False:
-    ActionRuleSuppressionSuppressionArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleSuppressionSuppressionArgs:
-    def __init__(__self__, *,
-                 recurrence_type: pulumi.Input[str],
-                 schedule: Optional[pulumi.Input['ActionRuleSuppressionSuppressionScheduleArgs']] = None):
-        """
-        :param pulumi.Input[str] recurrence_type: Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
-        :param pulumi.Input['ActionRuleSuppressionSuppressionScheduleArgs'] schedule: A `schedule` block as defined below. Required if `recurrence_type` is `Daily`, `Monthly`, `Once` or `Weekly`.
-        """
-        pulumi.set(__self__, "recurrence_type", recurrence_type)
-        if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
-
-    @property
-    @pulumi.getter(name="recurrenceType")
-    def recurrence_type(self) -> pulumi.Input[str]:
-        """
-        Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
-        """
-        return pulumi.get(self, "recurrence_type")
-
-    @recurrence_type.setter
-    def recurrence_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "recurrence_type", value)
-
-    @property
-    @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['ActionRuleSuppressionSuppressionScheduleArgs']]:
-        """
-        A `schedule` block as defined below. Required if `recurrence_type` is `Daily`, `Monthly`, `Once` or `Weekly`.
-        """
-        return pulumi.get(self, "schedule")
-
-    @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['ActionRuleSuppressionSuppressionScheduleArgs']]):
-        pulumi.set(self, "schedule", value)
-
-
-if not MYPY:
-    class ActionRuleSuppressionSuppressionScheduleArgsDict(TypedDict):
-        end_date_utc: pulumi.Input[str]
-        """
-        specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
-        """
-        start_date_utc: pulumi.Input[str]
-        """
-        specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
-        """
-        recurrence_monthlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
-        """
-        specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrence_type` is `Monthly`.
-        """
-        recurrence_weeklies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-        """
-elif False:
-    ActionRuleSuppressionSuppressionScheduleArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ActionRuleSuppressionSuppressionScheduleArgs:
-    def __init__(__self__, *,
-                 end_date_utc: pulumi.Input[str],
-                 start_date_utc: pulumi.Input[str],
-                 recurrence_monthlies: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 recurrence_weeklies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] end_date_utc: specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
-        :param pulumi.Input[str] start_date_utc: specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] recurrence_monthlies: specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrence_type` is `Monthly`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] recurrence_weeklies: specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-        """
-        pulumi.set(__self__, "end_date_utc", end_date_utc)
-        pulumi.set(__self__, "start_date_utc", start_date_utc)
-        if recurrence_monthlies is not None:
-            pulumi.set(__self__, "recurrence_monthlies", recurrence_monthlies)
-        if recurrence_weeklies is not None:
-            pulumi.set(__self__, "recurrence_weeklies", recurrence_weeklies)
-
-    @property
-    @pulumi.getter(name="endDateUtc")
-    def end_date_utc(self) -> pulumi.Input[str]:
-        """
-        specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
-        """
-        return pulumi.get(self, "end_date_utc")
-
-    @end_date_utc.setter
-    def end_date_utc(self, value: pulumi.Input[str]):
-        pulumi.set(self, "end_date_utc", value)
-
-    @property
-    @pulumi.getter(name="startDateUtc")
-    def start_date_utc(self) -> pulumi.Input[str]:
-        """
-        specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
-        """
-        return pulumi.get(self, "start_date_utc")
-
-    @start_date_utc.setter
-    def start_date_utc(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start_date_utc", value)
-
-    @property
-    @pulumi.getter(name="recurrenceMonthlies")
-    def recurrence_monthlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrence_type` is `Monthly`.
-        """
-        return pulumi.get(self, "recurrence_monthlies")
-
-    @recurrence_monthlies.setter
-    def recurrence_monthlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "recurrence_monthlies", value)
-
-    @property
-    @pulumi.getter(name="recurrenceWeeklies")
-    def recurrence_weeklies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-        """
-        return pulumi.get(self, "recurrence_weeklies")
-
-    @recurrence_weeklies.setter
-    def recurrence_weeklies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "recurrence_weeklies", value)
-
-
-if not MYPY:
     class ActivityLogAlertActionArgsDict(TypedDict):
         action_group_id: pulumi.Input[str]
         """
@@ -2989,7 +1530,7 @@ if not MYPY:
 
         > **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
         """
-        resource_healths: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgsDict']]]]
+        resource_health: NotRequired[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgsDict']]
         """
         A block to define fine grain resource health settings.
         """
@@ -3023,7 +1564,7 @@ if not MYPY:
 
         > **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
         """
-        service_healths: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgsDict']]]]
+        service_health: NotRequired[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgsDict']]
         """
         A block to define fine grain service health settings.
         """
@@ -3063,14 +1604,14 @@ class ActivityLogAlertCriteriaArgs:
                  recommendation_type: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resource_healths: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]]] = None,
+                 resource_health: Optional[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 service_healths: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]]] = None,
+                 service_health: Optional[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sub_status: Optional[pulumi.Input[str]] = None,
@@ -3090,7 +1631,7 @@ class ActivityLogAlertCriteriaArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_groups: A list of names of resource groups monitored by the activity log alert.
                
                > **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
-        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]] resource_healths: A block to define fine grain resource health settings.
+        :param pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs'] resource_health: A block to define fine grain resource health settings.
         :param pulumi.Input[str] resource_id: The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_ids: A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
                
@@ -3103,7 +1644,7 @@ class ActivityLogAlertCriteriaArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list of resource types monitored by the activity log alert.
                
                > **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
-        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]] service_healths: A block to define fine grain service health settings.
+        :param pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs'] service_health: A block to define fine grain service health settings.
         :param pulumi.Input[str] status: The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] statuses: A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
                
@@ -3132,8 +1673,8 @@ class ActivityLogAlertCriteriaArgs:
             pulumi.set(__self__, "resource_group", resource_group)
         if resource_groups is not None:
             pulumi.set(__self__, "resource_groups", resource_groups)
-        if resource_healths is not None:
-            pulumi.set(__self__, "resource_healths", resource_healths)
+        if resource_health is not None:
+            pulumi.set(__self__, "resource_health", resource_health)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if resource_ids is not None:
@@ -3146,8 +1687,8 @@ class ActivityLogAlertCriteriaArgs:
             pulumi.set(__self__, "resource_type", resource_type)
         if resource_types is not None:
             pulumi.set(__self__, "resource_types", resource_types)
-        if service_healths is not None:
-            pulumi.set(__self__, "service_healths", service_healths)
+        if service_health is not None:
+            pulumi.set(__self__, "service_health", service_health)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if statuses is not None:
@@ -3282,16 +1823,16 @@ class ActivityLogAlertCriteriaArgs:
         pulumi.set(self, "resource_groups", value)
 
     @property
-    @pulumi.getter(name="resourceHealths")
-    def resource_healths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]]]:
+    @pulumi.getter(name="resourceHealth")
+    def resource_health(self) -> Optional[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]:
         """
         A block to define fine grain resource health settings.
         """
-        return pulumi.get(self, "resource_healths")
+        return pulumi.get(self, "resource_health")
 
-    @resource_healths.setter
-    def resource_healths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]]]):
-        pulumi.set(self, "resource_healths", value)
+    @resource_health.setter
+    def resource_health(self, value: Optional[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgs']]):
+        pulumi.set(self, "resource_health", value)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -3372,16 +1913,16 @@ class ActivityLogAlertCriteriaArgs:
         pulumi.set(self, "resource_types", value)
 
     @property
-    @pulumi.getter(name="serviceHealths")
-    def service_healths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]]]:
+    @pulumi.getter(name="serviceHealth")
+    def service_health(self) -> Optional[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]:
         """
         A block to define fine grain service health settings.
         """
-        return pulumi.get(self, "service_healths")
+        return pulumi.get(self, "service_health")
 
-    @service_healths.setter
-    def service_healths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]]]):
-        pulumi.set(self, "service_healths", value)
+    @service_health.setter
+    def service_health(self, value: Optional[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]):
+        pulumi.set(self, "service_health", value)
 
     @property
     @pulumi.getter
@@ -8233,11 +6774,9 @@ if not MYPY:
         """
         The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         """
-        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
         Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
-
-        > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
         """
 elif False:
     DataCollectionRuleDataSourcesSyslogArgsDict: TypeAlias = Mapping[str, Any]
@@ -8248,20 +6787,17 @@ class DataCollectionRuleDataSourcesSyslogArgs:
                  facility_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  log_levels: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
-                 streams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 streams: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] facility_names: Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `alert`, `*`, `audit`, `auth`, `authpriv`, `clock`, `cron`, `daemon`, `ftp`, `kern`, `local5`, `local4`, `local1`, `local7`, `local6`, `local3`, `local2`, `local0`, `lpr`, `mail`, `mark`, `news`, `nopri`, `ntp`, `syslog`, `user` and `uucp`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_levels: Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
-               
-               > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
         """
         pulumi.set(__self__, "facility_names", facility_names)
         pulumi.set(__self__, "log_levels", log_levels)
         pulumi.set(__self__, "name", name)
-        if streams is not None:
-            pulumi.set(__self__, "streams", streams)
+        pulumi.set(__self__, "streams", streams)
 
     @property
     @pulumi.getter(name="facilityNames")
@@ -8301,16 +6837,14 @@ class DataCollectionRuleDataSourcesSyslogArgs:
 
     @property
     @pulumi.getter
-    def streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
-
-        > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
         """
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "streams", value)
 
 
@@ -9269,11 +7803,6 @@ if not MYPY:
         > **NOTE:** Exactly one of `category` or `category_group` must be specified.
         """
         retention_policy: NotRequired[pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgsDict']]
-        """
-        A `retention_policy` block as defined below.
-
-        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-        """
 elif False:
     DiagnosticSettingEnabledLogArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9292,9 +7821,6 @@ class DiagnosticSettingEnabledLogArgs:
                > **NOTE:** Not all resources have category groups available.
                
                > **NOTE:** Exactly one of `category` or `category_group` must be specified.
-        :param pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
-               
-               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
         if category is not None:
             pulumi.set(__self__, "category", category)
@@ -9340,11 +7866,6 @@ class DiagnosticSettingEnabledLogArgs:
     @pulumi.getter(name="retentionPolicy")
     @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
     def retention_policy(self) -> Optional[pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs']]:
-        """
-        A `retention_policy` block as defined below.
-
-        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-        """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
@@ -9356,15 +7877,9 @@ if not MYPY:
     class DiagnosticSettingEnabledLogRetentionPolicyArgsDict(TypedDict):
         enabled: pulumi.Input[bool]
         """
-        Is this Retention Policy enabled?
+        Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         days: NotRequired[pulumi.Input[int]]
-        """
-        The number of days for which this Retention Policy should apply.
-
-
-        > **NOTE:** Setting this to `0` will retain the events indefinitely.
-        """
 elif False:
     DiagnosticSettingEnabledLogRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9374,11 +7889,7 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
                  enabled: pulumi.Input[bool],
                  days: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
-        :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
-               
-               
-               > **NOTE:** Setting this to `0` will retain the events indefinitely.
+        :param pulumi.Input[bool] enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
@@ -9388,7 +7899,7 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Is this Retention Policy enabled?
+        Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -9399,192 +7910,6 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
     @property
     @pulumi.getter
     def days(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of days for which this Retention Policy should apply.
-
-
-        > **NOTE:** Setting this to `0` will retain the events indefinitely.
-        """
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "days", value)
-
-
-if not MYPY:
-    class DiagnosticSettingLogArgsDict(TypedDict):
-        category: NotRequired[pulumi.Input[str]]
-        """
-        The name of a Diagnostic Log Category for this Resource.
-
-        > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
-        """
-        category_group: NotRequired[pulumi.Input[str]]
-        """
-        The name of a Diagnostic Log Category Group for this Resource.
-
-        > **NOTE:** Not all resources have category groups available.
-
-        > **NOTE:** Exactly one of `category` or `category_group` must be specified.
-        """
-        enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Is this Diagnostic Log enabled? Defaults to `true`.
-        """
-        retention_policy: NotRequired[pulumi.Input['DiagnosticSettingLogRetentionPolicyArgsDict']]
-        """
-        A `retention_policy` block as defined below.
-
-        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-        """
-elif False:
-    DiagnosticSettingLogArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DiagnosticSettingLogArgs:
-    def __init__(__self__, *,
-                 category: Optional[pulumi.Input[str]] = None,
-                 category_group: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 retention_policy: Optional[pulumi.Input['DiagnosticSettingLogRetentionPolicyArgs']] = None):
-        """
-        :param pulumi.Input[str] category: The name of a Diagnostic Log Category for this Resource.
-               
-               > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
-        :param pulumi.Input[str] category_group: The name of a Diagnostic Log Category Group for this Resource.
-               
-               > **NOTE:** Not all resources have category groups available.
-               
-               > **NOTE:** Exactly one of `category` or `category_group` must be specified.
-        :param pulumi.Input[bool] enabled: Is this Diagnostic Log enabled? Defaults to `true`.
-        :param pulumi.Input['DiagnosticSettingLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
-               
-               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-        """
-        if category is not None:
-            pulumi.set(__self__, "category", category)
-        if category_group is not None:
-            pulumi.set(__self__, "category_group", category_group)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if retention_policy is not None:
-            warnings.warn("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
-
-    @property
-    @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of a Diagnostic Log Category for this Resource.
-
-        > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
-        """
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "category", value)
-
-    @property
-    @pulumi.getter(name="categoryGroup")
-    def category_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of a Diagnostic Log Category Group for this Resource.
-
-        > **NOTE:** Not all resources have category groups available.
-
-        > **NOTE:** Exactly one of `category` or `category_group` must be specified.
-        """
-        return pulumi.get(self, "category_group")
-
-    @category_group.setter
-    def category_group(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "category_group", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is this Diagnostic Log enabled? Defaults to `true`.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
-    def retention_policy(self) -> Optional[pulumi.Input['DiagnosticSettingLogRetentionPolicyArgs']]:
-        """
-        A `retention_policy` block as defined below.
-
-        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-        """
-        return pulumi.get(self, "retention_policy")
-
-    @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['DiagnosticSettingLogRetentionPolicyArgs']]):
-        pulumi.set(self, "retention_policy", value)
-
-
-if not MYPY:
-    class DiagnosticSettingLogRetentionPolicyArgsDict(TypedDict):
-        enabled: pulumi.Input[bool]
-        """
-        Is this Retention Policy enabled?
-        """
-        days: NotRequired[pulumi.Input[int]]
-        """
-        The number of days for which this Retention Policy should apply.
-
-
-        > **NOTE:** Setting this to `0` will retain the events indefinitely.
-        """
-elif False:
-    DiagnosticSettingLogRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DiagnosticSettingLogRetentionPolicyArgs:
-    def __init__(__self__, *,
-                 enabled: pulumi.Input[bool],
-                 days: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
-        :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
-               
-               
-               > **NOTE:** Setting this to `0` will retain the events indefinitely.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[bool]:
-        """
-        Is this Retention Policy enabled?
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of days for which this Retention Policy should apply.
-
-
-        > **NOTE:** Setting this to `0` will retain the events indefinitely.
-        """
         return pulumi.get(self, "days")
 
     @days.setter
@@ -9605,11 +7930,6 @@ if not MYPY:
         Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         retention_policy: NotRequired[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgsDict']]
-        """
-        A `retention_policy` block as defined below.
-
-        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-        """
 elif False:
     DiagnosticSettingMetricArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9624,9 +7944,6 @@ class DiagnosticSettingMetricArgs:
                
                > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
         :param pulumi.Input[bool] enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
-        :param pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
-               
-               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
         pulumi.set(__self__, "category", category)
         if enabled is not None:
@@ -9667,11 +7984,6 @@ class DiagnosticSettingMetricArgs:
     @pulumi.getter(name="retentionPolicy")
     @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
     def retention_policy(self) -> Optional[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgs']]:
-        """
-        A `retention_policy` block as defined below.
-
-        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-        """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
@@ -9683,15 +7995,9 @@ if not MYPY:
     class DiagnosticSettingMetricRetentionPolicyArgsDict(TypedDict):
         enabled: pulumi.Input[bool]
         """
-        Is this Retention Policy enabled?
+        Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         days: NotRequired[pulumi.Input[int]]
-        """
-        The number of days for which this Retention Policy should apply.
-
-
-        > **NOTE:** Setting this to `0` will retain the events indefinitely.
-        """
 elif False:
     DiagnosticSettingMetricRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9701,11 +8007,7 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
                  enabled: pulumi.Input[bool],
                  days: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
-        :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
-               
-               
-               > **NOTE:** Setting this to `0` will retain the events indefinitely.
+        :param pulumi.Input[bool] enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
@@ -9715,7 +8017,7 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Is this Retention Policy enabled?
+        Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -9726,485 +8028,11 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
     @property
     @pulumi.getter
     def days(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of days for which this Retention Policy should apply.
-
-
-        > **NOTE:** Setting this to `0` will retain the events indefinitely.
-        """
         return pulumi.get(self, "days")
 
     @days.setter
     def days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days", value)
-
-
-if not MYPY:
-    class LogProfileRetentionPolicyArgsDict(TypedDict):
-        enabled: pulumi.Input[bool]
-        """
-        A boolean value to indicate whether the retention policy is enabled.
-        """
-        days: NotRequired[pulumi.Input[int]]
-        """
-        The number of days for the retention policy. Defaults to `0`.
-        """
-elif False:
-    LogProfileRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LogProfileRetentionPolicyArgs:
-    def __init__(__self__, *,
-                 enabled: pulumi.Input[bool],
-                 days: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[bool] enabled: A boolean value to indicate whether the retention policy is enabled.
-        :param pulumi.Input[int] days: The number of days for the retention policy. Defaults to `0`.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[bool]:
-        """
-        A boolean value to indicate whether the retention policy is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of days for the retention policy. Defaults to `0`.
-        """
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "days", value)
-
-
-if not MYPY:
-    class LogzMonitorPlanArgsDict(TypedDict):
-        billing_cycle: pulumi.Input[str]
-        """
-        Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
-        """
-        effective_date: pulumi.Input[str]
-        """
-        Date when plan was applied. Changing this forces a new logz Monitor to be created.
-        """
-        usage_type: pulumi.Input[str]
-        """
-        Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
-        """
-        plan_id: NotRequired[pulumi.Input[str]]
-        """
-        Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
-        """
-elif False:
-    LogzMonitorPlanArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LogzMonitorPlanArgs:
-    def __init__(__self__, *,
-                 billing_cycle: pulumi.Input[str],
-                 effective_date: pulumi.Input[str],
-                 usage_type: pulumi.Input[str],
-                 plan_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] billing_cycle: Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[str] effective_date: Date when plan was applied. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[str] usage_type: Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[str] plan_id: Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
-        """
-        pulumi.set(__self__, "billing_cycle", billing_cycle)
-        pulumi.set(__self__, "effective_date", effective_date)
-        pulumi.set(__self__, "usage_type", usage_type)
-        if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
-
-    @property
-    @pulumi.getter(name="billingCycle")
-    def billing_cycle(self) -> pulumi.Input[str]:
-        """
-        Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "billing_cycle")
-
-    @billing_cycle.setter
-    def billing_cycle(self, value: pulumi.Input[str]):
-        pulumi.set(self, "billing_cycle", value)
-
-    @property
-    @pulumi.getter(name="effectiveDate")
-    def effective_date(self) -> pulumi.Input[str]:
-        """
-        Date when plan was applied. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "effective_date")
-
-    @effective_date.setter
-    def effective_date(self, value: pulumi.Input[str]):
-        pulumi.set(self, "effective_date", value)
-
-    @property
-    @pulumi.getter(name="usageType")
-    def usage_type(self) -> pulumi.Input[str]:
-        """
-        Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "usage_type")
-
-    @usage_type.setter
-    def usage_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "usage_type", value)
-
-    @property
-    @pulumi.getter(name="planId")
-    def plan_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "plan_id")
-
-    @plan_id.setter
-    def plan_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "plan_id", value)
-
-
-if not MYPY:
-    class LogzMonitorUserArgsDict(TypedDict):
-        email: pulumi.Input[str]
-        """
-        Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-
-        > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-        """
-        first_name: pulumi.Input[str]
-        """
-        First Name of the user. Changing this forces a new logz Monitor to be created.
-        """
-        last_name: pulumi.Input[str]
-        """
-        Last Name of the user. Changing this forces a new logz Monitor to be created.
-        """
-        phone_number: pulumi.Input[str]
-        """
-        Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-        """
-elif False:
-    LogzMonitorUserArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LogzMonitorUserArgs:
-    def __init__(__self__, *,
-                 email: pulumi.Input[str],
-                 first_name: pulumi.Input[str],
-                 last_name: pulumi.Input[str],
-                 phone_number: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] email: Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-               
-               > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-        :param pulumi.Input[str] first_name: First Name of the user. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[str] last_name: Last Name of the user. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[str] phone_number: Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-        """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "phone_number", phone_number)
-
-    @property
-    @pulumi.getter
-    def email(self) -> pulumi.Input[str]:
-        """
-        Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-
-        > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-        """
-        return pulumi.get(self, "email")
-
-    @email.setter
-    def email(self, value: pulumi.Input[str]):
-        pulumi.set(self, "email", value)
-
-    @property
-    @pulumi.getter(name="firstName")
-    def first_name(self) -> pulumi.Input[str]:
-        """
-        First Name of the user. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "first_name")
-
-    @first_name.setter
-    def first_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "first_name", value)
-
-    @property
-    @pulumi.getter(name="lastName")
-    def last_name(self) -> pulumi.Input[str]:
-        """
-        Last Name of the user. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "last_name")
-
-    @last_name.setter
-    def last_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "last_name", value)
-
-    @property
-    @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> pulumi.Input[str]:
-        """
-        Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "phone_number")
-
-    @phone_number.setter
-    def phone_number(self, value: pulumi.Input[str]):
-        pulumi.set(self, "phone_number", value)
-
-
-if not MYPY:
-    class LogzSubAccountTagRuleTagFilterArgsDict(TypedDict):
-        action: pulumi.Input[str]
-        """
-        The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
-        """
-        name: pulumi.Input[str]
-        """
-        The name of the tag to match.
-        """
-        value: NotRequired[pulumi.Input[str]]
-        """
-        The value of the tag to match.
-        """
-elif False:
-    LogzSubAccountTagRuleTagFilterArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LogzSubAccountTagRuleTagFilterArgs:
-    def __init__(__self__, *,
-                 action: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] action: The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
-        :param pulumi.Input[str] name: The name of the tag to match.
-        :param pulumi.Input[str] value: The value of the tag to match.
-        """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def action(self) -> pulumi.Input[str]:
-        """
-        The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
-        """
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: pulumi.Input[str]):
-        pulumi.set(self, "action", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the tag to match.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value of the tag to match.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-if not MYPY:
-    class LogzSubAccountUserArgsDict(TypedDict):
-        email: pulumi.Input[str]
-        """
-        Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
-
-        > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-        """
-        first_name: pulumi.Input[str]
-        """
-        First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-        """
-        last_name: pulumi.Input[str]
-        """
-        Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-        """
-        phone_number: pulumi.Input[str]
-        """
-        Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
-        """
-elif False:
-    LogzSubAccountUserArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LogzSubAccountUserArgs:
-    def __init__(__self__, *,
-                 email: pulumi.Input[str],
-                 first_name: pulumi.Input[str],
-                 last_name: pulumi.Input[str],
-                 phone_number: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] email: Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
-               
-               > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-        :param pulumi.Input[str] first_name: First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-        :param pulumi.Input[str] last_name: Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-        :param pulumi.Input[str] phone_number: Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
-        """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "phone_number", phone_number)
-
-    @property
-    @pulumi.getter
-    def email(self) -> pulumi.Input[str]:
-        """
-        Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
-
-        > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-        """
-        return pulumi.get(self, "email")
-
-    @email.setter
-    def email(self, value: pulumi.Input[str]):
-        pulumi.set(self, "email", value)
-
-    @property
-    @pulumi.getter(name="firstName")
-    def first_name(self) -> pulumi.Input[str]:
-        """
-        First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-        """
-        return pulumi.get(self, "first_name")
-
-    @first_name.setter
-    def first_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "first_name", value)
-
-    @property
-    @pulumi.getter(name="lastName")
-    def last_name(self) -> pulumi.Input[str]:
-        """
-        Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-        """
-        return pulumi.get(self, "last_name")
-
-    @last_name.setter
-    def last_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "last_name", value)
-
-    @property
-    @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> pulumi.Input[str]:
-        """
-        Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
-        """
-        return pulumi.get(self, "phone_number")
-
-    @phone_number.setter
-    def phone_number(self, value: pulumi.Input[str]):
-        pulumi.set(self, "phone_number", value)
-
-
-if not MYPY:
-    class LogzTagRuleTagFilterArgsDict(TypedDict):
-        action: pulumi.Input[str]
-        """
-        The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
-        """
-        name: pulumi.Input[str]
-        """
-        The name of this `tag_filter`.
-        """
-        value: NotRequired[pulumi.Input[str]]
-        """
-        The value of this `tag_filter`.
-        """
-elif False:
-    LogzTagRuleTagFilterArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LogzTagRuleTagFilterArgs:
-    def __init__(__self__, *,
-                 action: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] action: The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
-        :param pulumi.Input[str] name: The name of this `tag_filter`.
-        :param pulumi.Input[str] value: The value of this `tag_filter`.
-        """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def action(self) -> pulumi.Input[str]:
-        """
-        The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
-        """
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: pulumi.Input[str]):
-        pulumi.set(self, "action", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of this `tag_filter`.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value of this `tag_filter`.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 
 if not MYPY:

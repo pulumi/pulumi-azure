@@ -25,19 +25,16 @@ class KubernetesClusterArgs:
                  resource_group_name: pulumi.Input[str],
                  aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
                  api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']] = None,
-                 api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
-                 automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
                  cost_analysis_enabled: Optional[pulumi.Input[bool]] = None,
-                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
                  identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
@@ -58,7 +55,7 @@ class KubernetesClusterArgs:
                  monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
-                 node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 node_os_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
                  oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']] = None,
@@ -66,7 +63,6 @@ class KubernetesClusterArgs:
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
                  service_mesh_profile: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']] = None,
@@ -86,7 +82,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         :param pulumi.Input['KubernetesClusterApiServerAccessProfileArgs'] api_server_access_profile: An `api_server_access_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
-        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input[str] automatic_upgrade_channel: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
                
                !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
                
@@ -111,7 +107,7 @@ class KubernetesClusterArgs:
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
@@ -137,9 +133,9 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
-        :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+        :param pulumi.Input[str] node_os_upgrade_channel: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
                
-               > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+               > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -206,15 +202,10 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
         if api_server_access_profile is not None:
             pulumi.set(__self__, "api_server_access_profile", api_server_access_profile)
-        if api_server_authorized_ip_ranges is not None:
-            warnings.warn("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""api_server_authorized_ip_ranges is deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
-        if api_server_authorized_ip_ranges is not None:
-            pulumi.set(__self__, "api_server_authorized_ip_ranges", api_server_authorized_ip_ranges)
         if auto_scaler_profile is not None:
             pulumi.set(__self__, "auto_scaler_profile", auto_scaler_profile)
-        if automatic_channel_upgrade is not None:
-            pulumi.set(__self__, "automatic_channel_upgrade", automatic_channel_upgrade)
+        if automatic_upgrade_channel is not None:
+            pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if azure_active_directory_role_based_access_control is not None:
             pulumi.set(__self__, "azure_active_directory_role_based_access_control", azure_active_directory_role_based_access_control)
         if azure_policy_enabled is not None:
@@ -223,11 +214,6 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "confidential_computing", confidential_computing)
         if cost_analysis_enabled is not None:
             pulumi.set(__self__, "cost_analysis_enabled", cost_analysis_enabled)
-        if custom_ca_trust_certificates_base64s is not None:
-            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
-            pulumi.log.warn("""custom_ca_trust_certificates_base64s is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-        if custom_ca_trust_certificates_base64s is not None:
-            pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if dns_prefix is not None:
@@ -236,11 +222,6 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "dns_prefix_private_cluster", dns_prefix_private_cluster)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_pod_security_policy is not None:
-            warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""")
-        if enable_pod_security_policy is not None:
-            pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if http_application_routing_enabled is not None:
             pulumi.set(__self__, "http_application_routing_enabled", http_application_routing_enabled)
         if http_proxy_config is not None:
@@ -281,8 +262,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
-        if node_os_channel_upgrade is not None:
-            pulumi.set(__self__, "node_os_channel_upgrade", node_os_channel_upgrade)
+        if node_os_upgrade_channel is not None:
+            pulumi.set(__self__, "node_os_upgrade_channel", node_os_upgrade_channel)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
         if oidc_issuer_enabled is not None:
@@ -297,11 +278,6 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "private_cluster_public_fqdn_enabled", private_cluster_public_fqdn_enabled)
         if private_dns_zone_id is not None:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
-        if public_network_access_enabled is not None:
-            warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.""")
-        if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if role_based_access_control_enabled is not None:
             pulumi.set(__self__, "role_based_access_control_enabled", role_based_access_control_enabled)
         if run_command_enabled is not None:
@@ -376,16 +352,6 @@ class KubernetesClusterArgs:
         pulumi.set(self, "api_server_access_profile", value)
 
     @property
-    @pulumi.getter(name="apiServerAuthorizedIpRanges")
-    @_utilities.deprecated("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
-    def api_server_authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "api_server_authorized_ip_ranges")
-
-    @api_server_authorized_ip_ranges.setter
-    def api_server_authorized_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "api_server_authorized_ip_ranges", value)
-
-    @property
     @pulumi.getter(name="autoScalerProfile")
     def auto_scaler_profile(self) -> Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']]:
         """
@@ -398,8 +364,8 @@ class KubernetesClusterArgs:
         pulumi.set(self, "auto_scaler_profile", value)
 
     @property
-    @pulumi.getter(name="automaticChannelUpgrade")
-    def automatic_channel_upgrade(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="automaticUpgradeChannel")
+    def automatic_upgrade_channel(self) -> Optional[pulumi.Input[str]]:
         """
         The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 
@@ -407,11 +373,11 @@ class KubernetesClusterArgs:
 
         > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
         """
-        return pulumi.get(self, "automatic_channel_upgrade")
+        return pulumi.get(self, "automatic_upgrade_channel")
 
-    @automatic_channel_upgrade.setter
-    def automatic_channel_upgrade(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "automatic_channel_upgrade", value)
+    @automatic_upgrade_channel.setter
+    def automatic_upgrade_channel(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "automatic_upgrade_channel", value)
 
     @property
     @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControl")
@@ -460,16 +426,6 @@ class KubernetesClusterArgs:
     @cost_analysis_enabled.setter
     def cost_analysis_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "cost_analysis_enabled", value)
-
-    @property
-    @pulumi.getter(name="customCaTrustCertificatesBase64s")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def custom_ca_trust_certificates_base64s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "custom_ca_trust_certificates_base64s")
-
-    @custom_ca_trust_certificates_base64s.setter
-    def custom_ca_trust_certificates_base64s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "custom_ca_trust_certificates_base64s", value)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -522,16 +478,6 @@ class KubernetesClusterArgs:
     @edge_zone.setter
     def edge_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "edge_zone", value)
-
-    @property
-    @pulumi.getter(name="enablePodSecurityPolicy")
-    @_utilities.deprecated("""The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""")
-    def enable_pod_security_policy(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_pod_security_policy")
-
-    @enable_pod_security_policy.setter
-    def enable_pod_security_policy(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_pod_security_policy", value)
 
     @property
     @pulumi.getter(name="httpApplicationRoutingEnabled")
@@ -589,7 +535,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="imageCleanerIntervalHours")
     def image_cleaner_interval_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+        Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
         """
         return pulumi.get(self, "image_cleaner_interval_hours")
 
@@ -788,18 +734,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "network_profile", value)
 
     @property
-    @pulumi.getter(name="nodeOsChannelUpgrade")
-    def node_os_channel_upgrade(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="nodeOsUpgradeChannel")
+    def node_os_upgrade_channel(self) -> Optional[pulumi.Input[str]]:
         """
-        The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+        The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
 
-        > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+        > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         """
-        return pulumi.get(self, "node_os_channel_upgrade")
+        return pulumi.get(self, "node_os_upgrade_channel")
 
-    @node_os_channel_upgrade.setter
-    def node_os_channel_upgrade(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "node_os_channel_upgrade", value)
+    @node_os_upgrade_channel.setter
+    def node_os_upgrade_channel(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_os_upgrade_channel", value)
 
     @property
     @pulumi.getter(name="nodeResourceGroup")
@@ -916,16 +862,6 @@ class KubernetesClusterArgs:
     @private_dns_zone_id.setter
     def private_dns_zone_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_dns_zone_id", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccessEnabled")
-    @_utilities.deprecated("""`public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.""")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "public_network_access_enabled")
-
-    @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="roleBasedAccessControlEnabled")
@@ -1085,21 +1021,18 @@ class _KubernetesClusterState:
     def __init__(__self__, *,
                  aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
                  api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']] = None,
-                 api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
-                 automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
                  cost_analysis_enabled: Optional[pulumi.Input[bool]] = None,
                  current_kubernetes_version: Optional[pulumi.Input[str]] = None,
-                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_application_routing_zone_name: Optional[pulumi.Input[str]] = None,
@@ -1126,7 +1059,7 @@ class _KubernetesClusterState:
                  monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
-                 node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 node_os_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  node_resource_group_id: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1138,7 +1071,6 @@ class _KubernetesClusterState:
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  private_fqdn: Optional[pulumi.Input[str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1157,7 +1089,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         :param pulumi.Input['KubernetesClusterApiServerAccessProfileArgs'] api_server_access_profile: An `api_server_access_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
-        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input[str] automatic_upgrade_channel: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
                
                !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
                
@@ -1186,7 +1118,7 @@ class _KubernetesClusterState:
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
@@ -1216,9 +1148,9 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
-        :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+        :param pulumi.Input[str] node_os_upgrade_channel: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
                
-               > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+               > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -1288,15 +1220,10 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
         if api_server_access_profile is not None:
             pulumi.set(__self__, "api_server_access_profile", api_server_access_profile)
-        if api_server_authorized_ip_ranges is not None:
-            warnings.warn("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""", DeprecationWarning)
-            pulumi.log.warn("""api_server_authorized_ip_ranges is deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
-        if api_server_authorized_ip_ranges is not None:
-            pulumi.set(__self__, "api_server_authorized_ip_ranges", api_server_authorized_ip_ranges)
         if auto_scaler_profile is not None:
             pulumi.set(__self__, "auto_scaler_profile", auto_scaler_profile)
-        if automatic_channel_upgrade is not None:
-            pulumi.set(__self__, "automatic_channel_upgrade", automatic_channel_upgrade)
+        if automatic_upgrade_channel is not None:
+            pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if azure_active_directory_role_based_access_control is not None:
             pulumi.set(__self__, "azure_active_directory_role_based_access_control", azure_active_directory_role_based_access_control)
         if azure_policy_enabled is not None:
@@ -1307,11 +1234,6 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "cost_analysis_enabled", cost_analysis_enabled)
         if current_kubernetes_version is not None:
             pulumi.set(__self__, "current_kubernetes_version", current_kubernetes_version)
-        if custom_ca_trust_certificates_base64s is not None:
-            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
-            pulumi.log.warn("""custom_ca_trust_certificates_base64s is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-        if custom_ca_trust_certificates_base64s is not None:
-            pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if default_node_pool is not None:
             pulumi.set(__self__, "default_node_pool", default_node_pool)
         if disk_encryption_set_id is not None:
@@ -1322,11 +1244,6 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "dns_prefix_private_cluster", dns_prefix_private_cluster)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_pod_security_policy is not None:
-            warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""")
-        if enable_pod_security_policy is not None:
-            pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if http_application_routing_enabled is not None:
@@ -1379,8 +1296,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
-        if node_os_channel_upgrade is not None:
-            pulumi.set(__self__, "node_os_channel_upgrade", node_os_channel_upgrade)
+        if node_os_upgrade_channel is not None:
+            pulumi.set(__self__, "node_os_upgrade_channel", node_os_upgrade_channel)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
         if node_resource_group_id is not None:
@@ -1403,11 +1320,6 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if private_fqdn is not None:
             pulumi.set(__self__, "private_fqdn", private_fqdn)
-        if public_network_access_enabled is not None:
-            warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.""")
-        if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if role_based_access_control_enabled is not None:
@@ -1460,16 +1372,6 @@ class _KubernetesClusterState:
         pulumi.set(self, "api_server_access_profile", value)
 
     @property
-    @pulumi.getter(name="apiServerAuthorizedIpRanges")
-    @_utilities.deprecated("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
-    def api_server_authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "api_server_authorized_ip_ranges")
-
-    @api_server_authorized_ip_ranges.setter
-    def api_server_authorized_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "api_server_authorized_ip_ranges", value)
-
-    @property
     @pulumi.getter(name="autoScalerProfile")
     def auto_scaler_profile(self) -> Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']]:
         """
@@ -1482,8 +1384,8 @@ class _KubernetesClusterState:
         pulumi.set(self, "auto_scaler_profile", value)
 
     @property
-    @pulumi.getter(name="automaticChannelUpgrade")
-    def automatic_channel_upgrade(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="automaticUpgradeChannel")
+    def automatic_upgrade_channel(self) -> Optional[pulumi.Input[str]]:
         """
         The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 
@@ -1491,11 +1393,11 @@ class _KubernetesClusterState:
 
         > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
         """
-        return pulumi.get(self, "automatic_channel_upgrade")
+        return pulumi.get(self, "automatic_upgrade_channel")
 
-    @automatic_channel_upgrade.setter
-    def automatic_channel_upgrade(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "automatic_channel_upgrade", value)
+    @automatic_upgrade_channel.setter
+    def automatic_upgrade_channel(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "automatic_upgrade_channel", value)
 
     @property
     @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControl")
@@ -1556,16 +1458,6 @@ class _KubernetesClusterState:
     @current_kubernetes_version.setter
     def current_kubernetes_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "current_kubernetes_version", value)
-
-    @property
-    @pulumi.getter(name="customCaTrustCertificatesBase64s")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def custom_ca_trust_certificates_base64s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "custom_ca_trust_certificates_base64s")
-
-    @custom_ca_trust_certificates_base64s.setter
-    def custom_ca_trust_certificates_base64s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "custom_ca_trust_certificates_base64s", value)
 
     @property
     @pulumi.getter(name="defaultNodePool")
@@ -1630,16 +1522,6 @@ class _KubernetesClusterState:
     @edge_zone.setter
     def edge_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "edge_zone", value)
-
-    @property
-    @pulumi.getter(name="enablePodSecurityPolicy")
-    @_utilities.deprecated("""The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""")
-    def enable_pod_security_policy(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_pod_security_policy")
-
-    @enable_pod_security_policy.setter
-    def enable_pod_security_policy(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_pod_security_policy", value)
 
     @property
     @pulumi.getter
@@ -1721,7 +1603,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="imageCleanerIntervalHours")
     def image_cleaner_interval_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+        Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
         """
         return pulumi.get(self, "image_cleaner_interval_hours")
 
@@ -1968,18 +1850,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "network_profile", value)
 
     @property
-    @pulumi.getter(name="nodeOsChannelUpgrade")
-    def node_os_channel_upgrade(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="nodeOsUpgradeChannel")
+    def node_os_upgrade_channel(self) -> Optional[pulumi.Input[str]]:
         """
-        The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+        The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
 
-        > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+        > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         """
-        return pulumi.get(self, "node_os_channel_upgrade")
+        return pulumi.get(self, "node_os_upgrade_channel")
 
-    @node_os_channel_upgrade.setter
-    def node_os_channel_upgrade(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "node_os_channel_upgrade", value)
+    @node_os_upgrade_channel.setter
+    def node_os_upgrade_channel(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_os_upgrade_channel", value)
 
     @property
     @pulumi.getter(name="nodeResourceGroup")
@@ -2144,16 +2026,6 @@ class _KubernetesClusterState:
     @private_fqdn.setter
     def private_fqdn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_fqdn", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccessEnabled")
-    @_utilities.deprecated("""`public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.""")
-    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "public_network_access_enabled")
-
-    @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -2327,20 +2199,17 @@ class KubernetesCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aci_connector_linux: Optional[pulumi.Input[Union['KubernetesClusterAciConnectorLinuxArgs', 'KubernetesClusterAciConnectorLinuxArgsDict']]] = None,
                  api_server_access_profile: Optional[pulumi.Input[Union['KubernetesClusterApiServerAccessProfileArgs', 'KubernetesClusterApiServerAccessProfileArgsDict']]] = None,
-                 api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input[Union['KubernetesClusterAutoScalerProfileArgs', 'KubernetesClusterAutoScalerProfileArgsDict']]] = None,
-                 automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input[Union['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs', 'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgsDict']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict']]] = None,
                  cost_analysis_enabled: Optional[pulumi.Input[bool]] = None,
-                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_node_pool: Optional[pulumi.Input[Union['KubernetesClusterDefaultNodePoolArgs', 'KubernetesClusterDefaultNodePoolArgsDict']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input[Union['KubernetesClusterHttpProxyConfigArgs', 'KubernetesClusterHttpProxyConfigArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['KubernetesClusterIdentityArgs', 'KubernetesClusterIdentityArgsDict']]] = None,
@@ -2361,7 +2230,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  monitor_metrics: Optional[pulumi.Input[Union['KubernetesClusterMonitorMetricsArgs', 'KubernetesClusterMonitorMetricsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[Union['KubernetesClusterNetworkProfileArgs', 'KubernetesClusterNetworkProfileArgsDict']]] = None,
-                 node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 node_os_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
                  oms_agent: Optional[pulumi.Input[Union['KubernetesClusterOmsAgentArgs', 'KubernetesClusterOmsAgentArgsDict']]] = None,
@@ -2369,7 +2238,6 @@ class KubernetesCluster(pulumi.CustomResource):
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2431,7 +2299,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KubernetesClusterAciConnectorLinuxArgs', 'KubernetesClusterAciConnectorLinuxArgsDict']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         :param pulumi.Input[Union['KubernetesClusterApiServerAccessProfileArgs', 'KubernetesClusterApiServerAccessProfileArgsDict']] api_server_access_profile: An `api_server_access_profile` block as defined below.
         :param pulumi.Input[Union['KubernetesClusterAutoScalerProfileArgs', 'KubernetesClusterAutoScalerProfileArgsDict']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
-        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input[str] automatic_upgrade_channel: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
                
                !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
                
@@ -2457,7 +2325,7 @@ class KubernetesCluster(pulumi.CustomResource):
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
         :param pulumi.Input[Union['KubernetesClusterIngressApplicationGatewayArgs', 'KubernetesClusterIngressApplicationGatewayArgsDict']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
@@ -2483,9 +2351,9 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KubernetesClusterNetworkProfileArgs', 'KubernetesClusterNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
-        :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+        :param pulumi.Input[str] node_os_upgrade_channel: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
                
-               > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+               > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -2612,20 +2480,17 @@ class KubernetesCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aci_connector_linux: Optional[pulumi.Input[Union['KubernetesClusterAciConnectorLinuxArgs', 'KubernetesClusterAciConnectorLinuxArgsDict']]] = None,
                  api_server_access_profile: Optional[pulumi.Input[Union['KubernetesClusterApiServerAccessProfileArgs', 'KubernetesClusterApiServerAccessProfileArgsDict']]] = None,
-                 api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input[Union['KubernetesClusterAutoScalerProfileArgs', 'KubernetesClusterAutoScalerProfileArgsDict']]] = None,
-                 automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_role_based_access_control: Optional[pulumi.Input[Union['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs', 'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgsDict']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_computing: Optional[pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict']]] = None,
                  cost_analysis_enabled: Optional[pulumi.Input[bool]] = None,
-                 custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_node_pool: Optional[pulumi.Input[Union['KubernetesClusterDefaultNodePoolArgs', 'KubernetesClusterDefaultNodePoolArgsDict']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input[Union['KubernetesClusterHttpProxyConfigArgs', 'KubernetesClusterHttpProxyConfigArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['KubernetesClusterIdentityArgs', 'KubernetesClusterIdentityArgsDict']]] = None,
@@ -2646,7 +2511,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  monitor_metrics: Optional[pulumi.Input[Union['KubernetesClusterMonitorMetricsArgs', 'KubernetesClusterMonitorMetricsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[Union['KubernetesClusterNetworkProfileArgs', 'KubernetesClusterNetworkProfileArgsDict']]] = None,
-                 node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
+                 node_os_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
                  oms_agent: Optional[pulumi.Input[Union['KubernetesClusterOmsAgentArgs', 'KubernetesClusterOmsAgentArgsDict']]] = None,
@@ -2654,7 +2519,6 @@ class KubernetesCluster(pulumi.CustomResource):
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2679,14 +2543,12 @@ class KubernetesCluster(pulumi.CustomResource):
 
             __props__.__dict__["aci_connector_linux"] = aci_connector_linux
             __props__.__dict__["api_server_access_profile"] = api_server_access_profile
-            __props__.__dict__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
             __props__.__dict__["auto_scaler_profile"] = auto_scaler_profile
-            __props__.__dict__["automatic_channel_upgrade"] = automatic_channel_upgrade
+            __props__.__dict__["automatic_upgrade_channel"] = automatic_upgrade_channel
             __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
             __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
             __props__.__dict__["confidential_computing"] = confidential_computing
             __props__.__dict__["cost_analysis_enabled"] = cost_analysis_enabled
-            __props__.__dict__["custom_ca_trust_certificates_base64s"] = custom_ca_trust_certificates_base64s
             if default_node_pool is None and not opts.urn:
                 raise TypeError("Missing required property 'default_node_pool'")
             __props__.__dict__["default_node_pool"] = default_node_pool
@@ -2694,7 +2556,6 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["dns_prefix"] = dns_prefix
             __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
             __props__.__dict__["edge_zone"] = edge_zone
-            __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
             __props__.__dict__["http_application_routing_enabled"] = http_application_routing_enabled
             __props__.__dict__["http_proxy_config"] = http_proxy_config
             __props__.__dict__["identity"] = identity
@@ -2715,7 +2576,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["monitor_metrics"] = monitor_metrics
             __props__.__dict__["name"] = name
             __props__.__dict__["network_profile"] = network_profile
-            __props__.__dict__["node_os_channel_upgrade"] = node_os_channel_upgrade
+            __props__.__dict__["node_os_upgrade_channel"] = node_os_upgrade_channel
             __props__.__dict__["node_resource_group"] = node_resource_group
             __props__.__dict__["oidc_issuer_enabled"] = oidc_issuer_enabled
             __props__.__dict__["oms_agent"] = oms_agent
@@ -2723,7 +2584,6 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["private_cluster_enabled"] = private_cluster_enabled
             __props__.__dict__["private_cluster_public_fqdn_enabled"] = private_cluster_public_fqdn_enabled
             __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
-            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -2764,21 +2624,18 @@ class KubernetesCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             aci_connector_linux: Optional[pulumi.Input[Union['KubernetesClusterAciConnectorLinuxArgs', 'KubernetesClusterAciConnectorLinuxArgsDict']]] = None,
             api_server_access_profile: Optional[pulumi.Input[Union['KubernetesClusterApiServerAccessProfileArgs', 'KubernetesClusterApiServerAccessProfileArgsDict']]] = None,
-            api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_scaler_profile: Optional[pulumi.Input[Union['KubernetesClusterAutoScalerProfileArgs', 'KubernetesClusterAutoScalerProfileArgsDict']]] = None,
-            automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+            automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
             azure_active_directory_role_based_access_control: Optional[pulumi.Input[Union['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs', 'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgsDict']]] = None,
             azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
             confidential_computing: Optional[pulumi.Input[Union['KubernetesClusterConfidentialComputingArgs', 'KubernetesClusterConfidentialComputingArgsDict']]] = None,
             cost_analysis_enabled: Optional[pulumi.Input[bool]] = None,
             current_kubernetes_version: Optional[pulumi.Input[str]] = None,
-            custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_node_pool: Optional[pulumi.Input[Union['KubernetesClusterDefaultNodePoolArgs', 'KubernetesClusterDefaultNodePoolArgsDict']]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
             dns_prefix: Optional[pulumi.Input[str]] = None,
             dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
-            enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
             http_application_routing_zone_name: Optional[pulumi.Input[str]] = None,
@@ -2805,7 +2662,7 @@ class KubernetesCluster(pulumi.CustomResource):
             monitor_metrics: Optional[pulumi.Input[Union['KubernetesClusterMonitorMetricsArgs', 'KubernetesClusterMonitorMetricsArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_profile: Optional[pulumi.Input[Union['KubernetesClusterNetworkProfileArgs', 'KubernetesClusterNetworkProfileArgsDict']]] = None,
-            node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
+            node_os_upgrade_channel: Optional[pulumi.Input[str]] = None,
             node_resource_group: Optional[pulumi.Input[str]] = None,
             node_resource_group_id: Optional[pulumi.Input[str]] = None,
             oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2817,7 +2674,6 @@ class KubernetesCluster(pulumi.CustomResource):
             private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
             private_dns_zone_id: Optional[pulumi.Input[str]] = None,
             private_fqdn: Optional[pulumi.Input[str]] = None,
-            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
             run_command_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2841,7 +2697,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KubernetesClusterAciConnectorLinuxArgs', 'KubernetesClusterAciConnectorLinuxArgsDict']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         :param pulumi.Input[Union['KubernetesClusterApiServerAccessProfileArgs', 'KubernetesClusterApiServerAccessProfileArgsDict']] api_server_access_profile: An `api_server_access_profile` block as defined below.
         :param pulumi.Input[Union['KubernetesClusterAutoScalerProfileArgs', 'KubernetesClusterAutoScalerProfileArgsDict']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
-        :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        :param pulumi.Input[str] automatic_upgrade_channel: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
                
                !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
                
@@ -2870,7 +2726,7 @@ class KubernetesCluster(pulumi.CustomResource):
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
         :param pulumi.Input[Union['KubernetesClusterIngressApplicationGatewayArgs', 'KubernetesClusterIngressApplicationGatewayArgsDict']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
@@ -2900,9 +2756,9 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KubernetesClusterNetworkProfileArgs', 'KubernetesClusterNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
-        :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+        :param pulumi.Input[str] node_os_upgrade_channel: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
                
-               > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+               > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -2974,21 +2830,18 @@ class KubernetesCluster(pulumi.CustomResource):
 
         __props__.__dict__["aci_connector_linux"] = aci_connector_linux
         __props__.__dict__["api_server_access_profile"] = api_server_access_profile
-        __props__.__dict__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
         __props__.__dict__["auto_scaler_profile"] = auto_scaler_profile
-        __props__.__dict__["automatic_channel_upgrade"] = automatic_channel_upgrade
+        __props__.__dict__["automatic_upgrade_channel"] = automatic_upgrade_channel
         __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
         __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
         __props__.__dict__["confidential_computing"] = confidential_computing
         __props__.__dict__["cost_analysis_enabled"] = cost_analysis_enabled
         __props__.__dict__["current_kubernetes_version"] = current_kubernetes_version
-        __props__.__dict__["custom_ca_trust_certificates_base64s"] = custom_ca_trust_certificates_base64s
         __props__.__dict__["default_node_pool"] = default_node_pool
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__.__dict__["dns_prefix"] = dns_prefix
         __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
         __props__.__dict__["edge_zone"] = edge_zone
-        __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
         __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["http_application_routing_enabled"] = http_application_routing_enabled
         __props__.__dict__["http_application_routing_zone_name"] = http_application_routing_zone_name
@@ -3015,7 +2868,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["monitor_metrics"] = monitor_metrics
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
-        __props__.__dict__["node_os_channel_upgrade"] = node_os_channel_upgrade
+        __props__.__dict__["node_os_upgrade_channel"] = node_os_upgrade_channel
         __props__.__dict__["node_resource_group"] = node_resource_group
         __props__.__dict__["node_resource_group_id"] = node_resource_group_id
         __props__.__dict__["oidc_issuer_enabled"] = oidc_issuer_enabled
@@ -3027,7 +2880,6 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["private_cluster_public_fqdn_enabled"] = private_cluster_public_fqdn_enabled
         __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
         __props__.__dict__["private_fqdn"] = private_fqdn
-        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["role_based_access_control_enabled"] = role_based_access_control_enabled
         __props__.__dict__["run_command_enabled"] = run_command_enabled
@@ -3053,17 +2905,11 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiServerAccessProfile")
-    def api_server_access_profile(self) -> pulumi.Output['outputs.KubernetesClusterApiServerAccessProfile']:
+    def api_server_access_profile(self) -> pulumi.Output[Optional['outputs.KubernetesClusterApiServerAccessProfile']]:
         """
         An `api_server_access_profile` block as defined below.
         """
         return pulumi.get(self, "api_server_access_profile")
-
-    @property
-    @pulumi.getter(name="apiServerAuthorizedIpRanges")
-    @_utilities.deprecated("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
-    def api_server_authorized_ip_ranges(self) -> pulumi.Output[Sequence[str]]:
-        return pulumi.get(self, "api_server_authorized_ip_ranges")
 
     @property
     @pulumi.getter(name="autoScalerProfile")
@@ -3074,8 +2920,8 @@ class KubernetesCluster(pulumi.CustomResource):
         return pulumi.get(self, "auto_scaler_profile")
 
     @property
-    @pulumi.getter(name="automaticChannelUpgrade")
-    def automatic_channel_upgrade(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="automaticUpgradeChannel")
+    def automatic_upgrade_channel(self) -> pulumi.Output[Optional[str]]:
         """
         The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 
@@ -3083,7 +2929,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
         > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
         """
-        return pulumi.get(self, "automatic_channel_upgrade")
+        return pulumi.get(self, "automatic_upgrade_channel")
 
     @property
     @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControl")
@@ -3124,12 +2970,6 @@ class KubernetesCluster(pulumi.CustomResource):
         The current version running on the Azure Kubernetes Managed Cluster.
         """
         return pulumi.get(self, "current_kubernetes_version")
-
-    @property
-    @pulumi.getter(name="customCaTrustCertificatesBase64s")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def custom_ca_trust_certificates_base64s(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        return pulumi.get(self, "custom_ca_trust_certificates_base64s")
 
     @property
     @pulumi.getter(name="defaultNodePool")
@@ -3174,12 +3014,6 @@ class KubernetesCluster(pulumi.CustomResource):
         Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "edge_zone")
-
-    @property
-    @pulumi.getter(name="enablePodSecurityPolicy")
-    @_utilities.deprecated("""The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""")
-    def enable_pod_security_policy(self) -> pulumi.Output[Optional[bool]]:
-        return pulumi.get(self, "enable_pod_security_policy")
 
     @property
     @pulumi.getter
@@ -3237,7 +3071,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="imageCleanerIntervalHours")
     def image_cleaner_interval_hours(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+        Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
         """
         return pulumi.get(self, "image_cleaner_interval_hours")
 
@@ -3404,14 +3238,14 @@ class KubernetesCluster(pulumi.CustomResource):
         return pulumi.get(self, "network_profile")
 
     @property
-    @pulumi.getter(name="nodeOsChannelUpgrade")
-    def node_os_channel_upgrade(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="nodeOsUpgradeChannel")
+    def node_os_upgrade_channel(self) -> pulumi.Output[Optional[str]]:
         """
-        The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+        The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
 
-        > **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+        > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         """
-        return pulumi.get(self, "node_os_channel_upgrade")
+        return pulumi.get(self, "node_os_upgrade_channel")
 
     @property
     @pulumi.getter(name="nodeResourceGroup")
@@ -3532,12 +3366,6 @@ class KubernetesCluster(pulumi.CustomResource):
         The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         """
         return pulumi.get(self, "private_fqdn")
-
-    @property
-    @pulumi.getter(name="publicNetworkAccessEnabled")
-    @_utilities.deprecated("""`public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.""")
-    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
-        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

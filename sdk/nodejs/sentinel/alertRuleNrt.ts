@@ -193,6 +193,9 @@ export class AlertRuleNrt extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
+            if ((!args || args.eventGrouping === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'eventGrouping'");
+            }
             if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
@@ -354,7 +357,7 @@ export interface AlertRuleNrtArgs {
      *
      * > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
      */
-    eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleNrtEventGrouping>;
+    eventGrouping: pulumi.Input<inputs.sentinel.AlertRuleNrtEventGrouping>;
     /**
      * A `incident` block as defined below.
      */

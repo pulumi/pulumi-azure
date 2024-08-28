@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,27 +53,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mysql.NewServer(ctx, "example", &mysql.ServerArgs{
-//				Name:                         pulumi.String("example-mysqlserver"),
+//			exampleMysqlServer, err := azurerm.NewMysqlServer(ctx, "example", &azurerm.MysqlServerArgs{
+//				Name:                         "example-mysqlserver",
 //				Location:                     example.Location,
 //				ResourceGroupName:            example.Name,
-//				AdministratorLogin:           pulumi.String("mysqladminun"),
-//				AdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-//				SkuName:                      pulumi.String("B_Gen5_2"),
-//				StorageMb:                    pulumi.Int(5120),
-//				Version:                      pulumi.String("5.7"),
-//				SslEnforcementEnabled:        pulumi.Bool(true),
-//				SslMinimalTlsVersionEnforced: pulumi.String("TLS1_2"),
+//				AdministratorLogin:           "mysqladminun",
+//				AdministratorLoginPassword:   "H@Sh1CoR3!",
+//				SkuName:                      "B_Gen5_2",
+//				StorageMb:                    5120,
+//				Version:                      "5.7",
+//				SslEnforcementEnabled:        true,
+//				SslMinimalTlsVersionEnforced: "TLS1_2",
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := mysql.NewDatabase(ctx, "example", &mysql.DatabaseArgs{
-//				Name:              pulumi.String("exampledb"),
+//			exampleMysqlDatabase, err := azurerm.NewMysqlDatabase(ctx, "example", &azurerm.MysqlDatabaseArgs{
+//				Name:              "exampledb",
 //				ResourceGroupName: example.Name,
-//				ServerName:        exampleServer.Name,
-//				Charset:           pulumi.String("utf8"),
-//				Collation:         pulumi.String("utf8_unicode_ci"),
+//				ServerName:        exampleMysqlServer.Name,
+//				Charset:           "utf8",
+//				Collation:         "utf8_unicode_ci",
 //			})
 //			if err != nil {
 //				return err
@@ -81,10 +81,10 @@ import (
 //			_, err = appplatform.NewSpringCloudAppMysqlAssociation(ctx, "example", &appplatform.SpringCloudAppMysqlAssociationArgs{
 //				Name:             pulumi.String("example-bind"),
 //				SpringCloudAppId: exampleSpringCloudApp.ID(),
-//				MysqlServerId:    exampleServer.ID(),
-//				DatabaseName:     exampleDatabase.Name,
-//				Username:         exampleServer.AdministratorLogin,
-//				Password:         exampleServer.AdministratorLoginPassword,
+//				MysqlServerId:    exampleMysqlServer.Id,
+//				DatabaseName:     exampleMysqlDatabase.Name,
+//				Username:         exampleMysqlServer.AdministratorLogin,
+//				Password:         exampleMysqlServer.AdministratorLoginPassword,
 //			})
 //			if err != nil {
 //				return err

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,17 +71,11 @@ import (
 //				EnabledLogs: monitoring.DiagnosticSettingEnabledLogArray{
 //					&monitoring.DiagnosticSettingEnabledLogArgs{
 //						Category: pulumi.String("AuditEvent"),
-//						RetentionPolicy: &monitoring.DiagnosticSettingEnabledLogRetentionPolicyArgs{
-//							Enabled: pulumi.Bool(false),
-//						},
 //					},
 //				},
 //				Metrics: monitoring.DiagnosticSettingMetricArray{
 //					&monitoring.DiagnosticSettingMetricArgs{
 //						Category: pulumi.String("AllMetrics"),
-//						RetentionPolicy: &monitoring.DiagnosticSettingMetricRetentionPolicyArgs{
-//							Enabled: pulumi.Bool(false),
-//						},
 //					},
 //				},
 //			})
@@ -106,7 +100,7 @@ type DiagnosticSetting struct {
 
 	// One or more `enabledLog` blocks as defined below.
 	//
-	// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+	// > **NOTE:** At least one `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
 	EnabledLogs DiagnosticSettingEnabledLogArrayOutput `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 	//
@@ -126,15 +120,9 @@ type DiagnosticSetting struct {
 	//
 	// > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
 	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
-	// One or more `log` blocks as defined below.
-	//
-	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-	Logs DiagnosticSettingLogArrayOutput `pulumi:"logs"`
 	// One or more `metric` blocks as defined below.
 	//
-	// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified.
+	// > **NOTE:** At least one `enabledLog` or `metric` block must be specified.
 	Metrics DiagnosticSettingMetricArrayOutput `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	//
@@ -187,7 +175,7 @@ func GetDiagnosticSetting(ctx *pulumi.Context,
 type diagnosticSettingState struct {
 	// One or more `enabledLog` blocks as defined below.
 	//
-	// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+	// > **NOTE:** At least one `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
 	EnabledLogs []DiagnosticSettingEnabledLog `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 	//
@@ -207,15 +195,9 @@ type diagnosticSettingState struct {
 	//
 	// > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// One or more `log` blocks as defined below.
-	//
-	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-	Logs []DiagnosticSettingLog `pulumi:"logs"`
 	// One or more `metric` blocks as defined below.
 	//
-	// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified.
+	// > **NOTE:** At least one `enabledLog` or `metric` block must be specified.
 	Metrics []DiagnosticSettingMetric `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	//
@@ -236,7 +218,7 @@ type diagnosticSettingState struct {
 type DiagnosticSettingState struct {
 	// One or more `enabledLog` blocks as defined below.
 	//
-	// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+	// > **NOTE:** At least one `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
 	EnabledLogs DiagnosticSettingEnabledLogArrayInput
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 	//
@@ -256,15 +238,9 @@ type DiagnosticSettingState struct {
 	//
 	// > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// One or more `log` blocks as defined below.
-	//
-	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-	Logs DiagnosticSettingLogArrayInput
 	// One or more `metric` blocks as defined below.
 	//
-	// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified.
+	// > **NOTE:** At least one `enabledLog` or `metric` block must be specified.
 	Metrics DiagnosticSettingMetricArrayInput
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	//
@@ -289,7 +265,7 @@ func (DiagnosticSettingState) ElementType() reflect.Type {
 type diagnosticSettingArgs struct {
 	// One or more `enabledLog` blocks as defined below.
 	//
-	// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+	// > **NOTE:** At least one `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
 	EnabledLogs []DiagnosticSettingEnabledLog `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 	//
@@ -309,15 +285,9 @@ type diagnosticSettingArgs struct {
 	//
 	// > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// One or more `log` blocks as defined below.
-	//
-	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-	Logs []DiagnosticSettingLog `pulumi:"logs"`
 	// One or more `metric` blocks as defined below.
 	//
-	// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified.
+	// > **NOTE:** At least one `enabledLog` or `metric` block must be specified.
 	Metrics []DiagnosticSettingMetric `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	//
@@ -339,7 +309,7 @@ type diagnosticSettingArgs struct {
 type DiagnosticSettingArgs struct {
 	// One or more `enabledLog` blocks as defined below.
 	//
-	// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+	// > **NOTE:** At least one `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
 	EnabledLogs DiagnosticSettingEnabledLogArrayInput
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 	//
@@ -359,15 +329,9 @@ type DiagnosticSettingArgs struct {
 	//
 	// > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// One or more `log` blocks as defined below.
-	//
-	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-	Logs DiagnosticSettingLogArrayInput
 	// One or more `metric` blocks as defined below.
 	//
-	// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified.
+	// > **NOTE:** At least one `enabledLog` or `metric` block must be specified.
 	Metrics DiagnosticSettingMetricArrayInput
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	//
@@ -474,7 +438,7 @@ func (o DiagnosticSettingOutput) ToDiagnosticSettingOutputWithContext(ctx contex
 
 // One or more `enabledLog` blocks as defined below.
 //
-// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+// > **NOTE:** At least one `enabledLog` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
 func (o DiagnosticSettingOutput) EnabledLogs() DiagnosticSettingEnabledLogArrayOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) DiagnosticSettingEnabledLogArrayOutput { return v.EnabledLogs }).(DiagnosticSettingEnabledLogArrayOutput)
 }
@@ -509,18 +473,9 @@ func (o DiagnosticSettingOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
-// One or more `log` blocks as defined below.
-//
-// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-//
-// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-func (o DiagnosticSettingOutput) Logs() DiagnosticSettingLogArrayOutput {
-	return o.ApplyT(func(v *DiagnosticSetting) DiagnosticSettingLogArrayOutput { return v.Logs }).(DiagnosticSettingLogArrayOutput)
-}
-
 // One or more `metric` blocks as defined below.
 //
-// > **NOTE:** At least one `log`, `enabledLog` or `metric` block must be specified.
+// > **NOTE:** At least one `enabledLog` or `metric` block must be specified.
 func (o DiagnosticSettingOutput) Metrics() DiagnosticSettingMetricArrayOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) DiagnosticSettingMetricArrayOutput { return v.Metrics }).(DiagnosticSettingMetricArrayOutput)
 }

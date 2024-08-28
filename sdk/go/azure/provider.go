@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,6 +55,8 @@ type Provider struct {
 	OidcTokenFilePath pulumi.StringPtrOutput `pulumi:"oidcTokenFilePath"`
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId pulumi.StringPtrOutput `pulumi:"partnerId"`
+	// The set of Resource Providers which should be automatically registered for the subscription.
+	ResourceProviderRegistrations pulumi.StringPtrOutput `pulumi:"resourceProviderRegistrations"`
 	// The Subscription ID which should be used.
 	SubscriptionId pulumi.StringPtrOutput `pulumi:"subscriptionId"`
 	// The Tenant ID which should be used.
@@ -199,8 +201,15 @@ type providerArgs struct {
 	OidcTokenFilePath *string `pulumi:"oidcTokenFilePath"`
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId *string `pulumi:"partnerId"`
+	// The set of Resource Providers which should be automatically registered for the subscription.
+	ResourceProviderRegistrations *string `pulumi:"resourceProviderRegistrations"`
+	// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+	// `resourceProviderRegistrations` property.
+	ResourceProvidersToRegisters []string `pulumi:"resourceProvidersToRegisters"`
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 	// registered?
+	//
+	// Deprecated: This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
 	SkipProviderRegistration *bool `pulumi:"skipProviderRegistration"`
 	// Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
 	StorageUseAzuread *bool `pulumi:"storageUseAzuread"`
@@ -262,8 +271,15 @@ type ProviderArgs struct {
 	OidcTokenFilePath pulumi.StringPtrInput
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId pulumi.StringPtrInput
+	// The set of Resource Providers which should be automatically registered for the subscription.
+	ResourceProviderRegistrations pulumi.StringPtrInput
+	// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+	// `resourceProviderRegistrations` property.
+	ResourceProvidersToRegisters pulumi.StringArrayInput
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 	// registered?
+	//
+	// Deprecated: This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
 	SkipProviderRegistration pulumi.BoolPtrInput
 	// Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
 	StorageUseAzuread pulumi.BoolPtrInput
@@ -398,6 +414,11 @@ func (o ProviderOutput) OidcTokenFilePath() pulumi.StringPtrOutput {
 // A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 func (o ProviderOutput) PartnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PartnerId }).(pulumi.StringPtrOutput)
+}
+
+// The set of Resource Providers which should be automatically registered for the subscription.
+func (o ProviderOutput) ResourceProviderRegistrations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ResourceProviderRegistrations }).(pulumi.StringPtrOutput)
 }
 
 // The Subscription ID which should be used.

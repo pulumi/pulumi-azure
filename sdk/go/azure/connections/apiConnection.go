@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/connections"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/connections"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,8 +83,8 @@ import (
 type ApiConnection struct {
 	pulumi.CustomResourceState
 
-	// A display name for this API Connection. Changing this forces a new API Connection to be created.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
 	ManagedApiId pulumi.StringOutput `pulumi:"managedApiId"`
 	// The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
@@ -132,7 +132,7 @@ func GetApiConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiConnection resources.
 type apiConnectionState struct {
-	// A display name for this API Connection. Changing this forces a new API Connection to be created.
+	// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
 	ManagedApiId *string `pulumi:"managedApiId"`
@@ -146,7 +146,7 @@ type apiConnectionState struct {
 }
 
 type ApiConnectionState struct {
-	// A display name for this API Connection. Changing this forces a new API Connection to be created.
+	// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
 	DisplayName pulumi.StringPtrInput
 	// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
 	ManagedApiId pulumi.StringPtrInput
@@ -164,7 +164,7 @@ func (ApiConnectionState) ElementType() reflect.Type {
 }
 
 type apiConnectionArgs struct {
-	// A display name for this API Connection. Changing this forces a new API Connection to be created.
+	// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
 	ManagedApiId string `pulumi:"managedApiId"`
@@ -179,7 +179,7 @@ type apiConnectionArgs struct {
 
 // The set of arguments for constructing a ApiConnection resource.
 type ApiConnectionArgs struct {
-	// A display name for this API Connection. Changing this forces a new API Connection to be created.
+	// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
 	DisplayName pulumi.StringPtrInput
 	// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
 	ManagedApiId pulumi.StringInput
@@ -279,9 +279,9 @@ func (o ApiConnectionOutput) ToApiConnectionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// A display name for this API Connection. Changing this forces a new API Connection to be created.
-func (o ApiConnectionOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ApiConnection) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
+func (o ApiConnectionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiConnection) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.

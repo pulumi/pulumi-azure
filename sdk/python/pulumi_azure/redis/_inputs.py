@@ -210,15 +210,14 @@ if not MYPY:
         Example usage:
         """
         authentication_enabled: NotRequired[pulumi.Input[bool]]
-        data_persistence_authentication_method: NotRequired[pulumi.Input[str]]
-        """
-        Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
-        """
-        enable_authentication: NotRequired[pulumi.Input[bool]]
         """
         If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 
-        > **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
+        > **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
+        """
+        data_persistence_authentication_method: NotRequired[pulumi.Input[str]]
+        """
+        Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
         """
         maxclients: NotRequired[pulumi.Input[int]]
         """
@@ -280,7 +279,6 @@ class CacheRedisConfigurationArgs:
                  aof_storage_connection_string1: Optional[pulumi.Input[str]] = None,
                  authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  data_persistence_authentication_method: Optional[pulumi.Input[str]] = None,
-                 enable_authentication: Optional[pulumi.Input[bool]] = None,
                  maxclients: Optional[pulumi.Input[int]] = None,
                  maxfragmentationmemory_reserved: Optional[pulumi.Input[int]] = None,
                  maxmemory_delta: Optional[pulumi.Input[int]] = None,
@@ -301,10 +299,10 @@ class CacheRedisConfigurationArgs:
         :param pulumi.Input[str] aof_storage_connection_string1: Second Storage Account connection string for AOF persistence.
                
                Example usage:
-        :param pulumi.Input[str] data_persistence_authentication_method: Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
-        :param pulumi.Input[bool] enable_authentication: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+        :param pulumi.Input[bool] authentication_enabled: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
                
-               > **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
+               > **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
+        :param pulumi.Input[str] data_persistence_authentication_method: Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
         :param pulumi.Input[int] maxclients: Returns the max number of connected clients at the same time.
         :param pulumi.Input[int] maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
         :param pulumi.Input[int] maxmemory_delta: The max-memory delta for this Redis instance. Defaults are shown below.
@@ -333,11 +331,6 @@ class CacheRedisConfigurationArgs:
             pulumi.set(__self__, "authentication_enabled", authentication_enabled)
         if data_persistence_authentication_method is not None:
             pulumi.set(__self__, "data_persistence_authentication_method", data_persistence_authentication_method)
-        if enable_authentication is not None:
-            warnings.warn("""`enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_authentication is deprecated: `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.""")
-        if enable_authentication is not None:
-            pulumi.set(__self__, "enable_authentication", enable_authentication)
         if maxclients is not None:
             pulumi.set(__self__, "maxclients", maxclients)
         if maxfragmentationmemory_reserved is not None:
@@ -416,6 +409,11 @@ class CacheRedisConfigurationArgs:
     @property
     @pulumi.getter(name="authenticationEnabled")
     def authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+
+        > **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
+        """
         return pulumi.get(self, "authentication_enabled")
 
     @authentication_enabled.setter
@@ -426,28 +424,13 @@ class CacheRedisConfigurationArgs:
     @pulumi.getter(name="dataPersistenceAuthenticationMethod")
     def data_persistence_authentication_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+        Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
         """
         return pulumi.get(self, "data_persistence_authentication_method")
 
     @data_persistence_authentication_method.setter
     def data_persistence_authentication_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_persistence_authentication_method", value)
-
-    @property
-    @pulumi.getter(name="enableAuthentication")
-    @_utilities.deprecated("""`enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.""")
-    def enable_authentication(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-
-        > **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
-        """
-        return pulumi.get(self, "enable_authentication")
-
-    @enable_authentication.setter
-    def enable_authentication(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_authentication", value)
 
     @property
     @pulumi.getter

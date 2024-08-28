@@ -202,42 +202,6 @@ class FirewallRule(pulumi.CustomResource):
         """
         Manages a Firewall Rule associated with a Redis Cache.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        server = random.RandomId("server",
-            keepers={
-                "azi_id": "1",
-            },
-            byte_length=8)
-        example = azure.core.ResourceGroup("example",
-            name="redis-resourcegroup",
-            location="West Europe")
-        example_cache = azure.redis.Cache("example",
-            name=server.hex.apply(lambda hex: f"redis{hex}"),
-            location=example.location,
-            resource_group_name=example.name,
-            capacity=1,
-            family="P",
-            sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration={
-                "maxmemory_reserved": 2,
-                "maxmemory_delta": 2,
-                "maxmemory_policy": "allkeys-lru",
-            })
-        example_firewall_rule = azure.redis.FirewallRule("example",
-            name="someIPrange",
-            redis_cache_name=example_cache.name,
-            resource_group_name=example.name,
-            start_ip="1.2.3.4",
-            end_ip="2.3.4.5")
-        ```
-
         ## Import
 
         Redis Firewall Rules can be imported using the `resource id`, e.g.
@@ -262,42 +226,6 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Firewall Rule associated with a Redis Cache.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        server = random.RandomId("server",
-            keepers={
-                "azi_id": "1",
-            },
-            byte_length=8)
-        example = azure.core.ResourceGroup("example",
-            name="redis-resourcegroup",
-            location="West Europe")
-        example_cache = azure.redis.Cache("example",
-            name=server.hex.apply(lambda hex: f"redis{hex}"),
-            location=example.location,
-            resource_group_name=example.name,
-            capacity=1,
-            family="P",
-            sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration={
-                "maxmemory_reserved": 2,
-                "maxmemory_delta": 2,
-                "maxmemory_policy": "allkeys-lru",
-            })
-        example_firewall_rule = azure.redis.FirewallRule("example",
-            name="someIPrange",
-            redis_cache_name=example_cache.name,
-            resource_group_name=example.name,
-            start_ip="1.2.3.4",
-            end_ip="2.3.4.5")
-        ```
 
         ## Import
 

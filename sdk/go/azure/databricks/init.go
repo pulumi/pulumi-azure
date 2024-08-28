@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualNetworkPeering{}
 	case "azure:databricks/workspace:Workspace":
 		r = &Workspace{}
-	case "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey":
-		r = &WorkspaceCustomerManagedKey{}
 	case "azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey":
 		r = &WorkspaceRootDbfsCustomerManagedKey{}
 	default:
@@ -57,11 +55,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"databricks/workspace",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"databricks/workspaceCustomerManagedKey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -119,7 +119,7 @@ type SpringCloudGatewayRouteConfig struct {
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	//
 	// > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
-	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
+	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// One or more `route` blocks as defined below.
 	Routes SpringCloudGatewayRouteConfigRouteArrayOutput `pulumi:"routes"`
 	// The ID of the Spring Cloud App.
@@ -137,6 +137,9 @@ func NewSpringCloudGatewayRouteConfig(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Protocol == nil {
+		return nil, errors.New("invalid value for required argument 'Protocol'")
+	}
 	if args.SpringCloudGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'SpringCloudGatewayId'")
 	}
@@ -224,7 +227,7 @@ type springCloudGatewayRouteConfigArgs struct {
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	//
 	// > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
-	Protocol *string `pulumi:"protocol"`
+	Protocol string `pulumi:"protocol"`
 	// One or more `route` blocks as defined below.
 	Routes []SpringCloudGatewayRouteConfigRoute `pulumi:"routes"`
 	// The ID of the Spring Cloud App.
@@ -248,7 +251,7 @@ type SpringCloudGatewayRouteConfigArgs struct {
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	//
 	// > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
-	Protocol pulumi.StringPtrInput
+	Protocol pulumi.StringInput
 	// One or more `route` blocks as defined below.
 	Routes SpringCloudGatewayRouteConfigRouteArrayInput
 	// The ID of the Spring Cloud App.
@@ -369,8 +372,8 @@ func (o SpringCloudGatewayRouteConfigOutput) Predicates() pulumi.StringArrayOutp
 // Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
 //
 // > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
-func (o SpringCloudGatewayRouteConfigOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
+func (o SpringCloudGatewayRouteConfigOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
 // One or more `route` blocks as defined below.

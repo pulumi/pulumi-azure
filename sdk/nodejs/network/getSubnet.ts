@@ -63,14 +63,6 @@ export interface GetSubnetResult {
      */
     readonly defaultOutboundAccessEnabled: boolean;
     /**
-     * @deprecated This property has been superseded by `privateEndpointNetworkPolicies` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    readonly enforcePrivateLinkEndpointNetworkPolicies: boolean;
-    /**
-     * @deprecated This property has been superseded by `privateLinkServiceNetworkPoliciesEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    readonly enforcePrivateLinkServiceNetworkPolicies: boolean;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -83,10 +75,6 @@ export interface GetSubnetResult {
      * Enable or Disable network policies for the private endpoint on the subnet.
      */
     readonly privateEndpointNetworkPolicies: string;
-    /**
-     * @deprecated This property has been superseded by `privateEndpointNetworkPolicies` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    readonly privateEndpointNetworkPoliciesEnabled: boolean;
     /**
      * Enable or Disable network policies for the private link service on the subnet.
      */

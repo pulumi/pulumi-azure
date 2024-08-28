@@ -129,14 +129,6 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly parameterValues!: pulumi.Output<string>;
     /**
-     * A mapping of name and value pairs to pass to the managed application as parameters.
-     *
-     * > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
-     *
-     * @deprecated This property has been deprecated in favour of `parameterValues`
-     */
-    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
-    /**
      * One `plan` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly plan!: pulumi.Output<outputs.managedapplication.ApplicationPlan | undefined>;
@@ -169,7 +161,6 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outputs"] = state ? state.outputs : undefined;
             resourceInputs["parameterValues"] = state ? state.parameterValues : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["plan"] = state ? state.plan : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -190,7 +181,6 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -234,14 +224,6 @@ export interface ApplicationState {
      */
     parameterValues?: pulumi.Input<string>;
     /**
-     * A mapping of name and value pairs to pass to the managed application as parameters.
-     *
-     * > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
-     *
-     * @deprecated This property has been deprecated in favour of `parameterValues`
-     */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
      * One `plan` block as defined below. Changing this forces a new resource to be created.
      */
     plan?: pulumi.Input<inputs.managedapplication.ApplicationPlan>;
@@ -283,14 +265,6 @@ export interface ApplicationArgs {
      * The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
      */
     parameterValues?: pulumi.Input<string>;
-    /**
-     * A mapping of name and value pairs to pass to the managed application as parameters.
-     *
-     * > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameterValues` instead which supports more parameter types.
-     *
-     * @deprecated This property has been deprecated in favour of `parameterValues`
-     */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One `plan` block as defined below. Changing this forces a new resource to be created.
      */

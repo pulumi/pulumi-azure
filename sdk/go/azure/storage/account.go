@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,9 +62,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -164,7 +164,7 @@ type Account struct {
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrOutput `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesOutput `pulumi:"blobProperties"`
-	// Should cross Tenant replication be enabled? Defaults to `true`.
+	// Should cross Tenant replication be enabled? Defaults to `false`.
 	CrossTenantReplicationEnabled pulumi.BoolPtrOutput `pulumi:"crossTenantReplicationEnabled"`
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrOutput `pulumi:"customDomain"`
@@ -180,10 +180,8 @@ type Account struct {
 	DnsEndpointType pulumi.StringPtrOutput `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
-	// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableHttpsTrafficOnly pulumi.BoolOutput `pulumi:"enableHttpsTrafficOnly"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
-	HttpsTrafficOnlyEnabled pulumi.BoolOutput `pulumi:"httpsTrafficOnlyEnabled"`
+	HttpsTrafficOnlyEnabled pulumi.BoolPtrOutput `pulumi:"httpsTrafficOnlyEnabled"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
@@ -389,7 +387,7 @@ type Account struct {
 	StaticWebsite AccountStaticWebsitePtrOutput `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
-	// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
 	TableEncryptionKeyType pulumi.StringPtrOutput `pulumi:"tableEncryptionKeyType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -465,7 +463,7 @@ type accountState struct {
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
-	// Should cross Tenant replication be enabled? Defaults to `true`.
+	// Should cross Tenant replication be enabled? Defaults to `false`.
 	CrossTenantReplicationEnabled *bool `pulumi:"crossTenantReplicationEnabled"`
 	// A `customDomain` block as documented below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
@@ -481,8 +479,6 @@ type accountState struct {
 	DnsEndpointType *string `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
 	HttpsTrafficOnlyEnabled *bool `pulumi:"httpsTrafficOnlyEnabled"`
 	// An `identity` block as defined below.
@@ -690,7 +686,7 @@ type accountState struct {
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
-	// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
 	TableEncryptionKeyType *string `pulumi:"tableEncryptionKeyType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -719,7 +715,7 @@ type AccountState struct {
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput
-	// Should cross Tenant replication be enabled? Defaults to `true`.
+	// Should cross Tenant replication be enabled? Defaults to `false`.
 	CrossTenantReplicationEnabled pulumi.BoolPtrInput
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrInput
@@ -735,8 +731,6 @@ type AccountState struct {
 	DnsEndpointType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableHttpsTrafficOnly pulumi.BoolPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
 	HttpsTrafficOnlyEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
@@ -944,7 +938,7 @@ type AccountState struct {
 	StaticWebsite AccountStaticWebsitePtrInput
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
-	// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
 	TableEncryptionKeyType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -977,7 +971,7 @@ type accountArgs struct {
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
-	// Should cross Tenant replication be enabled? Defaults to `true`.
+	// Should cross Tenant replication be enabled? Defaults to `false`.
 	CrossTenantReplicationEnabled *bool `pulumi:"crossTenantReplicationEnabled"`
 	// A `customDomain` block as documented below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
@@ -993,8 +987,6 @@ type accountArgs struct {
 	DnsEndpointType *string `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
 	HttpsTrafficOnlyEnabled *bool `pulumi:"httpsTrafficOnlyEnabled"`
 	// An `identity` block as defined below.
@@ -1058,7 +1050,7 @@ type accountArgs struct {
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
-	// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
 	TableEncryptionKeyType *string `pulumi:"tableEncryptionKeyType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -1088,7 +1080,7 @@ type AccountArgs struct {
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput
-	// Should cross Tenant replication be enabled? Defaults to `true`.
+	// Should cross Tenant replication be enabled? Defaults to `false`.
 	CrossTenantReplicationEnabled pulumi.BoolPtrInput
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrInput
@@ -1104,8 +1096,6 @@ type AccountArgs struct {
 	DnsEndpointType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableHttpsTrafficOnly pulumi.BoolPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
 	HttpsTrafficOnlyEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
@@ -1169,7 +1159,7 @@ type AccountArgs struct {
 	StaticWebsite AccountStaticWebsitePtrInput
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
-	// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
 	TableEncryptionKeyType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -1308,7 +1298,7 @@ func (o AccountOutput) BlobProperties() AccountBlobPropertiesOutput {
 	return o.ApplyT(func(v *Account) AccountBlobPropertiesOutput { return v.BlobProperties }).(AccountBlobPropertiesOutput)
 }
 
-// Should cross Tenant replication be enabled? Defaults to `true`.
+// Should cross Tenant replication be enabled? Defaults to `false`.
 func (o AccountOutput) CrossTenantReplicationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.CrossTenantReplicationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1342,14 +1332,9 @@ func (o AccountOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
-func (o AccountOutput) EnableHttpsTrafficOnly() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.EnableHttpsTrafficOnly }).(pulumi.BoolOutput)
-}
-
 // Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
-func (o AccountOutput) HttpsTrafficOnlyEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.HttpsTrafficOnlyEnabled }).(pulumi.BoolOutput)
+func (o AccountOutput) HttpsTrafficOnlyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.HttpsTrafficOnlyEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An `identity` block as defined below.
@@ -1836,7 +1821,7 @@ func (o AccountOutput) StaticWebsite() AccountStaticWebsitePtrOutput {
 
 // The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 //
-// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
 func (o AccountOutput) TableEncryptionKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.TableEncryptionKeyType }).(pulumi.StringPtrOutput)
 }

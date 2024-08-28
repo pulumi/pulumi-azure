@@ -109,7 +109,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      *
      * > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      */
-    public readonly extensionOperationsEnabled!: pulumi.Output<boolean>;
+    public readonly extensionOperationsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * One or more `extension` blocks as defined below
      */

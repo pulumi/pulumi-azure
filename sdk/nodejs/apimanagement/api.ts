@@ -153,14 +153,6 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly serviceUrl!: pulumi.Output<string>;
     /**
-     * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-     *
-     * > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
-     */
-    public readonly soapPassThrough!: pulumi.Output<boolean>;
-    /**
      * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
      */
     public readonly sourceApiId!: pulumi.Output<string | undefined>;
@@ -222,7 +214,6 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["revision"] = state ? state.revision : undefined;
             resourceInputs["revisionDescription"] = state ? state.revisionDescription : undefined;
             resourceInputs["serviceUrl"] = state ? state.serviceUrl : undefined;
-            resourceInputs["soapPassThrough"] = state ? state.soapPassThrough : undefined;
             resourceInputs["sourceApiId"] = state ? state.sourceApiId : undefined;
             resourceInputs["subscriptionKeyParameterNames"] = state ? state.subscriptionKeyParameterNames : undefined;
             resourceInputs["subscriptionRequired"] = state ? state.subscriptionRequired : undefined;
@@ -257,7 +248,6 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["revision"] = args ? args.revision : undefined;
             resourceInputs["revisionDescription"] = args ? args.revisionDescription : undefined;
             resourceInputs["serviceUrl"] = args ? args.serviceUrl : undefined;
-            resourceInputs["soapPassThrough"] = args ? args.soapPassThrough : undefined;
             resourceInputs["sourceApiId"] = args ? args.sourceApiId : undefined;
             resourceInputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
             resourceInputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
@@ -351,14 +341,6 @@ export interface ApiState {
      * Absolute URL of the backend service implementing this API.
      */
     serviceUrl?: pulumi.Input<string>;
-    /**
-     * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-     *
-     * > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
-     */
-    soapPassThrough?: pulumi.Input<boolean>;
     /**
      * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
      */
@@ -461,14 +443,6 @@ export interface ApiArgs {
      * Absolute URL of the backend service implementing this API.
      */
     serviceUrl?: pulumi.Input<string>;
-    /**
-     * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-     *
-     * > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
-     */
-    soapPassThrough?: pulumi.Input<boolean>;
     /**
      * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
      */

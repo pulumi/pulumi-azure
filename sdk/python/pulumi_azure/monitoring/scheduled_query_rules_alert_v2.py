@@ -22,6 +22,7 @@ __all__ = ['ScheduledQueryRulesAlertV2Args', 'ScheduledQueryRulesAlertV2']
 class ScheduledQueryRulesAlertV2Args:
     def __init__(__self__, *,
                  criterias: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]],
+                 evaluation_frequency: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  scopes: pulumi.Input[str],
                  severity: pulumi.Input[int],
@@ -31,7 +32,6 @@ class ScheduledQueryRulesAlertV2Args:
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 evaluation_frequency: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_after_alert_duration: Optional[pulumi.Input[str]] = None,
@@ -44,6 +44,11 @@ class ScheduledQueryRulesAlertV2Args:
         """
         The set of arguments for constructing a ScheduledQueryRulesAlertV2 resource.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]] criterias: A `criteria` block as defined below.
+        :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+               
+               > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+               
+               > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scopes: Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
@@ -53,11 +58,6 @@ class ScheduledQueryRulesAlertV2Args:
         :param pulumi.Input[str] description: Specifies the description of the scheduled query rule.
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
         :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
-        :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
-               
-               > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
-               
-               > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         :param pulumi.Input['ScheduledQueryRulesAlertV2IdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
@@ -73,6 +73,7 @@ class ScheduledQueryRulesAlertV2Args:
         :param pulumi.Input[bool] workspace_alerts_storage_enabled: Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
         """
         pulumi.set(__self__, "criterias", criterias)
+        pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scopes", scopes)
         pulumi.set(__self__, "severity", severity)
@@ -87,8 +88,6 @@ class ScheduledQueryRulesAlertV2Args:
             pulumi.set(__self__, "display_name", display_name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if evaluation_frequency is not None:
-            pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -119,6 +118,22 @@ class ScheduledQueryRulesAlertV2Args:
     @criterias.setter
     def criterias(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]):
         pulumi.set(self, "criterias", value)
+
+    @property
+    @pulumi.getter(name="evaluationFrequency")
+    def evaluation_frequency(self) -> pulumi.Input[str]:
+        """
+        How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
+
+        > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+
+        > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+        """
+        return pulumi.get(self, "evaluation_frequency")
+
+    @evaluation_frequency.setter
+    def evaluation_frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "evaluation_frequency", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -227,22 +242,6 @@ class ScheduledQueryRulesAlertV2Args:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="evaluationFrequency")
-    def evaluation_frequency(self) -> Optional[pulumi.Input[str]]:
-        """
-        How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
-
-        > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
-
-        > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
-        """
-        return pulumi.get(self, "evaluation_frequency")
-
-    @evaluation_frequency.setter
-    def evaluation_frequency(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "evaluation_frequency", value)
 
     @property
     @pulumi.getter
@@ -1042,6 +1041,8 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enabled"] = enabled
+            if evaluation_frequency is None and not opts.urn:
+                raise TypeError("Missing required property 'evaluation_frequency'")
             __props__.__dict__["evaluation_frequency"] = evaluation_frequency
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -1226,7 +1227,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evaluationFrequency")
-    def evaluation_frequency(self) -> pulumi.Output[Optional[str]]:
+    def evaluation_frequency(self) -> pulumi.Output[str]:
         """
         How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 

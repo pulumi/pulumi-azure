@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,7 +59,7 @@ type Workspace struct {
 	// Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`.
-	NetworkSecurityGroupRulesRequired pulumi.StringOutput `pulumi:"networkSecurityGroupRulesRequired"`
+	NetworkSecurityGroupRulesRequired pulumi.StringPtrOutput `pulumi:"networkSecurityGroupRulesRequired"`
 	// Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
@@ -497,8 +497,8 @@ func (o WorkspaceOutput) Name() pulumi.StringOutput {
 }
 
 // Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`.
-func (o WorkspaceOutput) NetworkSecurityGroupRulesRequired() pulumi.StringOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.NetworkSecurityGroupRulesRequired }).(pulumi.StringOutput)
+func (o WorkspaceOutput) NetworkSecurityGroupRulesRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.NetworkSecurityGroupRulesRequired }).(pulumi.StringPtrOutput)
 }
 
 // Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.

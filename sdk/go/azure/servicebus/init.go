@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NamespaceAuthorizationRule{}
 	case "azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig":
 		r = &NamespaceDisasterRecoveryConfig{}
-	case "azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet":
-		r = &NamespaceNetworkRuleSet{}
 	case "azure:servicebus/queue:Queue":
 		r = &Queue{}
 	case "azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule":
@@ -67,11 +65,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"servicebus/namespaceDisasterRecoveryConfig",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"servicebus/namespaceNetworkRuleSet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

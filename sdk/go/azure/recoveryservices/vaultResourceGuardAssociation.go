@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dataprotection"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/recoveryservices"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +56,6 @@ import (
 //				return err
 //			}
 //			_, err = recoveryservices.NewVaultResourceGuardAssociation(ctx, "test", &recoveryservices.VaultResourceGuardAssociationArgs{
-//				Name:            pulumi.String("VaultProxy"),
 //				VaultId:         pulumi.Any(testAzurermRecoveryServicesVault.Id),
 //				ResourceGuardId: pulumi.Any(testAzurermDataProtectionResourceGuard.Id),
 //			})
@@ -79,12 +78,6 @@ import (
 type VaultResourceGuardAssociation struct {
 	pulumi.CustomResourceState
 
-	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-	//
-	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
-	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
 	ResourceGuardId pulumi.StringOutput `pulumi:"resourceGuardId"`
 	// ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
@@ -127,12 +120,6 @@ func GetVaultResourceGuardAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VaultResourceGuardAssociation resources.
 type vaultResourceGuardAssociationState struct {
-	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-	//
-	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
-	Name *string `pulumi:"name"`
 	// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
 	ResourceGuardId *string `pulumi:"resourceGuardId"`
 	// ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
@@ -140,12 +127,6 @@ type vaultResourceGuardAssociationState struct {
 }
 
 type VaultResourceGuardAssociationState struct {
-	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-	//
-	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
-	Name pulumi.StringPtrInput
 	// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
 	ResourceGuardId pulumi.StringPtrInput
 	// ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
@@ -157,12 +138,6 @@ func (VaultResourceGuardAssociationState) ElementType() reflect.Type {
 }
 
 type vaultResourceGuardAssociationArgs struct {
-	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-	//
-	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
-	Name *string `pulumi:"name"`
 	// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
 	ResourceGuardId string `pulumi:"resourceGuardId"`
 	// ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
@@ -171,12 +146,6 @@ type vaultResourceGuardAssociationArgs struct {
 
 // The set of arguments for constructing a VaultResourceGuardAssociation resource.
 type VaultResourceGuardAssociationArgs struct {
-	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-	//
-	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
-	Name pulumi.StringPtrInput
 	// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
 	ResourceGuardId pulumi.StringInput
 	// ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
@@ -268,15 +237,6 @@ func (o VaultResourceGuardAssociationOutput) ToVaultResourceGuardAssociationOutp
 
 func (o VaultResourceGuardAssociationOutput) ToVaultResourceGuardAssociationOutputWithContext(ctx context.Context) VaultResourceGuardAssociationOutput {
 	return o
-}
-
-// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-//
-// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-//
-// Deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.
-func (o VaultResourceGuardAssociationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *VaultResourceGuardAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.

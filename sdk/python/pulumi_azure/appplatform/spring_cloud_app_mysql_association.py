@@ -239,6 +239,7 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
@@ -251,30 +252,30 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
             name="example-springcloudapp",
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name)
-        example_server = azure.mysql.Server("example",
-            name="example-mysqlserver",
+        example_mysql_server = azurerm.index.MysqlServer("example",
+            name=example-mysqlserver,
             location=example.location,
             resource_group_name=example.name,
-            administrator_login="mysqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            sku_name="B_Gen5_2",
+            administrator_login=mysqladminun,
+            administrator_login_password=H@Sh1CoR3!,
+            sku_name=B_Gen5_2,
             storage_mb=5120,
-            version="5.7",
+            version=5.7,
             ssl_enforcement_enabled=True,
-            ssl_minimal_tls_version_enforced="TLS1_2")
-        example_database = azure.mysql.Database("example",
-            name="exampledb",
+            ssl_minimal_tls_version_enforced=TLS1_2)
+        example_mysql_database = azurerm.index.MysqlDatabase("example",
+            name=exampledb,
             resource_group_name=example.name,
-            server_name=example_server.name,
-            charset="utf8",
-            collation="utf8_unicode_ci")
+            server_name=example_mysql_server.name,
+            charset=utf8,
+            collation=utf8_unicode_ci)
         example_spring_cloud_app_mysql_association = azure.appplatform.SpringCloudAppMysqlAssociation("example",
             name="example-bind",
             spring_cloud_app_id=example_spring_cloud_app.id,
-            mysql_server_id=example_server.id,
-            database_name=example_database.name,
-            username=example_server.administrator_login,
-            password=example_server.administrator_login_password)
+            mysql_server_id=example_mysql_server["id"],
+            database_name=example_mysql_database["name"],
+            username=example_mysql_server["administratorLogin"],
+            password=example_mysql_server["administratorLoginPassword"])
         ```
 
         ## Import
@@ -308,6 +309,7 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
@@ -320,30 +322,30 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
             name="example-springcloudapp",
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name)
-        example_server = azure.mysql.Server("example",
-            name="example-mysqlserver",
+        example_mysql_server = azurerm.index.MysqlServer("example",
+            name=example-mysqlserver,
             location=example.location,
             resource_group_name=example.name,
-            administrator_login="mysqladminun",
-            administrator_login_password="H@Sh1CoR3!",
-            sku_name="B_Gen5_2",
+            administrator_login=mysqladminun,
+            administrator_login_password=H@Sh1CoR3!,
+            sku_name=B_Gen5_2,
             storage_mb=5120,
-            version="5.7",
+            version=5.7,
             ssl_enforcement_enabled=True,
-            ssl_minimal_tls_version_enforced="TLS1_2")
-        example_database = azure.mysql.Database("example",
-            name="exampledb",
+            ssl_minimal_tls_version_enforced=TLS1_2)
+        example_mysql_database = azurerm.index.MysqlDatabase("example",
+            name=exampledb,
             resource_group_name=example.name,
-            server_name=example_server.name,
-            charset="utf8",
-            collation="utf8_unicode_ci")
+            server_name=example_mysql_server.name,
+            charset=utf8,
+            collation=utf8_unicode_ci)
         example_spring_cloud_app_mysql_association = azure.appplatform.SpringCloudAppMysqlAssociation("example",
             name="example-bind",
             spring_cloud_app_id=example_spring_cloud_app.id,
-            mysql_server_id=example_server.id,
-            database_name=example_database.name,
-            username=example_server.administrator_login,
-            password=example_server.administrator_login_password)
+            mysql_server_id=example_mysql_server["id"],
+            database_name=example_mysql_database["name"],
+            username=example_mysql_server["administratorLogin"],
+            password=example_mysql_server["administratorLoginPassword"])
         ```
 
         ## Import

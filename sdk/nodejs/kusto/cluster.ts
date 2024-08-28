@@ -94,10 +94,6 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-     */
-    public readonly engine!: pulumi.Output<string | undefined>;
-    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.kusto.ClusterIdentity | undefined>;
@@ -106,7 +102,7 @@ export class Cluster extends pulumi.CustomResource {
      *
      * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      */
-    public readonly languageExtensions!: pulumi.Output<string[] | undefined>;
+    public readonly languageExtensions!: pulumi.Output<outputs.kusto.ClusterLanguageExtension[] | undefined>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
@@ -191,7 +187,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dataIngestionUri"] = state ? state.dataIngestionUri : undefined;
             resourceInputs["diskEncryptionEnabled"] = state ? state.diskEncryptionEnabled : undefined;
             resourceInputs["doubleEncryptionEnabled"] = state ? state.doubleEncryptionEnabled : undefined;
-            resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["languageExtensions"] = state ? state.languageExtensions : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -222,7 +217,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["autoStopEnabled"] = args ? args.autoStopEnabled : undefined;
             resourceInputs["diskEncryptionEnabled"] = args ? args.diskEncryptionEnabled : undefined;
             resourceInputs["doubleEncryptionEnabled"] = args ? args.doubleEncryptionEnabled : undefined;
-            resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["languageExtensions"] = args ? args.languageExtensions : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -276,10 +270,6 @@ export interface ClusterState {
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-     */
-    engine?: pulumi.Input<string>;
-    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
@@ -288,7 +278,7 @@ export interface ClusterState {
      *
      * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      */
-    languageExtensions?: pulumi.Input<pulumi.Input<string>[]>;
+    languageExtensions?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[]>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
@@ -380,10 +370,6 @@ export interface ClusterArgs {
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-     */
-    engine?: pulumi.Input<string>;
-    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
@@ -392,7 +378,7 @@ export interface ClusterArgs {
      *
      * > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      */
-    languageExtensions?: pulumi.Input<pulumi.Input<string>[]>;
+    languageExtensions?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[]>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */

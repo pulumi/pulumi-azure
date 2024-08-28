@@ -205,8 +205,6 @@ class KubernetesFleetManager(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-
         Manages a Kubernetes Fleet Manager.
 
         ## Example Usage
@@ -223,19 +221,6 @@ class KubernetesFleetManager(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
-
-        ## Blocks Reference
-
-        ### `hub_profile` Block
-
-        The `hub_profile` block supports the following arguments:
-
-        * `dns_prefix` - (Required)
-
-        In addition to the arguments defined above, the `hub_profile` block exports the following attributes:
-
-        * `fqdn` -
-        * `kubernetes_version` -
 
         ## Import
 
@@ -265,8 +250,6 @@ class KubernetesFleetManager(pulumi.CustomResource):
                  args: KubernetesFleetManagerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-
         Manages a Kubernetes Fleet Manager.
 
         ## Example Usage
@@ -283,19 +266,6 @@ class KubernetesFleetManager(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
-
-        ## Blocks Reference
-
-        ### `hub_profile` Block
-
-        The `hub_profile` block supports the following arguments:
-
-        * `dns_prefix` - (Required)
-
-        In addition to the arguments defined above, the `hub_profile` block exports the following attributes:
-
-        * `fqdn` -
-        * `kubernetes_version` -
 
         ## Import
 

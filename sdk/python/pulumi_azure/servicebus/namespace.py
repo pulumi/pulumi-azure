@@ -33,8 +33,7 @@ class NamespaceArgs:
                  network_rule_set: Optional[pulumi.Input['NamespaceNetworkRuleSetArgs']] = None,
                  premium_messaging_partitions: Optional[pulumi.Input[int]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[bool]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
@@ -45,7 +44,7 @@ class NamespaceArgs:
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input['NamespaceNetworkRuleSetArgs'] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
@@ -53,9 +52,6 @@ class NamespaceArgs:
                > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-               
-               > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -81,11 +77,6 @@ class NamespaceArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if zone_redundant is not None:
-            warnings.warn("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""zone_redundant is deprecated: The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-        if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -176,7 +167,7 @@ class NamespaceArgs:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -246,21 +237,6 @@ class NamespaceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="zoneRedundant")
-    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-
-        > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
-        """
-        return pulumi.get(self, "zone_redundant")
-
-    @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "zone_redundant", value)
-
 
 @pulumi.input_type
 class _NamespaceState:
@@ -282,8 +258,7 @@ class _NamespaceState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[bool]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
         :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
@@ -296,7 +271,7 @@ class _NamespaceState:
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input['NamespaceNetworkRuleSetArgs'] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
@@ -307,9 +282,6 @@ class _NamespaceState:
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-               
-               > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -347,11 +319,6 @@ class _NamespaceState:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if zone_redundant is not None:
-            warnings.warn("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""zone_redundant is deprecated: The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-        if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter
@@ -477,7 +444,7 @@ class _NamespaceState:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -572,21 +539,6 @@ class _NamespaceState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="zoneRedundant")
-    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-
-        > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
-        """
-        return pulumi.get(self, "zone_redundant")
-
-    @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "zone_redundant", value)
-
 
 class Namespace(pulumi.CustomResource):
     @overload
@@ -606,7 +558,6 @@ class Namespace(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a ServiceBus Namespace.
@@ -645,7 +596,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
@@ -656,9 +607,6 @@ class Namespace(pulumi.CustomResource):
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-               
-               > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
         """
         ...
     @overload
@@ -724,7 +672,6 @@ class Namespace(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -751,7 +698,6 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["default_primary_connection_string"] = None
             __props__.__dict__["default_primary_key"] = None
             __props__.__dict__["default_secondary_connection_string"] = None
@@ -788,8 +734,7 @@ class Namespace(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'Namespace':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Namespace':
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -807,7 +752,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
@@ -818,9 +763,6 @@ class Namespace(pulumi.CustomResource):
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-               
-               > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -844,7 +786,6 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
-        __props__.__dict__["zone_redundant"] = zone_redundant
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -929,9 +870,9 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> pulumi.Output[str]:
+    def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -993,15 +934,4 @@ class Namespace(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="zoneRedundant")
-    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-    def zone_redundant(self) -> pulumi.Output[bool]:
-        """
-        Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-
-        > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
-        """
-        return pulumi.get(self, "zone_redundant")
 

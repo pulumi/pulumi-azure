@@ -45,7 +45,6 @@ class WindowsVirtualMachineScaleSetArgs:
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -62,7 +61,6 @@ class WindowsVirtualMachineScaleSetArgs:
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  scale_in: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']] = None,
-                 scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -70,7 +68,6 @@ class WindowsVirtualMachineScaleSetArgs:
                  source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
                  spot_restore: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminate_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs']] = None,
                  termination_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
@@ -119,7 +116,7 @@ class WindowsVirtualMachineScaleSetArgs:
                > **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_application: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -152,9 +149,6 @@ class WindowsVirtualMachineScaleSetArgs:
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs'] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
-        :param pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
-               
-               > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
@@ -206,11 +200,6 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
-        if gallery_application is not None:
-            pulumi.set(__self__, "gallery_application", gallery_application)
-        if gallery_applications is not None:
-            warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
-            pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
         if gallery_applications is not None:
             pulumi.set(__self__, "gallery_applications", gallery_applications)
         if health_probe_id is not None:
@@ -243,11 +232,6 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
         if scale_in is not None:
             pulumi.set(__self__, "scale_in", scale_in)
-        if scale_in_policy is not None:
-            warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-        if scale_in_policy is not None:
-            pulumi.set(__self__, "scale_in_policy", scale_in_policy)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if secure_boot_enabled is not None:
@@ -262,11 +246,6 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "spot_restore", spot_restore)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if terminate_notification is not None:
-            warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
-            pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-        if terminate_notification is not None:
-            pulumi.set(__self__, "terminate_notification", terminate_notification)
         if termination_notification is not None:
             pulumi.set(__self__, "termination_notification", termination_notification)
         if timezone is not None:
@@ -587,21 +566,11 @@ class WindowsVirtualMachineScaleSetArgs:
         pulumi.set(self, "extensions_time_budget", value)
 
     @property
-    @pulumi.getter(name="galleryApplication")
-    def gallery_application(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
-        return pulumi.get(self, "gallery_application")
-
-    @gallery_application.setter
-    def gallery_application(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]):
-        pulumi.set(self, "gallery_application", value)
-
-    @property
-    @pulumi.getter(name="galleryApplications")
-    @_utilities.deprecated("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
@@ -795,16 +764,6 @@ class WindowsVirtualMachineScaleSetArgs:
         pulumi.set(self, "scale_in", value)
 
     @property
-    @pulumi.getter(name="scaleInPolicy")
-    @_utilities.deprecated("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-    def scale_in_policy(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scale_in_policy")
-
-    @scale_in_policy.setter
-    def scale_in_policy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scale_in_policy", value)
-
-    @property
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]]:
         """
@@ -891,21 +850,6 @@ class WindowsVirtualMachineScaleSetArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="terminateNotification")
-    @_utilities.deprecated("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-    def terminate_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs']]:
-        """
-        A `terminate_notification` block as defined below.
-
-        > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "terminate_notification")
-
-    @terminate_notification.setter
-    def terminate_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs']]):
-        pulumi.set(self, "terminate_notification", value)
 
     @property
     @pulumi.getter(name="terminationNotification")
@@ -1025,7 +969,6 @@ class _WindowsVirtualMachineScaleSetState:
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -1046,7 +989,6 @@ class _WindowsVirtualMachineScaleSetState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  scale_in: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']] = None,
-                 scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -1055,7 +997,6 @@ class _WindowsVirtualMachineScaleSetState:
                  source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
                  spot_restore: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminate_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs']] = None,
                  termination_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  unique_id: Optional[pulumi.Input[str]] = None,
@@ -1098,7 +1039,7 @@ class _WindowsVirtualMachineScaleSetState:
                > **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_application: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -1138,9 +1079,6 @@ class _WindowsVirtualMachineScaleSetState:
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs'] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
-        :param pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
-               
-               > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] unique_id: The Unique ID for this Windows Virtual Machine Scale Set.
@@ -1190,11 +1128,6 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
-        if gallery_application is not None:
-            pulumi.set(__self__, "gallery_application", gallery_application)
-        if gallery_applications is not None:
-            warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
-            pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
         if gallery_applications is not None:
             pulumi.set(__self__, "gallery_applications", gallery_applications)
         if health_probe_id is not None:
@@ -1235,11 +1168,6 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
         if scale_in is not None:
             pulumi.set(__self__, "scale_in", scale_in)
-        if scale_in_policy is not None:
-            warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-        if scale_in_policy is not None:
-            pulumi.set(__self__, "scale_in_policy", scale_in_policy)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if secure_boot_enabled is not None:
@@ -1256,11 +1184,6 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "spot_restore", spot_restore)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if terminate_notification is not None:
-            warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
-            pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-        if terminate_notification is not None:
-            pulumi.set(__self__, "terminate_notification", terminate_notification)
         if termination_notification is not None:
             pulumi.set(__self__, "termination_notification", termination_notification)
         if timezone is not None:
@@ -1521,21 +1444,11 @@ class _WindowsVirtualMachineScaleSetState:
         pulumi.set(self, "extensions_time_budget", value)
 
     @property
-    @pulumi.getter(name="galleryApplication")
-    def gallery_application(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
-        return pulumi.get(self, "gallery_application")
-
-    @gallery_application.setter
-    def gallery_application(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]):
-        pulumi.set(self, "gallery_application", value)
-
-    @property
-    @pulumi.getter(name="galleryApplications")
-    @_utilities.deprecated("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
@@ -1779,16 +1692,6 @@ class _WindowsVirtualMachineScaleSetState:
         pulumi.set(self, "scale_in", value)
 
     @property
-    @pulumi.getter(name="scaleInPolicy")
-    @_utilities.deprecated("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-    def scale_in_policy(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scale_in_policy")
-
-    @scale_in_policy.setter
-    def scale_in_policy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scale_in_policy", value)
-
-    @property
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]]:
         """
@@ -1887,21 +1790,6 @@ class _WindowsVirtualMachineScaleSetState:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="terminateNotification")
-    @_utilities.deprecated("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-    def terminate_notification(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs']]:
-        """
-        A `terminate_notification` block as defined below.
-
-        > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "terminate_notification")
-
-    @terminate_notification.setter
-    def terminate_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs']]):
-        pulumi.set(self, "terminate_notification", value)
 
     @property
     @pulumi.getter(name="terminationNotification")
@@ -2035,7 +1923,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetExtensionArgs', 'WindowsVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -2056,7 +1943,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
                  scale_in: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetScaleInArgs', 'WindowsVirtualMachineScaleSetScaleInArgsDict']]] = None,
-                 scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetSecretArgs', 'WindowsVirtualMachineScaleSetSecretArgsDict']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -2065,7 +1951,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  source_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSourceImageReferenceArgs', 'WindowsVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
                  spot_restore: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSpotRestoreArgs', 'WindowsVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminate_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminateNotificationArgs', 'WindowsVirtualMachineScaleSetTerminateNotificationArgsDict']]] = None,
                  termination_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
@@ -2180,7 +2065,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetExtensionArgs', 'WindowsVirtualMachineScaleSetExtensionArgsDict']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]] gallery_application: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetIdentityArgs', 'WindowsVirtualMachineScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -2220,9 +2105,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetSpotRestoreArgs', 'WindowsVirtualMachineScaleSetSpotRestoreArgsDict']] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
-        :param pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminateNotificationArgs', 'WindowsVirtualMachineScaleSetTerminateNotificationArgsDict']] terminate_notification: A `terminate_notification` block as defined below.
-               
-               > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
@@ -2345,7 +2227,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetExtensionArgs', 'WindowsVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -2366,7 +2247,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
                  scale_in: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetScaleInArgs', 'WindowsVirtualMachineScaleSetScaleInArgsDict']]] = None,
-                 scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetSecretArgs', 'WindowsVirtualMachineScaleSetSecretArgsDict']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -2375,7 +2255,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  source_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSourceImageReferenceArgs', 'WindowsVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
                  spot_restore: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSpotRestoreArgs', 'WindowsVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminate_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminateNotificationArgs', 'WindowsVirtualMachineScaleSetTerminateNotificationArgsDict']]] = None,
                  termination_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
@@ -2416,7 +2295,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
             __props__.__dict__["extensions"] = extensions
             __props__.__dict__["extensions_time_budget"] = extensions_time_budget
-            __props__.__dict__["gallery_application"] = gallery_application
             __props__.__dict__["gallery_applications"] = gallery_applications
             __props__.__dict__["health_probe_id"] = health_probe_id
             __props__.__dict__["host_group_id"] = host_group_id
@@ -2445,7 +2323,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
             __props__.__dict__["scale_in"] = scale_in
-            __props__.__dict__["scale_in_policy"] = scale_in_policy
             __props__.__dict__["secrets"] = secrets
             __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
             __props__.__dict__["single_placement_group"] = single_placement_group
@@ -2456,7 +2333,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["spot_restore"] = spot_restore
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["terminate_notification"] = terminate_notification
             __props__.__dict__["termination_notification"] = termination_notification
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["upgrade_mode"] = upgrade_mode
@@ -2497,7 +2373,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
             extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetExtensionArgs', 'WindowsVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
             extensions_time_budget: Optional[pulumi.Input[str]] = None,
-            gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
             gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
             health_probe_id: Optional[pulumi.Input[str]] = None,
             host_group_id: Optional[pulumi.Input[str]] = None,
@@ -2518,7 +2393,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rolling_upgrade_policy: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
             scale_in: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetScaleInArgs', 'WindowsVirtualMachineScaleSetScaleInArgsDict']]] = None,
-            scale_in_policy: Optional[pulumi.Input[str]] = None,
             secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetSecretArgs', 'WindowsVirtualMachineScaleSetSecretArgsDict']]]]] = None,
             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
             single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -2527,7 +2401,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             source_image_reference: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSourceImageReferenceArgs', 'WindowsVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
             spot_restore: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetSpotRestoreArgs', 'WindowsVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            terminate_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminateNotificationArgs', 'WindowsVirtualMachineScaleSetTerminateNotificationArgsDict']]] = None,
             termination_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
             timezone: Optional[pulumi.Input[str]] = None,
             unique_id: Optional[pulumi.Input[str]] = None,
@@ -2575,7 +2448,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetExtensionArgs', 'WindowsVirtualMachineScaleSetExtensionArgsDict']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]] gallery_application: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetGalleryApplicationArgs', 'WindowsVirtualMachineScaleSetGalleryApplicationArgsDict']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetIdentityArgs', 'WindowsVirtualMachineScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -2615,9 +2488,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetSpotRestoreArgs', 'WindowsVirtualMachineScaleSetSpotRestoreArgsDict']] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
-        :param pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminateNotificationArgs', 'WindowsVirtualMachineScaleSetTerminateNotificationArgsDict']] terminate_notification: A `terminate_notification` block as defined below.
-               
-               > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetTerminationNotificationArgs', 'WindowsVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] unique_id: The Unique ID for this Windows Virtual Machine Scale Set.
@@ -2652,7 +2522,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
         __props__.__dict__["extensions"] = extensions
         __props__.__dict__["extensions_time_budget"] = extensions_time_budget
-        __props__.__dict__["gallery_application"] = gallery_application
         __props__.__dict__["gallery_applications"] = gallery_applications
         __props__.__dict__["health_probe_id"] = health_probe_id
         __props__.__dict__["host_group_id"] = host_group_id
@@ -2673,7 +2542,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
         __props__.__dict__["scale_in"] = scale_in
-        __props__.__dict__["scale_in_policy"] = scale_in_policy
         __props__.__dict__["secrets"] = secrets
         __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
         __props__.__dict__["single_placement_group"] = single_placement_group
@@ -2682,7 +2550,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["source_image_reference"] = source_image_reference
         __props__.__dict__["spot_restore"] = spot_restore
         __props__.__dict__["tags"] = tags
-        __props__.__dict__["terminate_notification"] = terminate_notification
         __props__.__dict__["termination_notification"] = termination_notification
         __props__.__dict__["timezone"] = timezone
         __props__.__dict__["unique_id"] = unique_id
@@ -2834,7 +2701,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extensionOperationsEnabled")
-    def extension_operations_enabled(self) -> pulumi.Output[bool]:
+    def extension_operations_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
 
@@ -2859,17 +2726,11 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "extensions_time_budget")
 
     @property
-    @pulumi.getter(name="galleryApplication")
-    def gallery_application(self) -> pulumi.Output[Sequence['outputs.WindowsVirtualMachineScaleSetGalleryApplication']]:
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> pulumi.Output[Optional[Sequence['outputs.WindowsVirtualMachineScaleSetGalleryApplication']]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
-        return pulumi.get(self, "gallery_application")
-
-    @property
-    @pulumi.getter(name="galleryApplications")
-    @_utilities.deprecated("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
-    def gallery_applications(self) -> pulumi.Output[Sequence['outputs.WindowsVirtualMachineScaleSetGalleryApplication']]:
         return pulumi.get(self, "gallery_applications")
 
     @property
@@ -3026,17 +2887,11 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleIn")
-    def scale_in(self) -> pulumi.Output['outputs.WindowsVirtualMachineScaleSetScaleIn']:
+    def scale_in(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetScaleIn']]:
         """
         A `scale_in` block as defined below.
         """
         return pulumi.get(self, "scale_in")
-
-    @property
-    @pulumi.getter(name="scaleInPolicy")
-    @_utilities.deprecated("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-    def scale_in_policy(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "scale_in_policy")
 
     @property
     @pulumi.getter
@@ -3105,17 +2960,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="terminateNotification")
-    @_utilities.deprecated("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-    def terminate_notification(self) -> pulumi.Output['outputs.WindowsVirtualMachineScaleSetTerminateNotification']:
-        """
-        A `terminate_notification` block as defined below.
-
-        > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "terminate_notification")
 
     @property
     @pulumi.getter(name="terminationNotification")

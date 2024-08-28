@@ -125,36 +125,6 @@ export type SharedAccessPolicy = import("./sharedAccessPolicy").SharedAccessPoli
 export const SharedAccessPolicy: typeof import("./sharedAccessPolicy").SharedAccessPolicy = null as any;
 utilities.lazyLoad(exports, ["SharedAccessPolicy"], () => require("./sharedAccessPolicy"));
 
-export { TimeSeriesInsightsAccessPolicyArgs, TimeSeriesInsightsAccessPolicyState } from "./timeSeriesInsightsAccessPolicy";
-export type TimeSeriesInsightsAccessPolicy = import("./timeSeriesInsightsAccessPolicy").TimeSeriesInsightsAccessPolicy;
-export const TimeSeriesInsightsAccessPolicy: typeof import("./timeSeriesInsightsAccessPolicy").TimeSeriesInsightsAccessPolicy = null as any;
-utilities.lazyLoad(exports, ["TimeSeriesInsightsAccessPolicy"], () => require("./timeSeriesInsightsAccessPolicy"));
-
-export { TimeSeriesInsightsEventSourceEventhubArgs, TimeSeriesInsightsEventSourceEventhubState } from "./timeSeriesInsightsEventSourceEventhub";
-export type TimeSeriesInsightsEventSourceEventhub = import("./timeSeriesInsightsEventSourceEventhub").TimeSeriesInsightsEventSourceEventhub;
-export const TimeSeriesInsightsEventSourceEventhub: typeof import("./timeSeriesInsightsEventSourceEventhub").TimeSeriesInsightsEventSourceEventhub = null as any;
-utilities.lazyLoad(exports, ["TimeSeriesInsightsEventSourceEventhub"], () => require("./timeSeriesInsightsEventSourceEventhub"));
-
-export { TimeSeriesInsightsEventSourceIothubArgs, TimeSeriesInsightsEventSourceIothubState } from "./timeSeriesInsightsEventSourceIothub";
-export type TimeSeriesInsightsEventSourceIothub = import("./timeSeriesInsightsEventSourceIothub").TimeSeriesInsightsEventSourceIothub;
-export const TimeSeriesInsightsEventSourceIothub: typeof import("./timeSeriesInsightsEventSourceIothub").TimeSeriesInsightsEventSourceIothub = null as any;
-utilities.lazyLoad(exports, ["TimeSeriesInsightsEventSourceIothub"], () => require("./timeSeriesInsightsEventSourceIothub"));
-
-export { TimeSeriesInsightsGen2EnvironmentArgs, TimeSeriesInsightsGen2EnvironmentState } from "./timeSeriesInsightsGen2Environment";
-export type TimeSeriesInsightsGen2Environment = import("./timeSeriesInsightsGen2Environment").TimeSeriesInsightsGen2Environment;
-export const TimeSeriesInsightsGen2Environment: typeof import("./timeSeriesInsightsGen2Environment").TimeSeriesInsightsGen2Environment = null as any;
-utilities.lazyLoad(exports, ["TimeSeriesInsightsGen2Environment"], () => require("./timeSeriesInsightsGen2Environment"));
-
-export { TimeSeriesInsightsReferenceDataSetArgs, TimeSeriesInsightsReferenceDataSetState } from "./timeSeriesInsightsReferenceDataSet";
-export type TimeSeriesInsightsReferenceDataSet = import("./timeSeriesInsightsReferenceDataSet").TimeSeriesInsightsReferenceDataSet;
-export const TimeSeriesInsightsReferenceDataSet: typeof import("./timeSeriesInsightsReferenceDataSet").TimeSeriesInsightsReferenceDataSet = null as any;
-utilities.lazyLoad(exports, ["TimeSeriesInsightsReferenceDataSet"], () => require("./timeSeriesInsightsReferenceDataSet"));
-
-export { TimeSeriesInsightsStandardEnvironmentArgs, TimeSeriesInsightsStandardEnvironmentState } from "./timeSeriesInsightsStandardEnvironment";
-export type TimeSeriesInsightsStandardEnvironment = import("./timeSeriesInsightsStandardEnvironment").TimeSeriesInsightsStandardEnvironment;
-export const TimeSeriesInsightsStandardEnvironment: typeof import("./timeSeriesInsightsStandardEnvironment").TimeSeriesInsightsStandardEnvironment = null as any;
-utilities.lazyLoad(exports, ["TimeSeriesInsightsStandardEnvironment"], () => require("./timeSeriesInsightsStandardEnvironment"));
-
 export * from "./zMixins";
 
 const _module = {
@@ -201,18 +171,6 @@ const _module = {
                 return new SecuritySolution(name, <any>undefined, { urn })
             case "azure:iot/sharedAccessPolicy:SharedAccessPolicy":
                 return new SharedAccessPolicy(name, <any>undefined, { urn })
-            case "azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy":
-                return new TimeSeriesInsightsAccessPolicy(name, <any>undefined, { urn })
-            case "azure:iot/timeSeriesInsightsEventSourceEventhub:TimeSeriesInsightsEventSourceEventhub":
-                return new TimeSeriesInsightsEventSourceEventhub(name, <any>undefined, { urn })
-            case "azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub":
-                return new TimeSeriesInsightsEventSourceIothub(name, <any>undefined, { urn })
-            case "azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment":
-                return new TimeSeriesInsightsGen2Environment(name, <any>undefined, { urn })
-            case "azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet":
-                return new TimeSeriesInsightsReferenceDataSet(name, <any>undefined, { urn })
-            case "azure:iot/timeSeriesInsightsStandardEnvironment:TimeSeriesInsightsStandardEnvironment":
-                return new TimeSeriesInsightsStandardEnvironment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -238,9 +196,3 @@ pulumi.runtime.registerResourceModule("azure", "iot/route", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/securityDeviceGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/securitySolution", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/sharedAccessPolicy", _module)
-pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsAccessPolicy", _module)
-pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsEventSourceEventhub", _module)
-pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsEventSourceIothub", _module)
-pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsGen2Environment", _module)
-pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsReferenceDataSet", _module)
-pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsStandardEnvironment", _module)

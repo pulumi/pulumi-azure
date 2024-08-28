@@ -101,7 +101,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
-    public readonly monthlyOccurrences!: pulumi.Output<outputs.automation.ScheduleMonthlyOccurrence[] | undefined>;
+    public readonly monthlyOccurrence!: pulumi.Output<outputs.automation.ScheduleMonthlyOccurrence | undefined>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
@@ -142,7 +142,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["frequency"] = state ? state.frequency : undefined;
             resourceInputs["interval"] = state ? state.interval : undefined;
             resourceInputs["monthDays"] = state ? state.monthDays : undefined;
-            resourceInputs["monthlyOccurrences"] = state ? state.monthlyOccurrences : undefined;
+            resourceInputs["monthlyOccurrence"] = state ? state.monthlyOccurrence : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["startTime"] = state ? state.startTime : undefined;
@@ -165,7 +165,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["frequency"] = args ? args.frequency : undefined;
             resourceInputs["interval"] = args ? args.interval : undefined;
             resourceInputs["monthDays"] = args ? args.monthDays : undefined;
-            resourceInputs["monthlyOccurrences"] = args ? args.monthlyOccurrences : undefined;
+            resourceInputs["monthlyOccurrence"] = args ? args.monthlyOccurrence : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["startTime"] = args ? args.startTime : undefined;
@@ -208,7 +208,7 @@ export interface ScheduleState {
     /**
      * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
-    monthlyOccurrences?: pulumi.Input<pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence>[]>;
+    monthlyOccurrence?: pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
@@ -262,7 +262,7 @@ export interface ScheduleArgs {
     /**
      * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
-    monthlyOccurrences?: pulumi.Input<pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence>[]>;
+    monthlyOccurrence?: pulumi.Input<inputs.automation.ScheduleMonthlyOccurrence>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */

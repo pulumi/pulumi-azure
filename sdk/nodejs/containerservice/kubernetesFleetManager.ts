@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
- *
  * Manages a Kubernetes Fleet Manager.
  *
  * ## Example Usage
@@ -27,19 +25,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * ```
- *
- * ## Blocks Reference
- *
- * ### `hubProfile` Block
- *
- * The `hubProfile` block supports the following arguments:
- *
- * * `dnsPrefix` - (Required)
- *
- * In addition to the arguments defined above, the `hubProfile` block exports the following attributes:
- *
- * * `fqdn` -
- * * `kubernetesVersion` -
  *
  * ## Import
  *

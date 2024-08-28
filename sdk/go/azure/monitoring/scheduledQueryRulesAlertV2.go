@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/monitoring"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -169,7 +169,7 @@ type ScheduledQueryRulesAlertV2 struct {
 	// > **Note** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
 	//
 	// > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
-	EvaluationFrequency pulumi.StringPtrOutput `pulumi:"evaluationFrequency"`
+	EvaluationFrequency pulumi.StringOutput `pulumi:"evaluationFrequency"`
 	// An `identity` block as defined below.
 	Identity ScheduledQueryRulesAlertV2IdentityPtrOutput `pulumi:"identity"`
 	// True if this alert rule is a legacy Log Analytic Rule.
@@ -215,6 +215,9 @@ func NewScheduledQueryRulesAlertV2(ctx *pulumi.Context,
 
 	if args.Criterias == nil {
 		return nil, errors.New("invalid value for required argument 'Criterias'")
+	}
+	if args.EvaluationFrequency == nil {
+		return nil, errors.New("invalid value for required argument 'EvaluationFrequency'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -386,7 +389,7 @@ type scheduledQueryRulesAlertV2Args struct {
 	// > **Note** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
 	//
 	// > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
-	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
+	EvaluationFrequency string `pulumi:"evaluationFrequency"`
 	// An `identity` block as defined below.
 	Identity *ScheduledQueryRulesAlertV2Identity `pulumi:"identity"`
 	// Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
@@ -438,7 +441,7 @@ type ScheduledQueryRulesAlertV2Args struct {
 	// > **Note** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
 	//
 	// > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
-	EvaluationFrequency pulumi.StringPtrInput
+	EvaluationFrequency pulumi.StringInput
 	// An `identity` block as defined below.
 	Identity ScheduledQueryRulesAlertV2IdentityPtrInput
 	// Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
@@ -598,8 +601,8 @@ func (o ScheduledQueryRulesAlertV2Output) Enabled() pulumi.BoolPtrOutput {
 // > **Note** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
 //
 // > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
-func (o ScheduledQueryRulesAlertV2Output) EvaluationFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringPtrOutput { return v.EvaluationFrequency }).(pulumi.StringPtrOutput)
+func (o ScheduledQueryRulesAlertV2Output) EvaluationFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringOutput { return v.EvaluationFrequency }).(pulumi.StringOutput)
 }
 
 // An `identity` block as defined below.

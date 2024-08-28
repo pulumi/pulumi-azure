@@ -95,14 +95,6 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
      */
     public readonly policyAssignmentId!: pulumi.Output<string>;
     /**
-     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     *
-     * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-     *
-     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-     */
-    public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
-    /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
     public readonly policyDefinitionReferenceId!: pulumi.Output<string | undefined>;
@@ -110,14 +102,6 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
      * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
      */
     public readonly resourceCount!: pulumi.Output<number | undefined>;
-    /**
-     * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-     *
-     * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     *
-     * @deprecated `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     */
-    public readonly resourceDiscoveryMode!: pulumi.Output<string | undefined>;
 
     /**
      * Create a GroupPolicyRemediation resource with the given unique name, arguments, and options.
@@ -138,10 +122,8 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parallelDeployments"] = state ? state.parallelDeployments : undefined;
             resourceInputs["policyAssignmentId"] = state ? state.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
             resourceInputs["policyDefinitionReferenceId"] = state ? state.policyDefinitionReferenceId : undefined;
             resourceInputs["resourceCount"] = state ? state.resourceCount : undefined;
-            resourceInputs["resourceDiscoveryMode"] = state ? state.resourceDiscoveryMode : undefined;
         } else {
             const args = argsOrState as GroupPolicyRemediationArgs | undefined;
             if ((!args || args.managementGroupId === undefined) && !opts.urn) {
@@ -156,10 +138,8 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
             resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
             resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
-            resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupPolicyRemediation.__pulumiType, name, resourceInputs, opts);
@@ -195,14 +175,6 @@ export interface GroupPolicyRemediationState {
      */
     policyAssignmentId?: pulumi.Input<string>;
     /**
-     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     *
-     * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-     *
-     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-     */
-    policyDefinitionId?: pulumi.Input<string>;
-    /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
     policyDefinitionReferenceId?: pulumi.Input<string>;
@@ -210,14 +182,6 @@ export interface GroupPolicyRemediationState {
      * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
      */
     resourceCount?: pulumi.Input<number>;
-    /**
-     * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-     *
-     * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     *
-     * @deprecated `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     */
-    resourceDiscoveryMode?: pulumi.Input<string>;
 }
 
 /**
@@ -249,14 +213,6 @@ export interface GroupPolicyRemediationArgs {
      */
     policyAssignmentId: pulumi.Input<string>;
     /**
-     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     *
-     * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-     *
-     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-     */
-    policyDefinitionId?: pulumi.Input<string>;
-    /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
     policyDefinitionReferenceId?: pulumi.Input<string>;
@@ -264,12 +220,4 @@ export interface GroupPolicyRemediationArgs {
      * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
      */
     resourceCount?: pulumi.Input<number>;
-    /**
-     * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-     *
-     * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     *
-     * @deprecated `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     */
-    resourceDiscoveryMode?: pulumi.Input<string>;
 }

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14689,322 +14689,6 @@ func (o NetworkManagerScopePtrOutput) SubscriptionIds() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-type NetworkPacketCaptureFilter struct {
-	// The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	LocalIpAddress *string `pulumi:"localIpAddress"`
-	// The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	LocalPort *string `pulumi:"localPort"`
-	// The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-	Protocol string `pulumi:"protocol"`
-	// The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-	RemoteIpAddress *string `pulumi:"remoteIpAddress"`
-	// The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	RemotePort *string `pulumi:"remotePort"`
-}
-
-// NetworkPacketCaptureFilterInput is an input type that accepts NetworkPacketCaptureFilterArgs and NetworkPacketCaptureFilterOutput values.
-// You can construct a concrete instance of `NetworkPacketCaptureFilterInput` via:
-//
-//	NetworkPacketCaptureFilterArgs{...}
-type NetworkPacketCaptureFilterInput interface {
-	pulumi.Input
-
-	ToNetworkPacketCaptureFilterOutput() NetworkPacketCaptureFilterOutput
-	ToNetworkPacketCaptureFilterOutputWithContext(context.Context) NetworkPacketCaptureFilterOutput
-}
-
-type NetworkPacketCaptureFilterArgs struct {
-	// The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	LocalIpAddress pulumi.StringPtrInput `pulumi:"localIpAddress"`
-	// The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	LocalPort pulumi.StringPtrInput `pulumi:"localPort"`
-	// The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-	RemoteIpAddress pulumi.StringPtrInput `pulumi:"remoteIpAddress"`
-	// The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-	RemotePort pulumi.StringPtrInput `pulumi:"remotePort"`
-}
-
-func (NetworkPacketCaptureFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPacketCaptureFilter)(nil)).Elem()
-}
-
-func (i NetworkPacketCaptureFilterArgs) ToNetworkPacketCaptureFilterOutput() NetworkPacketCaptureFilterOutput {
-	return i.ToNetworkPacketCaptureFilterOutputWithContext(context.Background())
-}
-
-func (i NetworkPacketCaptureFilterArgs) ToNetworkPacketCaptureFilterOutputWithContext(ctx context.Context) NetworkPacketCaptureFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureFilterOutput)
-}
-
-// NetworkPacketCaptureFilterArrayInput is an input type that accepts NetworkPacketCaptureFilterArray and NetworkPacketCaptureFilterArrayOutput values.
-// You can construct a concrete instance of `NetworkPacketCaptureFilterArrayInput` via:
-//
-//	NetworkPacketCaptureFilterArray{ NetworkPacketCaptureFilterArgs{...} }
-type NetworkPacketCaptureFilterArrayInput interface {
-	pulumi.Input
-
-	ToNetworkPacketCaptureFilterArrayOutput() NetworkPacketCaptureFilterArrayOutput
-	ToNetworkPacketCaptureFilterArrayOutputWithContext(context.Context) NetworkPacketCaptureFilterArrayOutput
-}
-
-type NetworkPacketCaptureFilterArray []NetworkPacketCaptureFilterInput
-
-func (NetworkPacketCaptureFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkPacketCaptureFilter)(nil)).Elem()
-}
-
-func (i NetworkPacketCaptureFilterArray) ToNetworkPacketCaptureFilterArrayOutput() NetworkPacketCaptureFilterArrayOutput {
-	return i.ToNetworkPacketCaptureFilterArrayOutputWithContext(context.Background())
-}
-
-func (i NetworkPacketCaptureFilterArray) ToNetworkPacketCaptureFilterArrayOutputWithContext(ctx context.Context) NetworkPacketCaptureFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureFilterArrayOutput)
-}
-
-type NetworkPacketCaptureFilterOutput struct{ *pulumi.OutputState }
-
-func (NetworkPacketCaptureFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPacketCaptureFilter)(nil)).Elem()
-}
-
-func (o NetworkPacketCaptureFilterOutput) ToNetworkPacketCaptureFilterOutput() NetworkPacketCaptureFilterOutput {
-	return o
-}
-
-func (o NetworkPacketCaptureFilterOutput) ToNetworkPacketCaptureFilterOutputWithContext(ctx context.Context) NetworkPacketCaptureFilterOutput {
-	return o
-}
-
-// The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-func (o NetworkPacketCaptureFilterOutput) LocalIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureFilter) *string { return v.LocalIpAddress }).(pulumi.StringPtrOutput)
-}
-
-// The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-func (o NetworkPacketCaptureFilterOutput) LocalPort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureFilter) *string { return v.LocalPort }).(pulumi.StringPtrOutput)
-}
-
-// The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-func (o NetworkPacketCaptureFilterOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureFilter) string { return v.Protocol }).(pulumi.StringOutput)
-}
-
-// The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-func (o NetworkPacketCaptureFilterOutput) RemoteIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureFilter) *string { return v.RemoteIpAddress }).(pulumi.StringPtrOutput)
-}
-
-// The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-func (o NetworkPacketCaptureFilterOutput) RemotePort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureFilter) *string { return v.RemotePort }).(pulumi.StringPtrOutput)
-}
-
-type NetworkPacketCaptureFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (NetworkPacketCaptureFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkPacketCaptureFilter)(nil)).Elem()
-}
-
-func (o NetworkPacketCaptureFilterArrayOutput) ToNetworkPacketCaptureFilterArrayOutput() NetworkPacketCaptureFilterArrayOutput {
-	return o
-}
-
-func (o NetworkPacketCaptureFilterArrayOutput) ToNetworkPacketCaptureFilterArrayOutputWithContext(ctx context.Context) NetworkPacketCaptureFilterArrayOutput {
-	return o
-}
-
-func (o NetworkPacketCaptureFilterArrayOutput) Index(i pulumi.IntInput) NetworkPacketCaptureFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkPacketCaptureFilter {
-		return vs[0].([]NetworkPacketCaptureFilter)[vs[1].(int)]
-	}).(NetworkPacketCaptureFilterOutput)
-}
-
-type NetworkPacketCaptureStorageLocation struct {
-	// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
-	FilePath *string `pulumi:"filePath"`
-	// The ID of the storage account to save the packet capture session
-	//
-	// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The URI of the storage path to save the packet capture.
-	StoragePath *string `pulumi:"storagePath"`
-}
-
-// NetworkPacketCaptureStorageLocationInput is an input type that accepts NetworkPacketCaptureStorageLocationArgs and NetworkPacketCaptureStorageLocationOutput values.
-// You can construct a concrete instance of `NetworkPacketCaptureStorageLocationInput` via:
-//
-//	NetworkPacketCaptureStorageLocationArgs{...}
-type NetworkPacketCaptureStorageLocationInput interface {
-	pulumi.Input
-
-	ToNetworkPacketCaptureStorageLocationOutput() NetworkPacketCaptureStorageLocationOutput
-	ToNetworkPacketCaptureStorageLocationOutputWithContext(context.Context) NetworkPacketCaptureStorageLocationOutput
-}
-
-type NetworkPacketCaptureStorageLocationArgs struct {
-	// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
-	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
-	// The ID of the storage account to save the packet capture session
-	//
-	// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
-	// The URI of the storage path to save the packet capture.
-	StoragePath pulumi.StringPtrInput `pulumi:"storagePath"`
-}
-
-func (NetworkPacketCaptureStorageLocationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPacketCaptureStorageLocation)(nil)).Elem()
-}
-
-func (i NetworkPacketCaptureStorageLocationArgs) ToNetworkPacketCaptureStorageLocationOutput() NetworkPacketCaptureStorageLocationOutput {
-	return i.ToNetworkPacketCaptureStorageLocationOutputWithContext(context.Background())
-}
-
-func (i NetworkPacketCaptureStorageLocationArgs) ToNetworkPacketCaptureStorageLocationOutputWithContext(ctx context.Context) NetworkPacketCaptureStorageLocationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureStorageLocationOutput)
-}
-
-func (i NetworkPacketCaptureStorageLocationArgs) ToNetworkPacketCaptureStorageLocationPtrOutput() NetworkPacketCaptureStorageLocationPtrOutput {
-	return i.ToNetworkPacketCaptureStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (i NetworkPacketCaptureStorageLocationArgs) ToNetworkPacketCaptureStorageLocationPtrOutputWithContext(ctx context.Context) NetworkPacketCaptureStorageLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureStorageLocationOutput).ToNetworkPacketCaptureStorageLocationPtrOutputWithContext(ctx)
-}
-
-// NetworkPacketCaptureStorageLocationPtrInput is an input type that accepts NetworkPacketCaptureStorageLocationArgs, NetworkPacketCaptureStorageLocationPtr and NetworkPacketCaptureStorageLocationPtrOutput values.
-// You can construct a concrete instance of `NetworkPacketCaptureStorageLocationPtrInput` via:
-//
-//	        NetworkPacketCaptureStorageLocationArgs{...}
-//
-//	or:
-//
-//	        nil
-type NetworkPacketCaptureStorageLocationPtrInput interface {
-	pulumi.Input
-
-	ToNetworkPacketCaptureStorageLocationPtrOutput() NetworkPacketCaptureStorageLocationPtrOutput
-	ToNetworkPacketCaptureStorageLocationPtrOutputWithContext(context.Context) NetworkPacketCaptureStorageLocationPtrOutput
-}
-
-type networkPacketCaptureStorageLocationPtrType NetworkPacketCaptureStorageLocationArgs
-
-func NetworkPacketCaptureStorageLocationPtr(v *NetworkPacketCaptureStorageLocationArgs) NetworkPacketCaptureStorageLocationPtrInput {
-	return (*networkPacketCaptureStorageLocationPtrType)(v)
-}
-
-func (*networkPacketCaptureStorageLocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkPacketCaptureStorageLocation)(nil)).Elem()
-}
-
-func (i *networkPacketCaptureStorageLocationPtrType) ToNetworkPacketCaptureStorageLocationPtrOutput() NetworkPacketCaptureStorageLocationPtrOutput {
-	return i.ToNetworkPacketCaptureStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (i *networkPacketCaptureStorageLocationPtrType) ToNetworkPacketCaptureStorageLocationPtrOutputWithContext(ctx context.Context) NetworkPacketCaptureStorageLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureStorageLocationPtrOutput)
-}
-
-type NetworkPacketCaptureStorageLocationOutput struct{ *pulumi.OutputState }
-
-func (NetworkPacketCaptureStorageLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPacketCaptureStorageLocation)(nil)).Elem()
-}
-
-func (o NetworkPacketCaptureStorageLocationOutput) ToNetworkPacketCaptureStorageLocationOutput() NetworkPacketCaptureStorageLocationOutput {
-	return o
-}
-
-func (o NetworkPacketCaptureStorageLocationOutput) ToNetworkPacketCaptureStorageLocationOutputWithContext(ctx context.Context) NetworkPacketCaptureStorageLocationOutput {
-	return o
-}
-
-func (o NetworkPacketCaptureStorageLocationOutput) ToNetworkPacketCaptureStorageLocationPtrOutput() NetworkPacketCaptureStorageLocationPtrOutput {
-	return o.ToNetworkPacketCaptureStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkPacketCaptureStorageLocationOutput) ToNetworkPacketCaptureStorageLocationPtrOutputWithContext(ctx context.Context) NetworkPacketCaptureStorageLocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPacketCaptureStorageLocation) *NetworkPacketCaptureStorageLocation {
-		return &v
-	}).(NetworkPacketCaptureStorageLocationPtrOutput)
-}
-
-// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
-func (o NetworkPacketCaptureStorageLocationOutput) FilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureStorageLocation) *string { return v.FilePath }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the storage account to save the packet capture session
-//
-// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
-func (o NetworkPacketCaptureStorageLocationOutput) StorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureStorageLocation) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
-}
-
-// The URI of the storage path to save the packet capture.
-func (o NetworkPacketCaptureStorageLocationOutput) StoragePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureStorageLocation) *string { return v.StoragePath }).(pulumi.StringPtrOutput)
-}
-
-type NetworkPacketCaptureStorageLocationPtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkPacketCaptureStorageLocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkPacketCaptureStorageLocation)(nil)).Elem()
-}
-
-func (o NetworkPacketCaptureStorageLocationPtrOutput) ToNetworkPacketCaptureStorageLocationPtrOutput() NetworkPacketCaptureStorageLocationPtrOutput {
-	return o
-}
-
-func (o NetworkPacketCaptureStorageLocationPtrOutput) ToNetworkPacketCaptureStorageLocationPtrOutputWithContext(ctx context.Context) NetworkPacketCaptureStorageLocationPtrOutput {
-	return o
-}
-
-func (o NetworkPacketCaptureStorageLocationPtrOutput) Elem() NetworkPacketCaptureStorageLocationOutput {
-	return o.ApplyT(func(v *NetworkPacketCaptureStorageLocation) NetworkPacketCaptureStorageLocation {
-		if v != nil {
-			return *v
-		}
-		var ret NetworkPacketCaptureStorageLocation
-		return ret
-	}).(NetworkPacketCaptureStorageLocationOutput)
-}
-
-// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
-func (o NetworkPacketCaptureStorageLocationPtrOutput) FilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkPacketCaptureStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FilePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the storage account to save the packet capture session
-//
-// > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
-func (o NetworkPacketCaptureStorageLocationPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkPacketCaptureStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccountId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The URI of the storage path to save the packet capture.
-func (o NetworkPacketCaptureStorageLocationPtrOutput) StoragePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkPacketCaptureStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StoragePath
-	}).(pulumi.StringPtrOutput)
-}
-
 type NetworkSecurityGroupSecurityRule struct {
 	// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
 	Access string `pulumi:"access"`
@@ -15651,45 +15335,29 @@ func (i PointToPointVpnGatewayConnectionConfigurationArgs) ToPointToPointVpnGate
 	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationOutput)
 }
 
-func (i PointToPointVpnGatewayConnectionConfigurationArgs) ToPointToPointVpnGatewayConnectionConfigurationPtrOutput() PointToPointVpnGatewayConnectionConfigurationPtrOutput {
-	return i.ToPointToPointVpnGatewayConnectionConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i PointToPointVpnGatewayConnectionConfigurationArgs) ToPointToPointVpnGatewayConnectionConfigurationPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationOutput).ToPointToPointVpnGatewayConnectionConfigurationPtrOutputWithContext(ctx)
-}
-
-// PointToPointVpnGatewayConnectionConfigurationPtrInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationArgs, PointToPointVpnGatewayConnectionConfigurationPtr and PointToPointVpnGatewayConnectionConfigurationPtrOutput values.
-// You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationPtrInput` via:
+// PointToPointVpnGatewayConnectionConfigurationArrayInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationArray and PointToPointVpnGatewayConnectionConfigurationArrayOutput values.
+// You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationArrayInput` via:
 //
-//	        PointToPointVpnGatewayConnectionConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type PointToPointVpnGatewayConnectionConfigurationPtrInput interface {
+//	PointToPointVpnGatewayConnectionConfigurationArray{ PointToPointVpnGatewayConnectionConfigurationArgs{...} }
+type PointToPointVpnGatewayConnectionConfigurationArrayInput interface {
 	pulumi.Input
 
-	ToPointToPointVpnGatewayConnectionConfigurationPtrOutput() PointToPointVpnGatewayConnectionConfigurationPtrOutput
-	ToPointToPointVpnGatewayConnectionConfigurationPtrOutputWithContext(context.Context) PointToPointVpnGatewayConnectionConfigurationPtrOutput
+	ToPointToPointVpnGatewayConnectionConfigurationArrayOutput() PointToPointVpnGatewayConnectionConfigurationArrayOutput
+	ToPointToPointVpnGatewayConnectionConfigurationArrayOutputWithContext(context.Context) PointToPointVpnGatewayConnectionConfigurationArrayOutput
 }
 
-type pointToPointVpnGatewayConnectionConfigurationPtrType PointToPointVpnGatewayConnectionConfigurationArgs
+type PointToPointVpnGatewayConnectionConfigurationArray []PointToPointVpnGatewayConnectionConfigurationInput
 
-func PointToPointVpnGatewayConnectionConfigurationPtr(v *PointToPointVpnGatewayConnectionConfigurationArgs) PointToPointVpnGatewayConnectionConfigurationPtrInput {
-	return (*pointToPointVpnGatewayConnectionConfigurationPtrType)(v)
+func (PointToPointVpnGatewayConnectionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PointToPointVpnGatewayConnectionConfiguration)(nil)).Elem()
 }
 
-func (*pointToPointVpnGatewayConnectionConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PointToPointVpnGatewayConnectionConfiguration)(nil)).Elem()
+func (i PointToPointVpnGatewayConnectionConfigurationArray) ToPointToPointVpnGatewayConnectionConfigurationArrayOutput() PointToPointVpnGatewayConnectionConfigurationArrayOutput {
+	return i.ToPointToPointVpnGatewayConnectionConfigurationArrayOutputWithContext(context.Background())
 }
 
-func (i *pointToPointVpnGatewayConnectionConfigurationPtrType) ToPointToPointVpnGatewayConnectionConfigurationPtrOutput() PointToPointVpnGatewayConnectionConfigurationPtrOutput {
-	return i.ToPointToPointVpnGatewayConnectionConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *pointToPointVpnGatewayConnectionConfigurationPtrType) ToPointToPointVpnGatewayConnectionConfigurationPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationPtrOutput)
+func (i PointToPointVpnGatewayConnectionConfigurationArray) ToPointToPointVpnGatewayConnectionConfigurationArrayOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationArrayOutput)
 }
 
 type PointToPointVpnGatewayConnectionConfigurationOutput struct{ *pulumi.OutputState }
@@ -15704,16 +15372,6 @@ func (o PointToPointVpnGatewayConnectionConfigurationOutput) ToPointToPointVpnGa
 
 func (o PointToPointVpnGatewayConnectionConfigurationOutput) ToPointToPointVpnGatewayConnectionConfigurationOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationOutput {
 	return o
-}
-
-func (o PointToPointVpnGatewayConnectionConfigurationOutput) ToPointToPointVpnGatewayConnectionConfigurationPtrOutput() PointToPointVpnGatewayConnectionConfigurationPtrOutput {
-	return o.ToPointToPointVpnGatewayConnectionConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o PointToPointVpnGatewayConnectionConfigurationOutput) ToPointToPointVpnGatewayConnectionConfigurationPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PointToPointVpnGatewayConnectionConfiguration) *PointToPointVpnGatewayConnectionConfiguration {
-		return &v
-	}).(PointToPointVpnGatewayConnectionConfigurationPtrOutput)
 }
 
 // Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
@@ -15740,68 +15398,24 @@ func (o PointToPointVpnGatewayConnectionConfigurationOutput) VpnClientAddressPoo
 	}).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput)
 }
 
-type PointToPointVpnGatewayConnectionConfigurationPtrOutput struct{ *pulumi.OutputState }
+type PointToPointVpnGatewayConnectionConfigurationArrayOutput struct{ *pulumi.OutputState }
 
-func (PointToPointVpnGatewayConnectionConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PointToPointVpnGatewayConnectionConfiguration)(nil)).Elem()
+func (PointToPointVpnGatewayConnectionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PointToPointVpnGatewayConnectionConfiguration)(nil)).Elem()
 }
 
-func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) ToPointToPointVpnGatewayConnectionConfigurationPtrOutput() PointToPointVpnGatewayConnectionConfigurationPtrOutput {
+func (o PointToPointVpnGatewayConnectionConfigurationArrayOutput) ToPointToPointVpnGatewayConnectionConfigurationArrayOutput() PointToPointVpnGatewayConnectionConfigurationArrayOutput {
 	return o
 }
 
-func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) ToPointToPointVpnGatewayConnectionConfigurationPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationPtrOutput {
+func (o PointToPointVpnGatewayConnectionConfigurationArrayOutput) ToPointToPointVpnGatewayConnectionConfigurationArrayOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationArrayOutput {
 	return o
 }
 
-func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) Elem() PointToPointVpnGatewayConnectionConfigurationOutput {
-	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) PointToPointVpnGatewayConnectionConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret PointToPointVpnGatewayConnectionConfiguration
-		return ret
+func (o PointToPointVpnGatewayConnectionConfigurationArrayOutput) Index(i pulumi.IntInput) PointToPointVpnGatewayConnectionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PointToPointVpnGatewayConnectionConfiguration {
+		return vs[0].([]PointToPointVpnGatewayConnectionConfiguration)[vs[1].(int)]
 	}).(PointToPointVpnGatewayConnectionConfigurationOutput)
-}
-
-// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
-func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) InternetSecurityEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.InternetSecurityEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The Name which should be used for this Connection Configuration.
-func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// A `route` block as defined below.
-func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) Route() PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
-	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) *PointToPointVpnGatewayConnectionConfigurationRoute {
-		if v == nil {
-			return nil
-		}
-		return v.Route
-	}).(PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput)
-}
-
-// A `vpnClientAddressPool` block as defined below.
-func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) VpnClientAddressPool() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
-	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
-		if v == nil {
-			return nil
-		}
-		return &v.VpnClientAddressPool
-	}).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput)
 }
 
 type PointToPointVpnGatewayConnectionConfigurationRoute struct {
@@ -16191,47 +15805,6 @@ func (i PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput)
 }
 
-func (i PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
-	return i.ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(context.Background())
-}
-
-func (i PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput).ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(ctx)
-}
-
-// PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs, PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtr and PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput values.
-// You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput` via:
-//
-//	        PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{...}
-//
-//	or:
-//
-//	        nil
-type PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput interface {
-	pulumi.Input
-
-	ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput
-	ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(context.Context) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput
-}
-
-type pointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrType PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs
-
-func PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtr(v *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput {
-	return (*pointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrType)(v)
-}
-
-func (*pointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool)(nil)).Elem()
-}
-
-func (i *pointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrType) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
-	return i.ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *pointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrType) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput)
-}
-
 type PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput struct{ *pulumi.OutputState }
 
 func (PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput) ElementType() reflect.Type {
@@ -16246,53 +15819,9 @@ func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput)
 	return o
 }
 
-func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
-	return o.ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(context.Background())
-}
-
-func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool) *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
-		return &v
-	}).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput)
-}
-
 // A list of CIDR Ranges which should be used as Address Prefixes.
 func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool) []string {
-		return v.AddressPrefixes
-	}).(pulumi.StringArrayOutput)
-}
-
-type PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool)(nil)).Elem()
-}
-
-func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
-	return o
-}
-
-func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
-	return o
-}
-
-func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput) Elem() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput {
-	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
-		if v != nil {
-			return *v
-		}
-		var ret PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool
-		return ret
-	}).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput)
-}
-
-// A list of CIDR Ranges which should be used as Address Prefixes.
-func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput) AddressPrefixes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool) []string {
-		if v == nil {
-			return nil
-		}
 		return v.AddressPrefixes
 	}).(pulumi.StringArrayOutput)
 }
@@ -17685,45 +17214,29 @@ func (i SubnetServiceEndpointStoragePolicyDefinitionArgs) ToSubnetServiceEndpoin
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyDefinitionOutput)
 }
 
-func (i SubnetServiceEndpointStoragePolicyDefinitionArgs) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutput() SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
-	return i.ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i SubnetServiceEndpointStoragePolicyDefinitionArgs) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyDefinitionOutput).ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(ctx)
-}
-
-// SubnetServiceEndpointStoragePolicyDefinitionPtrInput is an input type that accepts SubnetServiceEndpointStoragePolicyDefinitionArgs, SubnetServiceEndpointStoragePolicyDefinitionPtr and SubnetServiceEndpointStoragePolicyDefinitionPtrOutput values.
-// You can construct a concrete instance of `SubnetServiceEndpointStoragePolicyDefinitionPtrInput` via:
+// SubnetServiceEndpointStoragePolicyDefinitionArrayInput is an input type that accepts SubnetServiceEndpointStoragePolicyDefinitionArray and SubnetServiceEndpointStoragePolicyDefinitionArrayOutput values.
+// You can construct a concrete instance of `SubnetServiceEndpointStoragePolicyDefinitionArrayInput` via:
 //
-//	        SubnetServiceEndpointStoragePolicyDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type SubnetServiceEndpointStoragePolicyDefinitionPtrInput interface {
+//	SubnetServiceEndpointStoragePolicyDefinitionArray{ SubnetServiceEndpointStoragePolicyDefinitionArgs{...} }
+type SubnetServiceEndpointStoragePolicyDefinitionArrayInput interface {
 	pulumi.Input
 
-	ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutput() SubnetServiceEndpointStoragePolicyDefinitionPtrOutput
-	ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(context.Context) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput
+	ToSubnetServiceEndpointStoragePolicyDefinitionArrayOutput() SubnetServiceEndpointStoragePolicyDefinitionArrayOutput
+	ToSubnetServiceEndpointStoragePolicyDefinitionArrayOutputWithContext(context.Context) SubnetServiceEndpointStoragePolicyDefinitionArrayOutput
 }
 
-type subnetServiceEndpointStoragePolicyDefinitionPtrType SubnetServiceEndpointStoragePolicyDefinitionArgs
+type SubnetServiceEndpointStoragePolicyDefinitionArray []SubnetServiceEndpointStoragePolicyDefinitionInput
 
-func SubnetServiceEndpointStoragePolicyDefinitionPtr(v *SubnetServiceEndpointStoragePolicyDefinitionArgs) SubnetServiceEndpointStoragePolicyDefinitionPtrInput {
-	return (*subnetServiceEndpointStoragePolicyDefinitionPtrType)(v)
+func (SubnetServiceEndpointStoragePolicyDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetServiceEndpointStoragePolicyDefinition)(nil)).Elem()
 }
 
-func (*subnetServiceEndpointStoragePolicyDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubnetServiceEndpointStoragePolicyDefinition)(nil)).Elem()
+func (i SubnetServiceEndpointStoragePolicyDefinitionArray) ToSubnetServiceEndpointStoragePolicyDefinitionArrayOutput() SubnetServiceEndpointStoragePolicyDefinitionArrayOutput {
+	return i.ToSubnetServiceEndpointStoragePolicyDefinitionArrayOutputWithContext(context.Background())
 }
 
-func (i *subnetServiceEndpointStoragePolicyDefinitionPtrType) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutput() SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
-	return i.ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *subnetServiceEndpointStoragePolicyDefinitionPtrType) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyDefinitionPtrOutput)
+func (i SubnetServiceEndpointStoragePolicyDefinitionArray) ToSubnetServiceEndpointStoragePolicyDefinitionArrayOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyDefinitionArrayOutput)
 }
 
 type SubnetServiceEndpointStoragePolicyDefinitionOutput struct{ *pulumi.OutputState }
@@ -17738,16 +17251,6 @@ func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ToSubnetServiceEndpo
 
 func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ToSubnetServiceEndpointStoragePolicyDefinitionOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionOutput {
 	return o
-}
-
-func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutput() SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
-	return o.ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetServiceEndpointStoragePolicyDefinition) *SubnetServiceEndpointStoragePolicyDefinition {
-		return &v
-	}).(SubnetServiceEndpointStoragePolicyDefinitionPtrOutput)
 }
 
 // The description of this Subnet Service Endpoint Storage Policy Definition.
@@ -17772,70 +17275,24 @@ func (o SubnetServiceEndpointStoragePolicyDefinitionOutput) ServiceResources() p
 	return o.ApplyT(func(v SubnetServiceEndpointStoragePolicyDefinition) []string { return v.ServiceResources }).(pulumi.StringArrayOutput)
 }
 
-type SubnetServiceEndpointStoragePolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
+type SubnetServiceEndpointStoragePolicyDefinitionArrayOutput struct{ *pulumi.OutputState }
 
-func (SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubnetServiceEndpointStoragePolicyDefinition)(nil)).Elem()
+func (SubnetServiceEndpointStoragePolicyDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetServiceEndpointStoragePolicyDefinition)(nil)).Elem()
 }
 
-func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutput() SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
+func (o SubnetServiceEndpointStoragePolicyDefinitionArrayOutput) ToSubnetServiceEndpointStoragePolicyDefinitionArrayOutput() SubnetServiceEndpointStoragePolicyDefinitionArrayOutput {
 	return o
 }
 
-func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ToSubnetServiceEndpointStoragePolicyDefinitionPtrOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionPtrOutput {
+func (o SubnetServiceEndpointStoragePolicyDefinitionArrayOutput) ToSubnetServiceEndpointStoragePolicyDefinitionArrayOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyDefinitionArrayOutput {
 	return o
 }
 
-func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) Elem() SubnetServiceEndpointStoragePolicyDefinitionOutput {
-	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) SubnetServiceEndpointStoragePolicyDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret SubnetServiceEndpointStoragePolicyDefinition
-		return ret
+func (o SubnetServiceEndpointStoragePolicyDefinitionArrayOutput) Index(i pulumi.IntInput) SubnetServiceEndpointStoragePolicyDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetServiceEndpointStoragePolicyDefinition {
+		return vs[0].([]SubnetServiceEndpointStoragePolicyDefinition)[vs[1].(int)]
 	}).(SubnetServiceEndpointStoragePolicyDefinitionOutput)
-}
-
-// The description of this Subnet Service Endpoint Storage Policy Definition.
-func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
-func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
-func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Service
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
-//
-// > **NOTE** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
-func (o SubnetServiceEndpointStoragePolicyDefinitionPtrOutput) ServiceResources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SubnetServiceEndpointStoragePolicyDefinition) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceResources
-	}).(pulumi.StringArrayOutput)
 }
 
 type TrafficManagerAzureEndpointCustomHeader struct {
@@ -22821,14 +22278,36 @@ func (o VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientCo
 }
 
 type VirtualNetworkSubnet struct {
-	// The address prefix to use for the subnet.
-	AddressPrefix string `pulumi:"addressPrefix"`
+	// The address prefixes to use for the subnet.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
+	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+	DefaultOutboundAccessEnabled *bool `pulumi:"defaultOutboundAccessEnabled"`
+	// One or more `delegation` blocks as defined below.
+	Delegation *VirtualNetworkSubnetDelegation `pulumi:"delegation"`
 	// The ID of this subnet.
 	Id *string `pulumi:"id"`
 	// The name of the subnet.
 	Name string `pulumi:"name"`
+	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
+	//
+	// > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+	//
+	// > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+	//
+	// > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+	PrivateEndpointNetworkPolicies *string `pulumi:"privateEndpointNetworkPolicies"`
+	// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
+	//
+	// > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+	PrivateLinkServiceNetworkPoliciesEnabled *bool `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
+	// The ID of the Route Table that should be associated with this subnet.
+	RouteTableId *string `pulumi:"routeTableId"`
 	// The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
 	SecurityGroup *string `pulumi:"securityGroup"`
+	// The list of IDs of Service Endpoint Policies to associate with the subnet.
+	ServiceEndpointPolicyIds []string `pulumi:"serviceEndpointPolicyIds"`
+	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
 }
 
 // VirtualNetworkSubnetInput is an input type that accepts VirtualNetworkSubnetArgs and VirtualNetworkSubnetOutput values.
@@ -22843,14 +22322,36 @@ type VirtualNetworkSubnetInput interface {
 }
 
 type VirtualNetworkSubnetArgs struct {
-	// The address prefix to use for the subnet.
-	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
+	// The address prefixes to use for the subnet.
+	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
+	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+	DefaultOutboundAccessEnabled pulumi.BoolPtrInput `pulumi:"defaultOutboundAccessEnabled"`
+	// One or more `delegation` blocks as defined below.
+	Delegation VirtualNetworkSubnetDelegationPtrInput `pulumi:"delegation"`
 	// The ID of this subnet.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the subnet.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
+	//
+	// > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+	//
+	// > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+	//
+	// > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+	PrivateEndpointNetworkPolicies pulumi.StringPtrInput `pulumi:"privateEndpointNetworkPolicies"`
+	// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
+	//
+	// > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+	PrivateLinkServiceNetworkPoliciesEnabled pulumi.BoolPtrInput `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
+	// The ID of the Route Table that should be associated with this subnet.
+	RouteTableId pulumi.StringPtrInput `pulumi:"routeTableId"`
 	// The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
 	SecurityGroup pulumi.StringPtrInput `pulumi:"securityGroup"`
+	// The list of IDs of Service Endpoint Policies to associate with the subnet.
+	ServiceEndpointPolicyIds pulumi.StringArrayInput `pulumi:"serviceEndpointPolicyIds"`
+	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+	ServiceEndpoints pulumi.StringArrayInput `pulumi:"serviceEndpoints"`
 }
 
 func (VirtualNetworkSubnetArgs) ElementType() reflect.Type {
@@ -22904,9 +22405,19 @@ func (o VirtualNetworkSubnetOutput) ToVirtualNetworkSubnetOutputWithContext(ctx 
 	return o
 }
 
-// The address prefix to use for the subnet.
-func (o VirtualNetworkSubnetOutput) AddressPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkSubnet) string { return v.AddressPrefix }).(pulumi.StringOutput)
+// The address prefixes to use for the subnet.
+func (o VirtualNetworkSubnetOutput) AddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnet) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// Enable default outbound access to the internet for the subnet. Defaults to `true`.
+func (o VirtualNetworkSubnetOutput) DefaultOutboundAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnet) *bool { return v.DefaultOutboundAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// One or more `delegation` blocks as defined below.
+func (o VirtualNetworkSubnetOutput) Delegation() VirtualNetworkSubnetDelegationPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnet) *VirtualNetworkSubnetDelegation { return v.Delegation }).(VirtualNetworkSubnetDelegationPtrOutput)
 }
 
 // The ID of this subnet.
@@ -22919,9 +22430,42 @@ func (o VirtualNetworkSubnetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
+//
+// > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+//
+// > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+//
+// > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+func (o VirtualNetworkSubnetOutput) PrivateEndpointNetworkPolicies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.PrivateEndpointNetworkPolicies }).(pulumi.StringPtrOutput)
+}
+
+// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
+//
+// > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+func (o VirtualNetworkSubnetOutput) PrivateLinkServiceNetworkPoliciesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnet) *bool { return v.PrivateLinkServiceNetworkPoliciesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Route Table that should be associated with this subnet.
+func (o VirtualNetworkSubnetOutput) RouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
+}
+
 // The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
 func (o VirtualNetworkSubnetOutput) SecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.SecurityGroup }).(pulumi.StringPtrOutput)
+}
+
+// The list of IDs of Service Endpoint Policies to associate with the subnet.
+func (o VirtualNetworkSubnetOutput) ServiceEndpointPolicyIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnet) []string { return v.ServiceEndpointPolicyIds }).(pulumi.StringArrayOutput)
+}
+
+// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+func (o VirtualNetworkSubnetOutput) ServiceEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnet) []string { return v.ServiceEndpoints }).(pulumi.StringArrayOutput)
 }
 
 type VirtualNetworkSubnetArrayOutput struct{ *pulumi.OutputState }
@@ -22942,6 +22486,328 @@ func (o VirtualNetworkSubnetArrayOutput) Index(i pulumi.IntInput) VirtualNetwork
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkSubnet {
 		return vs[0].([]VirtualNetworkSubnet)[vs[1].(int)]
 	}).(VirtualNetworkSubnetOutput)
+}
+
+type VirtualNetworkSubnetDelegation struct {
+	// A name for this delegation.
+	Name string `pulumi:"name"`
+	// A `serviceDelegation` block as defined below.
+	ServiceDelegation VirtualNetworkSubnetDelegationServiceDelegation `pulumi:"serviceDelegation"`
+}
+
+// VirtualNetworkSubnetDelegationInput is an input type that accepts VirtualNetworkSubnetDelegationArgs and VirtualNetworkSubnetDelegationOutput values.
+// You can construct a concrete instance of `VirtualNetworkSubnetDelegationInput` via:
+//
+//	VirtualNetworkSubnetDelegationArgs{...}
+type VirtualNetworkSubnetDelegationInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetDelegationOutput() VirtualNetworkSubnetDelegationOutput
+	ToVirtualNetworkSubnetDelegationOutputWithContext(context.Context) VirtualNetworkSubnetDelegationOutput
+}
+
+type VirtualNetworkSubnetDelegationArgs struct {
+	// A name for this delegation.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `serviceDelegation` block as defined below.
+	ServiceDelegation VirtualNetworkSubnetDelegationServiceDelegationInput `pulumi:"serviceDelegation"`
+}
+
+func (VirtualNetworkSubnetDelegationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSubnetDelegation)(nil)).Elem()
+}
+
+func (i VirtualNetworkSubnetDelegationArgs) ToVirtualNetworkSubnetDelegationOutput() VirtualNetworkSubnetDelegationOutput {
+	return i.ToVirtualNetworkSubnetDelegationOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkSubnetDelegationArgs) ToVirtualNetworkSubnetDelegationOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetDelegationOutput)
+}
+
+func (i VirtualNetworkSubnetDelegationArgs) ToVirtualNetworkSubnetDelegationPtrOutput() VirtualNetworkSubnetDelegationPtrOutput {
+	return i.ToVirtualNetworkSubnetDelegationPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkSubnetDelegationArgs) ToVirtualNetworkSubnetDelegationPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetDelegationOutput).ToVirtualNetworkSubnetDelegationPtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkSubnetDelegationPtrInput is an input type that accepts VirtualNetworkSubnetDelegationArgs, VirtualNetworkSubnetDelegationPtr and VirtualNetworkSubnetDelegationPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkSubnetDelegationPtrInput` via:
+//
+//	        VirtualNetworkSubnetDelegationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualNetworkSubnetDelegationPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetDelegationPtrOutput() VirtualNetworkSubnetDelegationPtrOutput
+	ToVirtualNetworkSubnetDelegationPtrOutputWithContext(context.Context) VirtualNetworkSubnetDelegationPtrOutput
+}
+
+type virtualNetworkSubnetDelegationPtrType VirtualNetworkSubnetDelegationArgs
+
+func VirtualNetworkSubnetDelegationPtr(v *VirtualNetworkSubnetDelegationArgs) VirtualNetworkSubnetDelegationPtrInput {
+	return (*virtualNetworkSubnetDelegationPtrType)(v)
+}
+
+func (*virtualNetworkSubnetDelegationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkSubnetDelegation)(nil)).Elem()
+}
+
+func (i *virtualNetworkSubnetDelegationPtrType) ToVirtualNetworkSubnetDelegationPtrOutput() VirtualNetworkSubnetDelegationPtrOutput {
+	return i.ToVirtualNetworkSubnetDelegationPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkSubnetDelegationPtrType) ToVirtualNetworkSubnetDelegationPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetDelegationPtrOutput)
+}
+
+type VirtualNetworkSubnetDelegationOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkSubnetDelegationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSubnetDelegation)(nil)).Elem()
+}
+
+func (o VirtualNetworkSubnetDelegationOutput) ToVirtualNetworkSubnetDelegationOutput() VirtualNetworkSubnetDelegationOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetDelegationOutput) ToVirtualNetworkSubnetDelegationOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetDelegationOutput) ToVirtualNetworkSubnetDelegationPtrOutput() VirtualNetworkSubnetDelegationPtrOutput {
+	return o.ToVirtualNetworkSubnetDelegationPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkSubnetDelegationOutput) ToVirtualNetworkSubnetDelegationPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkSubnetDelegation) *VirtualNetworkSubnetDelegation {
+		return &v
+	}).(VirtualNetworkSubnetDelegationPtrOutput)
+}
+
+// A name for this delegation.
+func (o VirtualNetworkSubnetDelegationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnetDelegation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `serviceDelegation` block as defined below.
+func (o VirtualNetworkSubnetDelegationOutput) ServiceDelegation() VirtualNetworkSubnetDelegationServiceDelegationOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnetDelegation) VirtualNetworkSubnetDelegationServiceDelegation {
+		return v.ServiceDelegation
+	}).(VirtualNetworkSubnetDelegationServiceDelegationOutput)
+}
+
+type VirtualNetworkSubnetDelegationPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkSubnetDelegationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkSubnetDelegation)(nil)).Elem()
+}
+
+func (o VirtualNetworkSubnetDelegationPtrOutput) ToVirtualNetworkSubnetDelegationPtrOutput() VirtualNetworkSubnetDelegationPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetDelegationPtrOutput) ToVirtualNetworkSubnetDelegationPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetDelegationPtrOutput) Elem() VirtualNetworkSubnetDelegationOutput {
+	return o.ApplyT(func(v *VirtualNetworkSubnetDelegation) VirtualNetworkSubnetDelegation {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkSubnetDelegation
+		return ret
+	}).(VirtualNetworkSubnetDelegationOutput)
+}
+
+// A name for this delegation.
+func (o VirtualNetworkSubnetDelegationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkSubnetDelegation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `serviceDelegation` block as defined below.
+func (o VirtualNetworkSubnetDelegationPtrOutput) ServiceDelegation() VirtualNetworkSubnetDelegationServiceDelegationPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkSubnetDelegation) *VirtualNetworkSubnetDelegationServiceDelegation {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceDelegation
+	}).(VirtualNetworkSubnetDelegationServiceDelegationPtrOutput)
+}
+
+type VirtualNetworkSubnetDelegationServiceDelegation struct {
+	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+	//
+	// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+	Actions []string `pulumi:"actions"`
+	// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+	Name string `pulumi:"name"`
+}
+
+// VirtualNetworkSubnetDelegationServiceDelegationInput is an input type that accepts VirtualNetworkSubnetDelegationServiceDelegationArgs and VirtualNetworkSubnetDelegationServiceDelegationOutput values.
+// You can construct a concrete instance of `VirtualNetworkSubnetDelegationServiceDelegationInput` via:
+//
+//	VirtualNetworkSubnetDelegationServiceDelegationArgs{...}
+type VirtualNetworkSubnetDelegationServiceDelegationInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetDelegationServiceDelegationOutput() VirtualNetworkSubnetDelegationServiceDelegationOutput
+	ToVirtualNetworkSubnetDelegationServiceDelegationOutputWithContext(context.Context) VirtualNetworkSubnetDelegationServiceDelegationOutput
+}
+
+type VirtualNetworkSubnetDelegationServiceDelegationArgs struct {
+	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+	//
+	// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (VirtualNetworkSubnetDelegationServiceDelegationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSubnetDelegationServiceDelegation)(nil)).Elem()
+}
+
+func (i VirtualNetworkSubnetDelegationServiceDelegationArgs) ToVirtualNetworkSubnetDelegationServiceDelegationOutput() VirtualNetworkSubnetDelegationServiceDelegationOutput {
+	return i.ToVirtualNetworkSubnetDelegationServiceDelegationOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkSubnetDelegationServiceDelegationArgs) ToVirtualNetworkSubnetDelegationServiceDelegationOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationServiceDelegationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetDelegationServiceDelegationOutput)
+}
+
+func (i VirtualNetworkSubnetDelegationServiceDelegationArgs) ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutput() VirtualNetworkSubnetDelegationServiceDelegationPtrOutput {
+	return i.ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkSubnetDelegationServiceDelegationArgs) ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationServiceDelegationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetDelegationServiceDelegationOutput).ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkSubnetDelegationServiceDelegationPtrInput is an input type that accepts VirtualNetworkSubnetDelegationServiceDelegationArgs, VirtualNetworkSubnetDelegationServiceDelegationPtr and VirtualNetworkSubnetDelegationServiceDelegationPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkSubnetDelegationServiceDelegationPtrInput` via:
+//
+//	        VirtualNetworkSubnetDelegationServiceDelegationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualNetworkSubnetDelegationServiceDelegationPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutput() VirtualNetworkSubnetDelegationServiceDelegationPtrOutput
+	ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutputWithContext(context.Context) VirtualNetworkSubnetDelegationServiceDelegationPtrOutput
+}
+
+type virtualNetworkSubnetDelegationServiceDelegationPtrType VirtualNetworkSubnetDelegationServiceDelegationArgs
+
+func VirtualNetworkSubnetDelegationServiceDelegationPtr(v *VirtualNetworkSubnetDelegationServiceDelegationArgs) VirtualNetworkSubnetDelegationServiceDelegationPtrInput {
+	return (*virtualNetworkSubnetDelegationServiceDelegationPtrType)(v)
+}
+
+func (*virtualNetworkSubnetDelegationServiceDelegationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkSubnetDelegationServiceDelegation)(nil)).Elem()
+}
+
+func (i *virtualNetworkSubnetDelegationServiceDelegationPtrType) ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutput() VirtualNetworkSubnetDelegationServiceDelegationPtrOutput {
+	return i.ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkSubnetDelegationServiceDelegationPtrType) ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationServiceDelegationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetDelegationServiceDelegationPtrOutput)
+}
+
+type VirtualNetworkSubnetDelegationServiceDelegationOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkSubnetDelegationServiceDelegationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSubnetDelegationServiceDelegation)(nil)).Elem()
+}
+
+func (o VirtualNetworkSubnetDelegationServiceDelegationOutput) ToVirtualNetworkSubnetDelegationServiceDelegationOutput() VirtualNetworkSubnetDelegationServiceDelegationOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetDelegationServiceDelegationOutput) ToVirtualNetworkSubnetDelegationServiceDelegationOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationServiceDelegationOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetDelegationServiceDelegationOutput) ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutput() VirtualNetworkSubnetDelegationServiceDelegationPtrOutput {
+	return o.ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkSubnetDelegationServiceDelegationOutput) ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationServiceDelegationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkSubnetDelegationServiceDelegation) *VirtualNetworkSubnetDelegationServiceDelegation {
+		return &v
+	}).(VirtualNetworkSubnetDelegationServiceDelegationPtrOutput)
+}
+
+// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+//
+// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+func (o VirtualNetworkSubnetDelegationServiceDelegationOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnetDelegationServiceDelegation) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+func (o VirtualNetworkSubnetDelegationServiceDelegationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnetDelegationServiceDelegation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkSubnetDelegationServiceDelegationPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkSubnetDelegationServiceDelegationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkSubnetDelegationServiceDelegation)(nil)).Elem()
+}
+
+func (o VirtualNetworkSubnetDelegationServiceDelegationPtrOutput) ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutput() VirtualNetworkSubnetDelegationServiceDelegationPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetDelegationServiceDelegationPtrOutput) ToVirtualNetworkSubnetDelegationServiceDelegationPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetDelegationServiceDelegationPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetDelegationServiceDelegationPtrOutput) Elem() VirtualNetworkSubnetDelegationServiceDelegationOutput {
+	return o.ApplyT(func(v *VirtualNetworkSubnetDelegationServiceDelegation) VirtualNetworkSubnetDelegationServiceDelegation {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkSubnetDelegationServiceDelegation
+		return ret
+	}).(VirtualNetworkSubnetDelegationServiceDelegationOutput)
+}
+
+// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+//
+// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+func (o VirtualNetworkSubnetDelegationServiceDelegationPtrOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkSubnetDelegationServiceDelegation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+func (o VirtualNetworkSubnetDelegationServiceDelegationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkSubnetDelegationServiceDelegation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type VnpGatewayNatRuleExternalMapping struct {
@@ -36683,10 +36549,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerCrossTenantScopeArrayInput)(nil)).Elem(), NetworkManagerCrossTenantScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerScopeInput)(nil)).Elem(), NetworkManagerScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerScopePtrInput)(nil)).Elem(), NetworkManagerScopeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCaptureFilterInput)(nil)).Elem(), NetworkPacketCaptureFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCaptureFilterArrayInput)(nil)).Elem(), NetworkPacketCaptureFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCaptureStorageLocationInput)(nil)).Elem(), NetworkPacketCaptureStorageLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCaptureStorageLocationPtrInput)(nil)).Elem(), NetworkPacketCaptureStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityGroupSecurityRuleInput)(nil)).Elem(), NetworkSecurityGroupSecurityRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityGroupSecurityRuleArrayInput)(nil)).Elem(), NetworkSecurityGroupSecurityRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherFlowLogRetentionPolicyInput)(nil)).Elem(), NetworkWatcherFlowLogRetentionPolicyArgs{})
@@ -36694,13 +36556,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherFlowLogTrafficAnalyticsInput)(nil)).Elem(), NetworkWatcherFlowLogTrafficAnalyticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherFlowLogTrafficAnalyticsPtrInput)(nil)).Elem(), NetworkWatcherFlowLogTrafficAnalyticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationPtrInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationArrayInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationRouteInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationRoutePtrInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput)(nil)).Elem(), PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileContainerNetworkInterfaceInput)(nil)).Elem(), ProfileContainerNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileContainerNetworkInterfacePtrInput)(nil)).Elem(), ProfileContainerNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileContainerNetworkInterfaceIpConfigurationInput)(nil)).Elem(), ProfileContainerNetworkInterfaceIpConfigurationArgs{})
@@ -36723,7 +36584,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDelegationArrayInput)(nil)).Elem(), SubnetDelegationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDelegationServiceDelegationInput)(nil)).Elem(), SubnetDelegationServiceDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyDefinitionInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyDefinitionPtrInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyDefinitionArrayInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointCustomHeaderInput)(nil)).Elem(), TrafficManagerAzureEndpointCustomHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointCustomHeaderArrayInput)(nil)).Elem(), TrafficManagerAzureEndpointCustomHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointSubnetInput)(nil)).Elem(), TrafficManagerAzureEndpointSubnetArgs{})
@@ -36792,6 +36653,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetInput)(nil)).Elem(), VirtualNetworkSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetArrayInput)(nil)).Elem(), VirtualNetworkSubnetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetDelegationInput)(nil)).Elem(), VirtualNetworkSubnetDelegationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetDelegationPtrInput)(nil)).Elem(), VirtualNetworkSubnetDelegationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetDelegationServiceDelegationInput)(nil)).Elem(), VirtualNetworkSubnetDelegationServiceDelegationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetDelegationServiceDelegationPtrInput)(nil)).Elem(), VirtualNetworkSubnetDelegationServiceDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleExternalMappingInput)(nil)).Elem(), VnpGatewayNatRuleExternalMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleExternalMappingArrayInput)(nil)).Elem(), VnpGatewayNatRuleExternalMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleInternalMappingInput)(nil)).Elem(), VnpGatewayNatRuleInternalMappingArgs{})
@@ -37171,10 +37036,6 @@ func init() {
 	pulumi.RegisterOutputType(NetworkManagerCrossTenantScopeArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagerScopeOutput{})
 	pulumi.RegisterOutputType(NetworkManagerScopePtrOutput{})
-	pulumi.RegisterOutputType(NetworkPacketCaptureFilterOutput{})
-	pulumi.RegisterOutputType(NetworkPacketCaptureFilterArrayOutput{})
-	pulumi.RegisterOutputType(NetworkPacketCaptureStorageLocationOutput{})
-	pulumi.RegisterOutputType(NetworkPacketCaptureStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupSecurityRuleOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupSecurityRuleArrayOutput{})
 	pulumi.RegisterOutputType(NetworkWatcherFlowLogRetentionPolicyOutput{})
@@ -37182,13 +37043,12 @@ func init() {
 	pulumi.RegisterOutputType(NetworkWatcherFlowLogTrafficAnalyticsOutput{})
 	pulumi.RegisterOutputType(NetworkWatcherFlowLogTrafficAnalyticsPtrOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationOutput{})
-	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationRouteOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput{})
-	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput{})
 	pulumi.RegisterOutputType(ProfileContainerNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(ProfileContainerNetworkInterfacePtrOutput{})
 	pulumi.RegisterOutputType(ProfileContainerNetworkInterfaceIpConfigurationOutput{})
@@ -37211,7 +37071,7 @@ func init() {
 	pulumi.RegisterOutputType(SubnetDelegationArrayOutput{})
 	pulumi.RegisterOutputType(SubnetDelegationServiceDelegationOutput{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyDefinitionOutput{})
-	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(TrafficManagerAzureEndpointCustomHeaderOutput{})
 	pulumi.RegisterOutputType(TrafficManagerAzureEndpointCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TrafficManagerAzureEndpointSubnetOutput{})
@@ -37280,6 +37140,10 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkSubnetDelegationOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkSubnetDelegationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkSubnetDelegationServiceDelegationOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkSubnetDelegationServiceDelegationPtrOutput{})
 	pulumi.RegisterOutputType(VnpGatewayNatRuleExternalMappingOutput{})
 	pulumi.RegisterOutputType(VnpGatewayNatRuleExternalMappingArrayOutput{})
 	pulumi.RegisterOutputType(VnpGatewayNatRuleInternalMappingOutput{})

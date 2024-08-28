@@ -15,7 +15,6 @@ from .frontdoor_origin import *
 from .frontdoor_origin_group import *
 from .frontdoor_profile import *
 from .frontdoor_route import *
-from .frontdoor_route_disable_link_to_default_domain import *
 from .frontdoor_rule import *
 from .frontdoor_rule_set import *
 from .frontdoor_secret import *

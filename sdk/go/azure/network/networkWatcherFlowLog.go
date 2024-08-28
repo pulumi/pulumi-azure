@@ -8,102 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages a Network Watcher Flow Log.
 //
 // > **Note** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storageAccount` with no existing management rules, until the issue is fixed.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test, err := network.NewNetworkSecurityGroup(ctx, "test", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String("acctestnsg"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testNetworkWatcher, err := network.NewNetworkWatcher(ctx, "test", &network.NetworkWatcherArgs{
-//				Name:              pulumi.String("acctestnw"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testAccount, err := storage.NewAccount(ctx, "test", &storage.AccountArgs{
-//				Name:                   pulumi.String("acctestsa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountKind:            pulumi.String("StorageV2"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				EnableHttpsTrafficOnly: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "test", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name:              pulumi.String("acctestlaw"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewNetworkWatcherFlowLog(ctx, "test", &network.NetworkWatcherFlowLogArgs{
-//				NetworkWatcherName:     testNetworkWatcher.Name,
-//				ResourceGroupName:      example.Name,
-//				Name:                   pulumi.String("example-log"),
-//				NetworkSecurityGroupId: test.ID(),
-//				StorageAccountId:       testAccount.ID(),
-//				Enabled:                pulumi.Bool(true),
-//				RetentionPolicy: &network.NetworkWatcherFlowLogRetentionPolicyArgs{
-//					Enabled: pulumi.Bool(true),
-//					Days:    pulumi.Int(7),
-//				},
-//				TrafficAnalytics: &network.NetworkWatcherFlowLogTrafficAnalyticsArgs{
-//					Enabled:             pulumi.Bool(true),
-//					WorkspaceId:         testAnalyticsWorkspace.WorkspaceId,
-//					WorkspaceRegion:     testAnalyticsWorkspace.Location,
-//					WorkspaceResourceId: testAnalyticsWorkspace.ID(),
-//					IntervalInMinutes:   pulumi.Int(10),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -135,8 +46,8 @@ type NetworkWatcherFlowLog struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrOutput `pulumi:"trafficAnalytics"`
-	// The version (revision) of the flow log. Possible values are `1` and `2`.
-	Version pulumi.IntOutput `pulumi:"version"`
+	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewNetworkWatcherFlowLog registers a new resource with the given unique name, arguments, and options.
@@ -207,7 +118,7 @@ type networkWatcherFlowLogState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
-	// The version (revision) of the flow log. Possible values are `1` and `2`.
+	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
 	Version *int `pulumi:"version"`
 }
 
@@ -232,7 +143,7 @@ type NetworkWatcherFlowLogState struct {
 	Tags pulumi.StringMapInput
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
-	// The version (revision) of the flow log. Possible values are `1` and `2`.
+	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
 	Version pulumi.IntPtrInput
 }
 
@@ -261,7 +172,7 @@ type networkWatcherFlowLogArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
-	// The version (revision) of the flow log. Possible values are `1` and `2`.
+	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
 	Version *int `pulumi:"version"`
 }
 
@@ -287,7 +198,7 @@ type NetworkWatcherFlowLogArgs struct {
 	Tags pulumi.StringMapInput
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
-	// The version (revision) of the flow log. Possible values are `1` and `2`.
+	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
 	Version pulumi.IntPtrInput
 }
 
@@ -430,9 +341,9 @@ func (o NetworkWatcherFlowLogOutput) TrafficAnalytics() NetworkWatcherFlowLogTra
 	}).(NetworkWatcherFlowLogTrafficAnalyticsPtrOutput)
 }
 
-// The version (revision) of the flow log. Possible values are `1` and `2`.
-func (o NetworkWatcherFlowLogOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
+func (o NetworkWatcherFlowLogOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 type NetworkWatcherFlowLogArrayOutput struct{ *pulumi.OutputState }

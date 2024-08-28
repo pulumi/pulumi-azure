@@ -87,9 +87,9 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly contentStoragePolicy!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
      */
-    public readonly dataLocale!: pulumi.Output<string>;
+    public readonly dataLocale!: pulumi.Output<string | undefined>;
     /**
      * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
      */
@@ -233,7 +233,7 @@ export interface JobState {
      */
     contentStoragePolicy?: pulumi.Input<string>;
     /**
-     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
      */
     dataLocale?: pulumi.Input<string>;
     /**
@@ -315,7 +315,7 @@ export interface JobArgs {
      */
     contentStoragePolicy?: pulumi.Input<string>;
     /**
-     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
      */
     dataLocale?: pulumi.Input<string>;
     /**

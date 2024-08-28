@@ -78,14 +78,6 @@ export class ShareDirectory extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * @deprecated the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    public readonly shareName!: pulumi.Output<string>;
-    /**
-     * @deprecated the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    public readonly storageAccountName!: pulumi.Output<string>;
-    /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
     public readonly storageShareId!: pulumi.Output<string>;
@@ -97,7 +89,7 @@ export class ShareDirectory extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ShareDirectoryArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ShareDirectoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareDirectoryArgs | ShareDirectoryState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -105,15 +97,14 @@ export class ShareDirectory extends pulumi.CustomResource {
             const state = argsOrState as ShareDirectoryState | undefined;
             resourceInputs["metadata"] = state ? state.metadata : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["shareName"] = state ? state.shareName : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
             resourceInputs["storageShareId"] = state ? state.storageShareId : undefined;
         } else {
             const args = argsOrState as ShareDirectoryArgs | undefined;
+            if ((!args || args.storageShareId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'storageShareId'");
+            }
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["storageShareId"] = args ? args.storageShareId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -134,14 +125,6 @@ export interface ShareDirectoryState {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    shareName?: pulumi.Input<string>;
-    /**
-     * @deprecated the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    storageAccountName?: pulumi.Input<string>;
-    /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
     storageShareId?: pulumi.Input<string>;
@@ -160,15 +143,7 @@ export interface ShareDirectoryArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    shareName?: pulumi.Input<string>;
-    /**
-     * @deprecated the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    storageAccountName?: pulumi.Input<string>;
-    /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    storageShareId?: pulumi.Input<string>;
+    storageShareId: pulumi.Input<string>;
 }

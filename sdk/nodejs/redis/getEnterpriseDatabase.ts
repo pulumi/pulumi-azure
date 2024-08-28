@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Redis Enterprise Database
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.redis.getEnterpriseDatabase({
- *     name: "default",
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- *     clusterId: exampleAzurermRedisEnterpriseCluster.id,
- * });
- * export const redisEnterpriseDatabasePrimaryKey = example.then(example => example.primaryAccessKey);
- * export const redisEnterpriseDatabaseSecondaryKey = example.then(example => example.secondaryAccessKey);
- * ```
  */
 export function getEnterpriseDatabase(args: GetEnterpriseDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseDatabaseResult> {
 
@@ -28,7 +13,6 @@ export function getEnterpriseDatabase(args: GetEnterpriseDatabaseArgs, opts?: pu
     return pulumi.runtime.invoke("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", {
         "clusterId": args.clusterId,
         "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
@@ -44,12 +28,6 @@ export interface GetEnterpriseDatabaseArgs {
      * The name of the Redis Enterprise Database.
      */
     name: string;
-    /**
-     * The name of the resource group the Redis Enterprise Database instance is located in.
-     *
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    resourceGroupName?: string;
 }
 
 /**
@@ -81,31 +59,12 @@ export interface GetEnterpriseDatabaseResult {
      */
     readonly primaryAccessKey: string;
     /**
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    readonly resourceGroupName: string;
-    /**
      * The Secondary Access Key for the Redis Enterprise Database instance.
      */
     readonly secondaryAccessKey: string;
 }
 /**
  * Use this data source to access information about an existing Redis Enterprise Database
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.redis.getEnterpriseDatabase({
- *     name: "default",
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- *     clusterId: exampleAzurermRedisEnterpriseCluster.id,
- * });
- * export const redisEnterpriseDatabasePrimaryKey = example.then(example => example.primaryAccessKey);
- * export const redisEnterpriseDatabaseSecondaryKey = example.then(example => example.secondaryAccessKey);
- * ```
  */
 export function getEnterpriseDatabaseOutput(args: GetEnterpriseDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getEnterpriseDatabase(a, opts))
@@ -123,10 +82,4 @@ export interface GetEnterpriseDatabaseOutputArgs {
      * The name of the Redis Enterprise Database.
      */
     name: pulumi.Input<string>;
-    /**
-     * The name of the resource group the Redis Enterprise Database instance is located in.
-     *
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    resourceGroupName?: pulumi.Input<string>;
 }

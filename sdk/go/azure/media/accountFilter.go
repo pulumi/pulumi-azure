@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/media"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,14 +48,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = media.NewServiceAccount(ctx, "example", &media.ServiceAccountArgs{
-//				Name:              pulumi.String("examplemediaacc"),
+//			_, err = azurerm.NewMediaServicesAccount(ctx, "example", &azurerm.MediaServicesAccountArgs{
+//				Name:              "examplemediaacc",
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				StorageAccounts: media.ServiceAccountStorageAccountArray{
-//					&media.ServiceAccountStorageAccountArgs{
-//						Id:        exampleAccount.ID(),
-//						IsPrimary: pulumi.Bool(true),
+//				StorageAccount: []map[string]interface{}{
+//					map[string]interface{}{
+//						"id":        exampleAccount.ID(),
+//						"isPrimary": true,
 //					},
 //				},
 //			})

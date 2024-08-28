@@ -29,7 +29,7 @@ class ApiConnectionArgs:
         The set of arguments for constructing a ApiConnection resource.
         :param pulumi.Input[str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
-        :param pulumi.Input[str] display_name: A display name for this API Connection. Changing this forces a new API Connection to be created.
+        :param pulumi.Input[str] display_name: A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the API Connection.
         """
@@ -72,7 +72,7 @@ class ApiConnectionArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A display name for this API Connection. Changing this forces a new API Connection to be created.
+        A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -125,7 +125,7 @@ class _ApiConnectionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ApiConnection resources.
-        :param pulumi.Input[str] display_name: A display name for this API Connection. Changing this forces a new API Connection to be created.
+        :param pulumi.Input[str] display_name: A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
@@ -148,7 +148,7 @@ class _ApiConnectionState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A display name for this API Connection. Changing this forces a new API Connection to be created.
+        A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -268,7 +268,7 @@ class ApiConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] display_name: A display name for this API Connection. Changing this forces a new API Connection to be created.
+        :param pulumi.Input[str] display_name: A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
@@ -383,7 +383,7 @@ class ApiConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] display_name: A display name for this API Connection. Changing this forces a new API Connection to be created.
+        :param pulumi.Input[str] display_name: A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
@@ -403,9 +403,9 @@ class ApiConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
-        A display name for this API Connection. Changing this forces a new API Connection to be created.
+        A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         """
         return pulumi.get(self, "display_name")
 

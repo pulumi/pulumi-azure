@@ -225,8 +225,8 @@ export class CosmosDBFunction extends appservice.Function<CosmosChangeFeedContex
         // Place the mapping from the well known key name to the Cosmos DB connection string in
         // the 'app settings' object.
         const appSettings =
-            pulumi.all([args.account.connectionStrings, bindingConnectionKey]).apply(
-                ([connectionStrings, key]) => ({ [key]: connectionStrings[0] }));
+            pulumi.all([args.account.primarySqlConnectionString, bindingConnectionKey]).apply(
+                ([connectionString, key]) => ({ [key]: connectionString }));
 
         super(name, trigger, args, appSettings);
     }

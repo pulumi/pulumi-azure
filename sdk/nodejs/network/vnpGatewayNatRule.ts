@@ -86,21 +86,13 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
     }
 
     /**
-     * @deprecated `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-     */
-    public readonly externalAddressSpaceMappings!: pulumi.Output<string[]>;
-    /**
      * One of more `externalMapping` blocks as defined below.
      */
-    public readonly externalMappings!: pulumi.Output<outputs.network.VnpGatewayNatRuleExternalMapping[]>;
-    /**
-     * @deprecated `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-     */
-    public readonly internalAddressSpaceMappings!: pulumi.Output<string[]>;
+    public readonly externalMappings!: pulumi.Output<outputs.network.VnpGatewayNatRuleExternalMapping[] | undefined>;
     /**
      * One of more `internalMapping` blocks as defined below.
      */
-    public readonly internalMappings!: pulumi.Output<outputs.network.VnpGatewayNatRuleInternalMapping[]>;
+    public readonly internalMappings!: pulumi.Output<outputs.network.VnpGatewayNatRuleInternalMapping[] | undefined>;
     /**
      * The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
      */
@@ -113,10 +105,6 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
      * The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * @deprecated The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */
@@ -139,32 +127,23 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VnpGatewayNatRuleState | undefined;
-            resourceInputs["externalAddressSpaceMappings"] = state ? state.externalAddressSpaceMappings : undefined;
             resourceInputs["externalMappings"] = state ? state.externalMappings : undefined;
-            resourceInputs["internalAddressSpaceMappings"] = state ? state.internalAddressSpaceMappings : undefined;
             resourceInputs["internalMappings"] = state ? state.internalMappings : undefined;
             resourceInputs["ipConfigurationId"] = state ? state.ipConfigurationId : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as VnpGatewayNatRuleArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             if ((!args || args.vpnGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            resourceInputs["externalAddressSpaceMappings"] = args ? args.externalAddressSpaceMappings : undefined;
             resourceInputs["externalMappings"] = args ? args.externalMappings : undefined;
-            resourceInputs["internalAddressSpaceMappings"] = args ? args.internalAddressSpaceMappings : undefined;
             resourceInputs["internalMappings"] = args ? args.internalMappings : undefined;
             resourceInputs["ipConfigurationId"] = args ? args.ipConfigurationId : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
@@ -178,17 +157,9 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
  */
 export interface VnpGatewayNatRuleState {
     /**
-     * @deprecated `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-     */
-    externalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * One of more `externalMapping` blocks as defined below.
      */
     externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleExternalMapping>[]>;
-    /**
-     * @deprecated `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-     */
-    internalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One of more `internalMapping` blocks as defined below.
      */
@@ -205,10 +176,6 @@ export interface VnpGatewayNatRuleState {
      * The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
-    /**
-     * @deprecated The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
-     */
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */
@@ -224,17 +191,9 @@ export interface VnpGatewayNatRuleState {
  */
 export interface VnpGatewayNatRuleArgs {
     /**
-     * @deprecated `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-     */
-    externalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * One of more `externalMapping` blocks as defined below.
      */
     externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleExternalMapping>[]>;
-    /**
-     * @deprecated `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-     */
-    internalAddressSpaceMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One of more `internalMapping` blocks as defined below.
      */
@@ -251,10 +210,6 @@ export interface VnpGatewayNatRuleArgs {
      * The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
-    /**
-     * @deprecated The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */

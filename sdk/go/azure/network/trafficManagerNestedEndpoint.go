@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -131,16 +131,16 @@ type TrafficManagerNestedEndpoint struct {
 	MinimumRequiredChildEndpointsIpv6 pulumi.IntPtrOutput `pulumi:"minimumRequiredChildEndpointsIpv6"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
-	Priority pulumi.IntOutput `pulumi:"priority"`
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
 	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
 	Subnets TrafficManagerNestedEndpointSubnetArrayOutput `pulumi:"subnets"`
 	// The resource id of an Azure resource to target.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
-	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
-	Weight pulumi.IntOutput `pulumi:"weight"`
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
+	Weight pulumi.IntPtrOutput `pulumi:"weight"`
 }
 
 // NewTrafficManagerNestedEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -200,7 +200,7 @@ type trafficManagerNestedEndpointState struct {
 	MinimumRequiredChildEndpointsIpv6 *int `pulumi:"minimumRequiredChildEndpointsIpv6"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
 	Priority *int `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId *string `pulumi:"profileId"`
@@ -208,7 +208,7 @@ type trafficManagerNestedEndpointState struct {
 	Subnets []TrafficManagerNestedEndpointSubnet `pulumi:"subnets"`
 	// The resource id of an Azure resource to target.
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -231,7 +231,7 @@ type TrafficManagerNestedEndpointState struct {
 	MinimumRequiredChildEndpointsIpv6 pulumi.IntPtrInput
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
 	Priority pulumi.IntPtrInput
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringPtrInput
@@ -239,7 +239,7 @@ type TrafficManagerNestedEndpointState struct {
 	Subnets TrafficManagerNestedEndpointSubnetArrayInput
 	// The resource id of an Azure resource to target.
 	TargetResourceId pulumi.StringPtrInput
-	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
 	Weight pulumi.IntPtrInput
 }
 
@@ -266,7 +266,7 @@ type trafficManagerNestedEndpointArgs struct {
 	MinimumRequiredChildEndpointsIpv6 *int `pulumi:"minimumRequiredChildEndpointsIpv6"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
 	Priority *int `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId string `pulumi:"profileId"`
@@ -274,7 +274,7 @@ type trafficManagerNestedEndpointArgs struct {
 	Subnets []TrafficManagerNestedEndpointSubnet `pulumi:"subnets"`
 	// The resource id of an Azure resource to target.
 	TargetResourceId string `pulumi:"targetResourceId"`
-	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -298,7 +298,7 @@ type TrafficManagerNestedEndpointArgs struct {
 	MinimumRequiredChildEndpointsIpv6 pulumi.IntPtrInput
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
 	Priority pulumi.IntPtrInput
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringInput
@@ -306,7 +306,7 @@ type TrafficManagerNestedEndpointArgs struct {
 	Subnets TrafficManagerNestedEndpointSubnetArrayInput
 	// The resource id of an Azure resource to target.
 	TargetResourceId pulumi.StringInput
-	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+	// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
 	Weight pulumi.IntPtrInput
 }
 
@@ -441,9 +441,9 @@ func (o TrafficManagerNestedEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
-func (o TrafficManagerNestedEndpointOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
+// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+func (o TrafficManagerNestedEndpointOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
@@ -461,9 +461,9 @@ func (o TrafficManagerNestedEndpointOutput) TargetResourceId() pulumi.StringOutp
 	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }
 
-// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
-func (o TrafficManagerNestedEndpointOutput) Weight() pulumi.IntOutput {
-	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.IntOutput { return v.Weight }).(pulumi.IntOutput)
+// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
+func (o TrafficManagerNestedEndpointOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.IntPtrOutput { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
 type TrafficManagerNestedEndpointArrayOutput struct{ *pulumi.OutputState }

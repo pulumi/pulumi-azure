@@ -148,7 +148,7 @@ export class SparkPool extends pulumi.CustomResource {
     public readonly sparkConfig!: pulumi.Output<outputs.synapse.SparkPoolSparkConfig | undefined>;
     public readonly sparkEventsFolder!: pulumi.Output<string | undefined>;
     public readonly sparkLogFolder!: pulumi.Output<string | undefined>;
-    public readonly sparkVersion!: pulumi.Output<string | undefined>;
+    public readonly sparkVersion!: pulumi.Output<string>;
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
      */
@@ -194,6 +194,9 @@ export class SparkPool extends pulumi.CustomResource {
             }
             if ((!args || args.nodeSizeFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeSizeFamily'");
+            }
+            if ((!args || args.sparkVersion === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sparkVersion'");
             }
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
@@ -319,7 +322,7 @@ export interface SparkPoolArgs {
     sparkConfig?: pulumi.Input<inputs.synapse.SparkPoolSparkConfig>;
     sparkEventsFolder?: pulumi.Input<string>;
     sparkLogFolder?: pulumi.Input<string>;
-    sparkVersion?: pulumi.Input<string>;
+    sparkVersion: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
      */

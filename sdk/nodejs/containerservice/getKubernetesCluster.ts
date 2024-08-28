@@ -73,10 +73,6 @@ export interface GetKubernetesClusterResult {
      */
     readonly currentKubernetesVersion: string;
     /**
-     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     */
-    readonly customCaTrustCertificatesBase64s: string[];
-    /**
      * The ID of the Disk Encryption Set used for the Nodes and Volumes.
      */
     readonly diskEncryptionSetId: string;

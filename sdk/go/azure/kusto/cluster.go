@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/kusto"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,14 +79,12 @@ type Cluster struct {
 	DiskEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
-	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrOutput `pulumi:"identity"`
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 	//
 	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
-	LanguageExtensions pulumi.StringArrayOutput `pulumi:"languageExtensions"`
+	LanguageExtensions ClusterLanguageExtensionArrayOutput `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
@@ -171,14 +169,12 @@ type clusterState struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 	//
 	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
-	LanguageExtensions []string `pulumi:"languageExtensions"`
+	LanguageExtensions []ClusterLanguageExtension `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
@@ -228,14 +224,12 @@ type ClusterState struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 	//
 	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
-	LanguageExtensions pulumi.StringArrayInput
+	LanguageExtensions ClusterLanguageExtensionArrayInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
@@ -287,14 +281,12 @@ type clusterArgs struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 	//
 	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
-	LanguageExtensions []string `pulumi:"languageExtensions"`
+	LanguageExtensions []ClusterLanguageExtension `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
@@ -341,14 +333,12 @@ type ClusterArgs struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 	//
 	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
-	LanguageExtensions pulumi.StringArrayInput
+	LanguageExtensions ClusterLanguageExtensionArrayInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
@@ -500,11 +490,6 @@ func (o ClusterOutput) DoubleEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DoubleEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-func (o ClusterOutput) Engine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
-}
-
 // An `identity` block as defined below.
 func (o ClusterOutput) Identity() ClusterIdentityPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterIdentityPtrOutput { return v.Identity }).(ClusterIdentityPtrOutput)
@@ -513,8 +498,8 @@ func (o ClusterOutput) Identity() ClusterIdentityPtrOutput {
 // An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 //
 // > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
-func (o ClusterOutput) LanguageExtensions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.LanguageExtensions }).(pulumi.StringArrayOutput)
+func (o ClusterOutput) LanguageExtensions() ClusterLanguageExtensionArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterLanguageExtensionArrayOutput { return v.LanguageExtensions }).(ClusterLanguageExtensionArrayOutput)
 }
 
 // The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.

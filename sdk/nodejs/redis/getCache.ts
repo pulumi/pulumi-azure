@@ -51,15 +51,13 @@ export interface GetCacheArgs {
  */
 export interface GetCacheResult {
     /**
+     * Specifies if access key authentication is enabled.
+     */
+    readonly accessKeysAuthenticationEnabled: boolean;
+    /**
      * The size of the Redis Cache deployed.
      */
     readonly capacity: number;
-    /**
-     * Whether the SSL port is enabled.
-     *
-     * @deprecated `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-     */
-    readonly enableNonSslPort: boolean;
     /**
      * The SKU family/pricing group used. Possible values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      */

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,12 +96,8 @@ import (
 type VnpGatewayNatRule struct {
 	pulumi.CustomResourceState
 
-	// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-	ExternalAddressSpaceMappings pulumi.StringArrayOutput `pulumi:"externalAddressSpaceMappings"`
 	// One of more `externalMapping` blocks as defined below.
 	ExternalMappings VnpGatewayNatRuleExternalMappingArrayOutput `pulumi:"externalMappings"`
-	// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-	InternalAddressSpaceMappings pulumi.StringArrayOutput `pulumi:"internalAddressSpaceMappings"`
 	// One of more `internalMapping` blocks as defined below.
 	InternalMappings VnpGatewayNatRuleInternalMappingArrayOutput `pulumi:"internalMappings"`
 	// The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
@@ -110,8 +106,6 @@ type VnpGatewayNatRule struct {
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Deprecated: The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
@@ -125,9 +119,6 @@ func NewVnpGatewayNatRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
 	if args.VpnGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'VpnGatewayId'")
 	}
@@ -154,12 +145,8 @@ func GetVnpGatewayNatRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VnpGatewayNatRule resources.
 type vnpGatewayNatRuleState struct {
-	// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-	ExternalAddressSpaceMappings []string `pulumi:"externalAddressSpaceMappings"`
 	// One of more `externalMapping` blocks as defined below.
 	ExternalMappings []VnpGatewayNatRuleExternalMapping `pulumi:"externalMappings"`
-	// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-	InternalAddressSpaceMappings []string `pulumi:"internalAddressSpaceMappings"`
 	// One of more `internalMapping` blocks as defined below.
 	InternalMappings []VnpGatewayNatRuleInternalMapping `pulumi:"internalMappings"`
 	// The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
@@ -168,8 +155,6 @@ type vnpGatewayNatRuleState struct {
 	Mode *string `pulumi:"mode"`
 	// The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
 	// The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
@@ -177,12 +162,8 @@ type vnpGatewayNatRuleState struct {
 }
 
 type VnpGatewayNatRuleState struct {
-	// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-	ExternalAddressSpaceMappings pulumi.StringArrayInput
 	// One of more `externalMapping` blocks as defined below.
 	ExternalMappings VnpGatewayNatRuleExternalMappingArrayInput
-	// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-	InternalAddressSpaceMappings pulumi.StringArrayInput
 	// One of more `internalMapping` blocks as defined below.
 	InternalMappings VnpGatewayNatRuleInternalMappingArrayInput
 	// The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
@@ -191,8 +172,6 @@ type VnpGatewayNatRuleState struct {
 	Mode pulumi.StringPtrInput
 	// The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
-	ResourceGroupName pulumi.StringPtrInput
 	// The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
 	// The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
@@ -204,12 +183,8 @@ func (VnpGatewayNatRuleState) ElementType() reflect.Type {
 }
 
 type vnpGatewayNatRuleArgs struct {
-	// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-	ExternalAddressSpaceMappings []string `pulumi:"externalAddressSpaceMappings"`
 	// One of more `externalMapping` blocks as defined below.
 	ExternalMappings []VnpGatewayNatRuleExternalMapping `pulumi:"externalMappings"`
-	// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-	InternalAddressSpaceMappings []string `pulumi:"internalAddressSpaceMappings"`
 	// One of more `internalMapping` blocks as defined below.
 	InternalMappings []VnpGatewayNatRuleInternalMapping `pulumi:"internalMappings"`
 	// The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
@@ -218,8 +193,6 @@ type vnpGatewayNatRuleArgs struct {
 	Mode *string `pulumi:"mode"`
 	// The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
 	// The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
@@ -228,12 +201,8 @@ type vnpGatewayNatRuleArgs struct {
 
 // The set of arguments for constructing a VnpGatewayNatRule resource.
 type VnpGatewayNatRuleArgs struct {
-	// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-	ExternalAddressSpaceMappings pulumi.StringArrayInput
 	// One of more `externalMapping` blocks as defined below.
 	ExternalMappings VnpGatewayNatRuleExternalMappingArrayInput
-	// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-	InternalAddressSpaceMappings pulumi.StringArrayInput
 	// One of more `internalMapping` blocks as defined below.
 	InternalMappings VnpGatewayNatRuleInternalMappingArrayInput
 	// The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
@@ -242,8 +211,6 @@ type VnpGatewayNatRuleArgs struct {
 	Mode pulumi.StringPtrInput
 	// The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
-	ResourceGroupName pulumi.StringInput
 	// The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
 	// The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
@@ -337,19 +304,9 @@ func (o VnpGatewayNatRuleOutput) ToVnpGatewayNatRuleOutputWithContext(ctx contex
 	return o
 }
 
-// Deprecated: `externalAddressSpaceMappings` will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
-func (o VnpGatewayNatRuleOutput) ExternalAddressSpaceMappings() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *VnpGatewayNatRule) pulumi.StringArrayOutput { return v.ExternalAddressSpaceMappings }).(pulumi.StringArrayOutput)
-}
-
 // One of more `externalMapping` blocks as defined below.
 func (o VnpGatewayNatRuleOutput) ExternalMappings() VnpGatewayNatRuleExternalMappingArrayOutput {
 	return o.ApplyT(func(v *VnpGatewayNatRule) VnpGatewayNatRuleExternalMappingArrayOutput { return v.ExternalMappings }).(VnpGatewayNatRuleExternalMappingArrayOutput)
-}
-
-// Deprecated: `internalAddressSpaceMappings` will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
-func (o VnpGatewayNatRuleOutput) InternalAddressSpaceMappings() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *VnpGatewayNatRule) pulumi.StringArrayOutput { return v.InternalAddressSpaceMappings }).(pulumi.StringArrayOutput)
 }
 
 // One of more `internalMapping` blocks as defined below.
@@ -370,11 +327,6 @@ func (o VnpGatewayNatRuleOutput) Mode() pulumi.StringPtrOutput {
 // The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
 func (o VnpGatewayNatRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VnpGatewayNatRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deprecated: The property `resourceGroupName` has been superseded by `vpnGatewayId` and will be removed in v4.0 of the AzureRM provider
-func (o VnpGatewayNatRuleOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *VnpGatewayNatRule) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 // The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.

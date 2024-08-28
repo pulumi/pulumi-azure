@@ -96,14 +96,6 @@ export class Lab extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-     *
-     * > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-     *
-     * @deprecated `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
-     */
-    public readonly storageType!: pulumi.Output<string | undefined>;
-    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -133,7 +125,6 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["premiumDataDiskStorageAccountId"] = state ? state.premiumDataDiskStorageAccountId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["storageType"] = state ? state.storageType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
         } else {
@@ -144,7 +135,6 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["artifactsStorageAccountId"] = undefined /*out*/;
             resourceInputs["defaultPremiumStorageAccountId"] = undefined /*out*/;
@@ -195,14 +185,6 @@ export interface LabState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-     *
-     * > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-     *
-     * @deprecated `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
-     */
-    storageType?: pulumi.Input<string>;
-    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -228,14 +210,6 @@ export interface LabArgs {
      * The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-     *
-     * > **Note:** `storageType` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-     *
-     * @deprecated `storageType` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
-     */
-    storageType?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

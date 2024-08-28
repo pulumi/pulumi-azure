@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/postgresql"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,7 +90,7 @@ import (
 // A PostgreSQL Flexible Virtual Endpoint can be imported using the `resource id`, e.g.
 //
 // ```sh
-// $ pulumi import azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint example subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBForPostgreSql/flexibleServers/server1/virtualendpoints/endpoint1
+// $ pulumi import azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBForPostgreSql/flexibleServers/server1/virtualendpoints/endpoint1
 // ```
 type FlexibleServerVirtualEndpoint struct {
 	pulumi.CustomResourceState

@@ -104,13 +104,13 @@ export class Insights extends pulumi.CustomResource {
      */
     public /*out*/ readonly connectionString!: pulumi.Output<string>;
     /**
-     * Specifies the Application Insights component daily data volume cap in GB.
+     * Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
      */
-    public readonly dailyDataCapInGb!: pulumi.Output<number>;
+    public readonly dailyDataCapInGb!: pulumi.Output<number | undefined>;
     /**
-     * Specifies if a notification email will be send when the daily data volume cap is met.
+     * Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
      */
-    public readonly dailyDataCapNotificationsDisabled!: pulumi.Output<boolean>;
+    public readonly dailyDataCapNotificationsDisabled!: pulumi.Output<boolean | undefined>;
     /**
      * By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
      */
@@ -248,11 +248,11 @@ export interface InsightsState {
      */
     connectionString?: pulumi.Input<string>;
     /**
-     * Specifies the Application Insights component daily data volume cap in GB.
+     * Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
      */
     dailyDataCapInGb?: pulumi.Input<number>;
     /**
-     * Specifies if a notification email will be send when the daily data volume cap is met.
+     * Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
      */
     dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
     /**
@@ -320,11 +320,11 @@ export interface InsightsArgs {
      */
     applicationType: pulumi.Input<string>;
     /**
-     * Specifies the Application Insights component daily data volume cap in GB.
+     * Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
      */
     dailyDataCapInGb?: pulumi.Input<number>;
     /**
-     * Specifies if a notification email will be send when the daily data volume cap is met.
+     * Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
      */
     dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
     /**

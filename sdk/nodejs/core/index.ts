@@ -175,11 +175,6 @@ export type SubscriptionTemplateDeployment = import("./subscriptionTemplateDeplo
 export const SubscriptionTemplateDeployment: typeof import("./subscriptionTemplateDeployment").SubscriptionTemplateDeployment = null as any;
 utilities.lazyLoad(exports, ["SubscriptionTemplateDeployment"], () => require("./subscriptionTemplateDeployment"));
 
-export { TemplateDeploymentArgs, TemplateDeploymentState } from "./templateDeployment";
-export type TemplateDeployment = import("./templateDeployment").TemplateDeployment;
-export const TemplateDeployment: typeof import("./templateDeployment").TemplateDeployment = null as any;
-utilities.lazyLoad(exports, ["TemplateDeployment"], () => require("./templateDeployment"));
-
 export { TenantTemplateDeploymentArgs, TenantTemplateDeploymentState } from "./tenantTemplateDeployment";
 export type TenantTemplateDeployment = import("./tenantTemplateDeployment").TenantTemplateDeployment;
 export const TenantTemplateDeployment: typeof import("./tenantTemplateDeployment").TenantTemplateDeployment = null as any;
@@ -235,8 +230,6 @@ const _module = {
                 return new SubscriptionPolicyRemediation(name, <any>undefined, { urn })
             case "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
                 return new SubscriptionTemplateDeployment(name, <any>undefined, { urn })
-            case "azure:core/templateDeployment:TemplateDeployment":
-                return new TemplateDeployment(name, <any>undefined, { urn })
             case "azure:core/tenantTemplateDeployment:TenantTemplateDeployment":
                 return new TenantTemplateDeployment(name, <any>undefined, { urn })
             default:
@@ -266,5 +259,4 @@ pulumi.runtime.registerResourceModule("azure", "core/subscriptionPolicyAssignmen
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionPolicyExemption", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionPolicyRemediation", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionTemplateDeployment", _module)
-pulumi.runtime.registerResourceModule("azure", "core/templateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/tenantTemplateDeployment", _module)

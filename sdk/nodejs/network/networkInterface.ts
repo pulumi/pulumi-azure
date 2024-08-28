@@ -86,7 +86,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      *
      * > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
      */
-    public readonly acceleratedNetworkingEnabled!: pulumi.Output<boolean>;
+    public readonly acceleratedNetworkingEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
      */
@@ -108,19 +108,11 @@ export class NetworkInterface extends pulumi.CustomResource {
      *
      * > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
      */
-    public readonly dnsServers!: pulumi.Output<string[]>;
+    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
-    /**
-     * @deprecated The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    public readonly enableAcceleratedNetworking!: pulumi.Output<boolean>;
-    /**
-     * @deprecated The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    public readonly enableIpForwarding!: pulumi.Output<boolean>;
     /**
      * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
      */
@@ -136,7 +128,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * Should IP Forwarding be enabled? Defaults to `false`.
      */
-    public readonly ipForwardingEnabled!: pulumi.Output<boolean>;
+    public readonly ipForwardingEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The location where the Network Interface should exist. Changing this forces a new resource to be created.
      */
@@ -189,8 +181,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["auxiliarySku"] = state ? state.auxiliarySku : undefined;
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["enableAcceleratedNetworking"] = state ? state.enableAcceleratedNetworking : undefined;
-            resourceInputs["enableIpForwarding"] = state ? state.enableIpForwarding : undefined;
             resourceInputs["internalDnsNameLabel"] = state ? state.internalDnsNameLabel : undefined;
             resourceInputs["internalDomainNameSuffix"] = state ? state.internalDomainNameSuffix : undefined;
             resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
@@ -216,8 +206,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["auxiliarySku"] = args ? args.auxiliarySku : undefined;
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
-            resourceInputs["enableIpForwarding"] = args ? args.enableIpForwarding : undefined;
             resourceInputs["internalDnsNameLabel"] = args ? args.internalDnsNameLabel : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["ipForwardingEnabled"] = args ? args.ipForwardingEnabled : undefined;
@@ -275,14 +263,6 @@ export interface NetworkInterfaceState {
      * Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
      */
     edgeZone?: pulumi.Input<string>;
-    /**
-     * @deprecated The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    enableAcceleratedNetworking?: pulumi.Input<boolean>;
-    /**
-     * @deprecated The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    enableIpForwarding?: pulumi.Input<boolean>;
     /**
      * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
      */
@@ -367,14 +347,6 @@ export interface NetworkInterfaceArgs {
      * Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
      */
     edgeZone?: pulumi.Input<string>;
-    /**
-     * @deprecated The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    enableAcceleratedNetworking?: pulumi.Input<boolean>;
-    /**
-     * @deprecated The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    enableIpForwarding?: pulumi.Input<boolean>;
     /**
      * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
      */

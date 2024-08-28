@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/eventhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -95,10 +95,6 @@ type LookupNamespaceResult struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the EventHub Namespace.
 	Tags map[string]string `pulumi:"tags"`
-	// Is this EventHub Namespace deployed across Availability Zones?
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant bool `pulumi:"zoneRedundant"`
 }
 
 func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
@@ -225,13 +221,6 @@ func (o LookupNamespaceResultOutput) Sku() pulumi.StringOutput {
 // A mapping of tags to assign to the EventHub Namespace.
 func (o LookupNamespaceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Is this EventHub Namespace deployed across Availability Zones?
-//
-// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-func (o LookupNamespaceResultOutput) ZoneRedundant() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupNamespaceResult) bool { return v.ZoneRedundant }).(pulumi.BoolOutput)
 }
 
 func init() {

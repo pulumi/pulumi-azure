@@ -70,9 +70,9 @@ export class ExpressRoutePort extends pulumi.CustomResource {
      */
     public readonly bandwidthInGbps!: pulumi.Output<number>;
     /**
-     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
      */
-    public readonly billingType!: pulumi.Output<string>;
+    public readonly billingType!: pulumi.Output<string | undefined>;
     /**
      * The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
      */
@@ -192,7 +192,7 @@ export interface ExpressRoutePortState {
      */
     bandwidthInGbps?: pulumi.Input<number>;
     /**
-     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
      */
     billingType?: pulumi.Input<string>;
     /**
@@ -254,7 +254,7 @@ export interface ExpressRoutePortArgs {
      */
     bandwidthInGbps: pulumi.Input<number>;
     /**
-     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
      */
     billingType?: pulumi.Input<string>;
     /**

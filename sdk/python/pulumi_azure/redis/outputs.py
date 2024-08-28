@@ -178,8 +178,6 @@ class CacheRedisConfiguration(dict):
             suggest = "authentication_enabled"
         elif key == "dataPersistenceAuthenticationMethod":
             suggest = "data_persistence_authentication_method"
-        elif key == "enableAuthentication":
-            suggest = "enable_authentication"
         elif key == "maxfragmentationmemoryReserved":
             suggest = "maxfragmentationmemory_reserved"
         elif key == "maxmemoryDelta":
@@ -219,7 +217,6 @@ class CacheRedisConfiguration(dict):
                  aof_storage_connection_string1: Optional[str] = None,
                  authentication_enabled: Optional[bool] = None,
                  data_persistence_authentication_method: Optional[str] = None,
-                 enable_authentication: Optional[bool] = None,
                  maxclients: Optional[int] = None,
                  maxfragmentationmemory_reserved: Optional[int] = None,
                  maxmemory_delta: Optional[int] = None,
@@ -240,10 +237,10 @@ class CacheRedisConfiguration(dict):
         :param str aof_storage_connection_string1: Second Storage Account connection string for AOF persistence.
                
                Example usage:
-        :param str data_persistence_authentication_method: Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
-        :param bool enable_authentication: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+        :param bool authentication_enabled: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
                
-               > **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
+               > **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
+        :param str data_persistence_authentication_method: Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
         :param int maxclients: Returns the max number of connected clients at the same time.
         :param int maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
         :param int maxmemory_delta: The max-memory delta for this Redis instance. Defaults are shown below.
@@ -272,8 +269,6 @@ class CacheRedisConfiguration(dict):
             pulumi.set(__self__, "authentication_enabled", authentication_enabled)
         if data_persistence_authentication_method is not None:
             pulumi.set(__self__, "data_persistence_authentication_method", data_persistence_authentication_method)
-        if enable_authentication is not None:
-            pulumi.set(__self__, "enable_authentication", enable_authentication)
         if maxclients is not None:
             pulumi.set(__self__, "maxclients", maxclients)
         if maxfragmentationmemory_reserved is not None:
@@ -336,26 +331,20 @@ class CacheRedisConfiguration(dict):
     @property
     @pulumi.getter(name="authenticationEnabled")
     def authentication_enabled(self) -> Optional[bool]:
+        """
+        If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+
+        > **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
+        """
         return pulumi.get(self, "authentication_enabled")
 
     @property
     @pulumi.getter(name="dataPersistenceAuthenticationMethod")
     def data_persistence_authentication_method(self) -> Optional[str]:
         """
-        Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+        Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
         """
         return pulumi.get(self, "data_persistence_authentication_method")
-
-    @property
-    @pulumi.getter(name="enableAuthentication")
-    @_utilities.deprecated("""`enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.""")
-    def enable_authentication(self) -> Optional[bool]:
-        """
-        If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-
-        > **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
-        """
-        return pulumi.get(self, "enable_authentication")
 
     @property
     @pulumi.getter
@@ -547,8 +536,7 @@ class GetCacheRedisConfigurationResult(dict):
                  rdb_backup_frequency: int,
                  rdb_backup_max_snapshot_count: int,
                  rdb_storage_connection_string: str,
-                 storage_account_subscription_id: str,
-                 enable_authentication: Optional[bool] = None):
+                 storage_account_subscription_id: str):
         """
         :param bool active_directory_authentication_enabled: Specifies if Microsoft Entra (AAD) authentication is enabled.
         :param int maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation.
@@ -560,7 +548,6 @@ class GetCacheRedisConfigurationResult(dict):
         :param int rdb_backup_max_snapshot_count: The maximum number of snapshots that can be created as a backup.
         :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs.
         :param str storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
-        :param bool enable_authentication: Specifies if authentication is enabled
         """
         pulumi.set(__self__, "active_directory_authentication_enabled", active_directory_authentication_enabled)
         pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
@@ -579,8 +566,6 @@ class GetCacheRedisConfigurationResult(dict):
         pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
         pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
-        if enable_authentication is not None:
-            pulumi.set(__self__, "enable_authentication", enable_authentication)
 
     @property
     @pulumi.getter(name="activeDirectoryAuthenticationEnabled")
@@ -696,14 +681,5 @@ class GetCacheRedisConfigurationResult(dict):
         The ID of the Subscription containing the Storage Account.
         """
         return pulumi.get(self, "storage_account_subscription_id")
-
-    @property
-    @pulumi.getter(name="enableAuthentication")
-    @_utilities.deprecated("""`enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.""")
-    def enable_authentication(self) -> Optional[bool]:
-        """
-        Specifies if authentication is enabled
-        """
-        return pulumi.get(self, "enable_authentication")
 
 

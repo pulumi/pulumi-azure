@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appconfiguration"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,10 +55,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appconfiguration"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -215,8 +215,6 @@ type ConfigurationStore struct {
 	// The URL of the App Configuration Replica.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// An `identity` block as defined below.
-	//
-	// > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
 	Identity ConfigurationStoreIdentityPtrOutput `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
@@ -230,7 +228,7 @@ type ConfigurationStore struct {
 	PrimaryWriteKeys ConfigurationStorePrimaryWriteKeyArrayOutput `pulumi:"primaryWriteKeys"`
 	// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 	//
-	// > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+	// > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 	//
@@ -245,6 +243,8 @@ type ConfigurationStore struct {
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys ConfigurationStoreSecondaryWriteKeyArrayOutput `pulumi:"secondaryWriteKeys"`
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+	//
+	// > **Note:** Azure does not allow a downgrade from `standard` to `free`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 	//
@@ -292,8 +292,6 @@ type configurationStoreState struct {
 	// The URL of the App Configuration Replica.
 	Endpoint *string `pulumi:"endpoint"`
 	// An `identity` block as defined below.
-	//
-	// > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
 	Identity *ConfigurationStoreIdentity `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -307,7 +305,7 @@ type configurationStoreState struct {
 	PrimaryWriteKeys []ConfigurationStorePrimaryWriteKey `pulumi:"primaryWriteKeys"`
 	// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 	//
-	// > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+	// > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 	//
@@ -322,6 +320,8 @@ type configurationStoreState struct {
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys []ConfigurationStoreSecondaryWriteKey `pulumi:"secondaryWriteKeys"`
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+	//
+	// > **Note:** Azure does not allow a downgrade from `standard` to `free`.
 	Sku *string `pulumi:"sku"`
 	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 	//
@@ -337,8 +337,6 @@ type ConfigurationStoreState struct {
 	// The URL of the App Configuration Replica.
 	Endpoint pulumi.StringPtrInput
 	// An `identity` block as defined below.
-	//
-	// > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
 	Identity ConfigurationStoreIdentityPtrInput
 	// Whether local authentication methods is enabled. Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -352,7 +350,7 @@ type ConfigurationStoreState struct {
 	PrimaryWriteKeys ConfigurationStorePrimaryWriteKeyArrayInput
 	// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 	//
-	// > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+	// > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
 	PublicNetworkAccess pulumi.StringPtrInput
 	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 	//
@@ -367,6 +365,8 @@ type ConfigurationStoreState struct {
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys ConfigurationStoreSecondaryWriteKeyArrayInput
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+	//
+	// > **Note:** Azure does not allow a downgrade from `standard` to `free`.
 	Sku pulumi.StringPtrInput
 	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 	//
@@ -384,8 +384,6 @@ type configurationStoreArgs struct {
 	// An `encryption` block as defined below.
 	Encryption *ConfigurationStoreEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
-	//
-	// > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
 	Identity *ConfigurationStoreIdentity `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -395,7 +393,7 @@ type configurationStoreArgs struct {
 	Name *string `pulumi:"name"`
 	// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 	//
-	// > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+	// > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 	//
@@ -406,6 +404,8 @@ type configurationStoreArgs struct {
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+	//
+	// > **Note:** Azure does not allow a downgrade from `standard` to `free`.
 	Sku *string `pulumi:"sku"`
 	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 	//
@@ -420,8 +420,6 @@ type ConfigurationStoreArgs struct {
 	// An `encryption` block as defined below.
 	Encryption ConfigurationStoreEncryptionPtrInput
 	// An `identity` block as defined below.
-	//
-	// > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
 	Identity ConfigurationStoreIdentityPtrInput
 	// Whether local authentication methods is enabled. Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -431,7 +429,7 @@ type ConfigurationStoreArgs struct {
 	Name pulumi.StringPtrInput
 	// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 	//
-	// > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+	// > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
 	PublicNetworkAccess pulumi.StringPtrInput
 	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 	//
@@ -442,6 +440,8 @@ type ConfigurationStoreArgs struct {
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+	//
+	// > **Note:** Azure does not allow a downgrade from `standard` to `free`.
 	Sku pulumi.StringPtrInput
 	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 	//
@@ -549,8 +549,6 @@ func (o ConfigurationStoreOutput) Endpoint() pulumi.StringOutput {
 }
 
 // An `identity` block as defined below.
-//
-// > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
 func (o ConfigurationStoreOutput) Identity() ConfigurationStoreIdentityPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStore) ConfigurationStoreIdentityPtrOutput { return v.Identity }).(ConfigurationStoreIdentityPtrOutput)
 }
@@ -582,7 +580,7 @@ func (o ConfigurationStoreOutput) PrimaryWriteKeys() ConfigurationStorePrimaryWr
 
 // The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
 //
-// > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+// > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
 func (o ConfigurationStoreOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
@@ -617,6 +615,8 @@ func (o ConfigurationStoreOutput) SecondaryWriteKeys() ConfigurationStoreSeconda
 }
 
 // The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+//
+// > **Note:** Azure does not allow a downgrade from `standard` to `free`.
 func (o ConfigurationStoreOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }

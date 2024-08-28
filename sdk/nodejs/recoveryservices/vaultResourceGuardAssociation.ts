@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  *     softDeleteEnabled: true,
  * });
  * const test = new azure.recoveryservices.VaultResourceGuardAssociation("test", {
- *     name: "VaultProxy",
  *     vaultId: testAzurermRecoveryServicesVault.id,
  *     resourceGuardId: testAzurermDataProtectionResourceGuard.id,
  * });
@@ -73,14 +72,6 @@ export class VaultResourceGuardAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-     *
-     * > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated The `name` field will be removed in v4.0 of the AzureRM Provider.
-     */
-    public readonly name!: pulumi.Output<string>;
-    /**
      * ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
      */
     public readonly resourceGuardId!: pulumi.Output<string>;
@@ -102,7 +93,6 @@ export class VaultResourceGuardAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultResourceGuardAssociationState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGuardId"] = state ? state.resourceGuardId : undefined;
             resourceInputs["vaultId"] = state ? state.vaultId : undefined;
         } else {
@@ -113,7 +103,6 @@ export class VaultResourceGuardAssociation extends pulumi.CustomResource {
             if ((!args || args.vaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGuardId"] = args ? args.resourceGuardId : undefined;
             resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
@@ -126,14 +115,6 @@ export class VaultResourceGuardAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VaultResourceGuardAssociation resources.
  */
 export interface VaultResourceGuardAssociationState {
-    /**
-     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-     *
-     * > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated The `name` field will be removed in v4.0 of the AzureRM Provider.
-     */
-    name?: pulumi.Input<string>;
     /**
      * ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
      */
@@ -148,14 +129,6 @@ export interface VaultResourceGuardAssociationState {
  * The set of arguments for constructing a VaultResourceGuardAssociation resource.
  */
 export interface VaultResourceGuardAssociationArgs {
-    /**
-     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-     *
-     * > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated The `name` field will be removed in v4.0 of the AzureRM Provider.
-     */
-    name?: pulumi.Input<string>;
     /**
      * ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
      */

@@ -59,7 +59,7 @@ class PublicIpArgs:
         :param pulumi.Input[str] name: Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-        :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
@@ -271,7 +271,7 @@ class PublicIpArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
         > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         """
@@ -369,7 +369,7 @@ class _PublicIpState:
         :param pulumi.Input[str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-        :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
@@ -611,7 +611,7 @@ class _PublicIpState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
         > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         """
@@ -740,7 +740,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-        :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
@@ -912,7 +912,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-        :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
@@ -1080,7 +1080,7 @@ class PublicIp(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
-        The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
         > **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         """

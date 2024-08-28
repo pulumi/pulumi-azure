@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,25 +65,20 @@ import (
 //			_, err = automation.NewSoftwareUpdateConfiguration(ctx, "example", &automation.SoftwareUpdateConfigurationArgs{
 //				Name:                pulumi.String("example"),
 //				AutomationAccountId: exampleAccount.ID(),
-//				OperatingSystem:     pulumi.String("Linux"),
-//				Linuxes: automation.SoftwareUpdateConfigurationLinuxArray{
-//					&automation.SoftwareUpdateConfigurationLinuxArgs{
-//						ClassificationIncluded: pulumi.String("Security"),
-//						ExcludedPackages: pulumi.StringArray{
-//							pulumi.String("apt"),
-//						},
-//						IncludedPackages: pulumi.StringArray{
-//							pulumi.String("vim"),
-//						},
-//						Reboot: pulumi.String("IfRequired"),
+//				Linux: &automation.SoftwareUpdateConfigurationLinuxArgs{
+//					ClassificationsIncludeds: pulumi.StringArray("Security"),
+//					ExcludedPackages: pulumi.StringArray{
+//						pulumi.String("apt"),
 //					},
+//					IncludedPackages: pulumi.StringArray{
+//						pulumi.String("vim"),
+//					},
+//					Reboot: pulumi.String("IfRequired"),
 //				},
-//				PreTasks: automation.SoftwareUpdateConfigurationPreTaskArray{
-//					&automation.SoftwareUpdateConfigurationPreTaskArgs{
-//						Source: exampleRunBook.Name,
-//						Parameters: pulumi.StringMap{
-//							"COMPUTER_NAME": pulumi.String("Foo"),
-//						},
+//				PreTask: &automation.SoftwareUpdateConfigurationPreTaskArgs{
+//					Source: exampleRunBook.Name,
+//					Parameters: pulumi.StringMap{
+//						"COMPUTER_NAME": pulumi.String("Foo"),
 //					},
 //				},
 //				Duration: pulumi.String("PT2H2M2S"),
@@ -114,24 +109,19 @@ type SoftwareUpdateConfiguration struct {
 	// The Error code when failed.
 	ErrorCode pulumi.StringOutput `pulumi:"errorCode"`
 	// The Error message indicating why the operation failed.
-	//
-	// Deprecated: `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
-	ErrorMeesage pulumi.StringOutput `pulumi:"errorMeesage"`
 	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
 	// A `linux` block as defined below.
-	Linuxes SoftwareUpdateConfigurationLinuxArrayOutput `pulumi:"linuxes"`
+	Linux SoftwareUpdateConfigurationLinuxPtrOutput `pulumi:"linux"`
 	// The name which should be used for this Automation. Changing this forces a new Automation to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies a list of names of non-Azure machines for the software update configuration.
 	NonAzureComputerNames pulumi.StringArrayOutput `pulumi:"nonAzureComputerNames"`
-	// Deprecated: This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
 	// A `postTask` blocks as defined below.
-	PostTasks SoftwareUpdateConfigurationPostTaskArrayOutput `pulumi:"postTasks"`
+	PostTask SoftwareUpdateConfigurationPostTaskPtrOutput `pulumi:"postTask"`
 	// A `preTask` blocks as defined below.
-	PreTasks SoftwareUpdateConfigurationPreTaskArrayOutput `pulumi:"preTasks"`
+	PreTask SoftwareUpdateConfigurationPreTaskPtrOutput `pulumi:"preTask"`
 	// A `schedule` blocks as defined below.
-	Schedules SoftwareUpdateConfigurationScheduleArrayOutput `pulumi:"schedules"`
+	Schedule SoftwareUpdateConfigurationScheduleOutput `pulumi:"schedule"`
 	// A `target` blocks as defined below.
 	Target SoftwareUpdateConfigurationTargetPtrOutput `pulumi:"target"`
 	// Specifies a list of Azure Resource IDs of azure virtual machines.
@@ -152,8 +142,8 @@ func NewSoftwareUpdateConfiguration(ctx *pulumi.Context,
 	if args.AutomationAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AutomationAccountId'")
 	}
-	if args.Schedules == nil {
-		return nil, errors.New("invalid value for required argument 'Schedules'")
+	if args.Schedule == nil {
+		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SoftwareUpdateConfiguration
@@ -185,24 +175,19 @@ type softwareUpdateConfigurationState struct {
 	// The Error code when failed.
 	ErrorCode *string `pulumi:"errorCode"`
 	// The Error message indicating why the operation failed.
-	//
-	// Deprecated: `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
-	ErrorMeesage *string `pulumi:"errorMeesage"`
 	ErrorMessage *string `pulumi:"errorMessage"`
 	// A `linux` block as defined below.
-	Linuxes []SoftwareUpdateConfigurationLinux `pulumi:"linuxes"`
+	Linux *SoftwareUpdateConfigurationLinux `pulumi:"linux"`
 	// The name which should be used for this Automation. Changing this forces a new Automation to be created.
 	Name *string `pulumi:"name"`
 	// Specifies a list of names of non-Azure machines for the software update configuration.
 	NonAzureComputerNames []string `pulumi:"nonAzureComputerNames"`
-	// Deprecated: This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A `postTask` blocks as defined below.
-	PostTasks []SoftwareUpdateConfigurationPostTask `pulumi:"postTasks"`
+	PostTask *SoftwareUpdateConfigurationPostTask `pulumi:"postTask"`
 	// A `preTask` blocks as defined below.
-	PreTasks []SoftwareUpdateConfigurationPreTask `pulumi:"preTasks"`
+	PreTask *SoftwareUpdateConfigurationPreTask `pulumi:"preTask"`
 	// A `schedule` blocks as defined below.
-	Schedules []SoftwareUpdateConfigurationSchedule `pulumi:"schedules"`
+	Schedule *SoftwareUpdateConfigurationSchedule `pulumi:"schedule"`
 	// A `target` blocks as defined below.
 	Target *SoftwareUpdateConfigurationTarget `pulumi:"target"`
 	// Specifies a list of Azure Resource IDs of azure virtual machines.
@@ -221,24 +206,19 @@ type SoftwareUpdateConfigurationState struct {
 	// The Error code when failed.
 	ErrorCode pulumi.StringPtrInput
 	// The Error message indicating why the operation failed.
-	//
-	// Deprecated: `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
-	ErrorMeesage pulumi.StringPtrInput
 	ErrorMessage pulumi.StringPtrInput
 	// A `linux` block as defined below.
-	Linuxes SoftwareUpdateConfigurationLinuxArrayInput
+	Linux SoftwareUpdateConfigurationLinuxPtrInput
 	// The name which should be used for this Automation. Changing this forces a new Automation to be created.
 	Name pulumi.StringPtrInput
 	// Specifies a list of names of non-Azure machines for the software update configuration.
 	NonAzureComputerNames pulumi.StringArrayInput
-	// Deprecated: This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-	OperatingSystem pulumi.StringPtrInput
 	// A `postTask` blocks as defined below.
-	PostTasks SoftwareUpdateConfigurationPostTaskArrayInput
+	PostTask SoftwareUpdateConfigurationPostTaskPtrInput
 	// A `preTask` blocks as defined below.
-	PreTasks SoftwareUpdateConfigurationPreTaskArrayInput
+	PreTask SoftwareUpdateConfigurationPreTaskPtrInput
 	// A `schedule` blocks as defined below.
-	Schedules SoftwareUpdateConfigurationScheduleArrayInput
+	Schedule SoftwareUpdateConfigurationSchedulePtrInput
 	// A `target` blocks as defined below.
 	Target SoftwareUpdateConfigurationTargetPtrInput
 	// Specifies a list of Azure Resource IDs of azure virtual machines.
@@ -259,19 +239,17 @@ type softwareUpdateConfigurationArgs struct {
 	// Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
 	Duration *string `pulumi:"duration"`
 	// A `linux` block as defined below.
-	Linuxes []SoftwareUpdateConfigurationLinux `pulumi:"linuxes"`
+	Linux *SoftwareUpdateConfigurationLinux `pulumi:"linux"`
 	// The name which should be used for this Automation. Changing this forces a new Automation to be created.
 	Name *string `pulumi:"name"`
 	// Specifies a list of names of non-Azure machines for the software update configuration.
 	NonAzureComputerNames []string `pulumi:"nonAzureComputerNames"`
-	// Deprecated: This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-	OperatingSystem *string `pulumi:"operatingSystem"`
 	// A `postTask` blocks as defined below.
-	PostTasks []SoftwareUpdateConfigurationPostTask `pulumi:"postTasks"`
+	PostTask *SoftwareUpdateConfigurationPostTask `pulumi:"postTask"`
 	// A `preTask` blocks as defined below.
-	PreTasks []SoftwareUpdateConfigurationPreTask `pulumi:"preTasks"`
+	PreTask *SoftwareUpdateConfigurationPreTask `pulumi:"preTask"`
 	// A `schedule` blocks as defined below.
-	Schedules []SoftwareUpdateConfigurationSchedule `pulumi:"schedules"`
+	Schedule SoftwareUpdateConfigurationSchedule `pulumi:"schedule"`
 	// A `target` blocks as defined below.
 	Target *SoftwareUpdateConfigurationTarget `pulumi:"target"`
 	// Specifies a list of Azure Resource IDs of azure virtual machines.
@@ -289,19 +267,17 @@ type SoftwareUpdateConfigurationArgs struct {
 	// Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
 	Duration pulumi.StringPtrInput
 	// A `linux` block as defined below.
-	Linuxes SoftwareUpdateConfigurationLinuxArrayInput
+	Linux SoftwareUpdateConfigurationLinuxPtrInput
 	// The name which should be used for this Automation. Changing this forces a new Automation to be created.
 	Name pulumi.StringPtrInput
 	// Specifies a list of names of non-Azure machines for the software update configuration.
 	NonAzureComputerNames pulumi.StringArrayInput
-	// Deprecated: This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-	OperatingSystem pulumi.StringPtrInput
 	// A `postTask` blocks as defined below.
-	PostTasks SoftwareUpdateConfigurationPostTaskArrayInput
+	PostTask SoftwareUpdateConfigurationPostTaskPtrInput
 	// A `preTask` blocks as defined below.
-	PreTasks SoftwareUpdateConfigurationPreTaskArrayInput
+	PreTask SoftwareUpdateConfigurationPreTaskPtrInput
 	// A `schedule` blocks as defined below.
-	Schedules SoftwareUpdateConfigurationScheduleArrayInput
+	Schedule SoftwareUpdateConfigurationScheduleInput
 	// A `target` blocks as defined below.
 	Target SoftwareUpdateConfigurationTargetPtrInput
 	// Specifies a list of Azure Resource IDs of azure virtual machines.
@@ -415,19 +391,13 @@ func (o SoftwareUpdateConfigurationOutput) ErrorCode() pulumi.StringOutput {
 }
 
 // The Error message indicating why the operation failed.
-//
-// Deprecated: `errorMeesage` will be removed in favour of `errorMessage` in version 4.0 of the AzureRM Provider
-func (o SoftwareUpdateConfigurationOutput) ErrorMeesage() pulumi.StringOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfiguration) pulumi.StringOutput { return v.ErrorMeesage }).(pulumi.StringOutput)
-}
-
 func (o SoftwareUpdateConfigurationOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfiguration) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
 // A `linux` block as defined below.
-func (o SoftwareUpdateConfigurationOutput) Linuxes() SoftwareUpdateConfigurationLinuxArrayOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfiguration) SoftwareUpdateConfigurationLinuxArrayOutput { return v.Linuxes }).(SoftwareUpdateConfigurationLinuxArrayOutput)
+func (o SoftwareUpdateConfigurationOutput) Linux() SoftwareUpdateConfigurationLinuxPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfiguration) SoftwareUpdateConfigurationLinuxPtrOutput { return v.Linux }).(SoftwareUpdateConfigurationLinuxPtrOutput)
 }
 
 // The name which should be used for this Automation. Changing this forces a new Automation to be created.
@@ -440,28 +410,19 @@ func (o SoftwareUpdateConfigurationOutput) NonAzureComputerNames() pulumi.String
 	return o.ApplyT(func(v *SoftwareUpdateConfiguration) pulumi.StringArrayOutput { return v.NonAzureComputerNames }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-func (o SoftwareUpdateConfigurationOutput) OperatingSystem() pulumi.StringOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfiguration) pulumi.StringOutput { return v.OperatingSystem }).(pulumi.StringOutput)
-}
-
 // A `postTask` blocks as defined below.
-func (o SoftwareUpdateConfigurationOutput) PostTasks() SoftwareUpdateConfigurationPostTaskArrayOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfiguration) SoftwareUpdateConfigurationPostTaskArrayOutput {
-		return v.PostTasks
-	}).(SoftwareUpdateConfigurationPostTaskArrayOutput)
+func (o SoftwareUpdateConfigurationOutput) PostTask() SoftwareUpdateConfigurationPostTaskPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfiguration) SoftwareUpdateConfigurationPostTaskPtrOutput { return v.PostTask }).(SoftwareUpdateConfigurationPostTaskPtrOutput)
 }
 
 // A `preTask` blocks as defined below.
-func (o SoftwareUpdateConfigurationOutput) PreTasks() SoftwareUpdateConfigurationPreTaskArrayOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfiguration) SoftwareUpdateConfigurationPreTaskArrayOutput { return v.PreTasks }).(SoftwareUpdateConfigurationPreTaskArrayOutput)
+func (o SoftwareUpdateConfigurationOutput) PreTask() SoftwareUpdateConfigurationPreTaskPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfiguration) SoftwareUpdateConfigurationPreTaskPtrOutput { return v.PreTask }).(SoftwareUpdateConfigurationPreTaskPtrOutput)
 }
 
 // A `schedule` blocks as defined below.
-func (o SoftwareUpdateConfigurationOutput) Schedules() SoftwareUpdateConfigurationScheduleArrayOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfiguration) SoftwareUpdateConfigurationScheduleArrayOutput {
-		return v.Schedules
-	}).(SoftwareUpdateConfigurationScheduleArrayOutput)
+func (o SoftwareUpdateConfigurationOutput) Schedule() SoftwareUpdateConfigurationScheduleOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfiguration) SoftwareUpdateConfigurationScheduleOutput { return v.Schedule }).(SoftwareUpdateConfigurationScheduleOutput)
 }
 
 // A `target` blocks as defined below.

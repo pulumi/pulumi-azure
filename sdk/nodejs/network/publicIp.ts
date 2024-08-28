@@ -135,7 +135,7 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly reverseFqdn!: pulumi.Output<string | undefined>;
     /**
-     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
      * > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      */
@@ -295,7 +295,7 @@ export interface PublicIpState {
      */
     reverseFqdn?: pulumi.Input<string>;
     /**
-     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
      * > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      */
@@ -383,7 +383,7 @@ export interface PublicIpArgs {
      */
     reverseFqdn?: pulumi.Input<string>;
     /**
-     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
      * > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      */

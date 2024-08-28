@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/bot"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,12 +96,6 @@ type Connection struct {
 	Scopes pulumi.StringPtrOutput `pulumi:"scopes"`
 	// The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
 	ServiceProviderName pulumi.StringOutput `pulumi:"serviceProviderName"`
-	// A mapping of tags to assign to the resource.
-	//
-	// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -174,12 +168,6 @@ type connectionState struct {
 	Scopes *string `pulumi:"scopes"`
 	// The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
 	ServiceProviderName *string `pulumi:"serviceProviderName"`
-	// A mapping of tags to assign to the resource.
-	//
-	// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 type ConnectionState struct {
@@ -201,12 +189,6 @@ type ConnectionState struct {
 	Scopes pulumi.StringPtrInput
 	// The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
 	ServiceProviderName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
-	//
-	// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-	Tags pulumi.StringMapInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -232,12 +214,6 @@ type connectionArgs struct {
 	Scopes *string `pulumi:"scopes"`
 	// The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
 	ServiceProviderName string `pulumi:"serviceProviderName"`
-	// A mapping of tags to assign to the resource.
-	//
-	// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
@@ -260,12 +236,6 @@ type ConnectionArgs struct {
 	Scopes pulumi.StringPtrInput
 	// The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
 	ServiceProviderName pulumi.StringInput
-	// A mapping of tags to assign to the resource.
-	//
-	// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-	Tags pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -398,15 +368,6 @@ func (o ConnectionOutput) Scopes() pulumi.StringPtrOutput {
 // The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
 func (o ConnectionOutput) ServiceProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ServiceProviderName }).(pulumi.StringOutput)
-}
-
-// A mapping of tags to assign to the resource.
-//
-// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-//
-// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-func (o ConnectionOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type ConnectionArrayOutput struct{ *pulumi.OutputState }

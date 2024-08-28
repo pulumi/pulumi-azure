@@ -56,7 +56,7 @@ export interface GetAccountResult {
     /**
      * The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
      */
-    readonly encryption: outputs.batch.GetAccountEncryption;
+    readonly encryptions: outputs.batch.GetAccountEncryption[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */

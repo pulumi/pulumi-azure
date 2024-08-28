@@ -36,7 +36,6 @@ class AccountArgs:
                  default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
                  dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  https_traffic_only_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  immutability_policy: Optional[pulumi.Input['AccountImmutabilityPolicyArgs']] = None,
@@ -77,7 +76,7 @@ class AccountArgs:
         :param pulumi.Input[str] allowed_copy_scope: Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
-        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
                
@@ -127,7 +126,7 @@ class AccountArgs:
                > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
-               > **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+               > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "account_replication_type", account_replication_type)
@@ -157,11 +156,6 @@ class AccountArgs:
             pulumi.set(__self__, "dns_endpoint_type", dns_endpoint_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_https_traffic_only is not None:
-            warnings.warn("""The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_https_traffic_only is deprecated: The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_https_traffic_only is not None:
-            pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
         if https_traffic_only_enabled is not None:
             pulumi.set(__self__, "https_traffic_only_enabled", https_traffic_only_enabled)
         if identity is not None:
@@ -327,7 +321,7 @@ class AccountArgs:
     @pulumi.getter(name="crossTenantReplicationEnabled")
     def cross_tenant_replication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should cross Tenant replication be enabled? Defaults to `true`.
+        Should cross Tenant replication be enabled? Defaults to `false`.
         """
         return pulumi.get(self, "cross_tenant_replication_enabled")
 
@@ -398,16 +392,6 @@ class AccountArgs:
     @edge_zone.setter
     def edge_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "edge_zone", value)
-
-    @property
-    @pulumi.getter(name="enableHttpsTrafficOnly")
-    @_utilities.deprecated("""The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_https_traffic_only(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_https_traffic_only")
-
-    @enable_https_traffic_only.setter
-    def enable_https_traffic_only(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_https_traffic_only", value)
 
     @property
     @pulumi.getter(name="httpsTrafficOnlyEnabled")
@@ -682,7 +666,7 @@ class AccountArgs:
         """
         The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 
-        > **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+        > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
         """
         return pulumi.get(self, "table_encryption_key_type")
 
@@ -720,7 +704,6 @@ class _AccountState:
                  default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
                  dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  https_traffic_only_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  immutability_policy: Optional[pulumi.Input['AccountImmutabilityPolicyArgs']] = None,
@@ -833,7 +816,7 @@ class _AccountState:
         :param pulumi.Input[str] allowed_copy_scope: Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
-        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
                
@@ -956,7 +939,7 @@ class _AccountState:
                > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
-               > **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+               > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if access_tier is not None:
@@ -987,11 +970,6 @@ class _AccountState:
             pulumi.set(__self__, "dns_endpoint_type", dns_endpoint_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_https_traffic_only is not None:
-            warnings.warn("""The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_https_traffic_only is deprecated: The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_https_traffic_only is not None:
-            pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
         if https_traffic_only_enabled is not None:
             pulumi.set(__self__, "https_traffic_only_enabled", https_traffic_only_enabled)
         if identity is not None:
@@ -1291,7 +1269,7 @@ class _AccountState:
     @pulumi.getter(name="crossTenantReplicationEnabled")
     def cross_tenant_replication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should cross Tenant replication be enabled? Defaults to `true`.
+        Should cross Tenant replication be enabled? Defaults to `false`.
         """
         return pulumi.get(self, "cross_tenant_replication_enabled")
 
@@ -1362,16 +1340,6 @@ class _AccountState:
     @edge_zone.setter
     def edge_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "edge_zone", value)
-
-    @property
-    @pulumi.getter(name="enableHttpsTrafficOnly")
-    @_utilities.deprecated("""The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_https_traffic_only(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_https_traffic_only")
-
-    @enable_https_traffic_only.setter
-    def enable_https_traffic_only(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_https_traffic_only", value)
 
     @property
     @pulumi.getter(name="httpsTrafficOnlyEnabled")
@@ -2522,7 +2490,7 @@ class _AccountState:
         """
         The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 
-        > **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+        > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
         """
         return pulumi.get(self, "table_encryption_key_type")
 
@@ -2562,7 +2530,6 @@ class Account(pulumi.CustomResource):
                  default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
                  dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  https_traffic_only_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
                  immutability_policy: Optional[pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
@@ -2674,7 +2641,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] allowed_copy_scope: Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
         :param pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']] blob_properties: A `blob_properties` block as defined below.
-        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
         :param pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
                
@@ -2725,7 +2692,7 @@ class Account(pulumi.CustomResource):
                > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
-               > **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+               > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -2833,7 +2800,6 @@ class Account(pulumi.CustomResource):
                  default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
                  dns_endpoint_type: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  https_traffic_only_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
                  immutability_policy: Optional[pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
@@ -2885,7 +2851,6 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["default_to_oauth_authentication"] = default_to_oauth_authentication
             __props__.__dict__["dns_endpoint_type"] = dns_endpoint_type
             __props__.__dict__["edge_zone"] = edge_zone
-            __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
             __props__.__dict__["https_traffic_only_enabled"] = https_traffic_only_enabled
             __props__.__dict__["identity"] = identity
             __props__.__dict__["immutability_policy"] = immutability_policy
@@ -3010,7 +2975,6 @@ class Account(pulumi.CustomResource):
             default_to_oauth_authentication: Optional[pulumi.Input[bool]] = None,
             dns_endpoint_type: Optional[pulumi.Input[str]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
-            enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
             https_traffic_only_enabled: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
             immutability_policy: Optional[pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
@@ -3128,7 +3092,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] allowed_copy_scope: Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
         :param pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']] blob_properties: A `blob_properties` block as defined below.
-        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
         :param pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
                
@@ -3251,7 +3215,7 @@ class Account(pulumi.CustomResource):
                > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
-               > **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+               > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -3272,7 +3236,6 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["default_to_oauth_authentication"] = default_to_oauth_authentication
         __props__.__dict__["dns_endpoint_type"] = dns_endpoint_type
         __props__.__dict__["edge_zone"] = edge_zone
-        __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
         __props__.__dict__["https_traffic_only_enabled"] = https_traffic_only_enabled
         __props__.__dict__["identity"] = identity
         __props__.__dict__["immutability_policy"] = immutability_policy
@@ -3445,7 +3408,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="crossTenantReplicationEnabled")
     def cross_tenant_replication_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should cross Tenant replication be enabled? Defaults to `true`.
+        Should cross Tenant replication be enabled? Defaults to `false`.
         """
         return pulumi.get(self, "cross_tenant_replication_enabled")
 
@@ -3494,14 +3457,8 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "edge_zone")
 
     @property
-    @pulumi.getter(name="enableHttpsTrafficOnly")
-    @_utilities.deprecated("""The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_https_traffic_only(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "enable_https_traffic_only")
-
-    @property
     @pulumi.getter(name="httpsTrafficOnlyEnabled")
-    def https_traffic_only_enabled(self) -> pulumi.Output[bool]:
+    def https_traffic_only_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         """
@@ -4272,7 +4229,7 @@ class Account(pulumi.CustomResource):
         """
         The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 
-        > **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+        > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
         """
         return pulumi.get(self, "table_encryption_key_type")
 

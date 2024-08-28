@@ -87,17 +87,9 @@ export class TableEntity extends pulumi.CustomResource {
      */
     public readonly rowKey!: pulumi.Output<string>;
     /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    public readonly storageAccountName!: pulumi.Output<string>;
-    /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
     public readonly storageTableId!: pulumi.Output<string>;
-    /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    public readonly tableName!: pulumi.Output<string>;
 
     /**
      * Create a TableEntity resource with the given unique name, arguments, and options.
@@ -115,9 +107,7 @@ export class TableEntity extends pulumi.CustomResource {
             resourceInputs["entity"] = state ? state.entity : undefined;
             resourceInputs["partitionKey"] = state ? state.partitionKey : undefined;
             resourceInputs["rowKey"] = state ? state.rowKey : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
             resourceInputs["storageTableId"] = state ? state.storageTableId : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as TableEntityArgs | undefined;
             if ((!args || args.entity === undefined) && !opts.urn) {
@@ -129,12 +119,13 @@ export class TableEntity extends pulumi.CustomResource {
             if ((!args || args.rowKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rowKey'");
             }
+            if ((!args || args.storageTableId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'storageTableId'");
+            }
             resourceInputs["entity"] = args ? args.entity : undefined;
             resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
             resourceInputs["rowKey"] = args ? args.rowKey : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["storageTableId"] = args ? args.storageTableId : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TableEntity.__pulumiType, name, resourceInputs, opts);
@@ -158,17 +149,9 @@ export interface TableEntityState {
      */
     rowKey?: pulumi.Input<string>;
     /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    storageAccountName?: pulumi.Input<string>;
-    /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
     storageTableId?: pulumi.Input<string>;
-    /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    tableName?: pulumi.Input<string>;
 }
 
 /**
@@ -188,15 +171,7 @@ export interface TableEntityArgs {
      */
     rowKey: pulumi.Input<string>;
     /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    storageAccountName?: pulumi.Input<string>;
-    /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    storageTableId?: pulumi.Input<string>;
-    /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    tableName?: pulumi.Input<string>;
+    storageTableId: pulumi.Input<string>;
 }

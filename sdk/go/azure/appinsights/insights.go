@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,9 +60,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,10 +120,10 @@ type Insights struct {
 	ApplicationType pulumi.StringOutput `pulumi:"applicationType"`
 	// The Connection String for this Application Insights component. (Sensitive)
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
-	// Specifies the Application Insights component daily data volume cap in GB.
-	DailyDataCapInGb pulumi.Float64Output `pulumi:"dailyDataCapInGb"`
-	// Specifies if a notification email will be send when the daily data volume cap is met.
-	DailyDataCapNotificationsDisabled pulumi.BoolOutput `pulumi:"dailyDataCapNotificationsDisabled"`
+	// Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
+	DailyDataCapInGb pulumi.Float64PtrOutput `pulumi:"dailyDataCapInGb"`
+	// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
+	DailyDataCapNotificationsDisabled pulumi.BoolPtrOutput `pulumi:"dailyDataCapNotificationsDisabled"`
 	// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
 	DisableIpMasking pulumi.BoolPtrOutput `pulumi:"disableIpMasking"`
 	// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
@@ -201,9 +201,9 @@ type insightsState struct {
 	ApplicationType *string `pulumi:"applicationType"`
 	// The Connection String for this Application Insights component. (Sensitive)
 	ConnectionString *string `pulumi:"connectionString"`
-	// Specifies the Application Insights component daily data volume cap in GB.
+	// Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
 	DailyDataCapInGb *float64 `pulumi:"dailyDataCapInGb"`
-	// Specifies if a notification email will be send when the daily data volume cap is met.
+	// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
 	DailyDataCapNotificationsDisabled *bool `pulumi:"dailyDataCapNotificationsDisabled"`
 	// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
@@ -242,9 +242,9 @@ type InsightsState struct {
 	ApplicationType pulumi.StringPtrInput
 	// The Connection String for this Application Insights component. (Sensitive)
 	ConnectionString pulumi.StringPtrInput
-	// Specifies the Application Insights component daily data volume cap in GB.
+	// Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
 	DailyDataCapInGb pulumi.Float64PtrInput
-	// Specifies if a notification email will be send when the daily data volume cap is met.
+	// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
 	DailyDataCapNotificationsDisabled pulumi.BoolPtrInput
 	// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
 	DisableIpMasking pulumi.BoolPtrInput
@@ -283,9 +283,9 @@ func (InsightsState) ElementType() reflect.Type {
 type insightsArgs struct {
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType string `pulumi:"applicationType"`
-	// Specifies the Application Insights component daily data volume cap in GB.
+	// Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
 	DailyDataCapInGb *float64 `pulumi:"dailyDataCapInGb"`
-	// Specifies if a notification email will be send when the daily data volume cap is met.
+	// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
 	DailyDataCapNotificationsDisabled *bool `pulumi:"dailyDataCapNotificationsDisabled"`
 	// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
@@ -319,9 +319,9 @@ type insightsArgs struct {
 type InsightsArgs struct {
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType pulumi.StringInput
-	// Specifies the Application Insights component daily data volume cap in GB.
+	// Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
 	DailyDataCapInGb pulumi.Float64PtrInput
-	// Specifies if a notification email will be send when the daily data volume cap is met.
+	// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
 	DailyDataCapNotificationsDisabled pulumi.BoolPtrInput
 	// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
 	DisableIpMasking pulumi.BoolPtrInput
@@ -453,14 +453,14 @@ func (o InsightsOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insights) pulumi.StringOutput { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// Specifies the Application Insights component daily data volume cap in GB.
-func (o InsightsOutput) DailyDataCapInGb() pulumi.Float64Output {
-	return o.ApplyT(func(v *Insights) pulumi.Float64Output { return v.DailyDataCapInGb }).(pulumi.Float64Output)
+// Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
+func (o InsightsOutput) DailyDataCapInGb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Insights) pulumi.Float64PtrOutput { return v.DailyDataCapInGb }).(pulumi.Float64PtrOutput)
 }
 
-// Specifies if a notification email will be send when the daily data volume cap is met.
-func (o InsightsOutput) DailyDataCapNotificationsDisabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Insights) pulumi.BoolOutput { return v.DailyDataCapNotificationsDisabled }).(pulumi.BoolOutput)
+// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
+func (o InsightsOutput) DailyDataCapNotificationsDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Insights) pulumi.BoolPtrOutput { return v.DailyDataCapNotificationsDisabled }).(pulumi.BoolPtrOutput)
 }
 
 // By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.

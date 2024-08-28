@@ -38,7 +38,7 @@ class ExpressRoutePortArgs:
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[str] peering_location: The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
-        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         :param pulumi.Input['ExpressRoutePortIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ExpressRoutePortLink1Args'] link1: A list of `link` blocks as defined below.
         :param pulumi.Input['ExpressRoutePortLink2Args'] link2: A list of `link` blocks as defined below.
@@ -117,7 +117,7 @@ class ExpressRoutePortArgs:
     @pulumi.getter(name="billingType")
     def billing_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         """
         return pulumi.get(self, "billing_type")
 
@@ -218,7 +218,7 @@ class _ExpressRoutePortState:
         """
         Input properties used for looking up and filtering ExpressRoutePort resources.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
-        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[str] ethertype: The EtherType of the Express Route Port.
         :param pulumi.Input[str] guid: The resource GUID of the Express Route Port.
@@ -277,7 +277,7 @@ class _ExpressRoutePortState:
     @pulumi.getter(name="billingType")
     def billing_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         """
         return pulumi.get(self, "billing_type")
 
@@ -479,7 +479,7 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
-        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[Union['ExpressRoutePortIdentityArgs', 'ExpressRoutePortIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[Union['ExpressRoutePortLink1Args', 'ExpressRoutePortLink1ArgsDict']] link1: A list of `link` blocks as defined below.
@@ -614,7 +614,7 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
-        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        :param pulumi.Input[str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[str] ethertype: The EtherType of the Express Route Port.
         :param pulumi.Input[str] guid: The resource GUID of the Express Route Port.
@@ -658,9 +658,9 @@ class ExpressRoutePort(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="billingType")
-    def billing_type(self) -> pulumi.Output[str]:
+    def billing_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         """
         return pulumi.get(self, "billing_type")
 

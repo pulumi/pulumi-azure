@@ -28,7 +28,7 @@ class GetServiceBusNamespaceResult:
     """
     A collection of values returned by getServiceBusNamespace.
     """
-    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, endpoint=None, id=None, location=None, name=None, premium_messaging_partitions=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
+    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, endpoint=None, id=None, location=None, name=None, premium_messaging_partitions=None, resource_group_name=None, sku=None, tags=None):
         if capacity and not isinstance(capacity, int):
             raise TypeError("Expected argument 'capacity' to be a int")
         pulumi.set(__self__, "capacity", capacity)
@@ -68,9 +68,6 @@ class GetServiceBusNamespaceResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if zone_redundant and not isinstance(zone_redundant, bool):
-            raise TypeError("Expected argument 'zone_redundant' to be a bool")
-        pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter
@@ -172,15 +169,6 @@ class GetServiceBusNamespaceResult:
         """
         return pulumi.get(self, "tags")
 
-    @property
-    @pulumi.getter(name="zoneRedundant")
-    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-    def zone_redundant(self) -> bool:
-        """
-        Whether or not this ServiceBus Namespace is zone redundant.
-        """
-        return pulumi.get(self, "zone_redundant")
-
 
 class AwaitableGetServiceBusNamespaceResult(GetServiceBusNamespaceResult):
     # pylint: disable=using-constant-test
@@ -200,8 +188,7 @@ class AwaitableGetServiceBusNamespaceResult(GetServiceBusNamespaceResult):
             premium_messaging_partitions=self.premium_messaging_partitions,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
-            tags=self.tags,
-            zone_redundant=self.zone_redundant)
+            tags=self.tags)
 
 
 def get_service_bus_namespace(name: Optional[str] = None,
@@ -245,8 +232,7 @@ def get_service_bus_namespace(name: Optional[str] = None,
         premium_messaging_partitions=pulumi.get(__ret__, 'premium_messaging_partitions'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku=pulumi.get(__ret__, 'sku'),
-        tags=pulumi.get(__ret__, 'tags'),
-        zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_service_bus_namespace)

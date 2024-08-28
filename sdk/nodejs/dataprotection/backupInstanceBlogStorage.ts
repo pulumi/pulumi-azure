@@ -7,54 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Backup Instance Blob Storage.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     name: "storageaccountname",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
- *     name: "example-backup-vault",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     datastoreType: "VaultStore",
- *     redundancy: "LocallyRedundant",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleAssignment = new azure.authorization.Assignment("example", {
- *     scope: exampleAccount.id,
- *     roleDefinitionName: "Storage Account Backup Contributor",
- *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
- * });
- * const exampleBackupPolicyBlobStorage = new azure.dataprotection.BackupPolicyBlobStorage("example", {
- *     name: "example-backup-policy",
- *     vaultId: exampleBackupVault.id,
- *     retentionDuration: "P30D",
- * });
- * const exampleBackupInstanceBlogStorage = new azure.dataprotection.BackupInstanceBlogStorage("example", {
- *     name: "example-backup-instance",
- *     vaultId: exampleBackupVault.id,
- *     location: example.location,
- *     storageAccountId: exampleAccount.id,
- *     backupPolicyId: exampleBackupPolicyBlobStorage.id,
- * }, {
- *     dependsOn: [exampleAssignment],
- * });
- * ```
- *
  * ## Import
  *
  * Backup Instance Blob Storages can be imported using the `resource id`, e.g.

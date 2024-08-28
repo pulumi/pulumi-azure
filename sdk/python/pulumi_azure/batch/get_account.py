@@ -27,13 +27,13 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, account_endpoint=None, encryption=None, id=None, key_vault_references=None, location=None, name=None, pool_allocation_mode=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, storage_account_id=None, tags=None):
+    def __init__(__self__, account_endpoint=None, encryptions=None, id=None, key_vault_references=None, location=None, name=None, pool_allocation_mode=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, storage_account_id=None, tags=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         pulumi.set(__self__, "account_endpoint", account_endpoint)
-        if encryption and not isinstance(encryption, dict):
-            raise TypeError("Expected argument 'encryption' to be a dict")
-        pulumi.set(__self__, "encryption", encryption)
+        if encryptions and not isinstance(encryptions, list):
+            raise TypeError("Expected argument 'encryptions' to be a list")
+        pulumi.set(__self__, "encryptions", encryptions)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -75,11 +75,11 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> 'outputs.GetAccountEncryptionResult':
+    def encryptions(self) -> Sequence['outputs.GetAccountEncryptionResult']:
         """
         The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
         """
-        return pulumi.get(self, "encryption")
+        return pulumi.get(self, "encryptions")
 
     @property
     @pulumi.getter
@@ -166,7 +166,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             account_endpoint=self.account_endpoint,
-            encryption=self.encryption,
+            encryptions=self.encryptions,
             id=self.id,
             key_vault_references=self.key_vault_references,
             location=self.location,
@@ -208,7 +208,7 @@ def get_account(name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         account_endpoint=pulumi.get(__ret__, 'account_endpoint'),
-        encryption=pulumi.get(__ret__, 'encryption'),
+        encryptions=pulumi.get(__ret__, 'encryptions'),
         id=pulumi.get(__ret__, 'id'),
         key_vault_references=pulumi.get(__ret__, 'key_vault_references'),
         location=pulumi.get(__ret__, 'location'),

@@ -68,14 +68,6 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
     }
 
     /**
-     * The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
-     *
-     * > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
-     */
-    public readonly bingSafetyPhishingUrlLookbackDate!: pulumi.Output<string | undefined>;
-    /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
@@ -86,7 +78,7 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
      *
      * > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
      */
-    public readonly microsoftEmergingThreatFeedLookbackDate!: pulumi.Output<string | undefined>;
+    public readonly microsoftEmergingThreatFeedLookbackDate!: pulumi.Output<string>;
     /**
      * The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
      */
@@ -111,7 +103,6 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorMicrosoftThreatIntelligenceState | undefined;
-            resourceInputs["bingSafetyPhishingUrlLookbackDate"] = state ? state.bingSafetyPhishingUrlLookbackDate : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             resourceInputs["microsoftEmergingThreatFeedLookbackDate"] = state ? state.microsoftEmergingThreatFeedLookbackDate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -121,7 +112,9 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
             if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            resourceInputs["bingSafetyPhishingUrlLookbackDate"] = args ? args.bingSafetyPhishingUrlLookbackDate : undefined;
+            if ((!args || args.microsoftEmergingThreatFeedLookbackDate === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'microsoftEmergingThreatFeedLookbackDate'");
+            }
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             resourceInputs["microsoftEmergingThreatFeedLookbackDate"] = args ? args.microsoftEmergingThreatFeedLookbackDate : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -136,14 +129,6 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
  * Input properties used for looking up and filtering DataConnectorMicrosoftThreatIntelligence resources.
  */
 export interface DataConnectorMicrosoftThreatIntelligenceState {
-    /**
-     * The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
-     *
-     * > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
-     */
-    bingSafetyPhishingUrlLookbackDate?: pulumi.Input<string>;
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
      */
@@ -173,14 +158,6 @@ export interface DataConnectorMicrosoftThreatIntelligenceState {
  */
 export interface DataConnectorMicrosoftThreatIntelligenceArgs {
     /**
-     * The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
-     *
-     * > **Note:** `bingSafetyPhishingUrlLookbackDate` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
-     */
-    bingSafetyPhishingUrlLookbackDate?: pulumi.Input<string>;
-    /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
      */
     logAnalyticsWorkspaceId: pulumi.Input<string>;
@@ -191,7 +168,7 @@ export interface DataConnectorMicrosoftThreatIntelligenceArgs {
      *
      * > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
      */
-    microsoftEmergingThreatFeedLookbackDate?: pulumi.Input<string>;
+    microsoftEmergingThreatFeedLookbackDate: pulumi.Input<string>;
     /**
      * The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
      */

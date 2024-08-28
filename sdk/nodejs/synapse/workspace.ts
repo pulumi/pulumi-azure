@@ -187,10 +187,6 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
-     * @deprecated The `aadAdmin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     */
-    public readonly aadAdmin!: pulumi.Output<outputs.synapse.WorkspaceAadAdmin>;
-    /**
      * An `azureDevopsRepo` block as defined below.
      */
     public readonly azureDevopsRepo!: pulumi.Output<outputs.synapse.WorkspaceAzureDevopsRepo | undefined>;
@@ -255,15 +251,11 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * @deprecated The `sqlAadAdmin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     */
-    public readonly sqlAadAdmin!: pulumi.Output<outputs.synapse.WorkspaceSqlAadAdmin>;
-    /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
      */
     public readonly sqlAdministratorLogin!: pulumi.Output<string | undefined>;
     /**
-     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
      */
     public readonly sqlAdministratorLoginPassword!: pulumi.Output<string | undefined>;
     /**
@@ -292,7 +284,6 @@ export class Workspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            resourceInputs["aadAdmin"] = state ? state.aadAdmin : undefined;
             resourceInputs["azureDevopsRepo"] = state ? state.azureDevopsRepo : undefined;
             resourceInputs["azureadAuthenticationOnly"] = state ? state.azureadAuthenticationOnly : undefined;
             resourceInputs["computeSubnetId"] = state ? state.computeSubnetId : undefined;
@@ -309,7 +300,6 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["purviewId"] = state ? state.purviewId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sqlAadAdmin"] = state ? state.sqlAadAdmin : undefined;
             resourceInputs["sqlAdministratorLogin"] = state ? state.sqlAdministratorLogin : undefined;
             resourceInputs["sqlAdministratorLoginPassword"] = state ? state.sqlAdministratorLoginPassword : undefined;
             resourceInputs["sqlIdentityControlEnabled"] = state ? state.sqlIdentityControlEnabled : undefined;
@@ -323,7 +313,6 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.storageDataLakeGen2FilesystemId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageDataLakeGen2FilesystemId'");
             }
-            resourceInputs["aadAdmin"] = args ? args.aadAdmin : undefined;
             resourceInputs["azureDevopsRepo"] = args ? args.azureDevopsRepo : undefined;
             resourceInputs["azureadAuthenticationOnly"] = args ? args.azureadAuthenticationOnly : undefined;
             resourceInputs["computeSubnetId"] = args ? args.computeSubnetId : undefined;
@@ -339,7 +328,6 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["purviewId"] = args ? args.purviewId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlAadAdmin"] = args ? args.sqlAadAdmin : undefined;
             resourceInputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
             resourceInputs["sqlAdministratorLoginPassword"] = args?.sqlAdministratorLoginPassword ? pulumi.secret(args.sqlAdministratorLoginPassword) : undefined;
             resourceInputs["sqlIdentityControlEnabled"] = args ? args.sqlIdentityControlEnabled : undefined;
@@ -358,10 +346,6 @@ export class Workspace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Workspace resources.
  */
 export interface WorkspaceState {
-    /**
-     * @deprecated The `aadAdmin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     */
-    aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
     /**
      * An `azureDevopsRepo` block as defined below.
      */
@@ -427,15 +411,11 @@ export interface WorkspaceState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * @deprecated The `sqlAadAdmin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     */
-    sqlAadAdmin?: pulumi.Input<inputs.synapse.WorkspaceSqlAadAdmin>;
-    /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
      */
     sqlAdministratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
      */
     sqlAdministratorLoginPassword?: pulumi.Input<string>;
     /**
@@ -456,10 +436,6 @@ export interface WorkspaceState {
  * The set of arguments for constructing a Workspace resource.
  */
 export interface WorkspaceArgs {
-    /**
-     * @deprecated The `aadAdmin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     */
-    aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
     /**
      * An `azureDevopsRepo` block as defined below.
      */
@@ -521,15 +497,11 @@ export interface WorkspaceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * @deprecated The `sqlAadAdmin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     */
-    sqlAadAdmin?: pulumi.Input<inputs.synapse.WorkspaceSqlAadAdmin>;
-    /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
      */
     sqlAdministratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
      */
     sqlAdministratorLoginPassword?: pulumi.Input<string>;
     /**

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +63,7 @@ type LookupAccountResult struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint string `pulumi:"accountEndpoint"`
 	// The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
-	Encryption GetAccountEncryption `pulumi:"encryption"`
+	Encryptions []GetAccountEncryption `pulumi:"encryptions"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
@@ -131,8 +131,8 @@ func (o LookupAccountResultOutput) AccountEndpoint() pulumi.StringOutput {
 }
 
 // The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
-func (o LookupAccountResultOutput) Encryption() GetAccountEncryptionOutput {
-	return o.ApplyT(func(v LookupAccountResult) GetAccountEncryption { return v.Encryption }).(GetAccountEncryptionOutput)
+func (o LookupAccountResultOutput) Encryptions() GetAccountEncryptionArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountEncryption { return v.Encryptions }).(GetAccountEncryptionArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

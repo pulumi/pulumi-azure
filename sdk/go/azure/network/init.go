@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -105,8 +105,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkManagerStaticMember{}
 	case "azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection":
 		r = &NetworkManagerSubscriptionConnection{}
-	case "azure:network/networkPacketCapture:NetworkPacketCapture":
-		r = &NetworkPacketCapture{}
 	case "azure:network/networkSecurityGroup:NetworkSecurityGroup":
 		r = &NetworkSecurityGroup{}
 	case "azure:network/networkSecurityRule:NetworkSecurityRule":
@@ -414,11 +412,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/networkManagerSubscriptionConnection",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"network/networkPacketCapture",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

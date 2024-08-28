@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,8 +37,6 @@ type ManagedHardwareSecurityModuleRoleAssignment struct {
 	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
 	// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Scope pulumi.StringOutput `pulumi:"scope"`
-	// Deprecated: The field `vaultBaseUrl` has been deprecated in favour of `managedHsmId` and will be removed in 4.0 of the Azure Provider
-	VaultBaseUrl pulumi.StringOutput `pulumi:"vaultBaseUrl"`
 }
 
 // NewManagedHardwareSecurityModuleRoleAssignment registers a new resource with the given unique name, arguments, and options.
@@ -48,6 +46,9 @@ func NewManagedHardwareSecurityModuleRoleAssignment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ManagedHsmId == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedHsmId'")
+	}
 	if args.PrincipalId == nil {
 		return nil, errors.New("invalid value for required argument 'PrincipalId'")
 	}
@@ -93,8 +94,6 @@ type managedHardwareSecurityModuleRoleAssignmentState struct {
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
 	// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Scope *string `pulumi:"scope"`
-	// Deprecated: The field `vaultBaseUrl` has been deprecated in favour of `managedHsmId` and will be removed in 4.0 of the Azure Provider
-	VaultBaseUrl *string `pulumi:"vaultBaseUrl"`
 }
 
 type ManagedHardwareSecurityModuleRoleAssignmentState struct {
@@ -111,8 +110,6 @@ type ManagedHardwareSecurityModuleRoleAssignmentState struct {
 	RoleDefinitionId pulumi.StringPtrInput
 	// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Scope pulumi.StringPtrInput
-	// Deprecated: The field `vaultBaseUrl` has been deprecated in favour of `managedHsmId` and will be removed in 4.0 of the Azure Provider
-	VaultBaseUrl pulumi.StringPtrInput
 }
 
 func (ManagedHardwareSecurityModuleRoleAssignmentState) ElementType() reflect.Type {
@@ -122,7 +119,7 @@ func (ManagedHardwareSecurityModuleRoleAssignmentState) ElementType() reflect.Ty
 type managedHardwareSecurityModuleRoleAssignmentArgs struct {
 	// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
 	// *
-	ManagedHsmId *string `pulumi:"managedHsmId"`
+	ManagedHsmId string `pulumi:"managedHsmId"`
 	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name *string `pulumi:"name"`
 	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
@@ -131,15 +128,13 @@ type managedHardwareSecurityModuleRoleAssignmentArgs struct {
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 	// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Scope string `pulumi:"scope"`
-	// Deprecated: The field `vaultBaseUrl` has been deprecated in favour of `managedHsmId` and will be removed in 4.0 of the Azure Provider
-	VaultBaseUrl *string `pulumi:"vaultBaseUrl"`
 }
 
 // The set of arguments for constructing a ManagedHardwareSecurityModuleRoleAssignment resource.
 type ManagedHardwareSecurityModuleRoleAssignmentArgs struct {
 	// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
 	// *
-	ManagedHsmId pulumi.StringPtrInput
+	ManagedHsmId pulumi.StringInput
 	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name pulumi.StringPtrInput
 	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
@@ -148,8 +143,6 @@ type ManagedHardwareSecurityModuleRoleAssignmentArgs struct {
 	RoleDefinitionId pulumi.StringInput
 	// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Scope pulumi.StringInput
-	// Deprecated: The field `vaultBaseUrl` has been deprecated in favour of `managedHsmId` and will be removed in 4.0 of the Azure Provider
-	VaultBaseUrl pulumi.StringPtrInput
 }
 
 func (ManagedHardwareSecurityModuleRoleAssignmentArgs) ElementType() reflect.Type {
@@ -268,11 +261,6 @@ func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) RoleDefinitionId() pu
 // Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleAssignment) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
-}
-
-// Deprecated: The field `vaultBaseUrl` has been deprecated in favour of `managedHsmId` and will be removed in 4.0 of the Azure Provider
-func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) VaultBaseUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleAssignment) pulumi.StringOutput { return v.VaultBaseUrl }).(pulumi.StringOutput)
 }
 
 type ManagedHardwareSecurityModuleRoleAssignmentArrayOutput struct{ *pulumi.OutputState }

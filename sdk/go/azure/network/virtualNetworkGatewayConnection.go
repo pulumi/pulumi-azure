@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,8 +26,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -132,8 +132,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -361,6 +361,9 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.SharedKey == nil {
+		return nil, errors.New("invalid value for required argument 'SharedKey'")
+	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -371,7 +374,7 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 		args.AuthorizationKey = pulumi.ToSecret(args.AuthorizationKey).(pulumi.StringPtrInput)
 	}
 	if args.SharedKey != nil {
-		args.SharedKey = pulumi.ToSecret(args.SharedKey).(pulumi.StringPtrInput)
+		args.SharedKey = pulumi.ToSecret(args.SharedKey).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"authorizationKey",
@@ -569,7 +572,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// The routing weight. Defaults to `10`.
 	RoutingWeight *int `pulumi:"routingWeight"`
 	// The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
-	SharedKey *string `pulumi:"sharedKey"`
+	SharedKey string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// One or more `trafficSelectorPolicy` blocks which are documented below.
@@ -630,7 +633,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// The routing weight. Defaults to `10`.
 	RoutingWeight pulumi.IntPtrInput
 	// The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
-	SharedKey pulumi.StringPtrInput
+	SharedKey pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// One or more `trafficSelectorPolicy` blocks which are documented below.

@@ -274,7 +274,7 @@ if not MYPY:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[str]]
         """
@@ -298,7 +298,7 @@ class ConfigurationStoreIdentityArgs:
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -328,7 +328,7 @@ class ConfigurationStoreIdentityArgs:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,11 +23,11 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/digitaltwins"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/digitaltwins"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/kusto"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -191,8 +191,8 @@ type TimeSeriesDatabaseConnection struct {
 	KustoClusterUri pulumi.StringOutput `pulumi:"kustoClusterUri"`
 	// Name of the Kusto Database. Changing this forces a new resource to be created.
 	KustoDatabaseName pulumi.StringOutput `pulumi:"kustoDatabaseName"`
-	// Name of the Kusto Table. Changing this forces a new resource to be created.
-	KustoTableName pulumi.StringOutput `pulumi:"kustoTableName"`
+	// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
+	KustoTableName pulumi.StringPtrOutput `pulumi:"kustoTableName"`
 	// The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -264,7 +264,7 @@ type timeSeriesDatabaseConnectionState struct {
 	KustoClusterUri *string `pulumi:"kustoClusterUri"`
 	// Name of the Kusto Database. Changing this forces a new resource to be created.
 	KustoDatabaseName *string `pulumi:"kustoDatabaseName"`
-	// Name of the Kusto Table. Changing this forces a new resource to be created.
+	// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
 	KustoTableName *string `pulumi:"kustoTableName"`
 	// The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -287,7 +287,7 @@ type TimeSeriesDatabaseConnectionState struct {
 	KustoClusterUri pulumi.StringPtrInput
 	// Name of the Kusto Database. Changing this forces a new resource to be created.
 	KustoDatabaseName pulumi.StringPtrInput
-	// Name of the Kusto Table. Changing this forces a new resource to be created.
+	// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
 	KustoTableName pulumi.StringPtrInput
 	// The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -314,7 +314,7 @@ type timeSeriesDatabaseConnectionArgs struct {
 	KustoClusterUri string `pulumi:"kustoClusterUri"`
 	// Name of the Kusto Database. Changing this forces a new resource to be created.
 	KustoDatabaseName string `pulumi:"kustoDatabaseName"`
-	// Name of the Kusto Table. Changing this forces a new resource to be created.
+	// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
 	KustoTableName *string `pulumi:"kustoTableName"`
 	// The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -338,7 +338,7 @@ type TimeSeriesDatabaseConnectionArgs struct {
 	KustoClusterUri pulumi.StringInput
 	// Name of the Kusto Database. Changing this forces a new resource to be created.
 	KustoDatabaseName pulumi.StringInput
-	// Name of the Kusto Table. Changing this forces a new resource to be created.
+	// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
 	KustoTableName pulumi.StringPtrInput
 	// The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -471,9 +471,9 @@ func (o TimeSeriesDatabaseConnectionOutput) KustoDatabaseName() pulumi.StringOut
 	return o.ApplyT(func(v *TimeSeriesDatabaseConnection) pulumi.StringOutput { return v.KustoDatabaseName }).(pulumi.StringOutput)
 }
 
-// Name of the Kusto Table. Changing this forces a new resource to be created.
-func (o TimeSeriesDatabaseConnectionOutput) KustoTableName() pulumi.StringOutput {
-	return o.ApplyT(func(v *TimeSeriesDatabaseConnection) pulumi.StringOutput { return v.KustoTableName }).(pulumi.StringOutput)
+// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
+func (o TimeSeriesDatabaseConnectionOutput) KustoTableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TimeSeriesDatabaseConnection) pulumi.StringPtrOutput { return v.KustoTableName }).(pulumi.StringPtrOutput)
 }
 
 // The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.

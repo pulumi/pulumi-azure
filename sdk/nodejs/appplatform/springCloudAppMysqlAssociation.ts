@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
@@ -27,7 +28,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     serviceName: exampleSpringCloudService.name,
  * });
- * const exampleServer = new azure.mysql.Server("example", {
+ * const exampleMysqlServer = new azurerm.index.MysqlServer("example", {
  *     name: "example-mysqlserver",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -39,20 +40,20 @@ import * as utilities from "../utilities";
  *     sslEnforcementEnabled: true,
  *     sslMinimalTlsVersionEnforced: "TLS1_2",
  * });
- * const exampleDatabase = new azure.mysql.Database("example", {
+ * const exampleMysqlDatabase = new azurerm.index.MysqlDatabase("example", {
  *     name: "exampledb",
  *     resourceGroupName: example.name,
- *     serverName: exampleServer.name,
+ *     serverName: exampleMysqlServer.name,
  *     charset: "utf8",
  *     collation: "utf8_unicode_ci",
  * });
  * const exampleSpringCloudAppMysqlAssociation = new azure.appplatform.SpringCloudAppMysqlAssociation("example", {
  *     name: "example-bind",
  *     springCloudAppId: exampleSpringCloudApp.id,
- *     mysqlServerId: exampleServer.id,
- *     databaseName: exampleDatabase.name,
- *     username: exampleServer.administratorLogin,
- *     password: exampleServer.administratorLoginPassword,
+ *     mysqlServerId: exampleMysqlServer.id,
+ *     databaseName: exampleMysqlDatabase.name,
+ *     username: exampleMysqlServer.administratorLogin,
+ *     password: exampleMysqlServer.administratorLoginPassword,
  * });
  * ```
  *

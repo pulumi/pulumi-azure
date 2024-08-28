@@ -21,11 +21,8 @@ __all__ = ['VnpGatewayNatRuleArgs', 'VnpGatewayNatRule']
 @pulumi.input_type
 class VnpGatewayNatRuleArgs:
     def __init__(__self__, *,
-                 resource_group_name: pulumi.Input[str],
                  vpn_gateway_id: pulumi.Input[str],
-                 external_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]] = None,
-                 internal_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
@@ -41,23 +38,9 @@ class VnpGatewayNatRuleArgs:
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         """
-        if resource_group_name is not None:
-            warnings.warn("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
-        if external_address_space_mappings is not None:
-            warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
-        if external_address_space_mappings is not None:
-            pulumi.set(__self__, "external_address_space_mappings", external_address_space_mappings)
         if external_mappings is not None:
             pulumi.set(__self__, "external_mappings", external_mappings)
-        if internal_address_space_mappings is not None:
-            warnings.warn("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""internal_address_space_mappings is deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
-        if internal_address_space_mappings is not None:
-            pulumi.set(__self__, "internal_address_space_mappings", internal_address_space_mappings)
         if internal_mappings is not None:
             pulumi.set(__self__, "internal_mappings", internal_mappings)
         if ip_configuration_id is not None:
@@ -68,16 +51,6 @@ class VnpGatewayNatRuleArgs:
             pulumi.set(__self__, "name", name)
         if type is not None:
             pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter(name="vpnGatewayId")
@@ -92,16 +65,6 @@ class VnpGatewayNatRuleArgs:
         pulumi.set(self, "vpn_gateway_id", value)
 
     @property
-    @pulumi.getter(name="externalAddressSpaceMappings")
-    @_utilities.deprecated("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
-    def external_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "external_address_space_mappings")
-
-    @external_address_space_mappings.setter
-    def external_address_space_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "external_address_space_mappings", value)
-
-    @property
     @pulumi.getter(name="externalMappings")
     def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]:
         """
@@ -112,16 +75,6 @@ class VnpGatewayNatRuleArgs:
     @external_mappings.setter
     def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]):
         pulumi.set(self, "external_mappings", value)
-
-    @property
-    @pulumi.getter(name="internalAddressSpaceMappings")
-    @_utilities.deprecated("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
-    def internal_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "internal_address_space_mappings")
-
-    @internal_address_space_mappings.setter
-    def internal_address_space_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "internal_address_space_mappings", value)
 
     @property
     @pulumi.getter(name="internalMappings")
@@ -187,14 +140,11 @@ class VnpGatewayNatRuleArgs:
 @pulumi.input_type
 class _VnpGatewayNatRuleState:
     def __init__(__self__, *,
-                 external_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]] = None,
-                 internal_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None):
         """
@@ -207,18 +157,8 @@ class _VnpGatewayNatRuleState:
         :param pulumi.Input[str] type: The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         """
-        if external_address_space_mappings is not None:
-            warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
-        if external_address_space_mappings is not None:
-            pulumi.set(__self__, "external_address_space_mappings", external_address_space_mappings)
         if external_mappings is not None:
             pulumi.set(__self__, "external_mappings", external_mappings)
-        if internal_address_space_mappings is not None:
-            warnings.warn("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""internal_address_space_mappings is deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
-        if internal_address_space_mappings is not None:
-            pulumi.set(__self__, "internal_address_space_mappings", internal_address_space_mappings)
         if internal_mappings is not None:
             pulumi.set(__self__, "internal_mappings", internal_mappings)
         if ip_configuration_id is not None:
@@ -227,25 +167,10 @@ class _VnpGatewayNatRuleState:
             pulumi.set(__self__, "mode", mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_group_name is not None:
-            warnings.warn("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if vpn_gateway_id is not None:
             pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
-
-    @property
-    @pulumi.getter(name="externalAddressSpaceMappings")
-    @_utilities.deprecated("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
-    def external_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "external_address_space_mappings")
-
-    @external_address_space_mappings.setter
-    def external_address_space_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "external_address_space_mappings", value)
 
     @property
     @pulumi.getter(name="externalMappings")
@@ -258,16 +183,6 @@ class _VnpGatewayNatRuleState:
     @external_mappings.setter
     def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]):
         pulumi.set(self, "external_mappings", value)
-
-    @property
-    @pulumi.getter(name="internalAddressSpaceMappings")
-    @_utilities.deprecated("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
-    def internal_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "internal_address_space_mappings")
-
-    @internal_address_space_mappings.setter
-    def internal_address_space_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "internal_address_space_mappings", value)
 
     @property
     @pulumi.getter(name="internalMappings")
@@ -318,16 +233,6 @@ class _VnpGatewayNatRuleState:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -357,14 +262,11 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleExternalMappingArgs', 'VnpGatewayNatRuleExternalMappingArgsDict']]]]] = None,
-                 internal_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleInternalMappingArgs', 'VnpGatewayNatRuleInternalMappingArgsDict']]]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -491,14 +393,11 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleExternalMappingArgs', 'VnpGatewayNatRuleExternalMappingArgsDict']]]]] = None,
-                 internal_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleInternalMappingArgs', 'VnpGatewayNatRuleInternalMappingArgsDict']]]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -510,16 +409,11 @@ class VnpGatewayNatRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VnpGatewayNatRuleArgs.__new__(VnpGatewayNatRuleArgs)
 
-            __props__.__dict__["external_address_space_mappings"] = external_address_space_mappings
             __props__.__dict__["external_mappings"] = external_mappings
-            __props__.__dict__["internal_address_space_mappings"] = internal_address_space_mappings
             __props__.__dict__["internal_mappings"] = internal_mappings
             __props__.__dict__["ip_configuration_id"] = ip_configuration_id
             __props__.__dict__["mode"] = mode
             __props__.__dict__["name"] = name
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["type"] = type
             if vpn_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_gateway_id'")
@@ -534,14 +428,11 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            external_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleExternalMappingArgs', 'VnpGatewayNatRuleExternalMappingArgsDict']]]]] = None,
-            internal_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VnpGatewayNatRuleInternalMappingArgs', 'VnpGatewayNatRuleInternalMappingArgsDict']]]]] = None,
             ip_configuration_id: Optional[pulumi.Input[str]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
             vpn_gateway_id: Optional[pulumi.Input[str]] = None) -> 'VnpGatewayNatRule':
         """
@@ -563,41 +454,26 @@ class VnpGatewayNatRule(pulumi.CustomResource):
 
         __props__ = _VnpGatewayNatRuleState.__new__(_VnpGatewayNatRuleState)
 
-        __props__.__dict__["external_address_space_mappings"] = external_address_space_mappings
         __props__.__dict__["external_mappings"] = external_mappings
-        __props__.__dict__["internal_address_space_mappings"] = internal_address_space_mappings
         __props__.__dict__["internal_mappings"] = internal_mappings
         __props__.__dict__["ip_configuration_id"] = ip_configuration_id
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["type"] = type
         __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
         return VnpGatewayNatRule(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="externalAddressSpaceMappings")
-    @_utilities.deprecated("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")
-    def external_address_space_mappings(self) -> pulumi.Output[Sequence[str]]:
-        return pulumi.get(self, "external_address_space_mappings")
-
-    @property
     @pulumi.getter(name="externalMappings")
-    def external_mappings(self) -> pulumi.Output[Sequence['outputs.VnpGatewayNatRuleExternalMapping']]:
+    def external_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.VnpGatewayNatRuleExternalMapping']]]:
         """
         One of more `external_mapping` blocks as defined below.
         """
         return pulumi.get(self, "external_mappings")
 
     @property
-    @pulumi.getter(name="internalAddressSpaceMappings")
-    @_utilities.deprecated("""`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.""")
-    def internal_address_space_mappings(self) -> pulumi.Output[Sequence[str]]:
-        return pulumi.get(self, "internal_address_space_mappings")
-
-    @property
     @pulumi.getter(name="internalMappings")
-    def internal_mappings(self) -> pulumi.Output[Sequence['outputs.VnpGatewayNatRuleInternalMapping']]:
+    def internal_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.VnpGatewayNatRuleInternalMapping']]]:
         """
         One of more `internal_mapping` blocks as defined below.
         """
@@ -626,12 +502,6 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider""")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter

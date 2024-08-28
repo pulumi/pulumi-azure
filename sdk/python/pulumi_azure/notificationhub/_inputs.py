@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'HubApnsCredentialArgs',
     'HubApnsCredentialArgsDict',
+    'HubBrowserCredentialArgs',
+    'HubBrowserCredentialArgsDict',
     'HubGcmCredentialArgs',
     'HubGcmCredentialArgsDict',
 ]
@@ -128,6 +130,75 @@ class HubApnsCredentialArgs:
     @token.setter
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
+
+
+if not MYPY:
+    class HubBrowserCredentialArgsDict(TypedDict):
+        subject: pulumi.Input[str]
+        """
+        The subject name of web push.
+        """
+        vapid_private_key: pulumi.Input[str]
+        """
+        The Voluntary Application Server Identification (VAPID) private key.
+        """
+        vapid_public_key: pulumi.Input[str]
+        """
+        The Voluntary Application Server Identification (VAPID) public key.
+        """
+elif False:
+    HubBrowserCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HubBrowserCredentialArgs:
+    def __init__(__self__, *,
+                 subject: pulumi.Input[str],
+                 vapid_private_key: pulumi.Input[str],
+                 vapid_public_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] subject: The subject name of web push.
+        :param pulumi.Input[str] vapid_private_key: The Voluntary Application Server Identification (VAPID) private key.
+        :param pulumi.Input[str] vapid_public_key: The Voluntary Application Server Identification (VAPID) public key.
+        """
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "vapid_private_key", vapid_private_key)
+        pulumi.set(__self__, "vapid_public_key", vapid_public_key)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[str]:
+        """
+        The subject name of web push.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subject", value)
+
+    @property
+    @pulumi.getter(name="vapidPrivateKey")
+    def vapid_private_key(self) -> pulumi.Input[str]:
+        """
+        The Voluntary Application Server Identification (VAPID) private key.
+        """
+        return pulumi.get(self, "vapid_private_key")
+
+    @vapid_private_key.setter
+    def vapid_private_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vapid_private_key", value)
+
+    @property
+    @pulumi.getter(name="vapidPublicKey")
+    def vapid_public_key(self) -> pulumi.Input[str]:
+        """
+        The Voluntary Application Server Identification (VAPID) public key.
+        """
+        return pulumi.get(self, "vapid_public_key")
+
+    @vapid_public_key.setter
+    def vapid_public_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vapid_public_key", value)
 
 
 if not MYPY:

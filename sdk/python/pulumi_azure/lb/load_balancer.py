@@ -36,7 +36,7 @@ class LoadBalancerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **NOTE:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         :param pulumi.Input[str] sku_tier: `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
@@ -122,7 +122,7 @@ class LoadBalancerArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
         > **NOTE:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         """
@@ -179,7 +179,7 @@ class _LoadBalancerState:
         :param pulumi.Input[str] private_ip_address: Private IP Address to assign to the Load Balancer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **NOTE:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         :param pulumi.Input[str] sku_tier: `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
@@ -294,7 +294,7 @@ class _LoadBalancerState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
         > **NOTE:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         """
@@ -385,7 +385,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **NOTE:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         :param pulumi.Input[str] sku_tier: `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
@@ -510,7 +510,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] private_ip_address: Private IP Address to assign to the Load Balancer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **NOTE:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         :param pulumi.Input[str] sku_tier: `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
@@ -592,7 +592,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
-        The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
 
         > **NOTE:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         """

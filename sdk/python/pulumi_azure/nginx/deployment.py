@@ -26,7 +26,6 @@ class DeploymentArgs:
                  auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 configuration: Optional[pulumi.Input['DeploymentConfigurationArgs']] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
@@ -66,11 +65,6 @@ class DeploymentArgs:
             pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
-        if configuration is not None:
-            warnings.warn("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""configuration is deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
         if diagnose_support_enabled is not None:
             pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email is not None:
@@ -152,16 +146,6 @@ class DeploymentArgs:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
-    def configuration(self) -> Optional[pulumi.Input['DeploymentConfigurationArgs']]:
-        return pulumi.get(self, "configuration")
-
-    @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['DeploymentConfigurationArgs']]):
-        pulumi.set(self, "configuration", value)
 
     @property
     @pulumi.getter(name="diagnoseSupportEnabled")
@@ -302,7 +286,6 @@ class _DeploymentState:
                  auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 configuration: Optional[pulumi.Input['DeploymentConfigurationArgs']] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
@@ -346,11 +329,6 @@ class _DeploymentState:
             pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
-        if configuration is not None:
-            warnings.warn("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""configuration is deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
         if diagnose_support_enabled is not None:
             pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email is not None:
@@ -419,16 +397,6 @@ class _DeploymentState:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
-    def configuration(self) -> Optional[pulumi.Input['DeploymentConfigurationArgs']]:
-        return pulumi.get(self, "configuration")
-
-    @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['DeploymentConfigurationArgs']]):
-        pulumi.set(self, "configuration", value)
 
     @property
     @pulumi.getter(name="diagnoseSupportEnabled")
@@ -616,7 +584,6 @@ class Deployment(pulumi.CustomResource):
                  auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
@@ -803,7 +770,6 @@ class Deployment(pulumi.CustomResource):
                  auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
@@ -829,7 +795,6 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["auto_scale_profiles"] = auto_scale_profiles
             __props__.__dict__["automatic_upgrade_channel"] = automatic_upgrade_channel
             __props__.__dict__["capacity"] = capacity
-            __props__.__dict__["configuration"] = configuration
             __props__.__dict__["diagnose_support_enabled"] = diagnose_support_enabled
             __props__.__dict__["email"] = email
             __props__.__dict__["frontend_privates"] = frontend_privates
@@ -862,7 +827,6 @@ class Deployment(pulumi.CustomResource):
             auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
             automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
-            configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
             diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
             email: Optional[pulumi.Input[str]] = None,
             frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
@@ -912,7 +876,6 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["auto_scale_profiles"] = auto_scale_profiles
         __props__.__dict__["automatic_upgrade_channel"] = automatic_upgrade_channel
         __props__.__dict__["capacity"] = capacity
-        __props__.__dict__["configuration"] = configuration
         __props__.__dict__["diagnose_support_enabled"] = diagnose_support_enabled
         __props__.__dict__["email"] = email
         __props__.__dict__["frontend_privates"] = frontend_privates
@@ -955,12 +918,6 @@ class Deployment(pulumi.CustomResource):
         > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """
         return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.""")
-    def configuration(self) -> pulumi.Output['outputs.DeploymentConfiguration']:
-        return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="diagnoseSupportEnabled")

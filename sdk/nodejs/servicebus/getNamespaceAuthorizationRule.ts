@@ -44,16 +44,10 @@ export interface GetNamespaceAuthorizationRuleArgs {
      */
     namespaceId?: string;
     /**
-     * Specifies the name of the ServiceBus Namespace.
-     *
      * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
-     * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-     *
-     * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
-     *
      * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
@@ -135,16 +129,10 @@ export interface GetNamespaceAuthorizationRuleOutputArgs {
      */
     namespaceId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace.
-     *
      * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-     *
-     * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
-     *
      * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;

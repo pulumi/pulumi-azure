@@ -70,10 +70,6 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
      * The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
      */
     public /*out*/ readonly roleType!: pulumi.Output<string>;
-    /**
-     * The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-     */
-    public readonly vaultBaseUrl!: pulumi.Output<string>;
 
     /**
      * Create a ManagedHardwareSecurityModuleRoleDefinition resource with the given unique name, arguments, and options.
@@ -82,7 +78,7 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ManagedHardwareSecurityModuleRoleDefinitionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ManagedHardwareSecurityModuleRoleDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedHardwareSecurityModuleRoleDefinitionArgs | ManagedHardwareSecurityModuleRoleDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -95,15 +91,16 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
             resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
             resourceInputs["roleName"] = state ? state.roleName : undefined;
             resourceInputs["roleType"] = state ? state.roleType : undefined;
-            resourceInputs["vaultBaseUrl"] = state ? state.vaultBaseUrl : undefined;
         } else {
             const args = argsOrState as ManagedHardwareSecurityModuleRoleDefinitionArgs | undefined;
+            if ((!args || args.managedHsmId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'managedHsmId'");
+            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["managedHsmId"] = args ? args.managedHsmId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["vaultBaseUrl"] = args ? args.vaultBaseUrl : undefined;
             resourceInputs["resourceManagerId"] = undefined /*out*/;
             resourceInputs["roleType"] = undefined /*out*/;
         }
@@ -141,10 +138,6 @@ export interface ManagedHardwareSecurityModuleRoleDefinitionState {
      * The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
      */
     roleType?: pulumi.Input<string>;
-    /**
-     * The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-     */
-    vaultBaseUrl?: pulumi.Input<string>;
 }
 
 /**
@@ -155,7 +148,7 @@ export interface ManagedHardwareSecurityModuleRoleDefinitionArgs {
      * Specifies a text description about this KeyVault Role Definition.
      */
     description?: pulumi.Input<string>;
-    managedHsmId?: pulumi.Input<string>;
+    managedHsmId: pulumi.Input<string>;
     /**
      * The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
      */
@@ -168,8 +161,4 @@ export interface ManagedHardwareSecurityModuleRoleDefinitionArgs {
      * Specify a name for this KeyVault Role Definition.
      */
     roleName?: pulumi.Input<string>;
-    /**
-     * The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-     */
-    vaultBaseUrl?: pulumi.Input<string>;
 }

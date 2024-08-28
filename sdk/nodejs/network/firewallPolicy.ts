@@ -119,9 +119,9 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly ruleCollectionGroups!: pulumi.Output<string[]>;
     /**
-     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
      */
-    public readonly sku!: pulumi.Output<string>;
+    public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
      */
@@ -268,7 +268,7 @@ export interface FirewallPolicyState {
      */
     ruleCollectionGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -342,7 +342,7 @@ export interface FirewallPolicyArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
      */
     sku?: pulumi.Input<string>;
     /**

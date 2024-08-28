@@ -48,10 +48,10 @@ import * as utilities from "../utilities";
  *     name: "example-drie",
  *     privateDnsResolverId: exampleResolver.id,
  *     location: exampleResolver.location,
- *     ipConfigurations: [{
+ *     ipConfigurations: {
  *         privateIpAllocationMethod: "Dynamic",
  *         subnetId: exampleSubnet.id,
- *     }],
+ *     },
  *     tags: {
  *         key: "value",
  *     },
@@ -95,9 +95,9 @@ export class ResolverInboundEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
+     * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.privatedns.ResolverInboundEndpointIpConfiguration[]>;
+    public readonly ipConfigurations!: pulumi.Output<outputs.privatedns.ResolverInboundEndpointIpConfigurations>;
     /**
      * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      */
@@ -157,9 +157,9 @@ export class ResolverInboundEndpoint extends pulumi.CustomResource {
  */
 export interface ResolverInboundEndpointState {
     /**
-     * Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
+     * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatedns.ResolverInboundEndpointIpConfiguration>[]>;
+    ipConfigurations?: pulumi.Input<inputs.privatedns.ResolverInboundEndpointIpConfigurations>;
     /**
      * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      */
@@ -183,9 +183,9 @@ export interface ResolverInboundEndpointState {
  */
 export interface ResolverInboundEndpointArgs {
     /**
-     * Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
+     * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      */
-    ipConfigurations: pulumi.Input<pulumi.Input<inputs.privatedns.ResolverInboundEndpointIpConfiguration>[]>;
+    ipConfigurations: pulumi.Input<inputs.privatedns.ResolverInboundEndpointIpConfigurations>;
     /**
      * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      */

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/synapse"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -112,7 +112,7 @@ type SqlPool struct {
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
-	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
+	StorageAccountType pulumi.StringOutput `pulumi:"storageAccountType"`
 	// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
 	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
 	// A mapping of tags which should be assigned to the Synapse SQL Pool.
@@ -128,6 +128,9 @@ func NewSqlPool(ctx *pulumi.Context,
 
 	if args.SkuName == nil {
 		return nil, errors.New("invalid value for required argument 'SkuName'")
+	}
+	if args.StorageAccountType == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountType'")
 	}
 	if args.SynapseWorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'SynapseWorkspaceId'")
@@ -226,7 +229,7 @@ type sqlPoolArgs struct {
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName string `pulumi:"skuName"`
 	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
-	StorageAccountType *string `pulumi:"storageAccountType"`
+	StorageAccountType string `pulumi:"storageAccountType"`
 	// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
 	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
 	// A mapping of tags which should be assigned to the Synapse SQL Pool.
@@ -252,7 +255,7 @@ type SqlPoolArgs struct {
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName pulumi.StringInput
 	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
-	StorageAccountType pulumi.StringPtrInput
+	StorageAccountType pulumi.StringInput
 	// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
 	SynapseWorkspaceId pulumi.StringInput
 	// A mapping of tags which should be assigned to the Synapse SQL Pool.
@@ -387,8 +390,8 @@ func (o SqlPoolOutput) SkuName() pulumi.StringOutput {
 }
 
 // The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
-func (o SqlPoolOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+func (o SqlPoolOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
 // The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.

@@ -116,10 +116,6 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      */
     public readonly incident!: pulumi.Output<outputs.sentinel.AlertRuleScheduledIncident>;
     /**
-     * @deprecated The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-     */
-    public readonly incidentConfiguration!: pulumi.Output<outputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
-    /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
@@ -201,7 +197,6 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             resourceInputs["entityMappings"] = state ? state.entityMappings : undefined;
             resourceInputs["eventGrouping"] = state ? state.eventGrouping : undefined;
             resourceInputs["incident"] = state ? state.incident : undefined;
-            resourceInputs["incidentConfiguration"] = state ? state.incidentConfiguration : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["query"] = state ? state.query : undefined;
@@ -239,7 +234,6 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             resourceInputs["entityMappings"] = args ? args.entityMappings : undefined;
             resourceInputs["eventGrouping"] = args ? args.eventGrouping : undefined;
             resourceInputs["incident"] = args ? args.incident : undefined;
-            resourceInputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
@@ -303,10 +297,6 @@ export interface AlertRuleScheduledState {
      * A `incident` block as defined below.
      */
     incident?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncident>;
-    /**
-     * @deprecated The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-     */
-    incidentConfiguration?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
@@ -411,10 +401,6 @@ export interface AlertRuleScheduledArgs {
      * A `incident` block as defined below.
      */
     incident?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncident>;
-    /**
-     * @deprecated The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-     */
-    incidentConfiguration?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */

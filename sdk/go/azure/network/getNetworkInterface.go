@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,10 +66,6 @@ type LookupNetworkInterfaceResult struct {
 	AppliedDnsServers []string `pulumi:"appliedDnsServers"`
 	// The list of DNS servers used by the specified Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
-	// Deprecated: The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableAcceleratedNetworking bool `pulumi:"enableAcceleratedNetworking"`
-	// Deprecated: The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableIpForwarding bool `pulumi:"enableIpForwarding"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The internal DNS name label of the specified Network Interface.
@@ -150,16 +146,6 @@ func (o LookupNetworkInterfaceResultOutput) AppliedDnsServers() pulumi.StringArr
 // The list of DNS servers used by the specified Network Interface.
 func (o LookupNetworkInterfaceResultOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
-}
-
-// Deprecated: The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-func (o LookupNetworkInterfaceResultOutput) EnableAcceleratedNetworking() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolOutput)
-}
-
-// Deprecated: The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-func (o LookupNetworkInterfaceResultOutput) EnableIpForwarding() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupNetworkInterfaceResult) bool { return v.EnableIpForwarding }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

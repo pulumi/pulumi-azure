@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1109,8 +1109,6 @@ func (o PolicyManagedRulesManagedRuleSetArrayOutput) Index(i pulumi.IntInput) Po
 }
 
 type PolicyManagedRulesManagedRuleSetRuleGroupOverride struct {
-	// Deprecated: `disabledRules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
-	DisabledRules []string `pulumi:"disabledRules"`
 	// The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`MS-ThreatIntel-WebShells`,.
 	RuleGroupName string `pulumi:"ruleGroupName"`
 	// One or more `rule` block defined below.
@@ -1129,8 +1127,6 @@ type PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput interface {
 }
 
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs struct {
-	// Deprecated: `disabledRules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
-	DisabledRules pulumi.StringArrayInput `pulumi:"disabledRules"`
 	// The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`MS-ThreatIntel-WebShells`,.
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
 	// One or more `rule` block defined below.
@@ -1188,11 +1184,6 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) ToPolicyManaged
 	return o
 }
 
-// Deprecated: `disabledRules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
-func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) DisabledRules() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) []string { return v.DisabledRules }).(pulumi.StringArrayOutput)
-}
-
 // The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`MS-ThreatIntel-WebShells`,.
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
@@ -1228,7 +1219,7 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) Index(i pu
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule struct {
 	// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
 	Action *string `pulumi:"action"`
-	// Describes if the managed rule is in enabled state or disabled state.
+	// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// Identifier for the managed rule.
 	Id string `pulumi:"id"`
@@ -1248,7 +1239,7 @@ type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleInput interface {
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs struct {
 	// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Describes if the managed rule is in enabled state or disabled state.
+	// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Identifier for the managed rule.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1310,7 +1301,7 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) Action() pu
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Describes if the managed rule is in enabled state or disabled state.
+// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1354,7 +1345,8 @@ type PolicyPolicySettings struct {
 	// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
 	Mode *string `pulumi:"mode"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
-	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
+	RequestBodyCheck       *bool `pulumi:"requestBodyCheck"`
+	RequestBodyEnforcement *bool `pulumi:"requestBodyEnforcement"`
 	// Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
 	RequestBodyInspectLimitInKb *int `pulumi:"requestBodyInspectLimitInKb"`
 }
@@ -1384,7 +1376,8 @@ type PolicyPolicySettingsArgs struct {
 	// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
-	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
+	RequestBodyCheck       pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
+	RequestBodyEnforcement pulumi.BoolPtrInput `pulumi:"requestBodyEnforcement"`
 	// Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
 	RequestBodyInspectLimitInKb pulumi.IntPtrInput `pulumi:"requestBodyInspectLimitInKb"`
 }
@@ -1501,6 +1494,10 @@ func (o PolicyPolicySettingsOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.RequestBodyCheck }).(pulumi.BoolPtrOutput)
 }
 
+func (o PolicyPolicySettingsOutput) RequestBodyEnforcement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.RequestBodyEnforcement }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
 func (o PolicyPolicySettingsOutput) RequestBodyInspectLimitInKb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.RequestBodyInspectLimitInKb }).(pulumi.IntPtrOutput)
@@ -1597,6 +1594,15 @@ func (o PolicyPolicySettingsPtrOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return v.RequestBodyCheck
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o PolicyPolicySettingsPtrOutput) RequestBodyEnforcement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyPolicySettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequestBodyEnforcement
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1767,7 +1773,7 @@ func (o PolicyPolicySettingsLogScrubbingPtrOutput) Rules() PolicyPolicySettingsL
 }
 
 type PolicyPolicySettingsLogScrubbingRule struct {
-	// Describes if the managed rule is in enabled state or disabled state.
+	// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
 	Enabled       *bool  `pulumi:"enabled"`
 	MatchVariable string `pulumi:"matchVariable"`
 	// When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
@@ -1787,7 +1793,7 @@ type PolicyPolicySettingsLogScrubbingRuleInput interface {
 }
 
 type PolicyPolicySettingsLogScrubbingRuleArgs struct {
-	// Describes if the managed rule is in enabled state or disabled state.
+	// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
 	Enabled       pulumi.BoolPtrInput `pulumi:"enabled"`
 	MatchVariable pulumi.StringInput  `pulumi:"matchVariable"`
 	// When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
@@ -1846,7 +1852,7 @@ func (o PolicyPolicySettingsLogScrubbingRuleOutput) ToPolicyPolicySettingsLogScr
 	return o
 }
 
-// Describes if the managed rule is in enabled state or disabled state.
+// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
 func (o PolicyPolicySettingsLogScrubbingRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbingRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

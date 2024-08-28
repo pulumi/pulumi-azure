@@ -86,10 +86,8 @@ export interface GetAccountResult {
      * Which DNS endpoint type is used - either `Standard` or `AzureDnsZone`.
      */
     readonly dnsEndpointType: string;
-    readonly enableHttpsTrafficOnly: boolean;
     /**
-     * Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-     * for more information.
+     * Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information.
      */
     readonly httpsTrafficOnlyEnabled: boolean;
     /**

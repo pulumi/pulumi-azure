@@ -121,7 +121,7 @@ export class LinkedCustomService extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created.
+     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to Azure Data Factory connector for the type values syntax. Changing this forces a new resource to be created.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -210,7 +210,7 @@ export interface LinkedCustomServiceState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created.
+     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to Azure Data Factory connector for the type values syntax. Changing this forces a new resource to be created.
      */
     type?: pulumi.Input<string>;
     /**
@@ -252,7 +252,7 @@ export interface LinkedCustomServiceArgs {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created.
+     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to Azure Data Factory connector for the type values syntax. Changing this forces a new resource to be created.
      */
     type: pulumi.Input<string>;
     /**

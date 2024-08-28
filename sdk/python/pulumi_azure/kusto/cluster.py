@@ -28,9 +28,8 @@ class ClusterArgs:
                  auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
-                 language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']] = None,
@@ -53,7 +52,7 @@ class ClusterArgs:
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -85,11 +84,6 @@ class ClusterArgs:
             pulumi.set(__self__, "disk_encryption_enabled", disk_encryption_enabled)
         if double_encryption_enabled is not None:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
-        if engine is not None:
-            warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""")
-        if engine is not None:
-            pulumi.set(__self__, "engine", engine)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if language_extensions is not None:
@@ -205,16 +199,6 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""")
-    def engine(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "engine")
-
-    @engine.setter
-    def engine(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "engine", value)
-
-    @property
-    @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ClusterIdentityArgs']]:
         """
         An `identity` block as defined below.
@@ -227,7 +211,7 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="languageExtensions")
-    def language_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def language_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
         """
         An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 
@@ -236,7 +220,7 @@ class ClusterArgs:
         return pulumi.get(self, "language_extensions")
 
     @language_extensions.setter
-    def language_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def language_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]):
         pulumi.set(self, "language_extensions", value)
 
     @property
@@ -397,9 +381,8 @@ class _ClusterState:
                  data_ingestion_uri: Optional[pulumi.Input[str]] = None,
                  disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
-                 language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']] = None,
@@ -424,7 +407,7 @@ class _ClusterState:
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -459,11 +442,6 @@ class _ClusterState:
             pulumi.set(__self__, "disk_encryption_enabled", disk_encryption_enabled)
         if double_encryption_enabled is not None:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
-        if engine is not None:
-            warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""")
-        if engine is not None:
-            pulumi.set(__self__, "engine", engine)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if language_extensions is not None:
@@ -573,16 +551,6 @@ class _ClusterState:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""")
-    def engine(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "engine")
-
-    @engine.setter
-    def engine(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "engine", value)
-
-    @property
-    @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ClusterIdentityArgs']]:
         """
         An `identity` block as defined below.
@@ -595,7 +563,7 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="languageExtensions")
-    def language_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def language_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
         """
         An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 
@@ -604,7 +572,7 @@ class _ClusterState:
         return pulumi.get(self, "language_extensions")
 
     @language_extensions.setter
-    def language_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def language_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]):
         pulumi.set(self, "language_extensions", value)
 
     @property
@@ -802,9 +770,8 @@ class Cluster(pulumi.CustomResource):
                  auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
-                 language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']]] = None,
@@ -861,7 +828,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -942,9 +909,8 @@ class Cluster(pulumi.CustomResource):
                  auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
-                 language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']]] = None,
@@ -973,7 +939,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["auto_stop_enabled"] = auto_stop_enabled
             __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
             __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
-            __props__.__dict__["engine"] = engine
             __props__.__dict__["identity"] = identity
             __props__.__dict__["language_extensions"] = language_extensions
             __props__.__dict__["location"] = location
@@ -1012,9 +977,8 @@ class Cluster(pulumi.CustomResource):
             data_ingestion_uri: Optional[pulumi.Input[str]] = None,
             disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-            engine: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
-            language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             optimized_auto_scale: Optional[pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']]] = None,
@@ -1044,7 +1008,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -1077,7 +1041,6 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["data_ingestion_uri"] = data_ingestion_uri
         __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
         __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
-        __props__.__dict__["engine"] = engine
         __props__.__dict__["identity"] = identity
         __props__.__dict__["language_extensions"] = language_extensions
         __props__.__dict__["location"] = location
@@ -1147,12 +1110,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""")
-    def engine(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "engine")
-
-    @property
-    @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ClusterIdentity']]:
         """
         An `identity` block as defined below.
@@ -1161,7 +1118,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="languageExtensions")
-    def language_extensions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def language_extensions(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterLanguageExtension']]]:
         """
         An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 

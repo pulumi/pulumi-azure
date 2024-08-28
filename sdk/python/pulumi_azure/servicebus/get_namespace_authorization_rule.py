@@ -181,10 +181,6 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
 
     :param str name: Specifies the name of the ServiceBus Namespace Authorization Rule.
     :param str namespace_id: Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
-    :param str namespace_name: Specifies the name of the ServiceBus Namespace.
-    :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-           
-           > **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -231,9 +227,5 @@ def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = 
 
     :param str name: Specifies the name of the ServiceBus Namespace Authorization Rule.
     :param str namespace_id: Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
-    :param str namespace_name: Specifies the name of the ServiceBus Namespace.
-    :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-           
-           > **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
     """
     ...

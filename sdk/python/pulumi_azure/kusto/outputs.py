@@ -17,6 +17,7 @@ from .. import _utilities
 __all__ = [
     'AttachedDatabaseConfigurationSharing',
     'ClusterIdentity',
+    'ClusterLanguageExtension',
     'ClusterOptimizedAutoScale',
     'ClusterSku',
     'ClusterVirtualNetworkConfiguration',
@@ -206,6 +207,31 @@ class ClusterIdentity(dict):
         The Tenant ID associated with this System Assigned Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class ClusterLanguageExtension(dict):
+    def __init__(__self__, *,
+                 image: str,
+                 name: str):
+        """
+        :param str name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

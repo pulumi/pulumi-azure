@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,8 +103,6 @@ type AadDiagnosticSetting struct {
 	pulumi.CustomResourceState
 
 	// One or more `enabledLog` blocks as defined below.
-	//
-	// > **NOTE:** At least one `log` or `enabledLog` block must be specified. At least one type of Log must be enabled.
 	EnabledLogs AadDiagnosticSettingEnabledLogArrayOutput `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	//
@@ -114,12 +112,6 @@ type AadDiagnosticSetting struct {
 	EventhubName pulumi.StringPtrOutput `pulumi:"eventhubName"`
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
-	// One or more `log` blocks as defined below.
-	//
-	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-	Logs AadDiagnosticSettingLogArrayOutput `pulumi:"logs"`
 	// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
@@ -159,8 +151,6 @@ func GetAadDiagnosticSetting(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AadDiagnosticSetting resources.
 type aadDiagnosticSettingState struct {
 	// One or more `enabledLog` blocks as defined below.
-	//
-	// > **NOTE:** At least one `log` or `enabledLog` block must be specified. At least one type of Log must be enabled.
 	EnabledLogs []AadDiagnosticSettingEnabledLog `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	//
@@ -170,12 +160,6 @@ type aadDiagnosticSettingState struct {
 	EventhubName *string `pulumi:"eventhubName"`
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// One or more `log` blocks as defined below.
-	//
-	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-	Logs []AadDiagnosticSettingLog `pulumi:"logs"`
 	// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
@@ -186,8 +170,6 @@ type aadDiagnosticSettingState struct {
 
 type AadDiagnosticSettingState struct {
 	// One or more `enabledLog` blocks as defined below.
-	//
-	// > **NOTE:** At least one `log` or `enabledLog` block must be specified. At least one type of Log must be enabled.
 	EnabledLogs AadDiagnosticSettingEnabledLogArrayInput
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	//
@@ -197,12 +179,6 @@ type AadDiagnosticSettingState struct {
 	EventhubName pulumi.StringPtrInput
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// One or more `log` blocks as defined below.
-	//
-	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-	Logs AadDiagnosticSettingLogArrayInput
 	// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
@@ -217,8 +193,6 @@ func (AadDiagnosticSettingState) ElementType() reflect.Type {
 
 type aadDiagnosticSettingArgs struct {
 	// One or more `enabledLog` blocks as defined below.
-	//
-	// > **NOTE:** At least one `log` or `enabledLog` block must be specified. At least one type of Log must be enabled.
 	EnabledLogs []AadDiagnosticSettingEnabledLog `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	//
@@ -228,12 +202,6 @@ type aadDiagnosticSettingArgs struct {
 	EventhubName *string `pulumi:"eventhubName"`
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// One or more `log` blocks as defined below.
-	//
-	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-	Logs []AadDiagnosticSettingLog `pulumi:"logs"`
 	// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
@@ -245,8 +213,6 @@ type aadDiagnosticSettingArgs struct {
 // The set of arguments for constructing a AadDiagnosticSetting resource.
 type AadDiagnosticSettingArgs struct {
 	// One or more `enabledLog` blocks as defined below.
-	//
-	// > **NOTE:** At least one `log` or `enabledLog` block must be specified. At least one type of Log must be enabled.
 	EnabledLogs AadDiagnosticSettingEnabledLogArrayInput
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	//
@@ -256,12 +222,6 @@ type AadDiagnosticSettingArgs struct {
 	EventhubName pulumi.StringPtrInput
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// One or more `log` blocks as defined below.
-	//
-	// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-	Logs AadDiagnosticSettingLogArrayInput
 	// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
@@ -358,8 +318,6 @@ func (o AadDiagnosticSettingOutput) ToAadDiagnosticSettingOutputWithContext(ctx 
 }
 
 // One or more `enabledLog` blocks as defined below.
-//
-// > **NOTE:** At least one `log` or `enabledLog` block must be specified. At least one type of Log must be enabled.
 func (o AadDiagnosticSettingOutput) EnabledLogs() AadDiagnosticSettingEnabledLogArrayOutput {
 	return o.ApplyT(func(v *AadDiagnosticSetting) AadDiagnosticSettingEnabledLogArrayOutput { return v.EnabledLogs }).(AadDiagnosticSettingEnabledLogArrayOutput)
 }
@@ -379,15 +337,6 @@ func (o AadDiagnosticSettingOutput) EventhubName() pulumi.StringPtrOutput {
 // Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 func (o AadDiagnosticSettingOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AadDiagnosticSetting) pulumi.StringPtrOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
-}
-
-// One or more `log` blocks as defined below.
-//
-// > **NOTE:** `log` is deprecated in favour of the `enabledLog` property and will be removed in version 4.0 of the AzureRM Provider.
-//
-// Deprecated: `log` has been superseded by `enabledLog` and will be removed in version 4.0 of the AzureRM Provider.
-func (o AadDiagnosticSettingOutput) Logs() AadDiagnosticSettingLogArrayOutput {
-	return o.ApplyT(func(v *AadDiagnosticSetting) AadDiagnosticSettingLogArrayOutput { return v.Logs }).(AadDiagnosticSettingLogArrayOutput)
 }
 
 // The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.

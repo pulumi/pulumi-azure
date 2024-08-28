@@ -150,7 +150,7 @@ export class CassandraDatacenter extends pulumi.CustomResource {
      *
      * > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    public readonly skuName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CassandraDatacenter resource with the given unique name, arguments, and options.

@@ -37,7 +37,6 @@ class ApiArgs:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  revision_description: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
-                 soap_pass_through: Optional[pulumi.Input[bool]] = None,
                  source_api_id: Optional[pulumi.Input[str]] = None,
                  subscription_key_parameter_names: Optional[pulumi.Input['ApiSubscriptionKeyParameterNamesArgs']] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
@@ -65,9 +64,6 @@ class ApiArgs:
                > **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
-        :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-               
-               > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
@@ -107,11 +103,6 @@ class ApiArgs:
             pulumi.set(__self__, "revision_description", revision_description)
         if service_url is not None:
             pulumi.set(__self__, "service_url", service_url)
-        if soap_pass_through is not None:
-            warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
-        if soap_pass_through is not None:
-            pulumi.set(__self__, "soap_pass_through", soap_pass_through)
         if source_api_id is not None:
             pulumi.set(__self__, "source_api_id", source_api_id)
         if subscription_key_parameter_names is not None:
@@ -322,21 +313,6 @@ class ApiArgs:
         pulumi.set(self, "service_url", value)
 
     @property
-    @pulumi.getter(name="soapPassThrough")
-    @_utilities.deprecated("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
-    def soap_pass_through(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-
-        > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "soap_pass_through")
-
-    @soap_pass_through.setter
-    def soap_pass_through(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "soap_pass_through", value)
-
-    @property
     @pulumi.getter(name="sourceApiId")
     def source_api_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -444,7 +420,6 @@ class _ApiState:
                  revision: Optional[pulumi.Input[str]] = None,
                  revision_description: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
-                 soap_pass_through: Optional[pulumi.Input[bool]] = None,
                  source_api_id: Optional[pulumi.Input[str]] = None,
                  subscription_key_parameter_names: Optional[pulumi.Input['ApiSubscriptionKeyParameterNamesArgs']] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
@@ -474,9 +449,6 @@ class _ApiState:
         :param pulumi.Input[str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
-        :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-               
-               > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
@@ -523,11 +495,6 @@ class _ApiState:
             pulumi.set(__self__, "revision_description", revision_description)
         if service_url is not None:
             pulumi.set(__self__, "service_url", service_url)
-        if soap_pass_through is not None:
-            warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
-        if soap_pass_through is not None:
-            pulumi.set(__self__, "soap_pass_through", soap_pass_through)
         if source_api_id is not None:
             pulumi.set(__self__, "source_api_id", source_api_id)
         if subscription_key_parameter_names is not None:
@@ -762,21 +729,6 @@ class _ApiState:
         pulumi.set(self, "service_url", value)
 
     @property
-    @pulumi.getter(name="soapPassThrough")
-    @_utilities.deprecated("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
-    def soap_pass_through(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-
-        > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "soap_pass_through")
-
-    @soap_pass_through.setter
-    def soap_pass_through(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "soap_pass_through", value)
-
-    @property
     @pulumi.getter(name="sourceApiId")
     def source_api_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -884,7 +836,6 @@ class Api(pulumi.CustomResource):
                  revision: Optional[pulumi.Input[str]] = None,
                  revision_description: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
-                 soap_pass_through: Optional[pulumi.Input[bool]] = None,
                  source_api_id: Optional[pulumi.Input[str]] = None,
                  subscription_key_parameter_names: Optional[pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
@@ -954,9 +905,6 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
-        :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-               
-               > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
@@ -1045,7 +993,6 @@ class Api(pulumi.CustomResource):
                  revision: Optional[pulumi.Input[str]] = None,
                  revision_description: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
-                 soap_pass_through: Optional[pulumi.Input[bool]] = None,
                  source_api_id: Optional[pulumi.Input[str]] = None,
                  subscription_key_parameter_names: Optional[pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
@@ -1084,7 +1031,6 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["revision"] = revision
             __props__.__dict__["revision_description"] = revision_description
             __props__.__dict__["service_url"] = service_url
-            __props__.__dict__["soap_pass_through"] = soap_pass_through
             __props__.__dict__["source_api_id"] = source_api_id
             __props__.__dict__["subscription_key_parameter_names"] = subscription_key_parameter_names
             __props__.__dict__["subscription_required"] = subscription_required
@@ -1122,7 +1068,6 @@ class Api(pulumi.CustomResource):
             revision: Optional[pulumi.Input[str]] = None,
             revision_description: Optional[pulumi.Input[str]] = None,
             service_url: Optional[pulumi.Input[str]] = None,
-            soap_pass_through: Optional[pulumi.Input[bool]] = None,
             source_api_id: Optional[pulumi.Input[str]] = None,
             subscription_key_parameter_names: Optional[pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']]] = None,
             subscription_required: Optional[pulumi.Input[bool]] = None,
@@ -1157,9 +1102,6 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] revision: The Revision which used for this API. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
-        :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-               
-               > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input[Union['ApiSubscriptionKeyParameterNamesArgs', 'ApiSubscriptionKeyParameterNamesArgsDict']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
@@ -1192,7 +1134,6 @@ class Api(pulumi.CustomResource):
         __props__.__dict__["revision"] = revision
         __props__.__dict__["revision_description"] = revision_description
         __props__.__dict__["service_url"] = service_url
-        __props__.__dict__["soap_pass_through"] = soap_pass_through
         __props__.__dict__["source_api_id"] = source_api_id
         __props__.__dict__["subscription_key_parameter_names"] = subscription_key_parameter_names
         __props__.__dict__["subscription_required"] = subscription_required
@@ -1347,17 +1288,6 @@ class Api(pulumi.CustomResource):
         Absolute URL of the backend service implementing this API.
         """
         return pulumi.get(self, "service_url")
-
-    @property
-    @pulumi.getter(name="soapPassThrough")
-    @_utilities.deprecated("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
-    def soap_pass_through(self) -> pulumi.Output[bool]:
-        """
-        Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-
-        > **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "soap_pass_through")
 
     @property
     @pulumi.getter(name="sourceApiId")

@@ -22,6 +22,7 @@ __all__ = ['VirtualNetworkGatewayConnectionArgs', 'VirtualNetworkGatewayConnecti
 class VirtualNetworkGatewayConnectionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 shared_key: pulumi.Input[str],
                  type: pulumi.Input[str],
                  virtual_network_gateway_id: pulumi.Input[str],
                  authorization_key: Optional[pulumi.Input[str]] = None,
@@ -42,13 +43,13 @@ class VirtualNetworkGatewayConnectionArgs:
                  peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
                  private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
-                 shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_selector_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the connection Changing this forces a new resource to be created.
+        :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authorization_key: The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
@@ -74,7 +75,6 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_link_fast_path_enabled: Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`.
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
-        :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs'] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
@@ -82,6 +82,7 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "shared_key", shared_key)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "virtual_network_gateway_id", virtual_network_gateway_id)
         if authorization_key is not None:
@@ -120,8 +121,6 @@ class VirtualNetworkGatewayConnectionArgs:
             pulumi.set(__self__, "private_link_fast_path_enabled", private_link_fast_path_enabled)
         if routing_weight is not None:
             pulumi.set(__self__, "routing_weight", routing_weight)
-        if shared_key is not None:
-            pulumi.set(__self__, "shared_key", shared_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if traffic_selector_policy is not None:
@@ -140,6 +139,18 @@ class VirtualNetworkGatewayConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> pulumi.Input[str]:
+        """
+        The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @shared_key.setter
+    def shared_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "shared_key", value)
 
     @property
     @pulumi.getter
@@ -385,18 +396,6 @@ class VirtualNetworkGatewayConnectionArgs:
     @routing_weight.setter
     def routing_weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "routing_weight", value)
-
-    @property
-    @pulumi.getter(name="sharedKey")
-    def shared_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
-        """
-        return pulumi.get(self, "shared_key")
-
-    @shared_key.setter
-    def shared_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "shared_key", value)
 
     @property
     @pulumi.getter
@@ -1315,6 +1314,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["routing_weight"] = routing_weight
+            if shared_key is None and not opts.urn:
+                raise TypeError("Missing required property 'shared_key'")
             __props__.__dict__["shared_key"] = None if shared_key is None else pulumi.Output.secret(shared_key)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_selector_policy"] = traffic_selector_policy

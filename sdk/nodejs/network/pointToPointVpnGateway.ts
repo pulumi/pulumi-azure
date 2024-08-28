@@ -68,12 +68,12 @@ import * as utilities from "../utilities";
  *     virtualHubId: exampleVirtualHub.id,
  *     vpnServerConfigurationId: exampleVpnServerConfiguration.id,
  *     scaleUnit: 1,
- *     connectionConfiguration: {
+ *     connectionConfigurations: [{
  *         name: "example-gateway-config",
  *         vpnClientAddressPool: {
  *             addressPrefixes: ["10.0.2.0/24"],
  *         },
- *     },
+ *     }],
  * });
  * ```
  *
@@ -116,7 +116,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
     /**
      * A `connectionConfiguration` block as defined below.
      */
-    public readonly connectionConfiguration!: pulumi.Output<outputs.network.PointToPointVpnGatewayConnectionConfiguration>;
+    public readonly connectionConfigurations!: pulumi.Output<outputs.network.PointToPointVpnGatewayConnectionConfiguration[]>;
     /**
      * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
      */
@@ -167,7 +167,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PointToPointVpnGatewayState | undefined;
-            resourceInputs["connectionConfiguration"] = state ? state.connectionConfiguration : undefined;
+            resourceInputs["connectionConfigurations"] = state ? state.connectionConfigurations : undefined;
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -179,8 +179,8 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
             resourceInputs["vpnServerConfigurationId"] = state ? state.vpnServerConfigurationId : undefined;
         } else {
             const args = argsOrState as PointToPointVpnGatewayArgs | undefined;
-            if ((!args || args.connectionConfiguration === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'connectionConfiguration'");
+            if ((!args || args.connectionConfigurations === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'connectionConfigurations'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -194,7 +194,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
             if ((!args || args.vpnServerConfigurationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnServerConfigurationId'");
             }
-            resourceInputs["connectionConfiguration"] = args ? args.connectionConfiguration : undefined;
+            resourceInputs["connectionConfigurations"] = args ? args.connectionConfigurations : undefined;
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -217,7 +217,7 @@ export interface PointToPointVpnGatewayState {
     /**
      * A `connectionConfiguration` block as defined below.
      */
-    connectionConfiguration?: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>;
+    connectionConfigurations?: pulumi.Input<pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>[]>;
     /**
      * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
      */
@@ -263,7 +263,7 @@ export interface PointToPointVpnGatewayArgs {
     /**
      * A `connectionConfiguration` block as defined below.
      */
-    connectionConfiguration: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>;
+    connectionConfigurations: pulumi.Input<pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>[]>;
     /**
      * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
      */

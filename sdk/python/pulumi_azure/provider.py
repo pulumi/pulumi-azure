@@ -39,6 +39,8 @@ class ProviderArgs:
                  oidc_token: Optional[pulumi.Input[str]] = None,
                  oidc_token_file_path: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
+                 resource_provider_registrations: Optional[pulumi.Input[str]] = None,
+                 resource_providers_to_registers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_provider_registration: Optional[pulumi.Input[bool]] = None,
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
@@ -72,6 +74,9 @@ class ProviderArgs:
         :param pulumi.Input[str] oidc_token: The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[str] oidc_token_file_path: The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+        :param pulumi.Input[str] resource_provider_registrations: The set of Resource Providers which should be automatically registered for the subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_providers_to_registers: A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+               `resource_provider_registrations` property.
         :param pulumi.Input[bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
                registered?
         :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
@@ -124,6 +129,13 @@ class ProviderArgs:
             pulumi.set(__self__, "oidc_token_file_path", oidc_token_file_path)
         if partner_id is not None:
             pulumi.set(__self__, "partner_id", partner_id)
+        if resource_provider_registrations is not None:
+            pulumi.set(__self__, "resource_provider_registrations", resource_provider_registrations)
+        if resource_providers_to_registers is not None:
+            pulumi.set(__self__, "resource_providers_to_registers", resource_providers_to_registers)
+        if skip_provider_registration is not None:
+            warnings.warn("""This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.""", DeprecationWarning)
+            pulumi.log.warn("""skip_provider_registration is deprecated: This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.""")
         if skip_provider_registration is None:
             skip_provider_registration = (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
         if skip_provider_registration is not None:
@@ -374,7 +386,33 @@ class ProviderArgs:
         pulumi.set(self, "partner_id", value)
 
     @property
+    @pulumi.getter(name="resourceProviderRegistrations")
+    def resource_provider_registrations(self) -> Optional[pulumi.Input[str]]:
+        """
+        The set of Resource Providers which should be automatically registered for the subscription.
+        """
+        return pulumi.get(self, "resource_provider_registrations")
+
+    @resource_provider_registrations.setter
+    def resource_provider_registrations(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_provider_registrations", value)
+
+    @property
+    @pulumi.getter(name="resourceProvidersToRegisters")
+    def resource_providers_to_registers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+        `resource_provider_registrations` property.
+        """
+        return pulumi.get(self, "resource_providers_to_registers")
+
+    @resource_providers_to_registers.setter
+    def resource_providers_to_registers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_providers_to_registers", value)
+
+    @property
     @pulumi.getter(name="skipProviderRegistration")
+    @_utilities.deprecated("""This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.""")
     def skip_provider_registration(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
@@ -495,6 +533,8 @@ class Provider(pulumi.ProviderResource):
                  oidc_token: Optional[pulumi.Input[str]] = None,
                  oidc_token_file_path: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
+                 resource_provider_registrations: Optional[pulumi.Input[str]] = None,
+                 resource_providers_to_registers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_provider_registration: Optional[pulumi.Input[bool]] = None,
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
@@ -535,6 +575,9 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] oidc_token: The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[str] oidc_token_file_path: The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+        :param pulumi.Input[str] resource_provider_registrations: The set of Resource Providers which should be automatically registered for the subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_providers_to_registers: A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+               `resource_provider_registrations` property.
         :param pulumi.Input[bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
                registered?
         :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
@@ -591,6 +634,8 @@ class Provider(pulumi.ProviderResource):
                  oidc_token: Optional[pulumi.Input[str]] = None,
                  oidc_token_file_path: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
+                 resource_provider_registrations: Optional[pulumi.Input[str]] = None,
+                 resource_providers_to_registers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_provider_registration: Optional[pulumi.Input[bool]] = None,
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
@@ -631,6 +676,8 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["oidc_token"] = None if oidc_token is None else pulumi.Output.secret(oidc_token)
             __props__.__dict__["oidc_token_file_path"] = None if oidc_token_file_path is None else pulumi.Output.secret(oidc_token_file_path)
             __props__.__dict__["partner_id"] = partner_id
+            __props__.__dict__["resource_provider_registrations"] = resource_provider_registrations
+            __props__.__dict__["resource_providers_to_registers"] = pulumi.Output.from_input(resource_providers_to_registers).apply(pulumi.runtime.to_json) if resource_providers_to_registers is not None else None
             if skip_provider_registration is None:
                 skip_provider_registration = (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
             __props__.__dict__["skip_provider_registration"] = pulumi.Output.from_input(skip_provider_registration).apply(pulumi.runtime.to_json) if skip_provider_registration is not None else None
@@ -779,6 +826,14 @@ class Provider(pulumi.ProviderResource):
         A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         """
         return pulumi.get(self, "partner_id")
+
+    @property
+    @pulumi.getter(name="resourceProviderRegistrations")
+    def resource_provider_registrations(self) -> pulumi.Output[Optional[str]]:
+        """
+        The set of Resource Providers which should be automatically registered for the subscription.
+        """
+        return pulumi.get(self, "resource_provider_registrations")
 
     @property
     @pulumi.getter(name="subscriptionId")

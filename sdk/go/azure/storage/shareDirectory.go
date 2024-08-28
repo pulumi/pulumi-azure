@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,8 +19,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,10 +79,6 @@ type ShareDirectory struct {
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-	ShareName pulumi.StringOutput `pulumi:"shareName"`
-	// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId pulumi.StringOutput `pulumi:"storageShareId"`
 }
@@ -90,9 +87,12 @@ type ShareDirectory struct {
 func NewShareDirectory(ctx *pulumi.Context,
 	name string, args *ShareDirectoryArgs, opts ...pulumi.ResourceOption) (*ShareDirectory, error) {
 	if args == nil {
-		args = &ShareDirectoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.StorageShareId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageShareId'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ShareDirectory
 	err := ctx.RegisterResource("azure:storage/shareDirectory:ShareDirectory", name, args, &resource, opts...)
@@ -120,10 +120,6 @@ type shareDirectoryState struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-	ShareName *string `pulumi:"shareName"`
-	// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-	StorageAccountName *string `pulumi:"storageAccountName"`
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId *string `pulumi:"storageShareId"`
 }
@@ -133,10 +129,6 @@ type ShareDirectoryState struct {
 	Metadata pulumi.StringMapInput
 	// The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-	ShareName pulumi.StringPtrInput
-	// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-	StorageAccountName pulumi.StringPtrInput
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId pulumi.StringPtrInput
 }
@@ -150,12 +142,8 @@ type shareDirectoryArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-	ShareName *string `pulumi:"shareName"`
-	// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-	StorageAccountName *string `pulumi:"storageAccountName"`
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-	StorageShareId *string `pulumi:"storageShareId"`
+	StorageShareId string `pulumi:"storageShareId"`
 }
 
 // The set of arguments for constructing a ShareDirectory resource.
@@ -164,12 +152,8 @@ type ShareDirectoryArgs struct {
 	Metadata pulumi.StringMapInput
 	// The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-	ShareName pulumi.StringPtrInput
-	// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-	StorageAccountName pulumi.StringPtrInput
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-	StorageShareId pulumi.StringPtrInput
+	StorageShareId pulumi.StringInput
 }
 
 func (ShareDirectoryArgs) ElementType() reflect.Type {
@@ -267,16 +251,6 @@ func (o ShareDirectoryOutput) Metadata() pulumi.StringMapOutput {
 // The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 func (o ShareDirectoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ShareDirectory) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-func (o ShareDirectoryOutput) ShareName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ShareDirectory) pulumi.StringOutput { return v.ShareName }).(pulumi.StringOutput)
-}
-
-// Deprecated: the `shareName` and `storageAccountName` properties have been superseded by the `storageShareId` property and will be removed in version 4.0 of the AzureRM provider
-func (o ShareDirectoryOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ShareDirectory) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
 // The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.

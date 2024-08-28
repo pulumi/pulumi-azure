@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/redis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +57,12 @@ import (
 //				return err
 //			}
 //			_, err = redis.NewEnterpriseDatabase(ctx, "example", &redis.EnterpriseDatabaseArgs{
-//				Name:              pulumi.String("default"),
-//				ResourceGroupName: example.Name,
-//				ClusterId:         exampleEnterpriseCluster.ID(),
-//				ClientProtocol:    pulumi.String("Encrypted"),
-//				ClusteringPolicy:  pulumi.String("EnterpriseCluster"),
-//				EvictionPolicy:    pulumi.String("NoEviction"),
-//				Port:              pulumi.Int(10000),
+//				Name:             pulumi.String("default"),
+//				ClusterId:        exampleEnterpriseCluster.ID(),
+//				ClientProtocol:   pulumi.String("Encrypted"),
+//				ClusteringPolicy: pulumi.String("EnterpriseCluster"),
+//				EvictionPolicy:   pulumi.String("NoEviction"),
+//				Port:             pulumi.Int(10000),
 //				LinkedDatabaseIds: pulumi.StringArray{
 //					exampleEnterpriseCluster.ID().ApplyT(func(id string) (string, error) {
 //						return fmt.Sprintf("%v/databases/default", id), nil
@@ -117,10 +116,6 @@ type EnterpriseDatabase struct {
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The Primary Access Key for the Redis Enterprise Database Instance.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
-	// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-	//
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Enterprise Database Instance.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 }
@@ -187,10 +182,6 @@ type enterpriseDatabaseState struct {
 	Port *int `pulumi:"port"`
 	// The Primary Access Key for the Redis Enterprise Database Instance.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
-	// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-	//
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Enterprise Database Instance.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 }
@@ -220,10 +211,6 @@ type EnterpriseDatabaseState struct {
 	Port pulumi.IntPtrInput
 	// The Primary Access Key for the Redis Enterprise Database Instance.
 	PrimaryAccessKey pulumi.StringPtrInput
-	// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-	//
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Access Key for the Redis Enterprise Database Instance.
 	SecondaryAccessKey pulumi.StringPtrInput
 }
@@ -255,10 +242,6 @@ type enterpriseDatabaseArgs struct {
 	Name *string `pulumi:"name"`
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
 	Port *int `pulumi:"port"`
-	// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-	//
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a EnterpriseDatabase resource.
@@ -285,10 +268,6 @@ type EnterpriseDatabaseArgs struct {
 	Name pulumi.StringPtrInput
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
 	Port pulumi.IntPtrInput
-	// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-	//
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringPtrInput
 }
 
 func (EnterpriseDatabaseArgs) ElementType() reflect.Type {
@@ -430,13 +409,6 @@ func (o EnterpriseDatabaseOutput) Port() pulumi.IntPtrOutput {
 // The Primary Access Key for the Redis Enterprise Database Instance.
 func (o EnterpriseDatabaseOutput) PrimaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) pulumi.StringOutput { return v.PrimaryAccessKey }).(pulumi.StringOutput)
-}
-
-// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-//
-// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-func (o EnterpriseDatabaseOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *EnterpriseDatabase) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 // The Secondary Access Key for the Redis Enterprise Database Instance.

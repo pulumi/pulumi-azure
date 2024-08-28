@@ -743,7 +743,7 @@ class NatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> pulumi.Output[int]:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         """

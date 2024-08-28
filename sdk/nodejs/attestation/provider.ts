@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -83,10 +81,6 @@ export class Provider extends pulumi.CustomResource {
      */
     public readonly openEnclavePolicyBase64!: pulumi.Output<string | undefined>;
     /**
-     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
-     */
-    public readonly policies!: pulumi.Output<outputs.attestation.ProviderPolicy[] | undefined>;
-    /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      *
      * > **NOTE:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
@@ -136,7 +130,6 @@ export class Provider extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["openEnclavePolicyBase64"] = state ? state.openEnclavePolicyBase64 : undefined;
-            resourceInputs["policies"] = state ? state.policies : undefined;
             resourceInputs["policySigningCertificateData"] = state ? state.policySigningCertificateData : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sevSnpPolicyBase64"] = state ? state.sevSnpPolicyBase64 : undefined;
@@ -152,7 +145,6 @@ export class Provider extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["openEnclavePolicyBase64"] = args ? args.openEnclavePolicyBase64 : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
             resourceInputs["policySigningCertificateData"] = args ? args.policySigningCertificateData : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sevSnpPolicyBase64"] = args ? args.sevSnpPolicyBase64 : undefined;
@@ -187,10 +179,6 @@ export interface ProviderState {
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      */
     openEnclavePolicyBase64?: pulumi.Input<string>;
-    /**
-     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
-     */
-    policies?: pulumi.Input<pulumi.Input<inputs.attestation.ProviderPolicy>[]>;
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      *
@@ -241,10 +229,6 @@ export interface ProviderArgs {
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      */
     openEnclavePolicyBase64?: pulumi.Input<string>;
-    /**
-     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `openEnclavePolicyBase64`, `sgxEnclavePolicyBase64`, `tpmPolicyBase64` and `sevSnpPolicyBase64` instead.
-     */
-    policies?: pulumi.Input<pulumi.Input<inputs.attestation.ProviderPolicy>[]>;
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      *

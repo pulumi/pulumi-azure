@@ -29,8 +29,7 @@ class EnterpriseDatabaseArgs:
                  linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[int]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
+                 port: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a EnterpriseDatabase resource.
         :param pulumi.Input[str] cluster_id: The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
@@ -46,7 +45,6 @@ class EnterpriseDatabaseArgs:
                > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         if client_protocol is not None:
@@ -65,11 +63,6 @@ class EnterpriseDatabaseArgs:
             pulumi.set(__self__, "name", name)
         if port is not None:
             pulumi.set(__self__, "port", port)
-        if resource_group_name is not None:
-            warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -183,19 +176,6 @@ class EnterpriseDatabaseArgs:
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
 
 @pulumi.input_type
 class _EnterpriseDatabaseState:
@@ -210,7 +190,6 @@ class _EnterpriseDatabaseState:
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  primary_access_key: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_access_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EnterpriseDatabase resources.
@@ -228,7 +207,6 @@ class _EnterpriseDatabaseState:
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Enterprise Database Instance.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Enterprise Database Instance.
         """
         if client_protocol is not None:
@@ -251,11 +229,6 @@ class _EnterpriseDatabaseState:
             pulumi.set(__self__, "port", port)
         if primary_access_key is not None:
             pulumi.set(__self__, "primary_access_key", primary_access_key)
-        if resource_group_name is not None:
-            warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-            pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_access_key is not None:
             pulumi.set(__self__, "secondary_access_key", secondary_access_key)
 
@@ -384,19 +357,6 @@ class _EnterpriseDatabaseState:
         pulumi.set(self, "primary_access_key", value)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
     @pulumi.getter(name="secondaryAccessKey")
     def secondary_access_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -423,7 +383,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Redis Enterprise Database.
@@ -449,7 +408,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
             sku_name="Enterprise_E20-4")
         example_enterprise_database = azure.redis.EnterpriseDatabase("example",
             name="default",
-            resource_group_name=example.name,
             cluster_id=example_enterprise_cluster.id,
             client_protocol="Encrypted",
             clustering_policy="EnterpriseCluster",
@@ -485,7 +443,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
                > **NOTE:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         """
         ...
     @overload
@@ -517,7 +474,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
             sku_name="Enterprise_E20-4")
         example_enterprise_database = azure.redis.EnterpriseDatabase("example",
             name="default",
-            resource_group_name=example.name,
             cluster_id=example_enterprise_cluster.id,
             client_protocol="Encrypted",
             clustering_policy="EnterpriseCluster",
@@ -562,7 +518,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -583,7 +538,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
             __props__.__dict__["modules"] = modules
             __props__.__dict__["name"] = name
             __props__.__dict__["port"] = port
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["primary_access_key"] = None
             __props__.__dict__["secondary_access_key"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryAccessKey", "secondaryAccessKey"])
@@ -608,7 +562,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_access_key: Optional[pulumi.Input[str]] = None) -> 'EnterpriseDatabase':
         """
         Get an existing EnterpriseDatabase resource's state with the given name, id, and optional extra
@@ -631,7 +584,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Enterprise Database Instance.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Enterprise Database Instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -648,7 +600,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["port"] = port
         __props__.__dict__["primary_access_key"] = primary_access_key
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secondary_access_key"] = secondary_access_key
         return EnterpriseDatabase(resource_name, opts=opts, __props__=__props__)
 
@@ -735,15 +686,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
         The Primary Access Key for the Redis Enterprise Database Instance.
         """
         return pulumi.get(self, "primary_access_key")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""This field is no longer used and will be removed in the next major version of the Azure Provider""")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="secondaryAccessKey")

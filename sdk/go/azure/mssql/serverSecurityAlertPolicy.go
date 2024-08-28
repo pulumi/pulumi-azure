@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,10 +23,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,13 +40,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlServer, err := sql.NewSqlServer(ctx, "example", &sql.SqlServerArgs{
-//				Name:                       pulumi.String("mysqlserver"),
+//			exampleSqlServer, err := azurerm.NewSqlServer(ctx, "example", &azurerm.SqlServerArgs{
+//				Name:                       "mysqlserver",
 //				ResourceGroupName:          example.Name,
 //				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+//				Version:                    "12.0",
+//				AdministratorLogin:         "4dm1n157r470r",
+//				AdministratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
 //			})
 //			if err != nil {
 //				return err

@@ -108,14 +108,6 @@ export class Connection extends pulumi.CustomResource {
      * The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
      */
     public readonly serviceProviderName!: pulumi.Output<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     *
-     * > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -139,7 +131,6 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["scopes"] = state ? state.scopes : undefined;
             resourceInputs["serviceProviderName"] = state ? state.serviceProviderName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -166,7 +157,6 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["serviceProviderName"] = args ? args.serviceProviderName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret"] };
@@ -215,14 +205,6 @@ export interface ConnectionState {
      * The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
      */
     serviceProviderName?: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     *
-     * > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -265,12 +247,4 @@ export interface ConnectionArgs {
      * The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
      */
     serviceProviderName: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     *
-     * > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

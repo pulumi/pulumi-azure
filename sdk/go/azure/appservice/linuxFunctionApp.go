@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -171,6 +171,8 @@ type LinuxFunctionApp struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	// Is container image pull over virtual network enabled? Defaults to `false`.
+	VnetImagePullEnabled pulumi.BoolPtrOutput `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -315,6 +317,8 @@ type linuxFunctionAppState struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	// Is container image pull over virtual network enabled? Defaults to `false`.
+	VnetImagePullEnabled *bool `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -412,6 +416,8 @@ type LinuxFunctionAppState struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// Is container image pull over virtual network enabled? Defaults to `false`.
+	VnetImagePullEnabled pulumi.BoolPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -495,6 +501,8 @@ type linuxFunctionAppArgs struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	// Is container image pull over virtual network enabled? Defaults to `false`.
+	VnetImagePullEnabled *bool `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -575,6 +583,8 @@ type LinuxFunctionAppArgs struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// Is container image pull over virtual network enabled? Defaults to `false`.
+	VnetImagePullEnabled pulumi.BoolPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -876,6 +886,11 @@ func (o LinuxFunctionAppOutput) Tags() pulumi.StringMapOutput {
 
 func (o LinuxFunctionAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Is container image pull over virtual network enabled? Defaults to `false`.
+func (o LinuxFunctionAppOutput) VnetImagePullEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.BoolPtrOutput { return v.VnetImagePullEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.

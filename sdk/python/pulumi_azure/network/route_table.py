@@ -23,7 +23,6 @@ class RouteTableArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  bgp_route_propagation_enabled: Optional[pulumi.Input[bool]] = None,
-                 disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
@@ -31,7 +30,7 @@ class RouteTableArgs:
         """
         The set of arguments for constructing a RouteTable resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+        :param pulumi.Input[bool] bgp_route_propagation_enabled: Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
@@ -42,11 +41,6 @@ class RouteTableArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bgp_route_propagation_enabled is not None:
             pulumi.set(__self__, "bgp_route_propagation_enabled", bgp_route_propagation_enabled)
-        if disable_bgp_route_propagation is not None:
-            warnings.warn("""The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""disable_bgp_route_propagation is deprecated: The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if disable_bgp_route_propagation is not None:
-            pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -71,24 +65,14 @@ class RouteTableArgs:
     @property
     @pulumi.getter(name="bgpRoutePropagationEnabled")
     def bgp_route_propagation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+        """
         return pulumi.get(self, "bgp_route_propagation_enabled")
 
     @bgp_route_propagation_enabled.setter
     def bgp_route_propagation_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "bgp_route_propagation_enabled", value)
-
-    @property
-    @pulumi.getter(name="disableBgpRoutePropagation")
-    @_utilities.deprecated("""The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def disable_bgp_route_propagation(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-        """
-        return pulumi.get(self, "disable_bgp_route_propagation")
-
-    @disable_bgp_route_propagation.setter
-    def disable_bgp_route_propagation(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_bgp_route_propagation", value)
 
     @property
     @pulumi.getter
@@ -145,7 +129,6 @@ class RouteTableArgs:
 class _RouteTableState:
     def __init__(__self__, *,
                  bgp_route_propagation_enabled: Optional[pulumi.Input[bool]] = None,
-                 disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -154,7 +137,7 @@ class _RouteTableState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RouteTable resources.
-        :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+        :param pulumi.Input[bool] bgp_route_propagation_enabled: Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
@@ -166,11 +149,6 @@ class _RouteTableState:
         """
         if bgp_route_propagation_enabled is not None:
             pulumi.set(__self__, "bgp_route_propagation_enabled", bgp_route_propagation_enabled)
-        if disable_bgp_route_propagation is not None:
-            warnings.warn("""The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""disable_bgp_route_propagation is deprecated: The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if disable_bgp_route_propagation is not None:
-            pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -187,24 +165,14 @@ class _RouteTableState:
     @property
     @pulumi.getter(name="bgpRoutePropagationEnabled")
     def bgp_route_propagation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+        """
         return pulumi.get(self, "bgp_route_propagation_enabled")
 
     @bgp_route_propagation_enabled.setter
     def bgp_route_propagation_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "bgp_route_propagation_enabled", value)
-
-    @property
-    @pulumi.getter(name="disableBgpRoutePropagation")
-    @_utilities.deprecated("""The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def disable_bgp_route_propagation(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-        """
-        return pulumi.get(self, "disable_bgp_route_propagation")
-
-    @disable_bgp_route_propagation.setter
-    def disable_bgp_route_propagation(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_bgp_route_propagation", value)
 
     @property
     @pulumi.getter
@@ -287,7 +255,6 @@ class RouteTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_route_propagation_enabled: Optional[pulumi.Input[bool]] = None,
-                 disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -313,7 +280,6 @@ class RouteTable(pulumi.CustomResource):
             name="example-route-table",
             location=example.location,
             resource_group_name=example.name,
-            disable_bgp_route_propagation=False,
             routes=[{
                 "name": "route1",
                 "address_prefix": "10.1.0.0/16",
@@ -334,7 +300,7 @@ class RouteTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+        :param pulumi.Input[bool] bgp_route_propagation_enabled: Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
@@ -368,7 +334,6 @@ class RouteTable(pulumi.CustomResource):
             name="example-route-table",
             location=example.location,
             resource_group_name=example.name,
-            disable_bgp_route_propagation=False,
             routes=[{
                 "name": "route1",
                 "address_prefix": "10.1.0.0/16",
@@ -403,7 +368,6 @@ class RouteTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_route_propagation_enabled: Optional[pulumi.Input[bool]] = None,
-                 disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -419,7 +383,6 @@ class RouteTable(pulumi.CustomResource):
             __props__ = RouteTableArgs.__new__(RouteTableArgs)
 
             __props__.__dict__["bgp_route_propagation_enabled"] = bgp_route_propagation_enabled
-            __props__.__dict__["disable_bgp_route_propagation"] = disable_bgp_route_propagation
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -439,7 +402,6 @@ class RouteTable(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bgp_route_propagation_enabled: Optional[pulumi.Input[bool]] = None,
-            disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -453,7 +415,7 @@ class RouteTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+        :param pulumi.Input[bool] bgp_route_propagation_enabled: Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
@@ -468,7 +430,6 @@ class RouteTable(pulumi.CustomResource):
         __props__ = _RouteTableState.__new__(_RouteTableState)
 
         __props__.__dict__["bgp_route_propagation_enabled"] = bgp_route_propagation_enabled
-        __props__.__dict__["disable_bgp_route_propagation"] = disable_bgp_route_propagation
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -479,17 +440,11 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpRoutePropagationEnabled")
-    def bgp_route_propagation_enabled(self) -> pulumi.Output[bool]:
+    def bgp_route_propagation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+        """
         return pulumi.get(self, "bgp_route_propagation_enabled")
-
-    @property
-    @pulumi.getter(name="disableBgpRoutePropagation")
-    @_utilities.deprecated("""The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def disable_bgp_route_propagation(self) -> pulumi.Output[bool]:
-        """
-        Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-        """
-        return pulumi.get(self, "disable_bgp_route_propagation")
 
     @property
     @pulumi.getter

@@ -62,7 +62,7 @@ class StandardArgs:
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
-        :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~3`.
+        :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~4`.
                
                > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         """
@@ -322,7 +322,7 @@ class StandardArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime version associated with the Logic App. Defaults to `~3`.
+        The runtime version associated with the Logic App. Defaults to `~4`.
 
         > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         """
@@ -398,7 +398,7 @@ class _StandardState:
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
-        :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~3`.
+        :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~4`.
                
                > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         """
@@ -746,7 +746,7 @@ class _StandardState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime version associated with the Logic App. Defaults to `~3`.
+        The runtime version associated with the Logic App. Defaults to `~4`.
 
         > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         """
@@ -907,7 +907,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
-        :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~3`.
+        :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~4`.
                
                > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         """
@@ -1159,7 +1159,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
-        :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~3`.
+        :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~4`.
                
                > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         """
@@ -1390,7 +1390,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[str]]:
         """
-        The runtime version associated with the Logic App. Defaults to `~3`.
+        The runtime version associated with the Logic App. Defaults to `~4`.
 
         > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         """

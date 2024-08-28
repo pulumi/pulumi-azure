@@ -99,7 +99,7 @@ export class Elasticsearch extends pulumi.CustomResource {
     /**
      * A `logs` block as defined below.
      */
-    public readonly logs!: pulumi.Output<outputs.elasticcloud.ElasticsearchLogs>;
+    public readonly logs!: pulumi.Output<outputs.elasticcloud.ElasticsearchLogs | undefined>;
     /**
      * Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
      */

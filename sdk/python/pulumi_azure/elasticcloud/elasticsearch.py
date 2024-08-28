@@ -678,7 +678,7 @@ class Elasticsearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logs(self) -> pulumi.Output['outputs.ElasticsearchLogs']:
+    def logs(self) -> pulumi.Output[Optional['outputs.ElasticsearchLogs']]:
         """
         A `logs` block as defined below.
         """

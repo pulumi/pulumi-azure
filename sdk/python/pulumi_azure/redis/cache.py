@@ -25,7 +25,7 @@ class CacheArgs:
                  family: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
-                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
+                 access_keys_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
@@ -51,16 +51,17 @@ class CacheArgs:
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
                
                > **Note** Downgrading the SKU will force a new resource to be created.
-        :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
+        :param pulumi.Input[bool] access_keys_authentication_enabled: Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
-        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
+        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                
                > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
@@ -77,11 +78,8 @@ class CacheArgs:
         pulumi.set(__self__, "family", family)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
-        if enable_non_ssl_port is not None:
-            warnings.warn("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_non_ssl_port is deprecated: `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
-        if enable_non_ssl_port is not None:
-            pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
+        if access_keys_authentication_enabled is not None:
+            pulumi.set(__self__, "access_keys_authentication_enabled", access_keys_authentication_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -168,17 +166,16 @@ class CacheArgs:
         pulumi.set(self, "sku_name", value)
 
     @property
-    @pulumi.getter(name="enableNonSslPort")
-    @_utilities.deprecated("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
-    def enable_non_ssl_port(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="accessKeysAuthenticationEnabled")
+    def access_keys_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable the non-SSL port (6379) - disabled by default.
+        Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
         """
-        return pulumi.get(self, "enable_non_ssl_port")
+        return pulumi.get(self, "access_keys_authentication_enabled")
 
-    @enable_non_ssl_port.setter
-    def enable_non_ssl_port(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_non_ssl_port", value)
+    @access_keys_authentication_enabled.setter
+    def access_keys_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "access_keys_authentication_enabled", value)
 
     @property
     @pulumi.getter
@@ -231,6 +228,9 @@ class CacheArgs:
     @property
     @pulumi.getter(name="nonSslPortEnabled")
     def non_ssl_port_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable the non-SSL port (6379) - disabled by default.
+        """
         return pulumi.get(self, "non_ssl_port_enabled")
 
     @non_ssl_port_enabled.setter
@@ -289,7 +289,7 @@ class CacheArgs:
     @pulumi.getter(name="redisVersion")
     def redis_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Redis version. Only major version needed. Valid values: `4`, `6`.
+        Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         """
         return pulumi.get(self, "redis_version")
 
@@ -389,8 +389,8 @@ class CacheArgs:
 @pulumi.input_type
 class _CacheState:
     def __init__(__self__, *,
+                 access_keys_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
@@ -420,14 +420,15 @@ class _CacheState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cache resources.
+        :param pulumi.Input[bool] access_keys_authentication_enabled: Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
         :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
-        :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[int] port: The non-SSL Port of the Redis Instance
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
@@ -435,7 +436,7 @@ class _CacheState:
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
-        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
+        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                
                > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
@@ -455,13 +456,10 @@ class _CacheState:
                
                > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
+        if access_keys_authentication_enabled is not None:
+            pulumi.set(__self__, "access_keys_authentication_enabled", access_keys_authentication_enabled)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
-        if enable_non_ssl_port is not None:
-            warnings.warn("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_non_ssl_port is deprecated: `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
-        if enable_non_ssl_port is not None:
-            pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
         if family is not None:
             pulumi.set(__self__, "family", family)
         if hostname is not None:
@@ -518,6 +516,18 @@ class _CacheState:
             pulumi.set(__self__, "zones", zones)
 
     @property
+    @pulumi.getter(name="accessKeysAuthenticationEnabled")
+    def access_keys_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+        """
+        return pulumi.get(self, "access_keys_authentication_enabled")
+
+    @access_keys_authentication_enabled.setter
+    def access_keys_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "access_keys_authentication_enabled", value)
+
+    @property
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
@@ -528,19 +538,6 @@ class _CacheState:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter(name="enableNonSslPort")
-    @_utilities.deprecated("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
-    def enable_non_ssl_port(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable the non-SSL port (6379) - disabled by default.
-        """
-        return pulumi.get(self, "enable_non_ssl_port")
-
-    @enable_non_ssl_port.setter
-    def enable_non_ssl_port(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_non_ssl_port", value)
 
     @property
     @pulumi.getter
@@ -617,6 +614,9 @@ class _CacheState:
     @property
     @pulumi.getter(name="nonSslPortEnabled")
     def non_ssl_port_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable the non-SSL port (6379) - disabled by default.
+        """
         return pulumi.get(self, "non_ssl_port_enabled")
 
     @non_ssl_port_enabled.setter
@@ -711,7 +711,7 @@ class _CacheState:
     @pulumi.getter(name="redisVersion")
     def redis_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Redis version. Only major version needed. Valid values: `4`, `6`.
+        Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         """
         return pulumi.get(self, "redis_version")
 
@@ -875,8 +875,8 @@ class Cache(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_keys_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -922,7 +922,7 @@ class Cache(pulumi.CustomResource):
             capacity=2,
             family="C",
             sku_name="Standard",
-            enable_non_ssl_port=False,
+            non_ssl_port_enabled=False,
             minimum_tls_version="1.2",
             redis_configuration={})
         ```
@@ -942,18 +942,19 @@ class Cache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] access_keys_authentication_enabled: Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
         :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
-        :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input[Union['CacheRedisConfigurationArgs', 'CacheRedisConfigurationArgsDict']] redis_configuration: A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
-        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
+        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                
                > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
@@ -1000,7 +1001,7 @@ class Cache(pulumi.CustomResource):
             capacity=2,
             family="C",
             sku_name="Standard",
-            enable_non_ssl_port=False,
+            non_ssl_port_enabled=False,
             minimum_tls_version="1.2",
             redis_configuration={})
         ```
@@ -1033,8 +1034,8 @@ class Cache(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_keys_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1064,10 +1065,10 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CacheArgs.__new__(CacheArgs)
 
+            __props__.__dict__["access_keys_authentication_enabled"] = access_keys_authentication_enabled
             if capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity'")
             __props__.__dict__["capacity"] = capacity
-            __props__.__dict__["enable_non_ssl_port"] = enable_non_ssl_port
             if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
             __props__.__dict__["family"] = family
@@ -1113,8 +1114,8 @@ class Cache(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            access_keys_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
-            enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
             family: Optional[pulumi.Input[str]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
@@ -1149,14 +1150,15 @@ class Cache(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] access_keys_authentication_enabled: Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
         :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
-        :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
         :param pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[int] port: The non-SSL Port of the Redis Instance
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
@@ -1164,7 +1166,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
         :param pulumi.Input[Union['CacheRedisConfigurationArgs', 'CacheRedisConfigurationArgsDict']] redis_configuration: A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
-        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
+        :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                
                > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
@@ -1188,8 +1190,8 @@ class Cache(pulumi.CustomResource):
 
         __props__ = _CacheState.__new__(_CacheState)
 
+        __props__.__dict__["access_keys_authentication_enabled"] = access_keys_authentication_enabled
         __props__.__dict__["capacity"] = capacity
-        __props__.__dict__["enable_non_ssl_port"] = enable_non_ssl_port
         __props__.__dict__["family"] = family
         __props__.__dict__["hostname"] = hostname
         __props__.__dict__["identity"] = identity
@@ -1220,21 +1222,20 @@ class Cache(pulumi.CustomResource):
         return Cache(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="accessKeysAuthenticationEnabled")
+    def access_keys_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+        """
+        return pulumi.get(self, "access_keys_authentication_enabled")
+
+    @property
     @pulumi.getter
     def capacity(self) -> pulumi.Output[int]:
         """
         The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         """
         return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter(name="enableNonSslPort")
-    @_utilities.deprecated("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
-    def enable_non_ssl_port(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enable the non-SSL port (6379) - disabled by default.
-        """
-        return pulumi.get(self, "enable_non_ssl_port")
 
     @property
     @pulumi.getter
@@ -1286,7 +1287,10 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nonSslPortEnabled")
-    def non_ssl_port_enabled(self) -> pulumi.Output[bool]:
+    def non_ssl_port_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable the non-SSL port (6379) - disabled by default.
+        """
         return pulumi.get(self, "non_ssl_port_enabled")
 
     @property
@@ -1347,9 +1351,9 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redisVersion")
-    def redis_version(self) -> pulumi.Output[str]:
+    def redis_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Redis version. Only major version needed. Valid values: `4`, `6`.
+        Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         """
         return pulumi.get(self, "redis_version")
 

@@ -75,8 +75,6 @@ __all__ = [
     'ConnectionAuthenticationArgsDict',
     'ConnectionSecretStoreArgs',
     'ConnectionSecretStoreArgsDict',
-    'EnvironmentClusterSettingArgs',
-    'EnvironmentClusterSettingArgsDict',
     'EnvironmentV3ClusterSettingArgs',
     'EnvironmentV3ClusterSettingArgsDict',
     'EnvironmentV3InboundNetworkDependencyArgs',
@@ -4179,56 +4177,6 @@ class ConnectionSecretStoreArgs:
 
 
 if not MYPY:
-    class EnvironmentClusterSettingArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The name of the Cluster Setting.
-        """
-        value: pulumi.Input[str]
-        """
-        The value for the Cluster Setting.
-        """
-elif False:
-    EnvironmentClusterSettingArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class EnvironmentClusterSettingArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: The name of the Cluster Setting.
-        :param pulumi.Input[str] value: The value for the Cluster Setting.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the Cluster Setting.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        The value for the Cluster Setting.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-if not MYPY:
     class EnvironmentV3ClusterSettingArgsDict(TypedDict):
         name: pulumi.Input[str]
         """
@@ -5220,7 +5168,7 @@ if not MYPY:
         """
         elastic_instance_minimum: NotRequired[pulumi.Input[int]]
         """
-        The number of minimum instances for this function app. Only affects apps on the Premium plan.
+        The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
         """
         ftps_state: NotRequired[pulumi.Input[str]]
         """
@@ -5324,7 +5272,7 @@ class FunctionAppSiteConfigArgs:
                > **NOTE:** This attribute is only used for slots.
         :param pulumi.Input['FunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
-        :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this function app. Only affects apps on the Premium plan.
+        :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param pulumi.Input[str] health_check_path: Path which will be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
@@ -5459,7 +5407,7 @@ class FunctionAppSiteConfigArgs:
     @pulumi.getter(name="elasticInstanceMinimum")
     def elastic_instance_minimum(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of minimum instances for this function app. Only affects apps on the Premium plan.
+        The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
         """
         return pulumi.get(self, "elastic_instance_minimum")
 
@@ -21456,10 +21404,6 @@ if not MYPY:
         """
         A `application_stack` block as defined above.
         """
-        auto_heal_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-        """
         auto_heal_setting: NotRequired[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgsDict']]
         """
         A `auto_heal_setting` block as defined above. Required with `auto_heal`.
@@ -21571,7 +21515,6 @@ class LinuxWebAppSiteConfigArgs:
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  application_stack: Optional[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgs']] = None,
-                 auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
                  auto_heal_setting: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgs']] = None,
                  container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
@@ -21608,7 +21551,6 @@ class LinuxWebAppSiteConfigArgs:
         :param pulumi.Input[str] api_management_api_id: The API Management API ID this Linux Web App is associated with.
         :param pulumi.Input[str] app_command_line: The App command line to launch.
         :param pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
-        :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled? Required with `auto_heal_setting`.
         :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
@@ -21644,8 +21586,6 @@ class LinuxWebAppSiteConfigArgs:
             pulumi.set(__self__, "app_command_line", app_command_line)
         if application_stack is not None:
             pulumi.set(__self__, "application_stack", application_stack)
-        if auto_heal_enabled is not None:
-            pulumi.set(__self__, "auto_heal_enabled", auto_heal_enabled)
         if auto_heal_setting is not None:
             pulumi.set(__self__, "auto_heal_setting", auto_heal_setting)
         if container_registry_managed_identity_client_id is not None:
@@ -21764,18 +21704,6 @@ class LinuxWebAppSiteConfigArgs:
     @application_stack.setter
     def application_stack(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgs']]):
         pulumi.set(self, "application_stack", value)
-
-    @property
-    @pulumi.getter(name="autoHealEnabled")
-    def auto_heal_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-        """
-        return pulumi.get(self, "auto_heal_enabled")
-
-    @auto_heal_enabled.setter
-    def auto_heal_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "auto_heal_enabled", value)
 
     @property
     @pulumi.getter(name="autoHealSetting")
@@ -22104,12 +22032,10 @@ class LinuxWebAppSiteConfigArgs:
 
 if not MYPY:
     class LinuxWebAppSiteConfigApplicationStackArgsDict(TypedDict):
-        docker_image: NotRequired[pulumi.Input[str]]
         docker_image_name: NotRequired[pulumi.Input[str]]
         """
         The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
         """
-        docker_image_tag: NotRequired[pulumi.Input[str]]
         docker_registry_password: NotRequired[pulumi.Input[str]]
         """
         The User Name to use for authentication against the registry to pull the image.
@@ -22176,9 +22102,7 @@ elif False:
 @pulumi.input_type
 class LinuxWebAppSiteConfigApplicationStackArgs:
     def __init__(__self__, *,
-                 docker_image: Optional[pulumi.Input[str]] = None,
                  docker_image_name: Optional[pulumi.Input[str]] = None,
-                 docker_image_tag: Optional[pulumi.Input[str]] = None,
                  docker_registry_password: Optional[pulumi.Input[str]] = None,
                  docker_registry_url: Optional[pulumi.Input[str]] = None,
                  docker_registry_username: Optional[pulumi.Input[str]] = None,
@@ -22218,18 +22142,8 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
         :param pulumi.Input[str] ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
-        if docker_image is not None:
-            warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""docker_image is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
-        if docker_image is not None:
-            pulumi.set(__self__, "docker_image", docker_image)
         if docker_image_name is not None:
             pulumi.set(__self__, "docker_image_name", docker_image_name)
-        if docker_image_tag is not None:
-            warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""docker_image_tag is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
-        if docker_image_tag is not None:
-            pulumi.set(__self__, "docker_image_tag", docker_image_tag)
         if docker_registry_password is not None:
             pulumi.set(__self__, "docker_registry_password", docker_registry_password)
         if docker_registry_url is not None:
@@ -22256,16 +22170,6 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
             pulumi.set(__self__, "ruby_version", ruby_version)
 
     @property
-    @pulumi.getter(name="dockerImage")
-    @_utilities.deprecated("""This property has been deprecated and will be removed in 4.0 of the provider.""")
-    def docker_image(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "docker_image")
-
-    @docker_image.setter
-    def docker_image(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_image", value)
-
-    @property
     @pulumi.getter(name="dockerImageName")
     def docker_image_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -22276,16 +22180,6 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @docker_image_name.setter
     def docker_image_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "docker_image_name", value)
-
-    @property
-    @pulumi.getter(name="dockerImageTag")
-    @_utilities.deprecated("""This property has been deprecated and will be removed in 4.0 of the provider.""")
-    def docker_image_tag(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "docker_image_tag")
-
-    @docker_image_tag.setter
-    def docker_image_tag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_image_tag", value)
 
     @property
     @pulumi.getter(name="dockerRegistryPassword")
@@ -22553,13 +22447,13 @@ if not MYPY:
         """
         A `requests` block as defined above.
         """
+        slow_request: NotRequired[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]
+        """
+        A `slow_request` blocks as defined above.
+        """
         slow_request_with_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]
         """
         One or more `slow_request_with_path` blocks as defined above.
-        """
-        slow_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]]
-        """
-        A `slow_request` blocks as defined above.
         """
         status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]
         """
@@ -22572,21 +22466,21 @@ elif False:
 class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs:
     def __init__(__self__, *,
                  requests: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
+                 slow_request: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']] = None,
                  slow_request_with_paths: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]] = None,
-                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
                  status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
         """
         :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_request: A `slow_request` blocks as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]] slow_request_with_paths: One or more `slow_request_with_path` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: A `slow_request` blocks as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
         """
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if slow_request is not None:
+            pulumi.set(__self__, "slow_request", slow_request)
         if slow_request_with_paths is not None:
             pulumi.set(__self__, "slow_request_with_paths", slow_request_with_paths)
-        if slow_requests is not None:
-            pulumi.set(__self__, "slow_requests", slow_requests)
         if status_codes is not None:
             pulumi.set(__self__, "status_codes", status_codes)
 
@@ -22603,6 +22497,18 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs:
         pulumi.set(self, "requests", value)
 
     @property
+    @pulumi.getter(name="slowRequest")
+    def slow_request(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]:
+        """
+        A `slow_request` blocks as defined above.
+        """
+        return pulumi.get(self, "slow_request")
+
+    @slow_request.setter
+    def slow_request(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]):
+        pulumi.set(self, "slow_request", value)
+
+    @property
     @pulumi.getter(name="slowRequestWithPaths")
     def slow_request_with_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]:
         """
@@ -22613,18 +22519,6 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs:
     @slow_request_with_paths.setter
     def slow_request_with_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]):
         pulumi.set(self, "slow_request_with_paths", value)
-
-    @property
-    @pulumi.getter(name="slowRequests")
-    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
-        """
-        A `slow_request` blocks as defined above.
-        """
-        return pulumi.get(self, "slow_requests")
-
-    @slow_requests.setter
-    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
-        pulumi.set(self, "slow_requests", value)
 
     @property
     @pulumi.getter(name="statusCodes")
@@ -22703,12 +22597,6 @@ if not MYPY:
         """
         The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         """
-        path: NotRequired[pulumi.Input[str]]
-        """
-        The path for which this slow request rule applies.
-
-        > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
-        """
 elif False:
     LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -22717,24 +22605,15 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
-                 time_taken: pulumi.Input[str],
-                 path: Optional[pulumi.Input[str]] = None):
+                 time_taken: pulumi.Input[str]):
         """
         :param pulumi.Input[int] count: The number of Slow Requests in the time `interval` to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
-        :param pulumi.Input[str] path: The path for which this slow request rule applies.
-               
-               > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "time_taken", time_taken)
-        if path is not None:
-            warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-        if path is not None:
-            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -22771,21 +22650,6 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     @time_taken.setter
     def time_taken(self, value: pulumi.Input[str]):
         pulumi.set(self, "time_taken", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-    def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path for which this slow request rule applies.
-
-        > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "path", value)
 
 
 if not MYPY:
@@ -27026,10 +26890,6 @@ if not MYPY:
         """
         A `application_stack` block as defined above.
         """
-        auto_heal_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-        """
         auto_heal_setting: NotRequired[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgsDict']]
         """
         A `auto_heal_setting` block as defined above. Required with `auto_heal`.
@@ -27147,7 +27007,6 @@ class LinuxWebAppSlotSiteConfigArgs:
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  application_stack: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgs']] = None,
-                 auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
                  auto_heal_setting: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgs']] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
                  container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
@@ -27183,7 +27042,6 @@ class LinuxWebAppSlotSiteConfigArgs:
         :param pulumi.Input[str] api_management_api_id: The API Management API ID this Linux Web App Slot is associated with.
         :param pulumi.Input[str] app_command_line: The App command line to launch.
         :param pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
-        :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled? Required with `auto_heal_setting`.
         :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param pulumi.Input[str] auto_swap_slot_name: The Linux Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
                
@@ -27222,8 +27080,6 @@ class LinuxWebAppSlotSiteConfigArgs:
             pulumi.set(__self__, "app_command_line", app_command_line)
         if application_stack is not None:
             pulumi.set(__self__, "application_stack", application_stack)
-        if auto_heal_enabled is not None:
-            pulumi.set(__self__, "auto_heal_enabled", auto_heal_enabled)
         if auto_heal_setting is not None:
             pulumi.set(__self__, "auto_heal_setting", auto_heal_setting)
         if auto_swap_slot_name is not None:
@@ -27342,18 +27198,6 @@ class LinuxWebAppSlotSiteConfigArgs:
     @application_stack.setter
     def application_stack(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgs']]):
         pulumi.set(self, "application_stack", value)
-
-    @property
-    @pulumi.getter(name="autoHealEnabled")
-    def auto_heal_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-        """
-        return pulumi.get(self, "auto_heal_enabled")
-
-    @auto_heal_enabled.setter
-    def auto_heal_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "auto_heal_enabled", value)
 
     @property
     @pulumi.getter(name="autoHealSetting")
@@ -27696,12 +27540,10 @@ class LinuxWebAppSlotSiteConfigArgs:
 
 if not MYPY:
     class LinuxWebAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
-        docker_image: NotRequired[pulumi.Input[str]]
         docker_image_name: NotRequired[pulumi.Input[str]]
         """
         The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
         """
-        docker_image_tag: NotRequired[pulumi.Input[str]]
         docker_registry_password: NotRequired[pulumi.Input[str]]
         """
         The User Name to use for authentication against the registry to pull the image.
@@ -27766,9 +27608,7 @@ elif False:
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     def __init__(__self__, *,
-                 docker_image: Optional[pulumi.Input[str]] = None,
                  docker_image_name: Optional[pulumi.Input[str]] = None,
-                 docker_image_tag: Optional[pulumi.Input[str]] = None,
                  docker_registry_password: Optional[pulumi.Input[str]] = None,
                  docker_registry_url: Optional[pulumi.Input[str]] = None,
                  docker_registry_username: Optional[pulumi.Input[str]] = None,
@@ -27806,18 +27646,8 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
         :param pulumi.Input[str] ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
-        if docker_image is not None:
-            warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""docker_image is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
-        if docker_image is not None:
-            pulumi.set(__self__, "docker_image", docker_image)
         if docker_image_name is not None:
             pulumi.set(__self__, "docker_image_name", docker_image_name)
-        if docker_image_tag is not None:
-            warnings.warn("""This property has been deprecated and will be removed in 4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""docker_image_tag is deprecated: This property has been deprecated and will be removed in 4.0 of the provider.""")
-        if docker_image_tag is not None:
-            pulumi.set(__self__, "docker_image_tag", docker_image_tag)
         if docker_registry_password is not None:
             pulumi.set(__self__, "docker_registry_password", docker_registry_password)
         if docker_registry_url is not None:
@@ -27844,16 +27674,6 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
             pulumi.set(__self__, "ruby_version", ruby_version)
 
     @property
-    @pulumi.getter(name="dockerImage")
-    @_utilities.deprecated("""This property has been deprecated and will be removed in 4.0 of the provider.""")
-    def docker_image(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "docker_image")
-
-    @docker_image.setter
-    def docker_image(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_image", value)
-
-    @property
     @pulumi.getter(name="dockerImageName")
     def docker_image_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -27864,16 +27684,6 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @docker_image_name.setter
     def docker_image_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "docker_image_name", value)
-
-    @property
-    @pulumi.getter(name="dockerImageTag")
-    @_utilities.deprecated("""This property has been deprecated and will be removed in 4.0 of the provider.""")
-    def docker_image_tag(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "docker_image_tag")
-
-    @docker_image_tag.setter
-    def docker_image_tag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_image_tag", value)
 
     @property
     @pulumi.getter(name="dockerRegistryPassword")
@@ -28139,13 +27949,13 @@ if not MYPY:
         """
         A `requests` block as defined above.
         """
+        slow_request: NotRequired[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]
+        """
+        A `slow_request` block as defined above.
+        """
         slow_request_with_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]
         """
         One or more `slow_request_with_path` blocks as defined above.
-        """
-        slow_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]]
-        """
-        A `slow_request` block as defined above.
         """
         status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]
         """
@@ -28158,21 +27968,21 @@ elif False:
 class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
     def __init__(__self__, *,
                  requests: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
+                 slow_request: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']] = None,
                  slow_request_with_paths: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]] = None,
-                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
                  status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
         """
         :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_request: A `slow_request` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]] slow_request_with_paths: One or more `slow_request_with_path` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: A `slow_request` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
         """
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if slow_request is not None:
+            pulumi.set(__self__, "slow_request", slow_request)
         if slow_request_with_paths is not None:
             pulumi.set(__self__, "slow_request_with_paths", slow_request_with_paths)
-        if slow_requests is not None:
-            pulumi.set(__self__, "slow_requests", slow_requests)
         if status_codes is not None:
             pulumi.set(__self__, "status_codes", status_codes)
 
@@ -28189,6 +27999,18 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
         pulumi.set(self, "requests", value)
 
     @property
+    @pulumi.getter(name="slowRequest")
+    def slow_request(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]:
+        """
+        A `slow_request` block as defined above.
+        """
+        return pulumi.get(self, "slow_request")
+
+    @slow_request.setter
+    def slow_request(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]):
+        pulumi.set(self, "slow_request", value)
+
+    @property
     @pulumi.getter(name="slowRequestWithPaths")
     def slow_request_with_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]:
         """
@@ -28199,18 +28021,6 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
     @slow_request_with_paths.setter
     def slow_request_with_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]):
         pulumi.set(self, "slow_request_with_paths", value)
-
-    @property
-    @pulumi.getter(name="slowRequests")
-    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
-        """
-        A `slow_request` block as defined above.
-        """
-        return pulumi.get(self, "slow_requests")
-
-    @slow_requests.setter
-    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
-        pulumi.set(self, "slow_requests", value)
 
     @property
     @pulumi.getter(name="statusCodes")
@@ -28289,12 +28099,6 @@ if not MYPY:
         """
         The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         """
-        path: NotRequired[pulumi.Input[str]]
-        """
-        The path for which this slow request rule applies.
-
-        > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
-        """
 elif False:
     LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -28303,24 +28107,15 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
-                 time_taken: pulumi.Input[str],
-                 path: Optional[pulumi.Input[str]] = None):
+                 time_taken: pulumi.Input[str]):
         """
         :param pulumi.Input[int] count: The number of Slow Requests in the time `interval` to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
-        :param pulumi.Input[str] path: The path for which this slow request rule applies.
-               
-               > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "time_taken", time_taken)
-        if path is not None:
-            warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-        if path is not None:
-            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -28357,21 +28152,6 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     @time_taken.setter
     def time_taken(self, value: pulumi.Input[str]):
         pulumi.set(self, "time_taken", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-    def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path for which this slow request rule applies.
-
-        > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "path", value)
 
 
 if not MYPY:
@@ -45699,10 +45479,6 @@ if not MYPY:
         """
         A `application_stack` block as defined above.
         """
-        auto_heal_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-        """
         auto_heal_setting: NotRequired[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgsDict']]
         """
         A `auto_heal_setting` block as defined above. Required with `auto_heal`.
@@ -45823,7 +45599,6 @@ class WindowsWebAppSiteConfigArgs:
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  application_stack: Optional[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs']] = None,
-                 auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
                  auto_heal_setting: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgs']] = None,
                  container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
@@ -45863,7 +45638,6 @@ class WindowsWebAppSiteConfigArgs:
         :param pulumi.Input[str] api_management_api_id: The API Management API ID this Windows Web App Slot is associated with.
         :param pulumi.Input[str] app_command_line: The App command line to launch.
         :param pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
-        :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
         :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
@@ -45901,8 +45675,6 @@ class WindowsWebAppSiteConfigArgs:
             pulumi.set(__self__, "app_command_line", app_command_line)
         if application_stack is not None:
             pulumi.set(__self__, "application_stack", application_stack)
-        if auto_heal_enabled is not None:
-            pulumi.set(__self__, "auto_heal_enabled", auto_heal_enabled)
         if auto_heal_setting is not None:
             pulumi.set(__self__, "auto_heal_setting", auto_heal_setting)
         if container_registry_managed_identity_client_id is not None:
@@ -46027,18 +45799,6 @@ class WindowsWebAppSiteConfigArgs:
     @application_stack.setter
     def application_stack(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs']]):
         pulumi.set(self, "application_stack", value)
-
-    @property
-    @pulumi.getter(name="autoHealEnabled")
-    def auto_heal_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-        """
-        return pulumi.get(self, "auto_heal_enabled")
-
-    @auto_heal_enabled.setter
-    def auto_heal_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "auto_heal_enabled", value)
 
     @property
     @pulumi.getter(name="autoHealSetting")
@@ -46408,15 +46168,6 @@ if not MYPY:
 
         > **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
         """
-        docker_container_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the container to be used. This value is required with `docker_container_tag`.
-        """
-        docker_container_registry: NotRequired[pulumi.Input[str]]
-        docker_container_tag: NotRequired[pulumi.Input[str]]
-        """
-        The tag of the container to be used. This value is required with `docker_container_name`.
-        """
         docker_image_name: NotRequired[pulumi.Input[str]]
         """
         The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
@@ -46480,7 +46231,6 @@ if not MYPY:
         """
         Specifies whether this is a Python app. Defaults to `false`.
         """
-        python_version: NotRequired[pulumi.Input[str]]
         tomcat_version: NotRequired[pulumi.Input[str]]
         """
         The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
@@ -46494,9 +46244,6 @@ elif False:
 class WindowsWebAppSiteConfigApplicationStackArgs:
     def __init__(__self__, *,
                  current_stack: Optional[pulumi.Input[str]] = None,
-                 docker_container_name: Optional[pulumi.Input[str]] = None,
-                 docker_container_registry: Optional[pulumi.Input[str]] = None,
-                 docker_container_tag: Optional[pulumi.Input[str]] = None,
                  docker_image_name: Optional[pulumi.Input[str]] = None,
                  docker_registry_password: Optional[pulumi.Input[str]] = None,
                  docker_registry_url: Optional[pulumi.Input[str]] = None,
@@ -46510,7 +46257,6 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
                  node_version: Optional[pulumi.Input[str]] = None,
                  php_version: Optional[pulumi.Input[str]] = None,
                  python: Optional[pulumi.Input[bool]] = None,
-                 python_version: Optional[pulumi.Input[str]] = None,
                  tomcat_version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
@@ -46518,8 +46264,6 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
                > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
                
                > **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
-        :param pulumi.Input[str] docker_container_name: The name of the container to be used. This value is required with `docker_container_tag`.
-        :param pulumi.Input[str] docker_container_tag: The tag of the container to be used. This value is required with `docker_container_name`.
         :param pulumi.Input[str] docker_image_name: The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
         :param pulumi.Input[str] docker_registry_password: The User Name to use for authentication against the registry to pull the image.
                
@@ -46554,15 +46298,6 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         """
         if current_stack is not None:
             pulumi.set(__self__, "current_stack", current_stack)
-        if docker_container_name is not None:
-            pulumi.set(__self__, "docker_container_name", docker_container_name)
-        if docker_container_registry is not None:
-            warnings.warn("""This property has been deprecated and will be removed in a future release of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""docker_container_registry is deprecated: This property has been deprecated and will be removed in a future release of the provider.""")
-        if docker_container_registry is not None:
-            pulumi.set(__self__, "docker_container_registry", docker_container_registry)
-        if docker_container_tag is not None:
-            pulumi.set(__self__, "docker_container_tag", docker_container_tag)
         if docker_image_name is not None:
             pulumi.set(__self__, "docker_image_name", docker_image_name)
         if docker_registry_password is not None:
@@ -46595,11 +46330,6 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
             pulumi.set(__self__, "php_version", php_version)
         if python is not None:
             pulumi.set(__self__, "python", python)
-        if python_version is not None:
-            warnings.warn("""This property is deprecated. Values set are not used by the service.""", DeprecationWarning)
-            pulumi.log.warn("""python_version is deprecated: This property is deprecated. Values set are not used by the service.""")
-        if python_version is not None:
-            pulumi.set(__self__, "python_version", python_version)
         if tomcat_version is not None:
             pulumi.set(__self__, "tomcat_version", tomcat_version)
 
@@ -46618,40 +46348,6 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @current_stack.setter
     def current_stack(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "current_stack", value)
-
-    @property
-    @pulumi.getter(name="dockerContainerName")
-    def docker_container_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the container to be used. This value is required with `docker_container_tag`.
-        """
-        return pulumi.get(self, "docker_container_name")
-
-    @docker_container_name.setter
-    def docker_container_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_container_name", value)
-
-    @property
-    @pulumi.getter(name="dockerContainerRegistry")
-    @_utilities.deprecated("""This property has been deprecated and will be removed in a future release of the provider.""")
-    def docker_container_registry(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "docker_container_registry")
-
-    @docker_container_registry.setter
-    def docker_container_registry(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_container_registry", value)
-
-    @property
-    @pulumi.getter(name="dockerContainerTag")
-    def docker_container_tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The tag of the container to be used. This value is required with `docker_container_name`.
-        """
-        return pulumi.get(self, "docker_container_tag")
-
-    @docker_container_tag.setter
-    def docker_container_tag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_container_tag", value)
 
     @property
     @pulumi.getter(name="dockerImageName")
@@ -46821,16 +46517,6 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @python.setter
     def python(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "python", value)
-
-    @property
-    @pulumi.getter(name="pythonVersion")
-    @_utilities.deprecated("""This property is deprecated. Values set are not used by the service.""")
-    def python_version(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "python_version")
-
-    @python_version.setter
-    def python_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "python_version", value)
 
     @property
     @pulumi.getter(name="tomcatVersion")
@@ -47029,13 +46715,13 @@ if not MYPY:
         """
         A `requests` block as defined above.
         """
+        slow_request: NotRequired[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]
+        """
+        A `slow_request` block as defined above.
+        """
         slow_request_with_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]
         """
         One or more `slow_request_with_path` blocks as defined above.
-        """
-        slow_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]]
-        """
-        A `slow_request` block as defined above.
         """
         status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]
         """
@@ -47049,24 +46735,24 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs:
     def __init__(__self__, *,
                  private_memory_kb: Optional[pulumi.Input[int]] = None,
                  requests: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
+                 slow_request: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']] = None,
                  slow_request_with_paths: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]] = None,
-                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
                  status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
         """
         :param pulumi.Input[int] private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
         :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_request: A `slow_request` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]] slow_request_with_paths: One or more `slow_request_with_path` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: A `slow_request` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
         """
         if private_memory_kb is not None:
             pulumi.set(__self__, "private_memory_kb", private_memory_kb)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if slow_request is not None:
+            pulumi.set(__self__, "slow_request", slow_request)
         if slow_request_with_paths is not None:
             pulumi.set(__self__, "slow_request_with_paths", slow_request_with_paths)
-        if slow_requests is not None:
-            pulumi.set(__self__, "slow_requests", slow_requests)
         if status_codes is not None:
             pulumi.set(__self__, "status_codes", status_codes)
 
@@ -47095,6 +46781,18 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs:
         pulumi.set(self, "requests", value)
 
     @property
+    @pulumi.getter(name="slowRequest")
+    def slow_request(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]:
+        """
+        A `slow_request` block as defined above.
+        """
+        return pulumi.get(self, "slow_request")
+
+    @slow_request.setter
+    def slow_request(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]):
+        pulumi.set(self, "slow_request", value)
+
+    @property
     @pulumi.getter(name="slowRequestWithPaths")
     def slow_request_with_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]:
         """
@@ -47105,18 +46803,6 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs:
     @slow_request_with_paths.setter
     def slow_request_with_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]):
         pulumi.set(self, "slow_request_with_paths", value)
-
-    @property
-    @pulumi.getter(name="slowRequests")
-    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
-        """
-        A `slow_request` block as defined above.
-        """
-        return pulumi.get(self, "slow_requests")
-
-    @slow_requests.setter
-    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
-        pulumi.set(self, "slow_requests", value)
 
     @property
     @pulumi.getter(name="statusCodes")
@@ -47195,10 +46881,6 @@ if not MYPY:
         """
         The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         """
-        path: NotRequired[pulumi.Input[str]]
-        """
-        The path for which this slow request rule applies.
-        """
 elif False:
     WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -47207,22 +46889,15 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
-                 time_taken: pulumi.Input[str],
-                 path: Optional[pulumi.Input[str]] = None):
+                 time_taken: pulumi.Input[str]):
         """
         :param pulumi.Input[int] count: The number of Slow Requests in the time `interval` to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
-        :param pulumi.Input[str] path: The path for which this slow request rule applies.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "time_taken", time_taken)
-        if path is not None:
-            warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-        if path is not None:
-            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -47259,19 +46934,6 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     @time_taken.setter
     def time_taken(self, value: pulumi.Input[str]):
         pulumi.set(self, "time_taken", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-    def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path for which this slow request rule applies.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "path", value)
 
 
 if not MYPY:
@@ -51723,10 +51385,6 @@ if not MYPY:
         """
         A `application_stack` block as defined above.
         """
-        auto_heal_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-        """
         auto_heal_setting: NotRequired[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgsDict']]
         """
         A `auto_heal_setting` block as defined above. Required with `auto_heal`.
@@ -51852,7 +51510,6 @@ class WindowsWebAppSlotSiteConfigArgs:
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  application_stack: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgs']] = None,
-                 auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
                  auto_heal_setting: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgs']] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
                  container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
@@ -51890,7 +51547,6 @@ class WindowsWebAppSlotSiteConfigArgs:
         :param pulumi.Input[str] api_management_api_id: The API Management API ID this Windows Web App Slot os associated with.
         :param pulumi.Input[str] app_command_line: The App command line to launch.
         :param pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
-        :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
         :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param pulumi.Input[str] auto_swap_slot_name: The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
                
@@ -51931,8 +51587,6 @@ class WindowsWebAppSlotSiteConfigArgs:
             pulumi.set(__self__, "app_command_line", app_command_line)
         if application_stack is not None:
             pulumi.set(__self__, "application_stack", application_stack)
-        if auto_heal_enabled is not None:
-            pulumi.set(__self__, "auto_heal_enabled", auto_heal_enabled)
         if auto_heal_setting is not None:
             pulumi.set(__self__, "auto_heal_setting", auto_heal_setting)
         if auto_swap_slot_name is not None:
@@ -52055,18 +51709,6 @@ class WindowsWebAppSlotSiteConfigArgs:
     @application_stack.setter
     def application_stack(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgs']]):
         pulumi.set(self, "application_stack", value)
-
-    @property
-    @pulumi.getter(name="autoHealEnabled")
-    def auto_heal_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-        """
-        return pulumi.get(self, "auto_heal_enabled")
-
-    @auto_heal_enabled.setter
-    def auto_heal_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "auto_heal_enabled", value)
 
     @property
     @pulumi.getter(name="autoHealSetting")
@@ -52439,15 +52081,6 @@ if not MYPY:
 
         > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
         """
-        docker_container_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the container to be used. This value is required with `docker_container_tag`.
-        """
-        docker_container_registry: NotRequired[pulumi.Input[str]]
-        docker_container_tag: NotRequired[pulumi.Input[str]]
-        """
-        The tag of the container to be used. This value is required with `docker_container_name`.
-        """
         docker_image_name: NotRequired[pulumi.Input[str]]
         """
         The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
@@ -52502,7 +52135,6 @@ if not MYPY:
         """
         The app is a Python app. Defaults to `false`.
         """
-        python_version: NotRequired[pulumi.Input[str]]
         tomcat_version: NotRequired[pulumi.Input[str]]
         """
         The version of Tomcat the Java App should use.
@@ -52516,9 +52148,6 @@ elif False:
 class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     def __init__(__self__, *,
                  current_stack: Optional[pulumi.Input[str]] = None,
-                 docker_container_name: Optional[pulumi.Input[str]] = None,
-                 docker_container_registry: Optional[pulumi.Input[str]] = None,
-                 docker_container_tag: Optional[pulumi.Input[str]] = None,
                  docker_image_name: Optional[pulumi.Input[str]] = None,
                  docker_registry_password: Optional[pulumi.Input[str]] = None,
                  docker_registry_url: Optional[pulumi.Input[str]] = None,
@@ -52532,14 +52161,11 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
                  node_version: Optional[pulumi.Input[str]] = None,
                  php_version: Optional[pulumi.Input[str]] = None,
                  python: Optional[pulumi.Input[bool]] = None,
-                 python_version: Optional[pulumi.Input[str]] = None,
                  tomcat_version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
                
                > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
-        :param pulumi.Input[str] docker_container_name: The name of the container to be used. This value is required with `docker_container_tag`.
-        :param pulumi.Input[str] docker_container_tag: The tag of the container to be used. This value is required with `docker_container_name`.
         :param pulumi.Input[str] docker_image_name: The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
         :param pulumi.Input[str] docker_registry_password: The User Name to use for authentication against the registry to pull the image.
                
@@ -52565,15 +52191,6 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
         """
         if current_stack is not None:
             pulumi.set(__self__, "current_stack", current_stack)
-        if docker_container_name is not None:
-            pulumi.set(__self__, "docker_container_name", docker_container_name)
-        if docker_container_registry is not None:
-            warnings.warn("""This property has been deprecated and will be removed in a future release of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""docker_container_registry is deprecated: This property has been deprecated and will be removed in a future release of the provider.""")
-        if docker_container_registry is not None:
-            pulumi.set(__self__, "docker_container_registry", docker_container_registry)
-        if docker_container_tag is not None:
-            pulumi.set(__self__, "docker_container_tag", docker_container_tag)
         if docker_image_name is not None:
             pulumi.set(__self__, "docker_image_name", docker_image_name)
         if docker_registry_password is not None:
@@ -52606,11 +52223,6 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
             pulumi.set(__self__, "php_version", php_version)
         if python is not None:
             pulumi.set(__self__, "python", python)
-        if python_version is not None:
-            warnings.warn("""This property is deprecated. Values set are not used by the service.""", DeprecationWarning)
-            pulumi.log.warn("""python_version is deprecated: This property is deprecated. Values set are not used by the service.""")
-        if python_version is not None:
-            pulumi.set(__self__, "python_version", python_version)
         if tomcat_version is not None:
             pulumi.set(__self__, "tomcat_version", tomcat_version)
 
@@ -52627,40 +52239,6 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @current_stack.setter
     def current_stack(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "current_stack", value)
-
-    @property
-    @pulumi.getter(name="dockerContainerName")
-    def docker_container_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the container to be used. This value is required with `docker_container_tag`.
-        """
-        return pulumi.get(self, "docker_container_name")
-
-    @docker_container_name.setter
-    def docker_container_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_container_name", value)
-
-    @property
-    @pulumi.getter(name="dockerContainerRegistry")
-    @_utilities.deprecated("""This property has been deprecated and will be removed in a future release of the provider.""")
-    def docker_container_registry(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "docker_container_registry")
-
-    @docker_container_registry.setter
-    def docker_container_registry(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_container_registry", value)
-
-    @property
-    @pulumi.getter(name="dockerContainerTag")
-    def docker_container_tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The tag of the container to be used. This value is required with `docker_container_name`.
-        """
-        return pulumi.get(self, "docker_container_tag")
-
-    @docker_container_tag.setter
-    def docker_container_tag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_container_tag", value)
 
     @property
     @pulumi.getter(name="dockerImageName")
@@ -52821,16 +52399,6 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @python.setter
     def python(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "python", value)
-
-    @property
-    @pulumi.getter(name="pythonVersion")
-    @_utilities.deprecated("""This property is deprecated. Values set are not used by the service.""")
-    def python_version(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "python_version")
-
-    @python_version.setter
-    def python_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "python_version", value)
 
     @property
     @pulumi.getter(name="tomcatVersion")
@@ -53029,13 +52597,13 @@ if not MYPY:
         """
         A `requests` block as defined above.
         """
+        slow_request: NotRequired[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]
+        """
+        A `slow_request` block as defined above.
+        """
         slow_request_with_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]
         """
         One or more `slow_request_with_path` blocks as defined above.
-        """
-        slow_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]]
-        """
-        A `slow_request` block as defined above.
         """
         status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]
         """
@@ -53049,24 +52617,24 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
     def __init__(__self__, *,
                  private_memory_kb: Optional[pulumi.Input[int]] = None,
                  requests: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
+                 slow_request: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']] = None,
                  slow_request_with_paths: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]] = None,
-                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
                  status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
         """
         :param pulumi.Input[int] private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
         :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_request: A `slow_request` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]] slow_request_with_paths: One or more `slow_request_with_path` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: A `slow_request` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
         """
         if private_memory_kb is not None:
             pulumi.set(__self__, "private_memory_kb", private_memory_kb)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if slow_request is not None:
+            pulumi.set(__self__, "slow_request", slow_request)
         if slow_request_with_paths is not None:
             pulumi.set(__self__, "slow_request_with_paths", slow_request_with_paths)
-        if slow_requests is not None:
-            pulumi.set(__self__, "slow_requests", slow_requests)
         if status_codes is not None:
             pulumi.set(__self__, "status_codes", status_codes)
 
@@ -53095,6 +52663,18 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
         pulumi.set(self, "requests", value)
 
     @property
+    @pulumi.getter(name="slowRequest")
+    def slow_request(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]:
+        """
+        A `slow_request` block as defined above.
+        """
+        return pulumi.get(self, "slow_request")
+
+    @slow_request.setter
+    def slow_request(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]):
+        pulumi.set(self, "slow_request", value)
+
+    @property
     @pulumi.getter(name="slowRequestWithPaths")
     def slow_request_with_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]:
         """
@@ -53105,18 +52685,6 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
     @slow_request_with_paths.setter
     def slow_request_with_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]):
         pulumi.set(self, "slow_request_with_paths", value)
-
-    @property
-    @pulumi.getter(name="slowRequests")
-    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
-        """
-        A `slow_request` block as defined above.
-        """
-        return pulumi.get(self, "slow_requests")
-
-    @slow_requests.setter
-    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
-        pulumi.set(self, "slow_requests", value)
 
     @property
     @pulumi.getter(name="statusCodes")
@@ -53195,10 +52763,6 @@ if not MYPY:
         """
         The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         """
-        path: NotRequired[pulumi.Input[str]]
-        """
-        The path for which this slow request rule applies.
-        """
 elif False:
     WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -53207,22 +52771,15 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
-                 time_taken: pulumi.Input[str],
-                 path: Optional[pulumi.Input[str]] = None):
+                 time_taken: pulumi.Input[str]):
         """
         :param pulumi.Input[int] count: The number of Slow Requests in the time `interval` to trigger this rule.
         :param pulumi.Input[str] interval: The time interval in the form `hh:mm:ss`.
         :param pulumi.Input[str] time_taken: The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
-        :param pulumi.Input[str] path: The path for which this slow request rule applies.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "time_taken", time_taken)
-        if path is not None:
-            warnings.warn("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""path is deprecated: `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-        if path is not None:
-            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -53259,19 +52816,6 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
     @time_taken.setter
     def time_taken(self, value: pulumi.Input[str]):
         pulumi.set(self, "time_taken", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""`path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.""")
-    def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path for which this slow request rule applies.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "path", value)
 
 
 if not MYPY:

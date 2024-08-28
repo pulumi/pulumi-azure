@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,9 +49,9 @@ import (
 //				return err
 //			}
 //			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
-//				Name:               pulumi.String("tfex_servicebus_topic"),
-//				NamespaceId:        exampleNamespace.ID(),
-//				EnablePartitioning: pulumi.Bool(true),
+//				Name:                pulumi.String("tfex_servicebus_topic"),
+//				NamespaceId:         exampleNamespace.ID(),
+//				PartitioningEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -82,9 +82,10 @@ import (
 type Subscription struct {
 	pulumi.CustomResourceState
 
-	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-	AutoDeleteOnIdle         pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
-	BatchedOperationsEnabled pulumi.BoolOutput   `pulumi:"batchedOperationsEnabled"`
+	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
+	AutoDeleteOnIdle pulumi.StringPtrOutput `pulumi:"autoDeleteOnIdle"`
+	// Boolean flag which controls whether the Subscription supports batched operations.
+	BatchedOperationsEnabled pulumi.BoolPtrOutput `pulumi:"batchedOperationsEnabled"`
 	// A `clientScopedSubscription` block as defined below.
 	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrOutput `pulumi:"clientScopedSubscription"`
 	// whether the subscription is scoped to a client id. Defaults to `false`.
@@ -95,18 +96,14 @@ type Subscription struct {
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrOutput `pulumi:"deadLetteringOnFilterEvaluationError"`
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrOutput `pulumi:"deadLetteringOnMessageExpiration"`
-	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-	DefaultMessageTtl pulumi.StringOutput `pulumi:"defaultMessageTtl"`
-	// Boolean flag which controls whether the Subscription supports batched operations.
-	//
-	// Deprecated: `enableBatchedOperations` will be removed in favour of the property `batchedOperationsEnabled` in version 4.0 of the AzureRM Provider.
-	EnableBatchedOperations pulumi.BoolOutput `pulumi:"enableBatchedOperations"`
+	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+	DefaultMessageTtl pulumi.StringPtrOutput `pulumi:"defaultMessageTtl"`
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrOutput `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
-	LockDuration pulumi.StringOutput `pulumi:"lockDuration"`
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
+	LockDuration pulumi.StringPtrOutput `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntOutput `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
@@ -155,9 +152,10 @@ func GetSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subscription resources.
 type subscriptionState struct {
-	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-	AutoDeleteOnIdle         *string `pulumi:"autoDeleteOnIdle"`
-	BatchedOperationsEnabled *bool   `pulumi:"batchedOperationsEnabled"`
+	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
+	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// Boolean flag which controls whether the Subscription supports batched operations.
+	BatchedOperationsEnabled *bool `pulumi:"batchedOperationsEnabled"`
 	// A `clientScopedSubscription` block as defined below.
 	ClientScopedSubscription *SubscriptionClientScopedSubscription `pulumi:"clientScopedSubscription"`
 	// whether the subscription is scoped to a client id. Defaults to `false`.
@@ -168,17 +166,13 @@ type subscriptionState struct {
 	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
 	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
-	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
 	DefaultMessageTtl *string `pulumi:"defaultMessageTtl"`
-	// Boolean flag which controls whether the Subscription supports batched operations.
-	//
-	// Deprecated: `enableBatchedOperations` will be removed in favour of the property `batchedOperationsEnabled` in version 4.0 of the AzureRM Provider.
-	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo *string `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
@@ -193,8 +187,9 @@ type subscriptionState struct {
 }
 
 type SubscriptionState struct {
-	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-	AutoDeleteOnIdle         pulumi.StringPtrInput
+	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
+	AutoDeleteOnIdle pulumi.StringPtrInput
+	// Boolean flag which controls whether the Subscription supports batched operations.
 	BatchedOperationsEnabled pulumi.BoolPtrInput
 	// A `clientScopedSubscription` block as defined below.
 	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrInput
@@ -206,17 +201,13 @@ type SubscriptionState struct {
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
-	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
 	DefaultMessageTtl pulumi.StringPtrInput
-	// Boolean flag which controls whether the Subscription supports batched operations.
-	//
-	// Deprecated: `enableBatchedOperations` will be removed in favour of the property `batchedOperationsEnabled` in version 4.0 of the AzureRM Provider.
-	EnableBatchedOperations pulumi.BoolPtrInput
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrInput
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
 	LockDuration pulumi.StringPtrInput
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntPtrInput
@@ -235,9 +226,10 @@ func (SubscriptionState) ElementType() reflect.Type {
 }
 
 type subscriptionArgs struct {
-	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-	AutoDeleteOnIdle         *string `pulumi:"autoDeleteOnIdle"`
-	BatchedOperationsEnabled *bool   `pulumi:"batchedOperationsEnabled"`
+	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
+	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// Boolean flag which controls whether the Subscription supports batched operations.
+	BatchedOperationsEnabled *bool `pulumi:"batchedOperationsEnabled"`
 	// A `clientScopedSubscription` block as defined below.
 	ClientScopedSubscription *SubscriptionClientScopedSubscription `pulumi:"clientScopedSubscription"`
 	// whether the subscription is scoped to a client id. Defaults to `false`.
@@ -248,17 +240,13 @@ type subscriptionArgs struct {
 	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
 	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
-	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
 	DefaultMessageTtl *string `pulumi:"defaultMessageTtl"`
-	// Boolean flag which controls whether the Subscription supports batched operations.
-	//
-	// Deprecated: `enableBatchedOperations` will be removed in favour of the property `batchedOperationsEnabled` in version 4.0 of the AzureRM Provider.
-	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo *string `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount int `pulumi:"maxDeliveryCount"`
@@ -274,8 +262,9 @@ type subscriptionArgs struct {
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
-	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-	AutoDeleteOnIdle         pulumi.StringPtrInput
+	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
+	AutoDeleteOnIdle pulumi.StringPtrInput
+	// Boolean flag which controls whether the Subscription supports batched operations.
 	BatchedOperationsEnabled pulumi.BoolPtrInput
 	// A `clientScopedSubscription` block as defined below.
 	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrInput
@@ -287,17 +276,13 @@ type SubscriptionArgs struct {
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
-	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
 	DefaultMessageTtl pulumi.StringPtrInput
-	// Boolean flag which controls whether the Subscription supports batched operations.
-	//
-	// Deprecated: `enableBatchedOperations` will be removed in favour of the property `batchedOperationsEnabled` in version 4.0 of the AzureRM Provider.
-	EnableBatchedOperations pulumi.BoolPtrInput
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrInput
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
 	LockDuration pulumi.StringPtrInput
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntInput
@@ -398,13 +383,14 @@ func (o SubscriptionOutput) ToSubscriptionOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-func (o SubscriptionOutput) AutoDeleteOnIdle() pulumi.StringOutput {
-	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.AutoDeleteOnIdle }).(pulumi.StringOutput)
+// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
+func (o SubscriptionOutput) AutoDeleteOnIdle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.AutoDeleteOnIdle }).(pulumi.StringPtrOutput)
 }
 
-func (o SubscriptionOutput) BatchedOperationsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Subscription) pulumi.BoolOutput { return v.BatchedOperationsEnabled }).(pulumi.BoolOutput)
+// Boolean flag which controls whether the Subscription supports batched operations.
+func (o SubscriptionOutput) BatchedOperationsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.BatchedOperationsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A `clientScopedSubscription` block as defined below.
@@ -429,16 +415,9 @@ func (o SubscriptionOutput) DeadLetteringOnMessageExpiration() pulumi.BoolPtrOut
 	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.DeadLetteringOnMessageExpiration }).(pulumi.BoolPtrOutput)
 }
 
-// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-func (o SubscriptionOutput) DefaultMessageTtl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.DefaultMessageTtl }).(pulumi.StringOutput)
-}
-
-// Boolean flag which controls whether the Subscription supports batched operations.
-//
-// Deprecated: `enableBatchedOperations` will be removed in favour of the property `batchedOperationsEnabled` in version 4.0 of the AzureRM Provider.
-func (o SubscriptionOutput) EnableBatchedOperations() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Subscription) pulumi.BoolOutput { return v.EnableBatchedOperations }).(pulumi.BoolOutput)
+// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+func (o SubscriptionOutput) DefaultMessageTtl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.DefaultMessageTtl }).(pulumi.StringPtrOutput)
 }
 
 // The name of a Queue or Topic to automatically forward Dead Letter messages to.
@@ -451,9 +430,9 @@ func (o SubscriptionOutput) ForwardTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.ForwardTo }).(pulumi.StringPtrOutput)
 }
 
-// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
-func (o SubscriptionOutput) LockDuration() pulumi.StringOutput {
-	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.LockDuration }).(pulumi.StringOutput)
+// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
+func (o SubscriptionOutput) LockDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.LockDuration }).(pulumi.StringPtrOutput)
 }
 
 // The maximum number of deliveries.

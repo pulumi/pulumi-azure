@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -5648,6 +5648,31 @@ func (i GetAccountEncryptionArgs) ToGetAccountEncryptionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionOutput)
 }
 
+// GetAccountEncryptionArrayInput is an input type that accepts GetAccountEncryptionArray and GetAccountEncryptionArrayOutput values.
+// You can construct a concrete instance of `GetAccountEncryptionArrayInput` via:
+//
+//	GetAccountEncryptionArray{ GetAccountEncryptionArgs{...} }
+type GetAccountEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountEncryptionArrayOutput() GetAccountEncryptionArrayOutput
+	ToGetAccountEncryptionArrayOutputWithContext(context.Context) GetAccountEncryptionArrayOutput
+}
+
+type GetAccountEncryptionArray []GetAccountEncryptionInput
+
+func (GetAccountEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountEncryption)(nil)).Elem()
+}
+
+func (i GetAccountEncryptionArray) ToGetAccountEncryptionArrayOutput() GetAccountEncryptionArrayOutput {
+	return i.ToGetAccountEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountEncryptionArray) ToGetAccountEncryptionArrayOutputWithContext(ctx context.Context) GetAccountEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountEncryptionArrayOutput)
+}
+
 type GetAccountEncryptionOutput struct{ *pulumi.OutputState }
 
 func (GetAccountEncryptionOutput) ElementType() reflect.Type {
@@ -5665,6 +5690,26 @@ func (o GetAccountEncryptionOutput) ToGetAccountEncryptionOutputWithContext(ctx 
 // The full URL path of the Key Vault Key used to encrypt data for this Batch account.
 func (o GetAccountEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+type GetAccountEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountEncryption)(nil)).Elem()
+}
+
+func (o GetAccountEncryptionArrayOutput) ToGetAccountEncryptionArrayOutput() GetAccountEncryptionArrayOutput {
+	return o
+}
+
+func (o GetAccountEncryptionArrayOutput) ToGetAccountEncryptionArrayOutputWithContext(ctx context.Context) GetAccountEncryptionArrayOutput {
+	return o
+}
+
+func (o GetAccountEncryptionArrayOutput) Index(i pulumi.IntInput) GetAccountEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountEncryption {
+		return vs[0].([]GetAccountEncryption)[vs[1].(int)]
+	}).(GetAccountEncryptionOutput)
 }
 
 type GetAccountKeyVaultReference struct {
@@ -9408,6 +9453,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolWindowInput)(nil)).Elem(), PoolWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolWindowArrayInput)(nil)).Elem(), PoolWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountEncryptionInput)(nil)).Elem(), GetAccountEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountEncryptionArrayInput)(nil)).Elem(), GetAccountEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountKeyVaultReferenceInput)(nil)).Elem(), GetAccountKeyVaultReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountKeyVaultReferenceArrayInput)(nil)).Elem(), GetAccountKeyVaultReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolAutoScaleInput)(nil)).Elem(), GetPoolAutoScaleArgs{})
@@ -9545,6 +9591,7 @@ func init() {
 	pulumi.RegisterOutputType(PoolWindowOutput{})
 	pulumi.RegisterOutputType(PoolWindowArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountEncryptionOutput{})
+	pulumi.RegisterOutputType(GetAccountEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountKeyVaultReferenceOutput{})
 	pulumi.RegisterOutputType(GetAccountKeyVaultReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolAutoScaleOutput{})

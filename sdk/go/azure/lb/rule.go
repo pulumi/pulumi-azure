@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,9 +107,9 @@ type Rule struct {
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
 	FrontendPort pulumi.IntOutput `pulumi:"frontendPort"`
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
-	IdleTimeoutInMinutes pulumi.IntOutput `pulumi:"idleTimeoutInMinutes"`
+	IdleTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"idleTimeoutInMinutes"`
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
-	LoadDistribution pulumi.StringOutput `pulumi:"loadDistribution"`
+	LoadDistribution pulumi.StringPtrOutput `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
 	// Specifies the name of the LB Rule. Changing this forces a new resource to be created.
@@ -424,13 +424,13 @@ func (o RuleOutput) FrontendPort() pulumi.IntOutput {
 }
 
 // Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
-func (o RuleOutput) IdleTimeoutInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v *Rule) pulumi.IntOutput { return v.IdleTimeoutInMinutes }).(pulumi.IntOutput)
+func (o RuleOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.IntPtrOutput { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
-func (o RuleOutput) LoadDistribution() pulumi.StringOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.LoadDistribution }).(pulumi.StringOutput)
+func (o RuleOutput) LoadDistribution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.LoadDistribution }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.

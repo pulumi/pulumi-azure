@@ -245,6 +245,10 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
+     * Is container image pull over virtual network enabled? Defaults to `false`.
+     */
+    public readonly vnetImagePullEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -310,6 +314,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["storageUsesManagedIdentity"] = state ? state.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
+            resourceInputs["vnetImagePullEnabled"] = state ? state.vnetImagePullEnabled : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
         } else {
@@ -354,6 +359,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["storageUsesManagedIdentity"] = args ? args.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            resourceInputs["vnetImagePullEnabled"] = args ? args.vnetImagePullEnabled : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
@@ -542,6 +548,10 @@ export interface WindowsFunctionAppState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
+     * Is container image pull over virtual network enabled? Defaults to `false`.
+     */
+    vnetImagePullEnabled?: pulumi.Input<boolean>;
+    /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -687,6 +697,10 @@ export interface WindowsFunctionAppArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * Is container image pull over virtual network enabled? Defaults to `false`.
+     */
+    vnetImagePullEnabled?: pulumi.Input<boolean>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,12 +22,12 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/machinelearning"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/machinelearning"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -167,8 +167,8 @@ type ComputeCluster struct {
 	ScaleSettings ComputeClusterScaleSettingsOutput `pulumi:"scaleSettings"`
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Ssh ComputeClusterSshPtrOutput `pulumi:"ssh"`
-	// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
-	SshPublicAccessEnabled pulumi.BoolOutput `pulumi:"sshPublicAccessEnabled"`
+	// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	SshPublicAccessEnabled pulumi.BoolPtrOutput `pulumi:"sshPublicAccessEnabled"`
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId pulumi.StringPtrOutput `pulumi:"subnetResourceId"`
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -239,7 +239,7 @@ type computeClusterState struct {
 	ScaleSettings *ComputeClusterScaleSettings `pulumi:"scaleSettings"`
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Ssh *ComputeClusterSsh `pulumi:"ssh"`
-	// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SshPublicAccessEnabled *bool `pulumi:"sshPublicAccessEnabled"`
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
@@ -270,7 +270,7 @@ type ComputeClusterState struct {
 	ScaleSettings ComputeClusterScaleSettingsPtrInput
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Ssh ComputeClusterSshPtrInput
-	// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SshPublicAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId pulumi.StringPtrInput
@@ -305,7 +305,7 @@ type computeClusterArgs struct {
 	ScaleSettings ComputeClusterScaleSettings `pulumi:"scaleSettings"`
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Ssh *ComputeClusterSsh `pulumi:"ssh"`
-	// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SshPublicAccessEnabled *bool `pulumi:"sshPublicAccessEnabled"`
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
@@ -337,7 +337,7 @@ type ComputeClusterArgs struct {
 	ScaleSettings ComputeClusterScaleSettingsInput
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Ssh ComputeClusterSshPtrInput
-	// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SshPublicAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId pulumi.StringPtrInput
@@ -481,9 +481,9 @@ func (o ComputeClusterOutput) Ssh() ComputeClusterSshPtrOutput {
 	return o.ApplyT(func(v *ComputeCluster) ComputeClusterSshPtrOutput { return v.Ssh }).(ComputeClusterSshPtrOutput)
 }
 
-// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
-func (o ComputeClusterOutput) SshPublicAccessEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ComputeCluster) pulumi.BoolOutput { return v.SshPublicAccessEnabled }).(pulumi.BoolOutput)
+// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
+func (o ComputeClusterOutput) SshPublicAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ComputeCluster) pulumi.BoolPtrOutput { return v.SshPublicAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.

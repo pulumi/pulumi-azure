@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,16 +63,8 @@ type LookupAccountResult struct {
 	// If automatic failover is enabled for this CosmosDB Account.
 	AutomaticFailoverEnabled bool `pulumi:"automaticFailoverEnabled"`
 	// Capabilities enabled on this Cosmos DB account.
-	Capabilities []GetAccountCapability `pulumi:"capabilities"`
-	// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-	ConnectionStrings   []string                      `pulumi:"connectionStrings"`
+	Capabilities        []GetAccountCapability        `pulumi:"capabilities"`
 	ConsistencyPolicies []GetAccountConsistencyPolicy `pulumi:"consistencyPolicies"`
-	// Deprecated: This property has been renamed to `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM provider
-	EnableAutomaticFailover bool `pulumi:"enableAutomaticFailover"`
-	// Deprecated: This property has been renamed to `freeTierEnabled` and will be removed in v4.0 of the AzureRM provider
-	EnableFreeTier bool `pulumi:"enableFreeTier"`
-	// Deprecated: This property has been renamed to `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM provider
-	EnableMultipleWriteLocations bool `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint string `pulumi:"endpoint"`
 	// If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
@@ -180,28 +172,8 @@ func (o LookupAccountResultOutput) Capabilities() GetAccountCapabilityArrayOutpu
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountCapability { return v.Capabilities }).(GetAccountCapabilityArrayOutput)
 }
 
-// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-func (o LookupAccountResultOutput) ConnectionStrings() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupAccountResult) []string { return v.ConnectionStrings }).(pulumi.StringArrayOutput)
-}
-
 func (o LookupAccountResultOutput) ConsistencyPolicies() GetAccountConsistencyPolicyArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountConsistencyPolicy { return v.ConsistencyPolicies }).(GetAccountConsistencyPolicyArrayOutput)
-}
-
-// Deprecated: This property has been renamed to `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM provider
-func (o LookupAccountResultOutput) EnableAutomaticFailover() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableAutomaticFailover }).(pulumi.BoolOutput)
-}
-
-// Deprecated: This property has been renamed to `freeTierEnabled` and will be removed in v4.0 of the AzureRM provider
-func (o LookupAccountResultOutput) EnableFreeTier() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableFreeTier }).(pulumi.BoolOutput)
-}
-
-// Deprecated: This property has been renamed to `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM provider
-func (o LookupAccountResultOutput) EnableMultipleWriteLocations() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableMultipleWriteLocations }).(pulumi.BoolOutput)
 }
 
 // The endpoint used to connect to the CosmosDB account.

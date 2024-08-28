@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -390,7 +390,7 @@ func (o NamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type NamespaceNetworkRuleSetType struct {
+type NamespaceNetworkRuleSet struct {
 	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
@@ -403,18 +403,18 @@ type NamespaceNetworkRuleSetType struct {
 	TrustedServicesAllowed *bool `pulumi:"trustedServicesAllowed"`
 }
 
-// NamespaceNetworkRuleSetTypeInput is an input type that accepts NamespaceNetworkRuleSetTypeArgs and NamespaceNetworkRuleSetTypeOutput values.
-// You can construct a concrete instance of `NamespaceNetworkRuleSetTypeInput` via:
+// NamespaceNetworkRuleSetInput is an input type that accepts NamespaceNetworkRuleSetArgs and NamespaceNetworkRuleSetOutput values.
+// You can construct a concrete instance of `NamespaceNetworkRuleSetInput` via:
 //
-//	NamespaceNetworkRuleSetTypeArgs{...}
-type NamespaceNetworkRuleSetTypeInput interface {
+//	NamespaceNetworkRuleSetArgs{...}
+type NamespaceNetworkRuleSetInput interface {
 	pulumi.Input
 
-	ToNamespaceNetworkRuleSetTypeOutput() NamespaceNetworkRuleSetTypeOutput
-	ToNamespaceNetworkRuleSetTypeOutputWithContext(context.Context) NamespaceNetworkRuleSetTypeOutput
+	ToNamespaceNetworkRuleSetOutput() NamespaceNetworkRuleSetOutput
+	ToNamespaceNetworkRuleSetOutputWithContext(context.Context) NamespaceNetworkRuleSetOutput
 }
 
-type NamespaceNetworkRuleSetTypeArgs struct {
+type NamespaceNetworkRuleSetArgs struct {
 	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
@@ -427,135 +427,135 @@ type NamespaceNetworkRuleSetTypeArgs struct {
 	TrustedServicesAllowed pulumi.BoolPtrInput `pulumi:"trustedServicesAllowed"`
 }
 
-func (NamespaceNetworkRuleSetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceNetworkRuleSetType)(nil)).Elem()
+func (NamespaceNetworkRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceNetworkRuleSet)(nil)).Elem()
 }
 
-func (i NamespaceNetworkRuleSetTypeArgs) ToNamespaceNetworkRuleSetTypeOutput() NamespaceNetworkRuleSetTypeOutput {
-	return i.ToNamespaceNetworkRuleSetTypeOutputWithContext(context.Background())
+func (i NamespaceNetworkRuleSetArgs) ToNamespaceNetworkRuleSetOutput() NamespaceNetworkRuleSetOutput {
+	return i.ToNamespaceNetworkRuleSetOutputWithContext(context.Background())
 }
 
-func (i NamespaceNetworkRuleSetTypeArgs) ToNamespaceNetworkRuleSetTypeOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetTypeOutput)
+func (i NamespaceNetworkRuleSetArgs) ToNamespaceNetworkRuleSetOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetOutput)
 }
 
-func (i NamespaceNetworkRuleSetTypeArgs) ToNamespaceNetworkRuleSetTypePtrOutput() NamespaceNetworkRuleSetTypePtrOutput {
-	return i.ToNamespaceNetworkRuleSetTypePtrOutputWithContext(context.Background())
+func (i NamespaceNetworkRuleSetArgs) ToNamespaceNetworkRuleSetPtrOutput() NamespaceNetworkRuleSetPtrOutput {
+	return i.ToNamespaceNetworkRuleSetPtrOutputWithContext(context.Background())
 }
 
-func (i NamespaceNetworkRuleSetTypeArgs) ToNamespaceNetworkRuleSetTypePtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetTypeOutput).ToNamespaceNetworkRuleSetTypePtrOutputWithContext(ctx)
+func (i NamespaceNetworkRuleSetArgs) ToNamespaceNetworkRuleSetPtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetOutput).ToNamespaceNetworkRuleSetPtrOutputWithContext(ctx)
 }
 
-// NamespaceNetworkRuleSetTypePtrInput is an input type that accepts NamespaceNetworkRuleSetTypeArgs, NamespaceNetworkRuleSetTypePtr and NamespaceNetworkRuleSetTypePtrOutput values.
-// You can construct a concrete instance of `NamespaceNetworkRuleSetTypePtrInput` via:
+// NamespaceNetworkRuleSetPtrInput is an input type that accepts NamespaceNetworkRuleSetArgs, NamespaceNetworkRuleSetPtr and NamespaceNetworkRuleSetPtrOutput values.
+// You can construct a concrete instance of `NamespaceNetworkRuleSetPtrInput` via:
 //
-//	        NamespaceNetworkRuleSetTypeArgs{...}
+//	        NamespaceNetworkRuleSetArgs{...}
 //
 //	or:
 //
 //	        nil
-type NamespaceNetworkRuleSetTypePtrInput interface {
+type NamespaceNetworkRuleSetPtrInput interface {
 	pulumi.Input
 
-	ToNamespaceNetworkRuleSetTypePtrOutput() NamespaceNetworkRuleSetTypePtrOutput
-	ToNamespaceNetworkRuleSetTypePtrOutputWithContext(context.Context) NamespaceNetworkRuleSetTypePtrOutput
+	ToNamespaceNetworkRuleSetPtrOutput() NamespaceNetworkRuleSetPtrOutput
+	ToNamespaceNetworkRuleSetPtrOutputWithContext(context.Context) NamespaceNetworkRuleSetPtrOutput
 }
 
-type namespaceNetworkRuleSetTypePtrType NamespaceNetworkRuleSetTypeArgs
+type namespaceNetworkRuleSetPtrType NamespaceNetworkRuleSetArgs
 
-func NamespaceNetworkRuleSetTypePtr(v *NamespaceNetworkRuleSetTypeArgs) NamespaceNetworkRuleSetTypePtrInput {
-	return (*namespaceNetworkRuleSetTypePtrType)(v)
+func NamespaceNetworkRuleSetPtr(v *NamespaceNetworkRuleSetArgs) NamespaceNetworkRuleSetPtrInput {
+	return (*namespaceNetworkRuleSetPtrType)(v)
 }
 
-func (*namespaceNetworkRuleSetTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamespaceNetworkRuleSetType)(nil)).Elem()
+func (*namespaceNetworkRuleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceNetworkRuleSet)(nil)).Elem()
 }
 
-func (i *namespaceNetworkRuleSetTypePtrType) ToNamespaceNetworkRuleSetTypePtrOutput() NamespaceNetworkRuleSetTypePtrOutput {
-	return i.ToNamespaceNetworkRuleSetTypePtrOutputWithContext(context.Background())
+func (i *namespaceNetworkRuleSetPtrType) ToNamespaceNetworkRuleSetPtrOutput() NamespaceNetworkRuleSetPtrOutput {
+	return i.ToNamespaceNetworkRuleSetPtrOutputWithContext(context.Background())
 }
 
-func (i *namespaceNetworkRuleSetTypePtrType) ToNamespaceNetworkRuleSetTypePtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetTypePtrOutput)
+func (i *namespaceNetworkRuleSetPtrType) ToNamespaceNetworkRuleSetPtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetPtrOutput)
 }
 
-type NamespaceNetworkRuleSetTypeOutput struct{ *pulumi.OutputState }
+type NamespaceNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
-func (NamespaceNetworkRuleSetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceNetworkRuleSetType)(nil)).Elem()
+func (NamespaceNetworkRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceNetworkRuleSet)(nil)).Elem()
 }
 
-func (o NamespaceNetworkRuleSetTypeOutput) ToNamespaceNetworkRuleSetTypeOutput() NamespaceNetworkRuleSetTypeOutput {
+func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetOutput() NamespaceNetworkRuleSetOutput {
 	return o
 }
 
-func (o NamespaceNetworkRuleSetTypeOutput) ToNamespaceNetworkRuleSetTypeOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetTypeOutput {
+func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetOutput {
 	return o
 }
 
-func (o NamespaceNetworkRuleSetTypeOutput) ToNamespaceNetworkRuleSetTypePtrOutput() NamespaceNetworkRuleSetTypePtrOutput {
-	return o.ToNamespaceNetworkRuleSetTypePtrOutputWithContext(context.Background())
+func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetPtrOutput() NamespaceNetworkRuleSetPtrOutput {
+	return o.ToNamespaceNetworkRuleSetPtrOutputWithContext(context.Background())
 }
 
-func (o NamespaceNetworkRuleSetTypeOutput) ToNamespaceNetworkRuleSetTypePtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceNetworkRuleSetType) *NamespaceNetworkRuleSetType {
+func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetPtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceNetworkRuleSet) *NamespaceNetworkRuleSet {
 		return &v
-	}).(NamespaceNetworkRuleSetTypePtrOutput)
+	}).(NamespaceNetworkRuleSetPtrOutput)
 }
 
 // Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
-func (o NamespaceNetworkRuleSetTypeOutput) DefaultAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespaceNetworkRuleSetType) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+func (o NamespaceNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
 // One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
-func (o NamespaceNetworkRuleSetTypeOutput) IpRules() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v NamespaceNetworkRuleSetType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
+func (o NamespaceNetworkRuleSetOutput) IpRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NamespaceNetworkRuleSet) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
 
 // One or more `networkRules` blocks as defined below.
-func (o NamespaceNetworkRuleSetTypeOutput) NetworkRules() NamespaceNetworkRuleSetNetworkRuleArrayOutput {
-	return o.ApplyT(func(v NamespaceNetworkRuleSetType) []NamespaceNetworkRuleSetNetworkRule { return v.NetworkRules }).(NamespaceNetworkRuleSetNetworkRuleArrayOutput)
+func (o NamespaceNetworkRuleSetOutput) NetworkRules() NamespaceNetworkRuleSetNetworkRuleArrayOutput {
+	return o.ApplyT(func(v NamespaceNetworkRuleSet) []NamespaceNetworkRuleSetNetworkRule { return v.NetworkRules }).(NamespaceNetworkRuleSetNetworkRuleArrayOutput)
 }
 
 // Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
-func (o NamespaceNetworkRuleSetTypeOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v NamespaceNetworkRuleSetType) *bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
+func (o NamespaceNetworkRuleSetOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NamespaceNetworkRuleSet) *bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
-func (o NamespaceNetworkRuleSetTypeOutput) TrustedServicesAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v NamespaceNetworkRuleSetType) *bool { return v.TrustedServicesAllowed }).(pulumi.BoolPtrOutput)
+func (o NamespaceNetworkRuleSetOutput) TrustedServicesAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NamespaceNetworkRuleSet) *bool { return v.TrustedServicesAllowed }).(pulumi.BoolPtrOutput)
 }
 
-type NamespaceNetworkRuleSetTypePtrOutput struct{ *pulumi.OutputState }
+type NamespaceNetworkRuleSetPtrOutput struct{ *pulumi.OutputState }
 
-func (NamespaceNetworkRuleSetTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamespaceNetworkRuleSetType)(nil)).Elem()
+func (NamespaceNetworkRuleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceNetworkRuleSet)(nil)).Elem()
 }
 
-func (o NamespaceNetworkRuleSetTypePtrOutput) ToNamespaceNetworkRuleSetTypePtrOutput() NamespaceNetworkRuleSetTypePtrOutput {
+func (o NamespaceNetworkRuleSetPtrOutput) ToNamespaceNetworkRuleSetPtrOutput() NamespaceNetworkRuleSetPtrOutput {
 	return o
 }
 
-func (o NamespaceNetworkRuleSetTypePtrOutput) ToNamespaceNetworkRuleSetTypePtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetTypePtrOutput {
+func (o NamespaceNetworkRuleSetPtrOutput) ToNamespaceNetworkRuleSetPtrOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetPtrOutput {
 	return o
 }
 
-func (o NamespaceNetworkRuleSetTypePtrOutput) Elem() NamespaceNetworkRuleSetTypeOutput {
-	return o.ApplyT(func(v *NamespaceNetworkRuleSetType) NamespaceNetworkRuleSetType {
+func (o NamespaceNetworkRuleSetPtrOutput) Elem() NamespaceNetworkRuleSetOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) NamespaceNetworkRuleSet {
 		if v != nil {
 			return *v
 		}
-		var ret NamespaceNetworkRuleSetType
+		var ret NamespaceNetworkRuleSet
 		return ret
-	}).(NamespaceNetworkRuleSetTypeOutput)
+	}).(NamespaceNetworkRuleSetOutput)
 }
 
 // Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
-func (o NamespaceNetworkRuleSetTypePtrOutput) DefaultAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespaceNetworkRuleSetType) *string {
+func (o NamespaceNetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) *string {
 		if v == nil {
 			return nil
 		}
@@ -564,8 +564,8 @@ func (o NamespaceNetworkRuleSetTypePtrOutput) DefaultAction() pulumi.StringPtrOu
 }
 
 // One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
-func (o NamespaceNetworkRuleSetTypePtrOutput) IpRules() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *NamespaceNetworkRuleSetType) []string {
+func (o NamespaceNetworkRuleSetPtrOutput) IpRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) []string {
 		if v == nil {
 			return nil
 		}
@@ -574,8 +574,8 @@ func (o NamespaceNetworkRuleSetTypePtrOutput) IpRules() pulumi.StringArrayOutput
 }
 
 // One or more `networkRules` blocks as defined below.
-func (o NamespaceNetworkRuleSetTypePtrOutput) NetworkRules() NamespaceNetworkRuleSetNetworkRuleArrayOutput {
-	return o.ApplyT(func(v *NamespaceNetworkRuleSetType) []NamespaceNetworkRuleSetNetworkRule {
+func (o NamespaceNetworkRuleSetPtrOutput) NetworkRules() NamespaceNetworkRuleSetNetworkRuleArrayOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) []NamespaceNetworkRuleSetNetworkRule {
 		if v == nil {
 			return nil
 		}
@@ -584,8 +584,8 @@ func (o NamespaceNetworkRuleSetTypePtrOutput) NetworkRules() NamespaceNetworkRul
 }
 
 // Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
-func (o NamespaceNetworkRuleSetTypePtrOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *NamespaceNetworkRuleSetType) *bool {
+func (o NamespaceNetworkRuleSetPtrOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) *bool {
 		if v == nil {
 			return nil
 		}
@@ -594,8 +594,8 @@ func (o NamespaceNetworkRuleSetTypePtrOutput) PublicNetworkAccessEnabled() pulum
 }
 
 // Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
-func (o NamespaceNetworkRuleSetTypePtrOutput) TrustedServicesAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *NamespaceNetworkRuleSetType) *bool {
+func (o NamespaceNetworkRuleSetPtrOutput) TrustedServicesAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1194,8 +1194,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceCustomerManagedKeyPtrInput)(nil)).Elem(), NamespaceCustomerManagedKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIdentityInput)(nil)).Elem(), NamespaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIdentityPtrInput)(nil)).Elem(), NamespaceIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetTypeInput)(nil)).Elem(), NamespaceNetworkRuleSetTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetTypePtrInput)(nil)).Elem(), NamespaceNetworkRuleSetTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetInput)(nil)).Elem(), NamespaceNetworkRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetPtrInput)(nil)).Elem(), NamespaceNetworkRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRuleInput)(nil)).Elem(), NamespaceNetworkRuleSetNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRuleArrayInput)(nil)).Elem(), NamespaceNetworkRuleSetNetworkRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionClientScopedSubscriptionInput)(nil)).Elem(), SubscriptionClientScopedSubscriptionArgs{})
@@ -1206,8 +1206,8 @@ func init() {
 	pulumi.RegisterOutputType(NamespaceCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceIdentityOutput{})
 	pulumi.RegisterOutputType(NamespaceIdentityPtrOutput{})
-	pulumi.RegisterOutputType(NamespaceNetworkRuleSetTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceNetworkRuleSetTypePtrOutput{})
+	pulumi.RegisterOutputType(NamespaceNetworkRuleSetOutput{})
+	pulumi.RegisterOutputType(NamespaceNetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetNetworkRuleOutput{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionClientScopedSubscriptionOutput{})

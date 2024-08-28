@@ -15,10 +15,6 @@ from .dedicated_host import *
 from .dedicated_host_group import *
 from .disk_access import *
 from .disk_encryption_set import *
-from .disk_pool import *
-from .disk_pool_iscsi_target import *
-from .disk_pool_iscsi_target_lun import *
-from .disk_pool_managed_disk_attachment import *
 from .extension import *
 from .gallery_application import *
 from .gallery_application_assignment import *
@@ -32,7 +28,6 @@ from .get_disk_access import *
 from .get_disk_encryption_set import *
 from .get_image import *
 from .get_images import *
-from .get_ip_groups import *
 from .get_managed_disk import *
 from .get_orchestrated_virtual_machine_scale_set import *
 from .get_platform_image import *
@@ -63,7 +58,6 @@ from .shared_image_version import *
 from .snapshot import *
 from .ssh_public_key import *
 from .virtual_machine import *
-from .virtual_machine_restore_point_collection import *
 from .virtual_machine_scale_set_extension import *
 from .windows_virtual_machine import *
 from .windows_virtual_machine_scale_set import *

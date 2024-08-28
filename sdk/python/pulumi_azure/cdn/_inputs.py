@@ -245,15 +245,9 @@ class EndpointCustomDomainCdnManagedHttpsArgs:
 
 if not MYPY:
     class EndpointCustomDomainUserManagedHttpsArgsDict(TypedDict):
-        key_vault_certificate_id: NotRequired[pulumi.Input[str]]
-        """
-        The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
-        """
-        key_vault_secret_id: NotRequired[pulumi.Input[str]]
+        key_vault_secret_id: pulumi.Input[str]
         """
         The ID of the Key Vault Secret that contains the HTTPS certificate.
-
-        > **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
         """
         tls_version: NotRequired[pulumi.Input[str]]
         """
@@ -265,51 +259,26 @@ elif False:
 @pulumi.input_type
 class EndpointCustomDomainUserManagedHttpsArgs:
     def __init__(__self__, *,
-                 key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
-                 key_vault_secret_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_secret_id: pulumi.Input[str],
                  tls_version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] key_vault_certificate_id: The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault Secret that contains the HTTPS certificate.
-               
-               > **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
         :param pulumi.Input[str] tls_version: The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
         """
-        if key_vault_certificate_id is not None:
-            warnings.warn("""This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate""", DeprecationWarning)
-            pulumi.log.warn("""key_vault_certificate_id is deprecated: This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate""")
-        if key_vault_certificate_id is not None:
-            pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
-        if key_vault_secret_id is not None:
-            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if tls_version is not None:
             pulumi.set(__self__, "tls_version", tls_version)
 
     @property
-    @pulumi.getter(name="keyVaultCertificateId")
-    @_utilities.deprecated("""This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate""")
-    def key_vault_certificate_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
-        """
-        return pulumi.get(self, "key_vault_certificate_id")
-
-    @key_vault_certificate_id.setter
-    def key_vault_certificate_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key_vault_certificate_id", value)
-
-    @property
     @pulumi.getter(name="keyVaultSecretId")
-    def key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
+    def key_vault_secret_id(self) -> pulumi.Input[str]:
         """
         The ID of the Key Vault Secret that contains the HTTPS certificate.
-
-        > **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
     @key_vault_secret_id.setter
-    def key_vault_secret_id(self, value: Optional[pulumi.Input[str]]):
+    def key_vault_secret_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_secret_id", value)
 
     @property

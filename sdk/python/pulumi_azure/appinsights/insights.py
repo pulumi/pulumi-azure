@@ -38,8 +38,8 @@ class InsightsArgs:
         The set of arguments for constructing a Insights resource.
         :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
-        :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
+        :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
+        :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
@@ -111,7 +111,7 @@ class InsightsArgs:
     @pulumi.getter(name="dailyDataCapInGb")
     def daily_data_cap_in_gb(self) -> Optional[pulumi.Input[float]]:
         """
-        Specifies the Application Insights component daily data volume cap in GB.
+        Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
         """
         return pulumi.get(self, "daily_data_cap_in_gb")
 
@@ -123,7 +123,7 @@ class InsightsArgs:
     @pulumi.getter(name="dailyDataCapNotificationsDisabled")
     def daily_data_cap_notifications_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if a notification email will be send when the daily data volume cap is met.
+        Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         """
         return pulumi.get(self, "daily_data_cap_notifications_disabled")
 
@@ -292,8 +292,8 @@ class _InsightsState:
         :param pulumi.Input[str] app_id: The App ID associated with this Application Insights component.
         :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] connection_string: The Connection String for this Application Insights component. (Sensitive)
-        :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
-        :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
+        :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
+        :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
@@ -387,7 +387,7 @@ class _InsightsState:
     @pulumi.getter(name="dailyDataCapInGb")
     def daily_data_cap_in_gb(self) -> Optional[pulumi.Input[float]]:
         """
-        Specifies the Application Insights component daily data volume cap in GB.
+        Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
         """
         return pulumi.get(self, "daily_data_cap_in_gb")
 
@@ -399,7 +399,7 @@ class _InsightsState:
     @pulumi.getter(name="dailyDataCapNotificationsDisabled")
     def daily_data_cap_notifications_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if a notification email will be send when the daily data volume cap is met.
+        Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         """
         return pulumi.get(self, "daily_data_cap_notifications_disabled")
 
@@ -644,8 +644,8 @@ class Insights(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
-        :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
+        :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
+        :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
@@ -822,8 +822,8 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[str] app_id: The App ID associated with this Application Insights component.
         :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] connection_string: The Connection String for this Application Insights component. (Sensitive)
-        :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
-        :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
+        :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
+        :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         :param pulumi.Input[bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
@@ -890,17 +890,17 @@ class Insights(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyDataCapInGb")
-    def daily_data_cap_in_gb(self) -> pulumi.Output[float]:
+    def daily_data_cap_in_gb(self) -> pulumi.Output[Optional[float]]:
         """
-        Specifies the Application Insights component daily data volume cap in GB.
+        Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
         """
         return pulumi.get(self, "daily_data_cap_in_gb")
 
     @property
     @pulumi.getter(name="dailyDataCapNotificationsDisabled")
-    def daily_data_cap_notifications_disabled(self) -> pulumi.Output[bool]:
+    def daily_data_cap_notifications_disabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if a notification email will be send when the daily data volume cap is met.
+        Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         """
         return pulumi.get(self, "daily_data_cap_notifications_disabled")
 

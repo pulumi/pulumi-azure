@@ -94,14 +94,6 @@ export class SubscriptionPolicyRemediation extends pulumi.CustomResource {
      */
     public readonly policyAssignmentId!: pulumi.Output<string>;
     /**
-     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     *
-     * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-     *
-     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-     */
-    public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
-    /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
     public readonly policyDefinitionReferenceId!: pulumi.Output<string | undefined>;
@@ -136,7 +128,6 @@ export class SubscriptionPolicyRemediation extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parallelDeployments"] = state ? state.parallelDeployments : undefined;
             resourceInputs["policyAssignmentId"] = state ? state.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
             resourceInputs["policyDefinitionReferenceId"] = state ? state.policyDefinitionReferenceId : undefined;
             resourceInputs["resourceCount"] = state ? state.resourceCount : undefined;
             resourceInputs["resourceDiscoveryMode"] = state ? state.resourceDiscoveryMode : undefined;
@@ -154,7 +145,6 @@ export class SubscriptionPolicyRemediation extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
             resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
             resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
             resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
@@ -189,14 +179,6 @@ export interface SubscriptionPolicyRemediationState {
      * The ID of the Policy Assignment that should be remediated.
      */
     policyAssignmentId?: pulumi.Input<string>;
-    /**
-     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     *
-     * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-     *
-     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-     */
-    policyDefinitionId?: pulumi.Input<string>;
     /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
@@ -239,14 +221,6 @@ export interface SubscriptionPolicyRemediationArgs {
      * The ID of the Policy Assignment that should be remediated.
      */
     policyAssignmentId: pulumi.Input<string>;
-    /**
-     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     *
-     * > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-     *
-     * @deprecated `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-     */
-    policyDefinitionId?: pulumi.Input<string>;
     /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -125,12 +125,6 @@ type ResourcePolicyRemediation struct {
 	ParallelDeployments pulumi.IntPtrOutput `pulumi:"parallelDeployments"`
 	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringOutput `pulumi:"policyAssignmentId"`
-	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-	//
-	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrOutput `pulumi:"policyDefinitionReferenceId"`
 	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
@@ -187,12 +181,6 @@ type resourcePolicyRemediationState struct {
 	ParallelDeployments *int `pulumi:"parallelDeployments"`
 	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
-	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-	//
-	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
@@ -214,12 +202,6 @@ type ResourcePolicyRemediationState struct {
 	ParallelDeployments pulumi.IntPtrInput
 	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringPtrInput
-	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-	//
-	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-	PolicyDefinitionId pulumi.StringPtrInput
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
 	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
@@ -245,12 +227,6 @@ type resourcePolicyRemediationArgs struct {
 	ParallelDeployments *int `pulumi:"parallelDeployments"`
 	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId string `pulumi:"policyAssignmentId"`
-	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-	//
-	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
@@ -273,12 +249,6 @@ type ResourcePolicyRemediationArgs struct {
 	ParallelDeployments pulumi.IntPtrInput
 	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringInput
-	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-	//
-	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-	PolicyDefinitionId pulumi.StringPtrInput
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
 	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
@@ -399,15 +369,6 @@ func (o ResourcePolicyRemediationOutput) ParallelDeployments() pulumi.IntPtrOutp
 // The ID of the Policy Assignment that should be remediated.
 func (o ResourcePolicyRemediationOutput) PolicyAssignmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringOutput { return v.PolicyAssignmentId }).(pulumi.StringOutput)
-}
-
-// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-//
-// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-//
-// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-func (o ResourcePolicyRemediationOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
 }
 
 // The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.

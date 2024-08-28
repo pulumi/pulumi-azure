@@ -78,12 +78,10 @@ import * as hdinsight from "./hdinsight";
 import * as healthcare from "./healthcare";
 import * as hpc from "./hpc";
 import * as hsm from "./hsm";
-import * as hybrid from "./hybrid";
 import * as iot from "./iot";
 import * as iotcentral from "./iotcentral";
 import * as keyvault from "./keyvault";
 import * as kusto from "./kusto";
-import * as lab from "./lab";
 import * as lb from "./lb";
 import * as lighthouse from "./lighthouse";
 import * as loadtest from "./loadtest";
@@ -97,10 +95,8 @@ import * as management from "./management";
 import * as managementgroups from "./managementgroups";
 import * as managementresource from "./managementresource";
 import * as maps from "./maps";
-import * as mariadb from "./mariadb";
 import * as marketplace from "./marketplace";
 import * as media from "./media";
-import * as mediaservices from "./mediaservices";
 import * as mixedreality from "./mixedreality";
 import * as mobile from "./mobile";
 import * as monitoring from "./monitoring";
@@ -137,7 +133,6 @@ import * as servicebus from "./servicebus";
 import * as servicefabric from "./servicefabric";
 import * as signalr from "./signalr";
 import * as siterecovery from "./siterecovery";
-import * as sql from "./sql";
 import * as stack from "./stack";
 import * as storage from "./storage";
 import * as streamanalytics from "./streamanalytics";
@@ -145,7 +140,6 @@ import * as synapse from "./synapse";
 import * as systemcenter from "./systemcenter";
 import * as trafficmanager from "./trafficmanager";
 import * as types from "./types";
-import * as videoanalyzer from "./videoanalyzer";
 import * as voice from "./voice";
 import * as waf from "./waf";
 import * as webpubsub from "./webpubsub";
@@ -216,12 +210,10 @@ export {
     healthcare,
     hpc,
     hsm,
-    hybrid,
     iot,
     iotcentral,
     keyvault,
     kusto,
-    lab,
     lb,
     lighthouse,
     loadtest,
@@ -235,10 +227,8 @@ export {
     managementgroups,
     managementresource,
     maps,
-    mariadb,
     marketplace,
     media,
-    mediaservices,
     mixedreality,
     mobile,
     monitoring,
@@ -275,7 +265,6 @@ export {
     servicefabric,
     signalr,
     siterecovery,
-    sql,
     stack,
     storage,
     streamanalytics,
@@ -283,7 +272,6 @@ export {
     systemcenter,
     trafficmanager,
     types,
-    videoanalyzer,
     voice,
     waf,
     webpubsub,

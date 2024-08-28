@@ -33,6 +33,7 @@ class SharedImageArgs:
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
+                 hibernation_enabled: Optional[pulumi.Input[bool]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
@@ -63,6 +64,7 @@ class SharedImageArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] hibernation_enabled: Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_recommended_memory_in_gb: Maximum memory in GB recommended for the Image.
@@ -100,6 +102,8 @@ class SharedImageArgs:
             pulumi.set(__self__, "end_of_life_date", end_of_life_date)
         if eula is not None:
             pulumi.set(__self__, "eula", eula)
+        if hibernation_enabled is not None:
+            pulumi.set(__self__, "hibernation_enabled", hibernation_enabled)
         if hyper_v_generation is not None:
             pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if location is not None:
@@ -274,6 +278,18 @@ class SharedImageArgs:
     @eula.setter
     def eula(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "eula", value)
+
+    @property
+    @pulumi.getter(name="hibernationEnabled")
+    def hibernation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "hibernation_enabled")
+
+    @hibernation_enabled.setter
+    def hibernation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hibernation_enabled", value)
 
     @property
     @pulumi.getter(name="hyperVGeneration")
@@ -458,6 +474,7 @@ class _SharedImageState:
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
+                 hibernation_enabled: Optional[pulumi.Input[bool]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input['SharedImageIdentifierArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -488,6 +505,7 @@ class _SharedImageState:
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] hibernation_enabled: Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input['SharedImageIdentifierArgs'] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -526,6 +544,8 @@ class _SharedImageState:
             pulumi.set(__self__, "eula", eula)
         if gallery_name is not None:
             pulumi.set(__self__, "gallery_name", gallery_name)
+        if hibernation_enabled is not None:
+            pulumi.set(__self__, "hibernation_enabled", hibernation_enabled)
         if hyper_v_generation is not None:
             pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if identifier is not None:
@@ -670,6 +690,18 @@ class _SharedImageState:
     @gallery_name.setter
     def gallery_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gallery_name", value)
+
+    @property
+    @pulumi.getter(name="hibernationEnabled")
+    def hibernation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "hibernation_enabled")
+
+    @hibernation_enabled.setter
+    def hibernation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hibernation_enabled", value)
 
     @property
     @pulumi.getter(name="hyperVGeneration")
@@ -892,6 +924,7 @@ class SharedImage(pulumi.CustomResource):
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
+                 hibernation_enabled: Optional[pulumi.Input[bool]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -965,6 +998,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] hibernation_enabled: Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict']] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -1057,6 +1091,7 @@ class SharedImage(pulumi.CustomResource):
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
+                 hibernation_enabled: Optional[pulumi.Input[bool]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1094,6 +1129,7 @@ class SharedImage(pulumi.CustomResource):
             if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")
             __props__.__dict__["gallery_name"] = gallery_name
+            __props__.__dict__["hibernation_enabled"] = hibernation_enabled
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
             if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
@@ -1136,6 +1172,7 @@ class SharedImage(pulumi.CustomResource):
             end_of_life_date: Optional[pulumi.Input[str]] = None,
             eula: Optional[pulumi.Input[str]] = None,
             gallery_name: Optional[pulumi.Input[str]] = None,
+            hibernation_enabled: Optional[pulumi.Input[bool]] = None,
             hyper_v_generation: Optional[pulumi.Input[str]] = None,
             identifier: Optional[pulumi.Input[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1171,6 +1208,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] hibernation_enabled: Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['SharedImageIdentifierArgs', 'SharedImageIdentifierArgsDict']] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -1204,6 +1242,7 @@ class SharedImage(pulumi.CustomResource):
         __props__.__dict__["end_of_life_date"] = end_of_life_date
         __props__.__dict__["eula"] = eula
         __props__.__dict__["gallery_name"] = gallery_name
+        __props__.__dict__["hibernation_enabled"] = hibernation_enabled
         __props__.__dict__["hyper_v_generation"] = hyper_v_generation
         __props__.__dict__["identifier"] = identifier
         __props__.__dict__["location"] = location
@@ -1296,6 +1335,14 @@ class SharedImage(pulumi.CustomResource):
         Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gallery_name")
+
+    @property
+    @pulumi.getter(name="hibernationEnabled")
+    def hibernation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "hibernation_enabled")
 
     @property
     @pulumi.getter(name="hyperVGeneration")

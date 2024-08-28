@@ -8,13 +8,11 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages as an Azure Container Group instance.
-//
-// > **Note** `networkProfileId` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `containerservice.Group` that rely on `networkProfileId`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnetIds` instead.
 //
 // ## Example Usage
 //
@@ -25,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

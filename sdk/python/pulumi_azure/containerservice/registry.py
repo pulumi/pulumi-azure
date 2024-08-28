@@ -36,9 +36,9 @@ class RegistryArgs:
                  network_rule_set: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 retention_policy: Optional[pulumi.Input['RegistryRetentionPolicyArgs']] = None,
+                 retention_policy_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
+                 trust_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Registry resource.
@@ -50,7 +50,7 @@ class RegistryArgs:
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
                
-               > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+               > **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
                
                > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
@@ -65,9 +65,9 @@ class RegistryArgs:
         :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
-        :param pulumi.Input['RegistryRetentionPolicyArgs'] retention_policy: A `retention_policy` block as documented below.
+        :param pulumi.Input[int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['RegistryTrustPolicyArgs'] trust_policy: A `trust_policy` block as documented below.
+        :param pulumi.Input[bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -98,12 +98,12 @@ class RegistryArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if quarantine_policy_enabled is not None:
             pulumi.set(__self__, "quarantine_policy_enabled", quarantine_policy_enabled)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+        if retention_policy_in_days is not None:
+            pulumi.set(__self__, "retention_policy_in_days", retention_policy_in_days)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if trust_policy is not None:
-            pulumi.set(__self__, "trust_policy", trust_policy)
+        if trust_policy_enabled is not None:
+            pulumi.set(__self__, "trust_policy_enabled", trust_policy_enabled)
         if zone_redundancy_enabled is not None:
             pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
 
@@ -185,7 +185,7 @@ class RegistryArgs:
         """
         Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
 
-        > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        > **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "export_policy_enabled")
 
@@ -296,16 +296,16 @@ class RegistryArgs:
         pulumi.set(self, "quarantine_policy_enabled", value)
 
     @property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input['RegistryRetentionPolicyArgs']]:
+    @pulumi.getter(name="retentionPolicyInDays")
+    def retention_policy_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        A `retention_policy` block as documented below.
+        The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
         """
-        return pulumi.get(self, "retention_policy")
+        return pulumi.get(self, "retention_policy_in_days")
 
-    @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['RegistryRetentionPolicyArgs']]):
-        pulumi.set(self, "retention_policy", value)
+    @retention_policy_in_days.setter
+    def retention_policy_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_policy_in_days", value)
 
     @property
     @pulumi.getter
@@ -320,16 +320,16 @@ class RegistryArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="trustPolicy")
-    def trust_policy(self) -> Optional[pulumi.Input['RegistryTrustPolicyArgs']]:
+    @pulumi.getter(name="trustPolicyEnabled")
+    def trust_policy_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        A `trust_policy` block as documented below.
+        Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         """
-        return pulumi.get(self, "trust_policy")
+        return pulumi.get(self, "trust_policy_enabled")
 
-    @trust_policy.setter
-    def trust_policy(self, value: Optional[pulumi.Input['RegistryTrustPolicyArgs']]):
-        pulumi.set(self, "trust_policy", value)
+    @trust_policy_enabled.setter
+    def trust_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trust_policy_enabled", value)
 
     @property
     @pulumi.getter(name="zoneRedundancyEnabled")
@@ -364,10 +364,10 @@ class _RegistryState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_policy: Optional[pulumi.Input['RegistryRetentionPolicyArgs']] = None,
+                 retention_policy_in_days: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
+                 trust_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Registry resources.
@@ -379,7 +379,7 @@ class _RegistryState:
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
                
-               > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+               > **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
                
                > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
@@ -396,10 +396,10 @@ class _RegistryState:
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-        :param pulumi.Input['RegistryRetentionPolicyArgs'] retention_policy: A `retention_policy` block as documented below.
+        :param pulumi.Input[int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
         :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['RegistryTrustPolicyArgs'] trust_policy: A `trust_policy` block as documented below.
+        :param pulumi.Input[bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         if admin_enabled is not None:
@@ -436,14 +436,14 @@ class _RegistryState:
             pulumi.set(__self__, "quarantine_policy_enabled", quarantine_policy_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+        if retention_policy_in_days is not None:
+            pulumi.set(__self__, "retention_policy_in_days", retention_policy_in_days)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if trust_policy is not None:
-            pulumi.set(__self__, "trust_policy", trust_policy)
+        if trust_policy_enabled is not None:
+            pulumi.set(__self__, "trust_policy_enabled", trust_policy_enabled)
         if zone_redundancy_enabled is not None:
             pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
 
@@ -525,7 +525,7 @@ class _RegistryState:
         """
         Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
 
-        > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        > **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "export_policy_enabled")
 
@@ -660,16 +660,16 @@ class _RegistryState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input['RegistryRetentionPolicyArgs']]:
+    @pulumi.getter(name="retentionPolicyInDays")
+    def retention_policy_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        A `retention_policy` block as documented below.
+        The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
         """
-        return pulumi.get(self, "retention_policy")
+        return pulumi.get(self, "retention_policy_in_days")
 
-    @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['RegistryRetentionPolicyArgs']]):
-        pulumi.set(self, "retention_policy", value)
+    @retention_policy_in_days.setter
+    def retention_policy_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_policy_in_days", value)
 
     @property
     @pulumi.getter
@@ -696,16 +696,16 @@ class _RegistryState:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="trustPolicy")
-    def trust_policy(self) -> Optional[pulumi.Input['RegistryTrustPolicyArgs']]:
+    @pulumi.getter(name="trustPolicyEnabled")
+    def trust_policy_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        A `trust_policy` block as documented below.
+        Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         """
-        return pulumi.get(self, "trust_policy")
+        return pulumi.get(self, "trust_policy_enabled")
 
-    @trust_policy.setter
-    def trust_policy(self, value: Optional[pulumi.Input['RegistryTrustPolicyArgs']]):
-        pulumi.set(self, "trust_policy", value)
+    @trust_policy_enabled.setter
+    def trust_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trust_policy_enabled", value)
 
     @property
     @pulumi.getter(name="zoneRedundancyEnabled")
@@ -739,10 +739,10 @@ class Registry(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_policy: Optional[pulumi.Input[Union['RegistryRetentionPolicyArgs', 'RegistryRetentionPolicyArgsDict']]] = None,
+                 retention_policy_in_days: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trust_policy: Optional[pulumi.Input[Union['RegistryTrustPolicyArgs', 'RegistryTrustPolicyArgsDict']]] = None,
+                 trust_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -775,37 +775,6 @@ class Registry(pulumi.CustomResource):
                     "tags": {},
                 },
             ])
-        ```
-
-        ### Encryption)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            name="registry-uai")
-        example = azure.keyvault.get_key(name="super-secret",
-            key_vault_id=existing["id"])
-        acr = azure.containerservice.Registry("acr",
-            name="containerRegistry1",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium",
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            },
-            encryption={
-                "enabled": True,
-                "key_vault_key_id": example.id,
-                "identity_client_id": example_user_assigned_identity.client_id,
-            })
         ```
 
         ### Attaching A Container Registry To A Kubernetes Cluster)
@@ -861,7 +830,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
                
-               > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+               > **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]] georeplications: A `georeplications` block as documented below.
                
                > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
@@ -877,10 +846,10 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['RegistryRetentionPolicyArgs', 'RegistryRetentionPolicyArgsDict']] retention_policy: A `retention_policy` block as documented below.
+        :param pulumi.Input[int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
         :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['RegistryTrustPolicyArgs', 'RegistryTrustPolicyArgsDict']] trust_policy: A `trust_policy` block as documented below.
+        :param pulumi.Input[bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         ...
@@ -919,37 +888,6 @@ class Registry(pulumi.CustomResource):
                     "tags": {},
                 },
             ])
-        ```
-
-        ### Encryption)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            name="registry-uai")
-        example = azure.keyvault.get_key(name="super-secret",
-            key_vault_id=existing["id"])
-        acr = azure.containerservice.Registry("acr",
-            name="containerRegistry1",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku="Premium",
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            },
-            encryption={
-                "enabled": True,
-                "key_vault_key_id": example.id,
-                "identity_client_id": example_user_assigned_identity.client_id,
-            })
         ```
 
         ### Attaching A Container Registry To A Kubernetes Cluster)
@@ -1026,10 +964,10 @@ class Registry(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_policy: Optional[pulumi.Input[Union['RegistryRetentionPolicyArgs', 'RegistryRetentionPolicyArgsDict']]] = None,
+                 retention_policy_in_days: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trust_policy: Optional[pulumi.Input[Union['RegistryTrustPolicyArgs', 'RegistryTrustPolicyArgsDict']]] = None,
+                 trust_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1056,12 +994,12 @@ class Registry(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["retention_policy"] = retention_policy
+            __props__.__dict__["retention_policy_in_days"] = retention_policy_in_days
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["trust_policy"] = trust_policy
+            __props__.__dict__["trust_policy_enabled"] = trust_policy_enabled
             __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
             __props__.__dict__["admin_password"] = None
             __props__.__dict__["admin_username"] = None
@@ -1095,10 +1033,10 @@ class Registry(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            retention_policy: Optional[pulumi.Input[Union['RegistryRetentionPolicyArgs', 'RegistryRetentionPolicyArgsDict']]] = None,
+            retention_policy_in_days: Optional[pulumi.Input[int]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            trust_policy: Optional[pulumi.Input[Union['RegistryTrustPolicyArgs', 'RegistryTrustPolicyArgsDict']]] = None,
+            trust_policy_enabled: Optional[pulumi.Input[bool]] = None,
             zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None) -> 'Registry':
         """
         Get an existing Registry resource's state with the given name, id, and optional extra
@@ -1115,7 +1053,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
                
-               > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+               > **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]] georeplications: A `georeplications` block as documented below.
                
                > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
@@ -1132,10 +1070,10 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['RegistryRetentionPolicyArgs', 'RegistryRetentionPolicyArgsDict']] retention_policy: A `retention_policy` block as documented below.
+        :param pulumi.Input[int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
         :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['RegistryTrustPolicyArgs', 'RegistryTrustPolicyArgsDict']] trust_policy: A `trust_policy` block as documented below.
+        :param pulumi.Input[bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1159,10 +1097,10 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["quarantine_policy_enabled"] = quarantine_policy_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
-        __props__.__dict__["retention_policy"] = retention_policy
+        __props__.__dict__["retention_policy_in_days"] = retention_policy_in_days
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
-        __props__.__dict__["trust_policy"] = trust_policy
+        __props__.__dict__["trust_policy_enabled"] = trust_policy_enabled
         __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
         return Registry(resource_name, opts=opts, __props__=__props__)
 
@@ -1220,7 +1158,7 @@ class Registry(pulumi.CustomResource):
         """
         Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
 
-        > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        > **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "export_policy_enabled")
 
@@ -1311,12 +1249,12 @@ class Registry(pulumi.CustomResource):
         return pulumi.get(self, "resource_group_name")
 
     @property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> pulumi.Output['outputs.RegistryRetentionPolicy']:
+    @pulumi.getter(name="retentionPolicyInDays")
+    def retention_policy_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        A `retention_policy` block as documented below.
+        The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
         """
-        return pulumi.get(self, "retention_policy")
+        return pulumi.get(self, "retention_policy_in_days")
 
     @property
     @pulumi.getter
@@ -1335,12 +1273,12 @@ class Registry(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="trustPolicy")
-    def trust_policy(self) -> pulumi.Output['outputs.RegistryTrustPolicy']:
+    @pulumi.getter(name="trustPolicyEnabled")
+    def trust_policy_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        A `trust_policy` block as documented below.
+        Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         """
-        return pulumi.get(self, "trust_policy")
+        return pulumi.get(self, "trust_policy_enabled")
 
     @property
     @pulumi.getter(name="zoneRedundancyEnabled")

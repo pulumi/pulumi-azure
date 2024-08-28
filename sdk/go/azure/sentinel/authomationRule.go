@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/sentinel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,13 +92,7 @@ type AuthomationRule struct {
 	// > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
 	ActionPlaybooks AuthomationRuleActionPlaybookArrayOutput `pulumi:"actionPlaybooks"`
 	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
-	ConditionJson pulumi.StringOutput `pulumi:"conditionJson"`
-	// One or more `condition` blocks as defined below.
-	//
-	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
-	//
-	// Deprecated: This is deprecated in favor of `conditionJson`
-	Conditions AuthomationRuleConditionArrayOutput `pulumi:"conditions"`
+	ConditionJson pulumi.StringPtrOutput `pulumi:"conditionJson"`
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
@@ -164,12 +158,6 @@ type authomationRuleState struct {
 	ActionPlaybooks []AuthomationRuleActionPlaybook `pulumi:"actionPlaybooks"`
 	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
 	ConditionJson *string `pulumi:"conditionJson"`
-	// One or more `condition` blocks as defined below.
-	//
-	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
-	//
-	// Deprecated: This is deprecated in favor of `conditionJson`
-	Conditions []AuthomationRuleCondition `pulumi:"conditions"`
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName *string `pulumi:"displayName"`
 	// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
@@ -197,12 +185,6 @@ type AuthomationRuleState struct {
 	ActionPlaybooks AuthomationRuleActionPlaybookArrayInput
 	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
 	ConditionJson pulumi.StringPtrInput
-	// One or more `condition` blocks as defined below.
-	//
-	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
-	//
-	// Deprecated: This is deprecated in favor of `conditionJson`
-	Conditions AuthomationRuleConditionArrayInput
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName pulumi.StringPtrInput
 	// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
@@ -234,12 +216,6 @@ type authomationRuleArgs struct {
 	ActionPlaybooks []AuthomationRuleActionPlaybook `pulumi:"actionPlaybooks"`
 	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
 	ConditionJson *string `pulumi:"conditionJson"`
-	// One or more `condition` blocks as defined below.
-	//
-	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
-	//
-	// Deprecated: This is deprecated in favor of `conditionJson`
-	Conditions []AuthomationRuleCondition `pulumi:"conditions"`
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName string `pulumi:"displayName"`
 	// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
@@ -268,12 +244,6 @@ type AuthomationRuleArgs struct {
 	ActionPlaybooks AuthomationRuleActionPlaybookArrayInput
 	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
 	ConditionJson pulumi.StringPtrInput
-	// One or more `condition` blocks as defined below.
-	//
-	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
-	//
-	// Deprecated: This is deprecated in favor of `conditionJson`
-	Conditions AuthomationRuleConditionArrayInput
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName pulumi.StringInput
 	// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
@@ -392,17 +362,8 @@ func (o AuthomationRuleOutput) ActionPlaybooks() AuthomationRuleActionPlaybookAr
 }
 
 // A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
-func (o AuthomationRuleOutput) ConditionJson() pulumi.StringOutput {
-	return o.ApplyT(func(v *AuthomationRule) pulumi.StringOutput { return v.ConditionJson }).(pulumi.StringOutput)
-}
-
-// One or more `condition` blocks as defined below.
-//
-// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
-//
-// Deprecated: This is deprecated in favor of `conditionJson`
-func (o AuthomationRuleOutput) Conditions() AuthomationRuleConditionArrayOutput {
-	return o.ApplyT(func(v *AuthomationRule) AuthomationRuleConditionArrayOutput { return v.Conditions }).(AuthomationRuleConditionArrayOutput)
+func (o AuthomationRuleOutput) ConditionJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthomationRule) pulumi.StringPtrOutput { return v.ConditionJson }).(pulumi.StringPtrOutput)
 }
 
 // The display name which should be used for this Sentinel Automation Rule.

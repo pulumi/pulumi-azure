@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,10 +88,6 @@ type GetServiceBusNamespaceResult struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether or not this ServiceBus Namespace is zone redundant.
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant bool `pulumi:"zoneRedundant"`
 }
 
 func GetServiceBusNamespaceOutput(ctx *pulumi.Context, args GetServiceBusNamespaceOutputArgs, opts ...pulumi.InvokeOption) GetServiceBusNamespaceResultOutput {
@@ -197,13 +193,6 @@ func (o GetServiceBusNamespaceResultOutput) Sku() pulumi.StringOutput {
 // A mapping of tags assigned to the resource.
 func (o GetServiceBusNamespaceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetServiceBusNamespaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Whether or not this ServiceBus Namespace is zone redundant.
-//
-// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-func (o GetServiceBusNamespaceResultOutput) ZoneRedundant() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetServiceBusNamespaceResult) bool { return v.ZoneRedundant }).(pulumi.BoolOutput)
 }
 
 func init() {

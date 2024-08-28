@@ -15,11 +15,6 @@ export const getDevice: typeof import("./getDevice").getDevice = null as any;
 export const getDeviceOutput: typeof import("./getDevice").getDeviceOutput = null as any;
 utilities.lazyLoad(exports, ["getDevice","getDeviceOutput"], () => require("./getDevice"));
 
-export { OrderArgs, OrderState } from "./order";
-export type Order = import("./order").Order;
-export const Order: typeof import("./order").Order = null as any;
-utilities.lazyLoad(exports, ["Order"], () => require("./order"));
-
 
 const _module = {
     version: utilities.getVersion(),
@@ -27,12 +22,9 @@ const _module = {
         switch (type) {
             case "azure:databoxedge/device:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "azure:databoxedge/order:Order":
-                return new Order(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "databoxedge/device", _module)
-pulumi.runtime.registerResourceModule("azure", "databoxedge/order", _module)

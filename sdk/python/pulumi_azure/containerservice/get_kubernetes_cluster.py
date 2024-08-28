@@ -27,7 +27,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, current_kubernetes_version=None, custom_ca_trust_certificates_base64s=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_management_services=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, microsoft_defenders=None, name=None, network_profiles=None, node_resource_group=None, node_resource_group_id=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_mesh_profiles=None, service_principals=None, storage_profiles=None, tags=None, windows_profiles=None):
+    def __init__(__self__, aci_connector_linuxes=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, azure_active_directory_role_based_access_controls=None, azure_policy_enabled=None, current_kubernetes_version=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, http_application_routing_enabled=None, http_application_routing_zone_name=None, id=None, identities=None, ingress_application_gateways=None, key_management_services=None, key_vault_secrets_providers=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, microsoft_defenders=None, name=None, network_profiles=None, node_resource_group=None, node_resource_group_id=None, oidc_issuer_enabled=None, oidc_issuer_url=None, oms_agents=None, open_service_mesh_enabled=None, private_cluster_enabled=None, private_fqdn=None, resource_group_name=None, role_based_access_control_enabled=None, service_mesh_profiles=None, service_principals=None, storage_profiles=None, tags=None, windows_profiles=None):
         if aci_connector_linuxes and not isinstance(aci_connector_linuxes, list):
             raise TypeError("Expected argument 'aci_connector_linuxes' to be a list")
         pulumi.set(__self__, "aci_connector_linuxes", aci_connector_linuxes)
@@ -46,9 +46,6 @@ class GetKubernetesClusterResult:
         if current_kubernetes_version and not isinstance(current_kubernetes_version, str):
             raise TypeError("Expected argument 'current_kubernetes_version' to be a str")
         pulumi.set(__self__, "current_kubernetes_version", current_kubernetes_version)
-        if custom_ca_trust_certificates_base64s and not isinstance(custom_ca_trust_certificates_base64s, list):
-            raise TypeError("Expected argument 'custom_ca_trust_certificates_base64s' to be a list")
-        pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
             raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")
         pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
@@ -205,12 +202,6 @@ class GetKubernetesClusterResult:
         Contains the current version of Kubernetes running on the Cluster.
         """
         return pulumi.get(self, "current_kubernetes_version")
-
-    @property
-    @pulumi.getter(name="customCaTrustCertificatesBase64s")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def custom_ca_trust_certificates_base64s(self) -> Sequence[str]:
-        return pulumi.get(self, "custom_ca_trust_certificates_base64s")
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -507,7 +498,6 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             azure_active_directory_role_based_access_controls=self.azure_active_directory_role_based_access_controls,
             azure_policy_enabled=self.azure_policy_enabled,
             current_kubernetes_version=self.current_kubernetes_version,
-            custom_ca_trust_certificates_base64s=self.custom_ca_trust_certificates_base64s,
             disk_encryption_set_id=self.disk_encryption_set_id,
             dns_prefix=self.dns_prefix,
             fqdn=self.fqdn,
@@ -579,7 +569,6 @@ def get_kubernetes_cluster(name: Optional[str] = None,
         azure_active_directory_role_based_access_controls=pulumi.get(__ret__, 'azure_active_directory_role_based_access_controls'),
         azure_policy_enabled=pulumi.get(__ret__, 'azure_policy_enabled'),
         current_kubernetes_version=pulumi.get(__ret__, 'current_kubernetes_version'),
-        custom_ca_trust_certificates_base64s=pulumi.get(__ret__, 'custom_ca_trust_certificates_base64s'),
         disk_encryption_set_id=pulumi.get(__ret__, 'disk_encryption_set_id'),
         dns_prefix=pulumi.get(__ret__, 'dns_prefix'),
         fqdn=pulumi.get(__ret__, 'fqdn'),

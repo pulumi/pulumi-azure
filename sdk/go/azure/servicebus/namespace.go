@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,12 +84,12 @@ type Namespace struct {
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
-	MinimumTlsVersion pulumi.StringOutput `pulumi:"minimumTlsVersion"`
+	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An `networkRuleSet` block as defined below.
-	NetworkRuleSet NamespaceNetworkRuleSetTypeOutput `pulumi:"networkRuleSet"`
+	NetworkRuleSet NamespaceNetworkRuleSetOutput `pulumi:"networkRuleSet"`
 	// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 	//
 	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
@@ -103,12 +103,6 @@ type Namespace struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant pulumi.BoolOutput `pulumi:"zoneRedundant"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -180,12 +174,12 @@ type namespaceState struct {
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `networkRuleSet` block as defined below.
-	NetworkRuleSet *NamespaceNetworkRuleSetType `pulumi:"networkRuleSet"`
+	NetworkRuleSet *NamespaceNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 	//
 	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
@@ -199,12 +193,6 @@ type namespaceState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type NamespaceState struct {
@@ -228,12 +216,12 @@ type NamespaceState struct {
 	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `networkRuleSet` block as defined below.
-	NetworkRuleSet NamespaceNetworkRuleSetTypePtrInput
+	NetworkRuleSet NamespaceNetworkRuleSetPtrInput
 	// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 	//
 	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
@@ -247,12 +235,6 @@ type NamespaceState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -270,12 +252,12 @@ type namespaceArgs struct {
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `networkRuleSet` block as defined below.
-	NetworkRuleSet *NamespaceNetworkRuleSetType `pulumi:"networkRuleSet"`
+	NetworkRuleSet *NamespaceNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 	//
 	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
@@ -289,12 +271,6 @@ type namespaceArgs struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Namespace resource.
@@ -309,12 +285,12 @@ type NamespaceArgs struct {
 	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `networkRuleSet` block as defined below.
-	NetworkRuleSet NamespaceNetworkRuleSetTypePtrInput
+	NetworkRuleSet NamespaceNetworkRuleSetPtrInput
 	// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 	//
 	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
@@ -328,12 +304,6 @@ type NamespaceArgs struct {
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -473,9 +443,9 @@ func (o NamespaceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
-func (o NamespaceOutput) MinimumTlsVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.MinimumTlsVersion }).(pulumi.StringOutput)
+// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+func (o NamespaceOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
@@ -484,8 +454,8 @@ func (o NamespaceOutput) Name() pulumi.StringOutput {
 }
 
 // An `networkRuleSet` block as defined below.
-func (o NamespaceOutput) NetworkRuleSet() NamespaceNetworkRuleSetTypeOutput {
-	return o.ApplyT(func(v *Namespace) NamespaceNetworkRuleSetTypeOutput { return v.NetworkRuleSet }).(NamespaceNetworkRuleSetTypeOutput)
+func (o NamespaceOutput) NetworkRuleSet() NamespaceNetworkRuleSetOutput {
+	return o.ApplyT(func(v *Namespace) NamespaceNetworkRuleSetOutput { return v.NetworkRuleSet }).(NamespaceNetworkRuleSetOutput)
 }
 
 // Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
@@ -514,15 +484,6 @@ func (o NamespaceOutput) Sku() pulumi.StringOutput {
 // A mapping of tags to assign to the resource.
 func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-//
-// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
-//
-// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-func (o NamespaceOutput) ZoneRedundant() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Namespace) pulumi.BoolOutput { return v.ZoneRedundant }).(pulumi.BoolOutput)
 }
 
 type NamespaceArrayOutput struct{ *pulumi.OutputState }

@@ -172,7 +172,7 @@ export class AuthorizationRule extends pulumi.CustomResource {
             resourceInputs["secondaryConnectionString"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["primaryConnectionString", "secondaryConnectionString"] };
+        const secretOpts = { additionalSecretOutputs: ["primaryAccessKey", "primaryConnectionString", "secondaryAccessKey", "secondaryConnectionString"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(AuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -223,6 +223,181 @@ func (o HubApnsCredentialPtrOutput) Token() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+type HubBrowserCredential struct {
+	// The subject name of web push.
+	Subject string `pulumi:"subject"`
+	// The Voluntary Application Server Identification (VAPID) private key.
+	VapidPrivateKey string `pulumi:"vapidPrivateKey"`
+	// The Voluntary Application Server Identification (VAPID) public key.
+	VapidPublicKey string `pulumi:"vapidPublicKey"`
+}
+
+// HubBrowserCredentialInput is an input type that accepts HubBrowserCredentialArgs and HubBrowserCredentialOutput values.
+// You can construct a concrete instance of `HubBrowserCredentialInput` via:
+//
+//	HubBrowserCredentialArgs{...}
+type HubBrowserCredentialInput interface {
+	pulumi.Input
+
+	ToHubBrowserCredentialOutput() HubBrowserCredentialOutput
+	ToHubBrowserCredentialOutputWithContext(context.Context) HubBrowserCredentialOutput
+}
+
+type HubBrowserCredentialArgs struct {
+	// The subject name of web push.
+	Subject pulumi.StringInput `pulumi:"subject"`
+	// The Voluntary Application Server Identification (VAPID) private key.
+	VapidPrivateKey pulumi.StringInput `pulumi:"vapidPrivateKey"`
+	// The Voluntary Application Server Identification (VAPID) public key.
+	VapidPublicKey pulumi.StringInput `pulumi:"vapidPublicKey"`
+}
+
+func (HubBrowserCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubBrowserCredential)(nil)).Elem()
+}
+
+func (i HubBrowserCredentialArgs) ToHubBrowserCredentialOutput() HubBrowserCredentialOutput {
+	return i.ToHubBrowserCredentialOutputWithContext(context.Background())
+}
+
+func (i HubBrowserCredentialArgs) ToHubBrowserCredentialOutputWithContext(ctx context.Context) HubBrowserCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubBrowserCredentialOutput)
+}
+
+func (i HubBrowserCredentialArgs) ToHubBrowserCredentialPtrOutput() HubBrowserCredentialPtrOutput {
+	return i.ToHubBrowserCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i HubBrowserCredentialArgs) ToHubBrowserCredentialPtrOutputWithContext(ctx context.Context) HubBrowserCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubBrowserCredentialOutput).ToHubBrowserCredentialPtrOutputWithContext(ctx)
+}
+
+// HubBrowserCredentialPtrInput is an input type that accepts HubBrowserCredentialArgs, HubBrowserCredentialPtr and HubBrowserCredentialPtrOutput values.
+// You can construct a concrete instance of `HubBrowserCredentialPtrInput` via:
+//
+//	        HubBrowserCredentialArgs{...}
+//
+//	or:
+//
+//	        nil
+type HubBrowserCredentialPtrInput interface {
+	pulumi.Input
+
+	ToHubBrowserCredentialPtrOutput() HubBrowserCredentialPtrOutput
+	ToHubBrowserCredentialPtrOutputWithContext(context.Context) HubBrowserCredentialPtrOutput
+}
+
+type hubBrowserCredentialPtrType HubBrowserCredentialArgs
+
+func HubBrowserCredentialPtr(v *HubBrowserCredentialArgs) HubBrowserCredentialPtrInput {
+	return (*hubBrowserCredentialPtrType)(v)
+}
+
+func (*hubBrowserCredentialPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HubBrowserCredential)(nil)).Elem()
+}
+
+func (i *hubBrowserCredentialPtrType) ToHubBrowserCredentialPtrOutput() HubBrowserCredentialPtrOutput {
+	return i.ToHubBrowserCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i *hubBrowserCredentialPtrType) ToHubBrowserCredentialPtrOutputWithContext(ctx context.Context) HubBrowserCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubBrowserCredentialPtrOutput)
+}
+
+type HubBrowserCredentialOutput struct{ *pulumi.OutputState }
+
+func (HubBrowserCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubBrowserCredential)(nil)).Elem()
+}
+
+func (o HubBrowserCredentialOutput) ToHubBrowserCredentialOutput() HubBrowserCredentialOutput {
+	return o
+}
+
+func (o HubBrowserCredentialOutput) ToHubBrowserCredentialOutputWithContext(ctx context.Context) HubBrowserCredentialOutput {
+	return o
+}
+
+func (o HubBrowserCredentialOutput) ToHubBrowserCredentialPtrOutput() HubBrowserCredentialPtrOutput {
+	return o.ToHubBrowserCredentialPtrOutputWithContext(context.Background())
+}
+
+func (o HubBrowserCredentialOutput) ToHubBrowserCredentialPtrOutputWithContext(ctx context.Context) HubBrowserCredentialPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubBrowserCredential) *HubBrowserCredential {
+		return &v
+	}).(HubBrowserCredentialPtrOutput)
+}
+
+// The subject name of web push.
+func (o HubBrowserCredentialOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v HubBrowserCredential) string { return v.Subject }).(pulumi.StringOutput)
+}
+
+// The Voluntary Application Server Identification (VAPID) private key.
+func (o HubBrowserCredentialOutput) VapidPrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v HubBrowserCredential) string { return v.VapidPrivateKey }).(pulumi.StringOutput)
+}
+
+// The Voluntary Application Server Identification (VAPID) public key.
+func (o HubBrowserCredentialOutput) VapidPublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v HubBrowserCredential) string { return v.VapidPublicKey }).(pulumi.StringOutput)
+}
+
+type HubBrowserCredentialPtrOutput struct{ *pulumi.OutputState }
+
+func (HubBrowserCredentialPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HubBrowserCredential)(nil)).Elem()
+}
+
+func (o HubBrowserCredentialPtrOutput) ToHubBrowserCredentialPtrOutput() HubBrowserCredentialPtrOutput {
+	return o
+}
+
+func (o HubBrowserCredentialPtrOutput) ToHubBrowserCredentialPtrOutputWithContext(ctx context.Context) HubBrowserCredentialPtrOutput {
+	return o
+}
+
+func (o HubBrowserCredentialPtrOutput) Elem() HubBrowserCredentialOutput {
+	return o.ApplyT(func(v *HubBrowserCredential) HubBrowserCredential {
+		if v != nil {
+			return *v
+		}
+		var ret HubBrowserCredential
+		return ret
+	}).(HubBrowserCredentialOutput)
+}
+
+// The subject name of web push.
+func (o HubBrowserCredentialPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HubBrowserCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Subject
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Voluntary Application Server Identification (VAPID) private key.
+func (o HubBrowserCredentialPtrOutput) VapidPrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HubBrowserCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VapidPrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Voluntary Application Server Identification (VAPID) public key.
+func (o HubBrowserCredentialPtrOutput) VapidPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HubBrowserCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VapidPublicKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -648,6 +823,8 @@ func (o GetNamespaceSkuOutput) Name() pulumi.StringOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HubApnsCredentialInput)(nil)).Elem(), HubApnsCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HubApnsCredentialPtrInput)(nil)).Elem(), HubApnsCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubBrowserCredentialInput)(nil)).Elem(), HubBrowserCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubBrowserCredentialPtrInput)(nil)).Elem(), HubBrowserCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HubGcmCredentialInput)(nil)).Elem(), HubGcmCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HubGcmCredentialPtrInput)(nil)).Elem(), HubGcmCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHubApnsCredentialInput)(nil)).Elem(), GetHubApnsCredentialArgs{})
@@ -657,6 +834,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNamespaceSkuInput)(nil)).Elem(), GetNamespaceSkuArgs{})
 	pulumi.RegisterOutputType(HubApnsCredentialOutput{})
 	pulumi.RegisterOutputType(HubApnsCredentialPtrOutput{})
+	pulumi.RegisterOutputType(HubBrowserCredentialOutput{})
+	pulumi.RegisterOutputType(HubBrowserCredentialPtrOutput{})
 	pulumi.RegisterOutputType(HubGcmCredentialOutput{})
 	pulumi.RegisterOutputType(HubGcmCredentialPtrOutput{})
 	pulumi.RegisterOutputType(GetHubApnsCredentialOutput{})

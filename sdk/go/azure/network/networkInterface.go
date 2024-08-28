@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -94,7 +94,7 @@ type NetworkInterface struct {
 	// > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
 	//
 	// > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-	AcceleratedNetworkingEnabled pulumi.BoolOutput `pulumi:"acceleratedNetworkingEnabled"`
+	AcceleratedNetworkingEnabled pulumi.BoolPtrOutput `pulumi:"acceleratedNetworkingEnabled"`
 	// If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
 	AppliedDnsServers pulumi.StringArrayOutput `pulumi:"appliedDnsServers"`
 	// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
@@ -111,10 +111,6 @@ type NetworkInterface struct {
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
 	// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
-	// Deprecated: The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableAcceleratedNetworking pulumi.BoolOutput `pulumi:"enableAcceleratedNetworking"`
-	// Deprecated: The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableIpForwarding pulumi.BoolOutput `pulumi:"enableIpForwarding"`
 	// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
 	InternalDnsNameLabel pulumi.StringPtrOutput `pulumi:"internalDnsNameLabel"`
 	// Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
@@ -122,7 +118,7 @@ type NetworkInterface struct {
 	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations NetworkInterfaceIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// Should IP Forwarding be enabled? Defaults to `false`.
-	IpForwardingEnabled pulumi.BoolOutput `pulumi:"ipForwardingEnabled"`
+	IpForwardingEnabled pulumi.BoolPtrOutput `pulumi:"ipForwardingEnabled"`
 	// The location where the Network Interface should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Media Access Control (MAC) Address of the Network Interface.
@@ -199,10 +195,6 @@ type networkInterfaceState struct {
 	DnsServers []string `pulumi:"dnsServers"`
 	// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
-	// Deprecated: The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableIpForwarding *bool `pulumi:"enableIpForwarding"`
 	// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
 	InternalDnsNameLabel *string `pulumi:"internalDnsNameLabel"`
 	// Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
@@ -252,10 +244,6 @@ type NetworkInterfaceState struct {
 	DnsServers pulumi.StringArrayInput
 	// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableAcceleratedNetworking pulumi.BoolPtrInput
-	// Deprecated: The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableIpForwarding pulumi.BoolPtrInput
 	// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
 	InternalDnsNameLabel pulumi.StringPtrInput
 	// Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
@@ -307,10 +295,6 @@ type networkInterfaceArgs struct {
 	DnsServers []string `pulumi:"dnsServers"`
 	// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
-	// Deprecated: The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableIpForwarding *bool `pulumi:"enableIpForwarding"`
 	// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
 	InternalDnsNameLabel *string `pulumi:"internalDnsNameLabel"`
 	// One or more `ipConfiguration` blocks as defined below.
@@ -349,10 +333,6 @@ type NetworkInterfaceArgs struct {
 	DnsServers pulumi.StringArrayInput
 	// Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableAcceleratedNetworking pulumi.BoolPtrInput
-	// Deprecated: The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnableIpForwarding pulumi.BoolPtrInput
 	// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
 	InternalDnsNameLabel pulumi.StringPtrInput
 	// One or more `ipConfiguration` blocks as defined below.
@@ -461,8 +441,8 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.
 // > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
 //
 // > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-func (o NetworkInterfaceOutput) AcceleratedNetworkingEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolOutput { return v.AcceleratedNetworkingEnabled }).(pulumi.BoolOutput)
+func (o NetworkInterfaceOutput) AcceleratedNetworkingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.AcceleratedNetworkingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
@@ -496,16 +476,6 @@ func (o NetworkInterfaceOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-func (o NetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolOutput { return v.EnableAcceleratedNetworking }).(pulumi.BoolOutput)
-}
-
-// Deprecated: The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-func (o NetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolOutput { return v.EnableIpForwarding }).(pulumi.BoolOutput)
-}
-
 // The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
 func (o NetworkInterfaceOutput) InternalDnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.InternalDnsNameLabel }).(pulumi.StringPtrOutput)
@@ -522,8 +492,8 @@ func (o NetworkInterfaceOutput) IpConfigurations() NetworkInterfaceIpConfigurati
 }
 
 // Should IP Forwarding be enabled? Defaults to `false`.
-func (o NetworkInterfaceOutput) IpForwardingEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolOutput { return v.IpForwardingEnabled }).(pulumi.BoolOutput)
+func (o NetworkInterfaceOutput) IpForwardingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.IpForwardingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The location where the Network Interface should exist. Changing this forces a new resource to be created.

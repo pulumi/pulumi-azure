@@ -44,16 +44,10 @@ export interface GetTopicArgs {
      */
     namespaceId?: string;
     /**
-     * The name of the Service Bus Namespace.
-     *
      * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
-     * The name of the Resource Group where the Service Bus Topic exists.
-     *
-     * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
-     *
      * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
@@ -151,16 +145,10 @@ export interface GetTopicOutputArgs {
      */
     namespaceId?: pulumi.Input<string>;
     /**
-     * The name of the Service Bus Namespace.
-     *
      * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Service Bus Topic exists.
-     *
-     * > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
-     *
      * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;

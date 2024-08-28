@@ -11,7 +11,6 @@ from .assessment_policy import *
 from .auto_provisioning import *
 from .automation import *
 from .contact import *
-from .server_vulnerability_assessment import *
 from .server_vulnerability_assessment_virtual_machine import *
 from .server_vulnerability_assessments_setting import *
 from .setting import *

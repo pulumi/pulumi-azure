@@ -110,6 +110,17 @@ partnerId: Optional[str]
 A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 """
 
+resourceProviderRegistrations: Optional[str]
+"""
+The set of Resource Providers which should be automatically registered for the subscription.
+"""
+
+resourceProvidersToRegisters: Optional[str]
+"""
+A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+`resource_provider_registrations` property.
+"""
+
 skipProviderRegistration: bool
 """
 Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already

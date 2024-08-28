@@ -25,7 +25,6 @@ class FrontdoorOriginArgs:
                  certificate_name_check_enabled: pulumi.Input[bool],
                  host_name: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 health_probes_enabled: Optional[pulumi.Input[bool]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -41,8 +40,6 @@ class FrontdoorOriginArgs:
                
                !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-               
-               > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
@@ -60,11 +57,6 @@ class FrontdoorOriginArgs:
         pulumi.set(__self__, "host_name", host_name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if health_probes_enabled is not None:
-            warnings.warn("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""health_probes_enabled is deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
-        if health_probes_enabled is not None:
-            pulumi.set(__self__, "health_probes_enabled", health_probes_enabled)
         if http_port is not None:
             pulumi.set(__self__, "http_port", http_port)
         if https_port is not None:
@@ -123,24 +115,12 @@ class FrontdoorOriginArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-
-        > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="healthProbesEnabled")
-    @_utilities.deprecated("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
-    def health_probes_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "health_probes_enabled")
-
-    @health_probes_enabled.setter
-    def health_probes_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "health_probes_enabled", value)
 
     @property
     @pulumi.getter(name="httpPort")
@@ -237,7 +217,6 @@ class _FrontdoorOriginState:
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
                  certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 health_probes_enabled: Optional[pulumi.Input[bool]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None,
@@ -251,8 +230,6 @@ class _FrontdoorOriginState:
         :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-               
-               > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         :param pulumi.Input[str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
                
                !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
@@ -274,11 +251,6 @@ class _FrontdoorOriginState:
             pulumi.set(__self__, "certificate_name_check_enabled", certificate_name_check_enabled)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if health_probes_enabled is not None:
-            warnings.warn("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""health_probes_enabled is deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
-        if health_probes_enabled is not None:
-            pulumi.set(__self__, "health_probes_enabled", health_probes_enabled)
         if host_name is not None:
             pulumi.set(__self__, "host_name", host_name)
         if http_port is not None:
@@ -325,24 +297,12 @@ class _FrontdoorOriginState:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-
-        > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="healthProbesEnabled")
-    @_utilities.deprecated("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
-    def health_probes_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "health_probes_enabled")
-
-    @health_probes_enabled.setter
-    def health_probes_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "health_probes_enabled", value)
 
     @property
     @pulumi.getter(name="hostName")
@@ -455,7 +415,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
                  certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 health_probes_enabled: Optional[pulumi.Input[bool]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None,
@@ -645,8 +604,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
         :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-               
-               > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         :param pulumi.Input[str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
                
                !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
@@ -861,7 +818,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
                  certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 health_probes_enabled: Optional[pulumi.Input[bool]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None,
@@ -886,7 +842,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
                 raise TypeError("Missing required property 'certificate_name_check_enabled'")
             __props__.__dict__["certificate_name_check_enabled"] = certificate_name_check_enabled
             __props__.__dict__["enabled"] = enabled
-            __props__.__dict__["health_probes_enabled"] = health_probes_enabled
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
@@ -910,7 +865,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
             cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
             certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            health_probes_enabled: Optional[pulumi.Input[bool]] = None,
             host_name: Optional[pulumi.Input[str]] = None,
             http_port: Optional[pulumi.Input[int]] = None,
             https_port: Optional[pulumi.Input[int]] = None,
@@ -929,8 +883,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
         :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         :param pulumi.Input[bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-               
-               > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         :param pulumi.Input[str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
                
                !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
@@ -953,7 +905,6 @@ class FrontdoorOrigin(pulumi.CustomResource):
         __props__.__dict__["cdn_frontdoor_origin_group_id"] = cdn_frontdoor_origin_group_id
         __props__.__dict__["certificate_name_check_enabled"] = certificate_name_check_enabled
         __props__.__dict__["enabled"] = enabled
-        __props__.__dict__["health_probes_enabled"] = health_probes_enabled
         __props__.__dict__["host_name"] = host_name
         __props__.__dict__["http_port"] = http_port
         __props__.__dict__["https_port"] = https_port
@@ -982,19 +933,11 @@ class FrontdoorOrigin(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> pulumi.Output[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-
-        > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         """
         return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="healthProbesEnabled")
-    @_utilities.deprecated("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
-    def health_probes_enabled(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "health_probes_enabled")
 
     @property
     @pulumi.getter(name="hostName")

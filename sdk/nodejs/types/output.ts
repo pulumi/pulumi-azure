@@ -1992,11 +1992,6 @@ export namespace apimanagement {
         type: string;
     }
 
-    export interface ServicePolicy {
-        xmlContent: string;
-        xmlLink?: string;
-    }
-
     export interface ServiceProtocols {
         /**
          * Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
@@ -2223,7 +2218,7 @@ export namespace appconfiguration {
         /**
          * A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
          *
-         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
         identityIds?: string[];
         /**
@@ -4180,17 +4175,6 @@ export namespace appservice {
         keyVaultId: string;
     }
 
-    export interface EnvironmentClusterSetting {
-        /**
-         * The name of the Cluster Setting.
-         */
-        name: string;
-        /**
-         * The value for the Cluster Setting.
-         */
-        value: string;
-    }
-
     export interface EnvironmentV3ClusterSetting {
         /**
          * The name of the Cluster Setting.
@@ -4420,7 +4404,7 @@ export namespace appservice {
          */
         dotnetFrameworkVersion?: string;
         /**
-         * The number of minimum instances for this function app. Only affects apps on the Premium plan.
+         * The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
          */
         elasticInstanceMinimum: number;
         /**
@@ -5038,17 +5022,6 @@ export namespace appservice {
         type: string;
         /**
          * The value for the Connection String.
-         */
-        value: string;
-    }
-
-    export interface GetAppServiceEnvironmentClusterSetting {
-        /**
-         * The name of this App Service Environment.
-         */
-        name: string;
-        /**
-         * The value for the Cluster Setting.
          */
         value: string;
     }
@@ -7210,10 +7183,6 @@ export namespace appservice {
          */
         applicationStacks: outputs.appservice.GetLinuxWebAppSiteConfigApplicationStack[];
         /**
-         * Are Auto heal rules be enabled.
-         */
-        autoHealEnabled: boolean;
-        /**
          * A `autoHealSetting` block as defined above.
          */
         autoHealSettings: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSetting[];
@@ -7328,12 +7297,10 @@ export namespace appservice {
     }
 
     export interface GetLinuxWebAppSiteConfigApplicationStack {
-        dockerImage: string;
         /**
          * The docker image, including tag, used by this Linux Web App.
          */
         dockerImageName: string;
-        dockerImageTag: string;
         /**
          * The User Name to use for authentication against the registry to pull the image.
          */
@@ -7415,7 +7382,7 @@ export namespace appservice {
         /**
          * A `slowRequest` block as defined above.
          */
-        slowRequests: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
+        slowRequests?: outputs.appservice.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
          * A `statusCode` block as defined above.
          */
@@ -7442,12 +7409,6 @@ export namespace appservice {
          * The time interval in the form `hh:mm:ss`.
          */
         interval: string;
-        /**
-         * The path to which this rule status code applies.
-         *
-         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-         */
-        path: string;
         /**
          * (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
          */
@@ -9287,10 +9248,6 @@ export namespace appservice {
          */
         applicationStacks: outputs.appservice.GetWindowsWebAppSiteConfigApplicationStack[];
         /**
-         * Are Auto heal rules to be enabled.
-         */
-        autoHealEnabled: boolean;
-        /**
          * A `autoHealSetting` block as defined above.
          */
         autoHealSettings: outputs.appservice.GetWindowsWebAppSiteConfigAutoHealSetting[];
@@ -9414,9 +9371,6 @@ export namespace appservice {
          * The Current Stack value of the Windows Web App.
          */
         currentStack: string;
-        dockerContainerName: string;
-        dockerContainerRegistry: string;
-        dockerContainerTag: string;
         /**
          * The docker image, including tag, used by this Windows Web App.
          */
@@ -9547,12 +9501,6 @@ export namespace appservice {
          * The time interval in the form `hh:mm:ss`.
          */
         interval: string;
-        /**
-         * The path to which this rule status code applies.
-         *
-         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-         */
-        path: string;
         /**
          * (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
          */
@@ -10518,7 +10466,7 @@ export namespace appservice {
         /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          */
-        healthCheckEvictionTimeInMin: number;
+        healthCheckEvictionTimeInMin?: number;
         /**
          * The path to be checked for this function app health.
          */
@@ -12621,10 +12569,6 @@ export namespace appservice {
          */
         applicationStack: outputs.appservice.LinuxWebAppSiteConfigApplicationStack;
         /**
-         * Should Auto heal rules be enabled? Required with `autoHealSetting`.
-         */
-        autoHealEnabled?: boolean;
-        /**
          * A `autoHealSetting` block as defined above. Required with `autoHeal`.
          */
         autoHealSetting?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSetting;
@@ -12649,7 +12593,7 @@ export namespace appservice {
         /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          */
-        healthCheckEvictionTimeInMin: number;
+        healthCheckEvictionTimeInMin?: number;
         /**
          * The path to the Health Check.
          */
@@ -12728,31 +12672,23 @@ export namespace appservice {
 
     export interface LinuxWebAppSiteConfigApplicationStack {
         /**
-         * @deprecated This property has been deprecated and will be removed in 4.0 of the provider.
-         */
-        dockerImage?: string;
-        /**
          * The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
          */
         dockerImageName?: string;
-        /**
-         * @deprecated This property has been deprecated and will be removed in 4.0 of the provider.
-         */
-        dockerImageTag?: string;
         /**
          * The User Name to use for authentication against the registry to pull the image.
          *
          * > **NOTE:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
          */
-        dockerRegistryPassword: string;
+        dockerRegistryPassword?: string;
         /**
          * The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
          */
-        dockerRegistryUrl: string;
+        dockerRegistryUrl?: string;
         /**
          * The User Name to use for authentication against the registry to pull the image.
          */
-        dockerRegistryUsername: string;
+        dockerRegistryUsername?: string;
         /**
          * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
          */
@@ -12829,13 +12765,13 @@ export namespace appservice {
          */
         requests?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerRequests;
         /**
+         * A `slowRequest` blocks as defined above.
+         */
+        slowRequest?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest;
+        /**
          * One or more `slowRequestWithPath` blocks as defined above.
          */
         slowRequestWithPaths?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath[];
-        /**
-         * A `slowRequest` blocks as defined above.
-         */
-        slowRequests?: outputs.appservice.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
          * One or more `statusCode` blocks as defined above.
          */
@@ -12862,14 +12798,6 @@ export namespace appservice {
          * The time interval in the form `hh:mm:ss`.
          */
         interval: string;
-        /**
-         * The path for which this slow request rule applies.
-         *
-         * > **NOTE:** `path` in `slowRequest` block will be deprecated in 4.0 provider. Please use `slowRequestWithPath` to set a slow request trigger with path specified.
-         *
-         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-         */
-        path?: string;
         /**
          * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
          */
@@ -13790,10 +13718,6 @@ export namespace appservice {
          */
         applicationStack: outputs.appservice.LinuxWebAppSlotSiteConfigApplicationStack;
         /**
-         * Should Auto heal rules be enabled? Required with `autoHealSetting`.
-         */
-        autoHealEnabled?: boolean;
-        /**
          * A `autoHealSetting` block as defined above. Required with `autoHeal`.
          */
         autoHealSetting?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSetting;
@@ -13824,7 +13748,7 @@ export namespace appservice {
         /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          */
-        healthCheckEvictionTimeInMin: number;
+        healthCheckEvictionTimeInMin?: number;
         /**
          * The path to the Health Check.
          */
@@ -13903,31 +13827,23 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotSiteConfigApplicationStack {
         /**
-         * @deprecated This property has been deprecated and will be removed in 4.0 of the provider.
-         */
-        dockerImage?: string;
-        /**
          * The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
          */
         dockerImageName?: string;
-        /**
-         * @deprecated This property has been deprecated and will be removed in 4.0 of the provider.
-         */
-        dockerImageTag?: string;
         /**
          * The User Name to use for authentication against the registry to pull the image.
          *
          * > **NOTE:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
          */
-        dockerRegistryPassword: string;
+        dockerRegistryPassword?: string;
         /**
          * The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
          */
-        dockerRegistryUrl: string;
+        dockerRegistryUrl?: string;
         /**
          * The User Name to use for authentication against the registry to pull the image.
          */
-        dockerRegistryUsername: string;
+        dockerRegistryUsername?: string;
         /**
          * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
          */
@@ -14002,13 +13918,13 @@ export namespace appservice {
          */
         requests?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests;
         /**
+         * A `slowRequest` block as defined above.
+         */
+        slowRequest?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest;
+        /**
          * One or more `slowRequestWithPath` blocks as defined above.
          */
         slowRequestWithPaths?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath[];
-        /**
-         * A `slowRequest` block as defined above.
-         */
-        slowRequests?: outputs.appservice.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
          * One or more `statusCode` blocks as defined above.
          */
@@ -14035,14 +13951,6 @@ export namespace appservice {
          * The time interval in the form `hh:mm:ss`.
          */
         interval: string;
-        /**
-         * The path for which this slow request rule applies.
-         *
-         * > **NOTE:** `path` in `slowRequest` block will be deprecated in 4.0 provider. Please use `slowRequestWithPath` to set a slow request trigger with path specified.
-         *
-         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-         */
-        path?: string;
         /**
          * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
          */
@@ -15686,7 +15594,7 @@ export namespace appservice {
         /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          */
-        healthCheckEvictionTimeInMin: number;
+        healthCheckEvictionTimeInMin?: number;
         /**
          * The path to be checked for this Windows Function App health.
          */
@@ -17713,10 +17621,6 @@ export namespace appservice {
          */
         applicationStack: outputs.appservice.WindowsWebAppSiteConfigApplicationStack;
         /**
-         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
-         */
-        autoHealEnabled?: boolean;
-        /**
          * A `autoHealSetting` block as defined above. Required with `autoHeal`.
          */
         autoHealSetting?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSetting;
@@ -17745,7 +17649,7 @@ export namespace appservice {
         /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          */
-        healthCheckEvictionTimeInMin: number;
+        healthCheckEvictionTimeInMin?: number;
         /**
          * The path to the Health Check.
          */
@@ -17837,18 +17741,6 @@ export namespace appservice {
          */
         currentStack: string;
         /**
-         * The name of the container to be used. This value is required with `dockerContainerTag`.
-         */
-        dockerContainerName?: string;
-        /**
-         * @deprecated This property has been deprecated and will be removed in a future release of the provider.
-         */
-        dockerContainerRegistry?: string;
-        /**
-         * The tag of the container to be used. This value is required with `dockerContainerName`.
-         */
-        dockerContainerTag?: string;
-        /**
          * The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
          */
         dockerImageName?: string;
@@ -17857,15 +17749,15 @@ export namespace appservice {
          *
          * > **NOTE:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
          */
-        dockerRegistryPassword: string;
+        dockerRegistryPassword?: string;
         /**
          * The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
          */
-        dockerRegistryUrl: string;
+        dockerRegistryUrl?: string;
         /**
          * The User Name to use for authentication against the registry to pull the image.
          */
-        dockerRegistryUsername: string;
+        dockerRegistryUsername?: string;
         /**
          * The version of .NET to use when `currentStack` is set to `dotnetcore`. Possible values include `v4.0`.
          */
@@ -17917,10 +17809,6 @@ export namespace appservice {
          * Specifies whether this is a Python app. Defaults to `false`.
          */
         python?: boolean;
-        /**
-         * @deprecated This property is deprecated. Values set are not used by the service.
-         */
-        pythonVersion: string;
         /**
          * The version of Tomcat the Java App should use. Conflicts with `javaEmbeddedServerEnabled`
          *
@@ -17976,13 +17864,13 @@ export namespace appservice {
          */
         requests?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerRequests;
         /**
+         * A `slowRequest` block as defined above.
+         */
+        slowRequest?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest;
+        /**
          * One or more `slowRequestWithPath` blocks as defined above.
          */
         slowRequestWithPaths?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath[];
-        /**
-         * A `slowRequest` block as defined above.
-         */
-        slowRequests?: outputs.appservice.WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
          * One or more `statusCode` blocks as defined above.
          */
@@ -18009,12 +17897,6 @@ export namespace appservice {
          * The time interval in the form `hh:mm:ss`.
          */
         interval: string;
-        /**
-         * The path for which this slow request rule applies.
-         *
-         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-         */
-        path?: string;
         /**
          * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
          */
@@ -18980,10 +18862,6 @@ export namespace appservice {
          */
         applicationStack: outputs.appservice.WindowsWebAppSlotSiteConfigApplicationStack;
         /**
-         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
-         */
-        autoHealEnabled?: boolean;
-        /**
          * A `autoHealSetting` block as defined above. Required with `autoHeal`.
          */
         autoHealSetting?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSetting;
@@ -19018,7 +18896,7 @@ export namespace appservice {
         /**
          * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          */
-        healthCheckEvictionTimeInMin: number;
+        healthCheckEvictionTimeInMin?: number;
         /**
          * The path to the Health Check.
          */
@@ -19107,18 +18985,6 @@ export namespace appservice {
          */
         currentStack: string;
         /**
-         * The name of the container to be used. This value is required with `dockerContainerTag`.
-         */
-        dockerContainerName?: string;
-        /**
-         * @deprecated This property has been deprecated and will be removed in a future release of the provider.
-         */
-        dockerContainerRegistry?: string;
-        /**
-         * The tag of the container to be used. This value is required with `dockerContainerName`.
-         */
-        dockerContainerTag?: string;
-        /**
          * The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
          */
         dockerImageName?: string;
@@ -19127,15 +18993,15 @@ export namespace appservice {
          *
          * > **NOTE:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
          */
-        dockerRegistryPassword: string;
+        dockerRegistryPassword?: string;
         /**
          * The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
          */
-        dockerRegistryUrl: string;
+        dockerRegistryUrl?: string;
         /**
          * The User Name to use for authentication against the registry to pull the image.
          */
-        dockerRegistryUsername: string;
+        dockerRegistryUsername?: string;
         /**
          * The version of .NET to use when `currentStack` is set to `dotnetcore`. Possible values include `v4.0`.
          */
@@ -19178,10 +19044,6 @@ export namespace appservice {
          * The app is a Python app. Defaults to `false`.
          */
         python?: boolean;
-        /**
-         * @deprecated This property is deprecated. Values set are not used by the service.
-         */
-        pythonVersion: string;
         /**
          * The version of Tomcat the Java App should use.
          *
@@ -19237,13 +19099,13 @@ export namespace appservice {
          */
         requests?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests;
         /**
+         * A `slowRequest` block as defined above.
+         */
+        slowRequest?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest;
+        /**
          * One or more `slowRequestWithPath` blocks as defined above.
          */
         slowRequestWithPaths?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath[];
-        /**
-         * A `slowRequest` block as defined above.
-         */
-        slowRequests?: outputs.appservice.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest[];
         /**
          * One or more `statusCode` blocks as defined above.
          */
@@ -19270,12 +19132,6 @@ export namespace appservice {
          * The time interval in the form `hh:mm:ss`.
          */
         interval: string;
-        /**
-         * The path for which this slow request rule applies.
-         *
-         * @deprecated `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-         */
-        path?: string;
         /**
          * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
          */
@@ -19996,14 +19852,6 @@ export namespace arcmachine {
 
 }
 
-export namespace attestation {
-    export interface ProviderPolicy {
-        data?: string;
-        environmentType?: string;
-    }
-
-}
-
 export namespace authorization {
     export interface GetRoleDefinitionPermission {
         /**
@@ -20617,10 +20465,6 @@ export namespace automation {
 
     export interface SoftwareUpdateConfigurationLinux {
         /**
-         * @deprecated this property is deprecated and will be removed in version 4.0 of the provider, please use `classificationsIncluded` instead.
-         */
-        classificationIncluded: string;
-        /**
          * Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
          *
          * > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
@@ -20680,7 +20524,7 @@ export namespace automation {
          * The end time of the schedule.
          */
         expiryTime: string;
-        expiryTimeOffsetMinutes: number;
+        expiryTimeOffsetMinutes?: number;
         /**
          * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
          */
@@ -20697,14 +20541,14 @@ export namespace automation {
         /**
          * List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
          */
-        monthlyOccurrences?: outputs.automation.SoftwareUpdateConfigurationScheduleMonthlyOccurrence[];
+        monthlyOccurrence?: outputs.automation.SoftwareUpdateConfigurationScheduleMonthlyOccurrence;
         nextRun: string;
-        nextRunOffsetMinutes: number;
+        nextRunOffsetMinutes?: number;
         /**
          * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
          */
         startTime: string;
-        startTimeOffsetMinutes: number;
+        startTimeOffsetMinutes?: number;
         /**
          * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
          */
@@ -20745,7 +20589,7 @@ export namespace automation {
         /**
          * Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
          */
-        tagFilter: string;
+        tagFilter?: string;
         /**
          * A mapping of tags used for query filter. One or more `tags` block as defined below.
          */
@@ -20775,10 +20619,6 @@ export namespace automation {
     }
 
     export interface SoftwareUpdateConfigurationWindows {
-        /**
-         * @deprecated this property is deprecated and will be removed in version 4.0 of the provider, please use `classificationsIncluded` instead.
-         */
-        classificationIncluded: string;
         /**
          * Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
          *
@@ -22610,15 +22450,7 @@ export namespace cdn {
 
     export interface EndpointCustomDomainUserManagedHttps {
         /**
-         * The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
-         *
-         * @deprecated This is deprecated in favor of `keyVaultSecretId` as the service is actually looking for a secret, not a certificate
-         */
-        keyVaultCertificateId: string;
-        /**
          * The ID of the Key Vault Secret that contains the HTTPS certificate.
-         *
-         * > **NOTE** Either `keyVaultCertificateId` or `keyVaultSecretId` has to be specified.
          */
         keyVaultSecretId: string;
         /**
@@ -24439,7 +24271,7 @@ export namespace cognitive {
         version?: string;
     }
 
-    export interface DeploymentScale {
+    export interface DeploymentSku {
         /**
          * Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
          */
@@ -24449,6 +24281,10 @@ export namespace cognitive {
          */
         family?: string;
         /**
+         * The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
          * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
          */
         size?: string;
@@ -24456,10 +24292,6 @@ export namespace cognitive {
          * Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
          */
         tier?: string;
-        /**
-         * The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
-         */
-        type: string;
     }
 
     export interface GetAccountIdentity {
@@ -25376,6 +25208,10 @@ export namespace compute {
          */
         caching?: string;
         /**
+         * The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
+         */
+        diskEncryptionSetId?: string;
+        /**
          * Specifies the logical unit number of the data disk.
          */
         lun?: number;
@@ -25387,6 +25223,10 @@ export namespace compute {
          * Specifies the size of the image to be created. The target size can't be smaller than the source size.
          */
         sizeGb: number;
+        /**
+         * The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+         */
+        storageType: string;
     }
 
     export interface ImageOsDisk {
@@ -25399,7 +25239,7 @@ export namespace compute {
          */
         caching?: string;
         /**
-         * The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
+         * The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
          */
         diskEncryptionSetId?: string;
         /**
@@ -25418,6 +25258,10 @@ export namespace compute {
          * Specifies the size of the image to be created. Changing this forces a new resource to be created.
          */
         sizeGb: number;
+        /**
+         * The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+         */
+        storageType: string;
     }
 
     export interface LinuxVirtualMachineAdditionalCapabilities {
@@ -25765,18 +25609,21 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetGalleryApplication {
         /**
-         * @deprecated `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
+         * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
          */
-        configurationReferenceBlobUri?: string;
+        configurationBlobUri?: string;
         /**
          * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
          */
         order?: number;
         /**
-         * @deprecated `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
+         * Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
          */
-        packageReferenceId: string;
         tag?: string;
+        /**
+         * Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+         */
+        versionId: string;
     }
 
     export interface LinuxVirtualMachineScaleSetIdentity {
@@ -26093,19 +25940,6 @@ export namespace compute {
         timeout?: string;
     }
 
-    export interface LinuxVirtualMachineScaleSetTerminateNotification {
-        /**
-         * Should the terminate notification be enabled on this Virtual Machine Scale Set?
-         */
-        enabled: boolean;
-        /**
-         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-         *
-         * > **Note:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-         */
-        timeout?: string;
-    }
-
     export interface LinuxVirtualMachineScaleSetTerminationNotification {
         /**
          * Should the termination notification be enabled on this Virtual Machine Scale Set?
@@ -26175,11 +26009,7 @@ export namespace compute {
         /**
          * A `diskEncryptionKey` block as defined above.
          */
-        diskEncryptionKey?: outputs.compute.ManagedDiskEncryptionSettingsDiskEncryptionKey;
-        /**
-         * @deprecated Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
-         */
-        enabled?: boolean;
+        diskEncryptionKey: outputs.compute.ManagedDiskEncryptionSettingsDiskEncryptionKey;
         /**
          * A `keyEncryptionKey` block as defined below.
          */
@@ -27458,11 +27288,7 @@ export namespace compute {
         /**
          * A `diskEncryptionKey` block as defined below.
          */
-        diskEncryptionKey?: outputs.compute.SnapshotEncryptionSettingsDiskEncryptionKey;
-        /**
-         * @deprecated Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
-         */
-        enabled?: boolean;
+        diskEncryptionKey: outputs.compute.SnapshotEncryptionSettingsDiskEncryptionKey;
         /**
          * A `keyEncryptionKey` block as defined below.
          */
@@ -28159,18 +27985,21 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetGalleryApplication {
         /**
-         * @deprecated `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
+         * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
          */
-        configurationReferenceBlobUri?: string;
+        configurationBlobUri?: string;
         /**
          * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
          */
         order?: number;
         /**
-         * @deprecated `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
+         * Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
          */
-        packageReferenceId: string;
         tag?: string;
+        /**
+         * Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+         */
+        versionId: string;
     }
 
     export interface WindowsVirtualMachineScaleSetIdentity {
@@ -28489,19 +28318,6 @@ export namespace compute {
         timeout?: string;
     }
 
-    export interface WindowsVirtualMachineScaleSetTerminateNotification {
-        /**
-         * Should the terminate notification be enabled on this Virtual Machine Scale Set?
-         */
-        enabled: boolean;
-        /**
-         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-         *
-         * > For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-         */
-        timeout?: string;
-    }
-
     export interface WindowsVirtualMachineScaleSetTerminationNotification {
         /**
          * Should the termination notification be enabled on this Virtual Machine Scale Set?
@@ -28771,12 +28587,6 @@ export namespace consumption {
          */
         dimensions?: outputs.consumption.BudgetManagementGroupFilterDimension[];
         /**
-         * A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         *
-         * @deprecated This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         */
-        not?: outputs.consumption.BudgetManagementGroupFilterNot;
-        /**
          * One or more `tag` blocks as defined below to filter the budget on.
          */
         tags?: outputs.consumption.BudgetManagementGroupFilterTag[];
@@ -28793,47 +28603,6 @@ export namespace consumption {
         operator?: string;
         /**
          * Specifies a list of values for the column.
-         */
-        values: string[];
-    }
-
-    export interface BudgetManagementGroupFilterNot {
-        /**
-         * One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-         */
-        dimension?: outputs.consumption.BudgetManagementGroupFilterNotDimension;
-        /**
-         * One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-         */
-        tag?: outputs.consumption.BudgetManagementGroupFilterNotTag;
-    }
-
-    export interface BudgetManagementGroupFilterNotDimension {
-        /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-         */
-        name: string;
-        /**
-         * The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-         */
-        operator?: string;
-        /**
-         * Specifies a list of values for the column.
-         */
-        values: string[];
-    }
-
-    export interface BudgetManagementGroupFilterNotTag {
-        /**
-         * The name of the tag to use for the filter.
-         */
-        name: string;
-        /**
-         * The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-         */
-        operator?: string;
-        /**
-         * Specifies a list of values for the tag.
          */
         values: string[];
     }
@@ -28893,12 +28662,6 @@ export namespace consumption {
          */
         dimensions?: outputs.consumption.BudgetResourceGroupFilterDimension[];
         /**
-         * A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         *
-         * @deprecated This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         */
-        not?: outputs.consumption.BudgetResourceGroupFilterNot;
-        /**
          * One or more `tag` blocks as defined below to filter the budget on.
          */
         tags?: outputs.consumption.BudgetResourceGroupFilterTag[];
@@ -28915,47 +28678,6 @@ export namespace consumption {
         operator?: string;
         /**
          * Specifies a list of values for the column.
-         */
-        values: string[];
-    }
-
-    export interface BudgetResourceGroupFilterNot {
-        /**
-         * One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-         */
-        dimension?: outputs.consumption.BudgetResourceGroupFilterNotDimension;
-        /**
-         * One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-         */
-        tag?: outputs.consumption.BudgetResourceGroupFilterNotTag;
-    }
-
-    export interface BudgetResourceGroupFilterNotDimension {
-        /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-         */
-        name: string;
-        /**
-         * The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-         */
-        operator?: string;
-        /**
-         * Specifies a list of values for the column.
-         */
-        values: string[];
-    }
-
-    export interface BudgetResourceGroupFilterNotTag {
-        /**
-         * The name of the tag to use for the filter.
-         */
-        name: string;
-        /**
-         * The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-         */
-        operator?: string;
-        /**
-         * Specifies a list of values for the tag.
          */
         values: string[];
     }
@@ -29025,12 +28747,6 @@ export namespace consumption {
          */
         dimensions?: outputs.consumption.BudgetSubscriptionFilterDimension[];
         /**
-         * A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         *
-         * @deprecated This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         */
-        not?: outputs.consumption.BudgetSubscriptionFilterNot;
-        /**
          * One or more `tag` blocks as defined below to filter the budget on.
          */
         tags?: outputs.consumption.BudgetSubscriptionFilterTag[];
@@ -29047,47 +28763,6 @@ export namespace consumption {
         operator?: string;
         /**
          * Specifies a list of values for the column.
-         */
-        values: string[];
-    }
-
-    export interface BudgetSubscriptionFilterNot {
-        /**
-         * One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-         */
-        dimension?: outputs.consumption.BudgetSubscriptionFilterNotDimension;
-        /**
-         * One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-         */
-        tag?: outputs.consumption.BudgetSubscriptionFilterNotTag;
-    }
-
-    export interface BudgetSubscriptionFilterNotDimension {
-        /**
-         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-         */
-        name: string;
-        /**
-         * The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-         */
-        operator?: string;
-        /**
-         * Specifies a list of values for the column.
-         */
-        values: string[];
-    }
-
-    export interface BudgetSubscriptionFilterNotTag {
-        /**
-         * The name of the tag to use for the filter.
-         */
-        name: string;
-        /**
-         * The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-         */
-        operator?: string;
-        /**
-         * Specifies a list of values for the tag.
          */
         values: string[];
     }
@@ -29439,10 +29114,8 @@ export namespace containerapp {
         allowInsecureConnections?: boolean;
         /**
          * One or more `customDomain` block as detailed below.
-         *
-         * @deprecated This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
          */
-        customDomain: outputs.containerapp.AppIngressCustomDomain;
+        customDomains: outputs.containerapp.AppIngressCustomDomain[];
         /**
          * The exposed port on the container for the Ingress traffic.
          *
@@ -29477,15 +29150,15 @@ export namespace containerapp {
 
     export interface AppIngressCustomDomain {
         /**
-         * The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+         * The Binding type.
          */
-        certificateBindingType?: string;
+        certificateBindingType: string;
         /**
          * The ID of the Container App Environment Certificate.
          */
         certificateId: string;
         /**
-         * The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+         * The name for this Container App. Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -30815,19 +30488,25 @@ export namespace containerapp {
 
     export interface JobSecret {
         /**
-         * A `identity` block as defined below.
+         * The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+         *
+         * !> **Note:** `identity` must be used together with `keyVaultSecretId`
          */
         identity?: string;
         /**
-         * The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+         * The ID of a Key Vault secret. This can be a versioned or version-less ID.
+         *
+         * !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
          */
         keyVaultSecretId?: string;
         /**
-         * Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+         * The secret name.
          */
         name: string;
         /**
          * The value for this secret.
+         *
+         * !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
          */
         value?: string;
     }
@@ -31495,23 +31174,14 @@ export namespace containerservice {
     }
 
     export interface GetKubernetesClusterAgentPoolProfile {
+        /**
+         * If the auto-scaler is enabled.
+         */
         autoScalingEnabled: boolean;
         /**
          * The number of Agents (VMs) in the Pool.
          */
         count: number;
-        /**
-         * If the auto-scaler is enabled.
-         *
-         * @deprecated This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `autoScalingEnabled` property.
-         */
-        enableAutoScaling: boolean;
-        /**
-         * If the Public IPs for the nodes in this Agent Pool are enabled.
-         *
-         * @deprecated This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `nodePublicIpEnabled` property.
-         */
-        enableNodePublicIp: boolean;
         /**
          * Maximum number of nodes for auto-scaling
          */
@@ -31529,6 +31199,9 @@ export namespace containerservice {
          */
         name: string;
         nodeLabels: {[key: string]: string};
+        /**
+         * If the Public IPs for the nodes in this Agent Pool are enabled.
+         */
         nodePublicIpEnabled: boolean;
         /**
          * Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
@@ -31597,24 +31270,6 @@ export namespace containerservice {
          * Is Role Based Access Control based on Azure AD enabled?
          */
         azureRbacEnabled: boolean;
-        /**
-         * The Client ID of an Azure Active Directory Application.
-         *
-         * @deprecated This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-         */
-        clientAppId: string;
-        /**
-         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
-         *
-         * @deprecated This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-         */
-        managed: boolean;
-        /**
-         * The Server ID of an Azure Active Directory Application.
-         *
-         * @deprecated This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-         */
-        serverAppId: string;
         /**
          * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
          */
@@ -31889,6 +31544,10 @@ export namespace containerservice {
          * The mode of the service mesh.
          */
         mode: string;
+        /**
+         * List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. Learn More.
+         */
+        revisions: string[];
     }
 
     export interface GetKubernetesClusterServiceMeshProfileCertificateAuthority {
@@ -31931,10 +31590,6 @@ export namespace containerservice {
          */
         diskDriverEnabled: boolean;
         /**
-         * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         */
-        diskDriverVersion: string;
-        /**
          * Is the File CSI driver enabled?
          */
         fileDriverEnabled: boolean;
@@ -31968,14 +31623,6 @@ export namespace containerservice {
          * A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
          */
         environmentVariables?: {[key: string]: string};
-        /**
-         * @deprecated The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-         */
-        gpu?: outputs.containerservice.GroupContainerGpu;
-        /**
-         * @deprecated The `gpuLimit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-         */
-        gpuLimit?: outputs.containerservice.GroupContainerGpuLimit;
         /**
          * The container image name. Changing this forces a new resource to be created.
          */
@@ -32016,22 +31663,6 @@ export namespace containerservice {
          * The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
          */
         volumes?: outputs.containerservice.GroupContainerVolume[];
-    }
-
-    export interface GroupContainerGpu {
-        count?: number;
-        /**
-         * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-         */
-        sku?: string;
-    }
-
-    export interface GroupContainerGpuLimit {
-        count?: number;
-        /**
-         * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-         */
-        sku?: string;
     }
 
     export interface GroupContainerLivenessProbe {
@@ -32461,21 +32092,7 @@ export namespace containerservice {
         /**
          * Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
          */
-        authorizedIpRanges: string[];
-        /**
-         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-         *
-         * > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
-         *
-         * > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
-         *
-         * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         */
-        subnetId?: string;
-        /**
-         * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         */
-        vnetIntegrationEnabled?: boolean;
+        authorizedIpRanges?: string[];
     }
 
     export interface KubernetesClusterAutoScalerProfile {
@@ -32550,28 +32167,14 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
+        /**
+         * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+         */
         adminGroupObjectIds?: string[];
+        /**
+         * Is Role Based Access Control based on Azure AD enabled?
+         */
         azureRbacEnabled?: boolean;
-        /**
-         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-         */
-        clientAppId?: string;
-        /**
-         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
-         *
-         * > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
-         *
-         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.
-         */
-        managed?: boolean;
-        /**
-         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-         */
-        serverAppId?: string;
-        /**
-         * @deprecated Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-         */
-        serverAppSecret?: string;
         /**
          * The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
          */
@@ -32587,31 +32190,17 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePool {
         /**
-         * Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-         */
-        capacityReservationGroupId?: string;
-        /**
-         * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         */
-        customCaTrustEnabled?: boolean;
-        /**
          * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
          *
          * > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
          *
          * > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
          */
-        enableAutoScaling?: boolean;
+        autoScalingEnabled?: boolean;
         /**
-         * Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
-         *
-         * > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+         * Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
          */
-        enableHostEncryption?: boolean;
-        /**
-         * Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
-         */
-        enableNodePublicIp?: boolean;
+        capacityReservationGroupId?: string;
         /**
          * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block. Changing this forces a new resource to be created.
          */
@@ -32620,6 +32209,12 @@ export namespace containerservice {
          * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
          */
         gpuInstance?: string;
+        /**
+         * Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
+         *
+         * > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+         */
+        hostEncryptionEnabled?: boolean;
         /**
          * Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
          */
@@ -32641,10 +32236,6 @@ export namespace containerservice {
          * The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
          */
         maxPods: number;
-        /**
-         * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         */
-        messageOfTheDay?: string;
         minCount?: number;
         /**
          * The name which should be used for the default Kubernetes Node Pool.
@@ -32660,13 +32251,13 @@ export namespace containerservice {
          */
         nodeNetworkProfile?: outputs.containerservice.KubernetesClusterDefaultNodePoolNodeNetworkProfile;
         /**
-         * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+         * Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
+         */
+        nodePublicIpEnabled?: boolean;
+        /**
+         * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
          */
         nodePublicIpPrefixId?: string;
-        /**
-         * @deprecated This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool
-         */
-        nodeTaints?: string[];
         /**
          * Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporaryNameForRotation` must be specified when changing this property.
          */
@@ -32716,7 +32307,7 @@ export namespace containerservice {
          */
         temporaryNameForRotation?: string;
         /**
-         * The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+         * The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
          *
          * > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
          */
@@ -33229,7 +32820,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterLinuxProfileSshKey {
         /**
-         * The Public SSH Key used to access the cluster.
+         * The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
          */
         keyData: string;
     }
@@ -33402,18 +32993,6 @@ export namespace containerservice {
          */
         dnsServiceIp: string;
         /**
-         * IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-         *
-         * > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         *
-         * @deprecated `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         */
-        dockerBridgeCidr: string;
-        /**
-         * @deprecated This property has been superseded by the property `networkDataPlane` and will be removed in v4.0 of the AzureRM provider.
-         */
-        ebpfDataPlane: string;
-        /**
          * Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
          *
          * ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
@@ -33439,10 +33018,8 @@ export namespace containerservice {
          * > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
          *
          * > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
          */
-        networkDataPlane: string;
+        networkDataPlane?: string;
         /**
          * Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
          *
@@ -33471,18 +33048,6 @@ export namespace containerservice {
          * > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
          */
         networkPolicy: string;
-        /**
-         * The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-         *
-         * > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
-         */
-        outboundIpAddressIds: string[];
-        /**
-         * The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-         *
-         * > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
-         */
-        outboundIpPrefixIds: string[];
         /**
          * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
          */
@@ -33845,6 +33410,12 @@ export namespace containerservice {
          * The mode of the service mesh. Possible value is `Istio`.
          */
         mode: string;
+        /**
+         * Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+         *
+         * > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+         */
+        revisions: string[];
     }
 
     export interface KubernetesClusterServiceMeshProfileCertificateAuthority {
@@ -33893,10 +33464,6 @@ export namespace containerservice {
          */
         diskDriverEnabled?: boolean;
         /**
-         * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         */
-        diskDriverVersion?: string;
-        /**
          * Is the File CSI driver enabled? Defaults to `true`.
          */
         fileDriverEnabled?: boolean;
@@ -33908,13 +33475,9 @@ export namespace containerservice {
 
     export interface KubernetesClusterWebAppRouting {
         /**
-         * @deprecated `dnsZoneId` has been deprecated in favor of `dnsZoneIds` and will be removed in v4.0 of the AzureRM Provider.
-         */
-        dnsZoneId?: string;
-        /**
          * Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
          */
-        dnsZoneIds?: string[];
+        dnsZoneIds: string[];
         /**
          * A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
          */
@@ -33940,7 +33503,7 @@ export namespace containerservice {
         /**
          * The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
          */
-        adminPassword?: string;
+        adminPassword: string;
         /**
          * The Admin Username for Windows VMs. Changing this forces a new resource to be created.
          */
@@ -33974,19 +33537,11 @@ export namespace containerservice {
          */
         kedaEnabled?: boolean;
         /**
-         * @deprecated The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-         */
-        verticalPodAutoscalerControlledValues: string;
-        /**
          * Specifies whether Vertical Pod Autoscaler should be enabled.
          *
          * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
          */
         verticalPodAutoscalerEnabled?: boolean;
-        /**
-         * @deprecated The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-         */
-        verticalPodAutoscalerUpdateMode: string;
     }
 
     export interface KubernetesFleetManagerHubProfile {
@@ -33996,10 +33551,6 @@ export namespace containerservice {
     }
 
     export interface RegistryEncryption {
-        /**
-         * @deprecated The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
-         */
-        enabled?: boolean;
         /**
          * The client ID of the managed identity associated with the encryption key.
          */
@@ -34064,11 +33615,7 @@ export namespace containerservice {
          *
          * > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
          */
-        ipRules?: outputs.containerservice.RegistryNetworkRuleSetIpRule[];
-        /**
-         * @deprecated The property `virtualNetwork` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-         */
-        virtualNetworks?: outputs.containerservice.RegistryNetworkRuleSetVirtualNetwork[];
+        ipRules: outputs.containerservice.RegistryNetworkRuleSetIpRule[];
     }
 
     export interface RegistryNetworkRuleSetIpRule {
@@ -34080,25 +33627,6 @@ export namespace containerservice {
          * The CIDR block from which requests will match the rule.
          */
         ipRange: string;
-    }
-
-    export interface RegistryNetworkRuleSetVirtualNetwork {
-        /**
-         * The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-         */
-        action: string;
-        subnetId: string;
-    }
-
-    export interface RegistryRetentionPolicy {
-        /**
-         * The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
-         */
-        days?: number;
-        /**
-         * Boolean value that indicates whether the policy is enabled.
-         */
-        enabled?: boolean;
     }
 
     export interface RegistryTaskAgentSetting {
@@ -34364,13 +33892,6 @@ export namespace containerservice {
          * The CRON expression for the task schedule.
          */
         schedule: string;
-    }
-
-    export interface RegistryTrustPolicy {
-        /**
-         * Boolean value that indicates whether the policy is enabled.
-         */
-        enabled?: boolean;
     }
 
     export interface TokenPasswordPassword1 {
@@ -35822,120 +35343,6 @@ export namespace databoxedge {
         type: string;
     }
 
-    export interface OrderContact {
-        /**
-         * The name of the company. Changing this forces a new Databox Edge Order to be created.
-         */
-        companyName: string;
-        /**
-         * A list of email address to send order notification to. Changing this forces a new Databox Edge Order to be created.
-         */
-        emails: string[];
-        /**
-         * The contact person name. Changing this forces a new Databox Edge Order to be created.
-         */
-        name: string;
-        /**
-         * The phone number. Changing this forces a new Databox Edge Order to be created.
-         */
-        phoneNumber: string;
-    }
-
-    export interface OrderReturnTracking {
-        /**
-         * Name of the carrier used in the delivery.
-         */
-        carrierName: string;
-        /**
-         * Serial number of the device being tracked.
-         */
-        serialNumber: string;
-        /**
-         * The ID of the tracking.
-         */
-        trackingId: string;
-        /**
-         * Tracking URL of the shipment.
-         */
-        trackingUrl: string;
-    }
-
-    export interface OrderShipmentAddress {
-        /**
-         * The list of upto 3 lines for address information.
-         */
-        addresses: string[];
-        /**
-         * The city name. Changing this forces a new Databox Edge Order to be created.
-         */
-        city: string;
-        /**
-         * The name of the country to ship the Databox Edge Device to. Valid values are "Algeria", "Argentina", "Australia", "Austria", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belgium", "Bermuda", "Bolivia", "Bosnia and Herzegovina", "Brazil", "Bulgaria", "Canada", "Cayman Islands", "Chile", "Colombia", "Costa Rica", "Croatia", "Cyprus", "Czechia", "CÃ´te D'ivoire", "Denmark", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Estonia", "Ethiopia", "Finland", "France", "Georgia", "Germany", "Ghana", "Greece", "Guatemala", "Honduras", "Hong Kong SAR", "Hungary", "Iceland", "India", "Indonesia", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Kyrgyzstan", "Latvia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macao SAR", "Malaysia", "Malta", "Mauritius", "Mexico", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Namibia", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Nigeria", "Norway", "Oman", "Pakistan", "Palestinian Authority", "Panama", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Republic of Korea", "Romania", "Russia", "Rwanda", "Saint Kitts And Nevis", "Saudi Arabia", "Senegal", "Serbia", "Singapore", "Slovakia", "Slovenia", "South Africa", "Spain", "Sri Lanka", "Sweden", "Switzerland", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Trinidad And Tobago", "Tunisia", "Turkey", "Turkmenistan", "U.S. Virgin Islands", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Yemen", "Zambia" or "Zimbabwe". Changing this forces a new Databox Edge Order to be created.
-         */
-        country: string;
-        /**
-         * The postal code. Changing this forces a new Databox Edge Order to be created.
-         */
-        postalCode: string;
-        /**
-         * The name of the state to ship the Databox Edge Device to. Changing this forces a new Databox Edge Order to be created.
-         */
-        state: string;
-    }
-
-    export interface OrderShipmentHistory {
-        /**
-         * Dictionary to hold generic information which is not stored by the already existing properties.
-         */
-        additionalDetails: {[key: string]: string};
-        /**
-         * Comments related to this status change.
-         */
-        comments: string;
-        /**
-         * Time of status update.
-         */
-        lastUpdate: string;
-    }
-
-    export interface OrderShipmentTracking {
-        /**
-         * Name of the carrier used in the delivery.
-         */
-        carrierName: string;
-        /**
-         * Serial number of the device being tracked.
-         */
-        serialNumber: string;
-        /**
-         * The ID of the tracking.
-         */
-        trackingId: string;
-        /**
-         * Tracking URL of the shipment.
-         */
-        trackingUrl: string;
-    }
-
-    export interface OrderStatus {
-        /**
-         * Dictionary to hold generic information which is not stored by the already existing properties.
-         */
-        additionalDetails: {[key: string]: string};
-        /**
-         * Comments related to this status change.
-         */
-        comments: string;
-        /**
-         * The current status of the order. Possible values include `Untracked`, `AwaitingFulfilment`, `AwaitingPreparation`, `AwaitingShipment`, `Shipped`, `Arriving`, `Delivered`, `ReplacementRequested`, `LostDevice`, `Declined`, `ReturnInitiated`, `AwaitingReturnShipment`, `ShippedBack` or `CollectedAtMicrosoft`.
-         */
-        info: string;
-        /**
-         * Time of status update.
-         */
-        lastUpdate: string;
-    }
-
 }
 
 export namespace databricks {
@@ -36042,13 +35449,13 @@ export namespace databricks {
          */
         natGatewayName: string;
         /**
-         * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+         * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
          *
          * > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
          *
          * > **Note:** In `v3.104.0` and higher of the provider the `noPublicIp` parameter will now default to `true` instead of `false`.
          */
-        noPublicIp: boolean;
+        noPublicIp?: boolean;
         /**
          * The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          */
@@ -37410,47 +36817,6 @@ export namespace datafactory {
          * The day of the week on which the trigger runs.
          */
         weekday: string;
-    }
-
-    export interface IntegrationRuntimeManagedCatalogInfo {
-        /**
-         * Administrator login name for the SQL Server.
-         */
-        administratorLogin?: string;
-        /**
-         * Administrator login password for the SQL Server.
-         */
-        administratorPassword?: string;
-        /**
-         * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
-         */
-        pricingTier?: string;
-        /**
-         * The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
-         */
-        serverEndpoint: string;
-    }
-
-    export interface IntegrationRuntimeManagedCustomSetupScript {
-        /**
-         * The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-         */
-        blobContainerUri: string;
-        /**
-         * A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-         */
-        sasToken: string;
-    }
-
-    export interface IntegrationRuntimeManagedVnetIntegration {
-        /**
-         * Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
-         */
-        subnetName: string;
-        /**
-         * ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
-         */
-        vnetId: string;
     }
 
     export interface IntegrationRuntimeSelfHostedRbacAuthorization {
@@ -43289,18 +42655,9 @@ export namespace hdinsight {
 
     export interface InteractiveQueryClusterRolesWorkerNodeAutoscale {
         /**
-         * @deprecated HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
-         */
-        capacity?: outputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity;
-        /**
          * A `recurrence` block as defined below.
          */
         recurrence?: outputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence;
-    }
-
-    export interface InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
-        maxInstanceCount: number;
-        minInstanceCount: number;
     }
 
     export interface InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
@@ -43769,8 +43126,6 @@ export namespace hdinsight {
          * The Username of the local administrator for the Kafka Management Nodes.
          *
          * > **NOTE:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
-         *
-         * @deprecated `username` will become Computed only in version 4.0 of the AzureRM Provider as the service auto-generates a value for this property
          */
         username: string;
         /**
@@ -45018,217 +44373,6 @@ export namespace hsm {
 
 }
 
-export namespace hybrid {
-    export interface GetComputeMachineAgentConfiguration {
-        /**
-         * A `extensionsAllowList` block as defined below.
-         */
-        extensionsAllowLists: outputs.hybrid.GetComputeMachineAgentConfigurationExtensionsAllowList[];
-        /**
-         * A `extensionsBlockList` block as defined below.
-         */
-        extensionsBlockLists: outputs.hybrid.GetComputeMachineAgentConfigurationExtensionsBlockList[];
-        /**
-         * Specifies whether the extension service is enabled or disabled.
-         */
-        extensionsEnabled: boolean;
-        /**
-         * Specified whether the guest configuration service is enabled or disabled.
-         */
-        guestConfigurationEnabled: boolean;
-        /**
-         * Specifies the list of ports that the agent will be able to listen on.
-         */
-        incomingConnectionsPorts: string[];
-        /**
-         * List of service names which should not use the specified proxy server.
-         */
-        proxyBypasses: string[];
-        /**
-         * Specifies the URL of the proxy to be used.
-         */
-        proxyUrl: string;
-    }
-
-    export interface GetComputeMachineAgentConfigurationExtensionsAllowList {
-        /**
-         * Publisher of the extension.
-         */
-        publisher: string;
-        /**
-         * The identity type.
-         */
-        type: string;
-    }
-
-    export interface GetComputeMachineAgentConfigurationExtensionsBlockList {
-        /**
-         * Publisher of the extension.
-         */
-        publisher: string;
-        /**
-         * The identity type.
-         */
-        type: string;
-    }
-
-    export interface GetComputeMachineCloudMetadata {
-        /**
-         * Specifies the cloud provider. For example `Azure`, `AWS` and `GCP`.
-         */
-        provider: string;
-    }
-
-    export interface GetComputeMachineErrorDetail {
-        /**
-         * A `additionalInfo` block as defined above.
-         */
-        additionalInfos: outputs.hybrid.GetComputeMachineErrorDetailAdditionalInfo[];
-        /**
-         * The error code.
-         */
-        code: string;
-        /**
-         * The error message.
-         */
-        message: string;
-        /**
-         * The error target.
-         */
-        target: string;
-    }
-
-    export interface GetComputeMachineErrorDetailAdditionalInfo {
-        /**
-         * The additional information message.
-         */
-        info: string;
-        /**
-         * The identity type.
-         */
-        type: string;
-    }
-
-    export interface GetComputeMachineIdentity {
-        /**
-         * The principal ID of resource identity.
-         */
-        principalId: string;
-        /**
-         * The tenant ID of resource.
-         */
-        tenantId: string;
-        /**
-         * The identity type.
-         */
-        type: string;
-    }
-
-    export interface GetComputeMachineLocationData {
-        /**
-         * The city or locality where the resource is located.
-         */
-        city: string;
-        /**
-         * The country or region where the resource is located.
-         */
-        countryOrRegion: string;
-        /**
-         * The district, state, or province where the resource is located.
-         */
-        district: string;
-        /**
-         * The name of this hybrid compute machine.
-         */
-        name: string;
-    }
-
-    export interface GetComputeMachineOsProfile {
-        /**
-         * Specifies the host OS name of the hybrid machine.
-         */
-        computerName: string;
-        /**
-         * A `linuxConfiguration` block as defined above.
-         */
-        linuxConfigurations: outputs.hybrid.GetComputeMachineOsProfileLinuxConfiguration[];
-        /**
-         * A `windowsConfiguration` block as defined below.
-         */
-        windowsConfigurations: outputs.hybrid.GetComputeMachineOsProfileWindowsConfiguration[];
-    }
-
-    export interface GetComputeMachineOsProfileLinuxConfiguration {
-        /**
-         * A `patchSettings` block as defined above.
-         */
-        patchSettings: outputs.hybrid.GetComputeMachineOsProfileLinuxConfigurationPatchSetting[];
-    }
-
-    export interface GetComputeMachineOsProfileLinuxConfigurationPatchSetting {
-        /**
-         * Specifies the assessment mode.
-         */
-        assessmentMode: string;
-        /**
-         * Specifies the patch mode.
-         */
-        patchMode: string;
-    }
-
-    export interface GetComputeMachineOsProfileWindowsConfiguration {
-        /**
-         * A `patchSettings` block as defined above.
-         */
-        patchSettings: outputs.hybrid.GetComputeMachineOsProfileWindowsConfigurationPatchSetting[];
-    }
-
-    export interface GetComputeMachineOsProfileWindowsConfigurationPatchSetting {
-        /**
-         * Specifies the assessment mode.
-         */
-        assessmentMode: string;
-        /**
-         * Specifies the patch mode.
-         */
-        patchMode: string;
-    }
-
-    export interface GetComputeMachineServiceStatus {
-        /**
-         * A `extensionService` block as defined above.
-         */
-        extensionServices: outputs.hybrid.GetComputeMachineServiceStatusExtensionService[];
-        /**
-         * A `guestConfigurationService` block as defined above.
-         */
-        guestConfigurationServices: outputs.hybrid.GetComputeMachineServiceStatusGuestConfigurationService[];
-    }
-
-    export interface GetComputeMachineServiceStatusExtensionService {
-        /**
-         * The behavior of the service when the Arc-enabled machine starts up.
-         */
-        startupType: string;
-        /**
-         * The current status of the service.
-         */
-        status: string;
-    }
-
-    export interface GetComputeMachineServiceStatusGuestConfigurationService {
-        /**
-         * The behavior of the service when the Arc-enabled machine starts up.
-         */
-        startupType: string;
-        /**
-         * The current status of the service.
-         */
-        status: string;
-    }
-
-}
-
 export namespace iot {
     export interface GetIotHubIdentity {
         /**
@@ -45359,9 +44503,9 @@ export namespace iot {
          */
         condition?: string;
         /**
-         * Used to specify whether the fallback route is enabled.
+         * Used to specify whether the fallback route is enabled. Defaults to `true`.
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
          * The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
          */
@@ -45388,7 +44532,7 @@ export namespace iot {
         /**
          * The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
          */
-        defaultTtl: string;
+        defaultTtl?: string;
         /**
          * The ID of the User Managed Identity used to authenticate against the storage account.
          *
@@ -45400,7 +44544,7 @@ export namespace iot {
         /**
          * The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
          */
-        lockDuration: string;
+        lockDuration?: string;
         /**
          * The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
          */
@@ -45412,7 +44556,7 @@ export namespace iot {
         /**
          * The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
          */
-        sasTtl: string;
+        sasTtl?: string;
     }
 
     export interface IoTHubIdentity {
@@ -45722,28 +44866,6 @@ export namespace iot {
          * Does TLS cipher suite need to be updated? Defaults to `true`.
          */
         vulnerableTlsCipherSuite?: boolean;
-    }
-
-    export interface TimeSeriesInsightsGen2EnvironmentStorage {
-        /**
-         * Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-         */
-        key: string;
-        /**
-         * Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
-         */
-        name: string;
-    }
-
-    export interface TimeSeriesInsightsReferenceDataSetKeyProperty {
-        /**
-         * The name of the key property. Changing this forces a new resource to be created.
-         */
-        name: string;
-        /**
-         * The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
-         */
-        type: string;
     }
 
 }
@@ -46594,6 +45716,14 @@ export namespace kusto {
         type: string;
     }
 
+    export interface ClusterLanguageExtension {
+        image: string;
+        /**
+         * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+         */
+        name: string;
+    }
+
     export interface ClusterOptimizedAutoScale {
         /**
          * The maximum number of allowed instances. Must between `0` and `1000`.
@@ -46651,277 +45781,6 @@ export namespace kusto {
          * The type of Managed Service Identity that is configured on this Kusto Cluster.
          */
         type: string;
-    }
-
-}
-
-export namespace lab {
-    export interface LabAutoShutdown {
-        /**
-         * The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
-         *
-         * > **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnectDelay` isn't specified.
-         */
-        disconnectDelay?: string;
-        /**
-         * The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
-         */
-        idleDelay?: string;
-        /**
-         * The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
-         *
-         * > **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `noConnectDelay` isn't specified.
-         */
-        noConnectDelay?: string;
-        /**
-         * A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
-         *
-         * > **NOTE:** This property is `None` when it isn't specified. No need to set `idleDelay` when `shutdownOnIdle` isn't specified.
-         */
-        shutdownOnIdle?: string;
-    }
-
-    export interface LabConnectionSetting {
-        /**
-         * The enabled access level for Client Access over RDP. Possible value is `Public`.
-         *
-         * > **NOTE:** This property is `None` when it isn't specified.
-         */
-        clientRdpAccess?: string;
-        /**
-         * The enabled access level for Client Access over SSH. Possible value is `Public`.
-         *
-         * > **NOTE:** This property is `None` when it isn't specified.
-         */
-        clientSshAccess?: string;
-    }
-
-    export interface LabNetwork {
-        /**
-         * The resource ID of the Load Balancer for the network profile of the Lab Service Lab.
-         */
-        loadBalancerId: string;
-        /**
-         * The resource ID of the Public IP for the network profile of the Lab Service Lab.
-         */
-        publicIpId: string;
-        /**
-         * The resource ID of the Subnet for the network profile of the Lab Service Lab.
-         */
-        subnetId?: string;
-    }
-
-    export interface LabRoster {
-        /**
-         * The AAD group ID which this Lab Service Lab roster is populated from.
-         */
-        activeDirectoryGroupId?: string;
-        /**
-         * The base URI identifying the lms instance.
-         */
-        lmsInstance?: string;
-        /**
-         * The unique id of the Azure Lab Service tool in the lms.
-         */
-        ltiClientId?: string;
-        /**
-         * The unique context identifier for the Lab Service Lab in the lms.
-         */
-        ltiContextId?: string;
-        /**
-         * The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab.
-         */
-        ltiRosterEndpoint?: string;
-    }
-
-    export interface LabSecurity {
-        /**
-         * Is open access enabled to allow any user or only specified users to register to a Lab Service Lab?
-         */
-        openAccessEnabled: boolean;
-        /**
-         * The registration code for the Lab Service Lab.
-         */
-        registrationCode: string;
-    }
-
-    export interface LabVirtualMachine {
-        /**
-         * Is flagged to pre-install dedicated GPU drivers? Defaults to `false`. Changing this forces a new resource to be created.
-         */
-        additionalCapabilityGpuDriversInstalled?: boolean;
-        /**
-         * An `adminUser` block as defined below.
-         */
-        adminUser: outputs.lab.LabVirtualMachineAdminUser;
-        /**
-         * The create option to indicate what Lab Service Lab VMs are created from. Possible values are `Image` and `TemplateVM`. Defaults to `Image`. Changing this forces a new resource to be created.
-         */
-        createOption?: string;
-        /**
-         * An `imageReference` block as defined below.
-         */
-        imageReference: outputs.lab.LabVirtualMachineImageReference;
-        /**
-         * A `nonAdminUser` block as defined below.
-         */
-        nonAdminUser?: outputs.lab.LabVirtualMachineNonAdminUser;
-        /**
-         * Is the shared password enabled with the same password for all user VMs? Defaults to `false`. Changing this forces a new resource to be created.
-         */
-        sharedPasswordEnabled?: boolean;
-        /**
-         * A `sku` block as defined below.
-         */
-        sku: outputs.lab.LabVirtualMachineSku;
-        /**
-         * The initial quota allocated to each Lab Service Lab user. Defaults to `PT0S`. This value must be formatted as an ISO 8601 string.
-         */
-        usageQuota?: string;
-    }
-
-    export interface LabVirtualMachineAdminUser {
-        /**
-         * The password for the Lab user. Changing this forces a new resource to be created.
-         */
-        password: string;
-        /**
-         * The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
-         */
-        username: string;
-    }
-
-    export interface LabVirtualMachineImageReference {
-        /**
-         * The resource ID of the image. Changing this forces a new resource to be created.
-         */
-        id?: string;
-        /**
-         * The image offer if applicable. Changing this forces a new resource to be created.
-         */
-        offer?: string;
-        /**
-         * The image publisher. Changing this forces a new resource to be created.
-         */
-        publisher?: string;
-        /**
-         * The image SKU. Changing this forces a new resource to be created.
-         */
-        sku?: string;
-        /**
-         * The image version specified on creation. Changing this forces a new resource to be created.
-         */
-        version?: string;
-    }
-
-    export interface LabVirtualMachineNonAdminUser {
-        /**
-         * The password for the user.
-         */
-        password: string;
-        /**
-         * The username to use when signing in to Lab Service Lab VMs.
-         */
-        username: string;
-    }
-
-    export interface LabVirtualMachineSku {
-        /**
-         * The capacity for the SKU. Possible values are between `0` and `400`.
-         *
-         * > **NOTE:** Once `activeDirectoryGroupId` is enabled, `capacity` wouldn't take effect, and it would be automatically set to the number of members in AAD Group by service API. So it has to use `ignoreChanges` to avoid the difference of tf plan.
-         */
-        capacity: number;
-        /**
-         * The name of the SKU. Changing this forces a new resource to be created.
-         */
-        name: string;
-    }
-
-    export interface ScheduleRecurrence {
-        /**
-         * When the recurrence will expire in RFC-3339 format.
-         */
-        expirationDate: string;
-        /**
-         * The frequency of the recurrence. Possible values are `Daily` and `Weekly`.
-         */
-        frequency: string;
-        /**
-         * The interval to invoke the schedule on. Possible values are between `1` and `365`.
-         */
-        interval?: number;
-        /**
-         * The interval to invoke the schedule on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-         */
-        weekDays?: string[];
-    }
-
-    export interface ServicePlanDefaultAutoShutdown {
-        /**
-         * The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
-         */
-        disconnectDelay?: string;
-        /**
-         * The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
-         */
-        idleDelay?: string;
-        /**
-         * The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
-         */
-        noConnectDelay?: string;
-        /**
-         * Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
-         *
-         * > **NOTE:** This property is `None` when it isn't specified. No need to set `idleDelay` when `shutdownOnIdle` isn't specified.
-         */
-        shutdownOnIdle?: string;
-    }
-
-    export interface ServicePlanDefaultConnection {
-        /**
-         * The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
-         *
-         * > **NOTE:** This property is `None` when it isn't specified.
-         */
-        clientRdpAccess?: string;
-        /**
-         * The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
-         *
-         * > **NOTE:** This property is `None` when it isn't specified.
-         */
-        clientSshAccess?: string;
-        /**
-         * The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
-         *
-         * > **NOTE:** This property is `None` when it isn't specified.
-         */
-        webRdpAccess?: string;
-        /**
-         * The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
-         *
-         * > **NOTE:** This property is `None` when it isn't specified.
-         */
-        webSshAccess?: string;
-    }
-
-    export interface ServicePlanSupport {
-        /**
-         * The email address for the support contact.
-         */
-        email?: string;
-        /**
-         * The instructions for users of the Lab Service Plan.
-         */
-        instructions?: string;
-        /**
-         * The phone number for the support contact.
-         */
-        phone?: string;
-        /**
-         * The web address for users of the Lab Service Plan.
-         */
-        url?: string;
     }
 
 }
@@ -48630,28 +47489,6 @@ export namespace maps {
 
 }
 
-export namespace mariadb {
-    export interface GetMariaDbServerStorageProfile {
-        /**
-         * Whether autogrow is enabled or disabled for the storage.
-         */
-        autoGrow: string;
-        /**
-         * Backup retention days for the server.
-         */
-        backupRetentionDays: number;
-        /**
-         * Whether Geo-redundant is enabled or not for server backup.
-         */
-        geoRedundantBackup: string;
-        /**
-         * The max storage allowed for a server.
-         */
-        storageMb: number;
-    }
-
-}
-
 export namespace media {
     export interface AccountFilterPresentationTimeRange {
         /**
@@ -48702,1819 +47539,6 @@ export namespace media {
          * The track property value to match or not match.
          */
         value: string;
-    }
-
-    export interface AssetFilterPresentationTimeRange {
-        /**
-         * The absolute end time boundary. Applies to Video on Demand (VoD).
-         * For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
-         */
-        endInUnits?: number;
-        /**
-         * Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: false, true.
-         */
-        forceEnd?: boolean;
-        /**
-         * The relative to end right edge. Applies to Live Streaming only.
-         * This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMiliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
-         */
-        liveBackoffInUnits?: number;
-        /**
-         * The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMiliseconds`. For example, set `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
-         */
-        presentationWindowInUnits?: number;
-        /**
-         * The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
-         */
-        startInUnits?: number;
-        /**
-         * Specified as the number of miliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1000. Or if you want to set `startInUnits` in 30 miliseconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1. Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
-         */
-        unitTimescaleInMiliseconds?: number;
-    }
-
-    export interface AssetFilterTrackSelection {
-        /**
-         * One or more `condition` blocks as defined above.
-         */
-        conditions: outputs.media.AssetFilterTrackSelectionCondition[];
-    }
-
-    export interface AssetFilterTrackSelectionCondition {
-        /**
-         * The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
-         */
-        operation?: string;
-        /**
-         * The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
-         */
-        property?: string;
-        /**
-         * The track property value to match or not match.
-         */
-        value?: string;
-    }
-
-    export interface ContentKeyPolicyPolicyOption {
-        /**
-         * Enable a configuration for non-DRM keys.
-         */
-        clearKeyConfigurationEnabled?: boolean;
-        /**
-         * A `fairplayConfiguration` block as defined above. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>.
-         */
-        fairplayConfiguration?: outputs.media.ContentKeyPolicyPolicyOptionFairplayConfiguration;
-        /**
-         * The name which should be used for this Policy Option.
-         */
-        name: string;
-        /**
-         * Enable an open restriction. License or key will be delivered on every request.
-         */
-        openRestrictionEnabled?: boolean;
-        /**
-         * One or more `playreadyConfigurationLicense` blocks as defined above.
-         */
-        playreadyConfigurationLicenses?: outputs.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense[];
-        /**
-         * The custom response data of the PlayReady configuration. This only applies when `playreadyConfigurationLicense` is specified.
-         */
-        playreadyResponseCustomData?: string;
-        /**
-         * A `tokenRestriction` block as defined below.
-         */
-        tokenRestriction?: outputs.media.ContentKeyPolicyPolicyOptionTokenRestriction;
-        /**
-         * The Widevine template.
-         *
-         * > **NOTE:** Each policyOption can only have one type of configuration: `fairplayConfiguration`, `clearKeyConfigurationEnabled`, `playreadyConfigurationLicense` or `widevineConfigurationTemplate`. And is possible to assign only one type of restriction: `openRestrictionEnabled` or `tokenRestriction`.
-         */
-        widevineConfigurationTemplate?: string;
-    }
-
-    export interface ContentKeyPolicyPolicyOptionFairplayConfiguration {
-        /**
-         * The key that must be used as FairPlay Application Secret key.
-         */
-        ask?: string;
-        /**
-         * A `offlineRentalConfiguration` block as defined below.
-         */
-        offlineRentalConfiguration?: outputs.media.ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration;
-        /**
-         * The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
-         */
-        pfx?: string;
-        /**
-         * The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
-         */
-        pfxPassword?: string;
-        /**
-         * The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
-         */
-        rentalAndLeaseKeyType?: string;
-        /**
-         * The rental duration. Must be greater than 0.
-         */
-        rentalDurationSeconds?: number;
-    }
-
-    export interface ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration {
-        /**
-         * Playback duration.
-         */
-        playbackDurationSeconds?: number;
-        /**
-         * Storage duration.
-         */
-        storageDurationSeconds?: number;
-    }
-
-    export interface ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
-        /**
-         * A flag indicating whether test devices can use the license.
-         */
-        allowTestDevices?: boolean;
-        /**
-         * The begin date of license.
-         */
-        beginDate?: string;
-        /**
-         * Specifies that the content key ID is in the PlayReady header.
-         */
-        contentKeyLocationFromHeaderEnabled?: boolean;
-        /**
-         * The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
-         *
-         * > **NOTE:** You can only specify one content key location. For example if you specify `contentKeyLocationFromHeaderEnabled` in true, you shouldn't specify `contentKeyLocationFromKeyId` and vice versa.
-         */
-        contentKeyLocationFromKeyId?: string;
-        /**
-         * The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
-         */
-        contentType?: string;
-        /**
-         * The expiration date of license.
-         */
-        expirationDate?: string;
-        /**
-         * The grace period of license.
-         */
-        gracePeriod?: string;
-        /**
-         * The license type. Supported values are `NonPersistent` or `Persistent`.
-         */
-        licenseType?: string;
-        /**
-         * A `playRight` block as defined above.
-         */
-        playRight?: outputs.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight;
-        /**
-         * The relative begin date of license.
-         */
-        relativeBeginDate?: string;
-        /**
-         * The relative expiration date of license.
-         */
-        relativeExpirationDate?: string;
-        /**
-         * The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
-         */
-        securityLevel?: string;
-    }
-
-    export interface ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
-        /**
-         * Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
-         */
-        agcAndColorStripeRestriction?: number;
-        /**
-         * Configures Unknown output handling settings of the license. Supported values are `Allowed`, `AllowedWithVideoConstriction` or `NotAllowed`.
-         */
-        allowPassingVideoContentToUnknownOutput?: string;
-        /**
-         * Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
-         */
-        analogVideoOpl?: number;
-        /**
-         * Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
-         */
-        compressedDigitalAudioOpl?: number;
-        /**
-         * Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
-         */
-        compressedDigitalVideoOpl?: number;
-        /**
-         * Enables the Image Constraint For Analog Component Video Restriction in the license.
-         */
-        digitalVideoOnlyContentRestriction?: boolean;
-        /**
-         * An `explicitAnalogTelevisionOutputRestriction` block as defined above.
-         */
-        explicitAnalogTelevisionOutputRestriction?: outputs.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction;
-        /**
-         * The amount of time that the license is valid after the license is first used to play content.
-         */
-        firstPlayExpiration?: string;
-        /**
-         * Enables the Image Constraint For Analog Component Video Restriction in the license.
-         */
-        imageConstraintForAnalogComponentVideoRestriction?: boolean;
-        /**
-         * Enables the Image Constraint For Analog Component Video Restriction in the license.
-         */
-        imageConstraintForAnalogComputerMonitorRestriction?: boolean;
-        /**
-         * Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
-         */
-        scmsRestriction?: number;
-        /**
-         * Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
-         */
-        uncompressedDigitalAudioOpl?: number;
-        /**
-         * Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
-         */
-        uncompressedDigitalVideoOpl?: number;
-    }
-
-    export interface ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction {
-        /**
-         * Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
-         */
-        bestEffortEnforced?: boolean;
-        /**
-         * The restriction control bits. Possible value is integer between `0` and `3` inclusive.
-         */
-        controlBits: number;
-    }
-
-    export interface ContentKeyPolicyPolicyOptionTokenRestriction {
-        /**
-         * One or more `alternateKey` block as defined above.
-         */
-        alternateKeys?: outputs.media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey[];
-        /**
-         * The audience for the token.
-         */
-        audience?: string;
-        /**
-         * The token issuer.
-         */
-        issuer?: string;
-        /**
-         * The OpenID connect discovery document.
-         */
-        openIdConnectDiscoveryDocument?: string;
-        /**
-         * The RSA parameter exponent.
-         */
-        primaryRsaTokenKeyExponent?: string;
-        /**
-         * The RSA parameter modulus.
-         */
-        primaryRsaTokenKeyModulus?: string;
-        /**
-         * The key value of the key. Specifies a symmetric key for token validation.
-         */
-        primarySymmetricTokenKey?: string;
-        /**
-         * The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
-         */
-        primaryX509TokenKeyRaw?: string;
-        /**
-         * One or more `requiredClaim` blocks as defined above.
-         */
-        requiredClaims?: outputs.media.ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim[];
-        /**
-         * The type of token. Supported values are `Jwt` or `Swt`.
-         *
-         * > **NOTE:** Each tokenRestriction can only have one type of primary verification key: if you want to use RSA you must provide `primaryRsaTokenKeyExponent` and `primaryRsaTokenKeyModulus`, if you want to use symmetric you need to provide `primarySymmetricTokenKey` and for x509 you must provide `primaryX509TokenKeyRaw`. For more information about Token access please refer to <https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access>
-         */
-        tokenType?: string;
-    }
-
-    export interface ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey {
-        /**
-         * The RSA parameter exponent.
-         */
-        rsaTokenKeyExponent?: string;
-        /**
-         * The RSA parameter modulus.
-         */
-        rsaTokenKeyModulus?: string;
-        /**
-         * The key value of the key. Specifies a symmetric key for token validation.
-         */
-        symmetricTokenKey?: string;
-        /**
-         * The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
-         *
-         * > **NOTE:** Each `alternateKey` block can only have one type of primary verification key: if you want to use RSA you must provide `rsaTokenKeyExponent` and `rsaTokenKeyModulus`, if you want to use symmetric you need to provide `symmetricTokenKey` and for x509 you must provide `x509TokenKeyRaw`.
-         */
-        x509TokenKeyRaw?: string;
-    }
-
-    export interface ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim {
-        /**
-         * Token claim type.
-         */
-        type?: string;
-        /**
-         * Token claim value.
-         */
-        value?: string;
-    }
-
-    export interface JobInputAsset {
-        /**
-         * A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'. Changing this forces a new resource to be created.
-         */
-        label?: string;
-        /**
-         * The name of the input Asset. Changing this forces a new Media Job to be created.
-         */
-        name: string;
-    }
-
-    export interface JobOutputAsset {
-        /**
-         * A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform. Changing this forces a new resource to be created.
-         */
-        label?: string;
-        /**
-         * The name of the output Asset. Changing this forces a new Media Job to be created.
-         */
-        name: string;
-    }
-
-    export interface LiveEventCrossSiteAccessPolicy {
-        /**
-         * The content of clientaccesspolicy.xml used by Silverlight.
-         */
-        clientAccessPolicy?: string;
-        /**
-         * The content of the Cross Domain Policy (`crossdomain.xml`).
-         */
-        crossDomainPolicy?: string;
-    }
-
-    export interface LiveEventEncoding {
-        /**
-         * Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). The value cannot be set for pass-through live events. Defaults to `PT2S`.
-         */
-        keyFrameInterval?: string;
-        /**
-         * The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, Changing this forces a new resource to be created.
-         */
-        presetName?: string;
-        /**
-         * Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
-         */
-        stretchMode?: string;
-        /**
-         * Live event type. Possible values are `None`, `Premium1080p`, `PassthroughBasic`, `PassthroughStandard` and `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
-         *
-         * > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
-         */
-        type?: string;
-    }
-
-    export interface LiveEventInput {
-        /**
-         * A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
-         */
-        accessToken: string;
-        endpoints: outputs.media.LiveEventInputEndpoint[];
-        /**
-         * One or more `ipAccessControlAllow` blocks as defined below.
-         */
-        ipAccessControlAllows?: outputs.media.LiveEventInputIpAccessControlAllow[];
-        /**
-         * ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
-         */
-        keyFrameIntervalDuration?: string;
-        /**
-         * The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
-         */
-        streamingProtocol?: string;
-    }
-
-    export interface LiveEventInputEndpoint {
-        protocol: string;
-        url: string;
-    }
-
-    export interface LiveEventInputIpAccessControlAllow {
-        /**
-         * The IP address or CIDR range.
-         */
-        address?: string;
-        /**
-         * The friendly name for the IP address range.
-         */
-        name?: string;
-        /**
-         * The subnet mask prefix length (see CIDR notation).
-         */
-        subnetPrefixLength?: number;
-    }
-
-    export interface LiveEventPreview {
-        /**
-         * An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field.
-         */
-        alternativeMediaId?: string;
-        endpoints: outputs.media.LiveEventPreviewEndpoint[];
-        /**
-         * One or more `ipAccessControlAllow` blocks as defined above.
-         */
-        ipAccessControlAllows?: outputs.media.LiveEventPreviewIpAccessControlAllow[];
-        /**
-         * The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
-         */
-        previewLocator: string;
-        /**
-         * The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
-         */
-        streamingPolicyName: string;
-    }
-
-    export interface LiveEventPreviewEndpoint {
-        protocol: string;
-        url: string;
-    }
-
-    export interface LiveEventPreviewIpAccessControlAllow {
-        /**
-         * The IP address or CIDR range.
-         */
-        address?: string;
-        /**
-         * The friendly name for the IP address range.
-         */
-        name?: string;
-        /**
-         * The subnet mask prefix length (see CIDR notation).
-         */
-        subnetPrefixLength?: number;
-    }
-
-    export interface ServiceAccountEncryption {
-        /**
-         * The current key used to encrypt the Media Services Account, including the key version.
-         */
-        currentKeyIdentifier: string;
-        /**
-         * Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-         */
-        keyVaultKeyIdentifier?: string;
-        /**
-         * A `managedIdentity` block as defined below.
-         */
-        managedIdentity?: outputs.media.ServiceAccountEncryptionManagedIdentity;
-        /**
-         * Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
-         */
-        type?: string;
-    }
-
-    export interface ServiceAccountEncryptionManagedIdentity {
-        /**
-         * Whether to use System Assigned Identity. Possible Values are `true` and `false`.
-         */
-        useSystemAssignedIdentity?: boolean;
-        /**
-         * The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
-         */
-        userAssignedIdentityId?: string;
-    }
-
-    export interface ServiceAccountIdentity {
-        /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
-         */
-        identityIds?: string[];
-        /**
-         * The Principal ID associated with this Managed Service Identity.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID associated with this Managed Service Identity.
-         */
-        tenantId: string;
-        /**
-         * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-         */
-        type: string;
-    }
-
-    export interface ServiceAccountKeyDeliveryAccessControl {
-        /**
-         * The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
-         */
-        defaultAction?: string;
-        /**
-         * One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
-         */
-        ipAllowLists?: string[];
-    }
-
-    export interface ServiceAccountStorageAccount {
-        /**
-         * Specifies the ID of the Storage Account that will be associated with the Media Services instance.
-         */
-        id: string;
-        /**
-         * Specifies whether the storage account should be the primary account or not. Defaults to `false`.
-         *
-         * > **NOTE:** Whilst multiple `storageAccount` blocks can be specified - one of them must be set to the primary
-         */
-        isPrimary?: boolean;
-        /**
-         * A `managedIdentity` block as defined below.
-         */
-        managedIdentity?: outputs.media.ServiceAccountStorageAccountManagedIdentity;
-    }
-
-    export interface ServiceAccountStorageAccountManagedIdentity {
-        /**
-         * Whether to use System Assigned Identity. Possible Values are `true` and `false`.
-         */
-        useSystemAssignedIdentity?: boolean;
-        /**
-         * The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
-         */
-        userAssignedIdentityId?: string;
-    }
-
-    export interface StreamingEndpointAccessControl {
-        /**
-         * One or more `akamaiSignatureHeaderAuthenticationKey` blocks as defined below.
-         */
-        akamaiSignatureHeaderAuthenticationKeys?: outputs.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey[];
-        /**
-         * A `ipAllow` block as defined below.
-         */
-        ipAllows?: outputs.media.StreamingEndpointAccessControlIpAllow[];
-    }
-
-    export interface StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey {
-        /**
-         * Authentication key.
-         */
-        base64Key?: string;
-        /**
-         * The expiration time of the authentication key.
-         */
-        expiration?: string;
-        /**
-         * Identifier of the key.
-         */
-        identifier?: string;
-    }
-
-    export interface StreamingEndpointAccessControlIpAllow {
-        /**
-         * The IP address to allow.
-         */
-        address?: string;
-        /**
-         * The friendly name for the IP address range.
-         */
-        name?: string;
-        /**
-         * The subnet mask prefix length (see CIDR notation).
-         */
-        subnetPrefixLength?: number;
-    }
-
-    export interface StreamingEndpointCrossSiteAccessPolicy {
-        /**
-         * The content of `clientaccesspolicy.xml` used by Silverlight.
-         */
-        clientAccessPolicy: string;
-        /**
-         * The content of `crossdomain.xml` used by Silverlight.
-         */
-        crossDomainPolicy: string;
-    }
-
-    export interface StreamingEndpointSkus {
-        /**
-         * The sku capacity of Streaming Endpoint.
-         */
-        capacity: number;
-        /**
-         * The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
-         */
-        name: string;
-    }
-
-    export interface StreamingLocatorContentKey {
-        /**
-         * ID of Content Key. Changing this forces a new Streaming Locator to be created.
-         */
-        contentKeyId?: string;
-        /**
-         * Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
-         */
-        labelReferenceInStreamingPolicy?: string;
-        /**
-         * Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
-         */
-        policyName?: string;
-        /**
-         * Encryption type of Content Key. Supported values are `CommonEncryptionCbcs`, `CommonEncryptionCenc` or `EnvelopeEncryption`. Changing this forces a new Streaming Locator to be created.
-         */
-        type?: string;
-        /**
-         * Value of Content Key. Changing this forces a new Streaming Locator to be created.
-         */
-        value?: string;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCbcs {
-        /**
-         * A `clearKeyEncryption` block as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        clearKeyEncryption?: outputs.media.StreamingPolicyCommonEncryptionCbcsClearKeyEncryption;
-        /**
-         * A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        defaultContentKey?: outputs.media.StreamingPolicyCommonEncryptionCbcsDefaultContentKey;
-        /**
-         * A `drmFairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        drmFairplay?: outputs.media.StreamingPolicyCommonEncryptionCbcsDrmFairplay;
-        /**
-         * A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        enabledProtocols?: outputs.media.StreamingPolicyCommonEncryptionCbcsEnabledProtocols;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCbcsClearKeyEncryption {
-        /**
-         * The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
-         *
-         * > **Note** Either `clearKeyEncryption` or `drm` must be specified.
-         */
-        customKeysAcquisitionUrlTemplate: string;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
-        /**
-         * Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
-         */
-        label?: string;
-        /**
-         * Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
-         */
-        policyName?: string;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCbcsDrmFairplay {
-        /**
-         * All license to be persistent or not. Changing this forces a new Streaming Policy to be created.
-         */
-        allowPersistentLicense?: boolean;
-        /**
-         * The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
-         */
-        customLicenseAcquisitionUrlTemplate?: string;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
-        /**
-         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        dash?: boolean;
-        /**
-         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        download?: boolean;
-        /**
-         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        hls?: boolean;
-        /**
-         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        smoothStreaming?: boolean;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCenc {
-        /**
-         * A `clearKeyEncryption` block as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        clearKeyEncryption?: outputs.media.StreamingPolicyCommonEncryptionCencClearKeyEncryption;
-        /**
-         * One or more `clearTrack` blocks as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        clearTracks?: outputs.media.StreamingPolicyCommonEncryptionCencClearTrack[];
-        /**
-         * One or more `contentKeyToTrackMapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        contentKeyToTrackMappings?: outputs.media.StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping[];
-        /**
-         * A `defaultContentKey` block as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        defaultContentKey?: outputs.media.StreamingPolicyCommonEncryptionCencDefaultContentKey;
-        /**
-         * A `drmPlayready` block as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        drmPlayready?: outputs.media.StreamingPolicyCommonEncryptionCencDrmPlayready;
-        /**
-         * The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
-         */
-        drmWidevineCustomLicenseAcquisitionUrlTemplate?: string;
-        /**
-         * A `enabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        enabledProtocols?: outputs.media.StreamingPolicyCommonEncryptionCencEnabledProtocols;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCencClearKeyEncryption {
-        /**
-         * The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
-         *
-         * > **Note** Either `clearKeyEncryption` or `drm` must be specified.
-         */
-        customKeysAcquisitionUrlTemplate: string;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCencClearTrack {
-        /**
-         * One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        conditions: outputs.media.StreamingPolicyCommonEncryptionCencClearTrackCondition[];
-    }
-
-    export interface StreamingPolicyCommonEncryptionCencClearTrackCondition {
-        /**
-         * The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
-         */
-        operation: string;
-        /**
-         * The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
-         */
-        property: string;
-        /**
-         * The track property value. Changing this forces a new Streaming Policy to be created.
-         */
-        value: string;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping {
-        /**
-         * Specifies the content key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
-         */
-        label?: string;
-        /**
-         * The policy used by the default key. Changing this forces a new Streaming Policy to be created.
-         */
-        policyName?: string;
-        /**
-         * One or more `track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        tracks: outputs.media.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack[];
-    }
-
-    export interface StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack {
-        /**
-         * One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
-         */
-        conditions: outputs.media.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition[];
-    }
-
-    export interface StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition {
-        /**
-         * The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
-         */
-        operation: string;
-        /**
-         * The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
-         */
-        property: string;
-        /**
-         * The track property value. Changing this forces a new Streaming Policy to be created.
-         */
-        value: string;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCencDefaultContentKey {
-        /**
-         * Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
-         */
-        label?: string;
-        /**
-         * Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
-         */
-        policyName?: string;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCencDrmPlayready {
-        /**
-         * Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
-         */
-        customAttributes?: string;
-        /**
-         * The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
-         */
-        customLicenseAcquisitionUrlTemplate?: string;
-    }
-
-    export interface StreamingPolicyCommonEncryptionCencEnabledProtocols {
-        /**
-         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        dash?: boolean;
-        /**
-         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        download?: boolean;
-        /**
-         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        hls?: boolean;
-        /**
-         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        smoothStreaming?: boolean;
-    }
-
-    export interface StreamingPolicyEnvelopeEncryption {
-        /**
-         * The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
-         */
-        customKeysAcquisitionUrlTemplate?: string;
-        /**
-         * A `defaultContentKey` block as defined above. Changing this forces a new Streaming Policy to be created.
-         */
-        defaultContentKey?: outputs.media.StreamingPolicyEnvelopeEncryptionDefaultContentKey;
-        /**
-         * A `enabledProtocols` block as defined above. Changing this forces a new Streaming Policy to be created.
-         */
-        enabledProtocols?: outputs.media.StreamingPolicyEnvelopeEncryptionEnabledProtocols;
-    }
-
-    export interface StreamingPolicyEnvelopeEncryptionDefaultContentKey {
-        /**
-         * Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
-         */
-        label?: string;
-        /**
-         * Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
-         */
-        policyName?: string;
-    }
-
-    export interface StreamingPolicyEnvelopeEncryptionEnabledProtocols {
-        /**
-         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        dash?: boolean;
-        /**
-         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        download?: boolean;
-        /**
-         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        hls?: boolean;
-        /**
-         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        smoothStreaming?: boolean;
-    }
-
-    export interface StreamingPolicyNoEncryptionEnabledProtocols {
-        /**
-         * Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        dash?: boolean;
-        /**
-         * Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        download?: boolean;
-        /**
-         * Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        hls?: boolean;
-        /**
-         * Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
-         */
-        smoothStreaming?: boolean;
-    }
-
-    export interface TransformOutput {
-        /**
-         * An `audioAnalyzerPreset` block as defined above.
-         */
-        audioAnalyzerPreset?: outputs.media.TransformOutputAudioAnalyzerPreset;
-        /**
-         * A `builtinPreset` block as defined above.
-         */
-        builtinPreset?: outputs.media.TransformOutputBuiltinPreset;
-        /**
-         * A `customPreset` block as defined above.
-         */
-        customPreset?: outputs.media.TransformOutputCustomPreset;
-        /**
-         * A `faceDetectorPreset` block as defined above.
-         *
-         * @deprecated `faceDetectorPreset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
-         */
-        faceDetectorPreset?: outputs.media.TransformOutputFaceDetectorPreset;
-        /**
-         * A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. Defaults to `StopProcessingJob`.
-         */
-        onErrorAction?: string;
-        /**
-         * Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
-         */
-        relativePriority?: string;
-        /**
-         * A `videoAnalyzerPreset` block as defined below.
-         *
-         * > **NOTE:** Each output can only have one type of preset: `builtinPreset`, `audioAnalyzerPreset`, `customPreset`, `faceDetectorPreset` or `videoAnalyzerPreset`. If you need to apply different presets you must create one output for each one.
-         *
-         * @deprecated `videoAnalyzerPreset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
-         */
-        videoAnalyzerPreset?: outputs.media.TransformOutputVideoAnalyzerPreset;
-    }
-
-    export interface TransformOutputAudioAnalyzerPreset {
-        /**
-         * Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
-         */
-        audioAnalysisMode?: string;
-        /**
-         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
-         */
-        audioLanguage?: string;
-        /**
-         * Dictionary containing key value pairs for parameters not exposed in the preset itself.
-         */
-        experimentalOptions?: {[key: string]: string};
-    }
-
-    export interface TransformOutputBuiltinPreset {
-        /**
-         * A `presetConfiguration` block as defined below.
-         */
-        presetConfiguration?: outputs.media.TransformOutputBuiltinPresetPresetConfiguration;
-        /**
-         * The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
-         */
-        presetName: string;
-    }
-
-    export interface TransformOutputBuiltinPresetPresetConfiguration {
-        /**
-         * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`.
-         */
-        complexity?: string;
-        /**
-         * Specifies the interleave mode of the output to control how audio are stored in the container format. Possible values are `InterleavedOutput` and `NonInterleavedOutput`.
-         */
-        interleaveOutput?: string;
-        /**
-         * The key frame interval in seconds. Possible value is a positive float. For example, set as `2.0` to reduce the playback buffering for some players.
-         */
-        keyFrameIntervalInSeconds?: number;
-        /**
-         * The maximum bitrate in bits per second (threshold for the top video layer). For example, set as `6000000` to avoid producing very high bitrate outputs for contents with high complexity.
-         */
-        maxBitrateBps?: number;
-        /**
-         * The maximum height of output video layers. For example, set as `720` to produce output layers up to 720P even if the input is 4K.
-         */
-        maxHeight?: number;
-        /**
-         * The maximum number of output video layers. For example, set as `4` to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
-         */
-        maxLayers?: number;
-        /**
-         * The minimum bitrate in bits per second (threshold for the bottom video layer). For example, set as `200000` to have a bottom layer that covers users with low network bandwidth.
-         */
-        minBitrateBps?: number;
-        /**
-         * The minimum height of output video layers. For example, set as `360` to avoid output layers of smaller resolutions like 180P.
-         */
-        minHeight?: number;
-    }
-
-    export interface TransformOutputCustomPreset {
-        /**
-         * One or more `codec` blocks as defined above.
-         */
-        codecs: outputs.media.TransformOutputCustomPresetCodec[];
-        /**
-         * Dictionary containing key value pairs for parameters not exposed in the preset itself.
-         */
-        experimentalOptions?: {[key: string]: string};
-        /**
-         * A `filter` block as defined below.
-         */
-        filter?: outputs.media.TransformOutputCustomPresetFilter;
-        /**
-         * One or more `format` blocks as defined below.
-         */
-        formats: outputs.media.TransformOutputCustomPresetFormat[];
-    }
-
-    export interface TransformOutputCustomPresetCodec {
-        /**
-         * A `aacAudio` block as defined above.
-         */
-        aacAudio?: outputs.media.TransformOutputCustomPresetCodecAacAudio;
-        /**
-         * A `copyAudio` block as defined below.
-         */
-        copyAudio?: outputs.media.TransformOutputCustomPresetCodecCopyAudio;
-        /**
-         * A `copyVideo` block as defined below.
-         */
-        copyVideo?: outputs.media.TransformOutputCustomPresetCodecCopyVideo;
-        /**
-         * A `ddAudio` block as defined below.
-         */
-        ddAudio?: outputs.media.TransformOutputCustomPresetCodecDdAudio;
-        /**
-         * A `h264Video` block as defined below.
-         */
-        h264Video?: outputs.media.TransformOutputCustomPresetCodecH264Video;
-        /**
-         * A `h265Video` block as defined below.
-         */
-        h265Video?: outputs.media.TransformOutputCustomPresetCodecH265Video;
-        /**
-         * A `jpgImage` block as defined below.
-         */
-        jpgImage?: outputs.media.TransformOutputCustomPresetCodecJpgImage;
-        /**
-         * A `pngImage` block as defined below.
-         *
-         * > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video`, `h265Video`, `jpgImage` or `pngImage`. If you need to apply different codec you must create one codec for each one.
-         */
-        pngImage?: outputs.media.TransformOutputCustomPresetCodecPngImage;
-    }
-
-    export interface TransformOutputCustomPresetCodecAacAudio {
-        /**
-         * The bitrate of the audio in bits per second. Default to `128000`.
-         */
-        bitrate?: number;
-        /**
-         * The number of audio channels. Default to `2`.
-         */
-        channels?: number;
-        /**
-         * Specifies the label for the codec. The label can be used to control muxing behavior.
-         */
-        label?: string;
-        /**
-         * The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
-         */
-        profile?: string;
-        /**
-         * The sampling rate to use for encoding in Hertz. Default to `48000`.
-         */
-        samplingRate?: number;
-    }
-
-    export interface TransformOutputCustomPresetCodecCopyAudio {
-        /**
-         * Specifies the label for the codec. The label can be used to control muxing behavior.
-         */
-        label?: string;
-    }
-
-    export interface TransformOutputCustomPresetCodecCopyVideo {
-        /**
-         * Specifies the label for the codec. The label can be used to control muxing behavior.
-         */
-        label?: string;
-    }
-
-    export interface TransformOutputCustomPresetCodecDdAudio {
-        /**
-         * The bitrate of the audio in bits per second. Default to `192000`.
-         */
-        bitrate?: number;
-        /**
-         * The number of audio channels. Default to `2`.
-         */
-        channels?: number;
-        /**
-         * Specifies the label for the codec. The label can be used to control muxing behavior.
-         */
-        label?: string;
-        /**
-         * The sampling rate to use for encoding in Hertz. Default to `48000`.
-         */
-        samplingRate?: number;
-    }
-
-    export interface TransformOutputCustomPresetCodecH264Video {
-        /**
-         * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
-         */
-        complexity?: string;
-        /**
-         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
-         */
-        keyFrameInterval?: string;
-        /**
-         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-         */
-        label?: string;
-        /**
-         * One or more `layer` blocks as defined below.
-         */
-        layers?: outputs.media.TransformOutputCustomPresetCodecH264VideoLayer[];
-        /**
-         * The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
-         */
-        rateControlMode?: string;
-        /**
-         * Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
-         */
-        sceneChangeDetectionEnabled?: boolean;
-        /**
-         * Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
-         */
-        stretchMode?: string;
-        /**
-         * Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
-         */
-        syncMode?: string;
-    }
-
-    export interface TransformOutputCustomPresetCodecH264VideoLayer {
-        /**
-         * Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
-         */
-        adaptiveBFrameEnabled?: boolean;
-        /**
-         * The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
-         */
-        bFrames: number;
-        /**
-         * The average bitrate in bits per second at which to encode the input video when generating this layer.
-         */
-        bitrate: number;
-        /**
-         * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
-         */
-        bufferWindow?: string;
-        /**
-         * The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
-         */
-        crf?: number;
-        /**
-         * The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
-         */
-        entropyMode: string;
-        /**
-         * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
-         */
-        frameRate?: string;
-        /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
-         */
-        height: string;
-        /**
-         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-         */
-        label?: string;
-        /**
-         * The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
-         */
-        level?: string;
-        /**
-         * The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
-         */
-        maxBitrate: number;
-        /**
-         * The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
-         */
-        profile?: string;
-        /**
-         * The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
-         */
-        referenceFrames: number;
-        /**
-         * The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
-         */
-        slices: number;
-        /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
-         */
-        width: string;
-    }
-
-    export interface TransformOutputCustomPresetCodecH265Video {
-        /**
-         * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
-         */
-        complexity?: string;
-        /**
-         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
-         */
-        keyFrameInterval?: string;
-        /**
-         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-         */
-        label?: string;
-        /**
-         * One or more `layer` blocks as defined below.
-         */
-        layers?: outputs.media.TransformOutputCustomPresetCodecH265VideoLayer[];
-        /**
-         * Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
-         */
-        sceneChangeDetectionEnabled?: boolean;
-        /**
-         * Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
-         */
-        stretchMode?: string;
-        /**
-         * Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
-         */
-        syncMode?: string;
-    }
-
-    export interface TransformOutputCustomPresetCodecH265VideoLayer {
-        /**
-         * Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
-         */
-        adaptiveBFrameEnabled?: boolean;
-        /**
-         * The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
-         */
-        bFrames: number;
-        /**
-         * The average bitrate in bits per second at which to encode the input video when generating this layer.
-         */
-        bitrate: number;
-        /**
-         * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
-         */
-        bufferWindow?: string;
-        /**
-         * The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
-         */
-        crf?: number;
-        /**
-         * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
-         */
-        frameRate?: string;
-        /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
-         */
-        height: string;
-        /**
-         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-         */
-        label?: string;
-        /**
-         * The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
-         */
-        level?: string;
-        /**
-         * The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
-         */
-        maxBitrate: number;
-        /**
-         * The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
-         */
-        profile?: string;
-        /**
-         * The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
-         */
-        referenceFrames: number;
-        /**
-         * The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
-         */
-        slices: number;
-        /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
-         */
-        width: string;
-    }
-
-    export interface TransformOutputCustomPresetCodecJpgImage {
-        /**
-         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
-         */
-        keyFrameInterval?: string;
-        /**
-         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-         */
-        label?: string;
-        /**
-         * One or more `layer` blocks as defined below.
-         */
-        layers?: outputs.media.TransformOutputCustomPresetCodecJpgImageLayer[];
-        /**
-         * The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
-         */
-        range?: string;
-        /**
-         * Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
-         */
-        spriteColumn?: number;
-        /**
-         * The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
-         */
-        start: string;
-        /**
-         * The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
-         */
-        step?: string;
-        /**
-         * The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
-         */
-        stretchMode?: string;
-        /**
-         * Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
-         */
-        syncMode?: string;
-    }
-
-    export interface TransformOutputCustomPresetCodecJpgImageLayer {
-        /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
-         */
-        height?: string;
-        /**
-         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-         */
-        label?: string;
-        /**
-         * The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
-         */
-        quality?: number;
-        /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
-         */
-        width?: string;
-    }
-
-    export interface TransformOutputCustomPresetCodecPngImage {
-        /**
-         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
-         */
-        keyFrameInterval?: string;
-        /**
-         * Specifies the label for the codec. The label can be used to control muxing behavior.
-         */
-        label?: string;
-        /**
-         * One or more `layer` blocks as defined below.
-         */
-        layers?: outputs.media.TransformOutputCustomPresetCodecPngImageLayer[];
-        /**
-         * The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
-         */
-        range?: string;
-        /**
-         * The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
-         */
-        start: string;
-        /**
-         * The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
-         */
-        step?: string;
-        /**
-         * The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
-         */
-        stretchMode?: string;
-        /**
-         * Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
-         */
-        syncMode?: string;
-    }
-
-    export interface TransformOutputCustomPresetCodecPngImageLayer {
-        /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
-         */
-        height?: string;
-        /**
-         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-         */
-        label?: string;
-        /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
-         */
-        width?: string;
-    }
-
-    export interface TransformOutputCustomPresetFilter {
-        /**
-         * A `cropRectangle` block as defined above.
-         */
-        cropRectangle?: outputs.media.TransformOutputCustomPresetFilterCropRectangle;
-        /**
-         * A `deinterlace` block as defined below.
-         */
-        deinterlace?: outputs.media.TransformOutputCustomPresetFilterDeinterlace;
-        /**
-         * A `fadeIn` block as defined above.
-         */
-        fadeIn?: outputs.media.TransformOutputCustomPresetFilterFadeIn;
-        /**
-         * A `fadeOut` block as defined above.
-         */
-        fadeOut?: outputs.media.TransformOutputCustomPresetFilterFadeOut;
-        /**
-         * One or more `overlay` blocks as defined below.
-         */
-        overlays?: outputs.media.TransformOutputCustomPresetFilterOverlay[];
-        /**
-         * The rotation to be applied to the input video before it is encoded. Possible values are `Auto`, `None`, `Rotate90`, `Rotate180`, `Rotate270`,or `Rotate0`. Default to `Auto`.
-         */
-        rotation?: string;
-    }
-
-    export interface TransformOutputCustomPresetFilterCropRectangle {
-        /**
-         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
-         */
-        height?: string;
-        /**
-         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
-         */
-        left?: string;
-        /**
-         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
-         */
-        top?: string;
-        /**
-         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
-         */
-        width?: string;
-    }
-
-    export interface TransformOutputCustomPresetFilterDeinterlace {
-        /**
-         * The deinterlacing mode. Possible values are `AutoPixelAdaptive` or `Off`. Default to `AutoPixelAdaptive`.
-         */
-        mode?: string;
-        /**
-         * The field parity to use for deinterlacing. Possible values are `Auto`, `TopFieldFirst` or `BottomFieldFirst`. Default to `Auto`.
-         */
-        parity?: string;
-    }
-
-    export interface TransformOutputCustomPresetFilterFadeIn {
-        /**
-         * The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
-         */
-        duration: string;
-        /**
-         * The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
-         */
-        fadeColor: string;
-        /**
-         * The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
-         */
-        start?: string;
-    }
-
-    export interface TransformOutputCustomPresetFilterFadeOut {
-        /**
-         * The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
-         */
-        duration: string;
-        /**
-         * The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
-         */
-        fadeColor: string;
-        /**
-         * The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
-         */
-        start?: string;
-    }
-
-    export interface TransformOutputCustomPresetFilterOverlay {
-        /**
-         * An `audio` block as defined above.
-         */
-        audio?: outputs.media.TransformOutputCustomPresetFilterOverlayAudio;
-        /**
-         * A `video` block as defined below.
-         *
-         * > **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
-         */
-        video?: outputs.media.TransformOutputCustomPresetFilterOverlayVideo;
-    }
-
-    export interface TransformOutputCustomPresetFilterOverlayAudio {
-        /**
-         * The gain level of audio in the overlay. The value should be in the range `0` to `1.0`. The default is `1.0`.
-         */
-        audioGainLevel?: number;
-        /**
-         * The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
-         */
-        end?: string;
-        /**
-         * The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
-         */
-        fadeInDuration?: string;
-        /**
-         * The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
-         */
-        fadeOutDuration?: string;
-        /**
-         * The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
-         */
-        inputLabel: string;
-        /**
-         * The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
-         */
-        start?: string;
-    }
-
-    export interface TransformOutputCustomPresetFilterOverlayVideo {
-        /**
-         * The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
-         */
-        audioGainLevel?: number;
-        /**
-         * A `cropRectangle` block as defined above.
-         */
-        cropRectangle?: outputs.media.TransformOutputCustomPresetFilterOverlayVideoCropRectangle;
-        /**
-         * The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
-         */
-        end?: string;
-        /**
-         * The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
-         */
-        fadeInDuration?: string;
-        /**
-         * The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
-         */
-        fadeOutDuration?: string;
-        /**
-         * The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
-         */
-        inputLabel: string;
-        /**
-         * The opacity of the overlay. The value should be in the range between `0` to `1.0`. Default to `1.0`, which means the overlay is opaque.
-         */
-        opacity?: number;
-        /**
-         * A `position` block as defined above.
-         */
-        position?: outputs.media.TransformOutputCustomPresetFilterOverlayVideoPosition;
-        /**
-         * The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
-         */
-        start?: string;
-    }
-
-    export interface TransformOutputCustomPresetFilterOverlayVideoCropRectangle {
-        /**
-         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
-         */
-        height?: string;
-        /**
-         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
-         */
-        left?: string;
-        /**
-         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
-         */
-        top?: string;
-        /**
-         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
-         */
-        width?: string;
-    }
-
-    export interface TransformOutputCustomPresetFilterOverlayVideoPosition {
-        /**
-         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
-         */
-        height?: string;
-        /**
-         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
-         */
-        left?: string;
-        /**
-         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
-         */
-        top?: string;
-        /**
-         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
-         */
-        width?: string;
-    }
-
-    export interface TransformOutputCustomPresetFormat {
-        /**
-         * A `jpg` block as defined below.
-         */
-        jpg?: outputs.media.TransformOutputCustomPresetFormatJpg;
-        /**
-         * A `mp4` block as defined below.
-         */
-        mp4?: outputs.media.TransformOutputCustomPresetFormatMp4;
-        /**
-         * A `png` block as defined below.
-         */
-        png?: outputs.media.TransformOutputCustomPresetFormatPng;
-        /**
-         * A `transportStream` block as defined below.
-         *
-         * > **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transportStream`. If you need to apply different type you must create one format for each one.
-         */
-        transportStream?: outputs.media.TransformOutputCustomPresetFormatTransportStream;
-    }
-
-    export interface TransformOutputCustomPresetFormatJpg {
-        /**
-         * The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
-         */
-        filenamePattern: string;
-    }
-
-    export interface TransformOutputCustomPresetFormatMp4 {
-        /**
-         * The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
-         */
-        filenamePattern: string;
-        /**
-         * One or more `outputFile` blocks as defined below.
-         */
-        outputFiles?: outputs.media.TransformOutputCustomPresetFormatMp4OutputFile[];
-    }
-
-    export interface TransformOutputCustomPresetFormatMp4OutputFile {
-        /**
-         * The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
-         */
-        labels: string[];
-    }
-
-    export interface TransformOutputCustomPresetFormatPng {
-        /**
-         * The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
-         */
-        filenamePattern: string;
-    }
-
-    export interface TransformOutputCustomPresetFormatTransportStream {
-        /**
-         * The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
-         */
-        filenamePattern: string;
-        /**
-         * One or more `outputFile` blocks as defined above.
-         */
-        outputFiles?: outputs.media.TransformOutputCustomPresetFormatTransportStreamOutputFile[];
-    }
-
-    export interface TransformOutputCustomPresetFormatTransportStreamOutputFile {
-        /**
-         * The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
-         */
-        labels: string[];
-    }
-
-    export interface TransformOutputFaceDetectorPreset {
-        /**
-         * Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
-         */
-        analysisResolution?: string;
-        /**
-         * Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
-         */
-        blurType?: string;
-        /**
-         * Dictionary containing key value pairs for parameters not exposed in the preset itself.
-         */
-        experimentalOptions?: {[key: string]: string};
-        /**
-         * This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
-         */
-        faceRedactorMode?: string;
-    }
-
-    export interface TransformOutputVideoAnalyzerPreset {
-        /**
-         * Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
-         */
-        audioAnalysisMode?: string;
-        /**
-         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
-         */
-        audioLanguage?: string;
-        /**
-         * Dictionary containing key value pairs for parameters not exposed in the preset itself.
-         */
-        experimentalOptions?: {[key: string]: string};
-        /**
-         * Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly, if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out. Default to `AllInsights`.
-         */
-        insightsType?: string;
-    }
-
-}
-
-export namespace mediaservices {
-    export interface AccountEncryption {
-        /**
-         * The current key used to encrypt the Media Services Account, including the key version.
-         */
-        currentKeyIdentifier: string;
-        /**
-         * Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-         */
-        keyVaultKeyIdentifier?: string;
-        /**
-         * A `managedIdentity` block as defined below.
-         */
-        managedIdentity?: outputs.mediaservices.AccountEncryptionManagedIdentity;
-        /**
-         * Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
-         */
-        type?: string;
-    }
-
-    export interface AccountEncryptionManagedIdentity {
-        /**
-         * Whether to use System Assigned Identity. Possible Values are `true` and `false`.
-         */
-        useSystemAssignedIdentity?: boolean;
-        /**
-         * The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
-         */
-        userAssignedIdentityId?: string;
-    }
-
-    export interface AccountIdentity {
-        /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
-         */
-        identityIds?: string[];
-        /**
-         * The Principal ID associated with this Managed Service Identity.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID associated with this Managed Service Identity.
-         */
-        tenantId: string;
-        /**
-         * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-         */
-        type: string;
-    }
-
-    export interface AccountKeyDeliveryAccessControl {
-        /**
-         * The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
-         */
-        defaultAction?: string;
-        /**
-         * One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
-         */
-        ipAllowLists?: string[];
-    }
-
-    export interface AccountStorageAccount {
-        /**
-         * Specifies the ID of the Storage Account that will be associated with the Media Services instance.
-         */
-        id: string;
-        /**
-         * Specifies whether the storage account should be the primary account or not. Defaults to `false`.
-         *
-         * > **NOTE:** Whilst multiple `storageAccount` blocks can be specified - one of them must be set to the primary
-         */
-        isPrimary?: boolean;
-        /**
-         * A `managedIdentity` block as defined below.
-         */
-        managedIdentity?: outputs.mediaservices.AccountStorageAccountManagedIdentity;
-    }
-
-    export interface AccountStorageAccountManagedIdentity {
-        /**
-         * Whether to use System Assigned Identity. Possible Values are `true` and `false`.
-         */
-        useSystemAssignedIdentity?: boolean;
-        /**
-         * The ID of the User Assigned Identity. This value can only be set when `useSystemAssignedIdentity` is `false`
-         */
-        userAssignedIdentityId?: string;
     }
 
 }
@@ -51200,32 +48224,6 @@ export namespace monitoring {
         enabled?: boolean;
     }
 
-    export interface AadDiagnosticSettingLog {
-        /**
-         * The log category for the Azure Active Directory Diagnostic.
-         */
-        category: string;
-        /**
-         * Is this Diagnostic Log enabled? Defaults to `true`.
-         */
-        enabled?: boolean;
-        /**
-         * A `retentionPolicy` block as defined below.
-         */
-        retentionPolicy: outputs.monitoring.AadDiagnosticSettingLogRetentionPolicy;
-    }
-
-    export interface AadDiagnosticSettingLogRetentionPolicy {
-        /**
-         * The number of days for which this Retention Policy should apply. Defaults to `0`.
-         */
-        days?: number;
-        /**
-         * Is this Retention Policy enabled? Defaults to `false`.
-         */
-        enabled?: boolean;
-    }
-
     export interface ActionGroupArmRoleReceiver {
         /**
          * The name of the ARM role receiver.
@@ -51323,12 +48321,6 @@ export namespace monitoring {
 
     export interface ActionGroupEventHubReceiver {
         /**
-         * The resource ID of the respective Event Hub.
-         *
-         * @deprecated This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.
-         */
-        eventHubId: string;
-        /**
          * The name of the specific Event Hub queue.
          */
         eventHubName: string;
@@ -51342,8 +48334,6 @@ export namespace monitoring {
         name: string;
         /**
          * The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
-         *
-         * > **NOTE:** `eventHubId` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `eventHubName`, `eventHubName`,and `subscriptionId` instead. And `eventHubName`, `eventHubName` will be required properties in version 4.0.
          */
         subscriptionId: string;
         /**
@@ -51466,274 +48456,6 @@ export namespace monitoring {
         tenantId: string;
     }
 
-    export interface ActionRuleActionGroupCondition {
-        /**
-         * A `alertContext` block as defined below.
-         */
-        alertContext?: outputs.monitoring.ActionRuleActionGroupConditionAlertContext;
-        /**
-         * A `alertRuleId` block as defined below.
-         */
-        alertRuleId?: outputs.monitoring.ActionRuleActionGroupConditionAlertRuleId;
-        /**
-         * A `description` block as defined below.
-         */
-        description?: outputs.monitoring.ActionRuleActionGroupConditionDescription;
-        /**
-         * A `monitor` block as defined below.
-         */
-        monitor?: outputs.monitoring.ActionRuleActionGroupConditionMonitor;
-        /**
-         * A `monitorService` block as defined below.
-         */
-        monitorService?: outputs.monitoring.ActionRuleActionGroupConditionMonitorService;
-        /**
-         * A `severity` block as defined below.
-         */
-        severity?: outputs.monitoring.ActionRuleActionGroupConditionSeverity;
-        /**
-         * A `targetResourceType` block as defined below.
-         */
-        targetResourceType?: outputs.monitoring.ActionRuleActionGroupConditionTargetResourceType;
-    }
-
-    export interface ActionRuleActionGroupConditionAlertContext {
-        /**
-         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleActionGroupConditionAlertRuleId {
-        /**
-         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleActionGroupConditionDescription {
-        /**
-         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleActionGroupConditionMonitor {
-        /**
-         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleActionGroupConditionMonitorService {
-        /**
-         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleActionGroupConditionSeverity {
-        /**
-         * The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleActionGroupConditionTargetResourceType {
-        /**
-         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition. The values should be valid resource types.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleActionGroupScope {
-        /**
-         * A list of resource IDs of the given scope type which will be the target of action rule.
-         */
-        resourceIds: string[];
-        /**
-         * Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-         */
-        type: string;
-    }
-
-    export interface ActionRuleSuppressionCondition {
-        /**
-         * A `alertContext` block as defined below.
-         */
-        alertContext?: outputs.monitoring.ActionRuleSuppressionConditionAlertContext;
-        /**
-         * A `alertRuleId` block as defined below.
-         */
-        alertRuleId?: outputs.monitoring.ActionRuleSuppressionConditionAlertRuleId;
-        /**
-         * A `description` block as defined below.
-         */
-        description?: outputs.monitoring.ActionRuleSuppressionConditionDescription;
-        /**
-         * A `monitor` block as defined below.
-         */
-        monitor?: outputs.monitoring.ActionRuleSuppressionConditionMonitor;
-        /**
-         * A `monitorService` block as defined below.
-         */
-        monitorService?: outputs.monitoring.ActionRuleSuppressionConditionMonitorService;
-        /**
-         * A `severity` block as defined below.
-         */
-        severity?: outputs.monitoring.ActionRuleSuppressionConditionSeverity;
-        /**
-         * A `targetResourceType` block as defined below.
-         */
-        targetResourceType?: outputs.monitoring.ActionRuleSuppressionConditionTargetResourceType;
-    }
-
-    export interface ActionRuleSuppressionConditionAlertContext {
-        /**
-         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleSuppressionConditionAlertRuleId {
-        /**
-         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleSuppressionConditionDescription {
-        /**
-         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleSuppressionConditionMonitor {
-        /**
-         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleSuppressionConditionMonitorService {
-        /**
-         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleSuppressionConditionSeverity {
-        /**
-         * The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleSuppressionConditionTargetResourceType {
-        /**
-         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-         */
-        operator: string;
-        /**
-         * A list of values to match for a given condition. The values should be valid resource types.
-         */
-        values: string[];
-    }
-
-    export interface ActionRuleSuppressionScope {
-        /**
-         * A list of resource IDs of the given scope type which will be the target of action rule.
-         */
-        resourceIds: string[];
-        /**
-         * Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-         */
-        type: string;
-    }
-
-    export interface ActionRuleSuppressionSuppression {
-        /**
-         * Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
-         */
-        recurrenceType: string;
-        /**
-         * A `schedule` block as defined below. Required if `recurrenceType` is `Daily`, `Monthly`, `Once` or `Weekly`.
-         */
-        schedule?: outputs.monitoring.ActionRuleSuppressionSuppressionSchedule;
-    }
-
-    export interface ActionRuleSuppressionSuppressionSchedule {
-        /**
-         * specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
-         */
-        endDateUtc: string;
-        /**
-         * specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrenceType` is `Monthly`.
-         */
-        recurrenceMonthlies?: number[];
-        /**
-         * specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-         */
-        recurrenceWeeklies?: string[];
-        /**
-         * specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
-         */
-        startDateUtc: string;
-    }
-
     export interface ActivityLogAlertAction {
         /**
          * The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource.
@@ -51793,7 +48515,7 @@ export namespace monitoring {
         /**
          * A block to define fine grain resource health settings.
          */
-        resourceHealths: outputs.monitoring.ActivityLogAlertCriteriaResourceHealth[];
+        resourceHealth: outputs.monitoring.ActivityLogAlertCriteriaResourceHealth;
         /**
          * The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
          */
@@ -51827,7 +48549,7 @@ export namespace monitoring {
         /**
          * A block to define fine grain service health settings.
          */
-        serviceHealths: outputs.monitoring.ActivityLogAlertCriteriaServiceHealth[];
+        serviceHealth: outputs.monitoring.ActivityLogAlertCriteriaServiceHealth;
         /**
          * The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
          */
@@ -52885,8 +49607,6 @@ export namespace monitoring {
         name: string;
         /**
          * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
-         *
-         * > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
          */
         streams: string[];
     }
@@ -53111,68 +49831,15 @@ export namespace monitoring {
          */
         categoryGroup?: string;
         /**
-         * A `retentionPolicy` block as defined below.
-         *
-         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-         *
          * @deprecated `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: outputs.monitoring.DiagnosticSettingEnabledLogRetentionPolicy;
     }
 
     export interface DiagnosticSettingEnabledLogRetentionPolicy {
-        /**
-         * The number of days for which this Retention Policy should apply.
-         *
-         *
-         * > **NOTE:** Setting this to `0` will retain the events indefinitely.
-         */
         days?: number;
         /**
-         * Is this Retention Policy enabled?
-         */
-        enabled: boolean;
-    }
-
-    export interface DiagnosticSettingLog {
-        /**
-         * The name of a Diagnostic Log Category for this Resource.
-         *
-         * > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
-         */
-        category?: string;
-        /**
-         * The name of a Diagnostic Log Category Group for this Resource.
-         *
-         * > **NOTE:** Not all resources have category groups available.
-         *
-         * > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
-         */
-        categoryGroup?: string;
-        /**
-         * Is this Diagnostic Log enabled? Defaults to `true`.
-         */
-        enabled?: boolean;
-        /**
-         * A `retentionPolicy` block as defined below.
-         *
-         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-         *
-         * @deprecated `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
-         */
-        retentionPolicy?: outputs.monitoring.DiagnosticSettingLogRetentionPolicy;
-    }
-
-    export interface DiagnosticSettingLogRetentionPolicy {
-        /**
-         * The number of days for which this Retention Policy should apply.
-         *
-         *
-         * > **NOTE:** Setting this to `0` will retain the events indefinitely.
-         */
-        days?: number;
-        /**
-         * Is this Retention Policy enabled?
+         * Is this Diagnostic Metric enabled? Defaults to `true`.
          */
         enabled: boolean;
     }
@@ -53189,25 +49856,15 @@ export namespace monitoring {
          */
         enabled?: boolean;
         /**
-         * A `retentionPolicy` block as defined below.
-         *
-         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-         *
          * @deprecated `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: outputs.monitoring.DiagnosticSettingMetricRetentionPolicy;
     }
 
     export interface DiagnosticSettingMetricRetentionPolicy {
-        /**
-         * The number of days for which this Retention Policy should apply.
-         *
-         *
-         * > **NOTE:** Setting this to `0` will retain the events indefinitely.
-         */
         days?: number;
         /**
-         * Is this Retention Policy enabled?
+         * Is this Diagnostic Metric enabled? Defaults to `true`.
          */
         enabled: boolean;
     }
@@ -53308,12 +49965,6 @@ export namespace monitoring {
     }
 
     export interface GetActionGroupEventHubReceiver {
-        /**
-         * The resource ID of the respective Event Hub.
-         *
-         * @deprecated This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.
-         */
-        eventHubId: string;
         /**
          * The name of the specific Event Hub queue.
          */
@@ -53873,17 +50524,6 @@ export namespace monitoring {
         type: string;
     }
 
-    export interface GetLogProfileRetentionPolicy {
-        /**
-         * The number of days for the retention policy.
-         */
-        days: number;
-        /**
-         * A boolean value indicating whether the retention policy is enabled.
-         */
-        enabled: boolean;
-    }
-
     export interface GetScheduledQueryRulesAlertAction {
         /**
          * List of action group reference resource IDs.
@@ -53948,108 +50588,6 @@ export namespace monitoring {
          * List of dimension values.
          */
         values: string[];
-    }
-
-    export interface LogProfileRetentionPolicy {
-        /**
-         * The number of days for the retention policy. Defaults to `0`.
-         */
-        days?: number;
-        /**
-         * A boolean value to indicate whether the retention policy is enabled.
-         */
-        enabled: boolean;
-    }
-
-    export interface LogzMonitorPlan {
-        /**
-         * Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
-         */
-        billingCycle: string;
-        /**
-         * Date when plan was applied. Changing this forces a new logz Monitor to be created.
-         */
-        effectiveDate: string;
-        /**
-         * Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
-         */
-        planId?: string;
-        /**
-         * Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
-         */
-        usageType: string;
-    }
-
-    export interface LogzMonitorUser {
-        /**
-         * Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-         *
-         * > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-         */
-        email: string;
-        /**
-         * First Name of the user. Changing this forces a new logz Monitor to be created.
-         */
-        firstName: string;
-        /**
-         * Last Name of the user. Changing this forces a new logz Monitor to be created.
-         */
-        lastName: string;
-        /**
-         * Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-         */
-        phoneNumber: string;
-    }
-
-    export interface LogzSubAccountTagRuleTagFilter {
-        /**
-         * The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
-         */
-        action: string;
-        /**
-         * The name of the tag to match.
-         */
-        name: string;
-        /**
-         * The value of the tag to match.
-         */
-        value?: string;
-    }
-
-    export interface LogzSubAccountUser {
-        /**
-         * Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
-         *
-         * > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-         */
-        email: string;
-        /**
-         * First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-         */
-        firstName: string;
-        /**
-         * Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-         */
-        lastName: string;
-        /**
-         * Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
-         */
-        phoneNumber: string;
-    }
-
-    export interface LogzTagRuleTagFilter {
-        /**
-         * The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
-         */
-        action: string;
-        /**
-         * The name of this `tagFilter`.
-         */
-        name: string;
-        /**
-         * The value of this `tagFilter`.
-         */
-        value?: string;
     }
 
     export interface MetricAlertAction {
@@ -54418,10 +50956,6 @@ export namespace mssql {
 
     export interface DatabaseLongTermRetentionPolicy {
         /**
-         * Specifies if the backups are immutable. Defaults to `false`.
-         */
-        immutableBackupsEnabled?: boolean;
-        /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
          */
         monthlyRetention: string;
@@ -54505,11 +51039,11 @@ export namespace mssql {
          */
         capacity: number;
         /**
-         * The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+         * The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
          */
         family?: string;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
          */
         name: string;
         /**
@@ -54613,10 +51147,6 @@ export namespace mssql {
     }
 
     export interface ManagedDatabaseLongTermRetentionPolicy {
-        /**
-         * Specifies if the backups are immutable. Defaults to `false`.
-         */
-        immutableBackupsEnabled?: boolean;
         /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
          */
@@ -55227,98 +51757,6 @@ export namespace mysql {
          * The max storage allowed for the MySQL Flexible Server.
          */
         sizeGb: number;
-    }
-
-    export interface GetServerIdentity {
-        /**
-         * The Principal ID associated with this Managed Service Identity.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID associated with this Managed Service Identity.
-         */
-        tenantId: string;
-        /**
-         * The identity type of this Managed Service Identity.
-         */
-        type: string;
-    }
-
-    export interface GetServerThreatDetectionPolicy {
-        /**
-         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-         */
-        disabledAlerts: string[];
-        /**
-         * Should the account administrators be emailed when this alert is triggered?
-         */
-        emailAccountAdmins: boolean;
-        /**
-         * A list of email addresses which alerts should be sent to.
-         */
-        emailAddresses: string[];
-        /**
-         * Is the policy enabled?
-         */
-        enabled: boolean;
-        /**
-         * Specifies the number of days to keep in the Threat Detection audit logs.
-         */
-        retentionDays: number;
-        /**
-         * Specifies the identifier key of the Threat Detection audit storage account.
-         */
-        storageAccountAccessKey: string;
-        /**
-         * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
-         */
-        storageEndpoint: string;
-    }
-
-    export interface ServerIdentity {
-        /**
-         * The Principal ID associated with this Managed Service Identity.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID associated with this Managed Service Identity.
-         */
-        tenantId: string;
-        /**
-         * Specifies the type of Managed Service Identity that should be configured on this MySQL Server. The only possible value is `SystemAssigned`.
-         */
-        type: string;
-    }
-
-    export interface ServerThreatDetectionPolicy {
-        /**
-         * Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
-         */
-        disabledAlerts?: string[];
-        /**
-         * Should the account administrators be emailed when this alert is triggered?
-         */
-        emailAccountAdmins?: boolean;
-        /**
-         * A list of email addresses which alerts should be sent to.
-         */
-        emailAddresses?: string[];
-        /**
-         * Is the policy enabled?
-         */
-        enabled?: boolean;
-        /**
-         * Specifies the number of days to keep in the Threat Detection audit logs.
-         */
-        retentionDays?: number;
-        /**
-         * Specifies the identifier key of the Threat Detection audit storage account.
-         */
-        storageAccountAccessKey?: string;
-        /**
-         * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
-         */
-        storageEndpoint?: string;
     }
 
 }
@@ -59590,46 +56028,6 @@ export namespace network {
         subscriptionIds?: string[];
     }
 
-    export interface NetworkPacketCaptureFilter {
-        /**
-         * The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-         */
-        localIpAddress?: string;
-        /**
-         * The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-         */
-        localPort?: string;
-        /**
-         * The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-         */
-        protocol: string;
-        /**
-         * The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-         */
-        remoteIpAddress?: string;
-        /**
-         * The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-         */
-        remotePort?: string;
-    }
-
-    export interface NetworkPacketCaptureStorageLocation {
-        /**
-         * A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
-         */
-        filePath?: string;
-        /**
-         * The ID of the storage account to save the packet capture session
-         *
-         * > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
-         */
-        storageAccountId?: string;
-        /**
-         * The URI of the storage path to save the packet capture.
-         */
-        storagePath: string;
-    }
-
     export interface NetworkSecurityGroupSecurityRule {
         /**
          * Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
@@ -60543,9 +56941,17 @@ export namespace network {
 
     export interface VirtualNetworkSubnet {
         /**
-         * The address prefix to use for the subnet.
+         * The address prefixes to use for the subnet.
          */
-        addressPrefix: string;
+        addressPrefixes: string[];
+        /**
+         * Enable default outbound access to the internet for the subnet. Defaults to `true`.
+         */
+        defaultOutboundAccessEnabled?: boolean;
+        /**
+         * One or more `delegation` blocks as defined below.
+         */
+        delegation?: outputs.network.VirtualNetworkSubnetDelegation;
         /**
          * The ID of this subnet.
          */
@@ -60555,9 +56961,61 @@ export namespace network {
          */
         name: string;
         /**
+         * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
+         *
+         * > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+         *
+         * > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+         *
+         * > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+         */
+        privateEndpointNetworkPolicies?: string;
+        /**
+         * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
+         *
+         * > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+         */
+        privateLinkServiceNetworkPoliciesEnabled?: boolean;
+        /**
+         * The ID of the Route Table that should be associated with this subnet.
+         */
+        routeTableId?: string;
+        /**
          * The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
          */
         securityGroup?: string;
+        /**
+         * The list of IDs of Service Endpoint Policies to associate with the subnet.
+         */
+        serviceEndpointPolicyIds?: string[];
+        /**
+         * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+         */
+        serviceEndpoints?: string[];
+    }
+
+    export interface VirtualNetworkSubnetDelegation {
+        /**
+         * A name for this delegation.
+         */
+        name: string;
+        /**
+         * A `serviceDelegation` block as defined below.
+         */
+        serviceDelegation: outputs.network.VirtualNetworkSubnetDelegationServiceDelegation;
+    }
+
+    export interface VirtualNetworkSubnetDelegationServiceDelegation {
+        /**
+         * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+         *
+         * > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+         */
+        actions?: string[];
+        /**
+         * The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+         */
+        name: string;
     }
 
     export interface VnpGatewayNatRuleExternalMapping {
@@ -61140,23 +57598,6 @@ export namespace nginx {
         name: string;
     }
 
-    export interface DeploymentConfiguration {
-        configFiles?: outputs.nginx.DeploymentConfigurationConfigFile[];
-        packageData?: string;
-        protectedFiles?: outputs.nginx.DeploymentConfigurationProtectedFile[];
-        rootFile: string;
-    }
-
-    export interface DeploymentConfigurationConfigFile {
-        content: string;
-        virtualPath: string;
-    }
-
-    export interface DeploymentConfigurationProtectedFile {
-        content: string;
-        virtualPath: string;
-    }
-
     export interface DeploymentFrontendPrivate {
         /**
          * Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
@@ -61363,6 +57804,21 @@ export namespace notificationhub {
          * The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
          */
         token: string;
+    }
+
+    export interface HubBrowserCredential {
+        /**
+         * The subject name of web push.
+         */
+        subject: string;
+        /**
+         * The Voluntary Application Server Identification (VAPID) private key.
+         */
+        vapidPrivateKey: string;
+        /**
+         * The Voluntary Application Server Identification (VAPID) public key.
+         */
+        vapidPublicKey: string;
     }
 
     export interface HubGcmCredential {
@@ -62913,7 +59369,7 @@ export namespace privatedns {
         port?: number;
     }
 
-    export interface ResolverInboundEndpointIpConfiguration {
+    export interface ResolverInboundEndpointIpConfigurations {
         /**
          * Private IP address of the IP configuration.
          */
@@ -63539,19 +59995,16 @@ export namespace redis {
          * Example usage:
          */
         aofStorageConnectionString1?: string;
-        authenticationEnabled: boolean;
-        /**
-         * Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
-         */
-        dataPersistenceAuthenticationMethod?: string;
         /**
          * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
          *
-         * > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
-         *
-         * @deprecated `enableAuthentication` will be removed in favour of the property `authenticationEnabled` in version 4.0 of the AzureRM Provider.
+         * > **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
          */
-        enableAuthentication?: boolean;
+        authenticationEnabled?: boolean;
+        /**
+         * Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
+         */
+        dataPersistenceAuthenticationMethod?: string;
         /**
          * Returns the max number of connected clients at the same time.
          */
@@ -63639,12 +60092,6 @@ export namespace redis {
         aofStorageConnectionString1: string;
         authenticationEnabled: boolean;
         dataPersistenceAuthenticationMethod: string;
-        /**
-         * Specifies if authentication is enabled
-         *
-         * @deprecated `enableAuthentication` will be removed in favour of the property `authenticationEnabled` in version 4.0 of the AzureRM Provider.
-         */
-        enableAuthentication?: boolean;
         maxclients: number;
         /**
          * Value in megabytes reserved to accommodate for memory fragmentation.
@@ -64285,48 +60732,6 @@ export namespace sentinel {
         grouping: outputs.sentinel.AlertRuleScheduledIncidentGrouping;
     }
 
-    export interface AlertRuleScheduledIncidentConfiguration {
-        /**
-         * @deprecated The `createIncident` property has been superseded by the `createIncidentEnabled` property and will be removed in v4.0 of the AzureRM Provider
-         */
-        createIncident: boolean;
-        /**
-         * A `grouping` block as defined below.
-         */
-        grouping: outputs.sentinel.AlertRuleScheduledIncidentConfigurationGrouping;
-    }
-
-    export interface AlertRuleScheduledIncidentConfigurationGrouping {
-        /**
-         * Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
-         */
-        enabled?: boolean;
-        /**
-         * The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
-         */
-        entityMatchingMethod?: string;
-        /**
-         * @deprecated The `groupByAlertDetails` property has been superseded by the `byAlertDetails` property and will be removed in v4.0 of the AzureRM Provider
-         */
-        groupByAlertDetails?: string[];
-        /**
-         * @deprecated The `groupByCustomDetails` property has been superseded by the `byCustomDetails` property and will be removed in v4.0 of the AzureRM Provider
-         */
-        groupByCustomDetails?: string[];
-        /**
-         * @deprecated The `groupByEntities` property has been superseded by the `byEntities` property and will be removed in v4.0 of the AzureRM Provider
-         */
-        groupByEntities?: string[];
-        /**
-         * Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
-         */
-        lookbackDuration?: string;
-        /**
-         * Whether to re-open closed matching incidents? Defaults to `false`.
-         */
-        reopenClosedIncidents?: boolean;
-    }
-
     export interface AlertRuleScheduledIncidentGrouping {
         /**
          * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
@@ -64417,21 +60822,6 @@ export namespace sentinel {
         tenantId: string;
     }
 
-    export interface AuthomationRuleCondition {
-        /**
-         * The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
-         */
-        operator: string;
-        /**
-         * The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
-         */
-        property: string;
-        /**
-         * Specifies a list of values to use for evaluate the condition.
-         */
-        values: string[];
-    }
-
     export interface AutomationRuleActionIncident {
         /**
          * The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
@@ -64482,21 +60872,6 @@ export namespace sentinel {
          * The ID of the Tenant that owns the playbook.
          */
         tenantId: string;
-    }
-
-    export interface AutomationRuleCondition {
-        /**
-         * The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
-         */
-        operator: string;
-        /**
-         * The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
-         */
-        property: string;
-        /**
-         * Specifies a list of values to use for evaluate the condition.
-         */
-        values: string[];
     }
 
     export interface GetAlertRuleAnomalyMultiSelectObservation {
@@ -65608,11 +61983,9 @@ export namespace siterecovery {
 
     export interface ProtectionContainerMappingAutomaticUpdate {
         /**
-         * The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+         * The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
          *
          * > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
-         *
-         * > **Note:**: `authenticationType` will default to `SystemAssignedIdentity` in version 4.0.
          */
         authenticationType?: string;
         /**
@@ -65708,10 +62081,6 @@ export namespace siterecovery {
          * Name of the subnet to to use when a test failover is done.
          */
         failoverTestSubnetName: string;
-        /**
-         * @deprecated this property is not used and will be removed in version 4.0 of the provider
-         */
-        isPrimary?: boolean;
         /**
          * Id of the public IP object to use when a failover is done.
          */
@@ -65820,6 +62189,9 @@ export namespace siterecovery {
          * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
          */
         scriptPath?: string;
+        /**
+         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+         */
         type: string;
     }
 
@@ -65860,6 +62232,9 @@ export namespace siterecovery {
          * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
          */
         scriptPath?: string;
+        /**
+         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+         */
         type: string;
     }
 
@@ -65911,6 +62286,9 @@ export namespace siterecovery {
          * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
          */
         scriptPath?: string;
+        /**
+         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+         */
         type: string;
     }
 
@@ -65951,105 +62329,9 @@ export namespace siterecovery {
          * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
          */
         scriptPath?: string;
-        type: string;
-    }
-
-    export interface ReplicationRecoveryPlanRecoveryGroup {
         /**
-         * one or more `action` block as defined below. which will be executed after the group recovery.
+         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
          */
-        postActions?: outputs.siterecovery.ReplicationRecoveryPlanRecoveryGroupPostAction[];
-        /**
-         * one or more `action` block as defined below. which will be executed before the group recovery.
-         */
-        preActions?: outputs.siterecovery.ReplicationRecoveryPlanRecoveryGroupPreAction[];
-        /**
-         * One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
-         */
-        replicatedProtectedItems?: string[];
-        /**
-         * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
-         */
-        type: string;
-    }
-
-    export interface ReplicationRecoveryPlanRecoveryGroupPostAction {
-        /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         *
-         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         */
-        fabricLocation?: string;
-        /**
-         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         */
-        failOverDirections: string[];
-        /**
-         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         */
-        failOverTypes: string[];
-        /**
-         * Instructions of manual action.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         */
-        manualActionInstruction?: string;
-        /**
-         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-         */
-        name: string;
-        /**
-         * Id of runbook.
-         *
-         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         */
-        runbookId?: string;
-        /**
-         * Path of action script.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         */
-        scriptPath?: string;
-        type: string;
-    }
-
-    export interface ReplicationRecoveryPlanRecoveryGroupPreAction {
-        /**
-         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
-         *
-         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
-         */
-        fabricLocation?: string;
-        /**
-         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
-         */
-        failOverDirections: string[];
-        /**
-         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
-         */
-        failOverTypes: string[];
-        /**
-         * Instructions of manual action.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
-         */
-        manualActionInstruction?: string;
-        /**
-         * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-         */
-        name: string;
-        /**
-         * Id of runbook.
-         *
-         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
-         */
-        runbookId?: string;
-        /**
-         * Path of action script.
-         *
-         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
-         */
-        scriptPath?: string;
         type: string;
     }
 
@@ -66101,6 +62383,9 @@ export namespace siterecovery {
          * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
          */
         scriptPath?: string;
+        /**
+         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+         */
         type: string;
     }
 
@@ -66141,6 +62426,9 @@ export namespace siterecovery {
          * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
          */
         scriptPath?: string;
+        /**
+         * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+         */
         type: string;
     }
 
@@ -66184,216 +62472,6 @@ export namespace siterecovery {
          * Name of the subnet to use when a test failover is done.
          */
         testSubnetName?: string;
-    }
-
-}
-
-export namespace sql {
-    export interface DatabaseImport {
-        /**
-         * Specifies the name of the SQL administrator.
-         */
-        administratorLogin: string;
-        /**
-         * Specifies the password of the SQL administrator.
-         */
-        administratorLoginPassword: string;
-        /**
-         * Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
-         */
-        authenticationType: string;
-        /**
-         * Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
-         */
-        operationMode?: string;
-        /**
-         * Specifies the access key for the storage account.
-         */
-        storageKey: string;
-        /**
-         * Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
-         */
-        storageKeyType: string;
-        /**
-         * Specifies the blob URI of the .bacpac file.
-         */
-        storageUri: string;
-    }
-
-    export interface DatabaseThreatDetectionPolicy {
-        /**
-         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-         */
-        disabledAlerts?: string[];
-        /**
-         * Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
-         */
-        emailAccountAdmins?: string;
-        /**
-         * A list of email addresses which alerts should be sent to.
-         */
-        emailAddresses?: string[];
-        /**
-         * Specifies the number of days to keep in the Threat Detection audit logs.
-         */
-        retentionDays?: number;
-        /**
-         * The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
-         */
-        state?: string;
-        /**
-         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-         */
-        storageAccountAccessKey?: string;
-        /**
-         * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-         */
-        storageEndpoint?: string;
-    }
-
-    export interface FailoverGroupPartnerServer {
-        /**
-         * the SQL server ID
-         */
-        id: string;
-        /**
-         * the location of the failover group.
-         */
-        location: string;
-        /**
-         * local replication role of the failover group instance.
-         */
-        role: string;
-    }
-
-    export interface FailoverGroupReadWriteEndpointFailoverPolicy {
-        /**
-         * Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
-         */
-        graceMinutes?: number;
-        /**
-         * the failover mode. Possible values are `Manual`, `Automatic`
-         */
-        mode: string;
-    }
-
-    export interface FailoverGroupReadonlyEndpointFailoverPolicy {
-        /**
-         * Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
-         */
-        mode: string;
-    }
-
-    export interface GetServerIdentity {
-        /**
-         * The Principal ID associated with this Managed Service Identity.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID associated with this Managed Service Identity.
-         */
-        tenantId: string;
-        /**
-         * The identity type of this Managed Service Identity.
-         */
-        type: string;
-    }
-
-    export interface GetSqlManagedInstanceIdentity {
-        /**
-         * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
-         */
-        tenantId: string;
-        type: string;
-    }
-
-    export interface ManagedInstanceFailoverGroupPartnerRegion {
-        /**
-         * The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
-         */
-        location: string;
-        /**
-         * The partner replication role of the SQL Instance Failover Group.
-         */
-        role: string;
-    }
-
-    export interface ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy {
-        /**
-         * Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
-         */
-        graceMinutes?: number;
-        /**
-         * The failover mode. Possible values are `Manual`, `Automatic`
-         */
-        mode: string;
-    }
-
-    export interface ManagedInstanceIdentity {
-        /**
-         * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
-         */
-        tenantId: string;
-        /**
-         * Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is `SystemAssigned`.
-         */
-        type: string;
-    }
-
-    export interface SqlServerIdentity {
-        /**
-         * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-         */
-        principalId: string;
-        /**
-         * The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-         */
-        tenantId: string;
-        /**
-         * Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
-         *
-         * > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Microsoft SQL Server has been created. More details are available below.
-         */
-        type: string;
-    }
-
-    export interface SqlServerThreatDetectionPolicy {
-        /**
-         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.
-         */
-        disabledAlerts?: string[];
-        /**
-         * Should the account administrators be emailed when this alert is triggered?
-         */
-        emailAccountAdmins: boolean;
-        /**
-         * A list of email addresses which alerts should be sent to.
-         */
-        emailAddresses: string[];
-        /**
-         * Specifies the number of days to keep in the Threat Detection audit logs.
-         */
-        retentionDays?: number;
-        /**
-         * The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`. Defaults to `Disabled`.
-         */
-        state?: string;
-        /**
-         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-         */
-        storageAccountAccessKey?: string;
-        /**
-         * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
-         */
-        storageEndpoint?: string;
     }
 
 }
@@ -66958,7 +63036,7 @@ export namespace storage {
 
     export interface BlobInventoryPolicyRule {
         /**
-         * A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+         * A `filter` block as defined above.
          */
         filter?: outputs.storage.BlobInventoryPolicyRuleFilter;
         /**
@@ -68161,7 +64239,7 @@ export namespace synapse {
 
     export interface SqlPoolVulnerabilityAssessmentRecurringScans {
         /**
-         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
          */
         emailSubscriptionAdminsEnabled?: boolean;
         /**
@@ -68172,15 +64250,6 @@ export namespace synapse {
          * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
          */
         enabled?: boolean;
-    }
-
-    export interface WorkspaceAadAdmin {
-        login: string;
-        objectId: string;
-        /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-         */
-        tenantId: string;
     }
 
     export interface WorkspaceAzureDevopsRepo {
@@ -68279,18 +64348,9 @@ export namespace synapse {
         type: string;
     }
 
-    export interface WorkspaceSqlAadAdmin {
-        login: string;
-        objectId: string;
-        /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-         */
-        tenantId: string;
-    }
-
     export interface WorkspaceVulnerabilityAssessmentRecurringScans {
         /**
-         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
          */
         emailSubscriptionAdminsEnabled?: boolean;
         /**
@@ -68379,31 +64439,6 @@ export namespace trafficmanager {
          * The value of custom header. Applicable for HTTP and HTTPS protocol.
          */
         value: string;
-    }
-
-}
-
-export namespace videoanalyzer {
-    export interface AnalyzerIdentity {
-        /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
-         */
-        identityIds: string[];
-        /**
-         * Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
-         */
-        type: string;
-    }
-
-    export interface AnalyzerStorageAccount {
-        /**
-         * Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
-         */
-        id: string;
-        /**
-         * Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
-         */
-        userAssignedIdentityId: string;
     }
 
 }
@@ -68584,17 +64619,13 @@ export namespace waf {
 
     export interface PolicyManagedRulesManagedRuleSetRuleGroupOverride {
         /**
-         * @deprecated `disabledRules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
-         */
-        disabledRules: string[];
-        /**
          * The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`MS-ThreatIntel-WebShells`,.
          */
         ruleGroupName: string;
         /**
          * One or more `rule` block defined below.
          */
-        rules: outputs.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule[];
+        rules?: outputs.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule[];
     }
 
     export interface PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule {
@@ -68603,7 +64634,7 @@ export namespace waf {
          */
         action?: string;
         /**
-         * Describes if the managed rule is in enabled state or disabled state.
+         * Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
          */
         enabled?: boolean;
         /**
@@ -68641,6 +64672,7 @@ export namespace waf {
          * Is Request Body Inspection enabled? Defaults to `true`.
          */
         requestBodyCheck?: boolean;
+        requestBodyEnforcement?: boolean;
         /**
          * Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
          */
@@ -68660,7 +64692,7 @@ export namespace waf {
 
     export interface PolicyPolicySettingsLogScrubbingRule {
         /**
-         * Describes if the managed rule is in enabled state or disabled state.
+         * Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
          */
         enabled?: boolean;
         matchVariable: string;

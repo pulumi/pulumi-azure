@@ -261,14 +261,6 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Three or more `recoveryGroup` block defined as below.
-     *
-     * > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
-     *
-     * @deprecated the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
-     */
-    public readonly recoveryGroups!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup[]>;
-    /**
      * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      */
     public readonly recoveryVaultId!: pulumi.Output<string>;
@@ -304,15 +296,23 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
             resourceInputs["bootRecoveryGroups"] = state ? state.bootRecoveryGroups : undefined;
             resourceInputs["failoverRecoveryGroup"] = state ? state.failoverRecoveryGroup : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recoveryGroups"] = state ? state.recoveryGroups : undefined;
             resourceInputs["recoveryVaultId"] = state ? state.recoveryVaultId : undefined;
             resourceInputs["shutdownRecoveryGroup"] = state ? state.shutdownRecoveryGroup : undefined;
             resourceInputs["sourceRecoveryFabricId"] = state ? state.sourceRecoveryFabricId : undefined;
             resourceInputs["targetRecoveryFabricId"] = state ? state.targetRecoveryFabricId : undefined;
         } else {
             const args = argsOrState as ReplicationRecoveryPlanArgs | undefined;
+            if ((!args || args.bootRecoveryGroups === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'bootRecoveryGroups'");
+            }
+            if ((!args || args.failoverRecoveryGroup === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'failoverRecoveryGroup'");
+            }
             if ((!args || args.recoveryVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultId'");
+            }
+            if ((!args || args.shutdownRecoveryGroup === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'shutdownRecoveryGroup'");
             }
             if ((!args || args.sourceRecoveryFabricId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRecoveryFabricId'");
@@ -324,7 +324,6 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
             resourceInputs["bootRecoveryGroups"] = args ? args.bootRecoveryGroups : undefined;
             resourceInputs["failoverRecoveryGroup"] = args ? args.failoverRecoveryGroup : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recoveryGroups"] = args ? args.recoveryGroups : undefined;
             resourceInputs["recoveryVaultId"] = args ? args.recoveryVaultId : undefined;
             resourceInputs["shutdownRecoveryGroup"] = args ? args.shutdownRecoveryGroup : undefined;
             resourceInputs["sourceRecoveryFabricId"] = args ? args.sourceRecoveryFabricId : undefined;
@@ -360,14 +359,6 @@ export interface ReplicationRecoveryPlanState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Three or more `recoveryGroup` block defined as below.
-     *
-     * > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
-     *
-     * @deprecated the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
-     */
-    recoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup>[]>;
-    /**
      * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultId?: pulumi.Input<string>;
@@ -400,25 +391,17 @@ export interface ReplicationRecoveryPlanArgs {
      *
      * > **NOTE:** At least one `bootRecoveryGroup` block will be required in the next major version of the AzureRM Provider.
      */
-    bootRecoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroup>[]>;
+    bootRecoveryGroups: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroup>[]>;
     /**
      * One `failoverRecoveryGroup` block as defined below.
      *
      * > **NOTE:** `failoverRecoveryGroup` will be required in the next major version of the AzureRM Provider.
      */
-    failoverRecoveryGroup?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroup>;
+    failoverRecoveryGroup: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroup>;
     /**
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Three or more `recoveryGroup` block defined as below.
-     *
-     * > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
-     *
-     * @deprecated the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
-     */
-    recoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanRecoveryGroup>[]>;
     /**
      * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      */
@@ -428,7 +411,7 @@ export interface ReplicationRecoveryPlanArgs {
      *
      * > **NOTE:** `shutdownRecoveryGroup` will be required in the next major version of the AzureRM Provider.
      */
-    shutdownRecoveryGroup?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroup>;
+    shutdownRecoveryGroup: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroup>;
     /**
      * ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
      */

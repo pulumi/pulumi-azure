@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,71 +64,6 @@ import (
 //
 // ```
 //
-// ### Encryption)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				Name:              pulumi.String("registry-uai"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
-//				Name:       "super-secret",
-//				KeyVaultId: existing.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
-//				Name:              pulumi.String("containerRegistry1"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				Sku:               pulumi.String("Premium"),
-//				Identity: &containerservice.RegistryIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
-//					},
-//				},
-//				Encryption: &containerservice.RegistryEncryptionArgs{
-//					Enabled:          pulumi.Bool(true),
-//					KeyVaultKeyId:    pulumi.String(example.Id),
-//					IdentityClientId: exampleUserAssignedIdentity.ClientId,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### Attaching A Container Registry To A Kubernetes Cluster)
 //
 // ```go
@@ -136,9 +71,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -222,7 +157,7 @@ type Registry struct {
 	Encryption RegistryEncryptionOutput `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	//
-	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicy`, `trustPolicy`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	ExportPolicyEnabled pulumi.BoolPtrOutput `pulumi:"exportPolicyEnabled"`
 	// A `georeplications` block as documented below.
 	//
@@ -250,14 +185,14 @@ type Registry struct {
 	QuarantinePolicyEnabled pulumi.BoolPtrOutput `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `retentionPolicy` block as documented below.
-	RetentionPolicy RegistryRetentionPolicyOutput `pulumi:"retentionPolicy"`
+	// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+	RetentionPolicyInDays pulumi.IntPtrOutput `pulumi:"retentionPolicyInDays"`
 	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A `trustPolicy` block as documented below.
-	TrustPolicy RegistryTrustPolicyOutput `pulumi:"trustPolicy"`
+	// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
+	TrustPolicyEnabled pulumi.BoolPtrOutput `pulumi:"trustPolicyEnabled"`
 	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundancyEnabled pulumi.BoolPtrOutput `pulumi:"zoneRedundancyEnabled"`
 }
@@ -316,7 +251,7 @@ type registryState struct {
 	Encryption *RegistryEncryption `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	//
-	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicy`, `trustPolicy`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	ExportPolicyEnabled *bool `pulumi:"exportPolicyEnabled"`
 	// A `georeplications` block as documented below.
 	//
@@ -344,14 +279,14 @@ type registryState struct {
 	QuarantinePolicyEnabled *bool `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `retentionPolicy` block as documented below.
-	RetentionPolicy *RegistryRetentionPolicy `pulumi:"retentionPolicy"`
+	// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+	RetentionPolicyInDays *int `pulumi:"retentionPolicyInDays"`
 	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `trustPolicy` block as documented below.
-	TrustPolicy *RegistryTrustPolicy `pulumi:"trustPolicy"`
+	// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
+	TrustPolicyEnabled *bool `pulumi:"trustPolicyEnabled"`
 	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
@@ -371,7 +306,7 @@ type RegistryState struct {
 	Encryption RegistryEncryptionPtrInput
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	//
-	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicy`, `trustPolicy`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	ExportPolicyEnabled pulumi.BoolPtrInput
 	// A `georeplications` block as documented below.
 	//
@@ -399,14 +334,14 @@ type RegistryState struct {
 	QuarantinePolicyEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `retentionPolicy` block as documented below.
-	RetentionPolicy RegistryRetentionPolicyPtrInput
+	// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+	RetentionPolicyInDays pulumi.IntPtrInput
 	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `trustPolicy` block as documented below.
-	TrustPolicy RegistryTrustPolicyPtrInput
+	// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
+	TrustPolicyEnabled pulumi.BoolPtrInput
 	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundancyEnabled pulumi.BoolPtrInput
 }
@@ -426,7 +361,7 @@ type registryArgs struct {
 	Encryption *RegistryEncryption `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	//
-	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicy`, `trustPolicy`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	ExportPolicyEnabled *bool `pulumi:"exportPolicyEnabled"`
 	// A `georeplications` block as documented below.
 	//
@@ -452,14 +387,14 @@ type registryArgs struct {
 	QuarantinePolicyEnabled *bool `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `retentionPolicy` block as documented below.
-	RetentionPolicy *RegistryRetentionPolicy `pulumi:"retentionPolicy"`
+	// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+	RetentionPolicyInDays *int `pulumi:"retentionPolicyInDays"`
 	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `trustPolicy` block as documented below.
-	TrustPolicy *RegistryTrustPolicy `pulumi:"trustPolicy"`
+	// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
+	TrustPolicyEnabled *bool `pulumi:"trustPolicyEnabled"`
 	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
@@ -476,7 +411,7 @@ type RegistryArgs struct {
 	Encryption RegistryEncryptionPtrInput
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	//
-	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicy`, `trustPolicy`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	ExportPolicyEnabled pulumi.BoolPtrInput
 	// A `georeplications` block as documented below.
 	//
@@ -502,14 +437,14 @@ type RegistryArgs struct {
 	QuarantinePolicyEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `retentionPolicy` block as documented below.
-	RetentionPolicy RegistryRetentionPolicyPtrInput
+	// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+	RetentionPolicyInDays pulumi.IntPtrInput
 	// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `trustPolicy` block as documented below.
-	TrustPolicy RegistryTrustPolicyPtrInput
+	// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
+	TrustPolicyEnabled pulumi.BoolPtrInput
 	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundancyEnabled pulumi.BoolPtrInput
 }
@@ -633,7 +568,7 @@ func (o RegistryOutput) Encryption() RegistryEncryptionOutput {
 
 // Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 //
-// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicy`, `trustPolicy`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 func (o RegistryOutput) ExportPolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.ExportPolicyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -694,9 +629,9 @@ func (o RegistryOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `retentionPolicy` block as documented below.
-func (o RegistryOutput) RetentionPolicy() RegistryRetentionPolicyOutput {
-	return o.ApplyT(func(v *Registry) RegistryRetentionPolicyOutput { return v.RetentionPolicy }).(RegistryRetentionPolicyOutput)
+// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
+func (o RegistryOutput) RetentionPolicyInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Registry) pulumi.IntPtrOutput { return v.RetentionPolicyInDays }).(pulumi.IntPtrOutput)
 }
 
 // The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
@@ -709,9 +644,9 @@ func (o RegistryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A `trustPolicy` block as documented below.
-func (o RegistryOutput) TrustPolicy() RegistryTrustPolicyOutput {
-	return o.ApplyT(func(v *Registry) RegistryTrustPolicyOutput { return v.TrustPolicy }).(RegistryTrustPolicyOutput)
+// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
+func (o RegistryOutput) TrustPolicyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.TrustPolicyEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.

@@ -8,78 +8,11 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Associates a Spring Cloud Application with a Redis Cache.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example-springcloud"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "example", &appplatform.SpringCloudAppArgs{
-//				Name:              pulumi.String("example-springcloudapp"),
-//				ResourceGroupName: example.Name,
-//				ServiceName:       exampleSpringCloudService.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCache, err := redis.NewCache(ctx, "example", &redis.CacheArgs{
-//				Name:              pulumi.String("example-cache"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Capacity:          pulumi.Int(0),
-//				Family:            pulumi.String("C"),
-//				SkuName:           pulumi.String("Basic"),
-//				EnableNonSslPort:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appplatform.NewSpringCloudAppRedisAssociation(ctx, "example", &appplatform.SpringCloudAppRedisAssociationArgs{
-//				Name:             pulumi.String("example-bind"),
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
-//				RedisCacheId:     exampleCache.ID(),
-//				RedisAccessKey:   exampleCache.PrimaryAccessKey,
-//				SslEnabled:       pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

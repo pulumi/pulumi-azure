@@ -35,11 +35,6 @@ export type Contact = import("./contact").Contact;
 export const Contact: typeof import("./contact").Contact = null as any;
 utilities.lazyLoad(exports, ["Contact"], () => require("./contact"));
 
-export { ServerVulnerabilityAssessmentArgs, ServerVulnerabilityAssessmentState } from "./serverVulnerabilityAssessment";
-export type ServerVulnerabilityAssessment = import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment;
-export const ServerVulnerabilityAssessment: typeof import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment = null as any;
-utilities.lazyLoad(exports, ["ServerVulnerabilityAssessment"], () => require("./serverVulnerabilityAssessment"));
-
 export { ServerVulnerabilityAssessmentVirtualMachineArgs, ServerVulnerabilityAssessmentVirtualMachineState } from "./serverVulnerabilityAssessmentVirtualMachine";
 export type ServerVulnerabilityAssessmentVirtualMachine = import("./serverVulnerabilityAssessmentVirtualMachine").ServerVulnerabilityAssessmentVirtualMachine;
 export const ServerVulnerabilityAssessmentVirtualMachine: typeof import("./serverVulnerabilityAssessmentVirtualMachine").ServerVulnerabilityAssessmentVirtualMachine = null as any;
@@ -87,8 +82,6 @@ const _module = {
                 return new Automation(name, <any>undefined, { urn })
             case "azure:securitycenter/contact:Contact":
                 return new Contact(name, <any>undefined, { urn })
-            case "azure:securitycenter/serverVulnerabilityAssessment:ServerVulnerabilityAssessment":
-                return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure:securitycenter/serverVulnerabilityAssessmentVirtualMachine:ServerVulnerabilityAssessmentVirtualMachine":
                 return new ServerVulnerabilityAssessmentVirtualMachine(name, <any>undefined, { urn })
             case "azure:securitycenter/serverVulnerabilityAssessmentsSetting:ServerVulnerabilityAssessmentsSetting":
@@ -112,7 +105,6 @@ pulumi.runtime.registerResourceModule("azure", "securitycenter/assessmentPolicy"
 pulumi.runtime.registerResourceModule("azure", "securitycenter/autoProvisioning", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/automation", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/contact", _module)
-pulumi.runtime.registerResourceModule("azure", "securitycenter/serverVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/serverVulnerabilityAssessmentVirtualMachine", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/serverVulnerabilityAssessmentsSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/setting", _module)

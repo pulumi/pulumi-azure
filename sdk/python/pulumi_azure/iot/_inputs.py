@@ -57,10 +57,6 @@ __all__ = [
     'SecuritySolutionAdditionalWorkspaceArgsDict',
     'SecuritySolutionRecommendationsEnabledArgs',
     'SecuritySolutionRecommendationsEnabledArgsDict',
-    'TimeSeriesInsightsGen2EnvironmentStorageArgs',
-    'TimeSeriesInsightsGen2EnvironmentStorageArgsDict',
-    'TimeSeriesInsightsReferenceDataSetKeyPropertyArgs',
-    'TimeSeriesInsightsReferenceDataSetKeyPropertyArgsDict',
 ]
 
 MYPY = False
@@ -568,7 +564,7 @@ if not MYPY:
         """
         enabled: NotRequired[pulumi.Input[bool]]
         """
-        Used to specify whether the fallback route is enabled.
+        Used to specify whether the fallback route is enabled. Defaults to `true`.
         """
         endpoint_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -590,7 +586,7 @@ class IoTHubFallbackRouteArgs:
                  source: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
-        :param pulumi.Input[bool] enabled: Used to specify whether the fallback route is enabled.
+        :param pulumi.Input[bool] enabled: Used to specify whether the fallback route is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         :param pulumi.Input[str] source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`. Defaults to `DeviceMessages`.
         """
@@ -619,7 +615,7 @@ class IoTHubFallbackRouteArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Used to specify whether the fallback route is enabled.
+        Used to specify whether the fallback route is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -2311,105 +2307,5 @@ class SecuritySolutionRecommendationsEnabledArgs:
     @vulnerable_tls_cipher_suite.setter
     def vulnerable_tls_cipher_suite(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "vulnerable_tls_cipher_suite", value)
-
-
-if not MYPY:
-    class TimeSeriesInsightsGen2EnvironmentStorageArgsDict(TypedDict):
-        key: pulumi.Input[str]
-        """
-        Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-        """
-        name: pulumi.Input[str]
-        """
-        Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
-        """
-elif False:
-    TimeSeriesInsightsGen2EnvironmentStorageArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class TimeSeriesInsightsGen2EnvironmentStorageArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 name: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-        :param pulumi.Input[str] name: Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-
-if not MYPY:
-    class TimeSeriesInsightsReferenceDataSetKeyPropertyArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The name of the key property. Changing this forces a new resource to be created.
-        """
-        type: pulumi.Input[str]
-        """
-        The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
-        """
-elif False:
-    TimeSeriesInsightsReferenceDataSetKeyPropertyArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class TimeSeriesInsightsReferenceDataSetKeyPropertyArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] name: The name of the key property. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the key property. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
 
 

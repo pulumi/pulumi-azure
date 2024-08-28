@@ -112,7 +112,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    public readonly profileStatus!: pulumi.Output<string>;
+    public readonly profileStatus!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
      */

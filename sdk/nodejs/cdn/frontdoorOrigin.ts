@@ -238,14 +238,8 @@ export class FrontdoorOrigin extends pulumi.CustomResource {
     public readonly certificateNameCheckEnabled!: pulumi.Output<boolean>;
     /**
      * Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-     *
-     * > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
-    /**
-     * @deprecated `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-     */
-    public readonly healthProbesEnabled!: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      *
@@ -301,7 +295,6 @@ export class FrontdoorOrigin extends pulumi.CustomResource {
             resourceInputs["cdnFrontdoorOriginGroupId"] = state ? state.cdnFrontdoorOriginGroupId : undefined;
             resourceInputs["certificateNameCheckEnabled"] = state ? state.certificateNameCheckEnabled : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["healthProbesEnabled"] = state ? state.healthProbesEnabled : undefined;
             resourceInputs["hostName"] = state ? state.hostName : undefined;
             resourceInputs["httpPort"] = state ? state.httpPort : undefined;
             resourceInputs["httpsPort"] = state ? state.httpsPort : undefined;
@@ -324,7 +317,6 @@ export class FrontdoorOrigin extends pulumi.CustomResource {
             resourceInputs["cdnFrontdoorOriginGroupId"] = args ? args.cdnFrontdoorOriginGroupId : undefined;
             resourceInputs["certificateNameCheckEnabled"] = args ? args.certificateNameCheckEnabled : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["healthProbesEnabled"] = args ? args.healthProbesEnabled : undefined;
             resourceInputs["hostName"] = args ? args.hostName : undefined;
             resourceInputs["httpPort"] = args ? args.httpPort : undefined;
             resourceInputs["httpsPort"] = args ? args.httpsPort : undefined;
@@ -353,14 +345,8 @@ export interface FrontdoorOriginState {
     certificateNameCheckEnabled?: pulumi.Input<boolean>;
     /**
      * Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-     *
-     * > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
      */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * @deprecated `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-     */
-    healthProbesEnabled?: pulumi.Input<boolean>;
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      *
@@ -415,14 +401,8 @@ export interface FrontdoorOriginArgs {
     certificateNameCheckEnabled: pulumi.Input<boolean>;
     /**
      * Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-     *
-     * > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
      */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * @deprecated `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-     */
-    healthProbesEnabled?: pulumi.Input<boolean>;
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      *

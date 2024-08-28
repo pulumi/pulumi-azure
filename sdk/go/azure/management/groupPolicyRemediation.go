@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,22 +99,10 @@ type GroupPolicyRemediation struct {
 	ParallelDeployments pulumi.IntPtrOutput `pulumi:"parallelDeployments"`
 	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringOutput `pulumi:"policyAssignmentId"`
-	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-	//
-	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrOutput `pulumi:"policyDefinitionReferenceId"`
 	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
 	ResourceCount pulumi.IntPtrOutput `pulumi:"resourceCount"`
-	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-	//
-	// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-	ResourceDiscoveryMode pulumi.StringPtrOutput `pulumi:"resourceDiscoveryMode"`
 }
 
 // NewGroupPolicyRemediation registers a new resource with the given unique name, arguments, and options.
@@ -165,22 +153,10 @@ type groupPolicyRemediationState struct {
 	ParallelDeployments *int `pulumi:"parallelDeployments"`
 	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
-	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-	//
-	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
 	ResourceCount *int `pulumi:"resourceCount"`
-	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-	//
-	// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
 
 type GroupPolicyRemediationState struct {
@@ -196,22 +172,10 @@ type GroupPolicyRemediationState struct {
 	ParallelDeployments pulumi.IntPtrInput
 	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringPtrInput
-	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-	//
-	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-	PolicyDefinitionId pulumi.StringPtrInput
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
 	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
 	ResourceCount pulumi.IntPtrInput
-	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-	//
-	// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-	ResourceDiscoveryMode pulumi.StringPtrInput
 }
 
 func (GroupPolicyRemediationState) ElementType() reflect.Type {
@@ -231,22 +195,10 @@ type groupPolicyRemediationArgs struct {
 	ParallelDeployments *int `pulumi:"parallelDeployments"`
 	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId string `pulumi:"policyAssignmentId"`
-	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-	//
-	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
 	ResourceCount *int `pulumi:"resourceCount"`
-	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-	//
-	// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
 
 // The set of arguments for constructing a GroupPolicyRemediation resource.
@@ -263,22 +215,10 @@ type GroupPolicyRemediationArgs struct {
 	ParallelDeployments pulumi.IntPtrInput
 	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringInput
-	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-	//
-	// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-	PolicyDefinitionId pulumi.StringPtrInput
 	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
 	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
 	ResourceCount pulumi.IntPtrInput
-	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-	//
-	// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-	ResourceDiscoveryMode pulumi.StringPtrInput
 }
 
 func (GroupPolicyRemediationArgs) ElementType() reflect.Type {
@@ -398,15 +338,6 @@ func (o GroupPolicyRemediationOutput) PolicyAssignmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringOutput { return v.PolicyAssignmentId }).(pulumi.StringOutput)
 }
 
-// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-//
-// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
-//
-// Deprecated: `policyDefinitionId` will be removed in version 4.0 of the AzureRM Provider in favour of `policyDefinitionReferenceId`.
-func (o GroupPolicyRemediationOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
-}
-
 // The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 func (o GroupPolicyRemediationOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
@@ -415,15 +346,6 @@ func (o GroupPolicyRemediationOutput) PolicyDefinitionReferenceId() pulumi.Strin
 // Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
 func (o GroupPolicyRemediationOutput) ResourceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.IntPtrOutput { return v.ResourceCount }).(pulumi.IntPtrOutput)
-}
-
-// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-//
-// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-//
-// Deprecated: `resourceDiscoveryMode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-func (o GroupPolicyRemediationOutput) ResourceDiscoveryMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringPtrOutput { return v.ResourceDiscoveryMode }).(pulumi.StringPtrOutput)
 }
 
 type GroupPolicyRemediationArrayOutput struct{ *pulumi.OutputState }

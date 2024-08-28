@@ -27,8 +27,7 @@ class ConnectionArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 scopes: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 scopes: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Connection resource.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
@@ -40,9 +39,6 @@ class ConnectionArgs:
         :param pulumi.Input[str] name: Specifies the name of the Bot Connection. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of additional parameters to apply to the connection.
         :param pulumi.Input[str] scopes: The Scopes at which the connection should be applied.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-               
-               > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
         pulumi.set(__self__, "bot_name", bot_name)
         pulumi.set(__self__, "client_id", client_id)
@@ -57,11 +53,6 @@ class ConnectionArgs:
             pulumi.set(__self__, "parameters", parameters)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
-        if tags is not None:
-            warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="botName")
@@ -171,21 +162,6 @@ class ConnectionArgs:
     def scopes(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scopes", value)
 
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-
-        > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
 
 @pulumi.input_type
 class _ConnectionState:
@@ -198,8 +174,7 @@ class _ConnectionState:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[str]] = None,
-                 service_provider_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 service_provider_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
@@ -211,9 +186,6 @@ class _ConnectionState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scopes: The Scopes at which the connection should be applied.
         :param pulumi.Input[str] service_provider_name: The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-               
-               > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
         if bot_name is not None:
             pulumi.set(__self__, "bot_name", bot_name)
@@ -233,11 +205,6 @@ class _ConnectionState:
             pulumi.set(__self__, "scopes", scopes)
         if service_provider_name is not None:
             pulumi.set(__self__, "service_provider_name", service_provider_name)
-        if tags is not None:
-            warnings.warn("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""tags is deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="botName")
@@ -347,21 +314,6 @@ class _ConnectionState:
     def service_provider_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_provider_name", value)
 
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags to assign to the resource.
-
-        > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
 
 class Connection(pulumi.CustomResource):
     @overload
@@ -377,7 +329,6 @@ class Connection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[str]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages a Bot Connection.
@@ -427,9 +378,6 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scopes: The Scopes at which the connection should be applied.
         :param pulumi.Input[str] service_provider_name: The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-               
-               > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
         ...
     @overload
@@ -498,7 +446,6 @@ class Connection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[str]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -527,7 +474,6 @@ class Connection(pulumi.CustomResource):
             if service_provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_provider_name'")
             __props__.__dict__["service_provider_name"] = service_provider_name
-            __props__.__dict__["tags"] = tags
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientSecret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Connection, __self__).__init__(
@@ -548,8 +494,7 @@ class Connection(pulumi.CustomResource):
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             scopes: Optional[pulumi.Input[str]] = None,
-            service_provider_name: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Connection':
+            service_provider_name: Optional[pulumi.Input[str]] = None) -> 'Connection':
         """
         Get an existing Connection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -566,9 +511,6 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scopes: The Scopes at which the connection should be applied.
         :param pulumi.Input[str] service_provider_name: The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-               
-               > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -583,7 +525,6 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["scopes"] = scopes
         __props__.__dict__["service_provider_name"] = service_provider_name
-        __props__.__dict__["tags"] = tags
         return Connection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -657,15 +598,4 @@ class Connection(pulumi.CustomResource):
         The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_provider_name")
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.""")
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A mapping of tags to assign to the resource.
-
-        > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "tags")
 

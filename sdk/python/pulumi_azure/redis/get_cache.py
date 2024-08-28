@@ -27,13 +27,13 @@ class GetCacheResult:
     """
     A collection of values returned by getCache.
     """
-    def __init__(__self__, capacity=None, enable_non_ssl_port=None, family=None, hostname=None, id=None, location=None, minimum_tls_version=None, name=None, non_ssl_port_enabled=None, patch_schedules=None, port=None, primary_access_key=None, primary_connection_string=None, private_static_ip_address=None, redis_configurations=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None):
+    def __init__(__self__, access_keys_authentication_enabled=None, capacity=None, family=None, hostname=None, id=None, location=None, minimum_tls_version=None, name=None, non_ssl_port_enabled=None, patch_schedules=None, port=None, primary_access_key=None, primary_connection_string=None, private_static_ip_address=None, redis_configurations=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None):
+        if access_keys_authentication_enabled and not isinstance(access_keys_authentication_enabled, bool):
+            raise TypeError("Expected argument 'access_keys_authentication_enabled' to be a bool")
+        pulumi.set(__self__, "access_keys_authentication_enabled", access_keys_authentication_enabled)
         if capacity and not isinstance(capacity, int):
             raise TypeError("Expected argument 'capacity' to be a int")
         pulumi.set(__self__, "capacity", capacity)
-        if enable_non_ssl_port and not isinstance(enable_non_ssl_port, bool):
-            raise TypeError("Expected argument 'enable_non_ssl_port' to be a bool")
-        pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
         if family and not isinstance(family, str):
             raise TypeError("Expected argument 'family' to be a str")
         pulumi.set(__self__, "family", family)
@@ -102,21 +102,20 @@ class GetCacheResult:
         pulumi.set(__self__, "zones", zones)
 
     @property
+    @pulumi.getter(name="accessKeysAuthenticationEnabled")
+    def access_keys_authentication_enabled(self) -> bool:
+        """
+        Specifies if access key authentication is enabled.
+        """
+        return pulumi.get(self, "access_keys_authentication_enabled")
+
+    @property
     @pulumi.getter
     def capacity(self) -> int:
         """
         The size of the Redis Cache deployed.
         """
         return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter(name="enableNonSslPort")
-    @_utilities.deprecated("""`enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.""")
-    def enable_non_ssl_port(self) -> bool:
-        """
-        Whether the SSL port is enabled.
-        """
-        return pulumi.get(self, "enable_non_ssl_port")
 
     @property
     @pulumi.getter
@@ -283,8 +282,8 @@ class AwaitableGetCacheResult(GetCacheResult):
         if False:
             yield self
         return GetCacheResult(
+            access_keys_authentication_enabled=self.access_keys_authentication_enabled,
             capacity=self.capacity,
-            enable_non_ssl_port=self.enable_non_ssl_port,
             family=self.family,
             hostname=self.hostname,
             id=self.id,
@@ -338,8 +337,8 @@ def get_cache(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:redis/getCache:getCache', __args__, opts=opts, typ=GetCacheResult).value
 
     return AwaitableGetCacheResult(
+        access_keys_authentication_enabled=pulumi.get(__ret__, 'access_keys_authentication_enabled'),
         capacity=pulumi.get(__ret__, 'capacity'),
-        enable_non_ssl_port=pulumi.get(__ret__, 'enable_non_ssl_port'),
         family=pulumi.get(__ret__, 'family'),
         hostname=pulumi.get(__ret__, 'hostname'),
         id=pulumi.get(__ret__, 'id'),

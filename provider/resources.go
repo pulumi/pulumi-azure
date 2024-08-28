@@ -240,9 +240,9 @@ var moduleMap = map[string]string{
 	"container_app": azureContainerApp,
 	"container":     azureContainerService,
 
-	// Ignored: azureCore.  Includes tokens such as "azurerm_resource_group" and
-	// "azurerm_template_deployment". While every entry that starts with
-	// resource_group is azureCore, they still include ResourceGroup in Pulumi name.
+	// Ignored: azureCore.  Includes tokens such as "azurerm_resource_group".
+	// While every entry that starts with resource_group is azureCore,
+	// they still include ResourceGroup in Pulumi name.
 	"cosmosdb": azureCosmosDB,
 
 	// cost_management is truncated as if it didn't exit.
@@ -796,7 +796,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_virtual_network_swift_connection": {
 				Tok: azureResource(azureAppService, "VirtualNetworkSwiftConnection"),
 			},
-			"azurerm_app_service_environment":         {Tok: azureResource(azureAppService, "Environment")},
 			"azurerm_app_service_hybrid_connection":   {Tok: azureResource(azureAppService, "HybridConnection")},
 			"azurerm_app_service_managed_certificate": {Tok: azureResource(azureAppService, "ManagedCertificate")},
 			"azurerm_app_service_slot_virtual_network_swift_connection": {
@@ -935,7 +934,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_template_deployment":                          {Tok: azureResource(azureCore, "TemplateDeployment")},
 			"azurerm_resource_deployment_script_azure_cli":         {Tok: azureResource(azureCore, "ResourceDeploymentScriptAzureCli")},
 			"azurerm_resource_deployment_script_azure_power_shell": {Tok: azureResource(azureCore, "ResourceDeploymentScriptPowerShell")},
 			"azurerm_resource_group_template_deployment":           {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
@@ -1002,19 +1000,18 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Alias added due to first release of this resource being mapped to the wrong name
-			"azurerm_cdn_frontdoor_custom_domain":                        {Tok: azureResource(azureCDN, "FrontdoorCustomDomain"), Aliases: []tfbridge.AliasInfo{{Type: ref("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint")}}},
-			"azurerm_cdn_frontdoor_custom_domain_association":            {Tok: azureResource(azureCDN, "FrontdoorCustomDomainAssociation")},
-			"azurerm_cdn_frontdoor_endpoint":                             {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
-			"azurerm_cdn_frontdoor_firewall_policy":                      {Tok: azureResource(azureCDN, "FrontdoorFirewallPolicy")},
-			"azurerm_cdn_frontdoor_origin_group":                         {Tok: azureResource(azureCDN, "FrontdoorOriginGroup")},
-			"azurerm_cdn_frontdoor_origin":                               {Tok: azureResource(azureCDN, "FrontdoorOrigin")},
-			"azurerm_cdn_frontdoor_profile":                              {Tok: azureResource(azureCDN, "FrontdoorProfile")},
-			"azurerm_cdn_frontdoor_route_disable_link_to_default_domain": {Tok: azureResource(azureCDN, "FrontdoorRouteDisableLinkToDefaultDomain")},
-			"azurerm_cdn_frontdoor_route":                                {Tok: azureResource(azureCDN, "FrontdoorRoute")},
-			"azurerm_cdn_frontdoor_rule_set":                             {Tok: azureResource(azureCDN, "FrontdoorRuleSet")},
-			"azurerm_cdn_frontdoor_rule":                                 {Tok: azureResource(azureCDN, "FrontdoorRule")},
-			"azurerm_cdn_frontdoor_secret":                               {Tok: azureResource(azureCDN, "FrontdoorSecret")},
-			"azurerm_cdn_frontdoor_security_policy":                      {Tok: azureResource(azureCDN, "FrontdoorSecurityPolicy")},
+			"azurerm_cdn_frontdoor_custom_domain":             {Tok: azureResource(azureCDN, "FrontdoorCustomDomain"), Aliases: []tfbridge.AliasInfo{{Type: ref("azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint")}}},
+			"azurerm_cdn_frontdoor_custom_domain_association": {Tok: azureResource(azureCDN, "FrontdoorCustomDomainAssociation")},
+			"azurerm_cdn_frontdoor_endpoint":                  {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
+			"azurerm_cdn_frontdoor_firewall_policy":           {Tok: azureResource(azureCDN, "FrontdoorFirewallPolicy")},
+			"azurerm_cdn_frontdoor_origin_group":              {Tok: azureResource(azureCDN, "FrontdoorOriginGroup")},
+			"azurerm_cdn_frontdoor_origin":                    {Tok: azureResource(azureCDN, "FrontdoorOrigin")},
+			"azurerm_cdn_frontdoor_profile":                   {Tok: azureResource(azureCDN, "FrontdoorProfile")},
+			"azurerm_cdn_frontdoor_route":                     {Tok: azureResource(azureCDN, "FrontdoorRoute")},
+			"azurerm_cdn_frontdoor_rule_set":                  {Tok: azureResource(azureCDN, "FrontdoorRuleSet")},
+			"azurerm_cdn_frontdoor_rule":                      {Tok: azureResource(azureCDN, "FrontdoorRule")},
+			"azurerm_cdn_frontdoor_secret":                    {Tok: azureResource(azureCDN, "FrontdoorSecret")},
+			"azurerm_cdn_frontdoor_security_policy":           {Tok: azureResource(azureCDN, "FrontdoorSecurityPolicy")},
 
 			// Cognitive
 			"azurerm_cognitive_account":                      {Tok: azureResource(azureCognitive, "Account")},
@@ -1089,10 +1086,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_orchestrated_virtual_machine_scale_set": {Tok: azureResource(azureCompute, "OrchestratedVirtualMachineScaleSet")},
 			"azurerm_disk_access":                            {Tok: azureResource(azureCompute, "DiskAccess")},
 			"azurerm_ssh_public_key":                         {Tok: azureResource(azureCompute, "SshPublicKey")},
-			"azurerm_disk_pool":                              {Tok: azureResource(azureCompute, "DiskPool")},
-			"azurerm_disk_pool_managed_disk_attachment":      {Tok: azureResource(azureCompute, "DiskPoolManagedDiskAttachment")},
-			"azurerm_disk_pool_iscsi_target":                 {Tok: azureResource(azureCompute, "DiskPoolIscsiTarget")},
-			"azurerm_disk_pool_iscsi_target_lun":             {Tok: azureResource(azureCompute, "DiskPoolIscsiTargetLun")},
 			"azurerm_capacity_reservation_group":             {Tok: azureResource(azureCompute, "CapacityReservationGroup")},
 			"azurerm_capacity_reservation":                   {Tok: azureResource(azureCompute, "CapacityReservation")},
 			"azurerm_managed_disk_sas_token": {
@@ -1109,16 +1102,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cost_management_scheduled_action": {Tok: azureResource(azureCostManagement, "ScheduledAction")},
 
 			// DataBricks
-			"azurerm_databricks_access_connector": {Tok: azureResource(azureDataBricks, "AccessConnector")},
-			"azurerm_databricks_workspace":        {Tok: azureResource(azureDataBricks, "Workspace")},
-			"azurerm_databricks_workspace_customer_managed_key": {
-				Tok: azureResource(azureDataBricks, "WorkspaceCustomerManagedKey"),
-			},
+			"azurerm_databricks_access_connector":        {Tok: azureResource(azureDataBricks, "AccessConnector")},
+			"azurerm_databricks_workspace":               {Tok: azureResource(azureDataBricks, "Workspace")},
 			"azurerm_databricks_virtual_network_peering": {Tok: azureResource(azureDataBricks, "VirtualNetworkPeering")},
 
 			// Databox
 			"azurerm_databox_edge_device": {Tok: azureResource(azureDataboxEdge, "Device")},
-			"azurerm_databox_edge_order":  {Tok: azureResource(azureDataboxEdge, "Order")},
 
 			// Datadog
 			"azurerm_datadog_monitor": {
@@ -1151,9 +1140,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_data_factory_pipeline": {
 				Tok: azureResource(azureDataFactory, "Pipeline"),
-			},
-			"azurerm_data_factory_integration_runtime_managed": {
-				Tok: azureResource(azureDataFactory, "IntegrationRuntimeManaged"),
 			},
 			"azurerm_data_factory_trigger_schedule": {
 				Tok: azureResource(azureDataFactory, "TriggerSchedule"),
@@ -1327,26 +1313,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iothub_route":                      {Tok: azureResource(azureIot, "Route")},
 			"azurerm_iothub_shared_access_policy":       {Tok: azureResource(azureIot, "SharedAccessPolicy")},
 			"azurerm_iot_security_solution":             {Tok: azureResource(azureIot, "SecuritySolution")},
-			"azurerm_iot_time_series_insights_event_source_iothub": {
-				Tok: azureResource(azureIot, "TimeSeriesInsightsEventSourceIothub"),
-			},
-			"azurerm_iot_time_series_insights_standard_environment": {
-				Tok: azureResource(azureIot, "TimeSeriesInsightsStandardEnvironment"),
-			},
-			"azurerm_iot_time_series_insights_access_policy": {
-				Tok: azureResource(azureIot, "TimeSeriesInsightsAccessPolicy"),
-			},
-			"azurerm_iot_time_series_insights_reference_data_set": {
-				Tok: azureResource(azureIot, "TimeSeriesInsightsReferenceDataSet"),
-			},
-			"azurerm_iot_time_series_insights_gen2_environment": {
-				Tok: azureResource(azureIot, "TimeSeriesInsightsGen2Environment"),
-			},
-			"azurerm_iot_security_device_group": {Tok: azureResource(azureIot, "SecurityDeviceGroup")},
-			"azurerm_iot_time_series_insights_event_source_eventhub": {
-				Tok: azureResource(azureIot, "TimeSeriesInsightsEventSourceEventhub"),
-			},
-			"azurerm_iothub_certificate": {Tok: azureResource(azureIot, "Certificate")},
+			"azurerm_iot_security_device_group":         {Tok: azureResource(azureIot, "SecurityDeviceGroup")},
+			"azurerm_iothub_certificate":                {Tok: azureResource(azureIot, "Certificate")},
 
 			// KeyVault
 			"azurerm_key_vault":                         {Tok: azureResource(azureKeyVault, "KeyVault")},
@@ -1362,12 +1330,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_key_vault_managed_hardware_security_module": {
 				Tok: azureResource(azureKeyVault, "ManagedHardwareSecurityModule"),
 			},
-
-			// Lab
-			"azurerm_lab_service_plan":     {Tok: azureResource(azureLab, "ServicePlan")},
-			"azurerm_lab_service_lab":      {Tok: azureResource(azureLab, "Lab")},
-			"azurerm_lab_service_user":     {Tok: azureResource(azureLab, "User")},
-			"azurerm_lab_service_schedule": {Tok: azureResource(azureLab, "Schedule")},
 
 			// LoadBalancer
 			"azurerm_lb": {
@@ -1456,29 +1418,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_logic_app_integration_account_session":     {Tok: azureResource(azureLogicApps, "IntegrationAccountSession")},
 			"azurerm_logic_app_integration_account_certificate": {Tok: azureResource(azureLogicApps, "IntegrationAccountCertificate")},
 			"azurerm_logic_app_standard":                        {Tok: azureResource(azureLogicApps, "Standard")},
-			"azurerm_integration_service_environment": {
-				Tok: azureResource(azureLogicApps, "InterationServiceEnvironment"),
-			},
-			"azurerm_logic_app_integration_account_schema":    {Tok: azureResource(azureLogicApps, "IntegrationAccountSchema")},
-			"azurerm_logic_app_integration_account_partner":   {Tok: azureResource(azureLogicApps, "IntegrationAccountPartner")},
-			"azurerm_logic_app_integration_account_map":       {Tok: azureResource(azureLogicApps, "IntegrationAccountMap")},
-			"azurerm_logic_app_integration_account_assembly":  {Tok: azureResource(azureLogicApps, "IntegrationAccountAssembly")},
-			"azurerm_logic_app_integration_account_agreement": {Tok: azureResource(azureLogicApps, "IntegrationAccountAgreement")},
+			"azurerm_logic_app_integration_account_schema":      {Tok: azureResource(azureLogicApps, "IntegrationAccountSchema")},
+			"azurerm_logic_app_integration_account_partner":     {Tok: azureResource(azureLogicApps, "IntegrationAccountPartner")},
+			"azurerm_logic_app_integration_account_map":         {Tok: azureResource(azureLogicApps, "IntegrationAccountMap")},
+			"azurerm_logic_app_integration_account_assembly":    {Tok: azureResource(azureLogicApps, "IntegrationAccountAssembly")},
+			"azurerm_logic_app_integration_account_agreement":   {Tok: azureResource(azureLogicApps, "IntegrationAccountAgreement")},
 			"azurerm_logic_app_integration_account_batch_configuration": {
 				Tok: azureResource(azureLogicApps, "IntegrationAccountBatchConfiguration"),
 			},
-
-			// MariaDB
-			"azurerm_mariadb_configuration": {
-				Tok: azureResource(azureMariaDB, "Configuration"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"name": {Name: "name"},
-				},
-			},
-			"azurerm_mariadb_database":             {Tok: azureResource(azureMariaDB, "Database")},
-			"azurerm_mariadb_firewall_rule":        {Tok: azureResource(azureMariaDB, "FirewallRule")},
-			"azurerm_mariadb_server":               {Tok: azureResource(azureMariaDB, "Server")},
-			"azurerm_mariadb_virtual_network_rule": {Tok: azureResource(azureMariaDB, "VirtualNetworkRule")},
 
 			// Notification Hub
 			"azurerm_notification_hub":                    {Tok: azureResource(azureNotificationHub, "Hub")},
@@ -1519,7 +1466,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_gremlin_graph":         {Tok: azureResource(azureCosmosDB, "GremlinGraph")},
 			"azurerm_cosmosdb_sql_stored_procedure":  {Tok: azureResource(azureCosmosDB, "SqlStoredProcedure")},
 			"azurerm_cosmosdb_cassandra_table":       {Tok: azureResource(azureCosmosDB, "CassandraTable")},
-			"azurerm_cosmosdb_notebook_workspace":    {Tok: azureResource(azureCosmosDB, "NotebookWorkspace")},
 			"azurerm_cosmosdb_sql_trigger":           {Tok: azureResource(azureCosmosDB, "SqlTrigger")},
 			"azurerm_cosmosdb_sql_function":          {Tok: azureResource(azureCosmosDB, "SqlFunction")},
 			"azurerm_cosmosdb_cassandra_cluster":     {Tok: azureResource(azureCosmosDB, "CassandraCluster")},
@@ -1533,21 +1479,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_maps_creator": {Tok: azureResource(azureMaps, "Creator")},
 
 			// Media
-			"azurerm_media_asset":              {Tok: azureResource(azureMedia, "Asset")},
-			"azurerm_media_asset_filter":       {Tok: azureResource(azureMedia, "AssetFilter")},
-			"azurerm_media_transform":          {Tok: azureResource(azureMedia, "Transform")},
-			"azurerm_media_job":                {Tok: azureResource(azureMedia, "Job")},
-			"azurerm_media_streaming_endpoint": {Tok: azureResource(azureMedia, "StreamingEndpoint")},
-			"azurerm_media_streaming_locator":  {Tok: azureResource(azureMedia, "StreamingLocator")},
-			"azurerm_media_content_key_policy": {Tok: azureResource(azureMedia, "ContentKeyPolicy")},
-			"azurerm_media_streaming_policy":   {Tok: azureResource(azureMedia, "StreamingPolicy")},
-			"azurerm_media_live_event":         {Tok: azureResource(azureMedia, "LiveEvent")},
-			"azurerm_media_live_event_output": {
-				Tok: azureResource(azureMedia, "LiveEventOutput"),
-				Docs: &tfbridge.DocInfo{
-					Source: "media_live_output.html.markdown",
-				},
-			},
 			"azurerm_media_services_account_filter": {Tok: azureResource(azureMedia, "AccountFilter")},
 
 			// Monitoring resources
@@ -1578,19 +1509,12 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_monitor_diagnostic_setting":          {Tok: azureResource(azureMonitoring, "DiagnosticSetting")},
-			"azurerm_monitor_log_profile":                 {Tok: azureResource(azureMonitoring, "LogProfile")},
 			"azurerm_monitor_metric_alert":                {Tok: azureResource(azureMonitoring, "MetricAlert")},
 			"azurerm_monitor_scheduled_query_rules_alert": {Tok: azureResource(azureMonitoring, "ScheduledQueryRulesAlert")},
 			"azurerm_monitor_scheduled_query_rules_log":   {Tok: azureResource(azureMonitoring, "ScheduledQueryRulesLog")},
-			"azurerm_monitor_action_rule_action_group":    {Tok: azureResource(azureMonitoring, "ActionRuleActionGroup")},
-			"azurerm_monitor_action_rule_suppression":     {Tok: azureResource(azureMonitoring, "ActionRuleSuppression")},
 			"azurerm_monitor_smart_detector_alert_rule":   {Tok: azureResource(azureMonitoring, "SmartDetectorAlertRule")},
 			"azurerm_monitor_aad_diagnostic_setting":      {Tok: azureResource(azureMonitoring, "AadDiagnosticSetting")},
 			"azurerm_monitor_private_link_scope":          {Tok: azureResource(azureMonitoring, "PrivateLinkScope")},
-			"azurerm_logz_monitor":                        {Tok: azureResource(azureMonitoring, "LogzMonitor")},
-			"azurerm_logz_tag_rule":                       {Tok: azureResource(azureMonitoring, "LogzTagRule")},
-			"azurerm_logz_sub_account":                    {Tok: azureResource(azureMonitoring, "LogzSubAccount")},
-			"azurerm_logz_sub_account_tag_rule":           {Tok: azureResource(azureMonitoring, "LogzSubAccountTagRule")},
 			"azurerm_monitor_private_link_scoped_service": {Tok: azureResource(azureMonitoring, "PrivateLinkScopedService")},
 			"azurerm_monitor_data_collection_rule":        {Tok: azureResource(azureMonitoring, "DataCollectionRule")},
 			"azurerm_monitor_data_collection_endpoint":    {Tok: azureResource(azureMonitoring, "DataCollectionEndpoint")},
@@ -1635,20 +1559,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_server_microsoft_support_auditing_policy":        {Tok: azureResource(azureMSSQL, "ServerMicrosoftSupportAuditingPolicy")},
 
 			// MySQL
-			"azurerm_mysql_configuration": {
-				Tok: azureResource(azureMySQL, "Configuration"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"name": {Name: "name"},
-				},
-			},
-			"azurerm_mysql_database":             {Tok: azureResource(azureMySQL, "Database")},
-			"azurerm_mysql_firewall_rule":        {Tok: azureResource(azureMySQL, "FirewallRule")},
-			"azurerm_mysql_server":               {Tok: azureResource(azureMySQL, "Server")},
-			"azurerm_mysql_virtual_network_rule": {Tok: azureResource(azureMySQL, "VirtualNetworkRule")},
-			"azurerm_mysql_server_key":           {Tok: azureResource(azureMySQL, "ServerKey")},
-			"azurerm_mysql_active_directory_administrator": {
-				Tok: azureResource(azureMySQL, "ActiveDirectoryAdministrator"),
-			},
 			"azurerm_mysql_flexible_server":               {Tok: azureResource(azureMySQL, "FlexibleServer")},
 			"azurerm_mysql_flexible_server_configuration": {Tok: azureResource(azureMySQL, "FlexibleServerConfiguration")},
 			"azurerm_mysql_flexible_server_firewall_rule": {Tok: azureResource(azureMySQL, "FlexibleServerFirewallRule")},
@@ -1727,26 +1637,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_private_dns_resolver_virtual_network_link":   {Tok: azureResource(azurePrivateDNS, "ResolverVirtualNetworkLink")},
 
 			"azurerm_role_management_policy": {Tok: azureResource(azurePim, "RoleManagementPolicy")},
-
-			// SQL
-			"azurerm_sql_elasticpool":    {Tok: azureResource(azureSQL, "ElasticPool")},
-			"azurerm_sql_database":       {Tok: azureResource(azureSQL, "Database")},
-			"azurerm_sql_failover_group": {Tok: azureResource(azureSQL, "FailoverGroup")},
-			"azurerm_sql_firewall_rule":  {Tok: azureResource(azureSQL, "FirewallRule")},
-			"azurerm_sql_server":         {Tok: azureResource(azureSQL, "SqlServer")},
-			"azurerm_sql_virtual_network_rule": {
-				Tok: azureResource(azureSQL, "VirtualNetworkRule"),
-				Docs: &tfbridge.DocInfo{
-					Source: "sql_virtual_network_rule.html.markdown",
-				},
-			},
-			"azurerm_sql_active_directory_administrator":  {Tok: azureResource(azureSQL, "ActiveDirectoryAdministrator")},
-			"azurerm_sql_managed_database":                {Tok: azureResource(azureSQL, "ManagedDatabase")},
-			"azurerm_sql_managed_instance":                {Tok: azureResource(azureSQL, "ManagedInstance")},
-			"azurerm_sql_managed_instance_failover_group": {Tok: azureResource(azureSQL, "ManagedInstanceFailoverGroup")},
-			"azurerm_sql_managed_instance_active_directory_administrator": {
-				Tok: azureResource(azureSQL, "ManagedInstanceActiveDirectoryAdministrator"),
-			},
 
 			// Network
 			"azurerm_virtual_network": {
@@ -1828,7 +1718,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_network_interface_backend_address_pool_association":                     {Tok: azureResource(azureNetwork, "NetworkInterfaceBackendAddressPoolAssociation")},
 			"azurerm_network_interface_nat_rule_association":                                 {Tok: azureResource(azureNetwork, "NetworkInterfaceNatRuleAssociation")},
 			"azurerm_network_interface_security_group_association":                           {Tok: azureResource(azureNetwork, "NetworkInterfaceSecurityGroupAssociation")},
-			"azurerm_network_packet_capture":                                                 {Tok: azureResource(azureNetwork, "NetworkPacketCapture")},
 			"azurerm_network_profile":                                                        {Tok: azureResource(azureNetwork, "Profile")},
 			"azurerm_network_security_group": {
 				Tok: azureResource(azureNetwork, "NetworkSecurityGroup"),
@@ -1987,7 +1876,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_security_center_setting":                                         {Tok: azureResource(azureSecurityCenter, "Setting")},
 			"azurerm_security_center_auto_provisioning":                               {Tok: azureResource(azureSecurityCenter, "AutoProvisioning")},
 			"azurerm_security_center_automation":                                      {Tok: azureResource(azureSecurityCenter, "Automation")},
-			"azurerm_security_center_server_vulnerability_assessment":                 {Tok: azureResource(azureSecurityCenter, "ServerVulnerabilityAssessment")},
 			"azurerm_security_center_assessment":                                      {Tok: azureResource(azureSecurityCenter, "Assessment")},
 			"azurerm_security_center_assessment_policy":                               {Tok: azureResource(azureSecurityCenter, "AssessmentPolicy")},
 			"azurerm_security_center_server_vulnerability_assessment_virtual_machine": {Tok: azureResource(azureSecurityCenter, "ServerVulnerabilityAssessmentVirtualMachine")},
@@ -2280,10 +2168,6 @@ func Provider() tfbridge.ProviderInfo {
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
 
-			// Video Analyzer
-			"azurerm_video_analyzer":             {Tok: azureResource(azureVideoAnalyzer, "Analyzer")},
-			"azurerm_video_analyzer_edge_module": {Tok: azureResource(azureVideoAnalyzer, "EdgeModule")},
-
 			// Voice
 			"azurerm_voice_services_communications_gateway": {
 				Tok: azureResource(azureVoice, "ServicesCommunicationsGateway"),
@@ -2425,9 +2309,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Servicebus
-			"azurerm_servicebus_namespace_network_rule_set": {
-				Tok: azureResource(azureServiceBus, "NamespaceNetworkRuleSet"),
-			},
 			"azurerm_servicebus_namespace_disaster_recovery_config": {
 				Tok: azureResource(azureServiceBus, "NamespaceDisasterRecoveryConfig"),
 			},
@@ -2940,10 +2821,6 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 
-			"azurerm_sql_server":           {Tok: azureDataSource(azureSQL, "getServer")},
-			"azurerm_sql_database":         {Tok: azureDataSource(azureSQL, "getDatabase")},
-			"azurerm_sql_managed_instance": {Tok: azureDataSource(azureSQL, "getSqlManagedInstance")},
-
 			"azurerm_virtual_network_gateway_connection": {Tok: azureDataSource(azureNetwork, "getGatewayConnection")},
 			"azurerm_firewall":                           {Tok: azureDataSource(azureNetwork, "getFirewall")},
 			"azurerm_subscription":                       {Tok: azureDataSource(azureCore, "getSubscription")},
@@ -3035,18 +2912,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_machine_scale_set":   {Tok: azureDataSource(azureCompute, "getVirtualMachineScaleSet")},
 			"azurerm_ssh_public_key":              {Tok: azureDataSource(azureCompute, "getSshPublicKey")},
 			"azurerm_disk_access":                 {Tok: azureDataSource(azureCompute, "getDiskAccess")},
-			"azurerm_mariadb_server":              {Tok: azureDataSource(azureMariaDB, "getMariaDbServer")},
 			"azurerm_eventhub_namespace_authorization_rule": {
 				Tok: azureDataSource(azureEventHub, "getNamespaceAuthorizationRule"),
 			},
-			"azurerm_eventhub":                    {Tok: azureDataSource(azureEventHub, "getEventHub")},
-			"azurerm_eventhub_authorization_rule": {Tok: azureDataSource(azureEventHub, "getAuthorizationRule")},
-			"azurerm_eventhub_consumer_group":     {Tok: azureDataSource(azureEventHub, "getConsumeGroup")},
-			"azurerm_function_app":                {Tok: azureDataSource(azureAppService, "getFunctionApp")},
-			"azurerm_function_app_host_keys":      {Tok: azureDataSource(azureAppService, "getFunctionAppHostKeys")},
-			"azurerm_app_service_environment": {
-				Tok: azureDataSource(azureAppService, "getAppServiceEnvironment"),
-			},
+			"azurerm_eventhub":                        {Tok: azureDataSource(azureEventHub, "getEventHub")},
+			"azurerm_eventhub_authorization_rule":     {Tok: azureDataSource(azureEventHub, "getAuthorizationRule")},
+			"azurerm_eventhub_consumer_group":         {Tok: azureDataSource(azureEventHub, "getConsumeGroup")},
+			"azurerm_function_app":                    {Tok: azureDataSource(azureAppService, "getFunctionApp")},
+			"azurerm_function_app_host_keys":          {Tok: azureDataSource(azureAppService, "getFunctionAppHostKeys")},
 			"azurerm_app_service_environment_v3":      {Tok: azureDataSource(azureAppService, "getEnvironmentV3")},
 			"azurerm_iothub_dps_shared_access_policy": {Tok: azureDataSource(azureIot, "getDpsSharedAccessPolicy")},
 			"azurerm_iothub":                          {Tok: azureDataSource(azureIot, "getIotHub")},
@@ -3102,7 +2975,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_sentinel_alert_rule_anomaly": {Tok: azureDataSource(azureSentinel, "getAlertRuleAnomaly")},
 
-			"azurerm_mysql_server":          {Tok: azureDataSource(azureMySQL, "getServer")},
 			"azurerm_mysql_flexible_server": {Tok: azureDataSource(azureMySQL, "getFlexibleServer")},
 
 			"azurerm_cognitive_account":                 {Tok: azureDataSource(azureCognitive, "getAccount")},
@@ -3288,15 +3160,6 @@ func Provider() tfbridge.ProviderInfo {
 		EnableZeroDefaultSchemaVersion: true,
 	}
 
-	// Move the dashboard resources
-	// Dashboard
-	// TODO: This resource is in the "Portal" module in the upstream provider. Move to a new namespace when terraform-provider-azurerm hits v3.0.
-	//"azurerm_dashboard":        {Tok: azureResource(azureDashboard, "Dashboard")},
-	prov.RenameResourceWithAlias("azurerm_dashboard", azureResource(azureDashboard, "Dashboard"),
-		azureResource(azurePortal, "Dashboard"), azureDashboard, azurePortal, nil)
-	prov.RenameDataSource("azurerm_portal_dashboard", azureDataSource(azureDashboard, "azurerm_portal_dashboard"),
-		azureDataSource(azurePortal, "getDashboard"), azureDashboard, azurePortal, nil)
-
 	// New Authorization Mod - this combines the old MSI and Role Modules
 	prov.RenameResourceWithAlias("azurerm_role_assignment", azureResource(azureLegacyRole, "Assignment"),
 		azureResource(azureAuthorization, "Assignment"), azureLegacyRole, azureAuthorization, &tfbridge.ResourceInfo{
@@ -3451,11 +3314,6 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameResourceWithAlias("azurerm_sentinel_automation_rule",
 		azureResource(azureSentinel, "AuthomationRule"),
 		azureResource(azureSentinel, "AutomationRule"), azureSentinel, azureSentinel, nil)
-
-	// rename mediaServices to media
-	prov.RenameResourceWithAlias("azurerm_media_services_account",
-		azureResource(azureMediaServices, "Account"),
-		azureResource(azureMedia, "ServiceAccount"), azureMediaServices, azureMedia, nil)
 
 	// Deprecated, remove when we upgrade to terraform-provider-azurerm 3.0.
 	prov.P.ResourcesMap().Set("azurerm_storage_zipblob", prov.P.ResourcesMap().Get("azurerm_storage_blob"))

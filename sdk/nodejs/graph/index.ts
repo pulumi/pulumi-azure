@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AccountArgs, AccountState } from "./account";
-export type Account = import("./account").Account;
-export const Account: typeof import("./account").Account = null as any;
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-
 export { ServicesAccountArgs, ServicesAccountState } from "./servicesAccount";
 export type ServicesAccount = import("./servicesAccount").ServicesAccount;
 export const ServicesAccount: typeof import("./servicesAccount").ServicesAccount = null as any;
@@ -20,8 +15,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure:graph/account:Account":
-                return new Account(name, <any>undefined, { urn })
             case "azure:graph/servicesAccount:ServicesAccount":
                 return new ServicesAccount(name, <any>undefined, { urn })
             default:
@@ -29,5 +22,4 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure", "graph/account", _module)
 pulumi.runtime.registerResourceModule("azure", "graph/servicesAccount", _module)

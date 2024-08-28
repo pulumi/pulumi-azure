@@ -737,7 +737,6 @@ if not MYPY:
         """
         The name of the Rule Group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`MS-ThreatIntel-WebShells`,.
         """
-        disabled_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgsDict']]]]
         """
         One or more `rule` block defined below.
@@ -749,18 +748,12 @@ elif False:
 class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs:
     def __init__(__self__, *,
                  rule_group_name: pulumi.Input[str],
-                 disabled_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs']]]] = None):
         """
         :param pulumi.Input[str] rule_group_name: The name of the Rule Group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`MS-ThreatIntel-WebShells`,.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs']]] rules: One or more `rule` block defined below.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
-        if disabled_rules is not None:
-            warnings.warn("""`disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""disabled_rules is deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.""")
-        if disabled_rules is not None:
-            pulumi.set(__self__, "disabled_rules", disabled_rules)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -775,16 +768,6 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs:
     @rule_group_name.setter
     def rule_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_group_name", value)
-
-    @property
-    @pulumi.getter(name="disabledRules")
-    @_utilities.deprecated("""`disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.""")
-    def disabled_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "disabled_rules")
-
-    @disabled_rules.setter
-    def disabled_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "disabled_rules", value)
 
     @property
     @pulumi.getter
@@ -811,7 +794,7 @@ if not MYPY:
         """
         enabled: NotRequired[pulumi.Input[bool]]
         """
-        Describes if the managed rule is in enabled state or disabled state.
+        Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
         """
 elif False:
     PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -825,7 +808,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs:
         """
         :param pulumi.Input[str] id: Identifier for the managed rule.
         :param pulumi.Input[str] action: Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
-        :param pulumi.Input[bool] enabled: Describes if the managed rule is in enabled state or disabled state.
+        :param pulumi.Input[bool] enabled: Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
         """
         pulumi.set(__self__, "id", id)
         if action is not None:
@@ -861,7 +844,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Describes if the managed rule is in enabled state or disabled state.
+        Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -900,6 +883,7 @@ if not MYPY:
         """
         Is Request Body Inspection enabled? Defaults to `true`.
         """
+        request_body_enforcement: NotRequired[pulumi.Input[bool]]
         request_body_inspect_limit_in_kb: NotRequired[pulumi.Input[int]]
         """
         Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
@@ -917,6 +901,7 @@ class PolicyPolicySettingsArgs:
                  max_request_body_size_in_kb: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  request_body_check: Optional[pulumi.Input[bool]] = None,
+                 request_body_enforcement: Optional[pulumi.Input[bool]] = None,
                  request_body_inspect_limit_in_kb: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
@@ -942,6 +927,8 @@ class PolicyPolicySettingsArgs:
             pulumi.set(__self__, "mode", mode)
         if request_body_check is not None:
             pulumi.set(__self__, "request_body_check", request_body_check)
+        if request_body_enforcement is not None:
+            pulumi.set(__self__, "request_body_enforcement", request_body_enforcement)
         if request_body_inspect_limit_in_kb is not None:
             pulumi.set(__self__, "request_body_inspect_limit_in_kb", request_body_inspect_limit_in_kb)
 
@@ -1030,6 +1017,15 @@ class PolicyPolicySettingsArgs:
         pulumi.set(self, "request_body_check", value)
 
     @property
+    @pulumi.getter(name="requestBodyEnforcement")
+    def request_body_enforcement(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "request_body_enforcement")
+
+    @request_body_enforcement.setter
+    def request_body_enforcement(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "request_body_enforcement", value)
+
+    @property
     @pulumi.getter(name="requestBodyInspectLimitInKb")
     def request_body_inspect_limit_in_kb(self) -> Optional[pulumi.Input[int]]:
         """
@@ -1099,7 +1095,7 @@ if not MYPY:
         match_variable: pulumi.Input[str]
         enabled: NotRequired[pulumi.Input[bool]]
         """
-        Describes if the managed rule is in enabled state or disabled state.
+        Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
         """
         selector: NotRequired[pulumi.Input[str]]
         """
@@ -1117,7 +1113,7 @@ class PolicyPolicySettingsLogScrubbingRuleArgs:
                  selector: Optional[pulumi.Input[str]] = None,
                  selector_match_operator: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Describes if the managed rule is in enabled state or disabled state.
+        :param pulumi.Input[bool] enabled: Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
         :param pulumi.Input[str] selector: When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
         """
         pulumi.set(__self__, "match_variable", match_variable)
@@ -1141,7 +1137,7 @@ class PolicyPolicySettingsLogScrubbingRuleArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Describes if the managed rule is in enabled state or disabled state.
+        Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 

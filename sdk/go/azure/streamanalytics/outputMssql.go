@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,26 +41,26 @@ import (
 //				Name:              pulumi.String("example-job"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
-//			exampleSqlServer, err := sql.NewSqlServer(ctx, "example", &sql.SqlServerArgs{
-//				Name:                       pulumi.String("example-server"),
+//			exampleSqlServer, err := azurerm.NewSqlServer(ctx, "example", &azurerm.SqlServerArgs{
+//				Name:                       "example-server",
 //				ResourceGroupName:          exampleResourceGroup.Name,
 //				Location:                   exampleResourceGroup.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("dbadmin"),
-//				AdministratorLoginPassword: pulumi.String("example-password"),
+//				Version:                    "12.0",
+//				AdministratorLogin:         "dbadmin",
+//				AdministratorLoginPassword: "example-password",
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := sql.NewDatabase(ctx, "example", &sql.DatabaseArgs{
-//				Name:                          pulumi.String("exampledb"),
+//			exampleSqlDatabase, err := azurerm.NewSqlDatabase(ctx, "example", &azurerm.SqlDatabaseArgs{
+//				Name:                          "exampledb",
 //				ResourceGroupName:             exampleResourceGroup.Name,
 //				Location:                      exampleResourceGroup.Location,
 //				ServerName:                    exampleSqlServer.Name,
-//				RequestedServiceObjectiveName: pulumi.String("S0"),
-//				Collation:                     pulumi.String("SQL_LATIN1_GENERAL_CP1_CI_AS"),
-//				MaxSizeBytes:                  pulumi.String("268435456000"),
-//				CreateMode:                    pulumi.String("Default"),
+//				RequestedServiceObjectiveName: "S0",
+//				Collation:                     "SQL_LATIN1_GENERAL_CP1_CI_AS",
+//				MaxSizeBytes:                  "268435456000",
+//				CreateMode:                    "Default",
 //			})
 //			if err != nil {
 //				return err
@@ -76,7 +76,7 @@ import (
 //				Server:   exampleSqlServer.FullyQualifiedDomainName,
 //				User:     exampleSqlServer.AdministratorLogin,
 //				Password: exampleSqlServer.AdministratorLoginPassword,
-//				Database: exampleDatabase.Name,
+//				Database: exampleSqlDatabase.Name,
 //				Table:    pulumi.String("ExampleTable"),
 //			})
 //			if err != nil {

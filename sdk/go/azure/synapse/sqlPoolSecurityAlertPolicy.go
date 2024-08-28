@@ -8,114 +8,11 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages a Security Alert Policy for a Synapse SQL Pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestorageacc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				AccountKind:            pulumi.String("StorageV2"),
-//				IsHnsEnabled:           pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
-//				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
-//				Name:                            pulumi.String("example"),
-//				ResourceGroupName:               example.Name,
-//				Location:                        example.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
-//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-//				AadAdmin: &synapse.WorkspaceAadAdminTypeArgs{
-//					Login:    pulumi.String("AzureAD Admin"),
-//					ObjectId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//					TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				},
-//				Identity: &synapse.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSqlPool, err := synapse.NewSqlPool(ctx, "example", &synapse.SqlPoolArgs{
-//				Name:               pulumi.String("examplesqlpool"),
-//				SynapseWorkspaceId: exampleWorkspace.ID(),
-//				SkuName:            pulumi.String("DW100c"),
-//				CreateMode:         pulumi.String("Default"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			auditLogs, err := storage.NewAccount(ctx, "audit_logs", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplesa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = synapse.NewSqlPoolSecurityAlertPolicy(ctx, "example", &synapse.SqlPoolSecurityAlertPolicyArgs{
-//				SqlPoolId:               exampleSqlPool.ID(),
-//				PolicyState:             pulumi.String("Enabled"),
-//				StorageEndpoint:         auditLogs.PrimaryBlobEndpoint,
-//				StorageAccountAccessKey: auditLogs.PrimaryAccessKey,
-//				DisabledAlerts: pulumi.StringArray{
-//					pulumi.String("Sql_Injection"),
-//					pulumi.String("Data_Exfiltration"),
-//				},
-//				RetentionDays: pulumi.Int(20),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -119,12 +119,6 @@ type Api struct {
 	RevisionDescription pulumi.StringPtrOutput `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
-	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-	//
-	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
-	SoapPassThrough pulumi.BoolOutput `pulumi:"soapPassThrough"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrOutput `pulumi:"sourceApiId"`
 	// A `subscriptionKeyParameterNames` block as documented below.
@@ -220,12 +214,6 @@ type apiState struct {
 	RevisionDescription *string `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
-	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-	//
-	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
-	SoapPassThrough *bool `pulumi:"soapPassThrough"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId *string `pulumi:"sourceApiId"`
 	// A `subscriptionKeyParameterNames` block as documented below.
@@ -283,12 +271,6 @@ type ApiState struct {
 	RevisionDescription pulumi.StringPtrInput
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringPtrInput
-	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-	//
-	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
-	SoapPassThrough pulumi.BoolPtrInput
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrInput
 	// A `subscriptionKeyParameterNames` block as documented below.
@@ -346,12 +328,6 @@ type apiArgs struct {
 	RevisionDescription *string `pulumi:"revisionDescription"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
-	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-	//
-	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
-	SoapPassThrough *bool `pulumi:"soapPassThrough"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId *string `pulumi:"sourceApiId"`
 	// A `subscriptionKeyParameterNames` block as documented below.
@@ -406,12 +382,6 @@ type ApiArgs struct {
 	RevisionDescription pulumi.StringPtrInput
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringPtrInput
-	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-	//
-	// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
-	SoapPassThrough pulumi.BoolPtrInput
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrInput
 	// A `subscriptionKeyParameterNames` block as documented below.
@@ -607,15 +577,6 @@ func (o ApiOutput) RevisionDescription() pulumi.StringPtrOutput {
 // Absolute URL of the backend service implementing this API.
 func (o ApiOutput) ServiceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ServiceUrl }).(pulumi.StringOutput)
-}
-
-// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-//
-// > **NOTE:** This property has been deprecated in favour of the `apiType` property and will be removed in version 4.0 of the provider.
-//
-// Deprecated: `soapPassThrough` will be removed in favour of the property `apiType` in version 4.0 of the AzureRM Provider
-func (o ApiOutput) SoapPassThrough() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Api) pulumi.BoolOutput { return v.SoapPassThrough }).(pulumi.BoolOutput)
 }
 
 // The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`

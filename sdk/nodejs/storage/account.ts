@@ -149,7 +149,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly blobProperties!: pulumi.Output<outputs.storage.AccountBlobProperties>;
     /**
-     * Should cross Tenant replication be enabled? Defaults to `true`.
+     * Should cross Tenant replication be enabled? Defaults to `false`.
      */
     public readonly crossTenantReplicationEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -177,13 +177,9 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
     /**
-     * @deprecated The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    public readonly enableHttpsTrafficOnly!: pulumi.Output<boolean>;
-    /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      */
-    public readonly httpsTrafficOnlyEnabled!: pulumi.Output<boolean>;
+    public readonly httpsTrafficOnlyEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
@@ -574,7 +570,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *
-     * > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+     * > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
      */
     public readonly tableEncryptionKeyType!: pulumi.Output<string | undefined>;
     /**
@@ -609,7 +605,6 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["defaultToOauthAuthentication"] = state ? state.defaultToOauthAuthentication : undefined;
             resourceInputs["dnsEndpointType"] = state ? state.dnsEndpointType : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
             resourceInputs["httpsTrafficOnlyEnabled"] = state ? state.httpsTrafficOnlyEnabled : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["immutabilityPolicy"] = state ? state.immutabilityPolicy : undefined;
@@ -731,7 +726,6 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["defaultToOauthAuthentication"] = args ? args.defaultToOauthAuthentication : undefined;
             resourceInputs["dnsEndpointType"] = args ? args.dnsEndpointType : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             resourceInputs["httpsTrafficOnlyEnabled"] = args ? args.httpsTrafficOnlyEnabled : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["immutabilityPolicy"] = args ? args.immutabilityPolicy : undefined;
@@ -879,7 +873,7 @@ export interface AccountState {
      */
     blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
     /**
-     * Should cross Tenant replication be enabled? Defaults to `true`.
+     * Should cross Tenant replication be enabled? Defaults to `false`.
      */
     crossTenantReplicationEnabled?: pulumi.Input<boolean>;
     /**
@@ -906,10 +900,6 @@ export interface AccountState {
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      */
     edgeZone?: pulumi.Input<string>;
-    /**
-     * @deprecated The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      */
@@ -1304,7 +1294,7 @@ export interface AccountState {
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *
-     * > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+     * > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
      */
     tableEncryptionKeyType?: pulumi.Input<string>;
     /**
@@ -1356,7 +1346,7 @@ export interface AccountArgs {
      */
     blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
     /**
-     * Should cross Tenant replication be enabled? Defaults to `true`.
+     * Should cross Tenant replication be enabled? Defaults to `false`.
      */
     crossTenantReplicationEnabled?: pulumi.Input<boolean>;
     /**
@@ -1383,10 +1373,6 @@ export interface AccountArgs {
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      */
     edgeZone?: pulumi.Input<string>;
-    /**
-     * @deprecated The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      */
@@ -1493,7 +1479,7 @@ export interface AccountArgs {
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *
-     * > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+     * > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
      */
     tableEncryptionKeyType?: pulumi.Input<string>;
     /**

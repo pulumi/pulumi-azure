@@ -22,6 +22,7 @@ __all__ = ['SqlPoolArgs', 'SqlPool']
 class SqlPoolArgs:
     def __init__(__self__, *,
                  sku_name: pulumi.Input[str],
+                 storage_account_type: pulumi.Input[str],
                  synapse_workspace_id: pulumi.Input[str],
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
@@ -30,11 +31,11 @@ class SqlPoolArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_database_id: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input['SqlPoolRestoreArgs']] = None,
-                 storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SqlPool resource.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
+        :param pulumi.Input[str] storage_account_type: The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[str] collation: The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[str] create_mode: Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
@@ -43,10 +44,10 @@ class SqlPoolArgs:
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input['SqlPoolRestoreArgs'] restore: A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
-        :param pulumi.Input[str] storage_account_type: The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse SQL Pool.
         """
         pulumi.set(__self__, "sku_name", sku_name)
+        pulumi.set(__self__, "storage_account_type", storage_account_type)
         pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
@@ -62,8 +63,6 @@ class SqlPoolArgs:
             pulumi.set(__self__, "recovery_database_id", recovery_database_id)
         if restore is not None:
             pulumi.set(__self__, "restore", restore)
-        if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -78,6 +77,18 @@ class SqlPoolArgs:
     @sku_name.setter
     def sku_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> pulumi.Input[str]:
+        """
+        The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_type", value)
 
     @property
     @pulumi.getter(name="synapseWorkspaceId")
@@ -174,18 +185,6 @@ class SqlPoolArgs:
     @restore.setter
     def restore(self, value: Optional[pulumi.Input['SqlPoolRestoreArgs']]):
         pulumi.set(self, "restore", value)
-
-    @property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
-        """
-        return pulumi.get(self, "storage_account_type")
-
-    @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_type", value)
 
     @property
     @pulumi.getter
@@ -562,6 +561,8 @@ class SqlPool(pulumi.CustomResource):
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
+            if storage_account_type is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_account_type'")
             __props__.__dict__["storage_account_type"] = storage_account_type
             if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
@@ -690,7 +691,7 @@ class SqlPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> pulumi.Output[Optional[str]]:
+    def storage_account_type(self) -> pulumi.Output[str]:
         """
         The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
         """

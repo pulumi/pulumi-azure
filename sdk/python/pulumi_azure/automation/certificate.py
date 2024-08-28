@@ -450,7 +450,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def exportable(self) -> pulumi.Output[bool]:
+    def exportable(self) -> pulumi.Output[Optional[bool]]:
         """
         The is exportable flag of the certificate.
         """

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/datafactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,8 +68,8 @@ import (
 type IntegrationRuntimeRule struct {
 	pulumi.CustomResourceState
 
-	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
-	CleanupEnabled pulumi.BoolOutput `pulumi:"cleanupEnabled"`
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
+	CleanupEnabled pulumi.BoolPtrOutput `pulumi:"cleanupEnabled"`
 	// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
 	ComputeType pulumi.StringPtrOutput `pulumi:"computeType"`
 	// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
@@ -121,7 +121,7 @@ func GetIntegrationRuntimeRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationRuntimeRule resources.
 type integrationRuntimeRuleState struct {
-	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
 	CleanupEnabled *bool `pulumi:"cleanupEnabled"`
 	// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
 	ComputeType *string `pulumi:"computeType"`
@@ -142,7 +142,7 @@ type integrationRuntimeRuleState struct {
 }
 
 type IntegrationRuntimeRuleState struct {
-	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
 	CleanupEnabled pulumi.BoolPtrInput
 	// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
 	ComputeType pulumi.StringPtrInput
@@ -167,7 +167,7 @@ func (IntegrationRuntimeRuleState) ElementType() reflect.Type {
 }
 
 type integrationRuntimeRuleArgs struct {
-	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
 	CleanupEnabled *bool `pulumi:"cleanupEnabled"`
 	// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
 	ComputeType *string `pulumi:"computeType"`
@@ -189,7 +189,7 @@ type integrationRuntimeRuleArgs struct {
 
 // The set of arguments for constructing a IntegrationRuntimeRule resource.
 type IntegrationRuntimeRuleArgs struct {
-	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+	// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
 	CleanupEnabled pulumi.BoolPtrInput
 	// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
 	ComputeType pulumi.StringPtrInput
@@ -296,9 +296,9 @@ func (o IntegrationRuntimeRuleOutput) ToIntegrationRuntimeRuleOutputWithContext(
 	return o
 }
 
-// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
-func (o IntegrationRuntimeRuleOutput) CleanupEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeRule) pulumi.BoolOutput { return v.CleanupEnabled }).(pulumi.BoolOutput)
+// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
+func (o IntegrationRuntimeRuleOutput) CleanupEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeRule) pulumi.BoolPtrOutput { return v.CleanupEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.

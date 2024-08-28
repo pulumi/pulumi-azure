@@ -245,8 +245,8 @@ class AppIngress(dict):
             suggest = "traffic_weights"
         elif key == "allowInsecureConnections":
             suggest = "allow_insecure_connections"
-        elif key == "customDomain":
-            suggest = "custom_domain"
+        elif key == "customDomains":
+            suggest = "custom_domains"
         elif key == "exposedPort":
             suggest = "exposed_port"
         elif key == "externalEnabled":
@@ -269,7 +269,7 @@ class AppIngress(dict):
                  target_port: int,
                  traffic_weights: Sequence['outputs.AppIngressTrafficWeight'],
                  allow_insecure_connections: Optional[bool] = None,
-                 custom_domain: Optional['outputs.AppIngressCustomDomain'] = None,
+                 custom_domains: Optional[Sequence['outputs.AppIngressCustomDomain']] = None,
                  exposed_port: Optional[int] = None,
                  external_enabled: Optional[bool] = None,
                  fqdn: Optional[str] = None,
@@ -279,7 +279,7 @@ class AppIngress(dict):
         :param int target_port: The target port on the container for the Ingress traffic.
         :param Sequence['AppIngressTrafficWeightArgs'] traffic_weights: One or more `traffic_weight` blocks as detailed below.
         :param bool allow_insecure_connections: Should this ingress allow insecure connections?
-        :param 'AppIngressCustomDomainArgs' custom_domain: One or more `custom_domain` block as detailed below.
+        :param Sequence['AppIngressCustomDomainArgs'] custom_domains: One or more `custom_domain` block as detailed below.
         :param int exposed_port: The exposed port on the container for the Ingress traffic.
                
                > **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
@@ -292,8 +292,8 @@ class AppIngress(dict):
         pulumi.set(__self__, "traffic_weights", traffic_weights)
         if allow_insecure_connections is not None:
             pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
-        if custom_domain is not None:
-            pulumi.set(__self__, "custom_domain", custom_domain)
+        if custom_domains is not None:
+            pulumi.set(__self__, "custom_domains", custom_domains)
         if exposed_port is not None:
             pulumi.set(__self__, "exposed_port", exposed_port)
         if external_enabled is not None:
@@ -330,13 +330,12 @@ class AppIngress(dict):
         return pulumi.get(self, "allow_insecure_connections")
 
     @property
-    @pulumi.getter(name="customDomain")
-    @_utilities.deprecated("""This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.""")
-    def custom_domain(self) -> Optional['outputs.AppIngressCustomDomain']:
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> Optional[Sequence['outputs.AppIngressCustomDomain']]:
         """
         One or more `custom_domain` block as detailed below.
         """
-        return pulumi.get(self, "custom_domain")
+        return pulumi.get(self, "custom_domains")
 
     @property
     @pulumi.getter(name="exposedPort")
@@ -386,10 +385,10 @@ class AppIngressCustomDomain(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "certificateId":
-            suggest = "certificate_id"
-        elif key == "certificateBindingType":
+        if key == "certificateBindingType":
             suggest = "certificate_binding_type"
+        elif key == "certificateId":
+            suggest = "certificate_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AppIngressCustomDomain. Access the value via the '{suggest}' property getter instead.")
@@ -403,22 +402,32 @@ class AppIngressCustomDomain(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 certificate_id: str,
-                 name: str,
-                 certificate_binding_type: Optional[str] = None):
+                 certificate_binding_type: Optional[str] = None,
+                 certificate_id: Optional[str] = None,
+                 name: Optional[str] = None):
         """
+        :param str certificate_binding_type: The Binding type.
         :param str certificate_id: The ID of the Container App Environment Certificate.
-        :param str name: The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
-        :param str certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+        :param str name: The name for this Container App. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "certificate_id", certificate_id)
-        pulumi.set(__self__, "name", name)
         if certificate_binding_type is not None:
             pulumi.set(__self__, "certificate_binding_type", certificate_binding_type)
+        if certificate_id is not None:
+            pulumi.set(__self__, "certificate_id", certificate_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="certificateBindingType")
+    def certificate_binding_type(self) -> Optional[str]:
+        """
+        The Binding type.
+        """
+        return pulumi.get(self, "certificate_binding_type")
 
     @property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> str:
+    def certificate_id(self) -> Optional[str]:
         """
         The ID of the Container App Environment Certificate.
         """
@@ -426,19 +435,11 @@ class AppIngressCustomDomain(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
-        The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+        The name for this Container App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="certificateBindingType")
-    def certificate_binding_type(self) -> Optional[str]:
-        """
-        The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
-        """
-        return pulumi.get(self, "certificate_binding_type")
 
 
 @pulumi.output_type
@@ -3176,10 +3177,16 @@ class JobSecret(dict):
                  key_vault_secret_id: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str name: Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
-        :param str identity: A `identity` block as defined below.
-        :param str key_vault_secret_id: The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        :param str name: The secret name.
+        :param str identity: The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+               
+               !> **Note:** `identity` must be used together with `key_vault_secret_id`
+        :param str key_vault_secret_id: The ID of a Key Vault secret. This can be a versioned or version-less ID.
+               
+               !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
         :param str value: The value for this secret.
+               
+               !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
         """
         pulumi.set(__self__, "name", name)
         if identity is not None:
@@ -3193,7 +3200,7 @@ class JobSecret(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+        The secret name.
         """
         return pulumi.get(self, "name")
 
@@ -3201,7 +3208,9 @@ class JobSecret(dict):
     @pulumi.getter
     def identity(self) -> Optional[str]:
         """
-        A `identity` block as defined below.
+        The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+
+        !> **Note:** `identity` must be used together with `key_vault_secret_id`
         """
         return pulumi.get(self, "identity")
 
@@ -3209,7 +3218,9 @@ class JobSecret(dict):
     @pulumi.getter(name="keyVaultSecretId")
     def key_vault_secret_id(self) -> Optional[str]:
         """
-        The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        The ID of a Key Vault secret. This can be a versioned or version-less ID.
+
+        !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -3218,6 +3229,8 @@ class JobSecret(dict):
     def value(self) -> Optional[str]:
         """
         The value for this secret.
+
+        !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
         """
         return pulumi.get(self, "value")
 

@@ -50,6 +50,7 @@ class LinuxFunctionAppSlotArgs:
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LinuxFunctionAppSlot resource.
@@ -87,6 +88,7 @@ class LinuxFunctionAppSlotArgs:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         pulumi.set(__self__, "function_app_id", function_app_id)
@@ -145,6 +147,8 @@ class LinuxFunctionAppSlotArgs:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if vnet_image_pull_enabled is not None:
+            pulumi.set(__self__, "vnet_image_pull_enabled", vnet_image_pull_enabled)
         if webdeploy_publish_basic_authentication_enabled is not None:
             pulumi.set(__self__, "webdeploy_publish_basic_authentication_enabled", webdeploy_publish_basic_authentication_enabled)
 
@@ -500,6 +504,18 @@ class LinuxFunctionAppSlotArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @property
+    @pulumi.getter(name="vnetImagePullEnabled")
+    def vnet_image_pull_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is container image pull over virtual network enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_image_pull_enabled")
+
+    @vnet_image_pull_enabled.setter
+    def vnet_image_pull_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_image_pull_enabled", value)
+
+    @property
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -553,6 +569,7 @@ class _LinuxFunctionAppSlotState:
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering LinuxFunctionAppSlot resources.
@@ -599,6 +616,7 @@ class _LinuxFunctionAppSlotState:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         if app_settings is not None:
@@ -677,6 +695,8 @@ class _LinuxFunctionAppSlotState:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if vnet_image_pull_enabled is not None:
+            pulumi.set(__self__, "vnet_image_pull_enabled", vnet_image_pull_enabled)
         if webdeploy_publish_basic_authentication_enabled is not None:
             pulumi.set(__self__, "webdeploy_publish_basic_authentication_enabled", webdeploy_publish_basic_authentication_enabled)
 
@@ -1140,6 +1160,18 @@ class _LinuxFunctionAppSlotState:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @property
+    @pulumi.getter(name="vnetImagePullEnabled")
+    def vnet_image_pull_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is container image pull over virtual network enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_image_pull_enabled")
+
+    @vnet_image_pull_enabled.setter
+    def vnet_image_pull_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_image_pull_enabled", value)
+
+    @property
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1186,6 +1218,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -1270,6 +1303,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         ...
@@ -1368,6 +1402,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1411,6 +1446,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+            __props__.__dict__["vnet_image_pull_enabled"] = vnet_image_pull_enabled
             __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
@@ -1471,6 +1507,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+            vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
             webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None) -> 'LinuxFunctionAppSlot':
         """
         Get an existing LinuxFunctionAppSlot resource's state with the given name, id, and optional extra
@@ -1522,6 +1559,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1566,6 +1604,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+        __props__.__dict__["vnet_image_pull_enabled"] = vnet_image_pull_enabled
         __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
         return LinuxFunctionAppSlot(resource_name, opts=opts, __props__=__props__)
 
@@ -1875,6 +1914,14 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
+
+    @property
+    @pulumi.getter(name="vnetImagePullEnabled")
+    def vnet_image_pull_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is container image pull over virtual network enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_image_pull_enabled")
 
     @property
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")

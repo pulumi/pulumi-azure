@@ -34,7 +34,6 @@ class AlertRuleScheduledArgs:
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
                  event_grouping: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']] = None,
                  incident: Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']] = None,
-                 incident_configuration: Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_frequency: Optional[pulumi.Input[str]] = None,
                  query_period: Optional[pulumi.Input[str]] = None,
@@ -99,11 +98,6 @@ class AlertRuleScheduledArgs:
             pulumi.set(__self__, "event_grouping", event_grouping)
         if incident is not None:
             pulumi.set(__self__, "incident", incident)
-        if incident_configuration is not None:
-            warnings.warn("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""incident_configuration is deprecated: The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
-        if incident_configuration is not None:
-            pulumi.set(__self__, "incident_configuration", incident_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if query_frequency is not None:
@@ -282,16 +276,6 @@ class AlertRuleScheduledArgs:
         pulumi.set(self, "incident", value)
 
     @property
-    @pulumi.getter(name="incidentConfiguration")
-    @_utilities.deprecated("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
-    def incident_configuration(self) -> Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']]:
-        return pulumi.get(self, "incident_configuration")
-
-    @incident_configuration.setter
-    def incident_configuration(self, value: Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']]):
-        pulumi.set(self, "incident_configuration", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -431,7 +415,6 @@ class _AlertRuleScheduledState:
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
                  event_grouping: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']] = None,
                  incident: Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']] = None,
-                 incident_configuration: Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -497,11 +480,6 @@ class _AlertRuleScheduledState:
             pulumi.set(__self__, "event_grouping", event_grouping)
         if incident is not None:
             pulumi.set(__self__, "incident", incident)
-        if incident_configuration is not None:
-            warnings.warn("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""incident_configuration is deprecated: The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
-        if incident_configuration is not None:
-            pulumi.set(__self__, "incident_configuration", incident_configuration)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
@@ -648,16 +626,6 @@ class _AlertRuleScheduledState:
     @incident.setter
     def incident(self, value: Optional[pulumi.Input['AlertRuleScheduledIncidentArgs']]):
         pulumi.set(self, "incident", value)
-
-    @property
-    @pulumi.getter(name="incidentConfiguration")
-    @_utilities.deprecated("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
-    def incident_configuration(self) -> Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']]:
-        return pulumi.get(self, "incident_configuration")
-
-    @incident_configuration.setter
-    def incident_configuration(self, value: Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']]):
-        pulumi.set(self, "incident_configuration", value)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -837,7 +805,6 @@ class AlertRuleScheduled(pulumi.CustomResource):
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledEntityMappingArgs', 'AlertRuleScheduledEntityMappingArgsDict']]]]] = None,
                  event_grouping: Optional[pulumi.Input[Union['AlertRuleScheduledEventGroupingArgs', 'AlertRuleScheduledEventGroupingArgsDict']]] = None,
                  incident: Optional[pulumi.Input[Union['AlertRuleScheduledIncidentArgs', 'AlertRuleScheduledIncidentArgsDict']]] = None,
-                 incident_configuration: Optional[pulumi.Input[Union['AlertRuleScheduledIncidentConfigurationArgs', 'AlertRuleScheduledIncidentConfigurationArgsDict']]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -991,7 +958,6 @@ class AlertRuleScheduled(pulumi.CustomResource):
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledEntityMappingArgs', 'AlertRuleScheduledEntityMappingArgsDict']]]]] = None,
                  event_grouping: Optional[pulumi.Input[Union['AlertRuleScheduledEventGroupingArgs', 'AlertRuleScheduledEventGroupingArgsDict']]] = None,
                  incident: Optional[pulumi.Input[Union['AlertRuleScheduledIncidentArgs', 'AlertRuleScheduledIncidentArgsDict']]] = None,
-                 incident_configuration: Optional[pulumi.Input[Union['AlertRuleScheduledIncidentConfigurationArgs', 'AlertRuleScheduledIncidentConfigurationArgsDict']]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -1026,7 +992,6 @@ class AlertRuleScheduled(pulumi.CustomResource):
             __props__.__dict__["entity_mappings"] = entity_mappings
             __props__.__dict__["event_grouping"] = event_grouping
             __props__.__dict__["incident"] = incident
-            __props__.__dict__["incident_configuration"] = incident_configuration
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
             __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
@@ -1066,7 +1031,6 @@ class AlertRuleScheduled(pulumi.CustomResource):
             entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledEntityMappingArgs', 'AlertRuleScheduledEntityMappingArgsDict']]]]] = None,
             event_grouping: Optional[pulumi.Input[Union['AlertRuleScheduledEventGroupingArgs', 'AlertRuleScheduledEventGroupingArgsDict']]] = None,
             incident: Optional[pulumi.Input[Union['AlertRuleScheduledIncidentArgs', 'AlertRuleScheduledIncidentArgsDict']]] = None,
-            incident_configuration: Optional[pulumi.Input[Union['AlertRuleScheduledIncidentConfigurationArgs', 'AlertRuleScheduledIncidentConfigurationArgsDict']]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             query: Optional[pulumi.Input[str]] = None,
@@ -1131,7 +1095,6 @@ class AlertRuleScheduled(pulumi.CustomResource):
         __props__.__dict__["entity_mappings"] = entity_mappings
         __props__.__dict__["event_grouping"] = event_grouping
         __props__.__dict__["incident"] = incident
-        __props__.__dict__["incident_configuration"] = incident_configuration
         __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
         __props__.__dict__["name"] = name
         __props__.__dict__["query"] = query
@@ -1226,12 +1189,6 @@ class AlertRuleScheduled(pulumi.CustomResource):
         A `incident` block as defined below.
         """
         return pulumi.get(self, "incident")
-
-    @property
-    @pulumi.getter(name="incidentConfiguration")
-    @_utilities.deprecated("""The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider""")
-    def incident_configuration(self) -> pulumi.Output['outputs.AlertRuleScheduledIncidentConfiguration']:
-        return pulumi.get(self, "incident_configuration")
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")

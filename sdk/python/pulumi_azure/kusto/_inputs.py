@@ -19,6 +19,8 @@ __all__ = [
     'AttachedDatabaseConfigurationSharingArgsDict',
     'ClusterIdentityArgs',
     'ClusterIdentityArgsDict',
+    'ClusterLanguageExtensionArgs',
+    'ClusterLanguageExtensionArgsDict',
     'ClusterOptimizedAutoScaleArgs',
     'ClusterOptimizedAutoScaleArgsDict',
     'ClusterSkuArgs',
@@ -256,6 +258,49 @@ class ClusterIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class ClusterLanguageExtensionArgsDict(TypedDict):
+        image: pulumi.Input[str]
+        name: pulumi.Input[str]
+        """
+        The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+        """
+elif False:
+    ClusterLanguageExtensionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterLanguageExtensionArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 if not MYPY:

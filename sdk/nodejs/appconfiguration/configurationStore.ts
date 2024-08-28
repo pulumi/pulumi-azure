@@ -179,8 +179,6 @@ export class ConfigurationStore extends pulumi.CustomResource {
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
-     *
-     * > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
      */
     public readonly identity!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreIdentity | undefined>;
     /**
@@ -206,7 +204,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      *
-     * > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
@@ -233,6 +231,8 @@ export class ConfigurationStore extends pulumi.CustomResource {
     public /*out*/ readonly secondaryWriteKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreSecondaryWriteKey[]>;
     /**
      * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+     *
+     * > **Note:** Azure does not allow a downgrade from `standard` to `free`.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -318,8 +318,6 @@ export interface ConfigurationStoreState {
     endpoint?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
-     *
-     * > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
      */
     identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity>;
     /**
@@ -345,7 +343,7 @@ export interface ConfigurationStoreState {
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      *
-     * > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      */
     publicNetworkAccess?: pulumi.Input<string>;
     /**
@@ -372,6 +370,8 @@ export interface ConfigurationStoreState {
     secondaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreSecondaryWriteKey>[]>;
     /**
      * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+     *
+     * > **Note:** Azure does not allow a downgrade from `standard` to `free`.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -396,8 +396,6 @@ export interface ConfigurationStoreArgs {
     encryption?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreEncryption>;
     /**
      * An `identity` block as defined below.
-     *
-     * > **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
      */
     identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity>;
     /**
@@ -415,7 +413,7 @@ export interface ConfigurationStoreArgs {
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      *
-     * > **NOTE:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      */
     publicNetworkAccess?: pulumi.Input<string>;
     /**
@@ -434,6 +432,8 @@ export interface ConfigurationStoreArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+     *
+     * > **Note:** Azure does not allow a downgrade from `standard` to `free`.
      */
     sku?: pulumi.Input<string>;
     /**

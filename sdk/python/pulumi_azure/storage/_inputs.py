@@ -2337,7 +2337,7 @@ if not MYPY:
         """
         filter: NotRequired[pulumi.Input['BlobInventoryPolicyRuleFilterArgsDict']]
         """
-        A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+        A `filter` block as defined above.
         """
 elif False:
     BlobInventoryPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -2359,7 +2359,7 @@ class BlobInventoryPolicyRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schema_fields: A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
         :param pulumi.Input[str] scope: The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
         :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files for this rule.
-        :param pulumi.Input['BlobInventoryPolicyRuleFilterArgs'] filter: A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+        :param pulumi.Input['BlobInventoryPolicyRuleFilterArgs'] filter: A `filter` block as defined above.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "name", name)
@@ -2446,7 +2446,7 @@ class BlobInventoryPolicyRuleArgs:
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']]:
         """
-        A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+        A `filter` block as defined above.
         """
         return pulumi.get(self, "filter")
 

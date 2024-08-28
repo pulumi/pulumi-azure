@@ -87,15 +87,7 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      */
-    public readonly conditionJson!: pulumi.Output<string>;
-    /**
-     * One or more `condition` blocks as defined below.
-     *
-     * > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
-     *
-     * @deprecated This is deprecated in favor of `conditionJson`
-     */
-    public readonly conditions!: pulumi.Output<outputs.sentinel.AutomationRuleCondition[]>;
+    public readonly conditionJson!: pulumi.Output<string | undefined>;
     /**
      * The display name which should be used for this Sentinel Automation Rule.
      */
@@ -145,7 +137,6 @@ export class AutomationRule extends pulumi.CustomResource {
             resourceInputs["actionIncidents"] = state ? state.actionIncidents : undefined;
             resourceInputs["actionPlaybooks"] = state ? state.actionPlaybooks : undefined;
             resourceInputs["conditionJson"] = state ? state.conditionJson : undefined;
-            resourceInputs["conditions"] = state ? state.conditions : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["expiration"] = state ? state.expiration : undefined;
@@ -168,7 +159,6 @@ export class AutomationRule extends pulumi.CustomResource {
             resourceInputs["actionIncidents"] = args ? args.actionIncidents : undefined;
             resourceInputs["actionPlaybooks"] = args ? args.actionPlaybooks : undefined;
             resourceInputs["conditionJson"] = args ? args.conditionJson : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["expiration"] = args ? args.expiration : undefined;
@@ -203,14 +193,6 @@ export interface AutomationRuleState {
      * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      */
     conditionJson?: pulumi.Input<string>;
-    /**
-     * One or more `condition` blocks as defined below.
-     *
-     * > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
-     *
-     * @deprecated This is deprecated in favor of `conditionJson`
-     */
-    conditions?: pulumi.Input<pulumi.Input<inputs.sentinel.AutomationRuleCondition>[]>;
     /**
      * The display name which should be used for this Sentinel Automation Rule.
      */
@@ -263,14 +245,6 @@ export interface AutomationRuleArgs {
      * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      */
     conditionJson?: pulumi.Input<string>;
-    /**
-     * One or more `condition` blocks as defined below.
-     *
-     * > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
-     *
-     * @deprecated This is deprecated in favor of `conditionJson`
-     */
-    conditions?: pulumi.Input<pulumi.Input<inputs.sentinel.AutomationRuleCondition>[]>;
     /**
      * The display name which should be used for this Sentinel Automation Rule.
      */

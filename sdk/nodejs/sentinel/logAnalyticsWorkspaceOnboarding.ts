@@ -74,17 +74,9 @@ export class LogAnalyticsWorkspaceOnboarding extends pulumi.CustomResource {
      */
     public readonly customerManagedKeyEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * @deprecated this property has been deprecated in favour of `workspaceId`
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      */
     public readonly workspaceId!: pulumi.Output<string>;
-    /**
-     * @deprecated this property will be removed in favour of `workspaceId` in version 4.0 of the AzureRM Provider
-     */
-    public readonly workspaceName!: pulumi.Output<string>;
 
     /**
      * Create a LogAnalyticsWorkspaceOnboarding resource with the given unique name, arguments, and options.
@@ -93,22 +85,21 @@ export class LogAnalyticsWorkspaceOnboarding extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: LogAnalyticsWorkspaceOnboardingArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: LogAnalyticsWorkspaceOnboardingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogAnalyticsWorkspaceOnboardingArgs | LogAnalyticsWorkspaceOnboardingState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogAnalyticsWorkspaceOnboardingState | undefined;
             resourceInputs["customerManagedKeyEnabled"] = state ? state.customerManagedKeyEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
-            resourceInputs["workspaceName"] = state ? state.workspaceName : undefined;
         } else {
             const args = argsOrState as LogAnalyticsWorkspaceOnboardingArgs | undefined;
+            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'workspaceId'");
+            }
             resourceInputs["customerManagedKeyEnabled"] = args ? args.customerManagedKeyEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogAnalyticsWorkspaceOnboarding.__pulumiType, name, resourceInputs, opts);
@@ -128,17 +119,9 @@ export interface LogAnalyticsWorkspaceOnboardingState {
      */
     customerManagedKeyEnabled?: pulumi.Input<boolean>;
     /**
-     * @deprecated this property has been deprecated in favour of `workspaceId`
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      */
     workspaceId?: pulumi.Input<string>;
-    /**
-     * @deprecated this property will be removed in favour of `workspaceId` in version 4.0 of the AzureRM Provider
-     */
-    workspaceName?: pulumi.Input<string>;
 }
 
 /**
@@ -154,15 +137,7 @@ export interface LogAnalyticsWorkspaceOnboardingArgs {
      */
     customerManagedKeyEnabled?: pulumi.Input<boolean>;
     /**
-     * @deprecated this property has been deprecated in favour of `workspaceId`
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      */
-    workspaceId?: pulumi.Input<string>;
-    /**
-     * @deprecated this property will be removed in favour of `workspaceId` in version 4.0 of the AzureRM Provider
-     */
-    workspaceName?: pulumi.Input<string>;
+    workspaceId: pulumi.Input<string>;
 }

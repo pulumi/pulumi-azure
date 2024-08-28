@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -189,14 +189,8 @@ func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) TlsVersion() pulumi.String
 }
 
 type EndpointCustomDomainUserManagedHttps struct {
-	// The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
-	//
-	// Deprecated: This is deprecated in favor of `keyVaultSecretId` as the service is actually looking for a secret, not a certificate
-	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
 	// The ID of the Key Vault Secret that contains the HTTPS certificate.
-	//
-	// > **NOTE** Either `keyVaultCertificateId` or `keyVaultSecretId` has to be specified.
-	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
+	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
 	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 	TlsVersion *string `pulumi:"tlsVersion"`
 }
@@ -213,14 +207,8 @@ type EndpointCustomDomainUserManagedHttpsInput interface {
 }
 
 type EndpointCustomDomainUserManagedHttpsArgs struct {
-	// The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
-	//
-	// Deprecated: This is deprecated in favor of `keyVaultSecretId` as the service is actually looking for a secret, not a certificate
-	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
 	// The ID of the Key Vault Secret that contains the HTTPS certificate.
-	//
-	// > **NOTE** Either `keyVaultCertificateId` or `keyVaultSecretId` has to be specified.
-	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
+	KeyVaultSecretId pulumi.StringInput `pulumi:"keyVaultSecretId"`
 	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 	TlsVersion pulumi.StringPtrInput `pulumi:"tlsVersion"`
 }
@@ -302,18 +290,9 @@ func (o EndpointCustomDomainUserManagedHttpsOutput) ToEndpointCustomDomainUserMa
 	}).(EndpointCustomDomainUserManagedHttpsPtrOutput)
 }
 
-// The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
-//
-// Deprecated: This is deprecated in favor of `keyVaultSecretId` as the service is actually looking for a secret, not a certificate
-func (o EndpointCustomDomainUserManagedHttpsOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
-}
-
 // The ID of the Key Vault Secret that contains the HTTPS certificate.
-//
-// > **NOTE** Either `keyVaultCertificateId` or `keyVaultSecretId` has to be specified.
-func (o EndpointCustomDomainUserManagedHttpsOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
+func (o EndpointCustomDomainUserManagedHttpsOutput) KeyVaultSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) string { return v.KeyVaultSecretId }).(pulumi.StringOutput)
 }
 
 // The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
@@ -345,27 +324,13 @@ func (o EndpointCustomDomainUserManagedHttpsPtrOutput) Elem() EndpointCustomDoma
 	}).(EndpointCustomDomainUserManagedHttpsOutput)
 }
 
-// The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
-//
-// Deprecated: This is deprecated in favor of `keyVaultSecretId` as the service is actually looking for a secret, not a certificate
-func (o EndpointCustomDomainUserManagedHttpsPtrOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointCustomDomainUserManagedHttps) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultCertificateId
-	}).(pulumi.StringPtrOutput)
-}
-
 // The ID of the Key Vault Secret that contains the HTTPS certificate.
-//
-// > **NOTE** Either `keyVaultCertificateId` or `keyVaultSecretId` has to be specified.
 func (o EndpointCustomDomainUserManagedHttpsPtrOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCustomDomainUserManagedHttps) *string {
 		if v == nil {
 			return nil
 		}
-		return v.KeyVaultSecretId
+		return &v.KeyVaultSecretId
 	}).(pulumi.StringPtrOutput)
 }
 

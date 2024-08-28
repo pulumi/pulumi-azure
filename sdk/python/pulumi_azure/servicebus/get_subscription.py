@@ -239,12 +239,7 @@ def get_subscription(name: Optional[str] = None,
 
 
     :param str name: Specifies the name of the ServiceBus Subscription.
-    :param str namespace_name: The name of the ServiceBus Namespace.
-    :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
     :param str topic_id: The ID of the ServiceBus Topic where the Service Bus Subscription exists.
-    :param str topic_name: The name of the ServiceBus Topic.
-           
-           > **Note:** `namespace_name`，`resource_group_name` and `topic_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `topic_id`.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -297,11 +292,6 @@ def get_subscription_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Specifies the name of the ServiceBus Subscription.
-    :param str namespace_name: The name of the ServiceBus Namespace.
-    :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
     :param str topic_id: The ID of the ServiceBus Topic where the Service Bus Subscription exists.
-    :param str topic_name: The name of the ServiceBus Topic.
-           
-           > **Note:** `namespace_name`，`resource_group_name` and `topic_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `topic_id`.
     """
     ...

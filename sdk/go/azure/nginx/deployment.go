@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/nginx"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/nginx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -131,8 +131,6 @@ type Deployment struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
-	// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-	Configuration DeploymentConfigurationOutput `pulumi:"configuration"`
 	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled pulumi.BoolPtrOutput `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
@@ -208,8 +206,6 @@ type deploymentState struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
-	// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-	Configuration *DeploymentConfiguration `pulumi:"configuration"`
 	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
@@ -250,8 +246,6 @@ type DeploymentState struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
-	// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-	Configuration DeploymentConfigurationPtrInput
 	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
 	// Specify the preferred support contact email address for receiving alerts and notifications.
@@ -296,8 +290,6 @@ type deploymentArgs struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
-	// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-	Configuration *DeploymentConfiguration `pulumi:"configuration"`
 	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
@@ -335,8 +327,6 @@ type DeploymentArgs struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
-	// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-	Configuration DeploymentConfigurationPtrInput
 	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
 	// Specify the preferred support contact email address for receiving alerts and notifications.
@@ -466,11 +456,6 @@ func (o DeploymentOutput) AutomaticUpgradeChannel() pulumi.StringPtrOutput {
 // > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 func (o DeploymentOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.IntPtrOutput { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// Deprecated: The `configuration` block has been superseded by the `nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-func (o DeploymentOutput) Configuration() DeploymentConfigurationOutput {
-	return o.ApplyT(func(v *Deployment) DeploymentConfigurationOutput { return v.Configuration }).(DeploymentConfigurationOutput)
 }
 
 // Should the metrics be exported to Azure Monitor?

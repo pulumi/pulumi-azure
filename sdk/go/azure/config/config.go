@@ -4,7 +4,7 @@
 package config
 
 import (
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
@@ -135,8 +135,21 @@ func GetPartnerId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:partnerId")
 }
 
+// The set of Resource Providers which should be automatically registered for the subscription.
+func GetResourceProviderRegistrations(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azure:resourceProviderRegistrations")
+}
+
+// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+// `resourceProviderRegistrations` property.
+func GetResourceProvidersToRegisters(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azure:resourceProvidersToRegisters")
+}
+
 // Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 // registered?
+//
+// Deprecated: This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
 func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "azure:skipProviderRegistration")
 	if err == nil {

@@ -42,16 +42,12 @@ __all__ = [
     'AlertRuleScheduledEntityMappingFieldMapping',
     'AlertRuleScheduledEventGrouping',
     'AlertRuleScheduledIncident',
-    'AlertRuleScheduledIncidentConfiguration',
-    'AlertRuleScheduledIncidentConfigurationGrouping',
     'AlertRuleScheduledIncidentGrouping',
     'AlertRuleScheduledSentinelEntityMapping',
     'AuthomationRuleActionIncident',
     'AuthomationRuleActionPlaybook',
-    'AuthomationRuleCondition',
     'AutomationRuleActionIncident',
     'AutomationRuleActionPlaybook',
-    'AutomationRuleCondition',
     'MetadataAuthor',
     'MetadataCategory',
     'MetadataSource',
@@ -1559,158 +1555,6 @@ class AlertRuleScheduledIncident(dict):
 
 
 @pulumi.output_type
-class AlertRuleScheduledIncidentConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createIncident":
-            suggest = "create_incident"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlertRuleScheduledIncidentConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AlertRuleScheduledIncidentConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AlertRuleScheduledIncidentConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 create_incident: bool,
-                 grouping: 'outputs.AlertRuleScheduledIncidentConfigurationGrouping'):
-        """
-        :param 'AlertRuleScheduledIncidentConfigurationGroupingArgs' grouping: A `grouping` block as defined below.
-        """
-        pulumi.set(__self__, "create_incident", create_incident)
-        pulumi.set(__self__, "grouping", grouping)
-
-    @property
-    @pulumi.getter(name="createIncident")
-    @_utilities.deprecated("""The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider""")
-    def create_incident(self) -> bool:
-        return pulumi.get(self, "create_incident")
-
-    @property
-    @pulumi.getter
-    def grouping(self) -> 'outputs.AlertRuleScheduledIncidentConfigurationGrouping':
-        """
-        A `grouping` block as defined below.
-        """
-        return pulumi.get(self, "grouping")
-
-
-@pulumi.output_type
-class AlertRuleScheduledIncidentConfigurationGrouping(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "entityMatchingMethod":
-            suggest = "entity_matching_method"
-        elif key == "groupByAlertDetails":
-            suggest = "group_by_alert_details"
-        elif key == "groupByCustomDetails":
-            suggest = "group_by_custom_details"
-        elif key == "groupByEntities":
-            suggest = "group_by_entities"
-        elif key == "lookbackDuration":
-            suggest = "lookback_duration"
-        elif key == "reopenClosedIncidents":
-            suggest = "reopen_closed_incidents"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AlertRuleScheduledIncidentConfigurationGrouping. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AlertRuleScheduledIncidentConfigurationGrouping.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AlertRuleScheduledIncidentConfigurationGrouping.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled: Optional[bool] = None,
-                 entity_matching_method: Optional[str] = None,
-                 group_by_alert_details: Optional[Sequence[str]] = None,
-                 group_by_custom_details: Optional[Sequence[str]] = None,
-                 group_by_entities: Optional[Sequence[str]] = None,
-                 lookback_duration: Optional[str] = None,
-                 reopen_closed_incidents: Optional[bool] = None):
-        """
-        :param bool enabled: Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
-        :param str entity_matching_method: The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
-        :param str lookback_duration: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
-        :param bool reopen_closed_incidents: Whether to re-open closed matching incidents? Defaults to `false`.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if entity_matching_method is not None:
-            pulumi.set(__self__, "entity_matching_method", entity_matching_method)
-        if group_by_alert_details is not None:
-            pulumi.set(__self__, "group_by_alert_details", group_by_alert_details)
-        if group_by_custom_details is not None:
-            pulumi.set(__self__, "group_by_custom_details", group_by_custom_details)
-        if group_by_entities is not None:
-            pulumi.set(__self__, "group_by_entities", group_by_entities)
-        if lookback_duration is not None:
-            pulumi.set(__self__, "lookback_duration", lookback_duration)
-        if reopen_closed_incidents is not None:
-            pulumi.set(__self__, "reopen_closed_incidents", reopen_closed_incidents)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="entityMatchingMethod")
-    def entity_matching_method(self) -> Optional[str]:
-        """
-        The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
-        """
-        return pulumi.get(self, "entity_matching_method")
-
-    @property
-    @pulumi.getter(name="groupByAlertDetails")
-    @_utilities.deprecated("""The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider""")
-    def group_by_alert_details(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "group_by_alert_details")
-
-    @property
-    @pulumi.getter(name="groupByCustomDetails")
-    @_utilities.deprecated("""The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider""")
-    def group_by_custom_details(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "group_by_custom_details")
-
-    @property
-    @pulumi.getter(name="groupByEntities")
-    @_utilities.deprecated("""The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider""")
-    def group_by_entities(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "group_by_entities")
-
-    @property
-    @pulumi.getter(name="lookbackDuration")
-    def lookback_duration(self) -> Optional[str]:
-        """
-        Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
-        """
-        return pulumi.get(self, "lookback_duration")
-
-    @property
-    @pulumi.getter(name="reopenClosedIncidents")
-    def reopen_closed_incidents(self) -> Optional[bool]:
-        """
-        Whether to re-open closed matching incidents? Defaults to `false`.
-        """
-        return pulumi.get(self, "reopen_closed_incidents")
-
-
-@pulumi.output_type
 class AlertRuleScheduledIncidentGrouping(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2045,46 +1889,6 @@ class AuthomationRuleActionPlaybook(dict):
 
 
 @pulumi.output_type
-class AuthomationRuleCondition(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 property: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
-        :param str property: The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
-        :param Sequence[str] values: Specifies a list of values to use for evaluate the condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "property", property)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Specifies a list of values to use for evaluate the condition.
-        """
-        return pulumi.get(self, "values")
-
-    @property
-    @pulumi.getter
-    def property(self) -> str:
-        """
-        The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
-        """
-        return pulumi.get(self, "property")
-
-
-@pulumi.output_type
 class AutomationRuleActionIncident(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2263,46 +2067,6 @@ class AutomationRuleActionPlaybook(dict):
         The ID of the Tenant that owns the playbook.
         """
         return pulumi.get(self, "tenant_id")
-
-
-@pulumi.output_type
-class AutomationRuleCondition(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 property: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
-        :param str property: The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
-        :param Sequence[str] values: Specifies a list of values to use for evaluate the condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "property", property)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Specifies a list of values to use for evaluate the condition.
-        """
-        return pulumi.get(self, "values")
-
-    @property
-    @pulumi.getter
-    def property(self) -> str:
-        """
-        The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
-        """
-        return pulumi.get(self, "property")
 
 
 @pulumi.output_type

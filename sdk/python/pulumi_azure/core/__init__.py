@@ -39,7 +39,6 @@ from .subscription_policy_assignment import *
 from .subscription_policy_exemption import *
 from .subscription_policy_remediation import *
 from .subscription_template_deployment import *
-from .template_deployment import *
 from .tenant_template_deployment import *
 from ._inputs import *
 from . import outputs

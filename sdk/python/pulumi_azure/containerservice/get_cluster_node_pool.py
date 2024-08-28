@@ -27,16 +27,10 @@ class GetClusterNodePoolResult:
     """
     A collection of values returned by getClusterNodePool.
     """
-    def __init__(__self__, auto_scaling_enabled=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_public_ip_enabled=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, zones=None):
+    def __init__(__self__, auto_scaling_enabled=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_public_ip_enabled=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, zones=None):
         if auto_scaling_enabled and not isinstance(auto_scaling_enabled, bool):
             raise TypeError("Expected argument 'auto_scaling_enabled' to be a bool")
         pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
-        if enable_auto_scaling and not isinstance(enable_auto_scaling, bool):
-            raise TypeError("Expected argument 'enable_auto_scaling' to be a bool")
-        pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
-        if enable_node_public_ip and not isinstance(enable_node_public_ip, bool):
-            raise TypeError("Expected argument 'enable_node_public_ip' to be a bool")
-        pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if eviction_policy and not isinstance(eviction_policy, str):
             raise TypeError("Expected argument 'eviction_policy' to be a str")
         pulumi.set(__self__, "eviction_policy", eviction_policy)
@@ -119,23 +113,10 @@ class GetClusterNodePoolResult:
     @property
     @pulumi.getter(name="autoScalingEnabled")
     def auto_scaling_enabled(self) -> bool:
-        return pulumi.get(self, "auto_scaling_enabled")
-
-    @property
-    @pulumi.getter(name="enableAutoScaling")
-    def enable_auto_scaling(self) -> bool:
         """
         Does this Node Pool have Auto-Scaling enabled?
         """
-        return pulumi.get(self, "enable_auto_scaling")
-
-    @property
-    @pulumi.getter(name="enableNodePublicIp")
-    def enable_node_public_ip(self) -> bool:
-        """
-        Do nodes in this Node Pool have a Public IP Address?
-        """
-        return pulumi.get(self, "enable_node_public_ip")
+        return pulumi.get(self, "auto_scaling_enabled")
 
     @property
     @pulumi.getter(name="evictionPolicy")
@@ -214,6 +195,9 @@ class GetClusterNodePoolResult:
     @property
     @pulumi.getter(name="nodePublicIpEnabled")
     def node_public_ip_enabled(self) -> bool:
+        """
+        Do nodes in this Node Pool have a Public IP Address?
+        """
         return pulumi.get(self, "node_public_ip_enabled")
 
     @property
@@ -341,8 +325,6 @@ class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
             yield self
         return GetClusterNodePoolResult(
             auto_scaling_enabled=self.auto_scaling_enabled,
-            enable_auto_scaling=self.enable_auto_scaling,
-            enable_node_public_ip=self.enable_node_public_ip,
             eviction_policy=self.eviction_policy,
             id=self.id,
             kubernetes_cluster_name=self.kubernetes_cluster_name,
@@ -404,8 +386,6 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
 
     return AwaitableGetClusterNodePoolResult(
         auto_scaling_enabled=pulumi.get(__ret__, 'auto_scaling_enabled'),
-        enable_auto_scaling=pulumi.get(__ret__, 'enable_auto_scaling'),
-        enable_node_public_ip=pulumi.get(__ret__, 'enable_node_public_ip'),
         eviction_policy=pulumi.get(__ret__, 'eviction_policy'),
         id=pulumi.get(__ret__, 'id'),
         kubernetes_cluster_name=pulumi.get(__ret__, 'kubernetes_cluster_name'),

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,8 +91,6 @@ type Service struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail pulumi.StringOutput `pulumi:"notificationSenderEmail"`
-	// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-	Policy ServicePolicyOutput `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
 	// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
@@ -217,8 +215,6 @@ type serviceState struct {
 	Name *string `pulumi:"name"`
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
-	// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-	Policy *ServicePolicy `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl *string `pulumi:"portalUrl"`
 	// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
@@ -302,8 +298,6 @@ type ServiceState struct {
 	Name pulumi.StringPtrInput
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail pulumi.StringPtrInput
-	// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-	Policy ServicePolicyPtrInput
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl pulumi.StringPtrInput
 	// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
@@ -383,8 +377,6 @@ type serviceArgs struct {
 	Name *string `pulumi:"name"`
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
-	// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-	Policy *ServicePolicy `pulumi:"policy"`
 	// A `protocols` block as defined below.
 	Protocols *ServiceProtocols `pulumi:"protocols"`
 	// ID of a standard SKU IPv4 Public IP.
@@ -453,8 +445,6 @@ type ServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail pulumi.StringPtrInput
-	// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-	Policy ServicePolicyPtrInput
 	// A `protocols` block as defined below.
 	Protocols ServiceProtocolsPtrInput
 	// ID of a standard SKU IPv4 Public IP.
@@ -659,11 +649,6 @@ func (o ServiceOutput) Name() pulumi.StringOutput {
 // Email address from which the notification will be sent.
 func (o ServiceOutput) NotificationSenderEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.NotificationSenderEmail }).(pulumi.StringOutput)
-}
-
-// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-func (o ServiceOutput) Policy() ServicePolicyOutput {
-	return o.ApplyT(func(v *Service) ServicePolicyOutput { return v.Policy }).(ServicePolicyOutput)
 }
 
 // The URL for the Publisher Portal associated with this API Management service.

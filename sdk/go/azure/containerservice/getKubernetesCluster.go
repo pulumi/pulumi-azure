@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,8 +71,6 @@ type LookupKubernetesClusterResult struct {
 	AzurePolicyEnabled bool `pulumi:"azurePolicyEnabled"`
 	// Contains the current version of Kubernetes running on the Cluster.
 	CurrentKubernetesVersion string `pulumi:"currentKubernetesVersion"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// The ID of the Disk Encryption Set used for the Nodes and Volumes.
 	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
 	// The DNS Prefix of the managed Kubernetes cluster.
@@ -219,11 +217,6 @@ func (o LookupKubernetesClusterResultOutput) AzurePolicyEnabled() pulumi.BoolOut
 // Contains the current version of Kubernetes running on the Cluster.
 func (o LookupKubernetesClusterResultOutput) CurrentKubernetesVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKubernetesClusterResult) string { return v.CurrentKubernetesVersion }).(pulumi.StringOutput)
-}
-
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o LookupKubernetesClusterResultOutput) CustomCaTrustCertificatesBase64s() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupKubernetesClusterResult) []string { return v.CustomCaTrustCertificatesBase64s }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the Disk Encryption Set used for the Nodes and Volumes.

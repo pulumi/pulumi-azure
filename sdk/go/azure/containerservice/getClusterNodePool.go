@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,11 +63,8 @@ type GetClusterNodePoolArgs struct {
 
 // A collection of values returned by getClusterNodePool.
 type GetClusterNodePoolResult struct {
-	AutoScalingEnabled bool `pulumi:"autoScalingEnabled"`
 	// Does this Node Pool have Auto-Scaling enabled?
-	EnableAutoScaling bool `pulumi:"enableAutoScaling"`
-	// Do nodes in this Node Pool have a Public IP Address?
-	EnableNodePublicIp bool `pulumi:"enableNodePublicIp"`
+	AutoScalingEnabled bool `pulumi:"autoScalingEnabled"`
 	// The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
 	EvictionPolicy string `pulumi:"evictionPolicy"`
 	// The provider-assigned unique ID for this managed resource.
@@ -85,8 +82,9 @@ type GetClusterNodePoolResult struct {
 	// The current number of Nodes in the Node Pool.
 	NodeCount int `pulumi:"nodeCount"`
 	// A map of Kubernetes Labels applied to each Node in this Node Pool.
-	NodeLabels          map[string]string `pulumi:"nodeLabels"`
-	NodePublicIpEnabled bool              `pulumi:"nodePublicIpEnabled"`
+	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// Do nodes in this Node Pool have a Public IP Address?
+	NodePublicIpEnabled bool `pulumi:"nodePublicIpEnabled"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
 	NodePublicIpPrefixId string `pulumi:"nodePublicIpPrefixId"`
 	// A map of Kubernetes Taints applied to each Node in this Node Pool.
@@ -160,18 +158,9 @@ func (o GetClusterNodePoolResultOutput) ToGetClusterNodePoolResultOutputWithCont
 	return o
 }
 
+// Does this Node Pool have Auto-Scaling enabled?
 func (o GetClusterNodePoolResultOutput) AutoScalingEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetClusterNodePoolResult) bool { return v.AutoScalingEnabled }).(pulumi.BoolOutput)
-}
-
-// Does this Node Pool have Auto-Scaling enabled?
-func (o GetClusterNodePoolResultOutput) EnableAutoScaling() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetClusterNodePoolResult) bool { return v.EnableAutoScaling }).(pulumi.BoolOutput)
-}
-
-// Do nodes in this Node Pool have a Public IP Address?
-func (o GetClusterNodePoolResultOutput) EnableNodePublicIp() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetClusterNodePoolResult) bool { return v.EnableNodePublicIp }).(pulumi.BoolOutput)
 }
 
 // The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
@@ -222,6 +211,7 @@ func (o GetClusterNodePoolResultOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetClusterNodePoolResult) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
+// Do nodes in this Node Pool have a Public IP Address?
 func (o GetClusterNodePoolResultOutput) NodePublicIpEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetClusterNodePoolResult) bool { return v.NodePublicIpEnabled }).(pulumi.BoolOutput)
 }

@@ -22,6 +22,7 @@ __all__ = ['AlertRuleNrtArgs', 'AlertRuleNrt']
 class AlertRuleNrtArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
+                 event_grouping: pulumi.Input['AlertRuleNrtEventGroupingArgs'],
                  log_analytics_workspace_id: pulumi.Input[str],
                  query: pulumi.Input[str],
                  severity: pulumi.Input[str],
@@ -32,7 +33,6 @@ class AlertRuleNrtArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingArgs']]]] = None,
-                 event_grouping: Optional[pulumi.Input['AlertRuleNrtEventGroupingArgs']] = None,
                  incident: Optional[pulumi.Input['AlertRuleNrtIncidentArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sentinel_entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtSentinelEntityMappingArgs']]]] = None,
@@ -43,6 +43,9 @@ class AlertRuleNrtArgs:
         """
         The set of arguments for constructing a AlertRuleNrt resource.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel NRT Alert Rule.
+        :param pulumi.Input['AlertRuleNrtEventGroupingArgs'] event_grouping: A `event_grouping` block as defined below.
+               
+               > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] query: The query of this Sentinel NRT Alert Rule.
         :param pulumi.Input[str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
@@ -53,9 +56,6 @@ class AlertRuleNrtArgs:
         :param pulumi.Input[str] description: The description of this Sentinel NRT Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingArgs']]] entity_mappings: A list of `entity_mapping` blocks as defined below.
-        :param pulumi.Input['AlertRuleNrtEventGroupingArgs'] event_grouping: A `event_grouping` block as defined below.
-               
-               > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input['AlertRuleNrtIncidentArgs'] incident: A `incident` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtSentinelEntityMappingArgs']]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
@@ -67,6 +67,7 @@ class AlertRuleNrtArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: A list of techniques of attacks by which to classify the rule.
         """
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "event_grouping", event_grouping)
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "severity", severity)
@@ -84,8 +85,6 @@ class AlertRuleNrtArgs:
             pulumi.set(__self__, "enabled", enabled)
         if entity_mappings is not None:
             pulumi.set(__self__, "entity_mappings", entity_mappings)
-        if event_grouping is not None:
-            pulumi.set(__self__, "event_grouping", event_grouping)
         if incident is not None:
             pulumi.set(__self__, "incident", incident)
         if name is not None:
@@ -112,6 +111,20 @@ class AlertRuleNrtArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="eventGrouping")
+    def event_grouping(self) -> pulumi.Input['AlertRuleNrtEventGroupingArgs']:
+        """
+        A `event_grouping` block as defined below.
+
+        > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
+        """
+        return pulumi.get(self, "event_grouping")
+
+    @event_grouping.setter
+    def event_grouping(self, value: pulumi.Input['AlertRuleNrtEventGroupingArgs']):
+        pulumi.set(self, "event_grouping", value)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -232,20 +245,6 @@ class AlertRuleNrtArgs:
     @entity_mappings.setter
     def entity_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingArgs']]]]):
         pulumi.set(self, "entity_mappings", value)
-
-    @property
-    @pulumi.getter(name="eventGrouping")
-    def event_grouping(self) -> Optional[pulumi.Input['AlertRuleNrtEventGroupingArgs']]:
-        """
-        A `event_grouping` block as defined below.
-
-        > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
-        """
-        return pulumi.get(self, "event_grouping")
-
-    @event_grouping.setter
-    def event_grouping(self, value: Optional[pulumi.Input['AlertRuleNrtEventGroupingArgs']]):
-        pulumi.set(self, "event_grouping", value)
 
     @property
     @pulumi.getter
@@ -840,6 +839,8 @@ class AlertRuleNrt(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["entity_mappings"] = entity_mappings
+            if event_grouping is None and not opts.urn:
+                raise TypeError("Missing required property 'event_grouping'")
             __props__.__dict__["event_grouping"] = event_grouping
             __props__.__dict__["incident"] = incident
             if log_analytics_workspace_id is None and not opts.urn:

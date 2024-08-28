@@ -350,17 +350,18 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_sql_server = azure.sql.SqlServer("example",
-            name="mysqlserver",
+        example_sql_server = azurerm.index.SqlServer("example",
+            name=mysqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
         example_account = azure.storage.Account("example",
             name="accteststorageaccount",
             resource_group_name=example.name,
@@ -369,7 +370,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
             account_replication_type="GRS")
         example_server_security_alert_policy = azure.mssql.ServerSecurityAlertPolicy("example",
             resource_group_name=example.name,
-            server_name=example_sql_server.name,
+            server_name=example_sql_server["name"],
             state="Enabled",
             storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key,
@@ -418,17 +419,18 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_sql_server = azure.sql.SqlServer("example",
-            name="mysqlserver",
+        example_sql_server = azurerm.index.SqlServer("example",
+            name=mysqlserver,
             resource_group_name=example.name,
             location=example.location,
-            version="12.0",
-            administrator_login="4dm1n157r470r",
-            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+            version=12.0,
+            administrator_login=4dm1n157r470r,
+            administrator_login_password=4-v3ry-53cr37-p455w0rd)
         example_account = azure.storage.Account("example",
             name="accteststorageaccount",
             resource_group_name=example.name,
@@ -437,7 +439,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
             account_replication_type="GRS")
         example_server_security_alert_policy = azure.mssql.ServerSecurityAlertPolicy("example",
             resource_group_name=example.name,
-            server_name=example_sql_server.name,
+            server_name=example_sql_server["name"],
             state="Enabled",
             storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key,

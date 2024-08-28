@@ -7,11 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `portal.Dashboard` resource.
+// Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurermDashboard` resource.
 //
 // ## Example Usage
 //
@@ -20,14 +20,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/portal"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dashboard"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := portal.LookupDashboard(ctx, &portal.LookupDashboardArgs{
+//			_, err := dashboard.Azurerm_portal_dashboard(ctx, &dashboard.Azurerm_portal_dashboardArgs{
 //				Name:              pulumi.StringRef("existing-dashboard"),
 //				ResourceGroupName: "dashboard-rg",
 //			}, nil)
@@ -40,8 +40,6 @@ import (
 //	}
 //
 // ```
-//
-// Deprecated: azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard
 func Azurerm_portal_dashboard(ctx *pulumi.Context, args *Azurerm_portal_dashboardArgs, opts ...pulumi.InvokeOption) (*Azurerm_portal_dashboardResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv Azurerm_portal_dashboardResult

@@ -21,29 +21,30 @@ __all__ = ['SpringCloudGatewayRouteConfigArgs', 'SpringCloudGatewayRouteConfig']
 @pulumi.input_type
 class SpringCloudGatewayRouteConfigArgs:
     def __init__(__self__, *,
+                 protocol: pulumi.Input[str],
                  spring_cloud_gateway_id: pulumi.Input[str],
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_api: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  sso_validation_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SpringCloudGatewayRouteConfig resource.
+        :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+               
+               > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         :param pulumi.Input[str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filters: Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs'] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] predicates: Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-        :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
-               
-               > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud App.
         :param pulumi.Input[bool] sso_validation_enabled: Should the sso validation be enabled in app level?
         """
+        pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "spring_cloud_gateway_id", spring_cloud_gateway_id)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -53,14 +54,26 @@ class SpringCloudGatewayRouteConfigArgs:
             pulumi.set(__self__, "open_api", open_api)
         if predicates is not None:
             pulumi.set(__self__, "predicates", predicates)
-        if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
         if spring_cloud_app_id is not None:
             pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
         if sso_validation_enabled is not None:
             pulumi.set(__self__, "sso_validation_enabled", sso_validation_enabled)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+
+        > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
 
     @property
     @pulumi.getter(name="springCloudGatewayId")
@@ -124,20 +137,6 @@ class SpringCloudGatewayRouteConfigArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
-
-        > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
-        """
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "protocol", value)
-
-    @property
-    @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]]:
         """
         One or more `route` blocks as defined below.
@@ -191,7 +190,7 @@ class _SpringCloudGatewayRouteConfigState:
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs'] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] predicates: Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-        :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
+        :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
                
                > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]] routes: One or more `route` blocks as defined below.
@@ -270,7 +269,7 @@ class _SpringCloudGatewayRouteConfigState:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
+        Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
 
         > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         """
@@ -408,7 +407,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input[Union['SpringCloudGatewayRouteConfigOpenApiArgs', 'SpringCloudGatewayRouteConfigOpenApiArgsDict']] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] predicates: Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-        :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
+        :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
                
                > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SpringCloudGatewayRouteConfigRouteArgs', 'SpringCloudGatewayRouteConfigRouteArgsDict']]]] routes: One or more `route` blocks as defined below.
@@ -517,6 +516,8 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["open_api"] = open_api
             __props__.__dict__["predicates"] = predicates
+            if protocol is None and not opts.urn:
+                raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["routes"] = routes
             __props__.__dict__["spring_cloud_app_id"] = spring_cloud_app_id
@@ -554,7 +555,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input[Union['SpringCloudGatewayRouteConfigOpenApiArgs', 'SpringCloudGatewayRouteConfigOpenApiArgsDict']] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] predicates: Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-        :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
+        :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
                
                > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SpringCloudGatewayRouteConfigRouteArgs', 'SpringCloudGatewayRouteConfigRouteArgsDict']]]] routes: One or more `route` blocks as defined below.
@@ -611,9 +612,9 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output[Optional[str]]:
+    def protocol(self) -> pulumi.Output[str]:
         """
-        Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
+        Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
 
         > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         """

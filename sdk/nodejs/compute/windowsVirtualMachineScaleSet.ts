@@ -189,7 +189,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      *
      * > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      */
-    public readonly extensionOperationsEnabled!: pulumi.Output<boolean>;
+    public readonly extensionOperationsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * One or more `extension` blocks as defined below
      */
@@ -201,11 +201,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * One or more `galleryApplication` blocks as defined below.
      */
-    public readonly galleryApplication!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetGalleryApplication[]>;
-    /**
-     * @deprecated `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
-     */
-    public readonly galleryApplications!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetGalleryApplication[]>;
+    public readonly galleryApplications!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetGalleryApplication[] | undefined>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
@@ -289,11 +285,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * A `scaleIn` block as defined below.
      */
-    public readonly scaleIn!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetScaleIn>;
-    /**
-     * @deprecated `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
-     */
-    public readonly scaleInPolicy!: pulumi.Output<string>;
+    public readonly scaleIn!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetScaleIn | undefined>;
     /**
      * One or more `secret` blocks as defined below.
      */
@@ -330,14 +322,6 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A `terminateNotification` block as defined below.
-     *
-     * > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
-     */
-    public readonly terminateNotification!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
     /**
      * A `terminationNotification` block as defined below.
      */
@@ -406,7 +390,6 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["extensionOperationsEnabled"] = state ? state.extensionOperationsEnabled : undefined;
             resourceInputs["extensions"] = state ? state.extensions : undefined;
             resourceInputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
-            resourceInputs["galleryApplication"] = state ? state.galleryApplication : undefined;
             resourceInputs["galleryApplications"] = state ? state.galleryApplications : undefined;
             resourceInputs["healthProbeId"] = state ? state.healthProbeId : undefined;
             resourceInputs["hostGroupId"] = state ? state.hostGroupId : undefined;
@@ -427,7 +410,6 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["rollingUpgradePolicy"] = state ? state.rollingUpgradePolicy : undefined;
             resourceInputs["scaleIn"] = state ? state.scaleIn : undefined;
-            resourceInputs["scaleInPolicy"] = state ? state.scaleInPolicy : undefined;
             resourceInputs["secrets"] = state ? state.secrets : undefined;
             resourceInputs["secureBootEnabled"] = state ? state.secureBootEnabled : undefined;
             resourceInputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
@@ -436,7 +418,6 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
             resourceInputs["spotRestore"] = state ? state.spotRestore : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["terminateNotification"] = state ? state.terminateNotification : undefined;
             resourceInputs["terminationNotification"] = state ? state.terminationNotification : undefined;
             resourceInputs["timezone"] = state ? state.timezone : undefined;
             resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
@@ -488,7 +469,6 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["extensionOperationsEnabled"] = args ? args.extensionOperationsEnabled : undefined;
             resourceInputs["extensions"] = args ? args.extensions : undefined;
             resourceInputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
-            resourceInputs["galleryApplication"] = args ? args.galleryApplication : undefined;
             resourceInputs["galleryApplications"] = args ? args.galleryApplications : undefined;
             resourceInputs["healthProbeId"] = args ? args.healthProbeId : undefined;
             resourceInputs["hostGroupId"] = args ? args.hostGroupId : undefined;
@@ -509,7 +489,6 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rollingUpgradePolicy"] = args ? args.rollingUpgradePolicy : undefined;
             resourceInputs["scaleIn"] = args ? args.scaleIn : undefined;
-            resourceInputs["scaleInPolicy"] = args ? args.scaleInPolicy : undefined;
             resourceInputs["secrets"] = args ? args.secrets : undefined;
             resourceInputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
             resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
@@ -518,7 +497,6 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             resourceInputs["spotRestore"] = args ? args.spotRestore : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminateNotification"] = args ? args.terminateNotification : undefined;
             resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
             resourceInputs["timezone"] = args ? args.timezone : undefined;
             resourceInputs["upgradeMode"] = args ? args.upgradeMode : undefined;
@@ -631,10 +609,6 @@ export interface WindowsVirtualMachineScaleSetState {
     /**
      * One or more `galleryApplication` blocks as defined below.
      */
-    galleryApplication?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetGalleryApplication>[]>;
-    /**
-     * @deprecated `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
-     */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetGalleryApplication>[]>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
@@ -721,10 +695,6 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     scaleIn?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetScaleIn>;
     /**
-     * @deprecated `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
-     */
-    scaleInPolicy?: pulumi.Input<string>;
-    /**
      * One or more `secret` blocks as defined below.
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSecret>[]>;
@@ -760,14 +730,6 @@ export interface WindowsVirtualMachineScaleSetState {
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A `terminateNotification` block as defined below.
-     *
-     * > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
-     */
-    terminateNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
     /**
      * A `terminationNotification` block as defined below.
      */
@@ -900,10 +862,6 @@ export interface WindowsVirtualMachineScaleSetArgs {
     /**
      * One or more `galleryApplication` blocks as defined below.
      */
-    galleryApplication?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetGalleryApplication>[]>;
-    /**
-     * @deprecated `galleryApplications` has been renamed to `galleryApplication` and will be deprecated in 4.0
-     */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetGalleryApplication>[]>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
@@ -990,10 +948,6 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     scaleIn?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetScaleIn>;
     /**
-     * @deprecated `scaleInPolicy` will be removed in favour of the `scaleIn` code block in version 4.0 of the AzureRM Provider.
-     */
-    scaleInPolicy?: pulumi.Input<string>;
-    /**
      * One or more `secret` blocks as defined below.
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSecret>[]>;
@@ -1029,14 +983,6 @@ export interface WindowsVirtualMachineScaleSetArgs {
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A `terminateNotification` block as defined below.
-     *
-     * > **Note:** This property has been deprecated in favour of the `terminationNotification` property and will be removed in version 4.0 of the provider.
-     *
-     * @deprecated `terminateNotification` has been renamed to `terminationNotification` and will be removed in 4.0.
-     */
-    terminateNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
     /**
      * A `terminationNotification` block as defined below.
      */

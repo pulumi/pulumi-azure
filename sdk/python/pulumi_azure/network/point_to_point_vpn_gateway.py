@@ -21,7 +21,7 @@ __all__ = ['PointToPointVpnGatewayArgs', 'PointToPointVpnGateway']
 @pulumi.input_type
 class PointToPointVpnGatewayArgs:
     def __init__(__self__, *,
-                 connection_configuration: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs'],
+                 connection_configurations: pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]],
                  resource_group_name: pulumi.Input[str],
                  scale_unit: pulumi.Input[int],
                  virtual_hub_id: pulumi.Input[str],
@@ -33,7 +33,7 @@ class PointToPointVpnGatewayArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PointToPointVpnGateway resource.
-        :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs'] connection_configuration: A `connection_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]] connection_configurations: A `connection_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_unit: The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
@@ -44,7 +44,7 @@ class PointToPointVpnGatewayArgs:
         :param pulumi.Input[bool] routing_preference_internet_enabled: Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Point-to-Site VPN Gateway.
         """
-        pulumi.set(__self__, "connection_configuration", connection_configuration)
+        pulumi.set(__self__, "connection_configurations", connection_configurations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scale_unit", scale_unit)
         pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
@@ -61,16 +61,16 @@ class PointToPointVpnGatewayArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="connectionConfiguration")
-    def connection_configuration(self) -> pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']:
+    @pulumi.getter(name="connectionConfigurations")
+    def connection_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]]:
         """
         A `connection_configuration` block as defined below.
         """
-        return pulumi.get(self, "connection_configuration")
+        return pulumi.get(self, "connection_configurations")
 
-    @connection_configuration.setter
-    def connection_configuration(self, value: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']):
-        pulumi.set(self, "connection_configuration", value)
+    @connection_configurations.setter
+    def connection_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]]):
+        pulumi.set(self, "connection_configurations", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -184,7 +184,7 @@ class PointToPointVpnGatewayArgs:
 @pulumi.input_type
 class _PointToPointVpnGatewayState:
     def __init__(__self__, *,
-                 connection_configuration: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']] = None,
+                 connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -196,7 +196,7 @@ class _PointToPointVpnGatewayState:
                  vpn_server_configuration_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PointToPointVpnGateway resources.
-        :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs'] connection_configuration: A `connection_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]] connection_configurations: A `connection_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
@@ -207,8 +207,8 @@ class _PointToPointVpnGatewayState:
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
         """
-        if connection_configuration is not None:
-            pulumi.set(__self__, "connection_configuration", connection_configuration)
+        if connection_configurations is not None:
+            pulumi.set(__self__, "connection_configurations", connection_configurations)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if location is not None:
@@ -229,16 +229,16 @@ class _PointToPointVpnGatewayState:
             pulumi.set(__self__, "vpn_server_configuration_id", vpn_server_configuration_id)
 
     @property
-    @pulumi.getter(name="connectionConfiguration")
-    def connection_configuration(self) -> Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]:
+    @pulumi.getter(name="connectionConfigurations")
+    def connection_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]]]:
         """
         A `connection_configuration` block as defined below.
         """
-        return pulumi.get(self, "connection_configuration")
+        return pulumi.get(self, "connection_configurations")
 
-    @connection_configuration.setter
-    def connection_configuration(self, value: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]):
-        pulumi.set(self, "connection_configuration", value)
+    @connection_configurations.setter
+    def connection_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']]]]):
+        pulumi.set(self, "connection_configurations", value)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -354,7 +354,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_configuration: Optional[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]] = None,
+                 connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -423,12 +423,12 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             vpn_server_configuration_id=example_vpn_server_configuration.id,
             scale_unit=1,
-            connection_configuration={
+            connection_configurations=[{
                 "name": "example-gateway-config",
                 "vpn_client_address_pool": {
                     "address_prefixes": ["10.0.2.0/24"],
                 },
-            })
+            }])
         ```
 
         ## Import
@@ -441,7 +441,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']] connection_configuration: A `connection_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]] connection_configurations: A `connection_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
@@ -516,12 +516,12 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             vpn_server_configuration_id=example_vpn_server_configuration.id,
             scale_unit=1,
-            connection_configuration={
+            connection_configurations=[{
                 "name": "example-gateway-config",
                 "vpn_client_address_pool": {
                     "address_prefixes": ["10.0.2.0/24"],
                 },
-            })
+            }])
         ```
 
         ## Import
@@ -547,7 +547,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_configuration: Optional[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]] = None,
+                 connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -566,9 +566,9 @@ class PointToPointVpnGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PointToPointVpnGatewayArgs.__new__(PointToPointVpnGatewayArgs)
 
-            if connection_configuration is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_configuration'")
-            __props__.__dict__["connection_configuration"] = connection_configuration
+            if connection_configurations is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_configurations'")
+            __props__.__dict__["connection_configurations"] = connection_configurations
             __props__.__dict__["dns_servers"] = dns_servers
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -596,7 +596,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connection_configuration: Optional[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]] = None,
+            connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -613,7 +613,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']] connection_configuration: A `connection_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]]] connection_configurations: A `connection_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
@@ -628,7 +628,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
         __props__ = _PointToPointVpnGatewayState.__new__(_PointToPointVpnGatewayState)
 
-        __props__.__dict__["connection_configuration"] = connection_configuration
+        __props__.__dict__["connection_configurations"] = connection_configurations
         __props__.__dict__["dns_servers"] = dns_servers
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -641,12 +641,12 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         return PointToPointVpnGateway(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="connectionConfiguration")
-    def connection_configuration(self) -> pulumi.Output['outputs.PointToPointVpnGatewayConnectionConfiguration']:
+    @pulumi.getter(name="connectionConfigurations")
+    def connection_configurations(self) -> pulumi.Output[Sequence['outputs.PointToPointVpnGatewayConnectionConfiguration']]:
         """
         A `connection_configuration` block as defined below.
         """
-        return pulumi.get(self, "connection_configuration")
+        return pulumi.get(self, "connection_configurations")
 
     @property
     @pulumi.getter(name="dnsServers")

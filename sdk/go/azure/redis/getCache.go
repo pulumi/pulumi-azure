@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/redis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,12 +61,10 @@ type LookupCacheArgs struct {
 
 // A collection of values returned by getCache.
 type LookupCacheResult struct {
+	// Specifies if access key authentication is enabled.
+	AccessKeysAuthenticationEnabled bool `pulumi:"accessKeysAuthenticationEnabled"`
 	// The size of the Redis Cache deployed.
 	Capacity int `pulumi:"capacity"`
-	// Whether the SSL port is enabled.
-	//
-	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-	EnableNonSslPort bool `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group used. Possible values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family string `pulumi:"family"`
 	// The Hostname of the Redis Instance
@@ -147,16 +145,14 @@ func (o LookupCacheResultOutput) ToLookupCacheResultOutputWithContext(ctx contex
 	return o
 }
 
+// Specifies if access key authentication is enabled.
+func (o LookupCacheResultOutput) AccessKeysAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupCacheResult) bool { return v.AccessKeysAuthenticationEnabled }).(pulumi.BoolOutput)
+}
+
 // The size of the Redis Cache deployed.
 func (o LookupCacheResultOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCacheResult) int { return v.Capacity }).(pulumi.IntOutput)
-}
-
-// Whether the SSL port is enabled.
-//
-// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-func (o LookupCacheResultOutput) EnableNonSslPort() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupCacheResult) bool { return v.EnableNonSslPort }).(pulumi.BoolOutput)
 }
 
 // The SKU family/pricing group used. Possible values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)

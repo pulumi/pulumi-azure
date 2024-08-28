@@ -118,6 +118,10 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly galleryName!: pulumi.Output<string>;
     /**
+     * Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+     */
+    public readonly hibernationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
@@ -210,6 +214,7 @@ export class SharedImage extends pulumi.CustomResource {
             resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
             resourceInputs["eula"] = state ? state.eula : undefined;
             resourceInputs["galleryName"] = state ? state.galleryName : undefined;
+            resourceInputs["hibernationEnabled"] = state ? state.hibernationEnabled : undefined;
             resourceInputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
             resourceInputs["identifier"] = state ? state.identifier : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -250,6 +255,7 @@ export class SharedImage extends pulumi.CustomResource {
             resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
             resourceInputs["eula"] = args ? args.eula : undefined;
             resourceInputs["galleryName"] = args ? args.galleryName : undefined;
+            resourceInputs["hibernationEnabled"] = args ? args.hibernationEnabled : undefined;
             resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
             resourceInputs["identifier"] = args ? args.identifier : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -315,6 +321,10 @@ export interface SharedImageState {
      * Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
      */
     galleryName?: pulumi.Input<string>;
+    /**
+     * Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+     */
+    hibernationEnabled?: pulumi.Input<boolean>;
     /**
      * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
@@ -429,6 +439,10 @@ export interface SharedImageArgs {
      * Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
      */
     galleryName: pulumi.Input<string>;
+    /**
+     * Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+     */
+    hibernationEnabled?: pulumi.Input<boolean>;
     /**
      * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */

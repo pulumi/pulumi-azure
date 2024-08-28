@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,6 +100,8 @@ type SharedImage struct {
 	Eula pulumi.StringPtrOutput `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName pulumi.StringOutput `pulumi:"galleryName"`
+	// Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+	HibernationEnabled pulumi.BoolPtrOutput `pulumi:"hibernationEnabled"`
 	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
 	// An `identifier` block as defined below.
@@ -200,6 +202,8 @@ type sharedImageState struct {
 	Eula *string `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName *string `pulumi:"galleryName"`
+	// Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+	HibernationEnabled *bool `pulumi:"hibernationEnabled"`
 	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// An `identifier` block as defined below.
@@ -259,6 +263,8 @@ type SharedImageState struct {
 	Eula pulumi.StringPtrInput
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName pulumi.StringPtrInput
+	// Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+	HibernationEnabled pulumi.BoolPtrInput
 	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrInput
 	// An `identifier` block as defined below.
@@ -322,6 +328,8 @@ type sharedImageArgs struct {
 	Eula *string `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName string `pulumi:"galleryName"`
+	// Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+	HibernationEnabled *bool `pulumi:"hibernationEnabled"`
 	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// An `identifier` block as defined below.
@@ -382,6 +390,8 @@ type SharedImageArgs struct {
 	Eula pulumi.StringPtrInput
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName pulumi.StringInput
+	// Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+	HibernationEnabled pulumi.BoolPtrInput
 	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrInput
 	// An `identifier` block as defined below.
@@ -552,6 +562,11 @@ func (o SharedImageOutput) Eula() pulumi.StringPtrOutput {
 // Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 func (o SharedImageOutput) GalleryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.StringOutput { return v.GalleryName }).(pulumi.StringOutput)
+}
+
+// Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+func (o SharedImageOutput) HibernationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SharedImage) pulumi.BoolPtrOutput { return v.HibernationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.

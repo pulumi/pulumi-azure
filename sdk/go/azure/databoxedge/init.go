@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:databoxedge/device:Device":
 		r = &Device{}
-	case "azure:databoxedge/order:Order":
-		r = &Order{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -41,11 +39,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"databoxedge/device",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"databoxedge/order",
 		&module{version},
 	)
 }

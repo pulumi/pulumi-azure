@@ -13,15 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'ConfigurationConfigFile',
     'ConfigurationProtectedFile',
     'DeploymentAutoScaleProfile',
-    'DeploymentConfiguration',
-    'DeploymentConfigurationConfigFile',
-    'DeploymentConfigurationProtectedFile',
     'DeploymentFrontendPrivate',
     'DeploymentFrontendPublic',
     'DeploymentIdentity',
@@ -182,137 +178,6 @@ class DeploymentAutoScaleProfile(dict):
         Specify the name of the autoscaling profile.
         """
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class DeploymentConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "rootFile":
-            suggest = "root_file"
-        elif key == "configFiles":
-            suggest = "config_files"
-        elif key == "packageData":
-            suggest = "package_data"
-        elif key == "protectedFiles":
-            suggest = "protected_files"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DeploymentConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DeploymentConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 root_file: str,
-                 config_files: Optional[Sequence['outputs.DeploymentConfigurationConfigFile']] = None,
-                 package_data: Optional[str] = None,
-                 protected_files: Optional[Sequence['outputs.DeploymentConfigurationProtectedFile']] = None):
-        pulumi.set(__self__, "root_file", root_file)
-        if config_files is not None:
-            pulumi.set(__self__, "config_files", config_files)
-        if package_data is not None:
-            pulumi.set(__self__, "package_data", package_data)
-        if protected_files is not None:
-            pulumi.set(__self__, "protected_files", protected_files)
-
-    @property
-    @pulumi.getter(name="rootFile")
-    def root_file(self) -> str:
-        return pulumi.get(self, "root_file")
-
-    @property
-    @pulumi.getter(name="configFiles")
-    def config_files(self) -> Optional[Sequence['outputs.DeploymentConfigurationConfigFile']]:
-        return pulumi.get(self, "config_files")
-
-    @property
-    @pulumi.getter(name="packageData")
-    def package_data(self) -> Optional[str]:
-        return pulumi.get(self, "package_data")
-
-    @property
-    @pulumi.getter(name="protectedFiles")
-    def protected_files(self) -> Optional[Sequence['outputs.DeploymentConfigurationProtectedFile']]:
-        return pulumi.get(self, "protected_files")
-
-
-@pulumi.output_type
-class DeploymentConfigurationConfigFile(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "virtualPath":
-            suggest = "virtual_path"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfigurationConfigFile. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DeploymentConfigurationConfigFile.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DeploymentConfigurationConfigFile.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 content: str,
-                 virtual_path: str):
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "virtual_path", virtual_path)
-
-    @property
-    @pulumi.getter
-    def content(self) -> str:
-        return pulumi.get(self, "content")
-
-    @property
-    @pulumi.getter(name="virtualPath")
-    def virtual_path(self) -> str:
-        return pulumi.get(self, "virtual_path")
-
-
-@pulumi.output_type
-class DeploymentConfigurationProtectedFile(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "virtualPath":
-            suggest = "virtual_path"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfigurationProtectedFile. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DeploymentConfigurationProtectedFile.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DeploymentConfigurationProtectedFile.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 content: str,
-                 virtual_path: str):
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "virtual_path", virtual_path)
-
-    @property
-    @pulumi.getter
-    def content(self) -> str:
-        return pulumi.get(self, "content")
-
-    @property
-    @pulumi.getter(name="virtualPath")
-    def virtual_path(self) -> str:
-        return pulumi.get(self, "virtual_path")
 
 
 @pulumi.output_type

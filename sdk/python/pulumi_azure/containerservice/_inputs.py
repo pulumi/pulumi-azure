@@ -45,10 +45,6 @@ __all__ = [
     'FluxConfigurationKustomizationArgsDict',
     'GroupContainerArgs',
     'GroupContainerArgsDict',
-    'GroupContainerGpuArgs',
-    'GroupContainerGpuArgsDict',
-    'GroupContainerGpuLimitArgs',
-    'GroupContainerGpuLimitArgsDict',
     'GroupContainerLivenessProbeArgs',
     'GroupContainerLivenessProbeArgsDict',
     'GroupContainerLivenessProbeHttpGetArgs',
@@ -211,10 +207,6 @@ __all__ = [
     'RegistryNetworkRuleSetArgsDict',
     'RegistryNetworkRuleSetIpRuleArgs',
     'RegistryNetworkRuleSetIpRuleArgsDict',
-    'RegistryNetworkRuleSetVirtualNetworkArgs',
-    'RegistryNetworkRuleSetVirtualNetworkArgsDict',
-    'RegistryRetentionPolicyArgs',
-    'RegistryRetentionPolicyArgsDict',
     'RegistryTaskAgentSettingArgs',
     'RegistryTaskAgentSettingArgsDict',
     'RegistryTaskBaseImageTriggerArgs',
@@ -241,8 +233,6 @@ __all__ = [
     'RegistryTaskSourceTriggerAuthenticationArgsDict',
     'RegistryTaskTimerTriggerArgs',
     'RegistryTaskTimerTriggerArgsDict',
-    'RegistryTrustPolicyArgs',
-    'RegistryTrustPolicyArgsDict',
     'TokenPasswordPassword1Args',
     'TokenPasswordPassword1ArgsDict',
     'TokenPasswordPassword2Args',
@@ -1614,8 +1604,6 @@ if not MYPY:
         """
         A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         """
-        gpu: NotRequired[pulumi.Input['GroupContainerGpuArgsDict']]
-        gpu_limit: NotRequired[pulumi.Input['GroupContainerGpuLimitArgsDict']]
         liveness_probe: NotRequired[pulumi.Input['GroupContainerLivenessProbeArgsDict']]
         """
         The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
@@ -1657,8 +1645,6 @@ class GroupContainerArgs:
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_limit: Optional[pulumi.Input[float]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 gpu: Optional[pulumi.Input['GroupContainerGpuArgs']] = None,
-                 gpu_limit: Optional[pulumi.Input['GroupContainerGpuLimitArgs']] = None,
                  liveness_probe: Optional[pulumi.Input['GroupContainerLivenessProbeArgs']] = None,
                  memory_limit: Optional[pulumi.Input[float]] = None,
                  ports: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArgs']]]] = None,
@@ -1692,16 +1678,6 @@ class GroupContainerArgs:
             pulumi.set(__self__, "cpu_limit", cpu_limit)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
-        if gpu is not None:
-            warnings.warn("""The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""gpu is deprecated: The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
-        if gpu is not None:
-            pulumi.set(__self__, "gpu", gpu)
-        if gpu_limit is not None:
-            warnings.warn("""The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""gpu_limit is deprecated: The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
-        if gpu_limit is not None:
-            pulumi.set(__self__, "gpu_limit", gpu_limit)
         if liveness_probe is not None:
             pulumi.set(__self__, "liveness_probe", liveness_probe)
         if memory_limit is not None:
@@ -1802,26 +1778,6 @@ class GroupContainerArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
-    @pulumi.getter
-    @_utilities.deprecated("""The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
-    def gpu(self) -> Optional[pulumi.Input['GroupContainerGpuArgs']]:
-        return pulumi.get(self, "gpu")
-
-    @gpu.setter
-    def gpu(self, value: Optional[pulumi.Input['GroupContainerGpuArgs']]):
-        pulumi.set(self, "gpu", value)
-
-    @property
-    @pulumi.getter(name="gpuLimit")
-    @_utilities.deprecated("""The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.""")
-    def gpu_limit(self) -> Optional[pulumi.Input['GroupContainerGpuLimitArgs']]:
-        return pulumi.get(self, "gpu_limit")
-
-    @gpu_limit.setter
-    def gpu_limit(self, value: Optional[pulumi.Input['GroupContainerGpuLimitArgs']]):
-        pulumi.set(self, "gpu_limit", value)
-
-    @property
     @pulumi.getter(name="livenessProbe")
     def liveness_probe(self) -> Optional[pulumi.Input['GroupContainerLivenessProbeArgs']]:
         """
@@ -1904,96 +1860,6 @@ class GroupContainerArgs:
     @volumes.setter
     def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
-
-
-if not MYPY:
-    class GroupContainerGpuArgsDict(TypedDict):
-        count: NotRequired[pulumi.Input[int]]
-        sku: NotRequired[pulumi.Input[str]]
-        """
-        Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-        """
-elif False:
-    GroupContainerGpuArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GroupContainerGpuArgs:
-    def __init__(__self__, *,
-                 count: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-        """
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sku", value)
-
-
-if not MYPY:
-    class GroupContainerGpuLimitArgsDict(TypedDict):
-        count: NotRequired[pulumi.Input[int]]
-        sku: NotRequired[pulumi.Input[str]]
-        """
-        Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-        """
-elif False:
-    GroupContainerGpuLimitArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GroupContainerGpuLimitArgs:
-    def __init__(__self__, *,
-                 count: Optional[pulumi.Input[int]] = None,
-                 sku: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-        """
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sku", value)
 
 
 if not MYPY:
@@ -3954,44 +3820,18 @@ if not MYPY:
         """
         Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         """
-        subnet_id: NotRequired[pulumi.Input[str]]
-        """
-        The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-
-        > **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
-
-        > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
-        """
-        vnet_integration_enabled: NotRequired[pulumi.Input[bool]]
 elif False:
     KubernetesClusterApiServerAccessProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KubernetesClusterApiServerAccessProfileArgs:
     def __init__(__self__, *,
-                 authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
-                 vnet_integration_enabled: Optional[pulumi.Input[bool]] = None):
+                 authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
-        :param pulumi.Input[str] subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-               
-               > **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
-               
-               > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
         """
         if authorized_ip_ranges is not None:
             pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
-        if subnet_id is not None:
-            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
-            pulumi.log.warn("""subnet_id is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if vnet_integration_enabled is not None:
-            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
-            pulumi.log.warn("""vnet_integration_enabled is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-        if vnet_integration_enabled is not None:
-            pulumi.set(__self__, "vnet_integration_enabled", vnet_integration_enabled)
 
     @property
     @pulumi.getter(name="authorizedIpRanges")
@@ -4004,33 +3844,6 @@ class KubernetesClusterApiServerAccessProfileArgs:
     @authorized_ip_ranges.setter
     def authorized_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "authorized_ip_ranges", value)
-
-    @property
-    @pulumi.getter(name="subnetId")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-
-        > **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
-
-        > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
-
-    @property
-    @pulumi.getter(name="vnetIntegrationEnabled")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def vnet_integration_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "vnet_integration_enabled")
-
-    @vnet_integration_enabled.setter
-    def vnet_integration_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "vnet_integration_enabled", value)
 
 
 if not MYPY:
@@ -4388,16 +4201,13 @@ class KubernetesClusterAutoScalerProfileArgs:
 if not MYPY:
     class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgsDict(TypedDict):
         admin_group_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        """
         azure_rbac_enabled: NotRequired[pulumi.Input[bool]]
-        client_app_id: NotRequired[pulumi.Input[str]]
-        managed: NotRequired[pulumi.Input[bool]]
         """
-        Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
-
-        > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
+        Is Role Based Access Control based on Azure AD enabled?
         """
-        server_app_id: NotRequired[pulumi.Input[str]]
-        server_app_secret: NotRequired[pulumi.Input[str]]
         tenant_id: NotRequired[pulumi.Input[str]]
         """
         The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
@@ -4410,47 +4220,25 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
     def __init__(__self__, *,
                  admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  azure_rbac_enabled: Optional[pulumi.Input[bool]] = None,
-                 client_app_id: Optional[pulumi.Input[str]] = None,
-                 managed: Optional[pulumi.Input[bool]] = None,
-                 server_app_id: Optional[pulumi.Input[str]] = None,
-                 server_app_secret: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
-               
-               > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_group_object_ids: A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        :param pulumi.Input[bool] azure_rbac_enabled: Is Role Based Access Control based on Azure AD enabled?
         :param pulumi.Input[str] tenant_id: The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         """
         if admin_group_object_ids is not None:
             pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
         if azure_rbac_enabled is not None:
             pulumi.set(__self__, "azure_rbac_enabled", azure_rbac_enabled)
-        if client_app_id is not None:
-            warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""client_app_id is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
-        if client_app_id is not None:
-            pulumi.set(__self__, "client_app_id", client_app_id)
-        if managed is not None:
-            warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""managed is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.""")
-        if managed is not None:
-            pulumi.set(__self__, "managed", managed)
-        if server_app_id is not None:
-            warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""server_app_id is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
-        if server_app_id is not None:
-            pulumi.set(__self__, "server_app_id", server_app_id)
-        if server_app_secret is not None:
-            warnings.warn("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""server_app_secret is deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
-        if server_app_secret is not None:
-            pulumi.set(__self__, "server_app_secret", server_app_secret)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="adminGroupObjectIds")
     def admin_group_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        """
         return pulumi.get(self, "admin_group_object_ids")
 
     @admin_group_object_ids.setter
@@ -4460,56 +4248,14 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
     @property
     @pulumi.getter(name="azureRbacEnabled")
     def azure_rbac_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Role Based Access Control based on Azure AD enabled?
+        """
         return pulumi.get(self, "azure_rbac_enabled")
 
     @azure_rbac_enabled.setter
     def azure_rbac_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "azure_rbac_enabled", value)
-
-    @property
-    @pulumi.getter(name="clientAppId")
-    @_utilities.deprecated("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
-    def client_app_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "client_app_id")
-
-    @client_app_id.setter
-    def client_app_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "client_app_id", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.""")
-    def managed(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
-
-        > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
-        """
-        return pulumi.get(self, "managed")
-
-    @managed.setter
-    def managed(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "managed", value)
-
-    @property
-    @pulumi.getter(name="serverAppId")
-    @_utilities.deprecated("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
-    def server_app_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "server_app_id")
-
-    @server_app_id.setter
-    def server_app_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "server_app_id", value)
-
-    @property
-    @pulumi.getter(name="serverAppSecret")
-    @_utilities.deprecated("""Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.""")
-    def server_app_secret(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "server_app_secret")
-
-    @server_app_secret.setter
-    def server_app_secret(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "server_app_secret", value)
 
     @property
     @pulumi.getter(name="tenantId")
@@ -4565,12 +4311,7 @@ if not MYPY:
         """
         The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         """
-        capacity_reservation_group_id: NotRequired[pulumi.Input[str]]
-        """
-        Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-        """
-        custom_ca_trust_enabled: NotRequired[pulumi.Input[bool]]
-        enable_auto_scaling: NotRequired[pulumi.Input[bool]]
+        auto_scaling_enabled: NotRequired[pulumi.Input[bool]]
         """
         Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 
@@ -4578,15 +4319,9 @@ if not MYPY:
 
         > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
         """
-        enable_host_encryption: NotRequired[pulumi.Input[bool]]
+        capacity_reservation_group_id: NotRequired[pulumi.Input[str]]
         """
-        Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
-
-        > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
-        """
-        enable_node_public_ip: NotRequired[pulumi.Input[bool]]
-        """
-        Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
+        Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         """
         fips_enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -4595,6 +4330,12 @@ if not MYPY:
         gpu_instance: NotRequired[pulumi.Input[str]]
         """
         Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        """
+        host_encryption_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
+
+        > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
         """
         host_group_id: NotRequired[pulumi.Input[str]]
         """
@@ -4617,7 +4358,6 @@ if not MYPY:
         """
         The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
         """
-        message_of_the_day: NotRequired[pulumi.Input[str]]
         min_count: NotRequired[pulumi.Input[int]]
         node_count: NotRequired[pulumi.Input[int]]
         node_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
@@ -4628,11 +4368,14 @@ if not MYPY:
         """
         A `node_network_profile` block as documented below.
         """
+        node_public_ip_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
+        """
         node_public_ip_prefix_id: NotRequired[pulumi.Input[str]]
         """
-        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         """
-        node_taints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         only_critical_addons_enabled: NotRequired[pulumi.Input[bool]]
         """
         Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
@@ -4683,7 +4426,7 @@ if not MYPY:
         """
         type: NotRequired[pulumi.Input[str]]
         """
-        The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+        The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 
         > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         """
@@ -4719,26 +4462,23 @@ class KubernetesClusterDefaultNodePoolArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
+                 auto_scaling_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-                 custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
-                 enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
-                 enable_host_encryption: Optional[pulumi.Input[bool]] = None,
-                 enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  gpu_instance: Optional[pulumi.Input[str]] = None,
+                 host_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
                  linux_os_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
-                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_network_profile: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs']] = None,
+                 node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
-                 node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  only_critical_addons_enabled: Optional[pulumi.Input[bool]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
@@ -4759,18 +4499,17 @@ class KubernetesClusterDefaultNodePoolArgs:
         """
         :param pulumi.Input[str] name: The name which should be used for the default Kubernetes Node Pool.
         :param pulumi.Input[str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
-        :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+        :param pulumi.Input[bool] auto_scaling_enabled: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
                
                > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
                
                > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
-               
-               > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
-        :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
+        :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] host_encryption_enabled: Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
+               
+               > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -4778,7 +4517,8 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
-        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] node_public_ip_enabled: Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
+        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
@@ -4794,7 +4534,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[str] temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
-        :param pulumi.Input[str] type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
                
                > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
@@ -4809,23 +4549,16 @@ class KubernetesClusterDefaultNodePoolArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vm_size", vm_size)
+        if auto_scaling_enabled is not None:
+            pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         if capacity_reservation_group_id is not None:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
-        if custom_ca_trust_enabled is not None:
-            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
-            pulumi.log.warn("""custom_ca_trust_enabled is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-        if custom_ca_trust_enabled is not None:
-            pulumi.set(__self__, "custom_ca_trust_enabled", custom_ca_trust_enabled)
-        if enable_auto_scaling is not None:
-            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
-        if enable_host_encryption is not None:
-            pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
-        if enable_node_public_ip is not None:
-            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
         if gpu_instance is not None:
             pulumi.set(__self__, "gpu_instance", gpu_instance)
+        if host_encryption_enabled is not None:
+            pulumi.set(__self__, "host_encryption_enabled", host_encryption_enabled)
         if host_group_id is not None:
             pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
@@ -4838,11 +4571,6 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
             pulumi.set(__self__, "max_pods", max_pods)
-        if message_of_the_day is not None:
-            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
-            pulumi.log.warn("""message_of_the_day is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-        if message_of_the_day is not None:
-            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
             pulumi.set(__self__, "min_count", min_count)
         if node_count is not None:
@@ -4851,13 +4579,10 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_network_profile is not None:
             pulumi.set(__self__, "node_network_profile", node_network_profile)
+        if node_public_ip_enabled is not None:
+            pulumi.set(__self__, "node_public_ip_enabled", node_public_ip_enabled)
         if node_public_ip_prefix_id is not None:
             pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
-        if node_taints is not None:
-            warnings.warn("""This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool""", DeprecationWarning)
-            pulumi.log.warn("""node_taints is deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool""")
-        if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
         if only_critical_addons_enabled is not None:
             pulumi.set(__self__, "only_critical_addons_enabled", only_critical_addons_enabled)
         if orchestrator_version is not None:
@@ -4918,6 +4643,22 @@ class KubernetesClusterDefaultNodePoolArgs:
         pulumi.set(self, "vm_size", value)
 
     @property
+    @pulumi.getter(name="autoScalingEnabled")
+    def auto_scaling_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+
+        > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+
+        > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
+        """
+        return pulumi.get(self, "auto_scaling_enabled")
+
+    @auto_scaling_enabled.setter
+    def auto_scaling_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_scaling_enabled", value)
+
+    @property
     @pulumi.getter(name="capacityReservationGroupId")
     def capacity_reservation_group_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -4928,58 +4669,6 @@ class KubernetesClusterDefaultNodePoolArgs:
     @capacity_reservation_group_id.setter
     def capacity_reservation_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
-
-    @property
-    @pulumi.getter(name="customCaTrustEnabled")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def custom_ca_trust_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "custom_ca_trust_enabled")
-
-    @custom_ca_trust_enabled.setter
-    def custom_ca_trust_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "custom_ca_trust_enabled", value)
-
-    @property
-    @pulumi.getter(name="enableAutoScaling")
-    def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-
-        > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-
-        > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-        """
-        return pulumi.get(self, "enable_auto_scaling")
-
-    @enable_auto_scaling.setter
-    def enable_auto_scaling(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_auto_scaling", value)
-
-    @property
-    @pulumi.getter(name="enableHostEncryption")
-    def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
-
-        > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
-        """
-        return pulumi.get(self, "enable_host_encryption")
-
-    @enable_host_encryption.setter
-    def enable_host_encryption(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_host_encryption", value)
-
-    @property
-    @pulumi.getter(name="enableNodePublicIp")
-    def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
-        """
-        return pulumi.get(self, "enable_node_public_ip")
-
-    @enable_node_public_ip.setter
-    def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_node_public_ip", value)
 
     @property
     @pulumi.getter(name="fipsEnabled")
@@ -5004,6 +4693,20 @@ class KubernetesClusterDefaultNodePoolArgs:
     @gpu_instance.setter
     def gpu_instance(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gpu_instance", value)
+
+    @property
+    @pulumi.getter(name="hostEncryptionEnabled")
+    def host_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
+
+        > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+        """
+        return pulumi.get(self, "host_encryption_enabled")
+
+    @host_encryption_enabled.setter
+    def host_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "host_encryption_enabled", value)
 
     @property
     @pulumi.getter(name="hostGroupId")
@@ -5075,16 +4778,6 @@ class KubernetesClusterDefaultNodePoolArgs:
         pulumi.set(self, "max_pods", value)
 
     @property
-    @pulumi.getter(name="messageOfTheDay")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def message_of_the_day(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "message_of_the_day")
-
-    @message_of_the_day.setter
-    def message_of_the_day(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "message_of_the_day", value)
-
-    @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "min_count")
@@ -5127,26 +4820,28 @@ class KubernetesClusterDefaultNodePoolArgs:
         pulumi.set(self, "node_network_profile", value)
 
     @property
+    @pulumi.getter(name="nodePublicIpEnabled")
+    def node_public_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
+        """
+        return pulumi.get(self, "node_public_ip_enabled")
+
+    @node_public_ip_enabled.setter
+    def node_public_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "node_public_ip_enabled", value)
+
+    @property
     @pulumi.getter(name="nodePublicIpPrefixId")
     def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_public_ip_prefix_id")
 
     @node_public_ip_prefix_id.setter
     def node_public_ip_prefix_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "node_public_ip_prefix_id", value)
-
-    @property
-    @pulumi.getter(name="nodeTaints")
-    @_utilities.deprecated("""This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool""")
-    def node_taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "node_taints")
-
-    @node_taints.setter
-    def node_taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "node_taints", value)
 
     @property
     @pulumi.getter(name="onlyCriticalAddonsEnabled")
@@ -5288,7 +4983,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+        The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 
         > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         """
@@ -7662,7 +7357,7 @@ if not MYPY:
     class KubernetesClusterLinuxProfileSshKeyArgsDict(TypedDict):
         key_data: pulumi.Input[str]
         """
-        The Public SSH Key used to access the cluster.
+        The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
         """
 elif False:
     KubernetesClusterLinuxProfileSshKeyArgsDict: TypeAlias = Mapping[str, Any]
@@ -7672,7 +7367,7 @@ class KubernetesClusterLinuxProfileSshKeyArgs:
     def __init__(__self__, *,
                  key_data: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key_data: The Public SSH Key used to access the cluster.
+        :param pulumi.Input[str] key_data: The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "key_data", key_data)
 
@@ -7680,7 +7375,7 @@ class KubernetesClusterLinuxProfileSshKeyArgs:
     @pulumi.getter(name="keyData")
     def key_data(self) -> pulumi.Input[str]:
         """
-        The Public SSH Key used to access the cluster.
+        The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_data")
 
@@ -8463,13 +8158,6 @@ if not MYPY:
         """
         IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         """
-        docker_bridge_cidr: NotRequired[pulumi.Input[str]]
-        """
-        IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-
-        > **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        """
-        ebpf_data_plane: NotRequired[pulumi.Input[str]]
         ip_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
@@ -8497,8 +8185,6 @@ if not MYPY:
         > **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
 
         > **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         """
         network_mode: NotRequired[pulumi.Input[str]]
         """
@@ -8521,18 +8207,6 @@ if not MYPY:
         > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
 
         > **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
-        """
-        outbound_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-
-        > **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-        """
-        outbound_ip_prefix_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-
-        > **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
         """
         outbound_type: NotRequired[pulumi.Input[str]]
         """
@@ -8564,8 +8238,6 @@ class KubernetesClusterNetworkProfileArgs:
     def __init__(__self__, *,
                  network_plugin: pulumi.Input[str],
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
-                 docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
-                 ebpf_data_plane: Optional[pulumi.Input[str]] = None,
                  ip_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']] = None,
                  load_balancer_sku: Optional[pulumi.Input[str]] = None,
@@ -8574,8 +8246,6 @@ class KubernetesClusterNetworkProfileArgs:
                  network_mode: Optional[pulumi.Input[str]] = None,
                  network_plugin_mode: Optional[pulumi.Input[str]] = None,
                  network_policy: Optional[pulumi.Input[str]] = None,
-                 outbound_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 outbound_ip_prefix_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  outbound_type: Optional[pulumi.Input[str]] = None,
                  pod_cidr: Optional[pulumi.Input[str]] = None,
                  pod_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -8586,9 +8256,6 @@ class KubernetesClusterNetworkProfileArgs:
                
                > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
         :param pulumi.Input[str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
-        :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-               
-               > **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
                
                ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
@@ -8602,8 +8269,6 @@ class KubernetesClusterNetworkProfileArgs:
                > **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
                
                > **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         :param pulumi.Input[str] network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
                
                > **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -8617,12 +8282,6 @@ class KubernetesClusterNetworkProfileArgs:
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
                
                > **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_ids: The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-               
-               > **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_prefix_ids: The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-               
-               > **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
@@ -8634,16 +8293,6 @@ class KubernetesClusterNetworkProfileArgs:
         pulumi.set(__self__, "network_plugin", network_plugin)
         if dns_service_ip is not None:
             pulumi.set(__self__, "dns_service_ip", dns_service_ip)
-        if docker_bridge_cidr is not None:
-            warnings.warn("""`docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""docker_bridge_cidr is deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
-        if docker_bridge_cidr is not None:
-            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
-        if ebpf_data_plane is not None:
-            warnings.warn("""This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""ebpf_data_plane is deprecated: This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.""")
-        if ebpf_data_plane is not None:
-            pulumi.set(__self__, "ebpf_data_plane", ebpf_data_plane)
         if ip_versions is not None:
             pulumi.set(__self__, "ip_versions", ip_versions)
         if load_balancer_profile is not None:
@@ -8660,10 +8309,6 @@ class KubernetesClusterNetworkProfileArgs:
             pulumi.set(__self__, "network_plugin_mode", network_plugin_mode)
         if network_policy is not None:
             pulumi.set(__self__, "network_policy", network_policy)
-        if outbound_ip_address_ids is not None:
-            pulumi.set(__self__, "outbound_ip_address_ids", outbound_ip_address_ids)
-        if outbound_ip_prefix_ids is not None:
-            pulumi.set(__self__, "outbound_ip_prefix_ids", outbound_ip_prefix_ids)
         if outbound_type is not None:
             pulumi.set(__self__, "outbound_type", outbound_type)
         if pod_cidr is not None:
@@ -8700,31 +8345,6 @@ class KubernetesClusterNetworkProfileArgs:
     @dns_service_ip.setter
     def dns_service_ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_service_ip", value)
-
-    @property
-    @pulumi.getter(name="dockerBridgeCidr")
-    @_utilities.deprecated("""`docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
-    def docker_bridge_cidr(self) -> Optional[pulumi.Input[str]]:
-        """
-        IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-
-        > **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "docker_bridge_cidr")
-
-    @docker_bridge_cidr.setter
-    def docker_bridge_cidr(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_bridge_cidr", value)
-
-    @property
-    @pulumi.getter(name="ebpfDataPlane")
-    @_utilities.deprecated("""This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.""")
-    def ebpf_data_plane(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "ebpf_data_plane")
-
-    @ebpf_data_plane.setter
-    def ebpf_data_plane(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ebpf_data_plane", value)
 
     @property
     @pulumi.getter(name="ipVersions")
@@ -8787,8 +8407,6 @@ class KubernetesClusterNetworkProfileArgs:
         > **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
 
         > **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         """
         return pulumi.get(self, "network_data_plane")
 
@@ -8841,34 +8459,6 @@ class KubernetesClusterNetworkProfileArgs:
     @network_policy.setter
     def network_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_policy", value)
-
-    @property
-    @pulumi.getter(name="outboundIpAddressIds")
-    def outbound_ip_address_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-
-        > **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-        """
-        return pulumi.get(self, "outbound_ip_address_ids")
-
-    @outbound_ip_address_ids.setter
-    def outbound_ip_address_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "outbound_ip_address_ids", value)
-
-    @property
-    @pulumi.getter(name="outboundIpPrefixIds")
-    def outbound_ip_prefix_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-
-        > **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
-        """
-        return pulumi.get(self, "outbound_ip_prefix_ids")
-
-    @outbound_ip_prefix_ids.setter
-    def outbound_ip_prefix_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "outbound_ip_prefix_ids", value)
 
     @property
     @pulumi.getter(name="outboundType")
@@ -10479,6 +10069,12 @@ if not MYPY:
         """
         The mode of the service mesh. Possible value is `Istio`.
         """
+        revisions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+
+        > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+        """
         certificate_authority: NotRequired[pulumi.Input['KubernetesClusterServiceMeshProfileCertificateAuthorityArgsDict']]
         """
         A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
@@ -10500,11 +10096,15 @@ elif False:
 class KubernetesClusterServiceMeshProfileArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
+                 revisions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  certificate_authority: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileCertificateAuthorityArgs']] = None,
                  external_ingress_gateway_enabled: Optional[pulumi.Input[bool]] = None,
                  internal_ingress_gateway_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] mode: The mode of the service mesh. Possible value is `Istio`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] revisions: Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+               
+               > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         :param pulumi.Input['KubernetesClusterServiceMeshProfileCertificateAuthorityArgs'] certificate_authority: A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
         :param pulumi.Input[bool] external_ingress_gateway_enabled: Is Istio External Ingress Gateway enabled?
                
@@ -10512,6 +10112,7 @@ class KubernetesClusterServiceMeshProfileArgs:
         :param pulumi.Input[bool] internal_ingress_gateway_enabled: Is Istio Internal Ingress Gateway enabled?
         """
         pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "revisions", revisions)
         if certificate_authority is not None:
             pulumi.set(__self__, "certificate_authority", certificate_authority)
         if external_ingress_gateway_enabled is not None:
@@ -10530,6 +10131,20 @@ class KubernetesClusterServiceMeshProfileArgs:
     @mode.setter
     def mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def revisions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+
+        > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+        """
+        return pulumi.get(self, "revisions")
+
+    @revisions.setter
+    def revisions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "revisions", value)
 
     @property
     @pulumi.getter(name="certificateAuthority")
@@ -10743,7 +10358,6 @@ if not MYPY:
         """
         Is the Disk CSI driver enabled? Defaults to `true`.
         """
-        disk_driver_version: NotRequired[pulumi.Input[str]]
         file_driver_enabled: NotRequired[pulumi.Input[bool]]
         """
         Is the File CSI driver enabled? Defaults to `true`.
@@ -10760,7 +10374,6 @@ class KubernetesClusterStorageProfileArgs:
     def __init__(__self__, *,
                  blob_driver_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_driver_enabled: Optional[pulumi.Input[bool]] = None,
-                 disk_driver_version: Optional[pulumi.Input[str]] = None,
                  file_driver_enabled: Optional[pulumi.Input[bool]] = None,
                  snapshot_controller_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -10773,11 +10386,6 @@ class KubernetesClusterStorageProfileArgs:
             pulumi.set(__self__, "blob_driver_enabled", blob_driver_enabled)
         if disk_driver_enabled is not None:
             pulumi.set(__self__, "disk_driver_enabled", disk_driver_enabled)
-        if disk_driver_version is not None:
-            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
-            pulumi.log.warn("""disk_driver_version is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-        if disk_driver_version is not None:
-            pulumi.set(__self__, "disk_driver_version", disk_driver_version)
         if file_driver_enabled is not None:
             pulumi.set(__self__, "file_driver_enabled", file_driver_enabled)
         if snapshot_controller_enabled is not None:
@@ -10808,16 +10416,6 @@ class KubernetesClusterStorageProfileArgs:
         pulumi.set(self, "disk_driver_enabled", value)
 
     @property
-    @pulumi.getter(name="diskDriverVersion")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def disk_driver_version(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "disk_driver_version")
-
-    @disk_driver_version.setter
-    def disk_driver_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "disk_driver_version", value)
-
-    @property
     @pulumi.getter(name="fileDriverEnabled")
     def file_driver_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -10844,8 +10442,7 @@ class KubernetesClusterStorageProfileArgs:
 
 if not MYPY:
     class KubernetesClusterWebAppRoutingArgsDict(TypedDict):
-        dns_zone_id: NotRequired[pulumi.Input[str]]
-        dns_zone_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        dns_zone_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
         Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
         """
@@ -10859,43 +10456,26 @@ elif False:
 @pulumi.input_type
 class KubernetesClusterWebAppRoutingArgs:
     def __init__(__self__, *,
-                 dns_zone_id: Optional[pulumi.Input[str]] = None,
-                 dns_zone_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dns_zone_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  web_app_routing_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zone_ids: Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]] web_app_routing_identities: A `web_app_routing_identity` block is exported. The exported attributes are defined below.
         """
-        if dns_zone_id is not None:
-            warnings.warn("""`dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""dns_zone_id is deprecated: `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""")
-        if dns_zone_id is not None:
-            pulumi.set(__self__, "dns_zone_id", dns_zone_id)
-        if dns_zone_ids is not None:
-            pulumi.set(__self__, "dns_zone_ids", dns_zone_ids)
+        pulumi.set(__self__, "dns_zone_ids", dns_zone_ids)
         if web_app_routing_identities is not None:
             pulumi.set(__self__, "web_app_routing_identities", web_app_routing_identities)
 
     @property
-    @pulumi.getter(name="dnsZoneId")
-    @_utilities.deprecated("""`dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.""")
-    def dns_zone_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "dns_zone_id")
-
-    @dns_zone_id.setter
-    def dns_zone_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "dns_zone_id", value)
-
-    @property
     @pulumi.getter(name="dnsZoneIds")
-    def dns_zone_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def dns_zone_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
         """
         return pulumi.get(self, "dns_zone_ids")
 
     @dns_zone_ids.setter
-    def dns_zone_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def dns_zone_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "dns_zone_ids", value)
 
     @property
@@ -10985,13 +10565,13 @@ class KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs:
 
 if not MYPY:
     class KubernetesClusterWindowsProfileArgsDict(TypedDict):
+        admin_password: pulumi.Input[str]
+        """
+        The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
+        """
         admin_username: pulumi.Input[str]
         """
         The Admin Username for Windows VMs. Changing this forces a new resource to be created.
-        """
-        admin_password: NotRequired[pulumi.Input[str]]
-        """
-        The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
         """
         gmsa: NotRequired[pulumi.Input['KubernetesClusterWindowsProfileGmsaArgsDict']]
         """
@@ -11007,23 +10587,34 @@ elif False:
 @pulumi.input_type
 class KubernetesClusterWindowsProfileArgs:
     def __init__(__self__, *,
+                 admin_password: pulumi.Input[str],
                  admin_username: pulumi.Input[str],
-                 admin_password: Optional[pulumi.Input[str]] = None,
                  gmsa: Optional[pulumi.Input['KubernetesClusterWindowsProfileGmsaArgs']] = None,
                  license: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] admin_username: The Admin Username for Windows VMs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
+        :param pulumi.Input[str] admin_username: The Admin Username for Windows VMs. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterWindowsProfileGmsaArgs'] gmsa: A `gmsa` block as defined below.
         :param pulumi.Input[str] license: Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
         """
+        pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "admin_username", admin_username)
-        if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
         if gmsa is not None:
             pulumi.set(__self__, "gmsa", gmsa)
         if license is not None:
             pulumi.set(__self__, "license", license)
+
+    @property
+    @pulumi.getter(name="adminPassword")
+    def admin_password(self) -> pulumi.Input[str]:
+        """
+        The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
+        """
+        return pulumi.get(self, "admin_password")
+
+    @admin_password.setter
+    def admin_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "admin_password", value)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -11036,18 +10627,6 @@ class KubernetesClusterWindowsProfileArgs:
     @admin_username.setter
     def admin_username(self, value: pulumi.Input[str]):
         pulumi.set(self, "admin_username", value)
-
-    @property
-    @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
-        """
-        return pulumi.get(self, "admin_password")
-
-    @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "admin_password", value)
 
     @property
     @pulumi.getter
@@ -11136,14 +10715,12 @@ if not MYPY:
         """
         Specifies whether KEDA Autoscaler can be used for workloads.
         """
-        vertical_pod_autoscaler_controlled_values: NotRequired[pulumi.Input[str]]
         vertical_pod_autoscaler_enabled: NotRequired[pulumi.Input[bool]]
         """
         Specifies whether Vertical Pod Autoscaler should be enabled.
 
         > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         """
-        vertical_pod_autoscaler_update_mode: NotRequired[pulumi.Input[str]]
 elif False:
     KubernetesClusterWorkloadAutoscalerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -11151,9 +10728,7 @@ elif False:
 class KubernetesClusterWorkloadAutoscalerProfileArgs:
     def __init__(__self__, *,
                  keda_enabled: Optional[pulumi.Input[bool]] = None,
-                 vertical_pod_autoscaler_controlled_values: Optional[pulumi.Input[str]] = None,
-                 vertical_pod_autoscaler_enabled: Optional[pulumi.Input[bool]] = None,
-                 vertical_pod_autoscaler_update_mode: Optional[pulumi.Input[str]] = None):
+                 vertical_pod_autoscaler_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] keda_enabled: Specifies whether KEDA Autoscaler can be used for workloads.
         :param pulumi.Input[bool] vertical_pod_autoscaler_enabled: Specifies whether Vertical Pod Autoscaler should be enabled.
@@ -11162,18 +10737,8 @@ class KubernetesClusterWorkloadAutoscalerProfileArgs:
         """
         if keda_enabled is not None:
             pulumi.set(__self__, "keda_enabled", keda_enabled)
-        if vertical_pod_autoscaler_controlled_values is not None:
-            warnings.warn("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""vertical_pod_autoscaler_controlled_values is deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
-        if vertical_pod_autoscaler_controlled_values is not None:
-            pulumi.set(__self__, "vertical_pod_autoscaler_controlled_values", vertical_pod_autoscaler_controlled_values)
         if vertical_pod_autoscaler_enabled is not None:
             pulumi.set(__self__, "vertical_pod_autoscaler_enabled", vertical_pod_autoscaler_enabled)
-        if vertical_pod_autoscaler_update_mode is not None:
-            warnings.warn("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""vertical_pod_autoscaler_update_mode is deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
-        if vertical_pod_autoscaler_update_mode is not None:
-            pulumi.set(__self__, "vertical_pod_autoscaler_update_mode", vertical_pod_autoscaler_update_mode)
 
     @property
     @pulumi.getter(name="kedaEnabled")
@@ -11188,16 +10753,6 @@ class KubernetesClusterWorkloadAutoscalerProfileArgs:
         pulumi.set(self, "keda_enabled", value)
 
     @property
-    @pulumi.getter(name="verticalPodAutoscalerControlledValues")
-    @_utilities.deprecated("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
-    def vertical_pod_autoscaler_controlled_values(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "vertical_pod_autoscaler_controlled_values")
-
-    @vertical_pod_autoscaler_controlled_values.setter
-    def vertical_pod_autoscaler_controlled_values(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vertical_pod_autoscaler_controlled_values", value)
-
-    @property
     @pulumi.getter(name="verticalPodAutoscalerEnabled")
     def vertical_pod_autoscaler_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -11210,16 +10765,6 @@ class KubernetesClusterWorkloadAutoscalerProfileArgs:
     @vertical_pod_autoscaler_enabled.setter
     def vertical_pod_autoscaler_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "vertical_pod_autoscaler_enabled", value)
-
-    @property
-    @pulumi.getter(name="verticalPodAutoscalerUpdateMode")
-    @_utilities.deprecated("""The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.""")
-    def vertical_pod_autoscaler_update_mode(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "vertical_pod_autoscaler_update_mode")
-
-    @vertical_pod_autoscaler_update_mode.setter
-    def vertical_pod_autoscaler_update_mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vertical_pod_autoscaler_update_mode", value)
 
 
 if not MYPY:
@@ -11280,7 +10825,6 @@ if not MYPY:
         """
         The ID of the Key Vault Key.
         """
-        enabled: NotRequired[pulumi.Input[bool]]
 elif False:
     RegistryEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -11288,19 +10832,13 @@ elif False:
 class RegistryEncryptionArgs:
     def __init__(__self__, *,
                  identity_client_id: pulumi.Input[str],
-                 key_vault_key_id: pulumi.Input[str],
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 key_vault_key_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] identity_client_id: The client ID of the managed identity associated with the encryption key.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key.
         """
         pulumi.set(__self__, "identity_client_id", identity_client_id)
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-        if enabled is not None:
-            warnings.warn("""The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""enabled is deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.""")
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="identityClientId")
@@ -11325,16 +10863,6 @@ class RegistryEncryptionArgs:
     @key_vault_key_id.setter
     def key_vault_key_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_key_id", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.""")
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:
@@ -11545,7 +11073,6 @@ if not MYPY:
 
         > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
-        virtual_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgsDict']]]]
 elif False:
     RegistryNetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -11553,8 +11080,7 @@ elif False:
 class RegistryNetworkRuleSetArgs:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]] = None,
-                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]] = None):
         """
         :param pulumi.Input[str] default_action: The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
         :param pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
@@ -11567,11 +11093,6 @@ class RegistryNetworkRuleSetArgs:
             pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
-        if virtual_networks is not None:
-            warnings.warn("""The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""virtual_networks is deprecated: The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.""")
-        if virtual_networks is not None:
-            pulumi.set(__self__, "virtual_networks", virtual_networks)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -11600,16 +11121,6 @@ class RegistryNetworkRuleSetArgs:
     @ip_rules.setter
     def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
-
-    @property
-    @pulumi.getter(name="virtualNetworks")
-    @_utilities.deprecated("""The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.""")
-    def virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]]:
-        return pulumi.get(self, "virtual_networks")
-
-    @virtual_networks.setter
-    def virtual_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]]):
-        pulumi.set(self, "virtual_networks", value)
 
 
 if not MYPY:
@@ -11660,101 +11171,6 @@ class RegistryNetworkRuleSetIpRuleArgs:
     @ip_range.setter
     def ip_range(self, value: pulumi.Input[str]):
         pulumi.set(self, "ip_range", value)
-
-
-if not MYPY:
-    class RegistryNetworkRuleSetVirtualNetworkArgsDict(TypedDict):
-        action: pulumi.Input[str]
-        """
-        The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-        """
-        subnet_id: pulumi.Input[str]
-elif False:
-    RegistryNetworkRuleSetVirtualNetworkArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class RegistryNetworkRuleSetVirtualNetworkArgs:
-    def __init__(__self__, *,
-                 action: pulumi.Input[str],
-                 subnet_id: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] action: The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-        """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-
-    @property
-    @pulumi.getter
-    def action(self) -> pulumi.Input[str]:
-        """
-        The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-        """
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: pulumi.Input[str]):
-        pulumi.set(self, "action", value)
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subnet_id", value)
-
-
-if not MYPY:
-    class RegistryRetentionPolicyArgsDict(TypedDict):
-        days: NotRequired[pulumi.Input[int]]
-        """
-        The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
-        """
-        enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Boolean value that indicates whether the policy is enabled.
-        """
-elif False:
-    RegistryRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class RegistryRetentionPolicyArgs:
-    def __init__(__self__, *,
-                 days: Optional[pulumi.Input[int]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[int] days: The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
-        :param pulumi.Input[bool] enabled: Boolean value that indicates whether the policy is enabled.
-        """
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
-        """
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "days", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean value that indicates whether the policy is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:
@@ -13011,38 +12427,6 @@ class RegistryTaskTimerTriggerArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the trigger be enabled? Defaults to `true`.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-if not MYPY:
-    class RegistryTrustPolicyArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Boolean value that indicates whether the policy is enabled.
-        """
-elif False:
-    RegistryTrustPolicyArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class RegistryTrustPolicyArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[bool] enabled: Boolean value that indicates whether the policy is enabled.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean value that indicates whether the policy is enabled.
         """
         return pulumi.get(self, "enabled")
 

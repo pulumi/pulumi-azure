@@ -34,8 +34,7 @@ class EventHubNamespaceArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_rulesets: Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[bool]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EventHubNamespace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
@@ -47,14 +46,11 @@ class EventHubNamespaceArgs:
         :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
-        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input['EventHubNamespaceNetworkRulesetsArgs'] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-               
-               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -82,11 +78,6 @@ class EventHubNamespaceArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if zone_redundant is not None:
-            warnings.warn("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""zone_redundant is deprecated: The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-        if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -200,7 +191,7 @@ class EventHubNamespaceArgs:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -256,21 +247,6 @@ class EventHubNamespaceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="zoneRedundant")
-    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-
-        > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-        """
-        return pulumi.get(self, "zone_redundant")
-
-    @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "zone_redundant", value)
-
 
 @pulumi.input_type
 class _EventHubNamespaceState:
@@ -294,8 +270,7 @@ class _EventHubNamespaceState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[bool]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering EventHubNamespace resources.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
@@ -311,16 +286,13 @@ class _EventHubNamespaceState:
         :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
-        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input['EventHubNamespaceNetworkRulesetsArgs'] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-               
-               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
         if auto_inflate_enabled is not None:
             pulumi.set(__self__, "auto_inflate_enabled", auto_inflate_enabled)
@@ -362,11 +334,6 @@ class _EventHubNamespaceState:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if zone_redundant is not None:
-            warnings.warn("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""zone_redundant is deprecated: The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-        if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="autoInflateEnabled")
@@ -528,7 +495,7 @@ class _EventHubNamespaceState:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -608,21 +575,6 @@ class _EventHubNamespaceState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="zoneRedundant")
-    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-
-        > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-        """
-        return pulumi.get(self, "zone_redundant")
-
-    @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "zone_redundant", value)
-
 
 class EventHubNamespace(pulumi.CustomResource):
     @overload
@@ -643,7 +595,6 @@ class EventHubNamespace(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages an EventHub Namespace.
@@ -685,16 +636,13 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
-        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-               
-               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
         ...
     @overload
@@ -762,7 +710,6 @@ class EventHubNamespace(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -790,7 +737,6 @@ class EventHubNamespace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["default_primary_connection_string"] = None
             __props__.__dict__["default_primary_connection_string_alias"] = None
             __props__.__dict__["default_primary_key"] = None
@@ -828,8 +774,7 @@ class EventHubNamespace(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'EventHubNamespace':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'EventHubNamespace':
         """
         Get an existing EventHubNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -850,16 +795,13 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
-        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-               
-               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -885,7 +827,6 @@ class EventHubNamespace(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
-        __props__.__dict__["zone_redundant"] = zone_redundant
         return EventHubNamespace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -994,9 +935,9 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> pulumi.Output[str]:
+    def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -1047,15 +988,4 @@ class EventHubNamespace(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="zoneRedundant")
-    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-
-        > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-        """
-        return pulumi.get(self, "zone_redundant")
 

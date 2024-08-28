@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,9 +82,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -163,11 +163,11 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -326,11 +326,7 @@ type FrontdoorOrigin struct {
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled pulumi.BoolOutput `pulumi:"certificateNameCheckEnabled"`
 	// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-	//
-	// > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-	HealthProbesEnabled pulumi.BoolOutput `pulumi:"healthProbesEnabled"`
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
 	// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
@@ -399,11 +395,7 @@ type frontdoorOriginState struct {
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled *bool `pulumi:"certificateNameCheckEnabled"`
 	// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-	//
-	// > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
 	Enabled *bool `pulumi:"enabled"`
-	// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-	HealthProbesEnabled *bool `pulumi:"healthProbesEnabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
 	// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
@@ -434,11 +426,7 @@ type FrontdoorOriginState struct {
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled pulumi.BoolPtrInput
 	// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-	//
-	// > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
 	Enabled pulumi.BoolPtrInput
-	// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-	HealthProbesEnabled pulumi.BoolPtrInput
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
 	// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
@@ -473,11 +461,7 @@ type frontdoorOriginArgs struct {
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled bool `pulumi:"certificateNameCheckEnabled"`
 	// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-	//
-	// > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
 	Enabled *bool `pulumi:"enabled"`
-	// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-	HealthProbesEnabled *bool `pulumi:"healthProbesEnabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
 	// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
@@ -509,11 +493,7 @@ type FrontdoorOriginArgs struct {
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled pulumi.BoolInput
 	// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-	//
-	// > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
 	Enabled pulumi.BoolPtrInput
-	// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-	HealthProbesEnabled pulumi.BoolPtrInput
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
 	// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
@@ -636,15 +616,8 @@ func (o FrontdoorOriginOutput) CertificateNameCheckEnabled() pulumi.BoolOutput {
 }
 
 // Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-//
-// > **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `healthProbesEnabled` property in version 3.x of the AzureRM Provider.
-func (o FrontdoorOriginOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// Deprecated: `healthProbesEnabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-func (o FrontdoorOriginOutput) HealthProbesEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.BoolOutput { return v.HealthProbesEnabled }).(pulumi.BoolOutput)
+func (o FrontdoorOriginOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // The IPv4 address, IPv6 address or Domain name of the Origin.

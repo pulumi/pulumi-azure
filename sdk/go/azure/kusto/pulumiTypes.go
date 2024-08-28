@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -445,6 +445,109 @@ func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterLanguageExtension struct {
+	Image string `pulumi:"image"`
+	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+
+// ClusterLanguageExtensionInput is an input type that accepts ClusterLanguageExtensionArgs and ClusterLanguageExtensionOutput values.
+// You can construct a concrete instance of `ClusterLanguageExtensionInput` via:
+//
+//	ClusterLanguageExtensionArgs{...}
+type ClusterLanguageExtensionInput interface {
+	pulumi.Input
+
+	ToClusterLanguageExtensionOutput() ClusterLanguageExtensionOutput
+	ToClusterLanguageExtensionOutputWithContext(context.Context) ClusterLanguageExtensionOutput
+}
+
+type ClusterLanguageExtensionArgs struct {
+	Image pulumi.StringInput `pulumi:"image"`
+	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ClusterLanguageExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLanguageExtension)(nil)).Elem()
+}
+
+func (i ClusterLanguageExtensionArgs) ToClusterLanguageExtensionOutput() ClusterLanguageExtensionOutput {
+	return i.ToClusterLanguageExtensionOutputWithContext(context.Background())
+}
+
+func (i ClusterLanguageExtensionArgs) ToClusterLanguageExtensionOutputWithContext(ctx context.Context) ClusterLanguageExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLanguageExtensionOutput)
+}
+
+// ClusterLanguageExtensionArrayInput is an input type that accepts ClusterLanguageExtensionArray and ClusterLanguageExtensionArrayOutput values.
+// You can construct a concrete instance of `ClusterLanguageExtensionArrayInput` via:
+//
+//	ClusterLanguageExtensionArray{ ClusterLanguageExtensionArgs{...} }
+type ClusterLanguageExtensionArrayInput interface {
+	pulumi.Input
+
+	ToClusterLanguageExtensionArrayOutput() ClusterLanguageExtensionArrayOutput
+	ToClusterLanguageExtensionArrayOutputWithContext(context.Context) ClusterLanguageExtensionArrayOutput
+}
+
+type ClusterLanguageExtensionArray []ClusterLanguageExtensionInput
+
+func (ClusterLanguageExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLanguageExtension)(nil)).Elem()
+}
+
+func (i ClusterLanguageExtensionArray) ToClusterLanguageExtensionArrayOutput() ClusterLanguageExtensionArrayOutput {
+	return i.ToClusterLanguageExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterLanguageExtensionArray) ToClusterLanguageExtensionArrayOutputWithContext(ctx context.Context) ClusterLanguageExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLanguageExtensionArrayOutput)
+}
+
+type ClusterLanguageExtensionOutput struct{ *pulumi.OutputState }
+
+func (ClusterLanguageExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLanguageExtension)(nil)).Elem()
+}
+
+func (o ClusterLanguageExtensionOutput) ToClusterLanguageExtensionOutput() ClusterLanguageExtensionOutput {
+	return o
+}
+
+func (o ClusterLanguageExtensionOutput) ToClusterLanguageExtensionOutputWithContext(ctx context.Context) ClusterLanguageExtensionOutput {
+	return o
+}
+
+func (o ClusterLanguageExtensionOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLanguageExtension) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+func (o ClusterLanguageExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLanguageExtension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ClusterLanguageExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterLanguageExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLanguageExtension)(nil)).Elem()
+}
+
+func (o ClusterLanguageExtensionArrayOutput) ToClusterLanguageExtensionArrayOutput() ClusterLanguageExtensionArrayOutput {
+	return o
+}
+
+func (o ClusterLanguageExtensionArrayOutput) ToClusterLanguageExtensionArrayOutputWithContext(ctx context.Context) ClusterLanguageExtensionArrayOutput {
+	return o
+}
+
+func (o ClusterLanguageExtensionArrayOutput) Index(i pulumi.IntInput) ClusterLanguageExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterLanguageExtension {
+		return vs[0].([]ClusterLanguageExtension)[vs[1].(int)]
+	}).(ClusterLanguageExtensionOutput)
 }
 
 type ClusterOptimizedAutoScale struct {
@@ -1075,6 +1178,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AttachedDatabaseConfigurationSharingPtrInput)(nil)).Elem(), AttachedDatabaseConfigurationSharingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityInput)(nil)).Elem(), ClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityPtrInput)(nil)).Elem(), ClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLanguageExtensionInput)(nil)).Elem(), ClusterLanguageExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLanguageExtensionArrayInput)(nil)).Elem(), ClusterLanguageExtensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOptimizedAutoScaleInput)(nil)).Elem(), ClusterOptimizedAutoScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOptimizedAutoScalePtrInput)(nil)).Elem(), ClusterOptimizedAutoScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuInput)(nil)).Elem(), ClusterSkuArgs{})
@@ -1087,6 +1192,8 @@ func init() {
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationSharingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLanguageExtensionOutput{})
+	pulumi.RegisterOutputType(ClusterLanguageExtensionArrayOutput{})
 	pulumi.RegisterOutputType(ClusterOptimizedAutoScaleOutput{})
 	pulumi.RegisterOutputType(ClusterOptimizedAutoScalePtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuOutput{})

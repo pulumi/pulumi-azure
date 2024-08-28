@@ -19,30 +19,41 @@ import * as utilities from "../utilities";
  *     name: "example-rg",
  *     location: "West Europe",
  * });
- * const exampleSubnetServiceEndpointStoragePolicy = new azure.network.SubnetServiceEndpointStoragePolicy("example", {
- *     name: "example-policy",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     definition: {
- *         name: "name2",
- *         description: "definition2",
- *         service: "Global",
- *         serviceResources: [
- *             "/services/Azure",
- *             "/services/Azure/Batch",
- *             "/services/Azure/DataFactory",
- *             "/services/Azure/MachineLearning",
- *             "/services/Azure/ManagedInstance",
- *             "/services/Azure/WebPI",
- *         ],
- *     },
- * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     name: "examplestorageacct",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
+ * });
+ * const exampleSubnetServiceEndpointStoragePolicy = new azure.network.SubnetServiceEndpointStoragePolicy("example", {
+ *     name: "example-policy",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     definitions: [
+ *         {
+ *             name: "name1",
+ *             description: "definition1",
+ *             service: "Microsoft.Storage",
+ *             serviceResources: [
+ *                 example.id,
+ *                 exampleAccount.id,
+ *             ],
+ *         },
+ *         {
+ *             name: "name2",
+ *             description: "definition2",
+ *             service: "Global",
+ *             serviceResources: [
+ *                 "/services/Azure",
+ *                 "/services/Azure/Batch",
+ *                 "/services/Azure/DataFactory",
+ *                 "/services/Azure/MachineLearning",
+ *                 "/services/Azure/ManagedInstance",
+ *                 "/services/Azure/WebPI",
+ *             ],
+ *         },
+ *     ],
  * });
  * ```
  *
@@ -85,7 +96,7 @@ export class SubnetServiceEndpointStoragePolicy extends pulumi.CustomResource {
     /**
      * A `definition` block as defined below
      */
-    public readonly definition!: pulumi.Output<outputs.network.SubnetServiceEndpointStoragePolicyDefinition | undefined>;
+    public readonly definitions!: pulumi.Output<outputs.network.SubnetServiceEndpointStoragePolicyDefinition[] | undefined>;
     /**
      * The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      */
@@ -116,7 +127,7 @@ export class SubnetServiceEndpointStoragePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetServiceEndpointStoragePolicyState | undefined;
-            resourceInputs["definition"] = state ? state.definition : undefined;
+            resourceInputs["definitions"] = state ? state.definitions : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -126,7 +137,7 @@ export class SubnetServiceEndpointStoragePolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["definitions"] = args ? args.definitions : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -144,7 +155,7 @@ export interface SubnetServiceEndpointStoragePolicyState {
     /**
      * A `definition` block as defined below
      */
-    definition?: pulumi.Input<inputs.network.SubnetServiceEndpointStoragePolicyDefinition>;
+    definitions?: pulumi.Input<pulumi.Input<inputs.network.SubnetServiceEndpointStoragePolicyDefinition>[]>;
     /**
      * The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      */
@@ -170,7 +181,7 @@ export interface SubnetServiceEndpointStoragePolicyArgs {
     /**
      * A `definition` block as defined below
      */
-    definition?: pulumi.Input<inputs.network.SubnetServiceEndpointStoragePolicyDefinition>;
+    definitions?: pulumi.Input<pulumi.Input<inputs.network.SubnetServiceEndpointStoragePolicyDefinition>[]>;
     /**
      * The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
      */

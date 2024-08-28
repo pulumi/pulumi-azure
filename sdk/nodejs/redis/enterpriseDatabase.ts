@@ -33,7 +33,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleEnterpriseDatabase = new azure.redis.EnterpriseDatabase("example", {
  *     name: "default",
- *     resourceGroupName: example.name,
  *     clusterId: exampleEnterpriseCluster.id,
  *     clientProtocol: "Encrypted",
  *     clusteringPolicy: "EnterpriseCluster",
@@ -128,12 +127,6 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
-     * The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-     *
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * The Secondary Access Key for the Redis Enterprise Database Instance.
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
@@ -161,7 +154,6 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
         } else {
             const args = argsOrState as EnterpriseDatabaseArgs | undefined;
@@ -177,7 +169,6 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
             resourceInputs["modules"] = args ? args.modules : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
             resourceInputs["secondaryAccessKey"] = undefined /*out*/;
         }
@@ -237,12 +228,6 @@ export interface EnterpriseDatabaseState {
      */
     primaryAccessKey?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-     *
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
      * The Secondary Access Key for the Redis Enterprise Database Instance.
      */
     secondaryAccessKey?: pulumi.Input<string>;
@@ -292,10 +277,4 @@ export interface EnterpriseDatabaseArgs {
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
      */
     port?: pulumi.Input<number>;
-    /**
-     * The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-     *
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    resourceGroupName?: pulumi.Input<string>;
 }
