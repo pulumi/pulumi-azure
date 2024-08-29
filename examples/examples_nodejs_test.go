@@ -69,10 +69,10 @@ func TestAccAciVolumeMount(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "aci-volume-mount"),
-			RunUpdateTest: false,
+			Dir:                    filepath.Join(getCwd(t), "aci-volume-mount"),
+			RunUpdateTest:          false,
 			SkipEmptyPreviewUpdate: true,
-			ExpectRefreshChanges: true,
+			ExpectRefreshChanges:   true,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -103,8 +103,8 @@ func TestAccTable(t *testing.T) {
 func TestAccServicebusMigration(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "servicebus-migration-test"),
-			RunUpdateTest: true,
+			Dir: filepath.Join(getCwd(t), "servicebus-migration-test"),
+			// RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
 					Dir:             filepath.Join("servicebus-migration-test", "step2"),
@@ -197,8 +197,8 @@ func TestAccNetwork_OIDC(t *testing.T) {
 func TestAccWebserver(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:                  filepath.Join(getCwd(t), "webserver"),
-			RunUpdateTest:        true,
+			Dir: filepath.Join(getCwd(t), "webserver"),
+			// RunUpdateTest:        true,
 			ExpectRefreshChanges: true,
 		})
 

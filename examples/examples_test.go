@@ -7,7 +7,9 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"os/exec"
 	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 
@@ -32,6 +34,26 @@ func getLocation(t *testing.T) string {
 	return azureLocation
 }
 
+func getSubscriptionID(t *testing.T) string {
+	// Prefer the environment variable, but fall back to the Azure CLI if it's not set.
+	// This should always be set in CI, but is useful for local testing.
+	subscriptionID := os.Getenv("ARM_SUBSCRIPTION_ID")
+	if subscriptionID == "" {
+		// Fetch from default Azure CLI profile
+		cmd := exec.Command("az", "account", "show", "--query", "id", "-o", "tsv")
+		out, err := cmd.Output()
+		if err != nil {
+			t.Fatal(err)
+		}
+		if len(out) == 0 {
+			t.Fatal("No Azure subscription ID found")
+		}
+		subscriptionID = strings.Trim(string(out), "\n")
+	}
+
+	return subscriptionID
+}
+
 func getCwd(t *testing.T) string {
 	cwd, err := os.Getwd()
 	if err != nil {
@@ -48,9 +70,11 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 		t.Fatal(err)
 	}
 	fmt.Printf("Using binPath %s\n", binPath)
+	subscriptionId := getSubscriptionID(t)
 	return integration.ProgramTestOptions{
 		Config: map[string]string{
-			"azure:location": azureLocation,
+			"azure:location":       azureLocation,
+			"azure:subscriptionId": subscriptionId,
 		},
 		LocalProviders: []integration.LocalDependency{
 			{
