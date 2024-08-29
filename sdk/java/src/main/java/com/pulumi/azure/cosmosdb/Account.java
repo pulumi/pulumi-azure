@@ -218,10 +218,10 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.analyticalStorageEnabled);
     }
     @Export(name="automaticFailoverEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> automaticFailoverEnabled;
+    private Output</* @Nullable */ Boolean> automaticFailoverEnabled;
 
-    public Output<Boolean> automaticFailoverEnabled() {
-        return this.automaticFailoverEnabled;
+    public Output<Optional<Boolean>> automaticFailoverEnabled() {
+        return Codegen.optional(this.automaticFailoverEnabled);
     }
     @Export(name="backup", refs={AccountBackup.class}, tree="[0]")
     private Output<AccountBackup> backup;
@@ -254,18 +254,6 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<AccountCapacity> capacity() {
         return this.capacity;
-    }
-    /**
-     * @deprecated
-     * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
-    @Export(name="connectionStrings", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> connectionStrings;
-
-    public Output<List<String>> connectionStrings() {
-        return this.connectionStrings;
     }
     @Export(name="consistencyPolicy", refs={AccountConsistencyPolicy.class}, tree="[0]")
     private Output<AccountConsistencyPolicy> consistencyPolicy;
@@ -312,42 +300,6 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultIdentityType);
     }
     /**
-     * @deprecated
-     * This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider */
-    @Export(name="enableAutomaticFailover", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableAutomaticFailover;
-
-    public Output<Boolean> enableAutomaticFailover() {
-        return this.enableAutomaticFailover;
-    }
-    /**
-     * @deprecated
-     * This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider */
-    @Export(name="enableFreeTier", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableFreeTier;
-
-    public Output<Boolean> enableFreeTier() {
-        return this.enableFreeTier;
-    }
-    /**
-     * @deprecated
-     * This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider */
-    @Export(name="enableMultipleWriteLocations", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableMultipleWriteLocations;
-
-    public Output<Boolean> enableMultipleWriteLocations() {
-        return this.enableMultipleWriteLocations;
-    }
-    /**
      * The endpoint used to connect to the CosmosDB account.
      * 
      */
@@ -362,10 +314,10 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     @Export(name="freeTierEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> freeTierEnabled;
+    private Output</* @Nullable */ Boolean> freeTierEnabled;
 
-    public Output<Boolean> freeTierEnabled() {
-        return this.freeTierEnabled;
+    public Output<Optional<Boolean>> freeTierEnabled() {
+        return Codegen.optional(this.freeTierEnabled);
     }
     @Export(name="geoLocations", refs={List.class,AccountGeoLocation.class}, tree="[0,1]")
     private Output<List<AccountGeoLocation>> geoLocations;
@@ -379,11 +331,11 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<Optional<AccountIdentity>> identity() {
         return Codegen.optional(this.identity);
     }
-    @Export(name="ipRangeFilter", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> ipRangeFilter;
+    @Export(name="ipRangeFilters", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> ipRangeFilters;
 
-    public Output<Optional<String>> ipRangeFilter() {
-        return Codegen.optional(this.ipRangeFilter);
+    public Output<Optional<List<String>>> ipRangeFilters() {
+        return Codegen.optional(this.ipRangeFilters);
     }
     @Export(name="isVirtualNetworkFilterEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isVirtualNetworkFilterEnabled;
@@ -428,14 +380,14 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="minimalTlsVersion", refs={String.class}, tree="[0]")
-    private Output<String> minimalTlsVersion;
+    private Output</* @Nullable */ String> minimalTlsVersion;
 
     /**
      * @return Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
      * 
      */
-    public Output<String> minimalTlsVersion() {
-        return this.minimalTlsVersion;
+    public Output<Optional<String>> minimalTlsVersion() {
+        return Codegen.optional(this.minimalTlsVersion);
     }
     @Export(name="mongoServerVersion", refs={String.class}, tree="[0]")
     private Output<String> mongoServerVersion;
@@ -444,10 +396,10 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.mongoServerVersion;
     }
     @Export(name="multipleWriteLocationsEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> multipleWriteLocationsEnabled;
+    private Output</* @Nullable */ Boolean> multipleWriteLocationsEnabled;
 
-    public Output<Boolean> multipleWriteLocationsEnabled() {
-        return this.multipleWriteLocationsEnabled;
+    public Output<Optional<Boolean>> multipleWriteLocationsEnabled() {
+        return Codegen.optional(this.multipleWriteLocationsEnabled);
     }
     /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -778,7 +730,6 @@ public class Account extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "connectionStrings",
                 "primaryKey",
                 "primaryMongodbConnectionString",
                 "primaryReadonlyKey",

@@ -12,8 +12,11 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class LinuxVirtualMachineScaleSetGalleryApplicationGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("configurationReferenceBlobUri")]
-        public Input<string>? ConfigurationReferenceBlobUri { get; set; }
+        /// <summary>
+        /// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("configurationBlobUri")]
+        public Input<string>? ConfigurationBlobUri { get; set; }
 
         /// <summary>
         /// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
@@ -21,11 +24,17 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("order")]
         public Input<int>? Order { get; set; }
 
-        [Input("packageReferenceId", required: true)]
-        public Input<string> PackageReferenceId { get; set; } = null!;
-
+        /// <summary>
+        /// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("tag")]
         public Input<string>? Tag { get; set; }
+
+        /// <summary>
+        /// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("versionId", required: true)]
+        public Input<string> VersionId { get; set; } = null!;
 
         public LinuxVirtualMachineScaleSetGalleryApplicationGetArgs()
         {

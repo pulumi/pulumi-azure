@@ -23,7 +23,6 @@ import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetScaleIn;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetSecret;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetSourceImageReference;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetSpotRestore;
-import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetTerminateNotification;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetTerminationNotification;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -424,7 +423,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="extensionOperationsEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> extensionOperationsEnabled;
+    private Output</* @Nullable */ Boolean> extensionOperationsEnabled;
 
     /**
      * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
@@ -432,8 +431,8 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
-    public Output<Boolean> extensionOperationsEnabled() {
-        return this.extensionOperationsEnabled;
+    public Output<Optional<Boolean>> extensionOperationsEnabled() {
+        return Codegen.optional(this.extensionOperationsEnabled);
     }
     /**
      * One or more `extension` blocks as defined below
@@ -467,27 +466,15 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * One or more `gallery_application` blocks as defined below.
      * 
      */
-    @Export(name="galleryApplication", refs={List.class,LinuxVirtualMachineScaleSetGalleryApplication.class}, tree="[0,1]")
-    private Output<List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplication;
+    @Export(name="galleryApplications", refs={List.class,LinuxVirtualMachineScaleSetGalleryApplication.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplications;
 
     /**
      * @return One or more `gallery_application` blocks as defined below.
      * 
      */
-    public Output<List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplication() {
-        return this.galleryApplication;
-    }
-    /**
-     * @deprecated
-     * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
-     * 
-     */
-    @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
-    @Export(name="galleryApplications", refs={List.class,LinuxVirtualMachineScaleSetGalleryApplication.class}, tree="[0,1]")
-    private Output<List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplications;
-
-    public Output<List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplications() {
-        return this.galleryApplications;
+    public Output<Optional<List<LinuxVirtualMachineScaleSetGalleryApplication>>> galleryApplications() {
+        return Codegen.optional(this.galleryApplications);
     }
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
@@ -748,26 +735,14 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="scaleIn", refs={LinuxVirtualMachineScaleSetScaleIn.class}, tree="[0]")
-    private Output<LinuxVirtualMachineScaleSetScaleIn> scaleIn;
+    private Output</* @Nullable */ LinuxVirtualMachineScaleSetScaleIn> scaleIn;
 
     /**
      * @return A `scale_in` block as defined below.
      * 
      */
-    public Output<LinuxVirtualMachineScaleSetScaleIn> scaleIn() {
-        return this.scaleIn;
-    }
-    /**
-     * @deprecated
-     * `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
-    @Export(name="scaleInPolicy", refs={String.class}, tree="[0]")
-    private Output<String> scaleInPolicy;
-
-    public Output<String> scaleInPolicy() {
-        return this.scaleInPolicy;
+    public Output<Optional<LinuxVirtualMachineScaleSetScaleIn>> scaleIn() {
+        return Codegen.optional(this.scaleIn);
     }
     /**
      * One or more `secret` blocks as defined below.
@@ -888,28 +863,6 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
-    }
-    /**
-     * A `terminate_notification` block as defined below.
-     * 
-     * &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
-     * 
-     */
-    @Deprecated /* `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0. */
-    @Export(name="terminateNotification", refs={LinuxVirtualMachineScaleSetTerminateNotification.class}, tree="[0]")
-    private Output<LinuxVirtualMachineScaleSetTerminateNotification> terminateNotification;
-
-    /**
-     * @return A `terminate_notification` block as defined below.
-     * 
-     * &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-     * 
-     */
-    public Output<LinuxVirtualMachineScaleSetTerminateNotification> terminateNotification() {
-        return this.terminateNotification;
     }
     /**
      * A `termination_notification` block as defined below.

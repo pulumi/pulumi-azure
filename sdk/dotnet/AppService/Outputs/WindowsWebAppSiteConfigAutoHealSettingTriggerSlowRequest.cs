@@ -22,10 +22,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Interval;
         /// <summary>
-        /// The path for which this slow request rule applies.
-        /// </summary>
-        public readonly string? Path;
-        /// <summary>
         /// The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         /// </summary>
         public readonly string TimeTaken;
@@ -36,13 +32,10 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string interval,
 
-            string? path,
-
             string timeTaken)
         {
             Count = count;
             Interval = interval;
-            Path = path;
             TimeTaken = timeTaken;
         }
     }

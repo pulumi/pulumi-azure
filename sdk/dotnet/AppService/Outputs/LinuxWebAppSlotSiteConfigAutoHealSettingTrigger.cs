@@ -18,13 +18,13 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests? Requests;
         /// <summary>
+        /// A `slow_request` block as defined above.
+        /// </summary>
+        public readonly Outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest? SlowRequest;
+        /// <summary>
         /// One or more `slow_request_with_path` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> SlowRequestWithPaths;
-        /// <summary>
-        /// A `slow_request` block as defined above.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> SlowRequests;
         /// <summary>
         /// One or more `status_code` blocks as defined above.
         /// </summary>
@@ -34,15 +34,15 @@ namespace Pulumi.Azure.AppService.Outputs
         private LinuxWebAppSlotSiteConfigAutoHealSettingTrigger(
             Outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests? requests,
 
-            ImmutableArray<Outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths,
+            Outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest? slowRequest,
 
-            ImmutableArray<Outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests,
+            ImmutableArray<Outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths,
 
             ImmutableArray<Outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes)
         {
             Requests = requests;
+            SlowRequest = slowRequest;
             SlowRequestWithPaths = slowRequestWithPaths;
-            SlowRequests = slowRequests;
             StatusCodes = statusCodes;
         }
     }

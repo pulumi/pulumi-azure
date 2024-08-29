@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .name("example-pip")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .allocationMethod("Dynamic")
+ *             .allocationMethod("Static")
  *             .build());
  * 
  *         final var backendAddressPoolName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-beap", name));

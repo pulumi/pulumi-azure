@@ -289,14 +289,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.blobProperties;
     }
     /**
-     * Should cross Tenant replication be enabled? Defaults to `true`.
+     * Should cross Tenant replication be enabled? Defaults to `false`.
      * 
      */
     @Export(name="crossTenantReplicationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> crossTenantReplicationEnabled;
 
     /**
-     * @return Should cross Tenant replication be enabled? Defaults to `true`.
+     * @return Should cross Tenant replication be enabled? Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> crossTenantReplicationEnabled() {
@@ -381,30 +381,18 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.edgeZone);
     }
     /**
-     * @deprecated
-     * The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="enableHttpsTrafficOnly", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableHttpsTrafficOnly;
-
-    public Output<Boolean> enableHttpsTrafficOnly() {
-        return this.enableHttpsTrafficOnly;
-    }
-    /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      * 
      */
     @Export(name="httpsTrafficOnlyEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> httpsTrafficOnlyEnabled;
+    private Output</* @Nullable */ Boolean> httpsTrafficOnlyEnabled;
 
     /**
      * @return Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      * 
      */
-    public Output<Boolean> httpsTrafficOnlyEnabled() {
-        return this.httpsTrafficOnlyEnabled;
+    public Output<Optional<Boolean>> httpsTrafficOnlyEnabled() {
+        return Codegen.optional(this.httpsTrafficOnlyEnabled);
     }
     /**
      * An `identity` block as defined below.
@@ -1739,7 +1727,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
-     * &gt; **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+     * &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
      * 
      */
     @Export(name="tableEncryptionKeyType", refs={String.class}, tree="[0]")
@@ -1748,7 +1736,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
-     * &gt; **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+     * &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
      * 
      */
     public Output<Optional<String>> tableEncryptionKeyType() {

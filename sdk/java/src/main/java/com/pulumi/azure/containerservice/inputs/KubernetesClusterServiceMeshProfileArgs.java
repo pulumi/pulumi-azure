@@ -9,6 +9,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -82,6 +83,25 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
         return this.mode;
     }
 
+    /**
+     * Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+     * 
+     * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+     * 
+     */
+    @Import(name="revisions", required=true)
+    private Output<List<String>> revisions;
+
+    /**
+     * @return Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+     * 
+     * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+     * 
+     */
+    public Output<List<String>> revisions() {
+        return this.revisions;
+    }
+
     private KubernetesClusterServiceMeshProfileArgs() {}
 
     private KubernetesClusterServiceMeshProfileArgs(KubernetesClusterServiceMeshProfileArgs $) {
@@ -89,6 +109,7 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
         this.externalIngressGatewayEnabled = $.externalIngressGatewayEnabled;
         this.internalIngressGatewayEnabled = $.internalIngressGatewayEnabled;
         this.mode = $.mode;
+        this.revisions = $.revisions;
     }
 
     public static Builder builder() {
@@ -197,9 +218,49 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
             return mode(Output.of(mode));
         }
 
+        /**
+         * @param revisions Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+         * 
+         * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revisions(Output<List<String>> revisions) {
+            $.revisions = revisions;
+            return this;
+        }
+
+        /**
+         * @param revisions Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+         * 
+         * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revisions(List<String> revisions) {
+            return revisions(Output.of(revisions));
+        }
+
+        /**
+         * @param revisions Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+         * 
+         * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revisions(String... revisions) {
+            return revisions(List.of(revisions));
+        }
+
         public KubernetesClusterServiceMeshProfileArgs build() {
             if ($.mode == null) {
                 throw new MissingRequiredPropertyException("KubernetesClusterServiceMeshProfileArgs", "mode");
+            }
+            if ($.revisions == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterServiceMeshProfileArgs", "revisions");
             }
             return $;
         }

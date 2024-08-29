@@ -21,7 +21,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Is the Disk CSI driver enabled? Defaults to `true`.
         /// </summary>
         public readonly bool? DiskDriverEnabled;
-        public readonly string? DiskDriverVersion;
         /// <summary>
         /// Is the File CSI driver enabled? Defaults to `true`.
         /// </summary>
@@ -37,15 +36,12 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool? diskDriverEnabled,
 
-            string? diskDriverVersion,
-
             bool? fileDriverEnabled,
 
             bool? snapshotControllerEnabled)
         {
             BlobDriverEnabled = blobDriverEnabled;
             DiskDriverEnabled = diskDriverEnabled;
-            DiskDriverVersion = diskDriverVersion;
             FileDriverEnabled = fileDriverEnabled;
             SnapshotControllerEnabled = snapshotControllerEnabled;
         }

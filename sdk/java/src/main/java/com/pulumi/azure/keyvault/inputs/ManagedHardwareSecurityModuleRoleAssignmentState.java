@@ -107,25 +107,6 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         return Optional.ofNullable(this.scope);
     }
 
-    /**
-     * @deprecated
-     * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
-     * 
-     */
-    @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
-    @Import(name="vaultBaseUrl")
-    private @Nullable Output<String> vaultBaseUrl;
-
-    /**
-     * @deprecated
-     * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
-     * 
-     */
-    @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
-    public Optional<Output<String>> vaultBaseUrl() {
-        return Optional.ofNullable(this.vaultBaseUrl);
-    }
-
     private ManagedHardwareSecurityModuleRoleAssignmentState() {}
 
     private ManagedHardwareSecurityModuleRoleAssignmentState(ManagedHardwareSecurityModuleRoleAssignmentState $) {
@@ -135,7 +116,6 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         this.resourceId = $.resourceId;
         this.roleDefinitionId = $.roleDefinitionId;
         this.scope = $.scope;
-        this.vaultBaseUrl = $.vaultBaseUrl;
     }
 
     public static Builder builder() {
@@ -282,31 +262,6 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
          */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
-         * 
-         */
-        @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
-        public Builder vaultBaseUrl(@Nullable Output<String> vaultBaseUrl) {
-            $.vaultBaseUrl = vaultBaseUrl;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
-         * 
-         */
-        @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
-        public Builder vaultBaseUrl(String vaultBaseUrl) {
-            return vaultBaseUrl(Output.of(vaultBaseUrl));
         }
 
         public ManagedHardwareSecurityModuleRoleAssignmentState build() {

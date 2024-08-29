@@ -45,7 +45,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? DotnetFrameworkVersion { get; set; }
 
         /// <summary>
-        /// The number of minimum instances for this function app. Only affects apps on the Premium plan.
+        /// The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
         /// </summary>
         [Input("elasticInstanceMinimum")]
         public Input<int>? ElasticInstanceMinimum { get; set; }

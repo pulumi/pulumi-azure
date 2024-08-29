@@ -150,8 +150,8 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
      * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
      * 
      */
-    @Import(name="eventGrouping")
-    private @Nullable Output<AlertRuleNrtEventGroupingArgs> eventGrouping;
+    @Import(name="eventGrouping", required=true)
+    private Output<AlertRuleNrtEventGroupingArgs> eventGrouping;
 
     /**
      * @return A `event_grouping` block as defined below.
@@ -159,8 +159,8 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
      * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
      * 
      */
-    public Optional<Output<AlertRuleNrtEventGroupingArgs>> eventGrouping() {
-        return Optional.ofNullable(this.eventGrouping);
+    public Output<AlertRuleNrtEventGroupingArgs> eventGrouping() {
+        return this.eventGrouping;
     }
 
     /**
@@ -555,7 +555,7 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder eventGrouping(@Nullable Output<AlertRuleNrtEventGroupingArgs> eventGrouping) {
+        public Builder eventGrouping(Output<AlertRuleNrtEventGroupingArgs> eventGrouping) {
             $.eventGrouping = eventGrouping;
             return this;
         }
@@ -821,6 +821,9 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         public AlertRuleNrtArgs build() {
             if ($.displayName == null) {
                 throw new MissingRequiredPropertyException("AlertRuleNrtArgs", "displayName");
+            }
+            if ($.eventGrouping == null) {
+                throw new MissingRequiredPropertyException("AlertRuleNrtArgs", "eventGrouping");
             }
             if ($.logAnalyticsWorkspaceId == null) {
                 throw new MissingRequiredPropertyException("AlertRuleNrtArgs", "logAnalyticsWorkspaceId");

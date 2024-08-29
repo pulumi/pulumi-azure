@@ -49,7 +49,6 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
      * 
      */
     private String roleType;
-    private String vaultBaseUrl;
 
     private GetManagedHardwareSecurityModuleRoleDefinitionResult() {}
     /**
@@ -107,9 +106,6 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
     public String roleType() {
         return this.roleType;
     }
-    public String vaultBaseUrl() {
-        return this.vaultBaseUrl;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -129,7 +125,6 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
         private String resourceManagerId;
         private String roleName;
         private String roleType;
-        private String vaultBaseUrl;
         public Builder() {}
         public Builder(GetManagedHardwareSecurityModuleRoleDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -142,7 +137,6 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
     	      this.resourceManagerId = defaults.resourceManagerId;
     	      this.roleName = defaults.roleName;
     	      this.roleType = defaults.roleType;
-    	      this.vaultBaseUrl = defaults.vaultBaseUrl;
         }
 
         @CustomType.Setter
@@ -223,14 +217,6 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
             this.roleType = roleType;
             return this;
         }
-        @CustomType.Setter
-        public Builder vaultBaseUrl(String vaultBaseUrl) {
-            if (vaultBaseUrl == null) {
-              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "vaultBaseUrl");
-            }
-            this.vaultBaseUrl = vaultBaseUrl;
-            return this;
-        }
         public GetManagedHardwareSecurityModuleRoleDefinitionResult build() {
             final var _resultValue = new GetManagedHardwareSecurityModuleRoleDefinitionResult();
             _resultValue.assignableScopes = assignableScopes;
@@ -242,7 +228,6 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
             _resultValue.resourceManagerId = resourceManagerId;
             _resultValue.roleName = roleName;
             _resultValue.roleType = roleType;
-            _resultValue.vaultBaseUrl = vaultBaseUrl;
             return _resultValue;
         }
     }

@@ -124,12 +124,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<ImmutableArray<string>> Predicates { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
+        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
         /// 
         /// &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         /// </summary>
         [Output("protocol")]
-        public Output<string?> Protocol { get; private set; } = null!;
+        public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
         /// One or more `route` blocks as defined below.
@@ -238,12 +238,12 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
+        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
         /// 
         /// &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         /// </summary>
-        [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        [Input("protocol", required: true)]
+        public Input<string> Protocol { get; set; } = null!;
 
         [Input("routes")]
         private InputList<Inputs.SpringCloudGatewayRouteConfigRouteArgs>? _routes;
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
+        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
         /// 
         /// &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         /// </summary>

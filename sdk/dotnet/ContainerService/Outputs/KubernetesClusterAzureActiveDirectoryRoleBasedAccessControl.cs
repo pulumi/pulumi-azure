@@ -13,17 +13,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl
     {
-        public readonly ImmutableArray<string> AdminGroupObjectIds;
-        public readonly bool? AzureRbacEnabled;
-        public readonly string? ClientAppId;
         /// <summary>
-        /// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
-        /// 
-        /// &gt; **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
+        /// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
         /// </summary>
-        public readonly bool? Managed;
-        public readonly string? ServerAppId;
-        public readonly string? ServerAppSecret;
+        public readonly ImmutableArray<string> AdminGroupObjectIds;
+        /// <summary>
+        /// Is Role Based Access Control based on Azure AD enabled?
+        /// </summary>
+        public readonly bool? AzureRbacEnabled;
         /// <summary>
         /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         /// </summary>
@@ -35,22 +32,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool? azureRbacEnabled,
 
-            string? clientAppId,
-
-            bool? managed,
-
-            string? serverAppId,
-
-            string? serverAppSecret,
-
             string? tenantId)
         {
             AdminGroupObjectIds = adminGroupObjectIds;
             AzureRbacEnabled = azureRbacEnabled;
-            ClientAppId = clientAppId;
-            Managed = managed;
-            ServerAppId = serverAppId;
-            ServerAppSecret = serverAppSecret;
             TenantId = tenantId;
         }
     }

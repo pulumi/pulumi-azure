@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         /// </summary>
         [Output("extensionOperationsEnabled")]
-        public Output<bool> ExtensionOperationsEnabled { get; private set; } = null!;
+        public Output<bool?> ExtensionOperationsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// One or more `extension` blocks as defined below
@@ -259,9 +259,6 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// One or more `gallery_application` blocks as defined below.
         /// </summary>
-        [Output("galleryApplication")]
-        public Output<ImmutableArray<Outputs.LinuxVirtualMachineScaleSetGalleryApplication>> GalleryApplication { get; private set; } = null!;
-
         [Output("galleryApplications")]
         public Output<ImmutableArray<Outputs.LinuxVirtualMachineScaleSetGalleryApplication>> GalleryApplications { get; private set; } = null!;
 
@@ -379,10 +376,7 @@ namespace Pulumi.Azure.Compute
         /// A `scale_in` block as defined below.
         /// </summary>
         [Output("scaleIn")]
-        public Output<Outputs.LinuxVirtualMachineScaleSetScaleIn> ScaleIn { get; private set; } = null!;
-
-        [Output("scaleInPolicy")]
-        public Output<string> ScaleInPolicy { get; private set; } = null!;
+        public Output<Outputs.LinuxVirtualMachineScaleSetScaleIn?> ScaleIn { get; private set; } = null!;
 
         /// <summary>
         /// One or more `secret` blocks as defined below.
@@ -435,14 +429,6 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// A `terminate_notification` block as defined below.
-        /// 
-        /// &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Output("terminateNotification")]
-        public Output<Outputs.LinuxVirtualMachineScaleSetTerminateNotification> TerminateNotification { get; private set; } = null!;
 
         /// <summary>
         /// A `termination_notification` block as defined below.
@@ -710,21 +696,12 @@ namespace Pulumi.Azure.Compute
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
-        [Input("galleryApplication")]
-        private InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationArgs>? _galleryApplication;
+        [Input("galleryApplications")]
+        private InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationArgs>? _galleryApplications;
 
         /// <summary>
         /// One or more `gallery_application` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationArgs> GalleryApplication
-        {
-            get => _galleryApplication ?? (_galleryApplication = new InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationArgs>());
-            set => _galleryApplication = value;
-        }
-
-        [Input("galleryApplications")]
-        private InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationArgs>? _galleryApplications;
-        [Obsolete(@"`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0")]
         public InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationArgs> GalleryApplications
         {
             get => _galleryApplications ?? (_galleryApplications = new InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationArgs>());
@@ -853,9 +830,6 @@ namespace Pulumi.Azure.Compute
         [Input("scaleIn")]
         public Input<Inputs.LinuxVirtualMachineScaleSetScaleInArgs>? ScaleIn { get; set; }
 
-        [Input("scaleInPolicy")]
-        public Input<string>? ScaleInPolicy { get; set; }
-
         [Input("secrets")]
         private InputList<Inputs.LinuxVirtualMachineScaleSetSecretArgs>? _secrets;
 
@@ -919,14 +893,6 @@ namespace Pulumi.Azure.Compute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// A `terminate_notification` block as defined below.
-        /// 
-        /// &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Input("terminateNotification")]
-        public Input<Inputs.LinuxVirtualMachineScaleSetTerminateNotificationArgs>? TerminateNotification { get; set; }
 
         /// <summary>
         /// A `termination_notification` block as defined below.
@@ -1151,21 +1117,12 @@ namespace Pulumi.Azure.Compute
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
-        [Input("galleryApplication")]
-        private InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationGetArgs>? _galleryApplication;
+        [Input("galleryApplications")]
+        private InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationGetArgs>? _galleryApplications;
 
         /// <summary>
         /// One or more `gallery_application` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationGetArgs> GalleryApplication
-        {
-            get => _galleryApplication ?? (_galleryApplication = new InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationGetArgs>());
-            set => _galleryApplication = value;
-        }
-
-        [Input("galleryApplications")]
-        private InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationGetArgs>? _galleryApplications;
-        [Obsolete(@"`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0")]
         public InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationGetArgs> GalleryApplications
         {
             get => _galleryApplications ?? (_galleryApplications = new InputList<Inputs.LinuxVirtualMachineScaleSetGalleryApplicationGetArgs>());
@@ -1294,9 +1251,6 @@ namespace Pulumi.Azure.Compute
         [Input("scaleIn")]
         public Input<Inputs.LinuxVirtualMachineScaleSetScaleInGetArgs>? ScaleIn { get; set; }
 
-        [Input("scaleInPolicy")]
-        public Input<string>? ScaleInPolicy { get; set; }
-
         [Input("secrets")]
         private InputList<Inputs.LinuxVirtualMachineScaleSetSecretGetArgs>? _secrets;
 
@@ -1360,14 +1314,6 @@ namespace Pulumi.Azure.Compute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// A `terminate_notification` block as defined below.
-        /// 
-        /// &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Input("terminateNotification")]
-        public Input<Inputs.LinuxVirtualMachineScaleSetTerminateNotificationGetArgs>? TerminateNotification { get; set; }
 
         /// <summary>
         /// A `termination_notification` block as defined below.

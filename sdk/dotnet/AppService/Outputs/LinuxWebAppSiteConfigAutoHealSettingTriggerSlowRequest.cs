@@ -22,12 +22,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Interval;
         /// <summary>
-        /// The path for which this slow request rule applies.
-        /// 
-        /// &gt; **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
-        /// </summary>
-        public readonly string? Path;
-        /// <summary>
         /// The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         /// </summary>
         public readonly string TimeTaken;
@@ -38,13 +32,10 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string interval,
 
-            string? path,
-
             string timeTaken)
         {
             Count = count;
             Interval = interval;
-            Path = path;
             TimeTaken = timeTaken;
         }
     }

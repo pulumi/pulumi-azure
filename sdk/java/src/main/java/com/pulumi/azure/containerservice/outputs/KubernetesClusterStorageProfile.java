@@ -5,7 +5,6 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
-import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,13 +21,6 @@ public final class KubernetesClusterStorageProfile {
      * 
      */
     private @Nullable Boolean diskDriverEnabled;
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    private @Nullable String diskDriverVersion;
     /**
      * @return Is the File CSI driver enabled? Defaults to `true`.
      * 
@@ -56,15 +48,6 @@ public final class KubernetesClusterStorageProfile {
         return Optional.ofNullable(this.diskDriverEnabled);
     }
     /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    public Optional<String> diskDriverVersion() {
-        return Optional.ofNullable(this.diskDriverVersion);
-    }
-    /**
      * @return Is the File CSI driver enabled? Defaults to `true`.
      * 
      */
@@ -90,7 +73,6 @@ public final class KubernetesClusterStorageProfile {
     public static final class Builder {
         private @Nullable Boolean blobDriverEnabled;
         private @Nullable Boolean diskDriverEnabled;
-        private @Nullable String diskDriverVersion;
         private @Nullable Boolean fileDriverEnabled;
         private @Nullable Boolean snapshotControllerEnabled;
         public Builder() {}
@@ -98,7 +80,6 @@ public final class KubernetesClusterStorageProfile {
     	      Objects.requireNonNull(defaults);
     	      this.blobDriverEnabled = defaults.blobDriverEnabled;
     	      this.diskDriverEnabled = defaults.diskDriverEnabled;
-    	      this.diskDriverVersion = defaults.diskDriverVersion;
     	      this.fileDriverEnabled = defaults.fileDriverEnabled;
     	      this.snapshotControllerEnabled = defaults.snapshotControllerEnabled;
         }
@@ -113,12 +94,6 @@ public final class KubernetesClusterStorageProfile {
         public Builder diskDriverEnabled(@Nullable Boolean diskDriverEnabled) {
 
             this.diskDriverEnabled = diskDriverEnabled;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder diskDriverVersion(@Nullable String diskDriverVersion) {
-
-            this.diskDriverVersion = diskDriverVersion;
             return this;
         }
         @CustomType.Setter
@@ -137,7 +112,6 @@ public final class KubernetesClusterStorageProfile {
             final var _resultValue = new KubernetesClusterStorageProfile();
             _resultValue.blobDriverEnabled = blobDriverEnabled;
             _resultValue.diskDriverEnabled = diskDriverEnabled;
-            _resultValue.diskDriverVersion = diskDriverVersion;
             _resultValue.fileDriverEnabled = fileDriverEnabled;
             _resultValue.snapshotControllerEnabled = snapshotControllerEnabled;
             return _resultValue;

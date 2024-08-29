@@ -109,6 +109,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool")
 public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResource {
     /**
+     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+     * 
+     */
+    @Export(name="autoScalingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> autoScalingEnabled;
+
+    /**
+     * @return Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+     * 
+     */
+    public Output<Optional<Boolean>> autoScalingEnabled() {
+        return Codegen.optional(this.autoScalingEnabled);
+    }
+    /**
      * Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -121,64 +135,6 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      */
     public Output<Optional<String>> capacityReservationGroupId() {
         return Codegen.optional(this.capacityReservationGroupId);
-    }
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    @Export(name="customCaTrustEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> customCaTrustEnabled;
-
-    public Output<Optional<Boolean>> customCaTrustEnabled() {
-        return Codegen.optional(this.customCaTrustEnabled);
-    }
-    /**
-     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-     * 
-     */
-    @Export(name="enableAutoScaling", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableAutoScaling;
-
-    /**
-     * @return Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-     * 
-     */
-    public Output<Optional<Boolean>> enableAutoScaling() {
-        return Codegen.optional(this.enableAutoScaling);
-    }
-    /**
-     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-     * 
-     */
-    @Export(name="enableHostEncryption", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableHostEncryption;
-
-    /**
-     * @return Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-     * 
-     */
-    public Output<Optional<Boolean>> enableHostEncryption() {
-        return Codegen.optional(this.enableHostEncryption);
-    }
-    /**
-     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
-     * 
-     */
-    @Export(name="enableNodePublicIp", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableNodePublicIp;
-
-    /**
-     * @return Should each node have a Public IP Address? Changing this forces a new resource to be created.
-     * 
-     */
-    public Output<Optional<Boolean>> enableNodePublicIp() {
-        return Codegen.optional(this.enableNodePublicIp);
     }
     /**
      * The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -229,6 +185,24 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      */
     public Output<Optional<String>> gpuInstance() {
         return Codegen.optional(this.gpuInstance);
+    }
+    /**
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+     * 
+     */
+    @Export(name="hostEncryptionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> hostEncryptionEnabled;
+
+    /**
+     * @return Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+     * 
+     */
+    public Output<Optional<Boolean>> hostEncryptionEnabled() {
+        return Codegen.optional(this.hostEncryptionEnabled);
     }
     /**
      * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
@@ -324,18 +298,6 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     public Output<Integer> maxPods() {
         return this.maxPods;
     }
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    @Export(name="messageOfTheDay", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> messageOfTheDay;
-
-    public Output<Optional<String>> messageOfTheDay() {
-        return Codegen.optional(this.messageOfTheDay);
-    }
     @Export(name="minCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minCount;
 
@@ -409,14 +371,28 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.nodeNetworkProfile);
     }
     /**
-     * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="nodePublicIpEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> nodePublicIpEnabled;
+
+    /**
+     * @return Should each node have a Public IP Address? Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> nodePublicIpEnabled() {
+        return Codegen.optional(this.nodePublicIpEnabled);
+    }
+    /**
+     * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="nodePublicIpPrefixId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nodePublicIpPrefixId;
 
     /**
-     * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+     * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> nodePublicIpPrefixId() {

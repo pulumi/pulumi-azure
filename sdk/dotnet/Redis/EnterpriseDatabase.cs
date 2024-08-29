@@ -47,7 +47,6 @@ namespace Pulumi.Azure.Redis
     ///     var exampleEnterpriseDatabase = new Azure.Redis.EnterpriseDatabase("example", new()
     ///     {
     ///         Name = "default",
-    ///         ResourceGroupName = example.Name,
     ///         ClusterId = exampleEnterpriseCluster.Id,
     ///         ClientProtocol = "Encrypted",
     ///         ClusteringPolicy = "EnterpriseCluster",
@@ -138,12 +137,6 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Output("primaryAccessKey")]
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The Secondary Access Key for the Redis Enterprise Database Instance.
@@ -272,12 +265,6 @@ namespace Pulumi.Azure.Redis
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
         public EnterpriseDatabaseArgs()
         {
         }
@@ -371,12 +358,6 @@ namespace Pulumi.Azure.Redis
                 _primaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
-
-        /// <summary>
-        /// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         [Input("secondaryAccessKey")]
         private Input<string>? _secondaryAccessKey;

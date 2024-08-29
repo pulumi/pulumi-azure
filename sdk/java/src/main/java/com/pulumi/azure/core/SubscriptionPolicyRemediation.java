@@ -167,28 +167,6 @@ public class SubscriptionPolicyRemediation extends com.pulumi.resources.CustomRe
         return this.policyAssignmentId;
     }
     /**
-     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-     * 
-     * @deprecated
-     * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-     * 
-     */
-    @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
-    @Export(name="policyDefinitionId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> policyDefinitionId;
-
-    /**
-     * @return The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-     * 
-     */
-    public Output<Optional<String>> policyDefinitionId() {
-        return Codegen.optional(this.policyDefinitionId);
-    }
-    /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      * 
      */

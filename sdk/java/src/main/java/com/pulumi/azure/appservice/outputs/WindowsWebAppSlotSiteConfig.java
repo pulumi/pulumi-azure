@@ -47,11 +47,6 @@ public final class WindowsWebAppSlotSiteConfig {
      */
     private @Nullable WindowsWebAppSlotSiteConfigApplicationStack applicationStack;
     /**
-     * @return Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-     * 
-     */
-    private @Nullable Boolean autoHealEnabled;
-    /**
      * @return A `auto_heal_setting` block as defined above. Required with `auto_heal`.
      * 
      */
@@ -228,13 +223,6 @@ public final class WindowsWebAppSlotSiteConfig {
      */
     public Optional<WindowsWebAppSlotSiteConfigApplicationStack> applicationStack() {
         return Optional.ofNullable(this.applicationStack);
-    }
-    /**
-     * @return Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-     * 
-     */
-    public Optional<Boolean> autoHealEnabled() {
-        return Optional.ofNullable(this.autoHealEnabled);
     }
     /**
      * @return A `auto_heal_setting` block as defined above. Required with `auto_heal`.
@@ -454,7 +442,6 @@ public final class WindowsWebAppSlotSiteConfig {
         private @Nullable String apiManagementApiId;
         private @Nullable String appCommandLine;
         private @Nullable WindowsWebAppSlotSiteConfigApplicationStack applicationStack;
-        private @Nullable Boolean autoHealEnabled;
         private @Nullable WindowsWebAppSlotSiteConfigAutoHealSetting autoHealSetting;
         private @Nullable String autoSwapSlotName;
         private @Nullable String containerRegistryManagedIdentityClientId;
@@ -494,7 +481,6 @@ public final class WindowsWebAppSlotSiteConfig {
     	      this.apiManagementApiId = defaults.apiManagementApiId;
     	      this.appCommandLine = defaults.appCommandLine;
     	      this.applicationStack = defaults.applicationStack;
-    	      this.autoHealEnabled = defaults.autoHealEnabled;
     	      this.autoHealSetting = defaults.autoHealSetting;
     	      this.autoSwapSlotName = defaults.autoSwapSlotName;
     	      this.containerRegistryManagedIdentityClientId = defaults.containerRegistryManagedIdentityClientId;
@@ -556,12 +542,6 @@ public final class WindowsWebAppSlotSiteConfig {
         public Builder applicationStack(@Nullable WindowsWebAppSlotSiteConfigApplicationStack applicationStack) {
 
             this.applicationStack = applicationStack;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder autoHealEnabled(@Nullable Boolean autoHealEnabled) {
-
-            this.autoHealEnabled = autoHealEnabled;
             return this;
         }
         @CustomType.Setter
@@ -772,7 +752,6 @@ public final class WindowsWebAppSlotSiteConfig {
             _resultValue.apiManagementApiId = apiManagementApiId;
             _resultValue.appCommandLine = appCommandLine;
             _resultValue.applicationStack = applicationStack;
-            _resultValue.autoHealEnabled = autoHealEnabled;
             _resultValue.autoHealSetting = autoHealSetting;
             _resultValue.autoSwapSlotName = autoSwapSlotName;
             _resultValue.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;

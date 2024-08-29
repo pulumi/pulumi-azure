@@ -4,7 +4,6 @@
 package com.pulumi.azure.nginx;
 
 import com.pulumi.azure.nginx.inputs.DeploymentAutoScaleProfileArgs;
-import com.pulumi.azure.nginx.inputs.DeploymentConfigurationArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentFrontendPrivateArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentFrontendPublicArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentIdentityArgs;
@@ -74,25 +73,6 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> capacity() {
         return Optional.ofNullable(this.capacity);
-    }
-
-    /**
-     * @deprecated
-     * The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="configuration")
-    private @Nullable Output<DeploymentConfigurationArgs> configuration;
-
-    /**
-     * @deprecated
-     * The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<DeploymentConfigurationArgs>> configuration() {
-        return Optional.ofNullable(this.configuration);
     }
 
     /**
@@ -288,7 +268,6 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         this.autoScaleProfiles = $.autoScaleProfiles;
         this.automaticUpgradeChannel = $.automaticUpgradeChannel;
         this.capacity = $.capacity;
-        this.configuration = $.configuration;
         this.diagnoseSupportEnabled = $.diagnoseSupportEnabled;
         this.email = $.email;
         this.frontendPrivates = $.frontendPrivates;
@@ -397,31 +376,6 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder capacity(Integer capacity) {
             return capacity(Output.of(capacity));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder configuration(@Nullable Output<DeploymentConfigurationArgs> configuration) {
-            $.configuration = configuration;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder configuration(DeploymentConfigurationArgs configuration) {
-            return configuration(Output.of(configuration));
         }
 
         /**

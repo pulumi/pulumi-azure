@@ -138,8 +138,6 @@ namespace Pulumi.Azure.Network
         /// Is the default outbound access enabled for the subnet.
         /// </summary>
         public readonly bool DefaultOutboundAccessEnabled;
-        public readonly bool EnforcePrivateLinkEndpointNetworkPolicies;
-        public readonly bool EnforcePrivateLinkServiceNetworkPolicies;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -153,7 +151,6 @@ namespace Pulumi.Azure.Network
         /// Enable or Disable network policies for the private endpoint on the subnet.
         /// </summary>
         public readonly string PrivateEndpointNetworkPolicies;
-        public readonly bool PrivateEndpointNetworkPoliciesEnabled;
         /// <summary>
         /// Enable or Disable network policies for the private link service on the subnet.
         /// </summary>
@@ -177,10 +174,6 @@ namespace Pulumi.Azure.Network
 
             bool defaultOutboundAccessEnabled,
 
-            bool enforcePrivateLinkEndpointNetworkPolicies,
-
-            bool enforcePrivateLinkServiceNetworkPolicies,
-
             string id,
 
             string name,
@@ -188,8 +181,6 @@ namespace Pulumi.Azure.Network
             string networkSecurityGroupId,
 
             string privateEndpointNetworkPolicies,
-
-            bool privateEndpointNetworkPoliciesEnabled,
 
             bool privateLinkServiceNetworkPoliciesEnabled,
 
@@ -204,13 +195,10 @@ namespace Pulumi.Azure.Network
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;
             DefaultOutboundAccessEnabled = defaultOutboundAccessEnabled;
-            EnforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
-            EnforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
             Id = id;
             Name = name;
             NetworkSecurityGroupId = networkSecurityGroupId;
             PrivateEndpointNetworkPolicies = privateEndpointNetworkPolicies;
-            PrivateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
             PrivateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
             ResourceGroupName = resourceGroupName;
             RouteTableId = routeTableId;

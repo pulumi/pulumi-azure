@@ -189,40 +189,18 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.endpoint);
     }
     /**
-     * The icon URL to visually identify the Bot Channels Registration.
+     * The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      * 
      */
     @Export(name="iconUrl", refs={String.class}, tree="[0]")
-    private Output<String> iconUrl;
+    private Output</* @Nullable */ String> iconUrl;
 
     /**
-     * @return The icon URL to visually identify the Bot Channels Registration.
+     * @return The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      * 
      */
-    public Output<String> iconUrl() {
-        return this.iconUrl;
-    }
-    /**
-     * Is the Bot Channels Registration in an isolated network?
-     * 
-     * &gt; **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
-    @Export(name="isolatedNetworkEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> isolatedNetworkEnabled;
-
-    /**
-     * @return Is the Bot Channels Registration in an isolated network?
-     * 
-     * &gt; **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    public Output<Boolean> isolatedNetworkEnabled() {
-        return this.isolatedNetworkEnabled;
+    public Output<Optional<String>> iconUrl() {
+        return Codegen.optional(this.iconUrl);
     }
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -271,14 +249,14 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> publicNetworkAccessEnabled;
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
      * @return Is the Bot Channels Registration in an isolated network?
      * 
      */
-    public Output<Boolean> publicNetworkAccessEnabled() {
-        return this.publicNetworkAccessEnabled;
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
      * The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.

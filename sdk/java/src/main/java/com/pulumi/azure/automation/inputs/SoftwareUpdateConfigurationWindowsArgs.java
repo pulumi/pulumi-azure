@@ -5,6 +5,7 @@ package com.pulumi.azure.automation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,32 +18,13 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
     public static final SoftwareUpdateConfigurationWindowsArgs Empty = new SoftwareUpdateConfigurationWindowsArgs();
 
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
-    @Import(name="classificationIncluded")
-    private @Nullable Output<String> classificationIncluded;
-
-    /**
-     * @deprecated
-     * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
-    public Optional<Output<String>> classificationIncluded() {
-        return Optional.ofNullable(this.classificationIncluded);
-    }
-
-    /**
      * Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
      * 
      * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
-    @Import(name="classificationsIncludeds")
-    private @Nullable Output<List<String>> classificationsIncludeds;
+    @Import(name="classificationsIncludeds", required=true)
+    private Output<List<String>> classificationsIncludeds;
 
     /**
      * @return Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
@@ -50,8 +32,8 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
      * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
-    public Optional<Output<List<String>>> classificationsIncludeds() {
-        return Optional.ofNullable(this.classificationsIncludeds);
+    public Output<List<String>> classificationsIncludeds() {
+        return this.classificationsIncludeds;
     }
 
     /**
@@ -102,7 +84,6 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
     private SoftwareUpdateConfigurationWindowsArgs() {}
 
     private SoftwareUpdateConfigurationWindowsArgs(SoftwareUpdateConfigurationWindowsArgs $) {
-        this.classificationIncluded = $.classificationIncluded;
         this.classificationsIncludeds = $.classificationsIncludeds;
         this.excludedKnowledgeBaseNumbers = $.excludedKnowledgeBaseNumbers;
         this.includedKnowledgeBaseNumbers = $.includedKnowledgeBaseNumbers;
@@ -128,31 +109,6 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
-         * 
-         */
-        @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
-        public Builder classificationIncluded(@Nullable Output<String> classificationIncluded) {
-            $.classificationIncluded = classificationIncluded;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
-         * 
-         */
-        @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
-        public Builder classificationIncluded(String classificationIncluded) {
-            return classificationIncluded(Output.of(classificationIncluded));
-        }
-
-        /**
          * @param classificationsIncludeds Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
          * 
          * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
@@ -160,7 +116,7 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder classificationsIncludeds(@Nullable Output<List<String>> classificationsIncludeds) {
+        public Builder classificationsIncludeds(Output<List<String>> classificationsIncludeds) {
             $.classificationsIncludeds = classificationsIncludeds;
             return this;
         }
@@ -273,6 +229,9 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
         }
 
         public SoftwareUpdateConfigurationWindowsArgs build() {
+            if ($.classificationsIncludeds == null) {
+                throw new MissingRequiredPropertyException("SoftwareUpdateConfigurationWindowsArgs", "classificationsIncludeds");
+            }
             return $;
         }
     }

@@ -136,14 +136,14 @@ public final class TimeSeriesDatabaseConnectionState extends com.pulumi.resource
     }
 
     /**
-     * Name of the Kusto Table. Changing this forces a new resource to be created.
+     * Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="kustoTableName")
     private @Nullable Output<String> kustoTableName;
 
     /**
-     * @return Name of the Kusto Table. Changing this forces a new resource to be created.
+     * @return Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> kustoTableName() {
@@ -367,7 +367,7 @@ public final class TimeSeriesDatabaseConnectionState extends com.pulumi.resource
         }
 
         /**
-         * @param kustoTableName Name of the Kusto Table. Changing this forces a new resource to be created.
+         * @param kustoTableName Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class TimeSeriesDatabaseConnectionState extends com.pulumi.resource
         }
 
         /**
-         * @param kustoTableName Name of the Kusto Table. Changing this forces a new resource to be created.
+         * @param kustoTableName Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

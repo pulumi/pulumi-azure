@@ -138,14 +138,14 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dailySchedule", refs={SnapshotPolicyDailySchedule.class}, tree="[0]")
-    private Output<SnapshotPolicyDailySchedule> dailySchedule;
+    private Output</* @Nullable */ SnapshotPolicyDailySchedule> dailySchedule;
 
     /**
      * @return Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
      * 
      */
-    public Output<SnapshotPolicyDailySchedule> dailySchedule() {
-        return this.dailySchedule;
+    public Output<Optional<SnapshotPolicyDailySchedule>> dailySchedule() {
+        return Codegen.optional(this.dailySchedule);
     }
     /**
      * Defines that the NetApp Snapshot Policy is enabled or not.
@@ -166,14 +166,14 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hourlySchedule", refs={SnapshotPolicyHourlySchedule.class}, tree="[0]")
-    private Output<SnapshotPolicyHourlySchedule> hourlySchedule;
+    private Output</* @Nullable */ SnapshotPolicyHourlySchedule> hourlySchedule;
 
     /**
      * @return Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
      * 
      */
-    public Output<SnapshotPolicyHourlySchedule> hourlySchedule() {
-        return this.hourlySchedule;
+    public Output<Optional<SnapshotPolicyHourlySchedule>> hourlySchedule() {
+        return Codegen.optional(this.hourlySchedule);
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -194,14 +194,14 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="monthlySchedule", refs={SnapshotPolicyMonthlySchedule.class}, tree="[0]")
-    private Output<SnapshotPolicyMonthlySchedule> monthlySchedule;
+    private Output</* @Nullable */ SnapshotPolicyMonthlySchedule> monthlySchedule;
 
     /**
      * @return Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
      * 
      */
-    public Output<SnapshotPolicyMonthlySchedule> monthlySchedule() {
-        return this.monthlySchedule;
+    public Output<Optional<SnapshotPolicyMonthlySchedule>> monthlySchedule() {
+        return Codegen.optional(this.monthlySchedule);
     }
     /**
      * The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
@@ -250,14 +250,14 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="weeklySchedule", refs={SnapshotPolicyWeeklySchedule.class}, tree="[0]")
-    private Output<SnapshotPolicyWeeklySchedule> weeklySchedule;
+    private Output</* @Nullable */ SnapshotPolicyWeeklySchedule> weeklySchedule;
 
     /**
      * @return Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
      * 
      */
-    public Output<SnapshotPolicyWeeklySchedule> weeklySchedule() {
-        return this.weeklySchedule;
+    public Output<Optional<SnapshotPolicyWeeklySchedule>> weeklySchedule() {
+        return Codegen.optional(this.weeklySchedule);
     }
 
     /**

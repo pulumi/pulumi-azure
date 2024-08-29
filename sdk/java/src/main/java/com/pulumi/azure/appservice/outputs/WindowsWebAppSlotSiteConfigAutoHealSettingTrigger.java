@@ -27,15 +27,15 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
      */
     private @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests;
     /**
+     * @return A `slow_request` block as defined above.
+     * 
+     */
+    private @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest slowRequest;
+    /**
      * @return One or more `slow_request_with_path` blocks as defined above.
      * 
      */
     private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
-    /**
-     * @return A `slow_request` block as defined above.
-     * 
-     */
-    private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
     /**
      * @return One or more `status_code` blocks as defined above.
      * 
@@ -58,18 +58,18 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
         return Optional.ofNullable(this.requests);
     }
     /**
+     * @return A `slow_request` block as defined above.
+     * 
+     */
+    public Optional<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequest() {
+        return Optional.ofNullable(this.slowRequest);
+    }
+    /**
      * @return One or more `slow_request_with_path` blocks as defined above.
      * 
      */
     public List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths() {
         return this.slowRequestWithPaths == null ? List.of() : this.slowRequestWithPaths;
-    }
-    /**
-     * @return A `slow_request` block as defined above.
-     * 
-     */
-    public List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests() {
-        return this.slowRequests == null ? List.of() : this.slowRequests;
     }
     /**
      * @return One or more `status_code` blocks as defined above.
@@ -90,16 +90,16 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
     public static final class Builder {
         private @Nullable Integer privateMemoryKb;
         private @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests;
+        private @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest slowRequest;
         private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
-        private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
         private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
         public Builder() {}
         public Builder(WindowsWebAppSlotSiteConfigAutoHealSettingTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateMemoryKb = defaults.privateMemoryKb;
     	      this.requests = defaults.requests;
+    	      this.slowRequest = defaults.slowRequest;
     	      this.slowRequestWithPaths = defaults.slowRequestWithPaths;
-    	      this.slowRequests = defaults.slowRequests;
     	      this.statusCodes = defaults.statusCodes;
         }
 
@@ -116,6 +116,12 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
             return this;
         }
         @CustomType.Setter
+        public Builder slowRequest(@Nullable WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest slowRequest) {
+
+            this.slowRequest = slowRequest;
+            return this;
+        }
+        @CustomType.Setter
         public Builder slowRequestWithPaths(@Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths) {
 
             this.slowRequestWithPaths = slowRequestWithPaths;
@@ -123,15 +129,6 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
         }
         public Builder slowRequestWithPaths(WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath... slowRequestWithPaths) {
             return slowRequestWithPaths(List.of(slowRequestWithPaths));
-        }
-        @CustomType.Setter
-        public Builder slowRequests(@Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
-
-            this.slowRequests = slowRequests;
-            return this;
-        }
-        public Builder slowRequests(WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest... slowRequests) {
-            return slowRequests(List.of(slowRequests));
         }
         @CustomType.Setter
         public Builder statusCodes(@Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
@@ -146,8 +143,8 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
             final var _resultValue = new WindowsWebAppSlotSiteConfigAutoHealSettingTrigger();
             _resultValue.privateMemoryKb = privateMemoryKb;
             _resultValue.requests = requests;
+            _resultValue.slowRequest = slowRequest;
             _resultValue.slowRequestWithPaths = slowRequestWithPaths;
-            _resultValue.slowRequests = slowRequests;
             _resultValue.statusCodes = statusCodes;
             return _resultValue;
         }

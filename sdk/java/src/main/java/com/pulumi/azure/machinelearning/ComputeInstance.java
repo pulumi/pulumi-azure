@@ -225,28 +225,6 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.localAuthEnabled);
     }
     /**
-     * The Azure Region where the Machine Learning Compute Instance should exist.
-     * 
-     * &gt; **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&amp;tabs=python).
-     * 
-     * @deprecated
-     * The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider */
-    @Export(name="location", refs={String.class}, tree="[0]")
-    private Output<String> location;
-
-    /**
-     * @return The Azure Region where the Machine Learning Compute Instance should exist.
-     * 
-     * &gt; **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&amp;tabs=python).
-     * 
-     */
-    public Output<String> location() {
-        return this.location;
-    }
-    /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */

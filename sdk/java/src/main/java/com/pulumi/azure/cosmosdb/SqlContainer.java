@@ -241,18 +241,6 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.partitionKeyKind);
     }
     /**
-     * @deprecated
-     * `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider. */
-    @Export(name="partitionKeyPath", refs={String.class}, tree="[0]")
-    private Output<String> partitionKeyPath;
-
-    public Output<String> partitionKeyPath() {
-        return this.partitionKeyPath;
-    }
-    /**
      * A list of partition key paths. Changing this forces a new resource to be created.
      * 
      */

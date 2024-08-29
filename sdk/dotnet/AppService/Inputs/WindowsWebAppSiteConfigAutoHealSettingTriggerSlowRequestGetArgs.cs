@@ -25,12 +25,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> Interval { get; set; } = null!;
 
         /// <summary>
-        /// The path for which this slow request rule applies.
-        /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
-
-        /// <summary>
         /// The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
         /// </summary>
         [Input("timeTaken", required: true)]

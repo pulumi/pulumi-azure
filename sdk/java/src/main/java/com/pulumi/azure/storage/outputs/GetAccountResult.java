@@ -58,10 +58,8 @@ public final class GetAccountResult {
      * 
      */
     private String dnsEndpointType;
-    private Boolean enableHttpsTrafficOnly;
     /**
-     * @return Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-     * for more information.
+     * @return Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information.
      * 
      */
     private Boolean httpsTrafficOnlyEnabled;
@@ -540,12 +538,8 @@ public final class GetAccountResult {
     public String dnsEndpointType() {
         return this.dnsEndpointType;
     }
-    public Boolean enableHttpsTrafficOnly() {
-        return this.enableHttpsTrafficOnly;
-    }
     /**
-     * @return Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-     * for more information.
+     * @return Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information.
      * 
      */
     public Boolean httpsTrafficOnlyEnabled() {
@@ -1154,7 +1148,6 @@ public final class GetAccountResult {
         private List<GetAccountAzureFilesAuthentication> azureFilesAuthentications;
         private List<GetAccountCustomDomain> customDomains;
         private String dnsEndpointType;
-        private Boolean enableHttpsTrafficOnly;
         private Boolean httpsTrafficOnlyEnabled;
         private String id;
         private List<GetAccountIdentity> identities;
@@ -1251,7 +1244,6 @@ public final class GetAccountResult {
     	      this.azureFilesAuthentications = defaults.azureFilesAuthentications;
     	      this.customDomains = defaults.customDomains;
     	      this.dnsEndpointType = defaults.dnsEndpointType;
-    	      this.enableHttpsTrafficOnly = defaults.enableHttpsTrafficOnly;
     	      this.httpsTrafficOnlyEnabled = defaults.httpsTrafficOnlyEnabled;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
@@ -1407,14 +1399,6 @@ public final class GetAccountResult {
               throw new MissingRequiredPropertyException("GetAccountResult", "dnsEndpointType");
             }
             this.dnsEndpointType = dnsEndpointType;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableHttpsTrafficOnly(Boolean enableHttpsTrafficOnly) {
-            if (enableHttpsTrafficOnly == null) {
-              throw new MissingRequiredPropertyException("GetAccountResult", "enableHttpsTrafficOnly");
-            }
-            this.enableHttpsTrafficOnly = enableHttpsTrafficOnly;
             return this;
         }
         @CustomType.Setter
@@ -2106,7 +2090,6 @@ public final class GetAccountResult {
             _resultValue.azureFilesAuthentications = azureFilesAuthentications;
             _resultValue.customDomains = customDomains;
             _resultValue.dnsEndpointType = dnsEndpointType;
-            _resultValue.enableHttpsTrafficOnly = enableHttpsTrafficOnly;
             _resultValue.httpsTrafficOnlyEnabled = httpsTrafficOnlyEnabled;
             _resultValue.id = id;
             _resultValue.identities = identities;

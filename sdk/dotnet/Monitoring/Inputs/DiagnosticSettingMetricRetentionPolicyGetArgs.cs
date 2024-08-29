@@ -12,17 +12,11 @@ namespace Pulumi.Azure.Monitoring.Inputs
 
     public sealed class DiagnosticSettingMetricRetentionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The number of days for which this Retention Policy should apply.
-        /// 
-        /// 
-        /// &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
-        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// Is this Retention Policy enabled?
+        /// Is this Diagnostic Metric enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

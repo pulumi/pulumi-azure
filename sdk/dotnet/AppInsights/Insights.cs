@@ -116,16 +116,16 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> ConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Application Insights component daily data volume cap in GB.
+        /// Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
         /// </summary>
         [Output("dailyDataCapInGb")]
-        public Output<double> DailyDataCapInGb { get; private set; } = null!;
+        public Output<double?> DailyDataCapInGb { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if a notification email will be send when the daily data volume cap is met.
+        /// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         /// </summary>
         [Output("dailyDataCapNotificationsDisabled")]
-        public Output<bool> DailyDataCapNotificationsDisabled { get; private set; } = null!;
+        public Output<bool?> DailyDataCapNotificationsDisabled { get; private set; } = null!;
 
         /// <summary>
         /// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
@@ -265,13 +265,13 @@ namespace Pulumi.Azure.AppInsights
         public Input<string> ApplicationType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Application Insights component daily data volume cap in GB.
+        /// Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
         /// </summary>
         [Input("dailyDataCapInGb")]
         public Input<double>? DailyDataCapInGb { get; set; }
 
         /// <summary>
-        /// Specifies if a notification email will be send when the daily data volume cap is met.
+        /// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         /// </summary>
         [Input("dailyDataCapNotificationsDisabled")]
         public Input<bool>? DailyDataCapNotificationsDisabled { get; set; }
@@ -393,13 +393,13 @@ namespace Pulumi.Azure.AppInsights
         }
 
         /// <summary>
-        /// Specifies the Application Insights component daily data volume cap in GB.
+        /// Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
         /// </summary>
         [Input("dailyDataCapInGb")]
         public Input<double>? DailyDataCapInGb { get; set; }
 
         /// <summary>
-        /// Specifies if a notification email will be send when the daily data volume cap is met.
+        /// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         /// </summary>
         [Input("dailyDataCapNotificationsDisabled")]
         public Input<bool>? DailyDataCapNotificationsDisabled { get; set; }

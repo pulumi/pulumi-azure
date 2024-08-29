@@ -5,7 +5,6 @@ package com.pulumi.azure.siterecovery.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,25 +58,6 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
      */
     public Optional<Output<String>> failoverTestSubnetName() {
         return Optional.ofNullable(this.failoverTestSubnetName);
-    }
-
-    /**
-     * @deprecated
-     * this property is not used and will be removed in version 4.0 of the provider
-     * 
-     */
-    @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
-    @Import(name="isPrimary")
-    private @Nullable Output<Boolean> isPrimary;
-
-    /**
-     * @deprecated
-     * this property is not used and will be removed in version 4.0 of the provider
-     * 
-     */
-    @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
-    public Optional<Output<Boolean>> isPrimary() {
-        return Optional.ofNullable(this.isPrimary);
     }
 
     /**
@@ -146,7 +126,6 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
         this.failoverTestPublicIpAddressId = $.failoverTestPublicIpAddressId;
         this.failoverTestStaticIp = $.failoverTestStaticIp;
         this.failoverTestSubnetName = $.failoverTestSubnetName;
-        this.isPrimary = $.isPrimary;
         this.recoveryPublicIpAddressId = $.recoveryPublicIpAddressId;
         this.sourceNetworkInterfaceId = $.sourceNetworkInterfaceId;
         this.targetStaticIp = $.targetStaticIp;
@@ -232,31 +211,6 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
          */
         public Builder failoverTestSubnetName(String failoverTestSubnetName) {
             return failoverTestSubnetName(Output.of(failoverTestSubnetName));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property is not used and will be removed in version 4.0 of the provider
-         * 
-         */
-        @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
-        public Builder isPrimary(@Nullable Output<Boolean> isPrimary) {
-            $.isPrimary = isPrimary;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property is not used and will be removed in version 4.0 of the provider
-         * 
-         */
-        @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
-        public Builder isPrimary(Boolean isPrimary) {
-            return isPrimary(Output.of(isPrimary));
         }
 
         /**

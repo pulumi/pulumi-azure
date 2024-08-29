@@ -140,9 +140,6 @@ namespace Pulumi.Azure.ApiManagement
         [Output("notificationSenderEmail")]
         public Output<string> NotificationSenderEmail { get; private set; } = null!;
 
-        [Output("policy")]
-        public Output<Outputs.ServicePolicy> Policy { get; private set; } = null!;
-
         /// <summary>
         /// The URL for the Publisher Portal associated with this API Management service.
         /// </summary>
@@ -393,9 +390,6 @@ namespace Pulumi.Azure.ApiManagement
         [Input("notificationSenderEmail")]
         public Input<string>? NotificationSenderEmail { get; set; }
 
-        [Input("policy")]
-        public Input<Inputs.ServicePolicyArgs>? Policy { get; set; }
-
         /// <summary>
         /// A `protocols` block as defined below.
         /// </summary>
@@ -619,9 +613,6 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("notificationSenderEmail")]
         public Input<string>? NotificationSenderEmail { get; set; }
-
-        [Input("policy")]
-        public Input<Inputs.ServicePolicyGetArgs>? Policy { get; set; }
 
         /// <summary>
         /// The URL for the Publisher Portal associated with this API Management service.

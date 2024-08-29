@@ -59,10 +59,10 @@ namespace Pulumi.Azure.Network
         public Output<int> BandwidthInGbps { get; private set; } = null!;
 
         /// <summary>
-        /// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        /// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         /// </summary>
         [Output("billingType")]
-        public Output<string> BillingType { get; private set; } = null!;
+        public Output<string?> BillingType { get; private set; } = null!;
 
         /// <summary>
         /// The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Network
         public Input<int> BandwidthInGbps { get; set; } = null!;
 
         /// <summary>
-        /// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        /// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         /// </summary>
         [Input("billingType")]
         public Input<string>? BillingType { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? BandwidthInGbps { get; set; }
 
         /// <summary>
-        /// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+        /// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         /// </summary>
         [Input("billingType")]
         public Input<string>? BillingType { get; set; }

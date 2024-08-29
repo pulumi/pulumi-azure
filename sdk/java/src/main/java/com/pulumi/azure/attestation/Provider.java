@@ -6,13 +6,11 @@ package com.pulumi.azure.attestation;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.attestation.ProviderArgs;
 import com.pulumi.azure.attestation.inputs.ProviderState;
-import com.pulumi.azure.attestation.outputs.ProviderPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -133,18 +131,6 @@ public class Provider extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> openEnclavePolicyBase64() {
         return Codegen.optional(this.openEnclavePolicyBase64);
-    }
-    /**
-     * @deprecated
-     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
-    @Export(name="policies", refs={List.class,ProviderPolicy.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ProviderPolicy>> policies;
-
-    public Output<Optional<List<ProviderPolicy>>> policies() {
-        return Codegen.optional(this.policies);
     }
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.

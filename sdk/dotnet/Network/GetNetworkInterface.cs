@@ -127,8 +127,6 @@ namespace Pulumi.Azure.Network
         /// The list of DNS servers used by the specified Network Interface.
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
-        public readonly bool EnableAcceleratedNetworking;
-        public readonly bool EnableIpForwarding;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -187,10 +185,6 @@ namespace Pulumi.Azure.Network
 
             ImmutableArray<string> dnsServers,
 
-            bool enableAcceleratedNetworking,
-
-            bool enableIpForwarding,
-
             string id,
 
             string internalDnsNameLabel,
@@ -220,8 +214,6 @@ namespace Pulumi.Azure.Network
             AcceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             AppliedDnsServers = appliedDnsServers;
             DnsServers = dnsServers;
-            EnableAcceleratedNetworking = enableAcceleratedNetworking;
-            EnableIpForwarding = enableIpForwarding;
             Id = id;
             InternalDnsNameLabel = internalDnsNameLabel;
             IpConfigurations = ipConfigurations;

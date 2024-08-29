@@ -100,25 +100,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.capacity);
     }
 
-    /**
-     * @deprecated
-     * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
-    @Import(name="connectionStrings")
-    private @Nullable Output<List<String>> connectionStrings;
-
-    /**
-     * @deprecated
-     * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
-    public Optional<Output<List<String>>> connectionStrings() {
-        return Optional.ofNullable(this.connectionStrings);
-    }
-
     @Import(name="consistencyPolicy")
     private @Nullable Output<AccountConsistencyPolicyArgs> consistencyPolicy;
 
@@ -168,63 +149,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider */
-    @Import(name="enableAutomaticFailover")
-    private @Nullable Output<Boolean> enableAutomaticFailover;
-
-    /**
-     * @deprecated
-     * This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> enableAutomaticFailover() {
-        return Optional.ofNullable(this.enableAutomaticFailover);
-    }
-
-    /**
-     * @deprecated
-     * This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider */
-    @Import(name="enableFreeTier")
-    private @Nullable Output<Boolean> enableFreeTier;
-
-    /**
-     * @deprecated
-     * This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> enableFreeTier() {
-        return Optional.ofNullable(this.enableFreeTier);
-    }
-
-    /**
-     * @deprecated
-     * This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider */
-    @Import(name="enableMultipleWriteLocations")
-    private @Nullable Output<Boolean> enableMultipleWriteLocations;
-
-    /**
-     * @deprecated
-     * This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> enableMultipleWriteLocations() {
-        return Optional.ofNullable(this.enableMultipleWriteLocations);
-    }
-
-    /**
      * The endpoint used to connect to the CosmosDB account.
      * 
      */
@@ -260,11 +184,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.identity);
     }
 
-    @Import(name="ipRangeFilter")
-    private @Nullable Output<String> ipRangeFilter;
+    @Import(name="ipRangeFilters")
+    private @Nullable Output<List<String>> ipRangeFilters;
 
-    public Optional<Output<String>> ipRangeFilter() {
-        return Optional.ofNullable(this.ipRangeFilter);
+    public Optional<Output<List<String>>> ipRangeFilters() {
+        return Optional.ofNullable(this.ipRangeFilters);
     }
 
     @Import(name="isVirtualNetworkFilterEnabled")
@@ -662,19 +586,15 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.burstCapacityEnabled = $.burstCapacityEnabled;
         this.capabilities = $.capabilities;
         this.capacity = $.capacity;
-        this.connectionStrings = $.connectionStrings;
         this.consistencyPolicy = $.consistencyPolicy;
         this.corsRule = $.corsRule;
         this.createMode = $.createMode;
         this.defaultIdentityType = $.defaultIdentityType;
-        this.enableAutomaticFailover = $.enableAutomaticFailover;
-        this.enableFreeTier = $.enableFreeTier;
-        this.enableMultipleWriteLocations = $.enableMultipleWriteLocations;
         this.endpoint = $.endpoint;
         this.freeTierEnabled = $.freeTierEnabled;
         this.geoLocations = $.geoLocations;
         this.identity = $.identity;
-        this.ipRangeFilter = $.ipRangeFilter;
+        this.ipRangeFilters = $.ipRangeFilters;
         this.isVirtualNetworkFilterEnabled = $.isVirtualNetworkFilterEnabled;
         this.keyVaultKeyId = $.keyVaultKeyId;
         this.kind = $.kind;
@@ -827,43 +747,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             return capacity(Output.of(capacity));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
-        public Builder connectionStrings(@Nullable Output<List<String>> connectionStrings) {
-            $.connectionStrings = connectionStrings;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
-        public Builder connectionStrings(List<String> connectionStrings) {
-            return connectionStrings(Output.of(connectionStrings));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
-        public Builder connectionStrings(String... connectionStrings) {
-            return connectionStrings(List.of(connectionStrings));
-        }
-
         public Builder consistencyPolicy(@Nullable Output<AccountConsistencyPolicyArgs> consistencyPolicy) {
             $.consistencyPolicy = consistencyPolicy;
             return this;
@@ -929,81 +812,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider */
-        public Builder enableAutomaticFailover(@Nullable Output<Boolean> enableAutomaticFailover) {
-            $.enableAutomaticFailover = enableAutomaticFailover;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider */
-        public Builder enableAutomaticFailover(Boolean enableAutomaticFailover) {
-            return enableAutomaticFailover(Output.of(enableAutomaticFailover));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider */
-        public Builder enableFreeTier(@Nullable Output<Boolean> enableFreeTier) {
-            $.enableFreeTier = enableFreeTier;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider */
-        public Builder enableFreeTier(Boolean enableFreeTier) {
-            return enableFreeTier(Output.of(enableFreeTier));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider */
-        public Builder enableMultipleWriteLocations(@Nullable Output<Boolean> enableMultipleWriteLocations) {
-            $.enableMultipleWriteLocations = enableMultipleWriteLocations;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider */
-        public Builder enableMultipleWriteLocations(Boolean enableMultipleWriteLocations) {
-            return enableMultipleWriteLocations(Output.of(enableMultipleWriteLocations));
-        }
-
-        /**
          * @param endpoint The endpoint used to connect to the CosmosDB account.
          * 
          * @return builder
@@ -1055,13 +863,17 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             return identity(Output.of(identity));
         }
 
-        public Builder ipRangeFilter(@Nullable Output<String> ipRangeFilter) {
-            $.ipRangeFilter = ipRangeFilter;
+        public Builder ipRangeFilters(@Nullable Output<List<String>> ipRangeFilters) {
+            $.ipRangeFilters = ipRangeFilters;
             return this;
         }
 
-        public Builder ipRangeFilter(String ipRangeFilter) {
-            return ipRangeFilter(Output.of(ipRangeFilter));
+        public Builder ipRangeFilters(List<String> ipRangeFilters) {
+            return ipRangeFilters(Output.of(ipRangeFilters));
+        }
+
+        public Builder ipRangeFilters(String... ipRangeFilters) {
+            return ipRangeFilters(List.of(ipRangeFilters));
         }
 
         public Builder isVirtualNetworkFilterEnabled(@Nullable Output<Boolean> isVirtualNetworkFilterEnabled) {

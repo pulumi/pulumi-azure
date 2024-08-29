@@ -14,25 +14,19 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class ActionGroupEventHubReceiver
     {
         /// <summary>
-        /// The resource ID of the respective Event Hub.
-        /// </summary>
-        public readonly string? EventHubId;
-        /// <summary>
         /// The name of the specific Event Hub queue.
         /// </summary>
-        public readonly string? EventHubName;
+        public readonly string EventHubName;
         /// <summary>
         /// The namespace name of the Event Hub.
         /// </summary>
-        public readonly string? EventHubNamespace;
+        public readonly string EventHubNamespace;
         /// <summary>
         /// The name of the EventHub Receiver, must be unique within action group.
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
-        /// 
-        /// &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
         /// </summary>
         public readonly string? SubscriptionId;
         /// <summary>
@@ -46,11 +40,9 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
         [OutputConstructor]
         private ActionGroupEventHubReceiver(
-            string? eventHubId,
+            string eventHubName,
 
-            string? eventHubName,
-
-            string? eventHubNamespace,
+            string eventHubNamespace,
 
             string name,
 
@@ -60,7 +52,6 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             bool? useCommonAlertSchema)
         {
-            EventHubId = eventHubId;
             EventHubName = eventHubName;
             EventHubNamespace = eventHubNamespace;
             Name = name;

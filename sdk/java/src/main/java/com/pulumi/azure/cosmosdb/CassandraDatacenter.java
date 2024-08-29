@@ -302,7 +302,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
-    private Output<String> skuName;
+    private Output</* @Nullable */ String> skuName;
 
     /**
      * @return Determines the selected sku.
@@ -310,8 +310,8 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
      * 
      */
-    public Output<String> skuName() {
-        return this.skuName;
+    public Output<Optional<String>> skuName() {
+        return Codegen.optional(this.skuName);
     }
 
     /**

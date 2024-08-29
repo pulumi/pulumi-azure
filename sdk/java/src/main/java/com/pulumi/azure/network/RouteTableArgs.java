@@ -20,34 +20,19 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RouteTableArgs Empty = new RouteTableArgs();
 
+    /**
+     * Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+     * 
+     */
     @Import(name="bgpRoutePropagationEnabled")
     private @Nullable Output<Boolean> bgpRoutePropagationEnabled;
 
+    /**
+     * @return Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> bgpRoutePropagationEnabled() {
         return Optional.ofNullable(this.bgpRoutePropagationEnabled);
-    }
-
-    /**
-     * Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-     * 
-     * @deprecated
-     * The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="disableBgpRoutePropagation")
-    private @Nullable Output<Boolean> disableBgpRoutePropagation;
-
-    /**
-     * @return Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-     * 
-     * @deprecated
-     * The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> disableBgpRoutePropagation() {
-        return Optional.ofNullable(this.disableBgpRoutePropagation);
     }
 
     /**
@@ -133,7 +118,6 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
 
     private RouteTableArgs(RouteTableArgs $) {
         this.bgpRoutePropagationEnabled = $.bgpRoutePropagationEnabled;
-        this.disableBgpRoutePropagation = $.disableBgpRoutePropagation;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -159,42 +143,25 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RouteTableArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bgpRoutePropagationEnabled Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bgpRoutePropagationEnabled(@Nullable Output<Boolean> bgpRoutePropagationEnabled) {
             $.bgpRoutePropagationEnabled = bgpRoutePropagationEnabled;
             return this;
         }
 
+        /**
+         * @param bgpRoutePropagationEnabled Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bgpRoutePropagationEnabled(Boolean bgpRoutePropagationEnabled) {
             return bgpRoutePropagationEnabled(Output.of(bgpRoutePropagationEnabled));
-        }
-
-        /**
-         * @param disableBgpRoutePropagation Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder disableBgpRoutePropagation(@Nullable Output<Boolean> disableBgpRoutePropagation) {
-            $.disableBgpRoutePropagation = disableBgpRoutePropagation;
-            return this;
-        }
-
-        /**
-         * @param disableBgpRoutePropagation Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder disableBgpRoutePropagation(Boolean disableBgpRoutePropagation) {
-            return disableBgpRoutePropagation(Output.of(disableBgpRoutePropagation));
         }
 
         /**

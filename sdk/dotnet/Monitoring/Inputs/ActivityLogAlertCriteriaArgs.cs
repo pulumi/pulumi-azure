@@ -88,17 +88,11 @@ namespace Pulumi.Azure.Monitoring.Inputs
             set => _resourceGroups = value;
         }
 
-        [Input("resourceHealths")]
-        private InputList<Inputs.ActivityLogAlertCriteriaResourceHealthArgs>? _resourceHealths;
-
         /// <summary>
         /// A block to define fine grain resource health settings.
         /// </summary>
-        public InputList<Inputs.ActivityLogAlertCriteriaResourceHealthArgs> ResourceHealths
-        {
-            get => _resourceHealths ?? (_resourceHealths = new InputList<Inputs.ActivityLogAlertCriteriaResourceHealthArgs>());
-            set => _resourceHealths = value;
-        }
+        [Input("resourceHealth")]
+        public Input<Inputs.ActivityLogAlertCriteriaResourceHealthArgs>? ResourceHealth { get; set; }
 
         /// <summary>
         /// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
@@ -160,17 +154,11 @@ namespace Pulumi.Azure.Monitoring.Inputs
             set => _resourceTypes = value;
         }
 
-        [Input("serviceHealths")]
-        private InputList<Inputs.ActivityLogAlertCriteriaServiceHealthArgs>? _serviceHealths;
-
         /// <summary>
         /// A block to define fine grain service health settings.
         /// </summary>
-        public InputList<Inputs.ActivityLogAlertCriteriaServiceHealthArgs> ServiceHealths
-        {
-            get => _serviceHealths ?? (_serviceHealths = new InputList<Inputs.ActivityLogAlertCriteriaServiceHealthArgs>());
-            set => _serviceHealths = value;
-        }
+        [Input("serviceHealth")]
+        public Input<Inputs.ActivityLogAlertCriteriaServiceHealthArgs>? ServiceHealth { get; set; }
 
         /// <summary>
         /// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.

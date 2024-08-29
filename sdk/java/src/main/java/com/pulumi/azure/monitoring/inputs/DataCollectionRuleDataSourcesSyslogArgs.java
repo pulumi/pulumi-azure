@@ -9,8 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.resources.ResourceArgs {
@@ -65,20 +63,16 @@ public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.re
     /**
      * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
      * 
-     * &gt; **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `[&#34;Microsoft-Syslog&#34;]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
-     * 
      */
-    @Import(name="streams")
-    private @Nullable Output<List<String>> streams;
+    @Import(name="streams", required=true)
+    private Output<List<String>> streams;
 
     /**
      * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
      * 
-     * &gt; **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `[&#34;Microsoft-Syslog&#34;]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
-     * 
      */
-    public Optional<Output<List<String>>> streams() {
-        return Optional.ofNullable(this.streams);
+    public Output<List<String>> streams() {
+        return this.streams;
     }
 
     private DataCollectionRuleDataSourcesSyslogArgs() {}
@@ -194,20 +188,16 @@ public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.re
         /**
          * @param streams Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
          * 
-         * &gt; **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `[&#34;Microsoft-Syslog&#34;]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
-         * 
          * @return builder
          * 
          */
-        public Builder streams(@Nullable Output<List<String>> streams) {
+        public Builder streams(Output<List<String>> streams) {
             $.streams = streams;
             return this;
         }
 
         /**
          * @param streams Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
-         * 
-         * &gt; **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `[&#34;Microsoft-Syslog&#34;]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
          * 
          * @return builder
          * 
@@ -218,8 +208,6 @@ public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.re
 
         /**
          * @param streams Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
-         * 
-         * &gt; **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `[&#34;Microsoft-Syslog&#34;]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
          * 
          * @return builder
          * 
@@ -237,6 +225,9 @@ public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.re
             }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesSyslogArgs", "name");
+            }
+            if ($.streams == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesSyslogArgs", "streams");
             }
             return $;
         }

@@ -21,15 +21,15 @@ public final class KubernetesClusterWindowsProfileArgs extends com.pulumi.resour
      * The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
      * 
      */
-    @Import(name="adminPassword")
-    private @Nullable Output<String> adminPassword;
+    @Import(name="adminPassword", required=true)
+    private Output<String> adminPassword;
 
     /**
      * @return The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
      * 
      */
-    public Optional<Output<String>> adminPassword() {
-        return Optional.ofNullable(this.adminPassword);
+    public Output<String> adminPassword() {
+        return this.adminPassword;
     }
 
     /**
@@ -110,7 +110,7 @@ public final class KubernetesClusterWindowsProfileArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder adminPassword(@Nullable Output<String> adminPassword) {
+        public Builder adminPassword(Output<String> adminPassword) {
             $.adminPassword = adminPassword;
             return this;
         }
@@ -189,6 +189,9 @@ public final class KubernetesClusterWindowsProfileArgs extends com.pulumi.resour
         }
 
         public KubernetesClusterWindowsProfileArgs build() {
+            if ($.adminPassword == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterWindowsProfileArgs", "adminPassword");
+            }
             if ($.adminUsername == null) {
                 throw new MissingRequiredPropertyException("KubernetesClusterWindowsProfileArgs", "adminUsername");
             }

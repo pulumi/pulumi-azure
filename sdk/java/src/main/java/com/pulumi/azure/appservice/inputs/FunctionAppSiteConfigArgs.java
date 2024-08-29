@@ -101,14 +101,14 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The number of minimum instances for this function app. Only affects apps on the Premium plan.
+     * The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
      * 
      */
     @Import(name="elasticInstanceMinimum")
     private @Nullable Output<Integer> elasticInstanceMinimum;
 
     /**
-     * @return The number of minimum instances for this function app. Only affects apps on the Premium plan.
+     * @return The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
      * 
      */
     public Optional<Output<Integer>> elasticInstanceMinimum() {
@@ -506,7 +506,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param elasticInstanceMinimum The number of minimum instances for this function app. Only affects apps on the Premium plan.
+         * @param elasticInstanceMinimum The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param elasticInstanceMinimum The number of minimum instances for this function app. Only affects apps on the Premium plan.
+         * @param elasticInstanceMinimum The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
          * 
          * @return builder
          * 

@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()
  *             .name("tfex_servicebus_topic")
  *             .namespaceId(exampleNamespace.id())
- *             .enablePartitioning(true)
+ *             .partitioningEnabled(true)
  *             .build());
  * 
  *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()
@@ -96,24 +96,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:servicebus/subscription:Subscription")
 public class Subscription extends com.pulumi.resources.CustomResource {
     /**
-     * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
+     * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
     @Export(name="autoDeleteOnIdle", refs={String.class}, tree="[0]")
-    private Output<String> autoDeleteOnIdle;
+    private Output</* @Nullable */ String> autoDeleteOnIdle;
 
     /**
-     * @return The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
+     * @return The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
-    public Output<String> autoDeleteOnIdle() {
-        return this.autoDeleteOnIdle;
+    public Output<Optional<String>> autoDeleteOnIdle() {
+        return Codegen.optional(this.autoDeleteOnIdle);
     }
+    /**
+     * Boolean flag which controls whether the Subscription supports batched operations.
+     * 
+     */
     @Export(name="batchedOperationsEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> batchedOperationsEnabled;
+    private Output</* @Nullable */ Boolean> batchedOperationsEnabled;
 
-    public Output<Boolean> batchedOperationsEnabled() {
-        return this.batchedOperationsEnabled;
+    /**
+     * @return Boolean flag which controls whether the Subscription supports batched operations.
+     * 
+     */
+    public Output<Optional<Boolean>> batchedOperationsEnabled() {
+        return Codegen.optional(this.batchedOperationsEnabled);
     }
     /**
      * A `client_scoped_subscription` block as defined below.
@@ -176,36 +184,18 @@ public class Subscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deadLetteringOnMessageExpiration);
     }
     /**
-     * The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+     * The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
     @Export(name="defaultMessageTtl", refs={String.class}, tree="[0]")
-    private Output<String> defaultMessageTtl;
+    private Output</* @Nullable */ String> defaultMessageTtl;
 
     /**
-     * @return The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+     * @return The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
-    public Output<String> defaultMessageTtl() {
-        return this.defaultMessageTtl;
-    }
-    /**
-     * Boolean flag which controls whether the Subscription supports batched operations.
-     * 
-     * @deprecated
-     * `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider. */
-    @Export(name="enableBatchedOperations", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableBatchedOperations;
-
-    /**
-     * @return Boolean flag which controls whether the Subscription supports batched operations.
-     * 
-     */
-    public Output<Boolean> enableBatchedOperations() {
-        return this.enableBatchedOperations;
+    public Output<Optional<String>> defaultMessageTtl() {
+        return Codegen.optional(this.defaultMessageTtl);
     }
     /**
      * The name of a Queue or Topic to automatically forward Dead Letter messages to.
@@ -236,18 +226,18 @@ public class Subscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forwardTo);
     }
     /**
-     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
      * 
      */
     @Export(name="lockDuration", refs={String.class}, tree="[0]")
-    private Output<String> lockDuration;
+    private Output</* @Nullable */ String> lockDuration;
 
     /**
-     * @return The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+     * @return The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
      * 
      */
-    public Output<String> lockDuration() {
-        return this.lockDuration;
+    public Output<Optional<String>> lockDuration() {
+        return Codegen.optional(this.lockDuration);
     }
     /**
      * The maximum number of deliveries.

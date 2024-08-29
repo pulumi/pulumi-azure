@@ -95,18 +95,18 @@ public class ExpressRoutePort extends com.pulumi.resources.CustomResource {
         return this.bandwidthInGbps;
     }
     /**
-     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
      * 
      */
     @Export(name="billingType", refs={String.class}, tree="[0]")
-    private Output<String> billingType;
+    private Output</* @Nullable */ String> billingType;
 
     /**
-     * @return The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     * @return The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
      * 
      */
-    public Output<String> billingType() {
-        return this.billingType;
+    public Output<Optional<String>> billingType() {
+        return Codegen.optional(this.billingType);
     }
     /**
      * The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.

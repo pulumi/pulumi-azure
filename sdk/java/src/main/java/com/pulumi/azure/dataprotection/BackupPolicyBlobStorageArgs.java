@@ -64,33 +64,6 @@ public final class BackupPolicyBlobStorageArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
-     * 
-     * &gt; **Note:** &gt; `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
-     * 
-     * @deprecated
-     * This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider */
-    @Import(name="retentionDuration")
-    private @Nullable Output<String> retentionDuration;
-
-    /**
-     * @return Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
-     * 
-     * &gt; **Note:** &gt; `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
-     * 
-     * @deprecated
-     * This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider */
-    public Optional<Output<String>> retentionDuration() {
-        return Optional.ofNullable(this.retentionDuration);
-    }
-
-    /**
      * One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
      * &gt; **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
@@ -127,7 +100,7 @@ public final class BackupPolicyBlobStorageArgs extends com.pulumi.resources.Reso
     /**
      * The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
-     * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration`, `retention_duration` or `vault_default_retention_duration` must be specified.
+     * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
      * 
      */
     @Import(name="vaultDefaultRetentionDuration")
@@ -136,7 +109,7 @@ public final class BackupPolicyBlobStorageArgs extends com.pulumi.resources.Reso
     /**
      * @return The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
-     * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration`, `retention_duration` or `vault_default_retention_duration` must be specified.
+     * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
      * 
      */
     public Optional<Output<String>> vaultDefaultRetentionDuration() {
@@ -164,7 +137,6 @@ public final class BackupPolicyBlobStorageArgs extends com.pulumi.resources.Reso
         this.backupRepeatingTimeIntervals = $.backupRepeatingTimeIntervals;
         this.name = $.name;
         this.operationalDefaultRetentionDuration = $.operationalDefaultRetentionDuration;
-        this.retentionDuration = $.retentionDuration;
         this.retentionRules = $.retentionRules;
         this.timeZone = $.timeZone;
         this.vaultDefaultRetentionDuration = $.vaultDefaultRetentionDuration;
@@ -263,39 +235,6 @@ public final class BackupPolicyBlobStorageArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param retentionDuration Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
-         * 
-         * &gt; **Note:** &gt; `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider */
-        public Builder retentionDuration(@Nullable Output<String> retentionDuration) {
-            $.retentionDuration = retentionDuration;
-            return this;
-        }
-
-        /**
-         * @param retentionDuration Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
-         * 
-         * &gt; **Note:** &gt; `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* This property has been renamed to `operational_default_retention_duration` and will be removed in v4.0 of the AzureRM provider */
-        public Builder retentionDuration(String retentionDuration) {
-            return retentionDuration(Output.of(retentionDuration));
-        }
-
-        /**
          * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
          * 
          * &gt; **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
@@ -356,7 +295,7 @@ public final class BackupPolicyBlobStorageArgs extends com.pulumi.resources.Reso
         /**
          * @param vaultDefaultRetentionDuration The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
          * 
-         * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration`, `retention_duration` or `vault_default_retention_duration` must be specified.
+         * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
          * 
          * @return builder
          * 
@@ -369,7 +308,7 @@ public final class BackupPolicyBlobStorageArgs extends com.pulumi.resources.Reso
         /**
          * @param vaultDefaultRetentionDuration The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
          * 
-         * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration`, `retention_duration` or `vault_default_retention_duration` must be specified.
+         * &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
          * 
          * @return builder
          * 

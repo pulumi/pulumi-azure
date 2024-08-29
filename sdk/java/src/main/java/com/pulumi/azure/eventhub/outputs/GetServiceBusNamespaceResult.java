@@ -5,7 +5,6 @@ package com.pulumi.azure.eventhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -72,15 +71,6 @@ public final class GetServiceBusNamespaceResult {
      * 
      */
     private Map<String,String> tags;
-    /**
-     * @return Whether or not this ServiceBus Namespace is zone redundant.
-     * 
-     * @deprecated
-     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
-     * 
-     */
-    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
-    private Boolean zoneRedundant;
 
     private GetServiceBusNamespaceResult() {}
     /**
@@ -168,17 +158,6 @@ public final class GetServiceBusNamespaceResult {
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Whether or not this ServiceBus Namespace is zone redundant.
-     * 
-     * @deprecated
-     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
-     * 
-     */
-    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
-    public Boolean zoneRedundant() {
-        return this.zoneRedundant;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -202,7 +181,6 @@ public final class GetServiceBusNamespaceResult {
         private String resourceGroupName;
         private String sku;
         private Map<String,String> tags;
-        private Boolean zoneRedundant;
         public Builder() {}
         public Builder(GetServiceBusNamespaceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -219,7 +197,6 @@ public final class GetServiceBusNamespaceResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.sku = defaults.sku;
     	      this.tags = defaults.tags;
-    	      this.zoneRedundant = defaults.zoneRedundant;
         }
 
         @CustomType.Setter
@@ -326,14 +303,6 @@ public final class GetServiceBusNamespaceResult {
             this.tags = tags;
             return this;
         }
-        @CustomType.Setter
-        public Builder zoneRedundant(Boolean zoneRedundant) {
-            if (zoneRedundant == null) {
-              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "zoneRedundant");
-            }
-            this.zoneRedundant = zoneRedundant;
-            return this;
-        }
         public GetServiceBusNamespaceResult build() {
             final var _resultValue = new GetServiceBusNamespaceResult();
             _resultValue.capacity = capacity;
@@ -349,7 +318,6 @@ public final class GetServiceBusNamespaceResult {
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.sku = sku;
             _resultValue.tags = tags;
-            _resultValue.zoneRedundant = zoneRedundant;
             return _resultValue;
         }
     }

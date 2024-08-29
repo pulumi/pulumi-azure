@@ -14,28 +14,17 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterDefaultNodePool
     {
         /// <summary>
-        /// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? CapacityReservationGroupId;
-        public readonly bool? CustomCaTrustEnabled;
-        /// <summary>
         /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
         /// 
         /// &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
         /// 
         /// &gt; **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
         /// </summary>
-        public readonly bool? EnableAutoScaling;
+        public readonly bool? AutoScalingEnabled;
         /// <summary>
-        /// Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
-        /// 
-        /// &gt; **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+        /// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly bool? EnableHostEncryption;
-        /// <summary>
-        /// Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
-        /// </summary>
-        public readonly bool? EnableNodePublicIp;
+        public readonly string? CapacityReservationGroupId;
         /// <summary>
         /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
         /// </summary>
@@ -44,6 +33,12 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? GpuInstance;
+        /// <summary>
+        /// Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
+        /// 
+        /// &gt; **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+        /// </summary>
+        public readonly bool? HostEncryptionEnabled;
         /// <summary>
         /// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
@@ -65,7 +60,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
         /// </summary>
         public readonly int? MaxPods;
-        public readonly string? MessageOfTheDay;
         public readonly int? MinCount;
         /// <summary>
         /// The name which should be used for the default Kubernetes Node Pool.
@@ -81,10 +75,13 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfile? NodeNetworkProfile;
         /// <summary>
-        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        /// Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
+        /// </summary>
+        public readonly bool? NodePublicIpEnabled;
+        /// <summary>
+        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? NodePublicIpPrefixId;
-        public readonly ImmutableArray<string> NodeTaints;
         /// <summary>
         /// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
         /// </summary>
@@ -134,7 +131,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? TemporaryNameForRotation;
         /// <summary>
-        /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+        /// The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         /// </summary>
@@ -170,19 +167,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private KubernetesClusterDefaultNodePool(
+            bool? autoScalingEnabled,
+
             string? capacityReservationGroupId,
-
-            bool? customCaTrustEnabled,
-
-            bool? enableAutoScaling,
-
-            bool? enableHostEncryption,
-
-            bool? enableNodePublicIp,
 
             bool? fipsEnabled,
 
             string? gpuInstance,
+
+            bool? hostEncryptionEnabled,
 
             string? hostGroupId,
 
@@ -196,8 +189,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             int? maxPods,
 
-            string? messageOfTheDay,
-
             int? minCount,
 
             string name,
@@ -208,9 +199,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             Outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfile? nodeNetworkProfile,
 
-            string? nodePublicIpPrefixId,
+            bool? nodePublicIpEnabled,
 
-            ImmutableArray<string> nodeTaints,
+            string? nodePublicIpPrefixId,
 
             bool? onlyCriticalAddonsEnabled,
 
@@ -248,27 +239,24 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableArray<string> zones)
         {
+            AutoScalingEnabled = autoScalingEnabled;
             CapacityReservationGroupId = capacityReservationGroupId;
-            CustomCaTrustEnabled = customCaTrustEnabled;
-            EnableAutoScaling = enableAutoScaling;
-            EnableHostEncryption = enableHostEncryption;
-            EnableNodePublicIp = enableNodePublicIp;
             FipsEnabled = fipsEnabled;
             GpuInstance = gpuInstance;
+            HostEncryptionEnabled = hostEncryptionEnabled;
             HostGroupId = hostGroupId;
             KubeletConfig = kubeletConfig;
             KubeletDiskType = kubeletDiskType;
             LinuxOsConfig = linuxOsConfig;
             MaxCount = maxCount;
             MaxPods = maxPods;
-            MessageOfTheDay = messageOfTheDay;
             MinCount = minCount;
             Name = name;
             NodeCount = nodeCount;
             NodeLabels = nodeLabels;
             NodeNetworkProfile = nodeNetworkProfile;
+            NodePublicIpEnabled = nodePublicIpEnabled;
             NodePublicIpPrefixId = nodePublicIpPrefixId;
-            NodeTaints = nodeTaints;
             OnlyCriticalAddonsEnabled = onlyCriticalAddonsEnabled;
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGb = osDiskSizeGb;

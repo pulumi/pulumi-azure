@@ -84,10 +84,10 @@ namespace Pulumi.Azure.NetApp
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        /// QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         /// </summary>
         [Output("qosType")]
-        public Output<string> QosType { get; private set; } = null!;
+        public Output<string?> QosType { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> ServiceLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+        /// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
         /// 
         /// &gt; **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
         /// 
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        /// QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         /// </summary>
         [Input("qosType")]
         public Input<string>? QosType { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string> ServiceLevel { get; set; } = null!;
 
         /// <summary>
-        /// Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+        /// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
         /// 
         /// &gt; **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
         /// 
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        /// QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         /// </summary>
         [Input("qosType")]
         public Input<string>? QosType { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? ServiceLevel { get; set; }
 
         /// <summary>
-        /// Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+        /// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
         /// 
         /// &gt; **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
         /// 

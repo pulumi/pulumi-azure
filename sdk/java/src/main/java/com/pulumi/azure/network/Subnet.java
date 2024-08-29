@@ -147,30 +147,6 @@ public class Subnet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.delegations);
     }
     /**
-     * @deprecated
-     * `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider */
-    @Export(name="enforcePrivateLinkEndpointNetworkPolicies", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enforcePrivateLinkEndpointNetworkPolicies;
-
-    public Output<Boolean> enforcePrivateLinkEndpointNetworkPolicies() {
-        return this.enforcePrivateLinkEndpointNetworkPolicies;
-    }
-    /**
-     * @deprecated
-     * `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider */
-    @Export(name="enforcePrivateLinkServiceNetworkPolicies", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enforcePrivateLinkServiceNetworkPolicies;
-
-    public Output<Boolean> enforcePrivateLinkServiceNetworkPolicies() {
-        return this.enforcePrivateLinkServiceNetworkPolicies;
-    }
-    /**
      * The name of the subnet. Changing this forces a new resource to be created.
      * 
      */
@@ -195,7 +171,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateEndpointNetworkPolicies", refs={String.class}, tree="[0]")
-    private Output<String> privateEndpointNetworkPolicies;
+    private Output</* @Nullable */ String> privateEndpointNetworkPolicies;
 
     /**
      * @return Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
@@ -207,20 +183,8 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
      * 
      */
-    public Output<String> privateEndpointNetworkPolicies() {
-        return this.privateEndpointNetworkPolicies;
-    }
-    /**
-     * @deprecated
-     * `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider */
-    @Export(name="privateEndpointNetworkPoliciesEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> privateEndpointNetworkPoliciesEnabled;
-
-    public Output<Boolean> privateEndpointNetworkPoliciesEnabled() {
-        return this.privateEndpointNetworkPoliciesEnabled;
+    public Output<Optional<String>> privateEndpointNetworkPolicies() {
+        return Codegen.optional(this.privateEndpointNetworkPolicies);
     }
     /**
      * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
@@ -229,7 +193,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateLinkServiceNetworkPoliciesEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> privateLinkServiceNetworkPoliciesEnabled;
+    private Output</* @Nullable */ Boolean> privateLinkServiceNetworkPoliciesEnabled;
 
     /**
      * @return Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
@@ -237,8 +201,8 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
      * 
      */
-    public Output<Boolean> privateLinkServiceNetworkPoliciesEnabled() {
-        return this.privateLinkServiceNetworkPoliciesEnabled;
+    public Output<Optional<Boolean>> privateLinkServiceNetworkPoliciesEnabled() {
+        return Codegen.optional(this.privateLinkServiceNetworkPoliciesEnabled);
     }
     /**
      * The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.

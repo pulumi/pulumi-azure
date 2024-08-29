@@ -12,8 +12,6 @@ import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
 import com.pulumi.azure.monitoring.inputs.GetDataCollectionRulePlainArgs;
 import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
 import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesPlainArgs;
-import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
-import com.pulumi.azure.monitoring.inputs.GetLogProfilePlainArgs;
 import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertArgs;
 import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertPlainArgs;
 import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
@@ -24,7 +22,6 @@ import com.pulumi.azure.monitoring.outputs.GetActionGroupResult;
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionEndpointResult;
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleResult;
 import com.pulumi.azure.monitoring.outputs.GetDiagnosticCategoriesResult;
-import com.pulumi.azure.monitoring.outputs.GetLogProfileResult;
 import com.pulumi.azure.monitoring.outputs.GetScheduledQueryRulesAlertResult;
 import com.pulumi.azure.monitoring.outputs.GetScheduledQueryRulesLogResult;
 import com.pulumi.azure.monitoring.outputs.GetWorkspaceResult;
@@ -758,186 +755,6 @@ public final class MonitoringFunctions {
      */
     public static CompletableFuture<GetDiagnosticCategoriesResult> getDiagnosticCategoriesPlain(GetDiagnosticCategoriesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", TypeShape.of(GetDiagnosticCategoriesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to access the properties of a Log Profile.
-     * 
-     * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name("test-logprofile")
-     *             .build());
-     * 
-     *         ctx.export("logProfileStorageAccountId", example.applyValue(getLogProfileResult -> getLogProfileResult.storageAccountId()));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetLogProfileResult> getLogProfile(GetLogProfileArgs args) {
-        return getLogProfile(args, InvokeOptions.Empty);
-    }
-    /**
-     * Use this data source to access the properties of a Log Profile.
-     * 
-     * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name("test-logprofile")
-     *             .build());
-     * 
-     *         ctx.export("logProfileStorageAccountId", example.applyValue(getLogProfileResult -> getLogProfileResult.storageAccountId()));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static CompletableFuture<GetLogProfileResult> getLogProfilePlain(GetLogProfilePlainArgs args) {
-        return getLogProfilePlain(args, InvokeOptions.Empty);
-    }
-    /**
-     * Use this data source to access the properties of a Log Profile.
-     * 
-     * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name("test-logprofile")
-     *             .build());
-     * 
-     *         ctx.export("logProfileStorageAccountId", example.applyValue(getLogProfileResult -> getLogProfileResult.storageAccountId()));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetLogProfileResult> getLogProfile(GetLogProfileArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("azure:monitoring/getLogProfile:getLogProfile", TypeShape.of(GetLogProfileResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to access the properties of a Log Profile.
-     * 
-     * !&gt; **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.monitoring.MonitoringFunctions;
-     * import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MonitoringFunctions.getLogProfile(GetLogProfileArgs.builder()
-     *             .name("test-logprofile")
-     *             .build());
-     * 
-     *         ctx.export("logProfileStorageAccountId", example.applyValue(getLogProfileResult -> getLogProfileResult.storageAccountId()));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static CompletableFuture<GetLogProfileResult> getLogProfilePlain(GetLogProfilePlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("azure:monitoring/getLogProfile:getLogProfile", TypeShape.of(GetLogProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access the properties of an AlertingAction scheduled query rule.

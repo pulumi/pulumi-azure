@@ -60,10 +60,6 @@ namespace Pulumi.Azure.Monitoring
     ///             new Azure.Monitoring.Inputs.DiagnosticSettingEnabledLogArgs
     ///             {
     ///                 Category = "AuditEvent",
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.DiagnosticSettingEnabledLogRetentionPolicyArgs
-    ///                 {
-    ///                     Enabled = false,
-    ///                 },
     ///             },
     ///         },
     ///         Metrics = new[]
@@ -71,10 +67,6 @@ namespace Pulumi.Azure.Monitoring
     ///             new Azure.Monitoring.Inputs.DiagnosticSettingMetricArgs
     ///             {
     ///                 Category = "AllMetrics",
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.DiagnosticSettingMetricRetentionPolicyArgs
-    ///                 {
-    ///                     Enabled = false,
-    ///                 },
     ///             },
     ///         },
     ///     });
@@ -96,7 +88,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more `enabled_log` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
         /// </summary>
         [Output("enabledLogs")]
         public Output<ImmutableArray<Outputs.DiagnosticSettingEnabledLog>> EnabledLogs { get; private set; } = null!;
@@ -136,17 +128,9 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `log` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-        /// </summary>
-        [Output("logs")]
-        public Output<ImmutableArray<Outputs.DiagnosticSettingLog>> Logs { get; private set; } = null!;
-
-        /// <summary>
         /// One or more `metric` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified.
+        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
         /// </summary>
         [Output("metrics")]
         public Output<ImmutableArray<Outputs.DiagnosticSettingMetric>> Metrics { get; private set; } = null!;
@@ -233,7 +217,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more `enabled_log` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
         /// </summary>
         public InputList<Inputs.DiagnosticSettingEnabledLogArgs> EnabledLogs
         {
@@ -275,28 +259,13 @@ namespace Pulumi.Azure.Monitoring
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
-        [Input("logs")]
-        private InputList<Inputs.DiagnosticSettingLogArgs>? _logs;
-
-        /// <summary>
-        /// One or more `log` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-        /// </summary>
-        [Obsolete(@"`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.")]
-        public InputList<Inputs.DiagnosticSettingLogArgs> Logs
-        {
-            get => _logs ?? (_logs = new InputList<Inputs.DiagnosticSettingLogArgs>());
-            set => _logs = value;
-        }
-
         [Input("metrics")]
         private InputList<Inputs.DiagnosticSettingMetricArgs>? _metrics;
 
         /// <summary>
         /// One or more `metric` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified.
+        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
         /// </summary>
         public InputList<Inputs.DiagnosticSettingMetricArgs> Metrics
         {
@@ -348,7 +317,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more `enabled_log` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
         /// </summary>
         public InputList<Inputs.DiagnosticSettingEnabledLogGetArgs> EnabledLogs
         {
@@ -390,28 +359,13 @@ namespace Pulumi.Azure.Monitoring
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
-        [Input("logs")]
-        private InputList<Inputs.DiagnosticSettingLogGetArgs>? _logs;
-
-        /// <summary>
-        /// One or more `log` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-        /// </summary>
-        [Obsolete(@"`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.")]
-        public InputList<Inputs.DiagnosticSettingLogGetArgs> Logs
-        {
-            get => _logs ?? (_logs = new InputList<Inputs.DiagnosticSettingLogGetArgs>());
-            set => _logs = value;
-        }
-
         [Input("metrics")]
         private InputList<Inputs.DiagnosticSettingMetricGetArgs>? _metrics;
 
         /// <summary>
         /// One or more `metric` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified.
+        /// &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
         /// </summary>
         public InputList<Inputs.DiagnosticSettingMetricGetArgs> Metrics
         {

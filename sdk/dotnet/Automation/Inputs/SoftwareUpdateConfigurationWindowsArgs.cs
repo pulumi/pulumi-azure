@@ -12,10 +12,7 @@ namespace Pulumi.Azure.Automation.Inputs
 
     public sealed class SoftwareUpdateConfigurationWindowsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("classificationIncluded")]
-        public Input<string>? ClassificationIncluded { get; set; }
-
-        [Input("classificationsIncludeds")]
+        [Input("classificationsIncludeds", required: true)]
         private InputList<string>? _classificationsIncludeds;
 
         /// <summary>

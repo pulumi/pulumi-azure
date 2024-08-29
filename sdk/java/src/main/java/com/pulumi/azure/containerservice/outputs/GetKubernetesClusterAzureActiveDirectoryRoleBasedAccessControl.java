@@ -23,33 +23,6 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
      */
     private Boolean azureRbacEnabled;
     /**
-     * @return The Client ID of an Azure Active Directory Application.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
-    private String clientAppId;
-    /**
-     * @return Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
-    private Boolean managed;
-    /**
-     * @return The Server ID of an Azure Active Directory Application.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
-    private String serverAppId;
-    /**
      * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
      * 
      */
@@ -71,39 +44,6 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
         return this.azureRbacEnabled;
     }
     /**
-     * @return The Client ID of an Azure Active Directory Application.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
-    public String clientAppId() {
-        return this.clientAppId;
-    }
-    /**
-     * @return Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
-    public Boolean managed() {
-        return this.managed;
-    }
-    /**
-     * @return The Server ID of an Azure Active Directory Application.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
-    public String serverAppId() {
-        return this.serverAppId;
-    }
-    /**
      * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
      * 
      */
@@ -122,18 +62,12 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
     public static final class Builder {
         private List<String> adminGroupObjectIds;
         private Boolean azureRbacEnabled;
-        private String clientAppId;
-        private Boolean managed;
-        private String serverAppId;
         private String tenantId;
         public Builder() {}
         public Builder(GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminGroupObjectIds = defaults.adminGroupObjectIds;
     	      this.azureRbacEnabled = defaults.azureRbacEnabled;
-    	      this.clientAppId = defaults.clientAppId;
-    	      this.managed = defaults.managed;
-    	      this.serverAppId = defaults.serverAppId;
     	      this.tenantId = defaults.tenantId;
         }
 
@@ -157,30 +91,6 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
             return this;
         }
         @CustomType.Setter
-        public Builder clientAppId(String clientAppId) {
-            if (clientAppId == null) {
-              throw new MissingRequiredPropertyException("GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl", "clientAppId");
-            }
-            this.clientAppId = clientAppId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder managed(Boolean managed) {
-            if (managed == null) {
-              throw new MissingRequiredPropertyException("GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl", "managed");
-            }
-            this.managed = managed;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder serverAppId(String serverAppId) {
-            if (serverAppId == null) {
-              throw new MissingRequiredPropertyException("GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl", "serverAppId");
-            }
-            this.serverAppId = serverAppId;
-            return this;
-        }
-        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             if (tenantId == null) {
               throw new MissingRequiredPropertyException("GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl", "tenantId");
@@ -192,9 +102,6 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
             final var _resultValue = new GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl();
             _resultValue.adminGroupObjectIds = adminGroupObjectIds;
             _resultValue.azureRbacEnabled = azureRbacEnabled;
-            _resultValue.clientAppId = clientAppId;
-            _resultValue.managed = managed;
-            _resultValue.serverAppId = serverAppId;
             _resultValue.tenantId = tenantId;
             return _resultValue;
         }

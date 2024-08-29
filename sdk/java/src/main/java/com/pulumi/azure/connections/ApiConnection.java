@@ -93,18 +93,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:connections/apiConnection:ApiConnection")
 public class ApiConnection extends com.pulumi.resources.CustomResource {
     /**
-     * A display name for this API Connection. Changing this forces a new API Connection to be created.
+     * A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
-    private Output<String> displayName;
+    private Output</* @Nullable */ String> displayName;
 
     /**
-     * @return A display name for this API Connection. Changing this forces a new API Connection to be created.
+     * @return A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
      * 
      */
-    public Output<String> displayName() {
-        return this.displayName;
+    public Output<Optional<String>> displayName() {
+        return Codegen.optional(this.displayName);
     }
     /**
      * The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.

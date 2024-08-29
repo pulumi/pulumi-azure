@@ -146,6 +146,21 @@ public final class Config {
         return Codegen.stringProp("partnerId").config(config).get();
     }
 /**
+ * The set of Resource Providers which should be automatically registered for the subscription.
+ * 
+ */
+    public Optional<String> resourceProviderRegistrations() {
+        return Codegen.stringProp("resourceProviderRegistrations").config(config).get();
+    }
+/**
+ * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+ * `resource_provider_registrations` property.
+ * 
+ */
+    public Optional<List<String>> resourceProvidersToRegisters() {
+        return Codegen.objectProp("resourceProvidersToRegisters", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
+    }
+/**
  * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already
  * registered?
  * 
@@ -164,8 +179,8 @@ public final class Config {
  * The Subscription ID which should be used.
  * 
  */
-    public Optional<String> subscriptionId() {
-        return Codegen.stringProp("subscriptionId").config(config).env("ARM_SUBSCRIPTION_ID").def("").get();
+    public String subscriptionId() {
+        return Codegen.stringProp("subscriptionId").config(config).env("ARM_SUBSCRIPTION_ID").def("").require();
     }
 /**
  * The Tenant ID which should be used.

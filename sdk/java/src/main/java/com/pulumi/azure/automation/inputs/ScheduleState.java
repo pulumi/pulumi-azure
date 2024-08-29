@@ -112,15 +112,15 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
      * One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
      * 
      */
-    @Import(name="monthlyOccurrences")
-    private @Nullable Output<List<ScheduleMonthlyOccurrenceArgs>> monthlyOccurrences;
+    @Import(name="monthlyOccurrence")
+    private @Nullable Output<ScheduleMonthlyOccurrenceArgs> monthlyOccurrence;
 
     /**
      * @return One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
      * 
      */
-    public Optional<Output<List<ScheduleMonthlyOccurrenceArgs>>> monthlyOccurrences() {
-        return Optional.ofNullable(this.monthlyOccurrences);
+    public Optional<Output<ScheduleMonthlyOccurrenceArgs>> monthlyOccurrence() {
+        return Optional.ofNullable(this.monthlyOccurrence);
     }
 
     /**
@@ -207,7 +207,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         this.frequency = $.frequency;
         this.interval = $.interval;
         this.monthDays = $.monthDays;
-        this.monthlyOccurrences = $.monthlyOccurrences;
+        this.monthlyOccurrence = $.monthlyOccurrence;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.startTime = $.startTime;
@@ -370,34 +370,24 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monthlyOccurrences One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+         * @param monthlyOccurrence One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
          * 
          * @return builder
          * 
          */
-        public Builder monthlyOccurrences(@Nullable Output<List<ScheduleMonthlyOccurrenceArgs>> monthlyOccurrences) {
-            $.monthlyOccurrences = monthlyOccurrences;
+        public Builder monthlyOccurrence(@Nullable Output<ScheduleMonthlyOccurrenceArgs> monthlyOccurrence) {
+            $.monthlyOccurrence = monthlyOccurrence;
             return this;
         }
 
         /**
-         * @param monthlyOccurrences One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+         * @param monthlyOccurrence One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
          * 
          * @return builder
          * 
          */
-        public Builder monthlyOccurrences(List<ScheduleMonthlyOccurrenceArgs> monthlyOccurrences) {
-            return monthlyOccurrences(Output.of(monthlyOccurrences));
-        }
-
-        /**
-         * @param monthlyOccurrences One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder monthlyOccurrences(ScheduleMonthlyOccurrenceArgs... monthlyOccurrences) {
-            return monthlyOccurrences(List.of(monthlyOccurrences));
+        public Builder monthlyOccurrence(ScheduleMonthlyOccurrenceArgs monthlyOccurrence) {
+            return monthlyOccurrence(Output.of(monthlyOccurrence));
         }
 
         /**

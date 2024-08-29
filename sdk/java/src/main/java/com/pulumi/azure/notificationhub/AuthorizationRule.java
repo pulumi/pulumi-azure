@@ -296,7 +296,9 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
+                "primaryAccessKey",
                 "primaryConnectionString",
+                "secondaryAccessKey",
                 "secondaryConnectionString"
             ))
             .build();

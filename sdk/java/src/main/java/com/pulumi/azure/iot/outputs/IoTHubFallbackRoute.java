@@ -19,7 +19,7 @@ public final class IoTHubFallbackRoute {
      */
     private @Nullable String condition;
     /**
-     * @return Used to specify whether the fallback route is enabled.
+     * @return Used to specify whether the fallback route is enabled. Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -43,7 +43,7 @@ public final class IoTHubFallbackRoute {
         return Optional.ofNullable(this.condition);
     }
     /**
-     * @return Used to specify whether the fallback route is enabled.
+     * @return Used to specify whether the fallback route is enabled. Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {

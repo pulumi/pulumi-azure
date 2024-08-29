@@ -27,6 +27,21 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     public static final KubernetesClusterNodePoolArgs Empty = new KubernetesClusterNodePoolArgs();
 
     /**
+     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+     * 
+     */
+    @Import(name="autoScalingEnabled")
+    private @Nullable Output<Boolean> autoScalingEnabled;
+
+    /**
+     * @return Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+     * 
+     */
+    public Optional<Output<Boolean>> autoScalingEnabled() {
+        return Optional.ofNullable(this.autoScalingEnabled);
+    }
+
+    /**
      * Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -39,74 +54,6 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
      */
     public Optional<Output<String>> capacityReservationGroupId() {
         return Optional.ofNullable(this.capacityReservationGroupId);
-    }
-
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    @Import(name="customCaTrustEnabled")
-    private @Nullable Output<Boolean> customCaTrustEnabled;
-
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    public Optional<Output<Boolean>> customCaTrustEnabled() {
-        return Optional.ofNullable(this.customCaTrustEnabled);
-    }
-
-    /**
-     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-     * 
-     */
-    @Import(name="enableAutoScaling")
-    private @Nullable Output<Boolean> enableAutoScaling;
-
-    /**
-     * @return Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-     * 
-     */
-    public Optional<Output<Boolean>> enableAutoScaling() {
-        return Optional.ofNullable(this.enableAutoScaling);
-    }
-
-    /**
-     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-     * 
-     */
-    @Import(name="enableHostEncryption")
-    private @Nullable Output<Boolean> enableHostEncryption;
-
-    /**
-     * @return Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-     * 
-     */
-    public Optional<Output<Boolean>> enableHostEncryption() {
-        return Optional.ofNullable(this.enableHostEncryption);
-    }
-
-    /**
-     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
-     * 
-     */
-    @Import(name="enableNodePublicIp")
-    private @Nullable Output<Boolean> enableNodePublicIp;
-
-    /**
-     * @return Should each node have a Public IP Address? Changing this forces a new resource to be created.
-     * 
-     */
-    public Optional<Output<Boolean>> enableNodePublicIp() {
-        return Optional.ofNullable(this.enableNodePublicIp);
     }
 
     /**
@@ -160,6 +107,25 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
      */
     public Optional<Output<String>> gpuInstance() {
         return Optional.ofNullable(this.gpuInstance);
+    }
+
+    /**
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+     * 
+     */
+    @Import(name="hostEncryptionEnabled")
+    private @Nullable Output<Boolean> hostEncryptionEnabled;
+
+    /**
+     * @return Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+     * 
+     */
+    public Optional<Output<Boolean>> hostEncryptionEnabled() {
+        return Optional.ofNullable(this.hostEncryptionEnabled);
     }
 
     /**
@@ -263,25 +229,6 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.maxPods);
     }
 
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    @Import(name="messageOfTheDay")
-    private @Nullable Output<String> messageOfTheDay;
-
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    public Optional<Output<String>> messageOfTheDay() {
-        return Optional.ofNullable(this.messageOfTheDay);
-    }
-
     @Import(name="minCount")
     private @Nullable Output<Integer> minCount;
 
@@ -361,14 +308,29 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="nodePublicIpEnabled")
+    private @Nullable Output<Boolean> nodePublicIpEnabled;
+
+    /**
+     * @return Should each node have a Public IP Address? Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> nodePublicIpEnabled() {
+        return Optional.ofNullable(this.nodePublicIpEnabled);
+    }
+
+    /**
+     * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="nodePublicIpPrefixId")
     private @Nullable Output<String> nodePublicIpPrefixId;
 
     /**
-     * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+     * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> nodePublicIpPrefixId() {
@@ -702,14 +664,12 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     private KubernetesClusterNodePoolArgs() {}
 
     private KubernetesClusterNodePoolArgs(KubernetesClusterNodePoolArgs $) {
+        this.autoScalingEnabled = $.autoScalingEnabled;
         this.capacityReservationGroupId = $.capacityReservationGroupId;
-        this.customCaTrustEnabled = $.customCaTrustEnabled;
-        this.enableAutoScaling = $.enableAutoScaling;
-        this.enableHostEncryption = $.enableHostEncryption;
-        this.enableNodePublicIp = $.enableNodePublicIp;
         this.evictionPolicy = $.evictionPolicy;
         this.fipsEnabled = $.fipsEnabled;
         this.gpuInstance = $.gpuInstance;
+        this.hostEncryptionEnabled = $.hostEncryptionEnabled;
         this.hostGroupId = $.hostGroupId;
         this.kubeletConfig = $.kubeletConfig;
         this.kubeletDiskType = $.kubeletDiskType;
@@ -717,13 +677,13 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         this.linuxOsConfig = $.linuxOsConfig;
         this.maxCount = $.maxCount;
         this.maxPods = $.maxPods;
-        this.messageOfTheDay = $.messageOfTheDay;
         this.minCount = $.minCount;
         this.mode = $.mode;
         this.name = $.name;
         this.nodeCount = $.nodeCount;
         this.nodeLabels = $.nodeLabels;
         this.nodeNetworkProfile = $.nodeNetworkProfile;
+        this.nodePublicIpEnabled = $.nodePublicIpEnabled;
         this.nodePublicIpPrefixId = $.nodePublicIpPrefixId;
         this.nodeTaints = $.nodeTaints;
         this.orchestratorVersion = $.orchestratorVersion;
@@ -766,6 +726,27 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
+         * @param autoScalingEnabled Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoScalingEnabled(@Nullable Output<Boolean> autoScalingEnabled) {
+            $.autoScalingEnabled = autoScalingEnabled;
+            return this;
+        }
+
+        /**
+         * @param autoScalingEnabled Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoScalingEnabled(Boolean autoScalingEnabled) {
+            return autoScalingEnabled(Output.of(autoScalingEnabled));
+        }
+
+        /**
          * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -784,98 +765,6 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
          */
         public Builder capacityReservationGroupId(String capacityReservationGroupId) {
             return capacityReservationGroupId(Output.of(capacityReservationGroupId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder customCaTrustEnabled(@Nullable Output<Boolean> customCaTrustEnabled) {
-            $.customCaTrustEnabled = customCaTrustEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder customCaTrustEnabled(Boolean customCaTrustEnabled) {
-            return customCaTrustEnabled(Output.of(customCaTrustEnabled));
-        }
-
-        /**
-         * @param enableAutoScaling Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableAutoScaling(@Nullable Output<Boolean> enableAutoScaling) {
-            $.enableAutoScaling = enableAutoScaling;
-            return this;
-        }
-
-        /**
-         * @param enableAutoScaling Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableAutoScaling(Boolean enableAutoScaling) {
-            return enableAutoScaling(Output.of(enableAutoScaling));
-        }
-
-        /**
-         * @param enableHostEncryption Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-         * 
-         * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableHostEncryption(@Nullable Output<Boolean> enableHostEncryption) {
-            $.enableHostEncryption = enableHostEncryption;
-            return this;
-        }
-
-        /**
-         * @param enableHostEncryption Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-         * 
-         * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableHostEncryption(Boolean enableHostEncryption) {
-            return enableHostEncryption(Output.of(enableHostEncryption));
-        }
-
-        /**
-         * @param enableNodePublicIp Should each node have a Public IP Address? Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableNodePublicIp(@Nullable Output<Boolean> enableNodePublicIp) {
-            $.enableNodePublicIp = enableNodePublicIp;
-            return this;
-        }
-
-        /**
-         * @param enableNodePublicIp Should each node have a Public IP Address? Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableNodePublicIp(Boolean enableNodePublicIp) {
-            return enableNodePublicIp(Output.of(enableNodePublicIp));
         }
 
         /**
@@ -947,6 +836,31 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
          */
         public Builder gpuInstance(String gpuInstance) {
             return gpuInstance(Output.of(gpuInstance));
+        }
+
+        /**
+         * @param hostEncryptionEnabled Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostEncryptionEnabled(@Nullable Output<Boolean> hostEncryptionEnabled) {
+            $.hostEncryptionEnabled = hostEncryptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param hostEncryptionEnabled Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostEncryptionEnabled(Boolean hostEncryptionEnabled) {
+            return hostEncryptionEnabled(Output.of(hostEncryptionEnabled));
         }
 
         /**
@@ -1088,31 +1002,6 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
             return maxPods(Output.of(maxPods));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder messageOfTheDay(@Nullable Output<String> messageOfTheDay) {
-            $.messageOfTheDay = messageOfTheDay;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder messageOfTheDay(String messageOfTheDay) {
-            return messageOfTheDay(Output.of(messageOfTheDay));
-        }
-
         public Builder minCount(@Nullable Output<Integer> minCount) {
             $.minCount = minCount;
             return this;
@@ -1220,7 +1109,28 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nodePublicIpPrefixId Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+         * @param nodePublicIpEnabled Should each node have a Public IP Address? Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodePublicIpEnabled(@Nullable Output<Boolean> nodePublicIpEnabled) {
+            $.nodePublicIpEnabled = nodePublicIpEnabled;
+            return this;
+        }
+
+        /**
+         * @param nodePublicIpEnabled Should each node have a Public IP Address? Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodePublicIpEnabled(Boolean nodePublicIpEnabled) {
+            return nodePublicIpEnabled(Output.of(nodePublicIpEnabled));
+        }
+
+        /**
+         * @param nodePublicIpPrefixId Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1231,7 +1141,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nodePublicIpPrefixId Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+         * @param nodePublicIpPrefixId Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

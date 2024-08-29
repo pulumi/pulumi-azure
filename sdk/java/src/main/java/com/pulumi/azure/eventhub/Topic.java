@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()
  *             .name("tfex_servicebus_topic")
  *             .namespaceId(exampleNamespace.id())
- *             .enablePartitioning(true)
+ *             .partitioningEnabled(true)
  *             .build());
  * 
  *     }
@@ -91,140 +91,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:eventhub/topic:Topic")
 public class Topic extends com.pulumi.resources.CustomResource {
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
+     * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
     @Export(name="autoDeleteOnIdle", refs={String.class}, tree="[0]")
-    private Output<String> autoDeleteOnIdle;
+    private Output</* @Nullable */ String> autoDeleteOnIdle;
 
     /**
-     * @return The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
+     * @return The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
-    public Output<String> autoDeleteOnIdle() {
-        return this.autoDeleteOnIdle;
-    }
-    @Export(name="batchedOperationsEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> batchedOperationsEnabled;
-
-    public Output<Boolean> batchedOperationsEnabled() {
-        return this.batchedOperationsEnabled;
-    }
-    /**
-     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
-     * 
-     */
-    @Export(name="defaultMessageTtl", refs={String.class}, tree="[0]")
-    private Output<String> defaultMessageTtl;
-
-    /**
-     * @return The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
-     * 
-     */
-    public Output<String> defaultMessageTtl() {
-        return this.defaultMessageTtl;
-    }
-    /**
-     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-     * 
-     */
-    @Export(name="duplicateDetectionHistoryTimeWindow", refs={String.class}, tree="[0]")
-    private Output<String> duplicateDetectionHistoryTimeWindow;
-
-    /**
-     * @return The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-     * 
-     */
-    public Output<String> duplicateDetectionHistoryTimeWindow() {
-        return this.duplicateDetectionHistoryTimeWindow;
+    public Output<Optional<String>> autoDeleteOnIdle() {
+        return Codegen.optional(this.autoDeleteOnIdle);
     }
     /**
      * Boolean flag which controls if server-side batched operations are enabled.
      * 
-     * @deprecated
-     * The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
      */
-    @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="enableBatchedOperations", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableBatchedOperations;
+    @Export(name="batchedOperationsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> batchedOperationsEnabled;
 
     /**
      * @return Boolean flag which controls if server-side batched operations are enabled.
      * 
      */
-    public Output<Boolean> enableBatchedOperations() {
-        return this.enableBatchedOperations;
+    public Output<Optional<Boolean>> batchedOperationsEnabled() {
+        return Codegen.optional(this.batchedOperationsEnabled);
+    }
+    /**
+     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+     * 
+     */
+    @Export(name="defaultMessageTtl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> defaultMessageTtl;
+
+    /**
+     * @return The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+     * 
+     */
+    public Output<Optional<String>> defaultMessageTtl() {
+        return Codegen.optional(this.defaultMessageTtl);
+    }
+    /**
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
+     * 
+     */
+    @Export(name="duplicateDetectionHistoryTimeWindow", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> duplicateDetectionHistoryTimeWindow;
+
+    /**
+     * @return The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
+     * 
+     */
+    public Output<Optional<String>> duplicateDetectionHistoryTimeWindow() {
+        return Codegen.optional(this.duplicateDetectionHistoryTimeWindow);
     }
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
-     * @deprecated
-     * The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
      */
-    @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="enableExpress", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableExpress;
+    @Export(name="expressEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> expressEnabled;
 
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
      */
-    public Output<Boolean> enableExpress() {
-        return this.enableExpress;
+    public Output<Optional<Boolean>> expressEnabled() {
+        return Codegen.optional(this.expressEnabled);
     }
     /**
-     * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
-     * 
-     * @deprecated
-     * The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="enablePartitioning", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enablePartitioning;
-
-    /**
-     * @return Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
-     * 
-     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
-     * 
-     */
-    public Output<Boolean> enablePartitioning() {
-        return this.enablePartitioning;
-    }
-    @Export(name="expressEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> expressEnabled;
-
-    public Output<Boolean> expressEnabled() {
-        return this.expressEnabled;
-    }
-    /**
-     * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
      * 
      */
     @Export(name="maxMessageSizeInKilobytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxMessageSizeInKilobytes;
 
     /**
-     * @return Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * @return Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
      * 
      */
     public Output<Integer> maxMessageSizeInKilobytes() {
         return this.maxMessageSizeInKilobytes;
     }
     /**
-     * Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+     * Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
      * 
      */
     @Export(name="maxSizeInMegabytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSizeInMegabytes;
 
     /**
-     * @return Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+     * @return Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
      * 
      */
     public Output<Integer> maxSizeInMegabytes() {
@@ -264,11 +222,23 @@ public class Topic extends com.pulumi.resources.CustomResource {
     public Output<String> namespaceName() {
         return this.namespaceName;
     }
+    /**
+     * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+     * 
+     */
     @Export(name="partitioningEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> partitioningEnabled;
+    private Output</* @Nullable */ Boolean> partitioningEnabled;
 
-    public Output<Boolean> partitioningEnabled() {
-        return this.partitioningEnabled;
+    /**
+     * @return Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+     * 
+     */
+    public Output<Optional<Boolean>> partitioningEnabled() {
+        return Codegen.optional(this.partitioningEnabled);
     }
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.

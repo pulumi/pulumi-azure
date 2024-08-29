@@ -20,23 +20,6 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String currentStack;
     /**
-     * @return The name of the container to be used. This value is required with `docker_container_tag`.
-     * 
-     */
-    private @Nullable String dockerContainerName;
-    /**
-     * @deprecated
-     * This property has been deprecated and will be removed in a future release of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
-    private @Nullable String dockerContainerRegistry;
-    /**
-     * @return The tag of the container to be used. This value is required with `docker_container_name`.
-     * 
-     */
-    private @Nullable String dockerContainerTag;
-    /**
      * @return The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
      * 
      */
@@ -114,13 +97,6 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable Boolean python;
     /**
-     * @deprecated
-     * This property is deprecated. Values set are not used by the service.
-     * 
-     */
-    @Deprecated /* This property is deprecated. Values set are not used by the service. */
-    private @Nullable String pythonVersion;
-    /**
      * @return The version of Tomcat the Java App should use.
      * 
      * &gt; **NOTE:** See the official documentation for current supported versions.
@@ -137,29 +113,6 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
      */
     public Optional<String> currentStack() {
         return Optional.ofNullable(this.currentStack);
-    }
-    /**
-     * @return The name of the container to be used. This value is required with `docker_container_tag`.
-     * 
-     */
-    public Optional<String> dockerContainerName() {
-        return Optional.ofNullable(this.dockerContainerName);
-    }
-    /**
-     * @deprecated
-     * This property has been deprecated and will be removed in a future release of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
-    public Optional<String> dockerContainerRegistry() {
-        return Optional.ofNullable(this.dockerContainerRegistry);
-    }
-    /**
-     * @return The tag of the container to be used. This value is required with `docker_container_name`.
-     * 
-     */
-    public Optional<String> dockerContainerTag() {
-        return Optional.ofNullable(this.dockerContainerTag);
     }
     /**
      * @return The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
@@ -265,15 +218,6 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.python);
     }
     /**
-     * @deprecated
-     * This property is deprecated. Values set are not used by the service.
-     * 
-     */
-    @Deprecated /* This property is deprecated. Values set are not used by the service. */
-    public Optional<String> pythonVersion() {
-        return Optional.ofNullable(this.pythonVersion);
-    }
-    /**
      * @return The version of Tomcat the Java App should use.
      * 
      * &gt; **NOTE:** See the official documentation for current supported versions.
@@ -293,9 +237,6 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String currentStack;
-        private @Nullable String dockerContainerName;
-        private @Nullable String dockerContainerRegistry;
-        private @Nullable String dockerContainerTag;
         private @Nullable String dockerImageName;
         private @Nullable String dockerRegistryPassword;
         private @Nullable String dockerRegistryUrl;
@@ -309,15 +250,11 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         private @Nullable String nodeVersion;
         private @Nullable String phpVersion;
         private @Nullable Boolean python;
-        private @Nullable String pythonVersion;
         private @Nullable String tomcatVersion;
         public Builder() {}
         public Builder(WindowsWebAppSlotSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.currentStack = defaults.currentStack;
-    	      this.dockerContainerName = defaults.dockerContainerName;
-    	      this.dockerContainerRegistry = defaults.dockerContainerRegistry;
-    	      this.dockerContainerTag = defaults.dockerContainerTag;
     	      this.dockerImageName = defaults.dockerImageName;
     	      this.dockerRegistryPassword = defaults.dockerRegistryPassword;
     	      this.dockerRegistryUrl = defaults.dockerRegistryUrl;
@@ -331,7 +268,6 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     	      this.nodeVersion = defaults.nodeVersion;
     	      this.phpVersion = defaults.phpVersion;
     	      this.python = defaults.python;
-    	      this.pythonVersion = defaults.pythonVersion;
     	      this.tomcatVersion = defaults.tomcatVersion;
         }
 
@@ -339,24 +275,6 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         public Builder currentStack(@Nullable String currentStack) {
 
             this.currentStack = currentStack;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder dockerContainerName(@Nullable String dockerContainerName) {
-
-            this.dockerContainerName = dockerContainerName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder dockerContainerRegistry(@Nullable String dockerContainerRegistry) {
-
-            this.dockerContainerRegistry = dockerContainerRegistry;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder dockerContainerTag(@Nullable String dockerContainerTag) {
-
-            this.dockerContainerTag = dockerContainerTag;
             return this;
         }
         @CustomType.Setter
@@ -438,12 +356,6 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
             return this;
         }
         @CustomType.Setter
-        public Builder pythonVersion(@Nullable String pythonVersion) {
-
-            this.pythonVersion = pythonVersion;
-            return this;
-        }
-        @CustomType.Setter
         public Builder tomcatVersion(@Nullable String tomcatVersion) {
 
             this.tomcatVersion = tomcatVersion;
@@ -452,9 +364,6 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         public WindowsWebAppSlotSiteConfigApplicationStack build() {
             final var _resultValue = new WindowsWebAppSlotSiteConfigApplicationStack();
             _resultValue.currentStack = currentStack;
-            _resultValue.dockerContainerName = dockerContainerName;
-            _resultValue.dockerContainerRegistry = dockerContainerRegistry;
-            _resultValue.dockerContainerTag = dockerContainerTag;
             _resultValue.dockerImageName = dockerImageName;
             _resultValue.dockerRegistryPassword = dockerRegistryPassword;
             _resultValue.dockerRegistryUrl = dockerRegistryUrl;
@@ -468,7 +377,6 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
             _resultValue.nodeVersion = nodeVersion;
             _resultValue.phpVersion = phpVersion;
             _resultValue.python = python;
-            _resultValue.pythonVersion = pythonVersion;
             _resultValue.tomcatVersion = tomcatVersion;
             return _resultValue;
         }

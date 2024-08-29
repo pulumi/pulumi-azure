@@ -226,16 +226,16 @@ namespace Pulumi.Azure.Iot
         public Output<string> EventHubOperationsPath { get; private set; } = null!;
 
         /// <summary>
-        /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         /// </summary>
         [Output("eventHubPartitionCount")]
-        public Output<int> EventHubPartitionCount { get; private set; } = null!;
+        public Output<int?> EventHubPartitionCount { get; private set; } = null!;
 
         /// <summary>
-        /// The event hub retention to use in days. Must be between `1` and `7`.
+        /// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         /// </summary>
         [Output("eventHubRetentionInDays")]
-        public Output<int> EventHubRetentionInDays { get; private set; } = null!;
+        public Output<int?> EventHubRetentionInDays { get; private set; } = null!;
 
         /// <summary>
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
@@ -390,13 +390,13 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         /// </summary>
         [Input("eventHubPartitionCount")]
         public Input<int>? EventHubPartitionCount { get; set; }
 
         /// <summary>
-        /// The event hub retention to use in days. Must be between `1` and `7`.
+        /// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         /// </summary>
         [Input("eventHubRetentionInDays")]
         public Input<int>? EventHubRetentionInDays { get; set; }
@@ -547,13 +547,13 @@ namespace Pulumi.Azure.Iot
         public Input<string>? EventHubOperationsPath { get; set; }
 
         /// <summary>
-        /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         /// </summary>
         [Input("eventHubPartitionCount")]
         public Input<int>? EventHubPartitionCount { get; set; }
 
         /// <summary>
-        /// The event hub retention to use in days. Must be between `1` and `7`.
+        /// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         /// </summary>
         [Input("eventHubRetentionInDays")]
         public Input<int>? EventHubRetentionInDays { get; set; }

@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -133,40 +134,18 @@ public class ChannelWebChat extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A list of Web Chat Site names.
-     * 
-     * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
-    @Export(name="siteNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> siteNames;
-
-    /**
-     * @return A list of Web Chat Site names.
-     * 
-     * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    public Output<List<String>> siteNames() {
-        return this.siteNames;
-    }
-    /**
      * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      * 
      */
     @Export(name="sites", refs={List.class,ChannelWebChatSite.class}, tree="[0,1]")
-    private Output<List<ChannelWebChatSite>> sites;
+    private Output</* @Nullable */ List<ChannelWebChatSite>> sites;
 
     /**
      * @return A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      * 
      */
-    public Output<List<ChannelWebChatSite>> sites() {
-        return this.sites;
+    public Output<Optional<List<ChannelWebChatSite>>> sites() {
+        return Codegen.optional(this.sites);
     }
 
     /**

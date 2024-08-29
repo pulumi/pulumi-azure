@@ -85,53 +85,38 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.aofStorageConnectionString1);
     }
 
+    /**
+     * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+     * 
+     * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+     * 
+     */
     @Import(name="authenticationEnabled")
     private @Nullable Output<Boolean> authenticationEnabled;
 
+    /**
+     * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+     * 
+     * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> authenticationEnabled() {
         return Optional.ofNullable(this.authenticationEnabled);
     }
 
     /**
-     * Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+     * Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
      * 
      */
     @Import(name="dataPersistenceAuthenticationMethod")
     private @Nullable Output<String> dataPersistenceAuthenticationMethod;
 
     /**
-     * @return Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+     * @return Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
      * 
      */
     public Optional<Output<String>> dataPersistenceAuthenticationMethod() {
         return Optional.ofNullable(this.dataPersistenceAuthenticationMethod);
-    }
-
-    /**
-     * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-     * 
-     * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
-     * 
-     * @deprecated
-     * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
-    @Import(name="enableAuthentication")
-    private @Nullable Output<Boolean> enableAuthentication;
-
-    /**
-     * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-     * 
-     * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
-     * 
-     * @deprecated
-     * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> enableAuthentication() {
-        return Optional.ofNullable(this.enableAuthentication);
     }
 
     /**
@@ -322,7 +307,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         this.aofStorageConnectionString1 = $.aofStorageConnectionString1;
         this.authenticationEnabled = $.authenticationEnabled;
         this.dataPersistenceAuthenticationMethod = $.dataPersistenceAuthenticationMethod;
-        this.enableAuthentication = $.enableAuthentication;
         this.maxclients = $.maxclients;
         this.maxfragmentationmemoryReserved = $.maxfragmentationmemoryReserved;
         this.maxmemoryDelta = $.maxmemoryDelta;
@@ -446,17 +430,33 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
             return aofStorageConnectionString1(Output.of(aofStorageConnectionString1));
         }
 
+        /**
+         * @param authenticationEnabled If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+         * 
+         * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authenticationEnabled(@Nullable Output<Boolean> authenticationEnabled) {
             $.authenticationEnabled = authenticationEnabled;
             return this;
         }
 
+        /**
+         * @param authenticationEnabled If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+         * 
+         * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authenticationEnabled(Boolean authenticationEnabled) {
             return authenticationEnabled(Output.of(authenticationEnabled));
         }
 
         /**
-         * @param dataPersistenceAuthenticationMethod Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+         * @param dataPersistenceAuthenticationMethod Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
          * 
          * @return builder
          * 
@@ -467,46 +467,13 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataPersistenceAuthenticationMethod Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+         * @param dataPersistenceAuthenticationMethod Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
          * 
          * @return builder
          * 
          */
         public Builder dataPersistenceAuthenticationMethod(String dataPersistenceAuthenticationMethod) {
             return dataPersistenceAuthenticationMethod(Output.of(dataPersistenceAuthenticationMethod));
-        }
-
-        /**
-         * @param enableAuthentication If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-         * 
-         * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
-        public Builder enableAuthentication(@Nullable Output<Boolean> enableAuthentication) {
-            $.enableAuthentication = enableAuthentication;
-            return this;
-        }
-
-        /**
-         * @param enableAuthentication If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-         * 
-         * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
-        public Builder enableAuthentication(Boolean enableAuthentication) {
-            return enableAuthentication(Output.of(enableAuthentication));
         }
 
         /**

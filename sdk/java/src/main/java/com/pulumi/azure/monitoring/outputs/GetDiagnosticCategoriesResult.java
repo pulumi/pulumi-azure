@@ -27,15 +27,6 @@ public final class GetDiagnosticCategoriesResult {
      */
     private List<String> logCategoryTypes;
     /**
-     * @return A list of the Log Categories supported for this Resource.
-     * 
-     * @deprecated
-     * `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider. */
-    private List<String> logs;
-    /**
      * @return A list of the Metric Categories supported for this Resource.
      * 
      */
@@ -65,17 +56,6 @@ public final class GetDiagnosticCategoriesResult {
         return this.logCategoryTypes;
     }
     /**
-     * @return A list of the Log Categories supported for this Resource.
-     * 
-     * @deprecated
-     * `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider. */
-    public List<String> logs() {
-        return this.logs;
-    }
-    /**
      * @return A list of the Metric Categories supported for this Resource.
      * 
      */
@@ -98,7 +78,6 @@ public final class GetDiagnosticCategoriesResult {
         private String id;
         private List<String> logCategoryGroups;
         private List<String> logCategoryTypes;
-        private List<String> logs;
         private List<String> metrics;
         private String resourceId;
         public Builder() {}
@@ -107,7 +86,6 @@ public final class GetDiagnosticCategoriesResult {
     	      this.id = defaults.id;
     	      this.logCategoryGroups = defaults.logCategoryGroups;
     	      this.logCategoryTypes = defaults.logCategoryTypes;
-    	      this.logs = defaults.logs;
     	      this.metrics = defaults.metrics;
     	      this.resourceId = defaults.resourceId;
         }
@@ -143,17 +121,6 @@ public final class GetDiagnosticCategoriesResult {
             return logCategoryTypes(List.of(logCategoryTypes));
         }
         @CustomType.Setter
-        public Builder logs(List<String> logs) {
-            if (logs == null) {
-              throw new MissingRequiredPropertyException("GetDiagnosticCategoriesResult", "logs");
-            }
-            this.logs = logs;
-            return this;
-        }
-        public Builder logs(String... logs) {
-            return logs(List.of(logs));
-        }
-        @CustomType.Setter
         public Builder metrics(List<String> metrics) {
             if (metrics == null) {
               throw new MissingRequiredPropertyException("GetDiagnosticCategoriesResult", "metrics");
@@ -177,7 +144,6 @@ public final class GetDiagnosticCategoriesResult {
             _resultValue.id = id;
             _resultValue.logCategoryGroups = logCategoryGroups;
             _resultValue.logCategoryTypes = logCategoryTypes;
-            _resultValue.logs = logs;
             _resultValue.metrics = metrics;
             _resultValue.resourceId = resourceId;
             return _resultValue;

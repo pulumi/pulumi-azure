@@ -80,7 +80,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the App Service Environment to create this Service Plan in.
      * 
-     * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+     * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
      * 
      */
     @Export(name="appServiceEnvironmentId", refs={String.class}, tree="[0]")
@@ -89,7 +89,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the App Service Environment to create this Service Plan in.
      * 
-     * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+     * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
      * 
      */
     public Output<Optional<String>> appServiceEnvironmentId() {

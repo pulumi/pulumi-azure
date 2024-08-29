@@ -135,14 +135,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="exportable", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> exportable;
+    private Output</* @Nullable */ Boolean> exportable;
 
     /**
      * @return The is exportable flag of the certificate.
      * 
      */
-    public Output<Boolean> exportable() {
-        return this.exportable;
+    public Output<Optional<Boolean>> exportable() {
+        return Codegen.optional(this.exportable);
     }
     /**
      * Specifies the name of the Certificate. Changing this forces a new resource to be created.

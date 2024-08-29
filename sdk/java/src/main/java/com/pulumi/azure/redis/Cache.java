@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .capacity(2)
  *             .family("C")
  *             .skuName("Standard")
- *             .enableNonSslPort(false)
+ *             .nonSslPortEnabled(false)
  *             .minimumTlsVersion("1.2")
  *             .redisConfiguration()
  *             .build());
@@ -97,6 +97,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:redis/cache:Cache")
 public class Cache extends com.pulumi.resources.CustomResource {
     /**
+     * Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+     * 
+     */
+    @Export(name="accessKeysAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> accessKeysAuthenticationEnabled;
+
+    /**
+     * @return Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+     * 
+     */
+    public Output<Optional<Boolean>> accessKeysAuthenticationEnabled() {
+        return Codegen.optional(this.accessKeysAuthenticationEnabled);
+    }
+    /**
      * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      * 
      */
@@ -109,24 +123,6 @@ public class Cache extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> capacity() {
         return this.capacity;
-    }
-    /**
-     * Enable the non-SSL port (6379) - disabled by default.
-     * 
-     * @deprecated
-     * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
-    @Export(name="enableNonSslPort", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableNonSslPort;
-
-    /**
-     * @return Enable the non-SSL port (6379) - disabled by default.
-     * 
-     */
-    public Output<Optional<Boolean>> enableNonSslPort() {
-        return Codegen.optional(this.enableNonSslPort);
     }
     /**
      * The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
@@ -212,11 +208,19 @@ public class Cache extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Enable the non-SSL port (6379) - disabled by default.
+     * 
+     */
     @Export(name="nonSslPortEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> nonSslPortEnabled;
+    private Output</* @Nullable */ Boolean> nonSslPortEnabled;
 
-    public Output<Boolean> nonSslPortEnabled() {
-        return this.nonSslPortEnabled;
+    /**
+     * @return Enable the non-SSL port (6379) - disabled by default.
+     * 
+     */
+    public Output<Optional<Boolean>> nonSslPortEnabled() {
+        return Codegen.optional(this.nonSslPortEnabled);
     }
     /**
      * A list of `patch_schedule` blocks as defined below.
@@ -317,18 +321,18 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return this.redisConfiguration;
     }
     /**
-     * Redis version. Only major version needed. Valid values: `4`, `6`.
+     * Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
      * 
      */
     @Export(name="redisVersion", refs={String.class}, tree="[0]")
-    private Output<String> redisVersion;
+    private Output</* @Nullable */ String> redisVersion;
 
     /**
-     * @return Redis version. Only major version needed. Valid values: `4`, `6`.
+     * @return Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
      * 
      */
-    public Output<String> redisVersion() {
-        return this.redisVersion;
+    public Output<Optional<String>> redisVersion() {
+        return Codegen.optional(this.redisVersion);
     }
     /**
      * Amount of replicas to create per master for this Redis Cache.

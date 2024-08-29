@@ -23,7 +23,7 @@ public final class WorkspaceCustomParameters {
      */
     private @Nullable String natGatewayName;
     /**
-     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
      * 
      * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
      * 
@@ -95,7 +95,7 @@ public final class WorkspaceCustomParameters {
         return Optional.ofNullable(this.natGatewayName);
     }
     /**
-     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
      * 
      * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
      * 

@@ -101,14 +101,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="contentTypesToCompresses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> contentTypesToCompresses;
+    private Output</* @Nullable */ List<String>> contentTypesToCompresses;
 
     /**
      * @return An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
      * 
      */
-    public Output<List<String>> contentTypesToCompresses() {
-        return this.contentTypesToCompresses;
+    public Output<Optional<List<String>>> contentTypesToCompresses() {
+        return Codegen.optional(this.contentTypesToCompresses);
     }
     /**
      * Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
@@ -269,14 +269,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="originPath", refs={String.class}, tree="[0]")
-    private Output<String> originPath;
+    private Output</* @Nullable */ String> originPath;
 
     /**
      * @return The path used at for origin requests.
      * 
      */
-    public Output<String> originPath() {
-        return this.originPath;
+    public Output<Optional<String>> originPath() {
+        return Codegen.optional(this.originPath);
     }
     /**
      * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
@@ -299,7 +299,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="probePath", refs={String.class}, tree="[0]")
-    private Output<String> probePath;
+    private Output</* @Nullable */ String> probePath;
 
     /**
      * @return the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
@@ -307,8 +307,8 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
      * 
      */
-    public Output<String> probePath() {
-        return this.probePath;
+    public Output<Optional<String>> probePath() {
+        return Codegen.optional(this.probePath);
     }
     /**
      * The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.

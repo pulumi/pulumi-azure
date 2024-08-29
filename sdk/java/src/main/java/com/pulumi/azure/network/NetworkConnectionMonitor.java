@@ -288,14 +288,14 @@ public class NetworkConnectionMonitor extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="outputWorkspaceResourceIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> outputWorkspaceResourceIds;
+    private Output</* @Nullable */ List<String>> outputWorkspaceResourceIds;
 
     /**
      * @return A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
      * 
      */
-    public Output<List<String>> outputWorkspaceResourceIds() {
-        return this.outputWorkspaceResourceIds;
+    public Output<Optional<List<String>>> outputWorkspaceResourceIds() {
+        return Codegen.optional(this.outputWorkspaceResourceIds);
     }
     /**
      * A mapping of tags which should be assigned to the Network Connection Monitor.

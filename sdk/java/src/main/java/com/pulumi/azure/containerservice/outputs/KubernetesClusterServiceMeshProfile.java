@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -36,6 +37,13 @@ public final class KubernetesClusterServiceMeshProfile {
      * 
      */
     private String mode;
+    /**
+     * @return Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+     * 
+     * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+     * 
+     */
+    private List<String> revisions;
 
     private KubernetesClusterServiceMeshProfile() {}
     /**
@@ -68,6 +76,15 @@ public final class KubernetesClusterServiceMeshProfile {
     public String mode() {
         return this.mode;
     }
+    /**
+     * @return Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+     * 
+     * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+     * 
+     */
+    public List<String> revisions() {
+        return this.revisions;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -82,6 +99,7 @@ public final class KubernetesClusterServiceMeshProfile {
         private @Nullable Boolean externalIngressGatewayEnabled;
         private @Nullable Boolean internalIngressGatewayEnabled;
         private String mode;
+        private List<String> revisions;
         public Builder() {}
         public Builder(KubernetesClusterServiceMeshProfile defaults) {
     	      Objects.requireNonNull(defaults);
@@ -89,6 +107,7 @@ public final class KubernetesClusterServiceMeshProfile {
     	      this.externalIngressGatewayEnabled = defaults.externalIngressGatewayEnabled;
     	      this.internalIngressGatewayEnabled = defaults.internalIngressGatewayEnabled;
     	      this.mode = defaults.mode;
+    	      this.revisions = defaults.revisions;
         }
 
         @CustomType.Setter
@@ -117,12 +136,24 @@ public final class KubernetesClusterServiceMeshProfile {
             this.mode = mode;
             return this;
         }
+        @CustomType.Setter
+        public Builder revisions(List<String> revisions) {
+            if (revisions == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterServiceMeshProfile", "revisions");
+            }
+            this.revisions = revisions;
+            return this;
+        }
+        public Builder revisions(String... revisions) {
+            return revisions(List.of(revisions));
+        }
         public KubernetesClusterServiceMeshProfile build() {
             final var _resultValue = new KubernetesClusterServiceMeshProfile();
             _resultValue.certificateAuthority = certificateAuthority;
             _resultValue.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
             _resultValue.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
             _resultValue.mode = mode;
+            _resultValue.revisions = revisions;
             return _resultValue;
         }
     }

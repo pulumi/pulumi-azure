@@ -195,10 +195,10 @@ namespace Pulumi.Azure.DigitalTwins
         public Output<string> KustoDatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Kusto Table. Changing this forces a new resource to be created.
+        /// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("kustoTableName")]
-        public Output<string> KustoTableName { get; private set; } = null!;
+        public Output<string?> KustoTableName { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.DigitalTwins
         public Input<string> KustoDatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Kusto Table. Changing this forces a new resource to be created.
+        /// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kustoTableName")]
         public Input<string>? KustoTableName { get; set; }
@@ -369,7 +369,7 @@ namespace Pulumi.Azure.DigitalTwins
         public Input<string>? KustoDatabaseName { get; set; }
 
         /// <summary>
-        /// Name of the Kusto Table. Changing this forces a new resource to be created.
+        /// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kustoTableName")]
         public Input<string>? KustoTableName { get; set; }

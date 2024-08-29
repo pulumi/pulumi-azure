@@ -8,8 +8,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
@@ -23,17 +21,6 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
      * 
      */
     private String interval;
-    /**
-     * @return The path for which this slow request rule applies.
-     * 
-     * &gt; **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
-     * 
-     * @deprecated
-     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
-    private @Nullable String path;
     /**
      * @return The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
      * 
@@ -56,19 +43,6 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
         return this.interval;
     }
     /**
-     * @return The path for which this slow request rule applies.
-     * 
-     * &gt; **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
-     * 
-     * @deprecated
-     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
-    public Optional<String> path() {
-        return Optional.ofNullable(this.path);
-    }
-    /**
      * @return The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
      * 
      */
@@ -87,14 +61,12 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
     public static final class Builder {
         private Integer count;
         private String interval;
-        private @Nullable String path;
         private String timeTaken;
         public Builder() {}
         public Builder(LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
     	      this.interval = defaults.interval;
-    	      this.path = defaults.path;
     	      this.timeTaken = defaults.timeTaken;
         }
 
@@ -115,12 +87,6 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder path(@Nullable String path) {
-
-            this.path = path;
-            return this;
-        }
-        @CustomType.Setter
         public Builder timeTaken(String timeTaken) {
             if (timeTaken == null) {
               throw new MissingRequiredPropertyException("LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest", "timeTaken");
@@ -132,7 +98,6 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
             final var _resultValue = new LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest();
             _resultValue.count = count;
             _resultValue.interval = interval;
-            _resultValue.path = path;
             _resultValue.timeTaken = timeTaken;
             return _resultValue;
         }

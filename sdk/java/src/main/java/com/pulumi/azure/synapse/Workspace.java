@@ -6,12 +6,10 @@ package com.pulumi.azure.synapse;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.synapse.WorkspaceArgs;
 import com.pulumi.azure.synapse.inputs.WorkspaceState;
-import com.pulumi.azure.synapse.outputs.WorkspaceAadAdmin;
 import com.pulumi.azure.synapse.outputs.WorkspaceAzureDevopsRepo;
 import com.pulumi.azure.synapse.outputs.WorkspaceCustomerManagedKey;
 import com.pulumi.azure.synapse.outputs.WorkspaceGithubRepo;
 import com.pulumi.azure.synapse.outputs.WorkspaceIdentity;
-import com.pulumi.azure.synapse.outputs.WorkspaceSqlAadAdmin;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -260,18 +258,6 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:synapse/workspace:Workspace")
 public class Workspace extends com.pulumi.resources.CustomResource {
     /**
-     * @deprecated
-     * The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="aadAdmin", refs={WorkspaceAadAdmin.class}, tree="[0]")
-    private Output<WorkspaceAadAdmin> aadAdmin;
-
-    public Output<WorkspaceAadAdmin> aadAdmin() {
-        return this.aadAdmin;
-    }
-    /**
      * An `azure_devops_repo` block as defined below.
      * 
      */
@@ -496,40 +482,28 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * @deprecated
-     * The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="sqlAadAdmin", refs={WorkspaceSqlAadAdmin.class}, tree="[0]")
-    private Output<WorkspaceSqlAadAdmin> sqlAadAdmin;
-
-    public Output<WorkspaceSqlAadAdmin> sqlAadAdmin() {
-        return this.sqlAadAdmin;
-    }
-    /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
      * 
      */
     @Export(name="sqlAdministratorLogin", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlAdministratorLogin;
 
     /**
-     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
      * 
      */
     public Output<Optional<String>> sqlAdministratorLogin() {
         return Codegen.optional(this.sqlAdministratorLogin);
     }
     /**
-     * The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+     * The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
      * 
      */
     @Export(name="sqlAdministratorLoginPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlAdministratorLoginPassword;
 
     /**
-     * @return The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+     * @return The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
      * 
      */
     public Output<Optional<String>> sqlAdministratorLoginPassword() {

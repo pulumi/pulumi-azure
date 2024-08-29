@@ -4,6 +4,7 @@
 package com.pulumi.azure.automation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -13,19 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SoftwareUpdateConfigurationLinux {
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
-    private @Nullable String classificationIncluded;
-    /**
      * @return Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
      * 
      * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
-    private @Nullable List<String> classificationsIncludeds;
+    private List<String> classificationsIncludeds;
     /**
      * @return Specifies a list of packages to excluded from the Software Update Configuration.
      * 
@@ -44,22 +38,13 @@ public final class SoftwareUpdateConfigurationLinux {
 
     private SoftwareUpdateConfigurationLinux() {}
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
-    public Optional<String> classificationIncluded() {
-        return Optional.ofNullable(this.classificationIncluded);
-    }
-    /**
      * @return Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
      * 
      * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
     public List<String> classificationsIncludeds() {
-        return this.classificationsIncludeds == null ? List.of() : this.classificationsIncludeds;
+        return this.classificationsIncludeds;
     }
     /**
      * @return Specifies a list of packages to excluded from the Software Update Configuration.
@@ -92,15 +77,13 @@ public final class SoftwareUpdateConfigurationLinux {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String classificationIncluded;
-        private @Nullable List<String> classificationsIncludeds;
+        private List<String> classificationsIncludeds;
         private @Nullable List<String> excludedPackages;
         private @Nullable List<String> includedPackages;
         private @Nullable String reboot;
         public Builder() {}
         public Builder(SoftwareUpdateConfigurationLinux defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.classificationIncluded = defaults.classificationIncluded;
     	      this.classificationsIncludeds = defaults.classificationsIncludeds;
     	      this.excludedPackages = defaults.excludedPackages;
     	      this.includedPackages = defaults.includedPackages;
@@ -108,14 +91,10 @@ public final class SoftwareUpdateConfigurationLinux {
         }
 
         @CustomType.Setter
-        public Builder classificationIncluded(@Nullable String classificationIncluded) {
-
-            this.classificationIncluded = classificationIncluded;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder classificationsIncludeds(@Nullable List<String> classificationsIncludeds) {
-
+        public Builder classificationsIncludeds(List<String> classificationsIncludeds) {
+            if (classificationsIncludeds == null) {
+              throw new MissingRequiredPropertyException("SoftwareUpdateConfigurationLinux", "classificationsIncludeds");
+            }
             this.classificationsIncludeds = classificationsIncludeds;
             return this;
         }
@@ -148,7 +127,6 @@ public final class SoftwareUpdateConfigurationLinux {
         }
         public SoftwareUpdateConfigurationLinux build() {
             final var _resultValue = new SoftwareUpdateConfigurationLinux();
-            _resultValue.classificationIncluded = classificationIncluded;
             _resultValue.classificationsIncludeds = classificationsIncludeds;
             _resultValue.excludedPackages = excludedPackages;
             _resultValue.includedPackages = includedPackages;

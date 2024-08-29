@@ -116,10 +116,10 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         /// </summary>
         [Output("minimumTlsVersion")]
-        public Output<string> MinimumTlsVersion { get; private set; } = null!;
+        public Output<string?> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
@@ -165,14 +165,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
-        /// </summary>
-        [Output("zoneRedundant")]
-        public Output<bool> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>
@@ -258,7 +250,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
@@ -313,14 +305,6 @@ namespace Pulumi.Azure.EventHub
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
-        /// </summary>
-        [Input("zoneRedundant")]
-        public Input<bool>? ZoneRedundant { get; set; }
 
         public NamespaceArgs()
         {
@@ -431,7 +415,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
@@ -486,14 +470,6 @@ namespace Pulumi.Azure.EventHub
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
-        /// </summary>
-        [Input("zoneRedundant")]
-        public Input<bool>? ZoneRedundant { get; set; }
 
         public NamespaceState()
         {

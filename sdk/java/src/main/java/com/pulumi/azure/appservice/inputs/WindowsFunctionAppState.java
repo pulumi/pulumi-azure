@@ -635,6 +635,21 @@ public final class WindowsFunctionAppState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * 
+     */
+    @Import(name="vnetImagePullEnabled")
+    private @Nullable Output<Boolean> vnetImagePullEnabled;
+
+    /**
+     * @return Is container image pull over virtual network enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> vnetImagePullEnabled() {
+        return Optional.ofNullable(this.vnetImagePullEnabled);
+    }
+
+    /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -715,6 +730,7 @@ public final class WindowsFunctionAppState extends com.pulumi.resources.Resource
         this.storageUsesManagedIdentity = $.storageUsesManagedIdentity;
         this.tags = $.tags;
         this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
+        this.vnetImagePullEnabled = $.vnetImagePullEnabled;
         this.webdeployPublishBasicAuthenticationEnabled = $.webdeployPublishBasicAuthenticationEnabled;
         this.zipDeployFile = $.zipDeployFile;
     }
@@ -1627,6 +1643,27 @@ public final class WindowsFunctionAppState extends com.pulumi.resources.Resource
 
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
+        }
+
+        /**
+         * @param vnetImagePullEnabled Is container image pull over virtual network enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vnetImagePullEnabled(@Nullable Output<Boolean> vnetImagePullEnabled) {
+            $.vnetImagePullEnabled = vnetImagePullEnabled;
+            return this;
+        }
+
+        /**
+         * @param vnetImagePullEnabled Is container image pull over virtual network enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vnetImagePullEnabled(Boolean vnetImagePullEnabled) {
+            return vnetImagePullEnabled(Output.of(vnetImagePullEnabled));
         }
 
         /**

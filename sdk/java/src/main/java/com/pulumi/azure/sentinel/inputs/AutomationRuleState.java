@@ -5,7 +5,6 @@ package com.pulumi.azure.sentinel.inputs;
 
 import com.pulumi.azure.sentinel.inputs.AutomationRuleActionIncidentArgs;
 import com.pulumi.azure.sentinel.inputs.AutomationRuleActionPlaybookArgs;
-import com.pulumi.azure.sentinel.inputs.AutomationRuleConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -68,33 +67,6 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> conditionJson() {
         return Optional.ofNullable(this.conditionJson);
-    }
-
-    /**
-     * One or more `condition` blocks as defined below.
-     * 
-     * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-     * 
-     * @deprecated
-     * This is deprecated in favor of `condition_json`
-     * 
-     */
-    @Deprecated /* This is deprecated in favor of `condition_json` */
-    @Import(name="conditions")
-    private @Nullable Output<List<AutomationRuleConditionArgs>> conditions;
-
-    /**
-     * @return One or more `condition` blocks as defined below.
-     * 
-     * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-     * 
-     * @deprecated
-     * This is deprecated in favor of `condition_json`
-     * 
-     */
-    @Deprecated /* This is deprecated in favor of `condition_json` */
-    public Optional<Output<List<AutomationRuleConditionArgs>>> conditions() {
-        return Optional.ofNullable(this.conditions);
     }
 
     /**
@@ -223,7 +195,6 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         this.actionIncidents = $.actionIncidents;
         this.actionPlaybooks = $.actionPlaybooks;
         this.conditionJson = $.conditionJson;
-        this.conditions = $.conditions;
         this.displayName = $.displayName;
         this.enabled = $.enabled;
         this.expiration = $.expiration;
@@ -339,55 +310,6 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
          */
         public Builder conditionJson(String conditionJson) {
             return conditionJson(Output.of(conditionJson));
-        }
-
-        /**
-         * @param conditions One or more `condition` blocks as defined below.
-         * 
-         * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This is deprecated in favor of `condition_json`
-         * 
-         */
-        @Deprecated /* This is deprecated in favor of `condition_json` */
-        public Builder conditions(@Nullable Output<List<AutomationRuleConditionArgs>> conditions) {
-            $.conditions = conditions;
-            return this;
-        }
-
-        /**
-         * @param conditions One or more `condition` blocks as defined below.
-         * 
-         * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This is deprecated in favor of `condition_json`
-         * 
-         */
-        @Deprecated /* This is deprecated in favor of `condition_json` */
-        public Builder conditions(List<AutomationRuleConditionArgs> conditions) {
-            return conditions(Output.of(conditions));
-        }
-
-        /**
-         * @param conditions One or more `condition` blocks as defined below.
-         * 
-         * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This is deprecated in favor of `condition_json`
-         * 
-         */
-        @Deprecated /* This is deprecated in favor of `condition_json` */
-        public Builder conditions(AutomationRuleConditionArgs... conditions) {
-            return conditions(List.of(conditions));
         }
 
         /**

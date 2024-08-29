@@ -21,18 +21,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterDefaultNodePool {
     /**
-     * @return Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-     * 
-     */
-    private @Nullable String capacityReservationGroupId;
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    private @Nullable Boolean customCaTrustEnabled;
-    /**
      * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
      * 
      * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
@@ -40,19 +28,12 @@ public final class KubernetesClusterDefaultNodePool {
      * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
      * 
      */
-    private @Nullable Boolean enableAutoScaling;
+    private @Nullable Boolean autoScalingEnabled;
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
-     * 
-     * &gt; **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+     * @return Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
      * 
      */
-    private @Nullable Boolean enableHostEncryption;
-    /**
-     * @return Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
-     * 
-     */
-    private @Nullable Boolean enableNodePublicIp;
+    private @Nullable String capacityReservationGroupId;
     /**
      * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
      * 
@@ -63,6 +44,13 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable String gpuInstance;
+    /**
+     * @return Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
+     * 
+     * &gt; **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+     * 
+     */
+    private @Nullable Boolean hostEncryptionEnabled;
     /**
      * @return Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
      * 
@@ -89,13 +77,6 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable Integer maxPods;
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    private @Nullable String messageOfTheDay;
     private @Nullable Integer minCount;
     /**
      * @return The name which should be used for the default Kubernetes Node Pool.
@@ -114,17 +95,15 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable KubernetesClusterDefaultNodePoolNodeNetworkProfile nodeNetworkProfile;
     /**
-     * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+     * @return Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
+     * 
+     */
+    private @Nullable Boolean nodePublicIpEnabled;
+    /**
+     * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String nodePublicIpPrefixId;
-    /**
-     * @deprecated
-     * This field will be removed in v4.0 of the Azure Provider since the AKS API doesn&#39;t allow arbitrary node taints on the default node pool
-     * 
-     */
-    @Deprecated /* This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool */
-    private @Nullable List<String> nodeTaints;
     /**
      * @return Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
      * 
@@ -185,7 +164,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String temporaryNameForRotation;
     /**
-     * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+     * @return The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
      * 
@@ -228,22 +207,6 @@ public final class KubernetesClusterDefaultNodePool {
 
     private KubernetesClusterDefaultNodePool() {}
     /**
-     * @return Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-     * 
-     */
-    public Optional<String> capacityReservationGroupId() {
-        return Optional.ofNullable(this.capacityReservationGroupId);
-    }
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    public Optional<Boolean> customCaTrustEnabled() {
-        return Optional.ofNullable(this.customCaTrustEnabled);
-    }
-    /**
      * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
      * 
      * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
@@ -251,24 +214,15 @@ public final class KubernetesClusterDefaultNodePool {
      * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
      * 
      */
-    public Optional<Boolean> enableAutoScaling() {
-        return Optional.ofNullable(this.enableAutoScaling);
+    public Optional<Boolean> autoScalingEnabled() {
+        return Optional.ofNullable(this.autoScalingEnabled);
     }
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
-     * 
-     * &gt; **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+     * @return Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
      * 
      */
-    public Optional<Boolean> enableHostEncryption() {
-        return Optional.ofNullable(this.enableHostEncryption);
-    }
-    /**
-     * @return Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
-     * 
-     */
-    public Optional<Boolean> enableNodePublicIp() {
-        return Optional.ofNullable(this.enableNodePublicIp);
+    public Optional<String> capacityReservationGroupId() {
+        return Optional.ofNullable(this.capacityReservationGroupId);
     }
     /**
      * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
@@ -283,6 +237,15 @@ public final class KubernetesClusterDefaultNodePool {
      */
     public Optional<String> gpuInstance() {
         return Optional.ofNullable(this.gpuInstance);
+    }
+    /**
+     * @return Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
+     * 
+     * &gt; **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+     * 
+     */
+    public Optional<Boolean> hostEncryptionEnabled() {
+        return Optional.ofNullable(this.hostEncryptionEnabled);
     }
     /**
      * @return Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -322,15 +285,6 @@ public final class KubernetesClusterDefaultNodePool {
     public Optional<Integer> maxPods() {
         return Optional.ofNullable(this.maxPods);
     }
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    public Optional<String> messageOfTheDay() {
-        return Optional.ofNullable(this.messageOfTheDay);
-    }
     public Optional<Integer> minCount() {
         return Optional.ofNullable(this.minCount);
     }
@@ -359,20 +313,18 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.nodeNetworkProfile);
     }
     /**
-     * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+     * @return Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
+     * 
+     */
+    public Optional<Boolean> nodePublicIpEnabled() {
+        return Optional.ofNullable(this.nodePublicIpEnabled);
+    }
+    /**
+     * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> nodePublicIpPrefixId() {
         return Optional.ofNullable(this.nodePublicIpPrefixId);
-    }
-    /**
-     * @deprecated
-     * This field will be removed in v4.0 of the Azure Provider since the AKS API doesn&#39;t allow arbitrary node taints on the default node pool
-     * 
-     */
-    @Deprecated /* This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool */
-    public List<String> nodeTaints() {
-        return this.nodeTaints == null ? List.of() : this.nodeTaints;
     }
     /**
      * @return Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
@@ -456,7 +408,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.temporaryNameForRotation);
     }
     /**
-     * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+     * @return The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
      * 
@@ -520,27 +472,24 @@ public final class KubernetesClusterDefaultNodePool {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean autoScalingEnabled;
         private @Nullable String capacityReservationGroupId;
-        private @Nullable Boolean customCaTrustEnabled;
-        private @Nullable Boolean enableAutoScaling;
-        private @Nullable Boolean enableHostEncryption;
-        private @Nullable Boolean enableNodePublicIp;
         private @Nullable Boolean fipsEnabled;
         private @Nullable String gpuInstance;
+        private @Nullable Boolean hostEncryptionEnabled;
         private @Nullable String hostGroupId;
         private @Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig;
         private @Nullable String kubeletDiskType;
         private @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig;
         private @Nullable Integer maxCount;
         private @Nullable Integer maxPods;
-        private @Nullable String messageOfTheDay;
         private @Nullable Integer minCount;
         private String name;
         private @Nullable Integer nodeCount;
         private @Nullable Map<String,String> nodeLabels;
         private @Nullable KubernetesClusterDefaultNodePoolNodeNetworkProfile nodeNetworkProfile;
+        private @Nullable Boolean nodePublicIpEnabled;
         private @Nullable String nodePublicIpPrefixId;
-        private @Nullable List<String> nodeTaints;
         private @Nullable Boolean onlyCriticalAddonsEnabled;
         private @Nullable String orchestratorVersion;
         private @Nullable Integer osDiskSizeGb;
@@ -562,27 +511,24 @@ public final class KubernetesClusterDefaultNodePool {
         public Builder() {}
         public Builder(KubernetesClusterDefaultNodePool defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.autoScalingEnabled = defaults.autoScalingEnabled;
     	      this.capacityReservationGroupId = defaults.capacityReservationGroupId;
-    	      this.customCaTrustEnabled = defaults.customCaTrustEnabled;
-    	      this.enableAutoScaling = defaults.enableAutoScaling;
-    	      this.enableHostEncryption = defaults.enableHostEncryption;
-    	      this.enableNodePublicIp = defaults.enableNodePublicIp;
     	      this.fipsEnabled = defaults.fipsEnabled;
     	      this.gpuInstance = defaults.gpuInstance;
+    	      this.hostEncryptionEnabled = defaults.hostEncryptionEnabled;
     	      this.hostGroupId = defaults.hostGroupId;
     	      this.kubeletConfig = defaults.kubeletConfig;
     	      this.kubeletDiskType = defaults.kubeletDiskType;
     	      this.linuxOsConfig = defaults.linuxOsConfig;
     	      this.maxCount = defaults.maxCount;
     	      this.maxPods = defaults.maxPods;
-    	      this.messageOfTheDay = defaults.messageOfTheDay;
     	      this.minCount = defaults.minCount;
     	      this.name = defaults.name;
     	      this.nodeCount = defaults.nodeCount;
     	      this.nodeLabels = defaults.nodeLabels;
     	      this.nodeNetworkProfile = defaults.nodeNetworkProfile;
+    	      this.nodePublicIpEnabled = defaults.nodePublicIpEnabled;
     	      this.nodePublicIpPrefixId = defaults.nodePublicIpPrefixId;
-    	      this.nodeTaints = defaults.nodeTaints;
     	      this.onlyCriticalAddonsEnabled = defaults.onlyCriticalAddonsEnabled;
     	      this.orchestratorVersion = defaults.orchestratorVersion;
     	      this.osDiskSizeGb = defaults.osDiskSizeGb;
@@ -604,33 +550,15 @@ public final class KubernetesClusterDefaultNodePool {
         }
 
         @CustomType.Setter
+        public Builder autoScalingEnabled(@Nullable Boolean autoScalingEnabled) {
+
+            this.autoScalingEnabled = autoScalingEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder capacityReservationGroupId(@Nullable String capacityReservationGroupId) {
 
             this.capacityReservationGroupId = capacityReservationGroupId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder customCaTrustEnabled(@Nullable Boolean customCaTrustEnabled) {
-
-            this.customCaTrustEnabled = customCaTrustEnabled;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableAutoScaling(@Nullable Boolean enableAutoScaling) {
-
-            this.enableAutoScaling = enableAutoScaling;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableHostEncryption(@Nullable Boolean enableHostEncryption) {
-
-            this.enableHostEncryption = enableHostEncryption;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableNodePublicIp(@Nullable Boolean enableNodePublicIp) {
-
-            this.enableNodePublicIp = enableNodePublicIp;
             return this;
         }
         @CustomType.Setter
@@ -643,6 +571,12 @@ public final class KubernetesClusterDefaultNodePool {
         public Builder gpuInstance(@Nullable String gpuInstance) {
 
             this.gpuInstance = gpuInstance;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hostEncryptionEnabled(@Nullable Boolean hostEncryptionEnabled) {
+
+            this.hostEncryptionEnabled = hostEncryptionEnabled;
             return this;
         }
         @CustomType.Setter
@@ -682,12 +616,6 @@ public final class KubernetesClusterDefaultNodePool {
             return this;
         }
         @CustomType.Setter
-        public Builder messageOfTheDay(@Nullable String messageOfTheDay) {
-
-            this.messageOfTheDay = messageOfTheDay;
-            return this;
-        }
-        @CustomType.Setter
         public Builder minCount(@Nullable Integer minCount) {
 
             this.minCount = minCount;
@@ -720,19 +648,16 @@ public final class KubernetesClusterDefaultNodePool {
             return this;
         }
         @CustomType.Setter
+        public Builder nodePublicIpEnabled(@Nullable Boolean nodePublicIpEnabled) {
+
+            this.nodePublicIpEnabled = nodePublicIpEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder nodePublicIpPrefixId(@Nullable String nodePublicIpPrefixId) {
 
             this.nodePublicIpPrefixId = nodePublicIpPrefixId;
             return this;
-        }
-        @CustomType.Setter
-        public Builder nodeTaints(@Nullable List<String> nodeTaints) {
-
-            this.nodeTaints = nodeTaints;
-            return this;
-        }
-        public Builder nodeTaints(String... nodeTaints) {
-            return nodeTaints(List.of(nodeTaints));
         }
         @CustomType.Setter
         public Builder onlyCriticalAddonsEnabled(@Nullable Boolean onlyCriticalAddonsEnabled) {
@@ -849,27 +774,24 @@ public final class KubernetesClusterDefaultNodePool {
         }
         public KubernetesClusterDefaultNodePool build() {
             final var _resultValue = new KubernetesClusterDefaultNodePool();
+            _resultValue.autoScalingEnabled = autoScalingEnabled;
             _resultValue.capacityReservationGroupId = capacityReservationGroupId;
-            _resultValue.customCaTrustEnabled = customCaTrustEnabled;
-            _resultValue.enableAutoScaling = enableAutoScaling;
-            _resultValue.enableHostEncryption = enableHostEncryption;
-            _resultValue.enableNodePublicIp = enableNodePublicIp;
             _resultValue.fipsEnabled = fipsEnabled;
             _resultValue.gpuInstance = gpuInstance;
+            _resultValue.hostEncryptionEnabled = hostEncryptionEnabled;
             _resultValue.hostGroupId = hostGroupId;
             _resultValue.kubeletConfig = kubeletConfig;
             _resultValue.kubeletDiskType = kubeletDiskType;
             _resultValue.linuxOsConfig = linuxOsConfig;
             _resultValue.maxCount = maxCount;
             _resultValue.maxPods = maxPods;
-            _resultValue.messageOfTheDay = messageOfTheDay;
             _resultValue.minCount = minCount;
             _resultValue.name = name;
             _resultValue.nodeCount = nodeCount;
             _resultValue.nodeLabels = nodeLabels;
             _resultValue.nodeNetworkProfile = nodeNetworkProfile;
+            _resultValue.nodePublicIpEnabled = nodePublicIpEnabled;
             _resultValue.nodePublicIpPrefixId = nodePublicIpPrefixId;
-            _resultValue.nodeTaints = nodeTaints;
             _resultValue.onlyCriticalAddonsEnabled = onlyCriticalAddonsEnabled;
             _resultValue.orchestratorVersion = orchestratorVersion;
             _resultValue.osDiskSizeGb = osDiskSizeGb;

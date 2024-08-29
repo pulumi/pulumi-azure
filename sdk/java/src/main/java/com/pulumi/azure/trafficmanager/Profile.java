@@ -182,14 +182,14 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="profileStatus", refs={String.class}, tree="[0]")
-    private Output<String> profileStatus;
+    private Output</* @Nullable */ String> profileStatus;
 
     /**
      * @return The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
      * 
      */
-    public Output<String> profileStatus() {
-        return this.profileStatus;
+    public Output<Optional<String>> profileStatus() {
+        return Codegen.optional(this.profileStatus);
     }
     /**
      * The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.

@@ -138,9 +138,17 @@ public final class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs ext
         return Optional.ofNullable(this.scriptPath);
     }
 
+    /**
+     * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -359,11 +367,23 @@ public final class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs ext
             return scriptPath(Output.of(scriptPath));
         }
 
+        /**
+         * @param type Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

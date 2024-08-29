@@ -62,13 +62,6 @@ public final class GetKubernetesClusterResult {
      */
     private String currentKubernetesVersion;
     /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    private List<String> customCaTrustCertificatesBase64s;
-    /**
      * @return The ID of the Disk Encryption Set used for the Nodes and Volumes.
      * 
      */
@@ -283,15 +276,6 @@ public final class GetKubernetesClusterResult {
      */
     public String currentKubernetesVersion() {
         return this.currentKubernetesVersion;
-    }
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    public List<String> customCaTrustCertificatesBase64s() {
-        return this.customCaTrustCertificatesBase64s;
     }
     /**
      * @return The ID of the Disk Encryption Set used for the Nodes and Volumes.
@@ -553,7 +537,6 @@ public final class GetKubernetesClusterResult {
         private List<GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControls;
         private Boolean azurePolicyEnabled;
         private String currentKubernetesVersion;
-        private List<String> customCaTrustCertificatesBase64s;
         private String diskEncryptionSetId;
         private String dnsPrefix;
         private String fqdn;
@@ -599,7 +582,6 @@ public final class GetKubernetesClusterResult {
     	      this.azureActiveDirectoryRoleBasedAccessControls = defaults.azureActiveDirectoryRoleBasedAccessControls;
     	      this.azurePolicyEnabled = defaults.azurePolicyEnabled;
     	      this.currentKubernetesVersion = defaults.currentKubernetesVersion;
-    	      this.customCaTrustCertificatesBase64s = defaults.customCaTrustCertificatesBase64s;
     	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
     	      this.dnsPrefix = defaults.dnsPrefix;
     	      this.fqdn = defaults.fqdn;
@@ -697,17 +679,6 @@ public final class GetKubernetesClusterResult {
             }
             this.currentKubernetesVersion = currentKubernetesVersion;
             return this;
-        }
-        @CustomType.Setter
-        public Builder customCaTrustCertificatesBase64s(List<String> customCaTrustCertificatesBase64s) {
-            if (customCaTrustCertificatesBase64s == null) {
-              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "customCaTrustCertificatesBase64s");
-            }
-            this.customCaTrustCertificatesBase64s = customCaTrustCertificatesBase64s;
-            return this;
-        }
-        public Builder customCaTrustCertificatesBase64s(String... customCaTrustCertificatesBase64s) {
-            return customCaTrustCertificatesBase64s(List.of(customCaTrustCertificatesBase64s));
         }
         @CustomType.Setter
         public Builder diskEncryptionSetId(String diskEncryptionSetId) {
@@ -1050,7 +1021,6 @@ public final class GetKubernetesClusterResult {
             _resultValue.azureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
             _resultValue.azurePolicyEnabled = azurePolicyEnabled;
             _resultValue.currentKubernetesVersion = currentKubernetesVersion;
-            _resultValue.customCaTrustCertificatesBase64s = customCaTrustCertificatesBase64s;
             _resultValue.diskEncryptionSetId = diskEncryptionSetId;
             _resultValue.dnsPrefix = dnsPrefix;
             _resultValue.fqdn = fqdn;

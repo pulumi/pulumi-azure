@@ -12,10 +12,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class KubernetesClusterWebAppRoutingArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dnsZoneId")]
-        public Input<string>? DnsZoneId { get; set; }
-
-        [Input("dnsZoneIds")]
+        [Input("dnsZoneIds", required: true)]
         private InputList<string>? _dnsZoneIds;
 
         /// <summary>

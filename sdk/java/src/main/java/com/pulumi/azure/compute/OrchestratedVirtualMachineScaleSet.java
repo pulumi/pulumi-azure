@@ -215,7 +215,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * 
      */
     @Export(name="extensionOperationsEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> extensionOperationsEnabled;
+    private Output</* @Nullable */ Boolean> extensionOperationsEnabled;
 
     /**
      * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
@@ -223,8 +223,8 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
-    public Output<Boolean> extensionOperationsEnabled() {
-        return this.extensionOperationsEnabled;
+    public Output<Optional<Boolean>> extensionOperationsEnabled() {
+        return Codegen.optional(this.extensionOperationsEnabled);
     }
     /**
      * One or more `extension` blocks as defined below

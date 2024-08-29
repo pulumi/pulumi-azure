@@ -20,25 +20,6 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
     public static final VnpGatewayNatRuleArgs Empty = new VnpGatewayNatRuleArgs();
 
     /**
-     * @deprecated
-     * `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider. */
-    @Import(name="externalAddressSpaceMappings")
-    private @Nullable Output<List<String>> externalAddressSpaceMappings;
-
-    /**
-     * @deprecated
-     * `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<List<String>>> externalAddressSpaceMappings() {
-        return Optional.ofNullable(this.externalAddressSpaceMappings);
-    }
-
-    /**
      * One of more `external_mapping` blocks as defined below.
      * 
      */
@@ -51,25 +32,6 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<List<VnpGatewayNatRuleExternalMappingArgs>>> externalMappings() {
         return Optional.ofNullable(this.externalMappings);
-    }
-
-    /**
-     * @deprecated
-     * `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider. */
-    @Import(name="internalAddressSpaceMappings")
-    private @Nullable Output<List<String>> internalAddressSpaceMappings;
-
-    /**
-     * @deprecated
-     * `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<List<String>>> internalAddressSpaceMappings() {
-        return Optional.ofNullable(this.internalAddressSpaceMappings);
     }
 
     /**
@@ -133,25 +95,6 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * @deprecated
-     * The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider */
-    @Import(name="resourceGroupName", required=true)
-    private Output<String> resourceGroupName;
-
-    /**
-     * @deprecated
-     * The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider */
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
-    }
-
-    /**
      * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      * 
      */
@@ -184,14 +127,11 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
     private VnpGatewayNatRuleArgs() {}
 
     private VnpGatewayNatRuleArgs(VnpGatewayNatRuleArgs $) {
-        this.externalAddressSpaceMappings = $.externalAddressSpaceMappings;
         this.externalMappings = $.externalMappings;
-        this.internalAddressSpaceMappings = $.internalAddressSpaceMappings;
         this.internalMappings = $.internalMappings;
         this.ipConfigurationId = $.ipConfigurationId;
         this.mode = $.mode;
         this.name = $.name;
-        this.resourceGroupName = $.resourceGroupName;
         this.type = $.type;
         this.vpnGatewayId = $.vpnGatewayId;
     }
@@ -212,43 +152,6 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
 
         public Builder(VnpGatewayNatRuleArgs defaults) {
             $ = new VnpGatewayNatRuleArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider. */
-        public Builder externalAddressSpaceMappings(@Nullable Output<List<String>> externalAddressSpaceMappings) {
-            $.externalAddressSpaceMappings = externalAddressSpaceMappings;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider. */
-        public Builder externalAddressSpaceMappings(List<String> externalAddressSpaceMappings) {
-            return externalAddressSpaceMappings(Output.of(externalAddressSpaceMappings));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider. */
-        public Builder externalAddressSpaceMappings(String... externalAddressSpaceMappings) {
-            return externalAddressSpaceMappings(List.of(externalAddressSpaceMappings));
         }
 
         /**
@@ -280,43 +183,6 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder externalMappings(VnpGatewayNatRuleExternalMappingArgs... externalMappings) {
             return externalMappings(List.of(externalMappings));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider. */
-        public Builder internalAddressSpaceMappings(@Nullable Output<List<String>> internalAddressSpaceMappings) {
-            $.internalAddressSpaceMappings = internalAddressSpaceMappings;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider. */
-        public Builder internalAddressSpaceMappings(List<String> internalAddressSpaceMappings) {
-            return internalAddressSpaceMappings(Output.of(internalAddressSpaceMappings));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider. */
-        public Builder internalAddressSpaceMappings(String... internalAddressSpaceMappings) {
-            return internalAddressSpaceMappings(List.of(internalAddressSpaceMappings));
         }
 
         /**
@@ -414,31 +280,6 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider */
-        public Builder resourceGroupName(Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
-        }
-
-        /**
          * @param type The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -481,9 +322,6 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         public VnpGatewayNatRuleArgs build() {
-            if ($.resourceGroupName == null) {
-                throw new MissingRequiredPropertyException("VnpGatewayNatRuleArgs", "resourceGroupName");
-            }
             if ($.vpnGatewayId == null) {
                 throw new MissingRequiredPropertyException("VnpGatewayNatRuleArgs", "vpnGatewayId");
             }

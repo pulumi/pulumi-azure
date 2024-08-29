@@ -36,7 +36,6 @@ namespace Pulumi.Azure.Network
     ///         Name = "example-route-table",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         DisableBgpRoutePropagation = false,
     ///         Routes = new[]
     ///         {
     ///             new Azure.Network.Inputs.RouteTableRouteArgs
@@ -66,14 +65,11 @@ namespace Pulumi.Azure.Network
     [AzureResourceType("azure:network/routeTable:RouteTable")]
     public partial class RouteTable : global::Pulumi.CustomResource
     {
-        [Output("bgpRoutePropagationEnabled")]
-        public Output<bool> BgpRoutePropagationEnabled { get; private set; } = null!;
-
         /// <summary>
-        /// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+        /// Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
         /// </summary>
-        [Output("disableBgpRoutePropagation")]
-        public Output<bool> DisableBgpRoutePropagation { get; private set; } = null!;
+        [Output("bgpRoutePropagationEnabled")]
+        public Output<bool?> BgpRoutePropagationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -159,14 +155,11 @@ namespace Pulumi.Azure.Network
 
     public sealed class RouteTableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+        /// </summary>
         [Input("bgpRoutePropagationEnabled")]
         public Input<bool>? BgpRoutePropagationEnabled { get; set; }
-
-        /// <summary>
-        /// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-        /// </summary>
-        [Input("disableBgpRoutePropagation")]
-        public Input<bool>? DisableBgpRoutePropagation { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -220,14 +213,11 @@ namespace Pulumi.Azure.Network
 
     public sealed class RouteTableState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+        /// </summary>
         [Input("bgpRoutePropagationEnabled")]
         public Input<bool>? BgpRoutePropagationEnabled { get; set; }
-
-        /// <summary>
-        /// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-        /// </summary>
-        [Input("disableBgpRoutePropagation")]
-        public Input<bool>? DisableBgpRoutePropagation { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

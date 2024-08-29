@@ -14,10 +14,6 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class GetActionGroupEventHubReceiverResult
     {
         /// <summary>
-        /// The resource ID of the respective Event Hub.
-        /// </summary>
-        public readonly string EventHubId;
-        /// <summary>
         /// The name of the specific Event Hub queue.
         /// </summary>
         public readonly string EventHubName;
@@ -44,8 +40,6 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
         [OutputConstructor]
         private GetActionGroupEventHubReceiverResult(
-            string eventHubId,
-
             string eventHubName,
 
             string eventHubNamespace,
@@ -58,7 +52,6 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             bool? useCommonAlertSchema)
         {
-            EventHubId = eventHubId;
             EventHubName = eventHubName;
             EventHubNamespace = eventHubNamespace;
             Name = name;

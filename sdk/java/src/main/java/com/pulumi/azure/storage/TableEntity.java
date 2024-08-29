@@ -133,18 +133,6 @@ public class TableEntity extends com.pulumi.resources.CustomResource {
         return this.rowKey;
     }
     /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
-    private Output<String> storageAccountName;
-
-    public Output<String> storageAccountName() {
-        return this.storageAccountName;
-    }
-    /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      * 
      */
@@ -157,18 +145,6 @@ public class TableEntity extends com.pulumi.resources.CustomResource {
      */
     public Output<String> storageTableId() {
         return this.storageTableId;
-    }
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    @Export(name="tableName", refs={String.class}, tree="[0]")
-    private Output<String> tableName;
-
-    public Output<String> tableName() {
-        return this.tableName;
     }
 
     /**

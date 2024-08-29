@@ -49,6 +49,7 @@ public final class PolicyPolicySettings {
      * 
      */
     private @Nullable Boolean requestBodyCheck;
+    private @Nullable Boolean requestBodyEnforcement;
     /**
      * @return Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
      * 
@@ -105,6 +106,9 @@ public final class PolicyPolicySettings {
     public Optional<Boolean> requestBodyCheck() {
         return Optional.ofNullable(this.requestBodyCheck);
     }
+    public Optional<Boolean> requestBodyEnforcement() {
+        return Optional.ofNullable(this.requestBodyEnforcement);
+    }
     /**
      * @return Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
      * 
@@ -129,6 +133,7 @@ public final class PolicyPolicySettings {
         private @Nullable Integer maxRequestBodySizeInKb;
         private @Nullable String mode;
         private @Nullable Boolean requestBodyCheck;
+        private @Nullable Boolean requestBodyEnforcement;
         private @Nullable Integer requestBodyInspectLimitInKb;
         public Builder() {}
         public Builder(PolicyPolicySettings defaults) {
@@ -140,6 +145,7 @@ public final class PolicyPolicySettings {
     	      this.maxRequestBodySizeInKb = defaults.maxRequestBodySizeInKb;
     	      this.mode = defaults.mode;
     	      this.requestBodyCheck = defaults.requestBodyCheck;
+    	      this.requestBodyEnforcement = defaults.requestBodyEnforcement;
     	      this.requestBodyInspectLimitInKb = defaults.requestBodyInspectLimitInKb;
         }
 
@@ -186,6 +192,12 @@ public final class PolicyPolicySettings {
             return this;
         }
         @CustomType.Setter
+        public Builder requestBodyEnforcement(@Nullable Boolean requestBodyEnforcement) {
+
+            this.requestBodyEnforcement = requestBodyEnforcement;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requestBodyInspectLimitInKb(@Nullable Integer requestBodyInspectLimitInKb) {
 
             this.requestBodyInspectLimitInKb = requestBodyInspectLimitInKb;
@@ -200,6 +212,7 @@ public final class PolicyPolicySettings {
             _resultValue.maxRequestBodySizeInKb = maxRequestBodySizeInKb;
             _resultValue.mode = mode;
             _resultValue.requestBodyCheck = requestBodyCheck;
+            _resultValue.requestBodyEnforcement = requestBodyEnforcement;
             _resultValue.requestBodyInspectLimitInKb = requestBodyInspectLimitInKb;
             return _resultValue;
         }

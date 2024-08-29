@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetEnterpriseDatabaseArgs extends com.pulumi.resources.InvokeArgs {
@@ -46,35 +44,11 @@ public final class GetEnterpriseDatabaseArgs extends com.pulumi.resources.Invoke
         return this.name;
     }
 
-    /**
-     * The name of the resource group the Redis Enterprise Database instance is located in.
-     * 
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    @Import(name="resourceGroupName")
-    private @Nullable Output<String> resourceGroupName;
-
-    /**
-     * @return The name of the resource group the Redis Enterprise Database instance is located in.
-     * 
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    public Optional<Output<String>> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
-    }
-
     private GetEnterpriseDatabaseArgs() {}
 
     private GetEnterpriseDatabaseArgs(GetEnterpriseDatabaseArgs $) {
         this.clusterId = $.clusterId;
         this.name = $.name;
-        this.resourceGroupName = $.resourceGroupName;
     }
 
     public static Builder builder() {
@@ -135,35 +109,6 @@ public final class GetEnterpriseDatabaseArgs extends com.pulumi.resources.Invoke
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @param resourceGroupName The name of the resource group the Redis Enterprise Database instance is located in.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in the next major version of the Azure Provider
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-        public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @param resourceGroupName The name of the resource group the Redis Enterprise Database instance is located in.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in the next major version of the Azure Provider
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
         }
 
         public GetEnterpriseDatabaseArgs build() {

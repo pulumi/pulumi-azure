@@ -7,7 +7,6 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.monitoring.AadDiagnosticSettingArgs;
 import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingState;
 import com.pulumi.azure.monitoring.outputs.AadDiagnosticSettingEnabledLog;
-import com.pulumi.azure.monitoring.outputs.AadDiagnosticSettingLog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -121,20 +120,16 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * One or more `enabled_log` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
-     * 
      */
     @Export(name="enabledLogs", refs={List.class,AadDiagnosticSettingEnabledLog.class}, tree="[0,1]")
-    private Output<List<AadDiagnosticSettingEnabledLog>> enabledLogs;
+    private Output</* @Nullable */ List<AadDiagnosticSettingEnabledLog>> enabledLogs;
 
     /**
      * @return One or more `enabled_log` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
-     * 
      */
-    public Output<List<AadDiagnosticSettingEnabledLog>> enabledLogs() {
-        return this.enabledLogs;
+    public Output<Optional<List<AadDiagnosticSettingEnabledLog>>> enabledLogs() {
+        return Codegen.optional(this.enabledLogs);
     }
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
@@ -181,28 +176,6 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> logAnalyticsWorkspaceId() {
         return Codegen.optional(this.logAnalyticsWorkspaceId);
-    }
-    /**
-     * One or more `log` blocks as defined below.
-     * 
-     * &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
-    @Export(name="logs", refs={List.class,AadDiagnosticSettingLog.class}, tree="[0,1]")
-    private Output<List<AadDiagnosticSettingLog>> logs;
-
-    /**
-     * @return One or more `log` blocks as defined below.
-     * 
-     * &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    public Output<List<AadDiagnosticSettingLog>> logs() {
-        return this.logs;
     }
     /**
      * The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.

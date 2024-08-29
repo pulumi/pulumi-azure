@@ -50,29 +50,6 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates if the Power BI service is allowed to access or not.
-     * 
-     * @deprecated
-     * The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="enablePowerBiService")
-    private @Nullable Output<Boolean> enablePowerBiService;
-
-    /**
-     * @return Indicates if the Power BI service is allowed to access or not.
-     * 
-     * @deprecated
-     * The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> enablePowerBiService() {
-        return Optional.ofNullable(this.enablePowerBiService);
-    }
-
-    /**
      * One or more `ipv4_firewall_rule` block(s) as defined below.
      * 
      */
@@ -117,22 +94,30 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Indicates if the Power BI service is allowed to access or not.
+     * 
+     */
     @Import(name="powerBiServiceEnabled")
     private @Nullable Output<Boolean> powerBiServiceEnabled;
 
+    /**
+     * @return Indicates if the Power BI service is allowed to access or not.
+     * 
+     */
     public Optional<Output<Boolean>> powerBiServiceEnabled() {
         return Optional.ofNullable(this.powerBiServiceEnabled);
     }
 
     /**
-     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
      * 
      */
     @Import(name="querypoolConnectionMode")
     private @Nullable Output<String> querypoolConnectionMode;
 
     /**
-     * @return Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+     * @return Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
      * 
      */
     public Optional<Output<String>> querypoolConnectionMode() {
@@ -204,7 +189,6 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     private ServerState(ServerState $) {
         this.adminUsers = $.adminUsers;
         this.backupBlobContainerUri = $.backupBlobContainerUri;
-        this.enablePowerBiService = $.enablePowerBiService;
         this.ipv4FirewallRules = $.ipv4FirewallRules;
         this.location = $.location;
         this.name = $.name;
@@ -287,35 +271,6 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enablePowerBiService Indicates if the Power BI service is allowed to access or not.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enablePowerBiService(@Nullable Output<Boolean> enablePowerBiService) {
-            $.enablePowerBiService = enablePowerBiService;
-            return this;
-        }
-
-        /**
-         * @param enablePowerBiService Indicates if the Power BI service is allowed to access or not.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enablePowerBiService(Boolean enablePowerBiService) {
-            return enablePowerBiService(Output.of(enablePowerBiService));
-        }
-
-        /**
          * @param ipv4FirewallRules One or more `ipv4_firewall_rule` block(s) as defined below.
          * 
          * @return builder
@@ -388,17 +343,29 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param powerBiServiceEnabled Indicates if the Power BI service is allowed to access or not.
+         * 
+         * @return builder
+         * 
+         */
         public Builder powerBiServiceEnabled(@Nullable Output<Boolean> powerBiServiceEnabled) {
             $.powerBiServiceEnabled = powerBiServiceEnabled;
             return this;
         }
 
+        /**
+         * @param powerBiServiceEnabled Indicates if the Power BI service is allowed to access or not.
+         * 
+         * @return builder
+         * 
+         */
         public Builder powerBiServiceEnabled(Boolean powerBiServiceEnabled) {
             return powerBiServiceEnabled(Output.of(powerBiServiceEnabled));
         }
 
         /**
-         * @param querypoolConnectionMode Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+         * @param querypoolConnectionMode Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
          * 
          * @return builder
          * 
@@ -409,7 +376,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param querypoolConnectionMode Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+         * @param querypoolConnectionMode Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
          * 
          * @return builder
          * 

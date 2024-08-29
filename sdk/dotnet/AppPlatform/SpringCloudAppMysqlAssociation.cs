@@ -19,6 +19,7 @@ namespace Pulumi.Azure.AppPlatform
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -42,7 +43,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("example", new()
+    ///     var exampleMysqlServer = new Azurerm.Index.MysqlServer("example", new()
     ///     {
     ///         Name = "example-mysqlserver",
     ///         Location = example.Location,
@@ -56,11 +57,11 @@ namespace Pulumi.Azure.AppPlatform
     ///         SslMinimalTlsVersionEnforced = "TLS1_2",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MySql.Database("example", new()
+    ///     var exampleMysqlDatabase = new Azurerm.Index.MysqlDatabase("example", new()
     ///     {
     ///         Name = "exampledb",
     ///         ResourceGroupName = example.Name,
-    ///         ServerName = exampleServer.Name,
+    ///         ServerName = exampleMysqlServer.Name,
     ///         Charset = "utf8",
     ///         Collation = "utf8_unicode_ci",
     ///     });
@@ -69,10 +70,10 @@ namespace Pulumi.Azure.AppPlatform
     ///     {
     ///         Name = "example-bind",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///         MysqlServerId = exampleServer.Id,
-    ///         DatabaseName = exampleDatabase.Name,
-    ///         Username = exampleServer.AdministratorLogin,
-    ///         Password = exampleServer.AdministratorLoginPassword,
+    ///         MysqlServerId = exampleMysqlServer.Id,
+    ///         DatabaseName = exampleMysqlDatabase.Name,
+    ///         Username = exampleMysqlServer.AdministratorLogin,
+    ///         Password = exampleMysqlServer.AdministratorLoginPassword,
     ///     });
     /// 
     /// });

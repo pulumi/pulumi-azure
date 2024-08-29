@@ -13,7 +13,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class RegistryEncryption
     {
-        public readonly bool? Enabled;
         /// <summary>
         /// The client ID of the managed identity associated with the encryption key.
         /// </summary>
@@ -25,13 +24,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private RegistryEncryption(
-            bool? enabled,
-
             string identityClientId,
 
             string keyVaultKeyId)
         {
-            Enabled = enabled;
             IdentityClientId = identityClientId;
             KeyVaultKeyId = keyVaultKeyId;
         }

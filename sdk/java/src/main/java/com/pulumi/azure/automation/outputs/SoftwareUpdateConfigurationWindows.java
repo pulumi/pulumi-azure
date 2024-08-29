@@ -4,6 +4,7 @@
 package com.pulumi.azure.automation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -13,19 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SoftwareUpdateConfigurationWindows {
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
-    private @Nullable String classificationIncluded;
-    /**
      * @return Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
      * 
      * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
-    private @Nullable List<String> classificationsIncludeds;
+    private List<String> classificationsIncludeds;
     /**
      * @return Specifies a list of knowledge base numbers excluded.
      * 
@@ -44,22 +38,13 @@ public final class SoftwareUpdateConfigurationWindows {
 
     private SoftwareUpdateConfigurationWindows() {}
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
-    public Optional<String> classificationIncluded() {
-        return Optional.ofNullable(this.classificationIncluded);
-    }
-    /**
      * @return Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
      * 
      * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
     public List<String> classificationsIncludeds() {
-        return this.classificationsIncludeds == null ? List.of() : this.classificationsIncludeds;
+        return this.classificationsIncludeds;
     }
     /**
      * @return Specifies a list of knowledge base numbers excluded.
@@ -92,15 +77,13 @@ public final class SoftwareUpdateConfigurationWindows {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String classificationIncluded;
-        private @Nullable List<String> classificationsIncludeds;
+        private List<String> classificationsIncludeds;
         private @Nullable List<String> excludedKnowledgeBaseNumbers;
         private @Nullable List<String> includedKnowledgeBaseNumbers;
         private @Nullable String reboot;
         public Builder() {}
         public Builder(SoftwareUpdateConfigurationWindows defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.classificationIncluded = defaults.classificationIncluded;
     	      this.classificationsIncludeds = defaults.classificationsIncludeds;
     	      this.excludedKnowledgeBaseNumbers = defaults.excludedKnowledgeBaseNumbers;
     	      this.includedKnowledgeBaseNumbers = defaults.includedKnowledgeBaseNumbers;
@@ -108,14 +91,10 @@ public final class SoftwareUpdateConfigurationWindows {
         }
 
         @CustomType.Setter
-        public Builder classificationIncluded(@Nullable String classificationIncluded) {
-
-            this.classificationIncluded = classificationIncluded;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder classificationsIncludeds(@Nullable List<String> classificationsIncludeds) {
-
+        public Builder classificationsIncludeds(List<String> classificationsIncludeds) {
+            if (classificationsIncludeds == null) {
+              throw new MissingRequiredPropertyException("SoftwareUpdateConfigurationWindows", "classificationsIncludeds");
+            }
             this.classificationsIncludeds = classificationsIncludeds;
             return this;
         }
@@ -148,7 +127,6 @@ public final class SoftwareUpdateConfigurationWindows {
         }
         public SoftwareUpdateConfigurationWindows build() {
             final var _resultValue = new SoftwareUpdateConfigurationWindows();
-            _resultValue.classificationIncluded = classificationIncluded;
             _resultValue.classificationsIncludeds = classificationsIncludeds;
             _resultValue.excludedKnowledgeBaseNumbers = excludedKnowledgeBaseNumbers;
             _resultValue.includedKnowledgeBaseNumbers = includedKnowledgeBaseNumbers;

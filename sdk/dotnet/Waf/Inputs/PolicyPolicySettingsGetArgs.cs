@@ -54,6 +54,9 @@ namespace Pulumi.Azure.Waf.Inputs
         [Input("requestBodyCheck")]
         public Input<bool>? RequestBodyCheck { get; set; }
 
+        [Input("requestBodyEnforcement")]
+        public Input<bool>? RequestBodyEnforcement { get; set; }
+
         /// <summary>
         /// Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
         /// </summary>

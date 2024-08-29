@@ -303,8 +303,8 @@ namespace Pulumi.Azure.Sentinel
         /// 
         /// &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         /// </summary>
-        [Input("eventGrouping")]
-        public Input<Inputs.AlertRuleNrtEventGroupingArgs>? EventGrouping { get; set; }
+        [Input("eventGrouping", required: true)]
+        public Input<Inputs.AlertRuleNrtEventGroupingArgs> EventGrouping { get; set; } = null!;
 
         /// <summary>
         /// A `incident` block as defined below.

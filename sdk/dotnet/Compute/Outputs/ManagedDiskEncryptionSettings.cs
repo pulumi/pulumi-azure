@@ -16,8 +16,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// A `disk_encryption_key` block as defined above.
         /// </summary>
-        public readonly Outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey? DiskEncryptionKey;
-        public readonly bool? Enabled;
+        public readonly Outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey DiskEncryptionKey;
         /// <summary>
         /// A `key_encryption_key` block as defined below.
         /// </summary>
@@ -25,14 +24,11 @@ namespace Pulumi.Azure.Compute.Outputs
 
         [OutputConstructor]
         private ManagedDiskEncryptionSettings(
-            Outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey? diskEncryptionKey,
-
-            bool? enabled,
+            Outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey,
 
             Outputs.ManagedDiskEncryptionSettingsKeyEncryptionKey? keyEncryptionKey)
         {
             DiskEncryptionKey = diskEncryptionKey;
-            Enabled = enabled;
             KeyEncryptionKey = keyEncryptionKey;
         }
     }

@@ -117,30 +117,6 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * @deprecated
-     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
-    @Export(name="shareName", refs={String.class}, tree="[0]")
-    private Output<String> shareName;
-
-    public Output<String> shareName() {
-        return this.shareName;
-    }
-    /**
-     * @deprecated
-     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
-    private Output<String> storageAccountName;
-
-    public Output<String> storageAccountName() {
-        return this.storageAccountName;
-    }
-    /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      * 
      */
@@ -167,7 +143,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ShareDirectory(java.lang.String name, @Nullable ShareDirectoryArgs args) {
+    public ShareDirectory(java.lang.String name, ShareDirectoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -176,7 +152,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ShareDirectory(java.lang.String name, @Nullable ShareDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ShareDirectory(java.lang.String name, ShareDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/shareDirectory:ShareDirectory", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -184,7 +160,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
         super("azure:storage/shareDirectory:ShareDirectory", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ShareDirectoryArgs makeArgs(@Nullable ShareDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ShareDirectoryArgs makeArgs(ShareDirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

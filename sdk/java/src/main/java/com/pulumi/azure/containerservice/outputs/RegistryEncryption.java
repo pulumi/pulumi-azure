@@ -5,21 +5,11 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class RegistryEncryption {
-    /**
-     * @deprecated
-     * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
-    private @Nullable Boolean enabled;
     /**
      * @return The client ID of the managed identity associated with the encryption key.
      * 
@@ -32,15 +22,6 @@ public final class RegistryEncryption {
     private String keyVaultKeyId;
 
     private RegistryEncryption() {}
-    /**
-     * @deprecated
-     * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
-    public Optional<Boolean> enabled() {
-        return Optional.ofNullable(this.enabled);
-    }
     /**
      * @return The client ID of the managed identity associated with the encryption key.
      * 
@@ -65,23 +46,15 @@ public final class RegistryEncryption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Boolean enabled;
         private String identityClientId;
         private String keyVaultKeyId;
         public Builder() {}
         public Builder(RegistryEncryption defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.enabled = defaults.enabled;
     	      this.identityClientId = defaults.identityClientId;
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
         }
 
-        @CustomType.Setter
-        public Builder enabled(@Nullable Boolean enabled) {
-
-            this.enabled = enabled;
-            return this;
-        }
         @CustomType.Setter
         public Builder identityClientId(String identityClientId) {
             if (identityClientId == null) {
@@ -100,7 +73,6 @@ public final class RegistryEncryption {
         }
         public RegistryEncryption build() {
             final var _resultValue = new RegistryEncryption();
-            _resultValue.enabled = enabled;
             _resultValue.identityClientId = identityClientId;
             _resultValue.keyVaultKeyId = keyVaultKeyId;
             return _resultValue;

@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,45 +17,18 @@ public final class EndpointCustomDomainUserManagedHttpsArgs extends com.pulumi.r
     public static final EndpointCustomDomainUserManagedHttpsArgs Empty = new EndpointCustomDomainUserManagedHttpsArgs();
 
     /**
-     * The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
-     * 
-     * @deprecated
-     * This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
-     * 
-     */
-    @Deprecated /* This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate */
-    @Import(name="keyVaultCertificateId")
-    private @Nullable Output<String> keyVaultCertificateId;
-
-    /**
-     * @return The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
-     * 
-     * @deprecated
-     * This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
-     * 
-     */
-    @Deprecated /* This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate */
-    public Optional<Output<String>> keyVaultCertificateId() {
-        return Optional.ofNullable(this.keyVaultCertificateId);
-    }
-
-    /**
      * The ID of the Key Vault Secret that contains the HTTPS certificate.
      * 
-     * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
-     * 
      */
-    @Import(name="keyVaultSecretId")
-    private @Nullable Output<String> keyVaultSecretId;
+    @Import(name="keyVaultSecretId", required=true)
+    private Output<String> keyVaultSecretId;
 
     /**
      * @return The ID of the Key Vault Secret that contains the HTTPS certificate.
      * 
-     * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
-     * 
      */
-    public Optional<Output<String>> keyVaultSecretId() {
-        return Optional.ofNullable(this.keyVaultSecretId);
+    public Output<String> keyVaultSecretId() {
+        return this.keyVaultSecretId;
     }
 
     /**
@@ -75,7 +49,6 @@ public final class EndpointCustomDomainUserManagedHttpsArgs extends com.pulumi.r
     private EndpointCustomDomainUserManagedHttpsArgs() {}
 
     private EndpointCustomDomainUserManagedHttpsArgs(EndpointCustomDomainUserManagedHttpsArgs $) {
-        this.keyVaultCertificateId = $.keyVaultCertificateId;
         this.keyVaultSecretId = $.keyVaultSecretId;
         this.tlsVersion = $.tlsVersion;
     }
@@ -99,51 +72,18 @@ public final class EndpointCustomDomainUserManagedHttpsArgs extends com.pulumi.r
         }
 
         /**
-         * @param keyVaultCertificateId The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
-         * 
-         */
-        @Deprecated /* This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate */
-        public Builder keyVaultCertificateId(@Nullable Output<String> keyVaultCertificateId) {
-            $.keyVaultCertificateId = keyVaultCertificateId;
-            return this;
-        }
-
-        /**
-         * @param keyVaultCertificateId The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
-         * 
-         */
-        @Deprecated /* This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate */
-        public Builder keyVaultCertificateId(String keyVaultCertificateId) {
-            return keyVaultCertificateId(Output.of(keyVaultCertificateId));
-        }
-
-        /**
          * @param keyVaultSecretId The ID of the Key Vault Secret that contains the HTTPS certificate.
          * 
-         * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
-         * 
          * @return builder
          * 
          */
-        public Builder keyVaultSecretId(@Nullable Output<String> keyVaultSecretId) {
+        public Builder keyVaultSecretId(Output<String> keyVaultSecretId) {
             $.keyVaultSecretId = keyVaultSecretId;
             return this;
         }
 
         /**
          * @param keyVaultSecretId The ID of the Key Vault Secret that contains the HTTPS certificate.
-         * 
-         * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
          * 
          * @return builder
          * 
@@ -174,6 +114,9 @@ public final class EndpointCustomDomainUserManagedHttpsArgs extends com.pulumi.r
         }
 
         public EndpointCustomDomainUserManagedHttpsArgs build() {
+            if ($.keyVaultSecretId == null) {
+                throw new MissingRequiredPropertyException("EndpointCustomDomainUserManagedHttpsArgs", "keyVaultSecretId");
+            }
             return $;
         }
     }

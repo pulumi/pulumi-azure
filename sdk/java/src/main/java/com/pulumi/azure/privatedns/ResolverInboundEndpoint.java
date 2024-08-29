@@ -6,13 +6,12 @@ package com.pulumi.azure.privatedns;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.privatedns.ResolverInboundEndpointArgs;
 import com.pulumi.azure.privatedns.inputs.ResolverInboundEndpointState;
-import com.pulumi.azure.privatedns.outputs.ResolverInboundEndpointIpConfiguration;
+import com.pulumi.azure.privatedns.outputs.ResolverInboundEndpointIpConfigurations;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -42,7 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.privatedns.ResolverInboundEndpoint;
  * import com.pulumi.azure.privatedns.ResolverInboundEndpointArgs;
- * import com.pulumi.azure.privatedns.inputs.ResolverInboundEndpointIpConfigurationArgs;
+ * import com.pulumi.azure.privatedns.inputs.ResolverInboundEndpointIpConfigurationsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -93,7 +92,7 @@ import javax.annotation.Nullable;
  *             .name("example-drie")
  *             .privateDnsResolverId(exampleResolver.id())
  *             .location(exampleResolver.location())
- *             .ipConfigurations(ResolverInboundEndpointIpConfigurationArgs.builder()
+ *             .ipConfigurations(ResolverInboundEndpointIpConfigurationsArgs.builder()
  *                 .privateIpAllocationMethod("Dynamic")
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
@@ -118,17 +117,17 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint")
 public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+     * One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
-    @Export(name="ipConfigurations", refs={List.class,ResolverInboundEndpointIpConfiguration.class}, tree="[0,1]")
-    private Output<List<ResolverInboundEndpointIpConfiguration>> ipConfigurations;
+    @Export(name="ipConfigurations", refs={ResolverInboundEndpointIpConfigurations.class}, tree="[0]")
+    private Output<ResolverInboundEndpointIpConfigurations> ipConfigurations;
 
     /**
-     * @return Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+     * @return One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
-    public Output<List<ResolverInboundEndpointIpConfiguration>> ipConfigurations() {
+    public Output<ResolverInboundEndpointIpConfigurations> ipConfigurations() {
         return this.ipConfigurations;
     }
     /**

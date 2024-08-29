@@ -248,6 +248,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.partnerId);
     }
     /**
+     * The set of Resource Providers which should be automatically registered for the subscription.
+     * 
+     */
+    @Export(name="resourceProviderRegistrations", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> resourceProviderRegistrations;
+
+    /**
+     * @return The set of Resource Providers which should be automatically registered for the subscription.
+     * 
+     */
+    public Output<Optional<String>> resourceProviderRegistrations() {
+        return Codegen.optional(this.resourceProviderRegistrations);
+    }
+    /**
      * The Subscription ID which should be used.
      * 
      */

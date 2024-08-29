@@ -5,7 +5,6 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -16,21 +15,6 @@ import javax.annotation.Nullable;
 public final class DatabaseLongTermRetentionPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DatabaseLongTermRetentionPolicyArgs Empty = new DatabaseLongTermRetentionPolicyArgs();
-
-    /**
-     * Specifies if the backups are immutable. Defaults to `false`.
-     * 
-     */
-    @Import(name="immutableBackupsEnabled")
-    private @Nullable Output<Boolean> immutableBackupsEnabled;
-
-    /**
-     * @return Specifies if the backups are immutable. Defaults to `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> immutableBackupsEnabled() {
-        return Optional.ofNullable(this.immutableBackupsEnabled);
-    }
 
     /**
      * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
@@ -95,7 +79,6 @@ public final class DatabaseLongTermRetentionPolicyArgs extends com.pulumi.resour
     private DatabaseLongTermRetentionPolicyArgs() {}
 
     private DatabaseLongTermRetentionPolicyArgs(DatabaseLongTermRetentionPolicyArgs $) {
-        this.immutableBackupsEnabled = $.immutableBackupsEnabled;
         this.monthlyRetention = $.monthlyRetention;
         this.weekOfYear = $.weekOfYear;
         this.weeklyRetention = $.weeklyRetention;
@@ -118,27 +101,6 @@ public final class DatabaseLongTermRetentionPolicyArgs extends com.pulumi.resour
 
         public Builder(DatabaseLongTermRetentionPolicyArgs defaults) {
             $ = new DatabaseLongTermRetentionPolicyArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param immutableBackupsEnabled Specifies if the backups are immutable. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder immutableBackupsEnabled(@Nullable Output<Boolean> immutableBackupsEnabled) {
-            $.immutableBackupsEnabled = immutableBackupsEnabled;
-            return this;
-        }
-
-        /**
-         * @param immutableBackupsEnabled Specifies if the backups are immutable. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder immutableBackupsEnabled(Boolean immutableBackupsEnabled) {
-            return immutableBackupsEnabled(Output.of(immutableBackupsEnabled));
         }
 
         /**

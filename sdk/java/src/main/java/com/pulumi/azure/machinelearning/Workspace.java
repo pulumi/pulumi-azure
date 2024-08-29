@@ -683,40 +683,22 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.primaryUserAssignedIdentity);
     }
     /**
-     * Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-     * 
-     * @deprecated
-     * `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
-    @Export(name="publicAccessBehindVirtualNetworkEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> publicAccessBehindVirtualNetworkEnabled;
-
-    /**
-     * @return Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-     * 
-     */
-    public Output<Optional<Boolean>> publicAccessBehindVirtualNetworkEnabled() {
-        return Codegen.optional(this.publicAccessBehindVirtualNetworkEnabled);
-    }
-    /**
-     * Enable public access when this Machine Learning Workspace is behind VNet.
+     * Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
      * 
      * &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> publicNetworkAccessEnabled;
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Enable public access when this Machine Learning Workspace is behind VNet.
+     * @return Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
      * 
      * &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
      * 
      */
-    public Output<Boolean> publicNetworkAccessEnabled() {
-        return this.publicNetworkAccessEnabled;
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.

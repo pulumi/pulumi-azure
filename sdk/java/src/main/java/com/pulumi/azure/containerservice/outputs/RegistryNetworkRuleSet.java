@@ -4,7 +4,6 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.RegistryNetworkRuleSetIpRule;
-import com.pulumi.azure.containerservice.outputs.RegistryNetworkRuleSetVirtualNetwork;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -28,13 +27,6 @@ public final class RegistryNetworkRuleSet {
      * 
      */
     private @Nullable List<RegistryNetworkRuleSetIpRule> ipRules;
-    /**
-     * @deprecated
-     * The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider. */
-    private @Nullable List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks;
 
     private RegistryNetworkRuleSet() {}
     /**
@@ -55,15 +47,6 @@ public final class RegistryNetworkRuleSet {
     public List<RegistryNetworkRuleSetIpRule> ipRules() {
         return this.ipRules == null ? List.of() : this.ipRules;
     }
-    /**
-     * @deprecated
-     * The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider. */
-    public List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks() {
-        return this.virtualNetworks == null ? List.of() : this.virtualNetworks;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -76,13 +59,11 @@ public final class RegistryNetworkRuleSet {
     public static final class Builder {
         private @Nullable String defaultAction;
         private @Nullable List<RegistryNetworkRuleSetIpRule> ipRules;
-        private @Nullable List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks;
         public Builder() {}
         public Builder(RegistryNetworkRuleSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultAction = defaults.defaultAction;
     	      this.ipRules = defaults.ipRules;
-    	      this.virtualNetworks = defaults.virtualNetworks;
         }
 
         @CustomType.Setter
@@ -100,20 +81,10 @@ public final class RegistryNetworkRuleSet {
         public Builder ipRules(RegistryNetworkRuleSetIpRule... ipRules) {
             return ipRules(List.of(ipRules));
         }
-        @CustomType.Setter
-        public Builder virtualNetworks(@Nullable List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks) {
-
-            this.virtualNetworks = virtualNetworks;
-            return this;
-        }
-        public Builder virtualNetworks(RegistryNetworkRuleSetVirtualNetwork... virtualNetworks) {
-            return virtualNetworks(List.of(virtualNetworks));
-        }
         public RegistryNetworkRuleSet build() {
             final var _resultValue = new RegistryNetworkRuleSet();
             _resultValue.defaultAction = defaultAction;
             _resultValue.ipRules = ipRules;
-            _resultValue.virtualNetworks = virtualNetworks;
             return _resultValue;
         }
     }

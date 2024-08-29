@@ -125,14 +125,6 @@ namespace Pulumi.Azure.Core
         public Output<string> PolicyAssignmentId { get; private set; } = null!;
 
         /// <summary>
-        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-        /// 
-        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-        /// </summary>
-        [Output("policyDefinitionId")]
-        public Output<string?> PolicyDefinitionId { get; private set; } = null!;
-
-        /// <summary>
         /// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         /// </summary>
         [Output("policyDefinitionReferenceId")]
@@ -239,14 +231,6 @@ namespace Pulumi.Azure.Core
         public Input<string> PolicyAssignmentId { get; set; } = null!;
 
         /// <summary>
-        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-        /// 
-        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-        /// </summary>
-        [Input("policyDefinitionId")]
-        public Input<string>? PolicyDefinitionId { get; set; }
-
-        /// <summary>
         /// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         /// </summary>
         [Input("policyDefinitionReferenceId")]
@@ -313,14 +297,6 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Input("policyAssignmentId")]
         public Input<string>? PolicyAssignmentId { get; set; }
-
-        /// <summary>
-        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-        /// 
-        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-        /// </summary>
-        [Input("policyDefinitionId")]
-        public Input<string>? PolicyDefinitionId { get; set; }
 
         /// <summary>
         /// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.

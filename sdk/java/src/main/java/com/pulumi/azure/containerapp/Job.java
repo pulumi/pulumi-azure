@@ -252,30 +252,18 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.outboundIpAddresses;
     }
     /**
-     * @deprecated
-     * `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider. */
-    @Export(name="registries", refs={List.class,JobRegistry.class}, tree="[0,1]")
-    private Output<List<JobRegistry>> registries;
-
-    public Output<List<JobRegistry>> registries() {
-        return this.registries;
-    }
-    /**
      * One or more `registry` blocks as defined below.
      * 
      */
-    @Export(name="registry", refs={List.class,JobRegistry.class}, tree="[0,1]")
-    private Output<List<JobRegistry>> registry;
+    @Export(name="registries", refs={List.class,JobRegistry.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<JobRegistry>> registries;
 
     /**
      * @return One or more `registry` blocks as defined below.
      * 
      */
-    public Output<List<JobRegistry>> registry() {
-        return this.registry;
+    public Output<Optional<List<JobRegistry>>> registries() {
+        return Codegen.optional(this.registries);
     }
     /**
      * The maximum number of times a replica is allowed to retry.
@@ -341,27 +329,15 @@ public class Job extends com.pulumi.resources.CustomResource {
      * One or more `secret` blocks as defined below.
      * 
      */
-    @Export(name="secret", refs={List.class,JobSecret.class}, tree="[0,1]")
-    private Output<List<JobSecret>> secret;
+    @Export(name="secrets", refs={List.class,JobSecret.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<JobSecret>> secrets;
 
     /**
      * @return One or more `secret` blocks as defined below.
      * 
      */
-    public Output<List<JobSecret>> secret() {
-        return this.secret;
-    }
-    /**
-     * @deprecated
-     * `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider. */
-    @Export(name="secrets", refs={List.class,JobSecret.class}, tree="[0,1]")
-    private Output<List<JobSecret>> secrets;
-
-    public Output<List<JobSecret>> secrets() {
-        return this.secrets;
+    public Output<Optional<List<JobSecret>>> secrets() {
+        return Codegen.optional(this.secrets);
     }
     /**
      * A mapping of tags to assign to the resource.
@@ -446,7 +422,6 @@ public class Job extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "secret",
                 "secrets"
             ))
             .build();

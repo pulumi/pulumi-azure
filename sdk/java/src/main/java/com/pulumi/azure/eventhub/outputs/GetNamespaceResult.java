@@ -90,15 +90,6 @@ public final class GetNamespaceResult {
      * 
      */
     private Map<String,String> tags;
-    /**
-     * @return Is this EventHub Namespace deployed across Availability Zones?
-     * 
-     * @deprecated
-     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
-     * 
-     */
-    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
-    private Boolean zoneRedundant;
 
     private GetNamespaceResult() {}
     /**
@@ -212,17 +203,6 @@ public final class GetNamespaceResult {
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Is this EventHub Namespace deployed across Availability Zones?
-     * 
-     * @deprecated
-     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
-     * 
-     */
-    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
-    public Boolean zoneRedundant() {
-        return this.zoneRedundant;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -250,7 +230,6 @@ public final class GetNamespaceResult {
         private String resourceGroupName;
         private String sku;
         private Map<String,String> tags;
-        private Boolean zoneRedundant;
         public Builder() {}
         public Builder(GetNamespaceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -271,7 +250,6 @@ public final class GetNamespaceResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.sku = defaults.sku;
     	      this.tags = defaults.tags;
-    	      this.zoneRedundant = defaults.zoneRedundant;
         }
 
         @CustomType.Setter
@@ -410,14 +388,6 @@ public final class GetNamespaceResult {
             this.tags = tags;
             return this;
         }
-        @CustomType.Setter
-        public Builder zoneRedundant(Boolean zoneRedundant) {
-            if (zoneRedundant == null) {
-              throw new MissingRequiredPropertyException("GetNamespaceResult", "zoneRedundant");
-            }
-            this.zoneRedundant = zoneRedundant;
-            return this;
-        }
         public GetNamespaceResult build() {
             final var _resultValue = new GetNamespaceResult();
             _resultValue.autoInflateEnabled = autoInflateEnabled;
@@ -437,7 +407,6 @@ public final class GetNamespaceResult {
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.sku = sku;
             _resultValue.tags = tags;
-            _resultValue.zoneRedundant = zoneRedundant;
             return _resultValue;
         }
     }

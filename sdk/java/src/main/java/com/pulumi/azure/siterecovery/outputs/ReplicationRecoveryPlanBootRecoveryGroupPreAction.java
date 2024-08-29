@@ -56,6 +56,10 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPreAction {
      * 
      */
     private @Nullable String scriptPath;
+    /**
+     * @return Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+     * 
+     */
     private String type;
 
     private ReplicationRecoveryPlanBootRecoveryGroupPreAction() {}
@@ -116,6 +120,10 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPreAction {
     public Optional<String> scriptPath() {
         return Optional.ofNullable(this.scriptPath);
     }
+    /**
+     * @return Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+     * 
+     */
     public String type() {
         return this.type;
     }

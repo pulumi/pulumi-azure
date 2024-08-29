@@ -187,28 +187,6 @@ public class Lab extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
-     * 
-     * &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
-     * 
-     */
-    @Deprecated /* `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. */
-    @Export(name="storageType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> storageType;
-
-    /**
-     * @return The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
-     * 
-     * &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-     * 
-     */
-    public Output<Optional<String>> storageType() {
-        return Codegen.optional(this.storageType);
-    }
-    /**
      * A mapping of tags to assign to the resource.
      * 
      */

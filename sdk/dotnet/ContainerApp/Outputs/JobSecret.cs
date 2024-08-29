@@ -14,19 +14,25 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class JobSecret
     {
         /// <summary>
-        /// A `identity` block as defined below.
+        /// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+        /// 
+        /// !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
         /// </summary>
         public readonly string? Identity;
         /// <summary>
-        /// The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        /// The ID of a Key Vault secret. This can be a versioned or version-less ID.
+        /// 
+        /// !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
         /// </summary>
         public readonly string? KeyVaultSecretId;
         /// <summary>
-        /// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+        /// The secret name.
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// The value for this secret.
+        /// 
+        /// !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
         /// </summary>
         public readonly string? Value;
 

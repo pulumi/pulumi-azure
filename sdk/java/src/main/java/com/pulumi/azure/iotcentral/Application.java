@@ -211,18 +211,18 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+     * A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview{@literal @}1.0.0`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="template", refs={String.class}, tree="[0]")
-    private Output<String> template;
+    private Output</* @Nullable */ String> template;
 
     /**
-     * @return A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+     * @return A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview{@literal @}1.0.0`. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> template() {
-        return this.template;
+    public Output<Optional<String>> template() {
+        return Codegen.optional(this.template);
     }
 
     /**

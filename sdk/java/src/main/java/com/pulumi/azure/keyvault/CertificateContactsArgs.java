@@ -10,6 +10,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CertificateContactsArgs extends com.pulumi.resources.ResourceArgs {
@@ -21,16 +23,16 @@ public final class CertificateContactsArgs extends com.pulumi.resources.Resource
      * --&gt;
      * 
      */
-    @Import(name="contacts", required=true)
-    private Output<List<CertificateContactsContactArgs>> contacts;
+    @Import(name="contacts")
+    private @Nullable Output<List<CertificateContactsContactArgs>> contacts;
 
     /**
      * @return One or more `contact` blocks as defined below.
      * --&gt;
      * 
      */
-    public Output<List<CertificateContactsContactArgs>> contacts() {
-        return this.contacts;
+    public Optional<Output<List<CertificateContactsContactArgs>>> contacts() {
+        return Optional.ofNullable(this.contacts);
     }
 
     /**
@@ -80,7 +82,7 @@ public final class CertificateContactsArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder contacts(Output<List<CertificateContactsContactArgs>> contacts) {
+        public Builder contacts(@Nullable Output<List<CertificateContactsContactArgs>> contacts) {
             $.contacts = contacts;
             return this;
         }
@@ -129,9 +131,6 @@ public final class CertificateContactsArgs extends com.pulumi.resources.Resource
         }
 
         public CertificateContactsArgs build() {
-            if ($.contacts == null) {
-                throw new MissingRequiredPropertyException("CertificateContactsArgs", "contacts");
-            }
             if ($.keyVaultId == null) {
                 throw new MissingRequiredPropertyException("CertificateContactsArgs", "keyVaultId");
             }

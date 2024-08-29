@@ -3,12 +3,11 @@
 
 package com.pulumi.azure.privatedns;
 
-import com.pulumi.azure.privatedns.inputs.ResolverInboundEndpointIpConfigurationArgs;
+import com.pulumi.azure.privatedns.inputs.ResolverInboundEndpointIpConfigurationsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,17 +19,17 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
     public static final ResolverInboundEndpointArgs Empty = new ResolverInboundEndpointArgs();
 
     /**
-     * Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+     * One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
     @Import(name="ipConfigurations", required=true)
-    private Output<List<ResolverInboundEndpointIpConfigurationArgs>> ipConfigurations;
+    private Output<ResolverInboundEndpointIpConfigurationsArgs> ipConfigurations;
 
     /**
-     * @return Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+     * @return One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
-    public Output<List<ResolverInboundEndpointIpConfigurationArgs>> ipConfigurations() {
+    public Output<ResolverInboundEndpointIpConfigurationsArgs> ipConfigurations() {
         return this.ipConfigurations;
     }
 
@@ -123,34 +122,24 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipConfigurations Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+         * @param ipConfigurations One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
          * 
          * @return builder
          * 
          */
-        public Builder ipConfigurations(Output<List<ResolverInboundEndpointIpConfigurationArgs>> ipConfigurations) {
+        public Builder ipConfigurations(Output<ResolverInboundEndpointIpConfigurationsArgs> ipConfigurations) {
             $.ipConfigurations = ipConfigurations;
             return this;
         }
 
         /**
-         * @param ipConfigurations Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+         * @param ipConfigurations One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
          * 
          * @return builder
          * 
          */
-        public Builder ipConfigurations(List<ResolverInboundEndpointIpConfigurationArgs> ipConfigurations) {
+        public Builder ipConfigurations(ResolverInboundEndpointIpConfigurationsArgs ipConfigurations) {
             return ipConfigurations(Output.of(ipConfigurations));
-        }
-
-        /**
-         * @param ipConfigurations Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ipConfigurations(ResolverInboundEndpointIpConfigurationArgs... ipConfigurations) {
-            return ipConfigurations(List.of(ipConfigurations));
         }
 
         /**

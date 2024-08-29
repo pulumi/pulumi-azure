@@ -132,45 +132,18 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The icon URL to visually identify the Bot Channels Registration.
+     * The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      * 
      */
     @Import(name="iconUrl")
     private @Nullable Output<String> iconUrl;
 
     /**
-     * @return The icon URL to visually identify the Bot Channels Registration.
+     * @return The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      * 
      */
     public Optional<Output<String>> iconUrl() {
         return Optional.ofNullable(this.iconUrl);
-    }
-
-    /**
-     * Is the Bot Channels Registration in an isolated network?
-     * 
-     * &gt; **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
-    @Import(name="isolatedNetworkEnabled")
-    private @Nullable Output<Boolean> isolatedNetworkEnabled;
-
-    /**
-     * @return Is the Bot Channels Registration in an isolated network?
-     * 
-     * &gt; **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> isolatedNetworkEnabled() {
-        return Optional.ofNullable(this.isolatedNetworkEnabled);
     }
 
     /**
@@ -304,7 +277,6 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
         this.displayName = $.displayName;
         this.endpoint = $.endpoint;
         this.iconUrl = $.iconUrl;
-        this.isolatedNetworkEnabled = $.isolatedNetworkEnabled;
         this.location = $.location;
         this.microsoftAppId = $.microsoftAppId;
         this.name = $.name;
@@ -489,7 +461,7 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param iconUrl The icon URL to visually identify the Bot Channels Registration.
+         * @param iconUrl The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
          * 
          * @return builder
          * 
@@ -500,46 +472,13 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param iconUrl The icon URL to visually identify the Bot Channels Registration.
+         * @param iconUrl The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
          * 
          * @return builder
          * 
          */
         public Builder iconUrl(String iconUrl) {
             return iconUrl(Output.of(iconUrl));
-        }
-
-        /**
-         * @param isolatedNetworkEnabled Is the Bot Channels Registration in an isolated network?
-         * 
-         * &gt; **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
-        public Builder isolatedNetworkEnabled(@Nullable Output<Boolean> isolatedNetworkEnabled) {
-            $.isolatedNetworkEnabled = isolatedNetworkEnabled;
-            return this;
-        }
-
-        /**
-         * @param isolatedNetworkEnabled Is the Bot Channels Registration in an isolated network?
-         * 
-         * &gt; **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
-        public Builder isolatedNetworkEnabled(Boolean isolatedNetworkEnabled) {
-            return isolatedNetworkEnabled(Output.of(isolatedNetworkEnabled));
         }
 
         /**

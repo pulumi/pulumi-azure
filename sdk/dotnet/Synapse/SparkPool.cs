@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string?> SparkLogFolder { get; private set; } = null!;
 
         [Output("sparkVersion")]
-        public Output<string?> SparkVersion { get; private set; } = null!;
+        public Output<string> SparkVersion { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
@@ -310,8 +310,8 @@ namespace Pulumi.Azure.Synapse
         [Input("sparkLogFolder")]
         public Input<string>? SparkLogFolder { get; set; }
 
-        [Input("sparkVersion")]
-        public Input<string>? SparkVersion { get; set; }
+        [Input("sparkVersion", required: true)]
+        public Input<string> SparkVersion { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.

@@ -22,10 +22,6 @@ namespace Pulumi.Azure.Redis.Outputs
         public readonly string AofStorageConnectionString1;
         public readonly bool AuthenticationEnabled;
         public readonly string DataPersistenceAuthenticationMethod;
-        /// <summary>
-        /// Specifies if authentication is enabled
-        /// </summary>
-        public readonly bool? EnableAuthentication;
         public readonly int Maxclients;
         /// <summary>
         /// Value in megabytes reserved to accommodate for memory fragmentation.
@@ -79,8 +75,6 @@ namespace Pulumi.Azure.Redis.Outputs
 
             string dataPersistenceAuthenticationMethod,
 
-            bool? enableAuthentication,
-
             int maxclients,
 
             int maxfragmentationmemoryReserved,
@@ -109,7 +103,6 @@ namespace Pulumi.Azure.Redis.Outputs
             AofStorageConnectionString1 = aofStorageConnectionString1;
             AuthenticationEnabled = authenticationEnabled;
             DataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
-            EnableAuthentication = enableAuthentication;
             Maxclients = maxclients;
             MaxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
             MaxmemoryDelta = maxmemoryDelta;

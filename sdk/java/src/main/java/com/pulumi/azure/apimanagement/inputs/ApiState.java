@@ -298,33 +298,6 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-     * 
-     * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider */
-    @Import(name="soapPassThrough")
-    private @Nullable Output<Boolean> soapPassThrough;
-
-    /**
-     * @return Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-     * 
-     * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> soapPassThrough() {
-        return Optional.ofNullable(this.soapPassThrough);
-    }
-
-    /**
      * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
      * 
      */
@@ -454,7 +427,6 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         this.revision = $.revision;
         this.revisionDescription = $.revisionDescription;
         this.serviceUrl = $.serviceUrl;
-        this.soapPassThrough = $.soapPassThrough;
         this.sourceApiId = $.sourceApiId;
         this.subscriptionKeyParameterNames = $.subscriptionKeyParameterNames;
         this.subscriptionRequired = $.subscriptionRequired;
@@ -874,39 +846,6 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder serviceUrl(String serviceUrl) {
             return serviceUrl(Output.of(serviceUrl));
-        }
-
-        /**
-         * @param soapPassThrough Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-         * 
-         * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider */
-        public Builder soapPassThrough(@Nullable Output<Boolean> soapPassThrough) {
-            $.soapPassThrough = soapPassThrough;
-            return this;
-        }
-
-        /**
-         * @param soapPassThrough Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-         * 
-         * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider */
-        public Builder soapPassThrough(Boolean soapPassThrough) {
-            return soapPassThrough(Output.of(soapPassThrough));
         }
 
         /**

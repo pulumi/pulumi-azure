@@ -118,14 +118,6 @@ namespace Pulumi.Azure.Bot
         [Output("serviceProviderName")]
         public Output<string> ServiceProviderName { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// 
-        /// &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a Connection resource with the given unique name, arguments, and options.
@@ -246,21 +238,6 @@ namespace Pulumi.Azure.Bot
         [Input("serviceProviderName", required: true)]
         public Input<string> ServiceProviderName { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// 
-        /// &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Obsolete(@"This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.")]
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
         public ConnectionArgs()
         {
         }
@@ -338,21 +315,6 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("serviceProviderName")]
         public Input<string>? ServiceProviderName { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// 
-        /// &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Obsolete(@"This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.")]
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public ConnectionState()
         {

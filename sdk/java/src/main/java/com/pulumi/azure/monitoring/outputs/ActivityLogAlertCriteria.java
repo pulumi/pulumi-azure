@@ -73,7 +73,7 @@ public final class ActivityLogAlertCriteria {
      * @return A block to define fine grain resource health settings.
      * 
      */
-    private @Nullable List<ActivityLogAlertCriteriaResourceHealth> resourceHealths;
+    private @Nullable ActivityLogAlertCriteriaResourceHealth resourceHealth;
     /**
      * @return The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
      * 
@@ -114,7 +114,7 @@ public final class ActivityLogAlertCriteria {
      * @return A block to define fine grain service health settings.
      * 
      */
-    private @Nullable List<ActivityLogAlertCriteriaServiceHealth> serviceHealths;
+    private @Nullable ActivityLogAlertCriteriaServiceHealth serviceHealth;
     /**
      * @return The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
      * 
@@ -219,8 +219,8 @@ public final class ActivityLogAlertCriteria {
      * @return A block to define fine grain resource health settings.
      * 
      */
-    public List<ActivityLogAlertCriteriaResourceHealth> resourceHealths() {
-        return this.resourceHealths == null ? List.of() : this.resourceHealths;
+    public Optional<ActivityLogAlertCriteriaResourceHealth> resourceHealth() {
+        return Optional.ofNullable(this.resourceHealth);
     }
     /**
      * @return The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
@@ -274,8 +274,8 @@ public final class ActivityLogAlertCriteria {
      * @return A block to define fine grain service health settings.
      * 
      */
-    public List<ActivityLogAlertCriteriaServiceHealth> serviceHealths() {
-        return this.serviceHealths == null ? List.of() : this.serviceHealths;
+    public Optional<ActivityLogAlertCriteriaServiceHealth> serviceHealth() {
+        return Optional.ofNullable(this.serviceHealth);
     }
     /**
      * @return The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
@@ -329,14 +329,14 @@ public final class ActivityLogAlertCriteria {
         private @Nullable String recommendationType;
         private @Nullable String resourceGroup;
         private @Nullable List<String> resourceGroups;
-        private @Nullable List<ActivityLogAlertCriteriaResourceHealth> resourceHealths;
+        private @Nullable ActivityLogAlertCriteriaResourceHealth resourceHealth;
         private @Nullable String resourceId;
         private @Nullable List<String> resourceIds;
         private @Nullable String resourceProvider;
         private @Nullable List<String> resourceProviders;
         private @Nullable String resourceType;
         private @Nullable List<String> resourceTypes;
-        private @Nullable List<ActivityLogAlertCriteriaServiceHealth> serviceHealths;
+        private @Nullable ActivityLogAlertCriteriaServiceHealth serviceHealth;
         private @Nullable String status;
         private @Nullable List<String> statuses;
         private @Nullable String subStatus;
@@ -354,14 +354,14 @@ public final class ActivityLogAlertCriteria {
     	      this.recommendationType = defaults.recommendationType;
     	      this.resourceGroup = defaults.resourceGroup;
     	      this.resourceGroups = defaults.resourceGroups;
-    	      this.resourceHealths = defaults.resourceHealths;
+    	      this.resourceHealth = defaults.resourceHealth;
     	      this.resourceId = defaults.resourceId;
     	      this.resourceIds = defaults.resourceIds;
     	      this.resourceProvider = defaults.resourceProvider;
     	      this.resourceProviders = defaults.resourceProviders;
     	      this.resourceType = defaults.resourceType;
     	      this.resourceTypes = defaults.resourceTypes;
-    	      this.serviceHealths = defaults.serviceHealths;
+    	      this.serviceHealth = defaults.serviceHealth;
     	      this.status = defaults.status;
     	      this.statuses = defaults.statuses;
     	      this.subStatus = defaults.subStatus;
@@ -437,13 +437,10 @@ public final class ActivityLogAlertCriteria {
             return resourceGroups(List.of(resourceGroups));
         }
         @CustomType.Setter
-        public Builder resourceHealths(@Nullable List<ActivityLogAlertCriteriaResourceHealth> resourceHealths) {
+        public Builder resourceHealth(@Nullable ActivityLogAlertCriteriaResourceHealth resourceHealth) {
 
-            this.resourceHealths = resourceHealths;
+            this.resourceHealth = resourceHealth;
             return this;
-        }
-        public Builder resourceHealths(ActivityLogAlertCriteriaResourceHealth... resourceHealths) {
-            return resourceHealths(List.of(resourceHealths));
         }
         @CustomType.Setter
         public Builder resourceId(@Nullable String resourceId) {
@@ -491,13 +488,10 @@ public final class ActivityLogAlertCriteria {
             return resourceTypes(List.of(resourceTypes));
         }
         @CustomType.Setter
-        public Builder serviceHealths(@Nullable List<ActivityLogAlertCriteriaServiceHealth> serviceHealths) {
+        public Builder serviceHealth(@Nullable ActivityLogAlertCriteriaServiceHealth serviceHealth) {
 
-            this.serviceHealths = serviceHealths;
+            this.serviceHealth = serviceHealth;
             return this;
-        }
-        public Builder serviceHealths(ActivityLogAlertCriteriaServiceHealth... serviceHealths) {
-            return serviceHealths(List.of(serviceHealths));
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
@@ -541,14 +535,14 @@ public final class ActivityLogAlertCriteria {
             _resultValue.recommendationType = recommendationType;
             _resultValue.resourceGroup = resourceGroup;
             _resultValue.resourceGroups = resourceGroups;
-            _resultValue.resourceHealths = resourceHealths;
+            _resultValue.resourceHealth = resourceHealth;
             _resultValue.resourceId = resourceId;
             _resultValue.resourceIds = resourceIds;
             _resultValue.resourceProvider = resourceProvider;
             _resultValue.resourceProviders = resourceProviders;
             _resultValue.resourceType = resourceType;
             _resultValue.resourceTypes = resourceTypes;
-            _resultValue.serviceHealths = serviceHealths;
+            _resultValue.serviceHealth = serviceHealth;
             _resultValue.status = status;
             _resultValue.statuses = statuses;
             _resultValue.subStatus = subStatus;

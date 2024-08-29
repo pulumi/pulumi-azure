@@ -145,8 +145,6 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if Live Trace is enabled or not. Defaults to `false`.
-     * 
      * @deprecated
      * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
      * 
@@ -156,8 +154,6 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> liveTraceEnabled;
 
     /**
-     * @return Specifies if Live Trace is enabled or not. Defaults to `false`.
-     * 
      * @deprecated
      * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
      * 
@@ -674,8 +670,6 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param liveTraceEnabled Specifies if Live Trace is enabled or not. Defaults to `false`.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -689,8 +683,6 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param liveTraceEnabled Specifies if Live Trace is enabled or not. Defaults to `false`.
-         * 
          * @return builder
          * 
          * @deprecated

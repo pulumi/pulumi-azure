@@ -137,33 +137,6 @@ public final class LabState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
-     * 
-     * &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
-     * 
-     */
-    @Deprecated /* `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. */
-    @Import(name="storageType")
-    private @Nullable Output<String> storageType;
-
-    /**
-     * @return The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
-     * 
-     * &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
-     * 
-     */
-    @Deprecated /* `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. */
-    public Optional<Output<String>> storageType() {
-        return Optional.ofNullable(this.storageType);
-    }
-
-    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -204,7 +177,6 @@ public final class LabState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.premiumDataDiskStorageAccountId = $.premiumDataDiskStorageAccountId;
         this.resourceGroupName = $.resourceGroupName;
-        this.storageType = $.storageType;
         this.tags = $.tags;
         this.uniqueIdentifier = $.uniqueIdentifier;
     }
@@ -393,39 +365,6 @@ public final class LabState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
-        }
-
-        /**
-         * @param storageType The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
-         * 
-         * &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
-         * 
-         */
-        @Deprecated /* `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. */
-        public Builder storageType(@Nullable Output<String> storageType) {
-            $.storageType = storageType;
-            return this;
-        }
-
-        /**
-         * @param storageType The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
-         * 
-         * &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
-         * 
-         */
-        @Deprecated /* `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. */
-        public Builder storageType(String storageType) {
-            return storageType(Output.of(storageType));
         }
 
         /**

@@ -4,12 +4,10 @@
 package com.pulumi.azure.consumption.outputs;
 
 import com.pulumi.azure.consumption.outputs.BudgetSubscriptionFilterDimension;
-import com.pulumi.azure.consumption.outputs.BudgetSubscriptionFilterNot;
 import com.pulumi.azure.consumption.outputs.BudgetSubscriptionFilterTag;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,15 +17,6 @@ public final class BudgetSubscriptionFilter {
      * 
      */
     private @Nullable List<BudgetSubscriptionFilterDimension> dimensions;
-    /**
-     * @return A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-    private @Nullable BudgetSubscriptionFilterNot not;
     /**
      * @return One or more `tag` blocks as defined below to filter the budget on.
      * 
@@ -41,17 +30,6 @@ public final class BudgetSubscriptionFilter {
      */
     public List<BudgetSubscriptionFilterDimension> dimensions() {
         return this.dimensions == null ? List.of() : this.dimensions;
-    }
-    /**
-     * @return A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-    public Optional<BudgetSubscriptionFilterNot> not() {
-        return Optional.ofNullable(this.not);
     }
     /**
      * @return One or more `tag` blocks as defined below to filter the budget on.
@@ -71,13 +49,11 @@ public final class BudgetSubscriptionFilter {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<BudgetSubscriptionFilterDimension> dimensions;
-        private @Nullable BudgetSubscriptionFilterNot not;
         private @Nullable List<BudgetSubscriptionFilterTag> tags;
         public Builder() {}
         public Builder(BudgetSubscriptionFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
-    	      this.not = defaults.not;
     	      this.tags = defaults.tags;
         }
 
@@ -91,12 +67,6 @@ public final class BudgetSubscriptionFilter {
             return dimensions(List.of(dimensions));
         }
         @CustomType.Setter
-        public Builder not(@Nullable BudgetSubscriptionFilterNot not) {
-
-            this.not = not;
-            return this;
-        }
-        @CustomType.Setter
         public Builder tags(@Nullable List<BudgetSubscriptionFilterTag> tags) {
 
             this.tags = tags;
@@ -108,7 +78,6 @@ public final class BudgetSubscriptionFilter {
         public BudgetSubscriptionFilter build() {
             final var _resultValue = new BudgetSubscriptionFilter();
             _resultValue.dimensions = dimensions;
-            _resultValue.not = not;
             _resultValue.tags = tags;
             return _resultValue;
         }

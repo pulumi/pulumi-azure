@@ -5,8 +5,6 @@ package com.pulumi.azure.appservice;
 
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appservice.inputs.GetAppServiceArgs;
-import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
-import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentPlainArgs;
 import com.pulumi.azure.appservice.inputs.GetAppServicePlainArgs;
 import com.pulumi.azure.appservice.inputs.GetAppServicePlanArgs;
 import com.pulumi.azure.appservice.inputs.GetAppServicePlanPlainArgs;
@@ -34,7 +32,6 @@ import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppArgs;
 import com.pulumi.azure.appservice.inputs.GetWindowsFunctionAppPlainArgs;
 import com.pulumi.azure.appservice.inputs.GetWindowsWebAppArgs;
 import com.pulumi.azure.appservice.inputs.GetWindowsWebAppPlainArgs;
-import com.pulumi.azure.appservice.outputs.GetAppServiceEnvironmentResult;
 import com.pulumi.azure.appservice.outputs.GetAppServicePlanResult;
 import com.pulumi.azure.appservice.outputs.GetAppServiceResult;
 import com.pulumi.azure.appservice.outputs.GetCertificateOrderResult;
@@ -239,182 +236,6 @@ public final class AppserviceFunctions {
      */
     public static CompletableFuture<GetAppServiceResult> getAppServicePlain(GetAppServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getAppService:getAppService", TypeShape.of(GetAppServiceResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to access information about an existing App Service Environment.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name("existing-ase")
-     *             .resourceGroupName("existing-rg")
-     *             .build());
-     * 
-     *         ctx.export("id", example.applyValue(getAppServiceEnvironmentResult -> getAppServiceEnvironmentResult.id()));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetAppServiceEnvironmentResult> getAppServiceEnvironment(GetAppServiceEnvironmentArgs args) {
-        return getAppServiceEnvironment(args, InvokeOptions.Empty);
-    }
-    /**
-     * Use this data source to access information about an existing App Service Environment.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name("existing-ase")
-     *             .resourceGroupName("existing-rg")
-     *             .build());
-     * 
-     *         ctx.export("id", example.applyValue(getAppServiceEnvironmentResult -> getAppServiceEnvironmentResult.id()));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static CompletableFuture<GetAppServiceEnvironmentResult> getAppServiceEnvironmentPlain(GetAppServiceEnvironmentPlainArgs args) {
-        return getAppServiceEnvironmentPlain(args, InvokeOptions.Empty);
-    }
-    /**
-     * Use this data source to access information about an existing App Service Environment.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name("existing-ase")
-     *             .resourceGroupName("existing-rg")
-     *             .build());
-     * 
-     *         ctx.export("id", example.applyValue(getAppServiceEnvironmentResult -> getAppServiceEnvironmentResult.id()));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetAppServiceEnvironmentResult> getAppServiceEnvironment(GetAppServiceEnvironmentArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", TypeShape.of(GetAppServiceEnvironmentResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Use this data source to access information about an existing App Service Environment.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.appservice.AppserviceFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetAppServiceEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppserviceFunctions.getAppServiceEnvironment(GetAppServiceEnvironmentArgs.builder()
-     *             .name("existing-ase")
-     *             .resourceGroupName("existing-rg")
-     *             .build());
-     * 
-     *         ctx.export("id", example.applyValue(getAppServiceEnvironmentResult -> getAppServiceEnvironmentResult.id()));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static CompletableFuture<GetAppServiceEnvironmentResult> getAppServiceEnvironmentPlain(GetAppServiceEnvironmentPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", TypeShape.of(GetAppServiceEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).

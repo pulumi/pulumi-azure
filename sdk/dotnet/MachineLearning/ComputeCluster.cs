@@ -187,10 +187,10 @@ namespace Pulumi.Azure.MachineLearning
         public Output<Outputs.ComputeClusterSsh?> Ssh { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Output("sshPublicAccessEnabled")]
-        public Output<bool> SshPublicAccessEnabled { get; private set; } = null!;
+        public Output<bool?> SshPublicAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.ComputeClusterSshArgs>? Ssh { get; set; }
 
         /// <summary>
-        /// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("sshPublicAccessEnabled")]
         public Input<bool>? SshPublicAccessEnabled { get; set; }
@@ -415,7 +415,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.ComputeClusterSshGetArgs>? Ssh { get; set; }
 
         /// <summary>
-        /// A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("sshPublicAccessEnabled")]
         public Input<bool>? SshPublicAccessEnabled { get; set; }

@@ -7,7 +7,6 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.nginx.DeploymentArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentState;
 import com.pulumi.azure.nginx.outputs.DeploymentAutoScaleProfile;
-import com.pulumi.azure.nginx.outputs.DeploymentConfiguration;
 import com.pulumi.azure.nginx.outputs.DeploymentFrontendPrivate;
 import com.pulumi.azure.nginx.outputs.DeploymentFrontendPublic;
 import com.pulumi.azure.nginx.outputs.DeploymentIdentity;
@@ -180,18 +179,6 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> capacity() {
         return Codegen.optional(this.capacity);
-    }
-    /**
-     * @deprecated
-     * The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="configuration", refs={DeploymentConfiguration.class}, tree="[0]")
-    private Output<DeploymentConfiguration> configuration;
-
-    public Output<DeploymentConfiguration> configuration() {
-        return this.configuration;
     }
     /**
      * Should the metrics be exported to Azure Monitor?

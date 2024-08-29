@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A block to define fine grain resource health settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ActivityLogAlertCriteriaResourceHealth> ResourceHealths;
+        public readonly Outputs.ActivityLogAlertCriteriaResourceHealth? ResourceHealth;
         /// <summary>
         /// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A block to define fine grain service health settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ActivityLogAlertCriteriaServiceHealth> ServiceHealths;
+        public readonly Outputs.ActivityLogAlertCriteriaServiceHealth? ServiceHealth;
         /// <summary>
         /// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             ImmutableArray<string> resourceGroups,
 
-            ImmutableArray<Outputs.ActivityLogAlertCriteriaResourceHealth> resourceHealths,
+            Outputs.ActivityLogAlertCriteriaResourceHealth? resourceHealth,
 
             string? resourceId,
 
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             ImmutableArray<string> resourceTypes,
 
-            ImmutableArray<Outputs.ActivityLogAlertCriteriaServiceHealth> serviceHealths,
+            Outputs.ActivityLogAlertCriteriaServiceHealth? serviceHealth,
 
             string? status,
 
@@ -172,14 +172,14 @@ namespace Pulumi.Azure.Monitoring.Outputs
             RecommendationType = recommendationType;
             ResourceGroup = resourceGroup;
             ResourceGroups = resourceGroups;
-            ResourceHealths = resourceHealths;
+            ResourceHealth = resourceHealth;
             ResourceId = resourceId;
             ResourceIds = resourceIds;
             ResourceProvider = resourceProvider;
             ResourceProviders = resourceProviders;
             ResourceType = resourceType;
             ResourceTypes = resourceTypes;
-            ServiceHealths = serviceHealths;
+            ServiceHealth = serviceHealth;
             Status = status;
             Statuses = statuses;
             SubStatus = subStatus;

@@ -33,10 +33,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
  * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
- * import com.pulumi.azure.sql.SqlServer;
- * import com.pulumi.azure.sql.SqlServerArgs;
- * import com.pulumi.azure.sql.Database;
- * import com.pulumi.azure.sql.DatabaseArgs;
+ * import com.pulumi.azurerm.sqlServer;
+ * import com.pulumi.azurerm.SqlServerArgs;
+ * import com.pulumi.azurerm.sqlDatabase;
+ * import com.pulumi.azurerm.SqlDatabaseArgs;
  * import com.pulumi.azure.streamanalytics.OutputMssql;
  * import com.pulumi.azure.streamanalytics.OutputMssqlArgs;
  * import java.util.List;
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword("example-password")
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
  *             .name("exampledb")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .server(exampleSqlServer.fullyQualifiedDomainName())
  *             .user(exampleSqlServer.administratorLogin())
  *             .password(exampleSqlServer.administratorLoginPassword())
- *             .database(exampleDatabase.name())
+ *             .database(exampleSqlDatabase.name())
  *             .table("ExampleTable")
  *             .build());
  * 

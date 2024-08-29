@@ -20,7 +20,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// <summary>
         /// One or more `custom_domain` block as detailed below.
         /// </summary>
-        public readonly Outputs.AppIngressCustomDomain? CustomDomain;
+        public readonly ImmutableArray<Outputs.AppIngressCustomDomain> CustomDomains;
         /// <summary>
         /// The exposed port on the container for the Ingress traffic.
         /// 
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         private AppIngress(
             bool? allowInsecureConnections,
 
-            Outputs.AppIngressCustomDomain? customDomain,
+            ImmutableArray<Outputs.AppIngressCustomDomain> customDomains,
 
             int? exposedPort,
 
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
             string? transport)
         {
             AllowInsecureConnections = allowInsecureConnections;
-            CustomDomain = customDomain;
+            CustomDomains = customDomains;
             ExposedPort = exposedPort;
             ExternalEnabled = externalEnabled;
             Fqdn = fqdn;

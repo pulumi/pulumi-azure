@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -23,7 +24,7 @@ public final class ImageOsDisk {
      */
     private @Nullable String caching;
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String diskEncryptionSetId;
@@ -47,6 +48,11 @@ public final class ImageOsDisk {
      * 
      */
     private @Nullable Integer sizeGb;
+    /**
+     * @return The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+     * 
+     */
+    private String storageType;
 
     private ImageOsDisk() {}
     /**
@@ -64,7 +70,7 @@ public final class ImageOsDisk {
         return Optional.ofNullable(this.caching);
     }
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> diskEncryptionSetId() {
@@ -98,6 +104,13 @@ public final class ImageOsDisk {
     public Optional<Integer> sizeGb() {
         return Optional.ofNullable(this.sizeGb);
     }
+    /**
+     * @return The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+     * 
+     */
+    public String storageType() {
+        return this.storageType;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -115,6 +128,7 @@ public final class ImageOsDisk {
         private @Nullable String osState;
         private @Nullable String osType;
         private @Nullable Integer sizeGb;
+        private String storageType;
         public Builder() {}
         public Builder(ImageOsDisk defaults) {
     	      Objects.requireNonNull(defaults);
@@ -125,6 +139,7 @@ public final class ImageOsDisk {
     	      this.osState = defaults.osState;
     	      this.osType = defaults.osType;
     	      this.sizeGb = defaults.sizeGb;
+    	      this.storageType = defaults.storageType;
         }
 
         @CustomType.Setter
@@ -169,6 +184,14 @@ public final class ImageOsDisk {
             this.sizeGb = sizeGb;
             return this;
         }
+        @CustomType.Setter
+        public Builder storageType(String storageType) {
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("ImageOsDisk", "storageType");
+            }
+            this.storageType = storageType;
+            return this;
+        }
         public ImageOsDisk build() {
             final var _resultValue = new ImageOsDisk();
             _resultValue.blobUri = blobUri;
@@ -178,6 +201,7 @@ public final class ImageOsDisk {
             _resultValue.osState = osState;
             _resultValue.osType = osType;
             _resultValue.sizeGb = sizeGb;
+            _resultValue.storageType = storageType;
             return _resultValue;
         }
     }

@@ -42,13 +42,6 @@ public final class GetEnterpriseDatabaseResult {
      */
     private String primaryAccessKey;
     /**
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    private String resourceGroupName;
-    /**
      * @return The Secondary Access Key for the Redis Enterprise Database instance.
      * 
      */
@@ -98,15 +91,6 @@ public final class GetEnterpriseDatabaseResult {
         return this.primaryAccessKey;
     }
     /**
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    public String resourceGroupName() {
-        return this.resourceGroupName;
-    }
-    /**
      * @return The Secondary Access Key for the Redis Enterprise Database instance.
      * 
      */
@@ -129,7 +113,6 @@ public final class GetEnterpriseDatabaseResult {
         private List<String> linkedDatabaseIds;
         private String name;
         private String primaryAccessKey;
-        private String resourceGroupName;
         private String secondaryAccessKey;
         public Builder() {}
         public Builder(GetEnterpriseDatabaseResult defaults) {
@@ -140,7 +123,6 @@ public final class GetEnterpriseDatabaseResult {
     	      this.linkedDatabaseIds = defaults.linkedDatabaseIds;
     	      this.name = defaults.name;
     	      this.primaryAccessKey = defaults.primaryAccessKey;
-    	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryAccessKey = defaults.secondaryAccessKey;
         }
 
@@ -196,14 +178,6 @@ public final class GetEnterpriseDatabaseResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceGroupName(String resourceGroupName) {
-            if (resourceGroupName == null) {
-              throw new MissingRequiredPropertyException("GetEnterpriseDatabaseResult", "resourceGroupName");
-            }
-            this.resourceGroupName = resourceGroupName;
-            return this;
-        }
-        @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             if (secondaryAccessKey == null) {
               throw new MissingRequiredPropertyException("GetEnterpriseDatabaseResult", "secondaryAccessKey");
@@ -219,7 +193,6 @@ public final class GetEnterpriseDatabaseResult {
             _resultValue.linkedDatabaseIds = linkedDatabaseIds;
             _resultValue.name = name;
             _resultValue.primaryAccessKey = primaryAccessKey;
-            _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.secondaryAccessKey = secondaryAccessKey;
             return _resultValue;
         }

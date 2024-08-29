@@ -46,7 +46,6 @@ namespace Pulumi.Azure.RecoveryServices
     /// 
     ///     var test = new Azure.RecoveryServices.VaultResourceGuardAssociation("test", new()
     ///     {
-    ///         Name = "VaultProxy",
     ///         VaultId = testAzurermRecoveryServicesVault.Id,
     ///         ResourceGuardId = testAzurermDataProtectionResourceGuard.Id,
     ///     });
@@ -65,14 +64,6 @@ namespace Pulumi.Azure.RecoveryServices
     [AzureResourceType("azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation")]
     public partial class VaultResourceGuardAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-        /// 
-        /// &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
-
         /// <summary>
         /// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         /// </summary>
@@ -132,14 +123,6 @@ namespace Pulumi.Azure.RecoveryServices
     public sealed class VaultResourceGuardAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-        /// 
-        /// &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGuardId", required: true)]
@@ -159,14 +142,6 @@ namespace Pulumi.Azure.RecoveryServices
 
     public sealed class VaultResourceGuardAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-        /// 
-        /// &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
         /// <summary>
         /// ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         /// </summary>

@@ -104,18 +104,6 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
         return Codegen.optional(this.customerManagedKeyEnabled);
     }
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `workspace_id`
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `workspace_id` */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
-    private Output<String> resourceGroupName;
-
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
-    }
-    /**
      * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      * 
      */
@@ -128,18 +116,6 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      */
     public Output<String> workspaceId() {
         return this.workspaceId;
-    }
-    /**
-     * @deprecated
-     * this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider */
-    @Export(name="workspaceName", refs={String.class}, tree="[0]")
-    private Output<String> workspaceName;
-
-    public Output<String> workspaceName() {
-        return this.workspaceName;
     }
 
     /**
@@ -154,7 +130,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogAnalyticsWorkspaceOnboarding(java.lang.String name, @Nullable LogAnalyticsWorkspaceOnboardingArgs args) {
+    public LogAnalyticsWorkspaceOnboarding(java.lang.String name, LogAnalyticsWorkspaceOnboardingArgs args) {
         this(name, args, null);
     }
     /**
@@ -163,7 +139,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogAnalyticsWorkspaceOnboarding(java.lang.String name, @Nullable LogAnalyticsWorkspaceOnboardingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public LogAnalyticsWorkspaceOnboarding(java.lang.String name, LogAnalyticsWorkspaceOnboardingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -171,7 +147,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
         super("azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static LogAnalyticsWorkspaceOnboardingArgs makeArgs(@Nullable LogAnalyticsWorkspaceOnboardingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static LogAnalyticsWorkspaceOnboardingArgs makeArgs(LogAnalyticsWorkspaceOnboardingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

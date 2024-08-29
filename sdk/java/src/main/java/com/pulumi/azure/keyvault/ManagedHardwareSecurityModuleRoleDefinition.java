@@ -125,20 +125,6 @@ public class ManagedHardwareSecurityModuleRoleDefinition extends com.pulumi.reso
     public Output<String> roleType() {
         return this.roleType;
     }
-    /**
-     * The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-     * 
-     */
-    @Export(name="vaultBaseUrl", refs={String.class}, tree="[0]")
-    private Output<String> vaultBaseUrl;
-
-    /**
-     * @return The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-     * 
-     */
-    public Output<String> vaultBaseUrl() {
-        return this.vaultBaseUrl;
-    }
 
     /**
      *
@@ -152,7 +138,7 @@ public class ManagedHardwareSecurityModuleRoleDefinition extends com.pulumi.reso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedHardwareSecurityModuleRoleDefinition(java.lang.String name, @Nullable ManagedHardwareSecurityModuleRoleDefinitionArgs args) {
+    public ManagedHardwareSecurityModuleRoleDefinition(java.lang.String name, ManagedHardwareSecurityModuleRoleDefinitionArgs args) {
         this(name, args, null);
     }
     /**
@@ -161,7 +147,7 @@ public class ManagedHardwareSecurityModuleRoleDefinition extends com.pulumi.reso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedHardwareSecurityModuleRoleDefinition(java.lang.String name, @Nullable ManagedHardwareSecurityModuleRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ManagedHardwareSecurityModuleRoleDefinition(java.lang.String name, ManagedHardwareSecurityModuleRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -169,7 +155,7 @@ public class ManagedHardwareSecurityModuleRoleDefinition extends com.pulumi.reso
         super("azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ManagedHardwareSecurityModuleRoleDefinitionArgs makeArgs(@Nullable ManagedHardwareSecurityModuleRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ManagedHardwareSecurityModuleRoleDefinitionArgs makeArgs(ManagedHardwareSecurityModuleRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

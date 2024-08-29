@@ -86,17 +86,11 @@ namespace Pulumi.Azure.Storage
         [Output("rowKey")]
         public Output<string> RowKey { get; private set; } = null!;
 
-        [Output("storageAccountName")]
-        public Output<string> StorageAccountName { get; private set; } = null!;
-
         /// <summary>
         /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageTableId")]
         public Output<string> StorageTableId { get; private set; } = null!;
-
-        [Output("tableName")]
-        public Output<string> TableName { get; private set; } = null!;
 
 
         /// <summary>
@@ -168,17 +162,11 @@ namespace Pulumi.Azure.Storage
         [Input("rowKey", required: true)]
         public Input<string> RowKey { get; set; } = null!;
 
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
-
         /// <summary>
         /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageTableId")]
-        public Input<string>? StorageTableId { get; set; }
-
-        [Input("tableName")]
-        public Input<string>? TableName { get; set; }
+        [Input("storageTableId", required: true)]
+        public Input<string> StorageTableId { get; set; } = null!;
 
         public TableEntityArgs()
         {
@@ -212,17 +200,11 @@ namespace Pulumi.Azure.Storage
         [Input("rowKey")]
         public Input<string>? RowKey { get; set; }
 
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
-
         /// <summary>
         /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageTableId")]
         public Input<string>? StorageTableId { get; set; }
-
-        [Input("tableName")]
-        public Input<string>? TableName { get; set; }
 
         public TableEntityState()
         {

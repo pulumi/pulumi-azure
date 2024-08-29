@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Redis
     ///         Capacity = 2,
     ///         Family = "C",
     ///         SkuName = "Standard",
-    ///         EnableNonSslPort = false,
+    ///         NonSslPortEnabled = false,
     ///         MinimumTlsVersion = "1.2",
     ///         RedisConfiguration = null,
     ///     });
@@ -66,16 +66,16 @@ namespace Pulumi.Azure.Redis
     public partial class Cache : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+        /// </summary>
+        [Output("accessKeysAuthenticationEnabled")]
+        public Output<bool?> AccessKeysAuthenticationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         /// </summary>
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
-
-        /// <summary>
-        /// Enable the non-SSL port (6379) - disabled by default.
-        /// </summary>
-        [Output("enableNonSslPort")]
-        public Output<bool?> EnableNonSslPort { get; private set; } = null!;
 
         /// <summary>
         /// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
@@ -113,8 +113,11 @@ namespace Pulumi.Azure.Redis
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable the non-SSL port (6379) - disabled by default.
+        /// </summary>
         [Output("nonSslPortEnabled")]
-        public Output<bool> NonSslPortEnabled { get; private set; } = null!;
+        public Output<bool?> NonSslPortEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A list of `patch_schedule` blocks as defined below.
@@ -159,10 +162,10 @@ namespace Pulumi.Azure.Redis
         public Output<Outputs.CacheRedisConfiguration> RedisConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Redis version. Only major version needed. Valid values: `4`, `6`.
+        /// Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         /// </summary>
         [Output("redisVersion")]
-        public Output<string> RedisVersion { get; private set; } = null!;
+        public Output<string?> RedisVersion { get; private set; } = null!;
 
         /// <summary>
         /// Amount of replicas to create per master for this Redis Cache.
@@ -296,16 +299,16 @@ namespace Pulumi.Azure.Redis
     public sealed class CacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+        /// </summary>
+        [Input("accessKeysAuthenticationEnabled")]
+        public Input<bool>? AccessKeysAuthenticationEnabled { get; set; }
+
+        /// <summary>
         /// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
-
-        /// <summary>
-        /// Enable the non-SSL port (6379) - disabled by default.
-        /// </summary>
-        [Input("enableNonSslPort")]
-        public Input<bool>? EnableNonSslPort { get; set; }
 
         /// <summary>
         /// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
@@ -337,6 +340,9 @@ namespace Pulumi.Azure.Redis
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Enable the non-SSL port (6379) - disabled by default.
+        /// </summary>
         [Input("nonSslPortEnabled")]
         public Input<bool>? NonSslPortEnabled { get; set; }
 
@@ -371,7 +377,7 @@ namespace Pulumi.Azure.Redis
         public Input<Inputs.CacheRedisConfigurationArgs>? RedisConfiguration { get; set; }
 
         /// <summary>
-        /// Redis version. Only major version needed. Valid values: `4`, `6`.
+        /// Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         /// </summary>
         [Input("redisVersion")]
         public Input<string>? RedisVersion { get; set; }
@@ -463,16 +469,16 @@ namespace Pulumi.Azure.Redis
     public sealed class CacheState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+        /// </summary>
+        [Input("accessKeysAuthenticationEnabled")]
+        public Input<bool>? AccessKeysAuthenticationEnabled { get; set; }
+
+        /// <summary>
         /// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
-
-        /// <summary>
-        /// Enable the non-SSL port (6379) - disabled by default.
-        /// </summary>
-        [Input("enableNonSslPort")]
-        public Input<bool>? EnableNonSslPort { get; set; }
 
         /// <summary>
         /// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
@@ -510,6 +516,9 @@ namespace Pulumi.Azure.Redis
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Enable the non-SSL port (6379) - disabled by default.
+        /// </summary>
         [Input("nonSslPortEnabled")]
         public Input<bool>? NonSslPortEnabled { get; set; }
 
@@ -582,7 +591,7 @@ namespace Pulumi.Azure.Redis
         public Input<Inputs.CacheRedisConfigurationGetArgs>? RedisConfiguration { get; set; }
 
         /// <summary>
-        /// Redis version. Only major version needed. Valid values: `4`, `6`.
+        /// Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
         /// </summary>
         [Input("redisVersion")]
         public Input<string>? RedisVersion { get; set; }

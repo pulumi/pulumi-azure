@@ -194,14 +194,14 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="logs", refs={ElasticsearchLogs.class}, tree="[0]")
-    private Output<ElasticsearchLogs> logs;
+    private Output</* @Nullable */ ElasticsearchLogs> logs;
 
     /**
      * @return A `logs` block as defined below.
      * 
      */
-    public Output<ElasticsearchLogs> logs() {
-        return this.logs;
+    public Output<Optional<ElasticsearchLogs>> logs() {
+        return Codegen.optional(this.logs);
     }
     /**
      * Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.

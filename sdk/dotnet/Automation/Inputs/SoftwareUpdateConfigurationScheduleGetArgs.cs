@@ -75,17 +75,11 @@ namespace Pulumi.Azure.Automation.Inputs
         [Input("lastModifiedTime")]
         public Input<string>? LastModifiedTime { get; set; }
 
-        [Input("monthlyOccurrences")]
-        private InputList<Inputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrenceGetArgs>? _monthlyOccurrences;
-
         /// <summary>
         /// List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         /// </summary>
-        public InputList<Inputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrenceGetArgs> MonthlyOccurrences
-        {
-            get => _monthlyOccurrences ?? (_monthlyOccurrences = new InputList<Inputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrenceGetArgs>());
-            set => _monthlyOccurrences = value;
-        }
+        [Input("monthlyOccurrence")]
+        public Input<Inputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrenceGetArgs>? MonthlyOccurrence { get; set; }
 
         [Input("nextRun")]
         public Input<string>? NextRun { get; set; }

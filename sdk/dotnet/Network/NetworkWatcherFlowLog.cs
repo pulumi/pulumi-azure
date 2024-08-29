@@ -14,81 +14,6 @@ namespace Pulumi.Azure.Network
     /// 
     /// &gt; **Note** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var test = new Azure.Network.NetworkSecurityGroup("test", new()
-    ///     {
-    ///         Name = "acctestnsg",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///     });
-    /// 
-    ///     var testNetworkWatcher = new Azure.Network.NetworkWatcher("test", new()
-    ///     {
-    ///         Name = "acctestnw",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///     });
-    /// 
-    ///     var testAccount = new Azure.Storage.Account("test", new()
-    ///     {
-    ///         Name = "acctestsa",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountKind = "StorageV2",
-    ///         AccountReplicationType = "LRS",
-    ///         EnableHttpsTrafficOnly = true,
-    ///     });
-    /// 
-    ///     var testAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("test", new()
-    ///     {
-    ///         Name = "acctestlaw",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "PerGB2018",
-    ///     });
-    /// 
-    ///     var testNetworkWatcherFlowLog = new Azure.Network.NetworkWatcherFlowLog("test", new()
-    ///     {
-    ///         NetworkWatcherName = testNetworkWatcher.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Name = "example-log",
-    ///         NetworkSecurityGroupId = test.Id,
-    ///         StorageAccountId = testAccount.Id,
-    ///         Enabled = true,
-    ///         RetentionPolicy = new Azure.Network.Inputs.NetworkWatcherFlowLogRetentionPolicyArgs
-    ///         {
-    ///             Enabled = true,
-    ///             Days = 7,
-    ///         },
-    ///         TrafficAnalytics = new Azure.Network.Inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs
-    ///         {
-    ///             Enabled = true,
-    ///             WorkspaceId = testAnalyticsWorkspace.WorkspaceId,
-    ///             WorkspaceRegion = testAnalyticsWorkspace.Location,
-    ///             WorkspaceResourceId = testAnalyticsWorkspace.Id,
-    ///             IntervalInMinutes = 10,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Network Watcher Flow Logs can be imported using the `resource id`, e.g.
@@ -161,10 +86,10 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.NetworkWatcherFlowLogTrafficAnalytics?> TrafficAnalytics { get; private set; } = null!;
 
         /// <summary>
-        /// The version (revision) of the flow log. Possible values are `1` and `2`.
+        /// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         /// </summary>
         [Output("version")]
-        public Output<int> Version { get; private set; } = null!;
+        public Output<int?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -279,7 +204,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs>? TrafficAnalytics { get; set; }
 
         /// <summary>
-        /// The version (revision) of the flow log. Possible values are `1` and `2`.
+        /// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
@@ -359,7 +284,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsGetArgs>? TrafficAnalytics { get; set; }
 
         /// <summary>
-        /// The version (revision) of the flow log. Possible values are `1` and `2`.
+        /// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }

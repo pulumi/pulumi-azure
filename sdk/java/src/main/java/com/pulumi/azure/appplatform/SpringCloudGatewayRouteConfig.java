@@ -182,7 +182,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> protocol;
+    private Output<String> protocol;
 
     /**
      * @return Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
@@ -190,8 +190,8 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
      * 
      */
-    public Output<Optional<String>> protocol() {
-        return Codegen.optional(this.protocol);
+    public Output<String> protocol() {
+        return this.protocol;
     }
     /**
      * One or more `route` blocks as defined below.

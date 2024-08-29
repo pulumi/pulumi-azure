@@ -306,7 +306,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.reverseFqdn);
     }
     /**
-     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
      * 
@@ -315,7 +315,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> sku;
 
     /**
-     * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+     * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
      * 

@@ -85,17 +85,9 @@ namespace Pulumi.Azure.ServiceBus
         [Input("namespaceId")]
         public string? NamespaceId { get; set; }
 
-        /// <summary>
-        /// The name of the Service Bus Namespace.
-        /// </summary>
         [Input("namespaceName")]
         public string? NamespaceName { get; set; }
 
-        /// <summary>
-        /// The name of the Resource Group where the Service Bus Topic exists.
-        /// 
-        /// &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
-        /// </summary>
         [Input("resourceGroupName")]
         public string? ResourceGroupName { get; set; }
 
@@ -119,17 +111,9 @@ namespace Pulumi.Azure.ServiceBus
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
 
-        /// <summary>
-        /// The name of the Service Bus Namespace.
-        /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
-        /// <summary>
-        /// The name of the Resource Group where the Service Bus Topic exists.
-        /// 
-        /// &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

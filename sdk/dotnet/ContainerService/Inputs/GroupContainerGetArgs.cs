@@ -48,12 +48,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
             set => _environmentVariables = value;
         }
 
-        [Input("gpu")]
-        public Input<Inputs.GroupContainerGpuGetArgs>? Gpu { get; set; }
-
-        [Input("gpuLimit")]
-        public Input<Inputs.GroupContainerGpuLimitGetArgs>? GpuLimit { get; set; }
-
         /// <summary>
         /// The container image name. Changing this forces a new resource to be created.
         /// </summary>

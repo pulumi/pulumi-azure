@@ -199,11 +199,11 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sparkLogFolder);
     }
 
-    @Import(name="sparkVersion")
-    private @Nullable Output<String> sparkVersion;
+    @Import(name="sparkVersion", required=true)
+    private Output<String> sparkVersion;
 
-    public Optional<Output<String>> sparkVersion() {
-        return Optional.ofNullable(this.sparkVersion);
+    public Output<String> sparkVersion() {
+        return this.sparkVersion;
     }
 
     /**
@@ -510,7 +510,7 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
             return sparkLogFolder(Output.of(sparkLogFolder));
         }
 
-        public Builder sparkVersion(@Nullable Output<String> sparkVersion) {
+        public Builder sparkVersion(Output<String> sparkVersion) {
             $.sparkVersion = sparkVersion;
             return this;
         }
@@ -555,6 +555,9 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.nodeSizeFamily == null) {
                 throw new MissingRequiredPropertyException("SparkPoolArgs", "nodeSizeFamily");
+            }
+            if ($.sparkVersion == null) {
+                throw new MissingRequiredPropertyException("SparkPoolArgs", "sparkVersion");
             }
             if ($.synapseWorkspaceId == null) {
                 throw new MissingRequiredPropertyException("SparkPoolArgs", "synapseWorkspaceId");

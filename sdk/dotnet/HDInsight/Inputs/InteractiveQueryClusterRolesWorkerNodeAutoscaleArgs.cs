@@ -12,9 +12,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
 
     public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("capacity")]
-        public Input<Inputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs>? Capacity { get; set; }
-
         /// <summary>
         /// A `recurrence` block as defined below.
         /// </summary>

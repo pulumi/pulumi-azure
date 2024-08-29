@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Cdn
         /// The path used at for origin requests.
         /// </summary>
         [Output("originPath")]
-        public Output<string> OriginPath { get; private set; } = null!;
+        public Output<string?> OriginPath { get; private set; } = null!;
 
         /// <summary>
         /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Cdn
         /// &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
         /// </summary>
         [Output("probePath")]
-        public Output<string> ProbePath { get; private set; } = null!;
+        public Output<string?> ProbePath { get; private set; } = null!;
 
         /// <summary>
         /// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.

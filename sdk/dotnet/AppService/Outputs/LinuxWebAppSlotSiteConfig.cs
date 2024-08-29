@@ -34,10 +34,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.LinuxWebAppSlotSiteConfigApplicationStack? ApplicationStack;
         /// <summary>
-        /// Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-        /// </summary>
-        public readonly bool? AutoHealEnabled;
-        /// <summary>
         /// A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         /// </summary>
         public readonly Outputs.LinuxWebAppSlotSiteConfigAutoHealSetting? AutoHealSetting;
@@ -156,8 +152,6 @@ namespace Pulumi.Azure.AppService.Outputs
 
             Outputs.LinuxWebAppSlotSiteConfigApplicationStack? applicationStack,
 
-            bool? autoHealEnabled,
-
             Outputs.LinuxWebAppSlotSiteConfigAutoHealSetting? autoHealSetting,
 
             string? autoSwapSlotName,
@@ -221,7 +215,6 @@ namespace Pulumi.Azure.AppService.Outputs
             ApiManagementApiId = apiManagementApiId;
             AppCommandLine = appCommandLine;
             ApplicationStack = applicationStack;
-            AutoHealEnabled = autoHealEnabled;
             AutoHealSetting = autoHealSetting;
             AutoSwapSlotName = autoSwapSlotName;
             ContainerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;

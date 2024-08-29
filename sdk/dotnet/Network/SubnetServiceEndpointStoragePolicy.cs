@@ -28,28 +28,6 @@ namespace Pulumi.Azure.Network
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSubnetServiceEndpointStoragePolicy = new Azure.Network.SubnetServiceEndpointStoragePolicy("example", new()
-    ///     {
-    ///         Name = "example-policy",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Definition = new Azure.Network.Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs
-    ///         {
-    ///             Name = "name2",
-    ///             Description = "definition2",
-    ///             Service = "Global",
-    ///             ServiceResources = new[]
-    ///             {
-    ///                 "/services/Azure",
-    ///                 "/services/Azure/Batch",
-    ///                 "/services/Azure/DataFactory",
-    ///                 "/services/Azure/MachineLearning",
-    ///                 "/services/Azure/ManagedInstance",
-    ///                 "/services/Azure/WebPI",
-    ///             },
-    ///         },
-    ///     });
-    /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
     ///         Name = "examplestorageacct",
@@ -57,6 +35,42 @@ namespace Pulumi.Azure.Network
     ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleSubnetServiceEndpointStoragePolicy = new Azure.Network.SubnetServiceEndpointStoragePolicy("example", new()
+    ///     {
+    ///         Name = "example-policy",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Definitions = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs
+    ///             {
+    ///                 Name = "name1",
+    ///                 Description = "definition1",
+    ///                 Service = "Microsoft.Storage",
+    ///                 ServiceResources = new[]
+    ///                 {
+    ///                     example.Id,
+    ///                     exampleAccount.Id,
+    ///                 },
+    ///             },
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs
+    ///             {
+    ///                 Name = "name2",
+    ///                 Description = "definition2",
+    ///                 Service = "Global",
+    ///                 ServiceResources = new[]
+    ///                 {
+    ///                     "/services/Azure",
+    ///                     "/services/Azure/Batch",
+    ///                     "/services/Azure/DataFactory",
+    ///                     "/services/Azure/MachineLearning",
+    ///                     "/services/Azure/ManagedInstance",
+    ///                     "/services/Azure/WebPI",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -76,8 +90,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `definition` block as defined below
         /// </summary>
-        [Output("definition")]
-        public Output<Outputs.SubnetServiceEndpointStoragePolicyDefinition?> Definition { get; private set; } = null!;
+        [Output("definitions")]
+        public Output<ImmutableArray<Outputs.SubnetServiceEndpointStoragePolicyDefinition>> Definitions { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
@@ -149,11 +163,17 @@ namespace Pulumi.Azure.Network
 
     public sealed class SubnetServiceEndpointStoragePolicyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("definitions")]
+        private InputList<Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs>? _definitions;
+
         /// <summary>
         /// A `definition` block as defined below
         /// </summary>
-        [Input("definition")]
-        public Input<Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs>? Definition { get; set; }
+        public InputList<Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs> Definitions
+        {
+            get => _definitions ?? (_definitions = new InputList<Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs>());
+            set => _definitions = value;
+        }
 
         /// <summary>
         /// The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
@@ -193,11 +213,17 @@ namespace Pulumi.Azure.Network
 
     public sealed class SubnetServiceEndpointStoragePolicyState : global::Pulumi.ResourceArgs
     {
+        [Input("definitions")]
+        private InputList<Inputs.SubnetServiceEndpointStoragePolicyDefinitionGetArgs>? _definitions;
+
         /// <summary>
         /// A `definition` block as defined below
         /// </summary>
-        [Input("definition")]
-        public Input<Inputs.SubnetServiceEndpointStoragePolicyDefinitionGetArgs>? Definition { get; set; }
+        public InputList<Inputs.SubnetServiceEndpointStoragePolicyDefinitionGetArgs> Definitions
+        {
+            get => _definitions ?? (_definitions = new InputList<Inputs.SubnetServiceEndpointStoragePolicyDefinitionGetArgs>());
+            set => _definitions = value;
+        }
 
         /// <summary>
         /// The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.

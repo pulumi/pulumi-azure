@@ -53,10 +53,6 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `retention_policy` block as defined below.
-     * 
-     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-     * 
      * @deprecated
      * `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
      * 
@@ -66,10 +62,6 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
     private @Nullable Output<DiagnosticSettingMetricRetentionPolicyArgs> retentionPolicy;
 
     /**
-     * @return A `retention_policy` block as defined below.
-     * 
-     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-     * 
      * @deprecated
      * `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
      * 
@@ -152,10 +144,6 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as defined below.
-         * 
-         * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-         * 
          * @return builder
          * 
          * @deprecated
@@ -169,10 +157,6 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as defined below.
-         * 
-         * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-         * 
          * @return builder
          * 
          * @deprecated

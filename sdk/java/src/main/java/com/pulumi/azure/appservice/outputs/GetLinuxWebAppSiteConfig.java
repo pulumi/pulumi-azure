@@ -44,11 +44,6 @@ public final class GetLinuxWebAppSiteConfig {
      */
     private List<GetLinuxWebAppSiteConfigApplicationStack> applicationStacks;
     /**
-     * @return Are Auto heal rules be enabled.
-     * 
-     */
-    private Boolean autoHealEnabled;
-    /**
      * @return A `auto_heal_setting` block as defined above.
      * 
      */
@@ -224,13 +219,6 @@ public final class GetLinuxWebAppSiteConfig {
      */
     public List<GetLinuxWebAppSiteConfigApplicationStack> applicationStacks() {
         return this.applicationStacks;
-    }
-    /**
-     * @return Are Auto heal rules be enabled.
-     * 
-     */
-    public Boolean autoHealEnabled() {
-        return this.autoHealEnabled;
     }
     /**
      * @return A `auto_heal_setting` block as defined above.
@@ -443,7 +431,6 @@ public final class GetLinuxWebAppSiteConfig {
         private String apiManagementApiId;
         private String appCommandLine;
         private List<GetLinuxWebAppSiteConfigApplicationStack> applicationStacks;
-        private Boolean autoHealEnabled;
         private List<GetLinuxWebAppSiteConfigAutoHealSetting> autoHealSettings;
         private String containerRegistryManagedIdentityClientId;
         private Boolean containerRegistryUseManagedIdentity;
@@ -480,7 +467,6 @@ public final class GetLinuxWebAppSiteConfig {
     	      this.apiManagementApiId = defaults.apiManagementApiId;
     	      this.appCommandLine = defaults.appCommandLine;
     	      this.applicationStacks = defaults.applicationStacks;
-    	      this.autoHealEnabled = defaults.autoHealEnabled;
     	      this.autoHealSettings = defaults.autoHealSettings;
     	      this.containerRegistryManagedIdentityClientId = defaults.containerRegistryManagedIdentityClientId;
     	      this.containerRegistryUseManagedIdentity = defaults.containerRegistryUseManagedIdentity;
@@ -553,14 +539,6 @@ public final class GetLinuxWebAppSiteConfig {
         }
         public Builder applicationStacks(GetLinuxWebAppSiteConfigApplicationStack... applicationStacks) {
             return applicationStacks(List.of(applicationStacks));
-        }
-        @CustomType.Setter
-        public Builder autoHealEnabled(Boolean autoHealEnabled) {
-            if (autoHealEnabled == null) {
-              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "autoHealEnabled");
-            }
-            this.autoHealEnabled = autoHealEnabled;
-            return this;
         }
         @CustomType.Setter
         public Builder autoHealSettings(List<GetLinuxWebAppSiteConfigAutoHealSetting> autoHealSettings) {
@@ -808,7 +786,6 @@ public final class GetLinuxWebAppSiteConfig {
             _resultValue.apiManagementApiId = apiManagementApiId;
             _resultValue.appCommandLine = appCommandLine;
             _resultValue.applicationStacks = applicationStacks;
-            _resultValue.autoHealEnabled = autoHealEnabled;
             _resultValue.autoHealSettings = autoHealSettings;
             _resultValue.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
             _resultValue.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;

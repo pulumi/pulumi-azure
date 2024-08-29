@@ -163,7 +163,9 @@ namespace Pulumi.Azure.NotificationHub
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "primaryAccessKey",
                     "primaryConnectionString",
+                    "secondaryAccessKey",
                     "secondaryConnectionString",
                 },
             };
@@ -273,11 +275,21 @@ namespace Pulumi.Azure.NotificationHub
         [Input("notificationHubName")]
         public Input<string>? NotificationHubName { get; set; }
 
+        [Input("primaryAccessKey")]
+        private Input<string>? _primaryAccessKey;
+
         /// <summary>
         /// The Primary Access Key associated with this Authorization Rule.
         /// </summary>
-        [Input("primaryAccessKey")]
-        public Input<string>? PrimaryAccessKey { get; set; }
+        public Input<string>? PrimaryAccessKey
+        {
+            get => _primaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("primaryConnectionString")]
         private Input<string>? _primaryConnectionString;
@@ -301,11 +313,21 @@ namespace Pulumi.Azure.NotificationHub
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("secondaryAccessKey")]
+        private Input<string>? _secondaryAccessKey;
+
         /// <summary>
         /// The Secondary Access Key associated with this Authorization Rule.
         /// </summary>
-        [Input("secondaryAccessKey")]
-        public Input<string>? SecondaryAccessKey { get; set; }
+        public Input<string>? SecondaryAccessKey
+        {
+            get => _secondaryAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("secondaryConnectionString")]
         private Input<string>? _secondaryConnectionString;

@@ -118,10 +118,6 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly ImmutableArray<string> LogCategoryTypes;
         /// <summary>
-        /// A list of the Log Categories supported for this Resource.
-        /// </summary>
-        public readonly ImmutableArray<string> Logs;
-        /// <summary>
         /// A list of the Metric Categories supported for this Resource.
         /// </summary>
         public readonly ImmutableArray<string> Metrics;
@@ -135,8 +131,6 @@ namespace Pulumi.Azure.Monitoring
 
             ImmutableArray<string> logCategoryTypes,
 
-            ImmutableArray<string> logs,
-
             ImmutableArray<string> metrics,
 
             string resourceId)
@@ -144,7 +138,6 @@ namespace Pulumi.Azure.Monitoring
             Id = id;
             LogCategoryGroups = logCategoryGroups;
             LogCategoryTypes = logCategoryTypes;
-            Logs = logs;
             Metrics = metrics;
             ResourceId = resourceId;
         }

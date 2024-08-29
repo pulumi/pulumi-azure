@@ -94,33 +94,6 @@ public final class SubscriptionPolicyRemediationState extends com.pulumi.resourc
     }
 
     /**
-     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-     * 
-     * @deprecated
-     * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-     * 
-     */
-    @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
-    @Import(name="policyDefinitionId")
-    private @Nullable Output<String> policyDefinitionId;
-
-    /**
-     * @return The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-     * 
-     * @deprecated
-     * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-     * 
-     */
-    @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
-    public Optional<Output<String>> policyDefinitionId() {
-        return Optional.ofNullable(this.policyDefinitionId);
-    }
-
-    /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      * 
      */
@@ -188,7 +161,6 @@ public final class SubscriptionPolicyRemediationState extends com.pulumi.resourc
         this.name = $.name;
         this.parallelDeployments = $.parallelDeployments;
         this.policyAssignmentId = $.policyAssignmentId;
-        this.policyDefinitionId = $.policyDefinitionId;
         this.policyDefinitionReferenceId = $.policyDefinitionReferenceId;
         this.resourceCount = $.resourceCount;
         this.resourceDiscoveryMode = $.resourceDiscoveryMode;
@@ -326,39 +298,6 @@ public final class SubscriptionPolicyRemediationState extends com.pulumi.resourc
          */
         public Builder policyAssignmentId(String policyAssignmentId) {
             return policyAssignmentId(Output.of(policyAssignmentId));
-        }
-
-        /**
-         * @param policyDefinitionId The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-         * 
-         * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-         * 
-         */
-        @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
-        public Builder policyDefinitionId(@Nullable Output<String> policyDefinitionId) {
-            $.policyDefinitionId = policyDefinitionId;
-            return this;
-        }
-
-        /**
-         * @param policyDefinitionId The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-         * 
-         * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-         * 
-         */
-        @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
-        public Builder policyDefinitionId(String policyDefinitionId) {
-            return policyDefinitionId(Output.of(policyDefinitionId));
         }
 
         /**

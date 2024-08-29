@@ -18,22 +18,18 @@ public final class LinuxVirtualMachineScaleSetGalleryApplicationArgs extends com
     public static final LinuxVirtualMachineScaleSetGalleryApplicationArgs Empty = new LinuxVirtualMachineScaleSetGalleryApplicationArgs();
 
     /**
-     * @deprecated
-     * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+     * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
      * 
      */
-    @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
-    @Import(name="configurationReferenceBlobUri")
-    private @Nullable Output<String> configurationReferenceBlobUri;
+    @Import(name="configurationBlobUri")
+    private @Nullable Output<String> configurationBlobUri;
 
     /**
-     * @deprecated
-     * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+     * @return Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
      * 
      */
-    @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
-    public Optional<Output<String>> configurationReferenceBlobUri() {
-        return Optional.ofNullable(this.configurationReferenceBlobUri);
+    public Optional<Output<String>> configurationBlobUri() {
+        return Optional.ofNullable(this.configurationBlobUri);
     }
 
     /**
@@ -52,38 +48,42 @@ public final class LinuxVirtualMachineScaleSetGalleryApplicationArgs extends com
     }
 
     /**
-     * @deprecated
-     * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+     * Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
      * 
      */
-    @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
-    @Import(name="packageReferenceId", required=true)
-    private Output<String> packageReferenceId;
-
-    /**
-     * @deprecated
-     * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
-     * 
-     */
-    @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
-    public Output<String> packageReferenceId() {
-        return this.packageReferenceId;
-    }
-
     @Import(name="tag")
     private @Nullable Output<String> tag;
 
+    /**
+     * @return Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> tag() {
         return Optional.ofNullable(this.tag);
+    }
+
+    /**
+     * Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="versionId", required=true)
+    private Output<String> versionId;
+
+    /**
+     * @return Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> versionId() {
+        return this.versionId;
     }
 
     private LinuxVirtualMachineScaleSetGalleryApplicationArgs() {}
 
     private LinuxVirtualMachineScaleSetGalleryApplicationArgs(LinuxVirtualMachineScaleSetGalleryApplicationArgs $) {
-        this.configurationReferenceBlobUri = $.configurationReferenceBlobUri;
+        this.configurationBlobUri = $.configurationBlobUri;
         this.order = $.order;
-        this.packageReferenceId = $.packageReferenceId;
         this.tag = $.tag;
+        this.versionId = $.versionId;
     }
 
     public static Builder builder() {
@@ -105,28 +105,24 @@ public final class LinuxVirtualMachineScaleSetGalleryApplicationArgs extends com
         }
 
         /**
+         * @param configurationBlobUri Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
-         * 
          */
-        @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
-        public Builder configurationReferenceBlobUri(@Nullable Output<String> configurationReferenceBlobUri) {
-            $.configurationReferenceBlobUri = configurationReferenceBlobUri;
+        public Builder configurationBlobUri(@Nullable Output<String> configurationBlobUri) {
+            $.configurationBlobUri = configurationBlobUri;
             return this;
         }
 
         /**
+         * @param configurationBlobUri Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
-         * 
          */
-        @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
-        public Builder configurationReferenceBlobUri(String configurationReferenceBlobUri) {
-            return configurationReferenceBlobUri(Output.of(configurationReferenceBlobUri));
+        public Builder configurationBlobUri(String configurationBlobUri) {
+            return configurationBlobUri(Output.of(configurationBlobUri));
         }
 
         /**
@@ -151,42 +147,50 @@ public final class LinuxVirtualMachineScaleSetGalleryApplicationArgs extends com
         }
 
         /**
+         * @param tag Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
-         * 
          */
-        @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
-        public Builder packageReferenceId(Output<String> packageReferenceId) {
-            $.packageReferenceId = packageReferenceId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
-         * 
-         */
-        @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
-        public Builder packageReferenceId(String packageReferenceId) {
-            return packageReferenceId(Output.of(packageReferenceId));
-        }
-
         public Builder tag(@Nullable Output<String> tag) {
             $.tag = tag;
             return this;
         }
 
+        /**
+         * @param tag Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tag(String tag) {
             return tag(Output.of(tag));
         }
 
+        /**
+         * @param versionId Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionId(Output<String> versionId) {
+            $.versionId = versionId;
+            return this;
+        }
+
+        /**
+         * @param versionId Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionId(String versionId) {
+            return versionId(Output.of(versionId));
+        }
+
         public LinuxVirtualMachineScaleSetGalleryApplicationArgs build() {
-            if ($.packageReferenceId == null) {
-                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetGalleryApplicationArgs", "packageReferenceId");
+            if ($.versionId == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetGalleryApplicationArgs", "versionId");
             }
             return $;
         }

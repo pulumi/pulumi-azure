@@ -14,35 +14,33 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxVirtualMachineScaleSetGalleryApplication {
     /**
-     * @deprecated
-     * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+     * @return Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
      * 
      */
-    @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
-    private @Nullable String configurationReferenceBlobUri;
+    private @Nullable String configurationBlobUri;
     /**
      * @return Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer order;
     /**
-     * @deprecated
-     * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+     * @return Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
      * 
      */
-    @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
-    private String packageReferenceId;
     private @Nullable String tag;
+    /**
+     * @return Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+     * 
+     */
+    private String versionId;
 
     private LinuxVirtualMachineScaleSetGalleryApplication() {}
     /**
-     * @deprecated
-     * `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0
+     * @return Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
      * 
      */
-    @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
-    public Optional<String> configurationReferenceBlobUri() {
-        return Optional.ofNullable(this.configurationReferenceBlobUri);
+    public Optional<String> configurationBlobUri() {
+        return Optional.ofNullable(this.configurationBlobUri);
     }
     /**
      * @return Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
@@ -52,16 +50,18 @@ public final class LinuxVirtualMachineScaleSetGalleryApplication {
         return Optional.ofNullable(this.order);
     }
     /**
-     * @deprecated
-     * `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0
+     * @return Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
      * 
      */
-    @Deprecated /* `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0 */
-    public String packageReferenceId() {
-        return this.packageReferenceId;
-    }
     public Optional<String> tag() {
         return Optional.ofNullable(this.tag);
+    }
+    /**
+     * @return Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+     * 
+     */
+    public String versionId() {
+        return this.versionId;
     }
 
     public static Builder builder() {
@@ -73,23 +73,23 @@ public final class LinuxVirtualMachineScaleSetGalleryApplication {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String configurationReferenceBlobUri;
+        private @Nullable String configurationBlobUri;
         private @Nullable Integer order;
-        private String packageReferenceId;
         private @Nullable String tag;
+        private String versionId;
         public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetGalleryApplication defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.configurationReferenceBlobUri = defaults.configurationReferenceBlobUri;
+    	      this.configurationBlobUri = defaults.configurationBlobUri;
     	      this.order = defaults.order;
-    	      this.packageReferenceId = defaults.packageReferenceId;
     	      this.tag = defaults.tag;
+    	      this.versionId = defaults.versionId;
         }
 
         @CustomType.Setter
-        public Builder configurationReferenceBlobUri(@Nullable String configurationReferenceBlobUri) {
+        public Builder configurationBlobUri(@Nullable String configurationBlobUri) {
 
-            this.configurationReferenceBlobUri = configurationReferenceBlobUri;
+            this.configurationBlobUri = configurationBlobUri;
             return this;
         }
         @CustomType.Setter
@@ -99,25 +99,25 @@ public final class LinuxVirtualMachineScaleSetGalleryApplication {
             return this;
         }
         @CustomType.Setter
-        public Builder packageReferenceId(String packageReferenceId) {
-            if (packageReferenceId == null) {
-              throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetGalleryApplication", "packageReferenceId");
-            }
-            this.packageReferenceId = packageReferenceId;
-            return this;
-        }
-        @CustomType.Setter
         public Builder tag(@Nullable String tag) {
 
             this.tag = tag;
             return this;
         }
+        @CustomType.Setter
+        public Builder versionId(String versionId) {
+            if (versionId == null) {
+              throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetGalleryApplication", "versionId");
+            }
+            this.versionId = versionId;
+            return this;
+        }
         public LinuxVirtualMachineScaleSetGalleryApplication build() {
             final var _resultValue = new LinuxVirtualMachineScaleSetGalleryApplication();
-            _resultValue.configurationReferenceBlobUri = configurationReferenceBlobUri;
+            _resultValue.configurationBlobUri = configurationBlobUri;
             _resultValue.order = order;
-            _resultValue.packageReferenceId = packageReferenceId;
             _resultValue.tag = tag;
+            _resultValue.versionId = versionId;
             return _resultValue;
         }
     }

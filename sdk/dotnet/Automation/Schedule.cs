@@ -105,8 +105,8 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         /// </summary>
-        [Output("monthlyOccurrences")]
-        public Output<ImmutableArray<Outputs.ScheduleMonthlyOccurrence>> MonthlyOccurrences { get; private set; } = null!;
+        [Output("monthlyOccurrence")]
+        public Output<Outputs.ScheduleMonthlyOccurrence?> MonthlyOccurrence { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Schedule. Changing this forces a new resource to be created.
@@ -226,17 +226,11 @@ namespace Pulumi.Azure.Automation
             set => _monthDays = value;
         }
 
-        [Input("monthlyOccurrences")]
-        private InputList<Inputs.ScheduleMonthlyOccurrenceArgs>? _monthlyOccurrences;
-
         /// <summary>
         /// One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.ScheduleMonthlyOccurrenceArgs> MonthlyOccurrences
-        {
-            get => _monthlyOccurrences ?? (_monthlyOccurrences = new InputList<Inputs.ScheduleMonthlyOccurrenceArgs>());
-            set => _monthlyOccurrences = value;
-        }
+        [Input("monthlyOccurrence")]
+        public Input<Inputs.ScheduleMonthlyOccurrenceArgs>? MonthlyOccurrence { get; set; }
 
         /// <summary>
         /// Specifies the name of the Schedule. Changing this forces a new resource to be created.
@@ -324,17 +318,11 @@ namespace Pulumi.Azure.Automation
             set => _monthDays = value;
         }
 
-        [Input("monthlyOccurrences")]
-        private InputList<Inputs.ScheduleMonthlyOccurrenceGetArgs>? _monthlyOccurrences;
-
         /// <summary>
         /// One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.ScheduleMonthlyOccurrenceGetArgs> MonthlyOccurrences
-        {
-            get => _monthlyOccurrences ?? (_monthlyOccurrences = new InputList<Inputs.ScheduleMonthlyOccurrenceGetArgs>());
-            set => _monthlyOccurrences = value;
-        }
+        [Input("monthlyOccurrence")]
+        public Input<Inputs.ScheduleMonthlyOccurrenceGetArgs>? MonthlyOccurrence { get; set; }
 
         /// <summary>
         /// Specifies the name of the Schedule. Changing this forces a new resource to be created.

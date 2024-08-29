@@ -109,33 +109,6 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-     * 
-     * @deprecated
-     * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-     * 
-     */
-    @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
-    @Import(name="policyDefinitionId")
-    private @Nullable Output<String> policyDefinitionId;
-
-    /**
-     * @return The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-     * 
-     * @deprecated
-     * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-     * 
-     */
-    @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
-    public Optional<Output<String>> policyDefinitionId() {
-        return Optional.ofNullable(this.policyDefinitionId);
-    }
-
-    /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      * 
      */
@@ -165,33 +138,6 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.resourceCount);
     }
 
-    /**
-     * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     * 
-     * @deprecated
-     * `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     * 
-     */
-    @Deprecated /* `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below. */
-    @Import(name="resourceDiscoveryMode")
-    private @Nullable Output<String> resourceDiscoveryMode;
-
-    /**
-     * @return The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     * 
-     * @deprecated
-     * `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     * 
-     */
-    @Deprecated /* `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below. */
-    public Optional<Output<String>> resourceDiscoveryMode() {
-        return Optional.ofNullable(this.resourceDiscoveryMode);
-    }
-
     private GroupPolicyRemediationState() {}
 
     private GroupPolicyRemediationState(GroupPolicyRemediationState $) {
@@ -201,10 +147,8 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
         this.name = $.name;
         this.parallelDeployments = $.parallelDeployments;
         this.policyAssignmentId = $.policyAssignmentId;
-        this.policyDefinitionId = $.policyDefinitionId;
         this.policyDefinitionReferenceId = $.policyDefinitionReferenceId;
         this.resourceCount = $.resourceCount;
-        this.resourceDiscoveryMode = $.resourceDiscoveryMode;
     }
 
     public static Builder builder() {
@@ -362,39 +306,6 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param policyDefinitionId The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-         * 
-         * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-         * 
-         */
-        @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
-        public Builder policyDefinitionId(@Nullable Output<String> policyDefinitionId) {
-            $.policyDefinitionId = policyDefinitionId;
-            return this;
-        }
-
-        /**
-         * @param policyDefinitionId The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-         * 
-         * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-         * 
-         */
-        @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
-        public Builder policyDefinitionId(String policyDefinitionId) {
-            return policyDefinitionId(Output.of(policyDefinitionId));
-        }
-
-        /**
          * @param policyDefinitionReferenceId The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
          * 
          * @return builder
@@ -434,39 +345,6 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
          */
         public Builder resourceCount(Integer resourceCount) {
             return resourceCount(Output.of(resourceCount));
-        }
-
-        /**
-         * @param resourceDiscoveryMode The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-         * 
-         * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-         * 
-         */
-        @Deprecated /* `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below. */
-        public Builder resourceDiscoveryMode(@Nullable Output<String> resourceDiscoveryMode) {
-            $.resourceDiscoveryMode = resourceDiscoveryMode;
-            return this;
-        }
-
-        /**
-         * @param resourceDiscoveryMode The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-         * 
-         * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-         * 
-         */
-        @Deprecated /* `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below. */
-        public Builder resourceDiscoveryMode(String resourceDiscoveryMode) {
-            return resourceDiscoveryMode(Output.of(resourceDiscoveryMode));
         }
 
         public GroupPolicyRemediationState build() {

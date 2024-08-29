@@ -181,32 +181,32 @@ public class Insights extends com.pulumi.resources.CustomResource {
         return this.connectionString;
     }
     /**
-     * Specifies the Application Insights component daily data volume cap in GB.
+     * Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
      * 
      */
     @Export(name="dailyDataCapInGb", refs={Double.class}, tree="[0]")
-    private Output<Double> dailyDataCapInGb;
+    private Output</* @Nullable */ Double> dailyDataCapInGb;
 
     /**
-     * @return Specifies the Application Insights component daily data volume cap in GB.
+     * @return Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
      * 
      */
-    public Output<Double> dailyDataCapInGb() {
-        return this.dailyDataCapInGb;
+    public Output<Optional<Double>> dailyDataCapInGb() {
+        return Codegen.optional(this.dailyDataCapInGb);
     }
     /**
-     * Specifies if a notification email will be send when the daily data volume cap is met.
+     * Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
      * 
      */
     @Export(name="dailyDataCapNotificationsDisabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> dailyDataCapNotificationsDisabled;
+    private Output</* @Nullable */ Boolean> dailyDataCapNotificationsDisabled;
 
     /**
-     * @return Specifies if a notification email will be send when the daily data volume cap is met.
+     * @return Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
      * 
      */
-    public Output<Boolean> dailyDataCapNotificationsDisabled() {
-        return this.dailyDataCapNotificationsDisabled;
+    public Output<Optional<Boolean>> dailyDataCapNotificationsDisabled() {
+        return Codegen.optional(this.dailyDataCapNotificationsDisabled);
     }
     /**
      * By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class KubernetesClusterLinuxProfileSshKey {
     /**
-     * @return The Public SSH Key used to access the cluster.
+     * @return The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
      * 
      */
     private String keyData;
 
     private KubernetesClusterLinuxProfileSshKey() {}
     /**
-     * @return The Public SSH Key used to access the cluster.
+     * @return The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
      * 
      */
     public String keyData() {

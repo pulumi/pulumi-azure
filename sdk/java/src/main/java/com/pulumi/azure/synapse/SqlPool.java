@@ -227,14 +227,14 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageAccountType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> storageAccountType;
+    private Output<String> storageAccountType;
 
     /**
      * @return The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
      * 
      */
-    public Output<Optional<String>> storageAccountType() {
-        return Codegen.optional(this.storageAccountType);
+    public Output<String> storageAccountType() {
+        return this.storageAccountType;
     }
     /**
      * The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.

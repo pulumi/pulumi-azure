@@ -217,28 +217,6 @@ public class Connection extends com.pulumi.resources.CustomResource {
     public Output<String> serviceProviderName() {
         return this.serviceProviderName;
     }
-    /**
-     * A mapping of tags to assign to the resource.
-     * 
-     * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider. */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output</* @Nullable */ Map<String,String>> tags;
-
-    /**
-     * @return A mapping of tags to assign to the resource.
-     * 
-     * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    public Output<Optional<Map<String,String>>> tags() {
-        return Codegen.optional(this.tags);
-    }
 
     /**
      *

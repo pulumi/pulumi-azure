@@ -88,14 +88,13 @@ import javax.annotation.Nullable;
  *         var exampleSoftwareUpdateConfiguration = new SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration", SoftwareUpdateConfigurationArgs.builder()
  *             .name("example")
  *             .automationAccountId(exampleAccount.id())
- *             .operatingSystem("Linux")
- *             .linuxes(SoftwareUpdateConfigurationLinuxArgs.builder()
- *                 .classificationIncluded("Security")
+ *             .linux(SoftwareUpdateConfigurationLinuxArgs.builder()
+ *                 .classificationsIncludeds("Security")
  *                 .excludedPackages("apt")
  *                 .includedPackages("vim")
  *                 .reboot("IfRequired")
  *                 .build())
- *             .preTasks(SoftwareUpdateConfigurationPreTaskArgs.builder()
+ *             .preTask(SoftwareUpdateConfigurationPreTaskArgs.builder()
  *                 .source(exampleRunBook.name())
  *                 .parameters(Map.of("COMPUTER_NAME", "Foo"))
  *                 .build())
@@ -164,24 +163,14 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
     /**
      * The Error message indicating why the operation failed.
      * 
-     * @deprecated
-     * `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider
-     * 
      */
-    @Deprecated /* `error_meesage` will be removed in favour of `error_message` in version 4.0 of the AzureRM Provider */
-    @Export(name="errorMeesage", refs={String.class}, tree="[0]")
-    private Output<String> errorMeesage;
+    @Export(name="errorMessage", refs={String.class}, tree="[0]")
+    private Output<String> errorMessage;
 
     /**
      * @return The Error message indicating why the operation failed.
      * 
      */
-    public Output<String> errorMeesage() {
-        return this.errorMeesage;
-    }
-    @Export(name="errorMessage", refs={String.class}, tree="[0]")
-    private Output<String> errorMessage;
-
     public Output<String> errorMessage() {
         return this.errorMessage;
     }
@@ -189,15 +178,15 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * A `linux` block as defined below.
      * 
      */
-    @Export(name="linuxes", refs={List.class,SoftwareUpdateConfigurationLinux.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<SoftwareUpdateConfigurationLinux>> linuxes;
+    @Export(name="linux", refs={SoftwareUpdateConfigurationLinux.class}, tree="[0]")
+    private Output</* @Nullable */ SoftwareUpdateConfigurationLinux> linux;
 
     /**
      * @return A `linux` block as defined below.
      * 
      */
-    public Output<Optional<List<SoftwareUpdateConfigurationLinux>>> linuxes() {
-        return Codegen.optional(this.linuxes);
+    public Output<Optional<SoftwareUpdateConfigurationLinux>> linux() {
+        return Codegen.optional(this.linux);
     }
     /**
      * The name which should be used for this Automation. Changing this forces a new Automation to be created.
@@ -228,58 +217,46 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.nonAzureComputerNames);
     }
     /**
-     * @deprecated
-     * This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider. */
-    @Export(name="operatingSystem", refs={String.class}, tree="[0]")
-    private Output<String> operatingSystem;
-
-    public Output<String> operatingSystem() {
-        return this.operatingSystem;
-    }
-    /**
      * A `post_task` blocks as defined below.
      * 
      */
-    @Export(name="postTasks", refs={List.class,SoftwareUpdateConfigurationPostTask.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<SoftwareUpdateConfigurationPostTask>> postTasks;
+    @Export(name="postTask", refs={SoftwareUpdateConfigurationPostTask.class}, tree="[0]")
+    private Output</* @Nullable */ SoftwareUpdateConfigurationPostTask> postTask;
 
     /**
      * @return A `post_task` blocks as defined below.
      * 
      */
-    public Output<Optional<List<SoftwareUpdateConfigurationPostTask>>> postTasks() {
-        return Codegen.optional(this.postTasks);
+    public Output<Optional<SoftwareUpdateConfigurationPostTask>> postTask() {
+        return Codegen.optional(this.postTask);
     }
     /**
      * A `pre_task` blocks as defined below.
      * 
      */
-    @Export(name="preTasks", refs={List.class,SoftwareUpdateConfigurationPreTask.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<SoftwareUpdateConfigurationPreTask>> preTasks;
+    @Export(name="preTask", refs={SoftwareUpdateConfigurationPreTask.class}, tree="[0]")
+    private Output</* @Nullable */ SoftwareUpdateConfigurationPreTask> preTask;
 
     /**
      * @return A `pre_task` blocks as defined below.
      * 
      */
-    public Output<Optional<List<SoftwareUpdateConfigurationPreTask>>> preTasks() {
-        return Codegen.optional(this.preTasks);
+    public Output<Optional<SoftwareUpdateConfigurationPreTask>> preTask() {
+        return Codegen.optional(this.preTask);
     }
     /**
      * A `schedule` blocks as defined below.
      * 
      */
-    @Export(name="schedules", refs={List.class,SoftwareUpdateConfigurationSchedule.class}, tree="[0,1]")
-    private Output<List<SoftwareUpdateConfigurationSchedule>> schedules;
+    @Export(name="schedule", refs={SoftwareUpdateConfigurationSchedule.class}, tree="[0]")
+    private Output<SoftwareUpdateConfigurationSchedule> schedule;
 
     /**
      * @return A `schedule` blocks as defined below.
      * 
      */
-    public Output<List<SoftwareUpdateConfigurationSchedule>> schedules() {
-        return this.schedules;
+    public Output<SoftwareUpdateConfigurationSchedule> schedule() {
+        return this.schedule;
     }
     /**
      * A `target` blocks as defined below.

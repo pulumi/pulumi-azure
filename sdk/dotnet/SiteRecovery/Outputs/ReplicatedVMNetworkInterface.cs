@@ -25,7 +25,6 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// Name of the subnet to to use when a test failover is done.
         /// </summary>
         public readonly string? FailoverTestSubnetName;
-        public readonly bool? IsPrimary;
         /// <summary>
         /// Id of the public IP object to use when a failover is done.
         /// </summary>
@@ -51,8 +50,6 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
 
             string? failoverTestSubnetName,
 
-            bool? isPrimary,
-
             string? recoveryPublicIpAddressId,
 
             string? sourceNetworkInterfaceId,
@@ -64,7 +61,6 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
             FailoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
             FailoverTestStaticIp = failoverTestStaticIp;
             FailoverTestSubnetName = failoverTestSubnetName;
-            IsPrimary = isPrimary;
             RecoveryPublicIpAddressId = recoveryPublicIpAddressId;
             SourceNetworkInterfaceId = sourceNetworkInterfaceId;
             TargetStaticIp = targetStaticIp;

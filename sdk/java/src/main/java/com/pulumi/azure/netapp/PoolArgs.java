@@ -79,14 +79,14 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * QoS Type of the pool. Valid values include `Auto` or `Manual`.
+     * QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
      * 
      */
     @Import(name="qosType")
     private @Nullable Output<String> qosType;
 
     /**
-     * @return QoS Type of the pool. Valid values include `Auto` or `Manual`.
+     * @return QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
      * 
      */
     public Optional<Output<String>> qosType() {
@@ -124,7 +124,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+     * Provisioned size of the pool in TB. Value must be between `1` and `2048`.
      * 
      * &gt; **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
      * 
@@ -135,7 +135,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     private Output<Integer> sizeInTb;
 
     /**
-     * @return Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+     * @return Provisioned size of the pool in TB. Value must be between `1` and `2048`.
      * 
      * &gt; **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
      * 
@@ -278,7 +278,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qosType QoS Type of the pool. Valid values include `Auto` or `Manual`.
+         * @param qosType QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qosType QoS Type of the pool. Valid values include `Auto` or `Manual`.
+         * @param qosType QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInTb Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+         * @param sizeInTb Provisioned size of the pool in TB. Value must be between `1` and `2048`.
          * 
          * &gt; **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
          * 
@@ -356,7 +356,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInTb Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+         * @param sizeInTb Provisioned size of the pool in TB. Value must be between `1` and `2048`.
          * 
          * &gt; **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
          * 

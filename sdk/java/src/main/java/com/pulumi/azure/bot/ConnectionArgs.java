@@ -152,33 +152,6 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         return this.serviceProviderName;
     }
 
-    /**
-     * A mapping of tags to assign to the resource.
-     * 
-     * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider. */
-    @Import(name="tags")
-    private @Nullable Output<Map<String,String>> tags;
-
-    /**
-     * @return A mapping of tags to assign to the resource.
-     * 
-     * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider. */
-    public Optional<Output<Map<String,String>>> tags() {
-        return Optional.ofNullable(this.tags);
-    }
-
     private ConnectionArgs() {}
 
     private ConnectionArgs(ConnectionArgs $) {
@@ -191,7 +164,6 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         this.resourceGroupName = $.resourceGroupName;
         this.scopes = $.scopes;
         this.serviceProviderName = $.serviceProviderName;
-        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -399,39 +371,6 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder serviceProviderName(String serviceProviderName) {
             return serviceProviderName(Output.of(serviceProviderName));
-        }
-
-        /**
-         * @param tags A mapping of tags to assign to the resource.
-         * 
-         * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider. */
-        public Builder tags(@Nullable Output<Map<String,String>> tags) {
-            $.tags = tags;
-            return this;
-        }
-
-        /**
-         * @param tags A mapping of tags to assign to the resource.
-         * 
-         * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider. */
-        public Builder tags(Map<String,String> tags) {
-            return tags(Output.of(tags));
         }
 
         public ConnectionArgs build() {

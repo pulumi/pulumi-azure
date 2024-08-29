@@ -6,7 +6,6 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -47,25 +46,6 @@ public final class KubernetesClusterStorageProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    @Import(name="diskDriverVersion")
-    private @Nullable Output<String> diskDriverVersion;
-
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    public Optional<Output<String>> diskDriverVersion() {
-        return Optional.ofNullable(this.diskDriverVersion);
-    }
-
-    /**
      * Is the File CSI driver enabled? Defaults to `true`.
      * 
      */
@@ -100,7 +80,6 @@ public final class KubernetesClusterStorageProfileArgs extends com.pulumi.resour
     private KubernetesClusterStorageProfileArgs(KubernetesClusterStorageProfileArgs $) {
         this.blobDriverEnabled = $.blobDriverEnabled;
         this.diskDriverEnabled = $.diskDriverEnabled;
-        this.diskDriverVersion = $.diskDriverVersion;
         this.fileDriverEnabled = $.fileDriverEnabled;
         this.snapshotControllerEnabled = $.snapshotControllerEnabled;
     }
@@ -163,31 +142,6 @@ public final class KubernetesClusterStorageProfileArgs extends com.pulumi.resour
          */
         public Builder diskDriverEnabled(Boolean diskDriverEnabled) {
             return diskDriverEnabled(Output.of(diskDriverEnabled));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder diskDriverVersion(@Nullable Output<String> diskDriverVersion) {
-            $.diskDriverVersion = diskDriverVersion;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder diskDriverVersion(String diskDriverVersion) {
-            return diskDriverVersion(Output.of(diskDriverVersion));
         }
 
         /**

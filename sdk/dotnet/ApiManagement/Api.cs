@@ -182,14 +182,6 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ServiceUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-        /// 
-        /// &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Output("soapPassThrough")]
-        public Output<bool> SoapPassThrough { get; private set; } = null!;
-
-        /// <summary>
         /// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         /// </summary>
         [Output("sourceApiId")]
@@ -384,14 +376,6 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ServiceUrl { get; set; }
 
         /// <summary>
-        /// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-        /// 
-        /// &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Input("soapPassThrough")]
-        public Input<bool>? SoapPassThrough { get; set; }
-
-        /// <summary>
         /// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         /// </summary>
         [Input("sourceApiId")]
@@ -558,14 +542,6 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("serviceUrl")]
         public Input<string>? ServiceUrl { get; set; }
-
-        /// <summary>
-        /// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-        /// 
-        /// &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Input("soapPassThrough")]
-        public Input<bool>? SoapPassThrough { get; set; }
 
         /// <summary>
         /// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`

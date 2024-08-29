@@ -7,7 +7,6 @@ import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledAlertDetailsOverrideAr
 import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledEntityMappingArgs;
 import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledEventGroupingArgs;
 import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledIncidentArgs;
-import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledIncidentConfigurationArgs;
 import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledSentinelEntityMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -173,25 +172,6 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
      */
     public Optional<Output<AlertRuleScheduledIncidentArgs>> incident() {
         return Optional.ofNullable(this.incident);
-    }
-
-    /**
-     * @deprecated
-     * The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider */
-    @Import(name="incidentConfiguration")
-    private @Nullable Output<AlertRuleScheduledIncidentConfigurationArgs> incidentConfiguration;
-
-    /**
-     * @deprecated
-     * The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider */
-    public Optional<Output<AlertRuleScheduledIncidentConfigurationArgs>> incidentConfiguration() {
-        return Optional.ofNullable(this.incidentConfiguration);
     }
 
     /**
@@ -414,7 +394,6 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         this.entityMappings = $.entityMappings;
         this.eventGrouping = $.eventGrouping;
         this.incident = $.incident;
-        this.incidentConfiguration = $.incidentConfiguration;
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
         this.name = $.name;
         this.query = $.query;
@@ -676,31 +655,6 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
          */
         public Builder incident(AlertRuleScheduledIncidentArgs incident) {
             return incident(Output.of(incident));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider */
-        public Builder incidentConfiguration(@Nullable Output<AlertRuleScheduledIncidentConfigurationArgs> incidentConfiguration) {
-            $.incidentConfiguration = incidentConfiguration;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider */
-        public Builder incidentConfiguration(AlertRuleScheduledIncidentConfigurationArgs incidentConfiguration) {
-            return incidentConfiguration(Output.of(incidentConfiguration));
         }
 
         /**

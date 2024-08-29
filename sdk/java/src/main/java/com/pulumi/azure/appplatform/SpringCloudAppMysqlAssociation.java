@@ -33,10 +33,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
  * import com.pulumi.azure.appplatform.SpringCloudApp;
  * import com.pulumi.azure.appplatform.SpringCloudAppArgs;
- * import com.pulumi.azure.mysql.Server;
- * import com.pulumi.azure.mysql.ServerArgs;
- * import com.pulumi.azure.mysql.Database;
- * import com.pulumi.azure.mysql.DatabaseArgs;
+ * import com.pulumi.azurerm.mysqlServer;
+ * import com.pulumi.azurerm.MysqlServerArgs;
+ * import com.pulumi.azurerm.mysqlDatabase;
+ * import com.pulumi.azurerm.MysqlDatabaseArgs;
  * import com.pulumi.azure.appplatform.SpringCloudAppMysqlAssociation;
  * import com.pulumi.azure.appplatform.SpringCloudAppMysqlAssociationArgs;
  * import java.util.List;
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
+ *         var exampleMysqlServer = new MysqlServer("exampleMysqlServer", MysqlServerArgs.builder()
  *             .name("example-mysqlserver")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -82,10 +82,10 @@ import javax.annotation.Nullable;
  *             .sslMinimalTlsVersionEnforced("TLS1_2")
  *             .build());
  * 
- *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
+ *         var exampleMysqlDatabase = new MysqlDatabase("exampleMysqlDatabase", MysqlDatabaseArgs.builder()
  *             .name("exampledb")
  *             .resourceGroupName(example.name())
- *             .serverName(exampleServer.name())
+ *             .serverName(exampleMysqlServer.name())
  *             .charset("utf8")
  *             .collation("utf8_unicode_ci")
  *             .build());
@@ -93,10 +93,10 @@ import javax.annotation.Nullable;
  *         var exampleSpringCloudAppMysqlAssociation = new SpringCloudAppMysqlAssociation("exampleSpringCloudAppMysqlAssociation", SpringCloudAppMysqlAssociationArgs.builder()
  *             .name("example-bind")
  *             .springCloudAppId(exampleSpringCloudApp.id())
- *             .mysqlServerId(exampleServer.id())
- *             .databaseName(exampleDatabase.name())
- *             .username(exampleServer.administratorLogin())
- *             .password(exampleServer.administratorLoginPassword())
+ *             .mysqlServerId(exampleMysqlServer.id())
+ *             .databaseName(exampleMysqlDatabase.name())
+ *             .username(exampleMysqlServer.administratorLogin())
+ *             .password(exampleMysqlServer.administratorLoginPassword())
  *             .build());
  * 
  *     }}{@code

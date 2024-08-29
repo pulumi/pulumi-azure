@@ -40,55 +40,6 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * The name of the container to be used. This value is required with `docker_container_tag`.
-     * 
-     */
-    @Import(name="dockerContainerName")
-    private @Nullable Output<String> dockerContainerName;
-
-    /**
-     * @return The name of the container to be used. This value is required with `docker_container_tag`.
-     * 
-     */
-    public Optional<Output<String>> dockerContainerName() {
-        return Optional.ofNullable(this.dockerContainerName);
-    }
-
-    /**
-     * @deprecated
-     * This property has been deprecated and will be removed in a future release of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
-    @Import(name="dockerContainerRegistry")
-    private @Nullable Output<String> dockerContainerRegistry;
-
-    /**
-     * @deprecated
-     * This property has been deprecated and will be removed in a future release of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
-    public Optional<Output<String>> dockerContainerRegistry() {
-        return Optional.ofNullable(this.dockerContainerRegistry);
-    }
-
-    /**
-     * The tag of the container to be used. This value is required with `docker_container_name`.
-     * 
-     */
-    @Import(name="dockerContainerTag")
-    private @Nullable Output<String> dockerContainerTag;
-
-    /**
-     * @return The tag of the container to be used. This value is required with `docker_container_name`.
-     * 
-     */
-    public Optional<Output<String>> dockerContainerTag() {
-        return Optional.ofNullable(this.dockerContainerTag);
-    }
-
-    /**
      * The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
      * 
      */
@@ -326,25 +277,6 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * @deprecated
-     * This property is deprecated. Values set are not used by the service.
-     * 
-     */
-    @Deprecated /* This property is deprecated. Values set are not used by the service. */
-    @Import(name="pythonVersion")
-    private @Nullable Output<String> pythonVersion;
-
-    /**
-     * @deprecated
-     * This property is deprecated. Values set are not used by the service.
-     * 
-     */
-    @Deprecated /* This property is deprecated. Values set are not used by the service. */
-    public Optional<Output<String>> pythonVersion() {
-        return Optional.ofNullable(this.pythonVersion);
-    }
-
-    /**
      * The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
      * 
      * &gt; **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
@@ -367,9 +299,6 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
 
     private WindowsWebAppSiteConfigApplicationStackArgs(WindowsWebAppSiteConfigApplicationStackArgs $) {
         this.currentStack = $.currentStack;
-        this.dockerContainerName = $.dockerContainerName;
-        this.dockerContainerRegistry = $.dockerContainerRegistry;
-        this.dockerContainerTag = $.dockerContainerTag;
         this.dockerImageName = $.dockerImageName;
         this.dockerRegistryPassword = $.dockerRegistryPassword;
         this.dockerRegistryUrl = $.dockerRegistryUrl;
@@ -383,7 +312,6 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         this.nodeVersion = $.nodeVersion;
         this.phpVersion = $.phpVersion;
         this.python = $.python;
-        this.pythonVersion = $.pythonVersion;
         this.tomcatVersion = $.tomcatVersion;
     }
 
@@ -432,73 +360,6 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
          */
         public Builder currentStack(String currentStack) {
             return currentStack(Output.of(currentStack));
-        }
-
-        /**
-         * @param dockerContainerName The name of the container to be used. This value is required with `docker_container_tag`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dockerContainerName(@Nullable Output<String> dockerContainerName) {
-            $.dockerContainerName = dockerContainerName;
-            return this;
-        }
-
-        /**
-         * @param dockerContainerName The name of the container to be used. This value is required with `docker_container_tag`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dockerContainerName(String dockerContainerName) {
-            return dockerContainerName(Output.of(dockerContainerName));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated and will be removed in a future release of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
-        public Builder dockerContainerRegistry(@Nullable Output<String> dockerContainerRegistry) {
-            $.dockerContainerRegistry = dockerContainerRegistry;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated and will be removed in a future release of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
-        public Builder dockerContainerRegistry(String dockerContainerRegistry) {
-            return dockerContainerRegistry(Output.of(dockerContainerRegistry));
-        }
-
-        /**
-         * @param dockerContainerTag The tag of the container to be used. This value is required with `docker_container_name`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dockerContainerTag(@Nullable Output<String> dockerContainerTag) {
-            $.dockerContainerTag = dockerContainerTag;
-            return this;
-        }
-
-        /**
-         * @param dockerContainerTag The tag of the container to be used. This value is required with `docker_container_name`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dockerContainerTag(String dockerContainerTag) {
-            return dockerContainerTag(Output.of(dockerContainerTag));
         }
 
         /**
@@ -814,31 +675,6 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
          */
         public Builder python(Boolean python) {
             return python(Output.of(python));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is deprecated. Values set are not used by the service.
-         * 
-         */
-        @Deprecated /* This property is deprecated. Values set are not used by the service. */
-        public Builder pythonVersion(@Nullable Output<String> pythonVersion) {
-            $.pythonVersion = pythonVersion;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is deprecated. Values set are not used by the service.
-         * 
-         */
-        @Deprecated /* This property is deprecated. Values set are not used by the service. */
-        public Builder pythonVersion(String pythonVersion) {
-            return pythonVersion(Output.of(pythonVersion));
         }
 
         /**

@@ -129,15 +129,10 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GetClusterNodePoolResult
     {
-        public readonly bool AutoScalingEnabled;
         /// <summary>
         /// Does this Node Pool have Auto-Scaling enabled?
         /// </summary>
-        public readonly bool EnableAutoScaling;
-        /// <summary>
-        /// Do nodes in this Node Pool have a Public IP Address?
-        /// </summary>
-        public readonly bool EnableNodePublicIp;
+        public readonly bool AutoScalingEnabled;
         /// <summary>
         /// The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
         /// </summary>
@@ -172,6 +167,9 @@ namespace Pulumi.Azure.ContainerService
         /// A map of Kubernetes Labels applied to each Node in this Node Pool.
         /// </summary>
         public readonly ImmutableDictionary<string, string> NodeLabels;
+        /// <summary>
+        /// Do nodes in this Node Pool have a Public IP Address?
+        /// </summary>
         public readonly bool NodePublicIpEnabled;
         /// <summary>
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
@@ -235,10 +233,6 @@ namespace Pulumi.Azure.ContainerService
         private GetClusterNodePoolResult(
             bool autoScalingEnabled,
 
-            bool enableAutoScaling,
-
-            bool enableNodePublicIp,
-
             string evictionPolicy,
 
             string id,
@@ -292,8 +286,6 @@ namespace Pulumi.Azure.ContainerService
             ImmutableArray<string> zones)
         {
             AutoScalingEnabled = autoScalingEnabled;
-            EnableAutoScaling = enableAutoScaling;
-            EnableNodePublicIp = enableNodePublicIp;
             EvictionPolicy = evictionPolicy;
             Id = id;
             KubernetesClusterName = kubernetesClusterName;

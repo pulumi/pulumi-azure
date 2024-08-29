@@ -73,10 +73,10 @@ namespace Pulumi.Azure.Connections
     public partial class ApiConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A display name for this API Connection. Changing this forces a new API Connection to be created.
+        /// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         /// </summary>
         [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
+        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Connections
     public sealed class ApiConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A display name for this API Connection. Changing this forces a new API Connection to be created.
+        /// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.Connections
     public sealed class ApiConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A display name for this API Connection. Changing this forces a new API Connection to be created.
+        /// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.DataBricks.Outputs
         /// </summary>
         public readonly string? NatGatewayName;
         /// <summary>
-        /// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+        /// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
         /// 
         /// &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
         /// 

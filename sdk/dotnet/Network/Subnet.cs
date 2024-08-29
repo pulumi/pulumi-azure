@@ -104,12 +104,6 @@ namespace Pulumi.Azure.Network
         [Output("delegations")]
         public Output<ImmutableArray<Outputs.SubnetDelegation>> Delegations { get; private set; } = null!;
 
-        [Output("enforcePrivateLinkEndpointNetworkPolicies")]
-        public Output<bool> EnforcePrivateLinkEndpointNetworkPolicies { get; private set; } = null!;
-
-        [Output("enforcePrivateLinkServiceNetworkPolicies")]
-        public Output<bool> EnforcePrivateLinkServiceNetworkPolicies { get; private set; } = null!;
-
         /// <summary>
         /// The name of the subnet. Changing this forces a new resource to be created.
         /// </summary>
@@ -126,10 +120,7 @@ namespace Pulumi.Azure.Network
         /// &gt; **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         /// </summary>
         [Output("privateEndpointNetworkPolicies")]
-        public Output<string> PrivateEndpointNetworkPolicies { get; private set; } = null!;
-
-        [Output("privateEndpointNetworkPoliciesEnabled")]
-        public Output<bool> PrivateEndpointNetworkPoliciesEnabled { get; private set; } = null!;
+        public Output<string?> PrivateEndpointNetworkPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
@@ -137,7 +128,7 @@ namespace Pulumi.Azure.Network
         /// &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         /// </summary>
         [Output("privateLinkServiceNetworkPoliciesEnabled")]
-        public Output<bool> PrivateLinkServiceNetworkPoliciesEnabled { get; private set; } = null!;
+        public Output<bool?> PrivateLinkServiceNetworkPoliciesEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
@@ -243,12 +234,6 @@ namespace Pulumi.Azure.Network
             set => _delegations = value;
         }
 
-        [Input("enforcePrivateLinkEndpointNetworkPolicies")]
-        public Input<bool>? EnforcePrivateLinkEndpointNetworkPolicies { get; set; }
-
-        [Input("enforcePrivateLinkServiceNetworkPolicies")]
-        public Input<bool>? EnforcePrivateLinkServiceNetworkPolicies { get; set; }
-
         /// <summary>
         /// The name of the subnet. Changing this forces a new resource to be created.
         /// </summary>
@@ -266,9 +251,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("privateEndpointNetworkPolicies")]
         public Input<string>? PrivateEndpointNetworkPolicies { get; set; }
-
-        [Input("privateEndpointNetworkPoliciesEnabled")]
-        public Input<bool>? PrivateEndpointNetworkPoliciesEnabled { get; set; }
 
         /// <summary>
         /// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
@@ -356,12 +338,6 @@ namespace Pulumi.Azure.Network
             set => _delegations = value;
         }
 
-        [Input("enforcePrivateLinkEndpointNetworkPolicies")]
-        public Input<bool>? EnforcePrivateLinkEndpointNetworkPolicies { get; set; }
-
-        [Input("enforcePrivateLinkServiceNetworkPolicies")]
-        public Input<bool>? EnforcePrivateLinkServiceNetworkPolicies { get; set; }
-
         /// <summary>
         /// The name of the subnet. Changing this forces a new resource to be created.
         /// </summary>
@@ -379,9 +355,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("privateEndpointNetworkPolicies")]
         public Input<string>? PrivateEndpointNetworkPolicies { get; set; }
-
-        [Input("privateEndpointNetworkPoliciesEnabled")]
-        public Input<bool>? PrivateEndpointNetworkPoliciesEnabled { get; set; }
 
         /// <summary>
         /// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.

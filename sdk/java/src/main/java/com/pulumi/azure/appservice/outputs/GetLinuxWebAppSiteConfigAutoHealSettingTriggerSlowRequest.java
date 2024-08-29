@@ -22,15 +22,6 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
      */
     private String interval;
     /**
-     * @return The path to which this rule status code applies.
-     * 
-     * @deprecated
-     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
-    private String path;
-    /**
      * @return (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
      * 
      */
@@ -52,17 +43,6 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
         return this.interval;
     }
     /**
-     * @return The path to which this rule status code applies.
-     * 
-     * @deprecated
-     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
-    public String path() {
-        return this.path;
-    }
-    /**
      * @return (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
      * 
      */
@@ -81,14 +61,12 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
     public static final class Builder {
         private Integer count;
         private String interval;
-        private String path;
         private String timeTaken;
         public Builder() {}
         public Builder(GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
     	      this.interval = defaults.interval;
-    	      this.path = defaults.path;
     	      this.timeTaken = defaults.timeTaken;
         }
 
@@ -109,14 +87,6 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder path(String path) {
-            if (path == null) {
-              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest", "path");
-            }
-            this.path = path;
-            return this;
-        }
-        @CustomType.Setter
         public Builder timeTaken(String timeTaken) {
             if (timeTaken == null) {
               throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest", "timeTaken");
@@ -128,7 +98,6 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
             final var _resultValue = new GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest();
             _resultValue.count = count;
             _resultValue.interval = interval;
-            _resultValue.path = path;
             _resultValue.timeTaken = timeTaken;
             return _resultValue;
         }

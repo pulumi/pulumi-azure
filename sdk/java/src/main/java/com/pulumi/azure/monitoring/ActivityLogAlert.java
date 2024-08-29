@@ -82,6 +82,7 @@ import javax.annotation.Nullable;
  *         var mainActivityLogAlert = new ActivityLogAlert("mainActivityLogAlert", ActivityLogAlertArgs.builder()
  *             .name("example-activitylogalert")
  *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .scopes(example.id())
  *             .description("This alert will monitor a specific storage account updates.")
  *             .criteria(ActivityLogAlertCriteriaArgs.builder()
@@ -169,14 +170,14 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
-     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     * @return The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {

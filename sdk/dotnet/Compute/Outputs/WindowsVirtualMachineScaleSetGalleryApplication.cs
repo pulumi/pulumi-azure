@@ -13,28 +13,37 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetGalleryApplication
     {
-        public readonly string? ConfigurationReferenceBlobUri;
+        /// <summary>
+        /// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? ConfigurationBlobUri;
         /// <summary>
         /// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int? Order;
-        public readonly string PackageReferenceId;
+        /// <summary>
+        /// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Tag;
+        /// <summary>
+        /// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string VersionId;
 
         [OutputConstructor]
         private WindowsVirtualMachineScaleSetGalleryApplication(
-            string? configurationReferenceBlobUri,
+            string? configurationBlobUri,
 
             int? order,
 
-            string packageReferenceId,
+            string? tag,
 
-            string? tag)
+            string versionId)
         {
-            ConfigurationReferenceBlobUri = configurationReferenceBlobUri;
+            ConfigurationBlobUri = configurationBlobUri;
             Order = order;
-            PackageReferenceId = packageReferenceId;
             Tag = tag;
+            VersionId = versionId;
         }
     }
 }

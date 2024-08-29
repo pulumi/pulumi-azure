@@ -25,21 +25,7 @@ public final class GetTableEntitiesResult {
      */
     private List<GetTableEntitiesItem> items;
     private @Nullable List<String> selects;
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    private String storageAccountName;
     private String storageTableId;
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    private String tableName;
 
     private GetTableEntitiesResult() {}
     public String filter() {
@@ -62,26 +48,8 @@ public final class GetTableEntitiesResult {
     public List<String> selects() {
         return this.selects == null ? List.of() : this.selects;
     }
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    public String storageAccountName() {
-        return this.storageAccountName;
-    }
     public String storageTableId() {
         return this.storageTableId;
-    }
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    public String tableName() {
-        return this.tableName;
     }
 
     public static Builder builder() {
@@ -97,9 +65,7 @@ public final class GetTableEntitiesResult {
         private String id;
         private List<GetTableEntitiesItem> items;
         private @Nullable List<String> selects;
-        private String storageAccountName;
         private String storageTableId;
-        private String tableName;
         public Builder() {}
         public Builder(GetTableEntitiesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -107,9 +73,7 @@ public final class GetTableEntitiesResult {
     	      this.id = defaults.id;
     	      this.items = defaults.items;
     	      this.selects = defaults.selects;
-    	      this.storageAccountName = defaults.storageAccountName;
     	      this.storageTableId = defaults.storageTableId;
-    	      this.tableName = defaults.tableName;
         }
 
         @CustomType.Setter
@@ -149,27 +113,11 @@ public final class GetTableEntitiesResult {
             return selects(List.of(selects));
         }
         @CustomType.Setter
-        public Builder storageAccountName(String storageAccountName) {
-            if (storageAccountName == null) {
-              throw new MissingRequiredPropertyException("GetTableEntitiesResult", "storageAccountName");
-            }
-            this.storageAccountName = storageAccountName;
-            return this;
-        }
-        @CustomType.Setter
         public Builder storageTableId(String storageTableId) {
             if (storageTableId == null) {
               throw new MissingRequiredPropertyException("GetTableEntitiesResult", "storageTableId");
             }
             this.storageTableId = storageTableId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder tableName(String tableName) {
-            if (tableName == null) {
-              throw new MissingRequiredPropertyException("GetTableEntitiesResult", "tableName");
-            }
-            this.tableName = tableName;
             return this;
         }
         public GetTableEntitiesResult build() {
@@ -178,9 +126,7 @@ public final class GetTableEntitiesResult {
             _resultValue.id = id;
             _resultValue.items = items;
             _resultValue.selects = selects;
-            _resultValue.storageAccountName = storageAccountName;
             _resultValue.storageTableId = storageTableId;
-            _resultValue.tableName = tableName;
             return _resultValue;
         }
     }

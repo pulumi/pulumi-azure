@@ -59,7 +59,7 @@ public final class SoftwareUpdateConfigurationSchedule {
      * @return List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
      * 
      */
-    private @Nullable List<SoftwareUpdateConfigurationScheduleMonthlyOccurrence> monthlyOccurrences;
+    private @Nullable SoftwareUpdateConfigurationScheduleMonthlyOccurrence monthlyOccurrence;
     private @Nullable String nextRun;
     private @Nullable Double nextRunOffsetMinutes;
     /**
@@ -137,8 +137,8 @@ public final class SoftwareUpdateConfigurationSchedule {
      * @return List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
      * 
      */
-    public List<SoftwareUpdateConfigurationScheduleMonthlyOccurrence> monthlyOccurrences() {
-        return this.monthlyOccurrences == null ? List.of() : this.monthlyOccurrences;
+    public Optional<SoftwareUpdateConfigurationScheduleMonthlyOccurrence> monthlyOccurrence() {
+        return Optional.ofNullable(this.monthlyOccurrence);
     }
     public Optional<String> nextRun() {
         return Optional.ofNullable(this.nextRun);
@@ -183,7 +183,7 @@ public final class SoftwareUpdateConfigurationSchedule {
         private @Nullable Integer interval;
         private @Nullable Boolean isEnabled;
         private @Nullable String lastModifiedTime;
-        private @Nullable List<SoftwareUpdateConfigurationScheduleMonthlyOccurrence> monthlyOccurrences;
+        private @Nullable SoftwareUpdateConfigurationScheduleMonthlyOccurrence monthlyOccurrence;
         private @Nullable String nextRun;
         private @Nullable Double nextRunOffsetMinutes;
         private @Nullable String startTime;
@@ -202,7 +202,7 @@ public final class SoftwareUpdateConfigurationSchedule {
     	      this.interval = defaults.interval;
     	      this.isEnabled = defaults.isEnabled;
     	      this.lastModifiedTime = defaults.lastModifiedTime;
-    	      this.monthlyOccurrences = defaults.monthlyOccurrences;
+    	      this.monthlyOccurrence = defaults.monthlyOccurrence;
     	      this.nextRun = defaults.nextRun;
     	      this.nextRunOffsetMinutes = defaults.nextRunOffsetMinutes;
     	      this.startTime = defaults.startTime;
@@ -279,13 +279,10 @@ public final class SoftwareUpdateConfigurationSchedule {
             return this;
         }
         @CustomType.Setter
-        public Builder monthlyOccurrences(@Nullable List<SoftwareUpdateConfigurationScheduleMonthlyOccurrence> monthlyOccurrences) {
+        public Builder monthlyOccurrence(@Nullable SoftwareUpdateConfigurationScheduleMonthlyOccurrence monthlyOccurrence) {
 
-            this.monthlyOccurrences = monthlyOccurrences;
+            this.monthlyOccurrence = monthlyOccurrence;
             return this;
-        }
-        public Builder monthlyOccurrences(SoftwareUpdateConfigurationScheduleMonthlyOccurrence... monthlyOccurrences) {
-            return monthlyOccurrences(List.of(monthlyOccurrences));
         }
         @CustomType.Setter
         public Builder nextRun(@Nullable String nextRun) {
@@ -329,7 +326,7 @@ public final class SoftwareUpdateConfigurationSchedule {
             _resultValue.interval = interval;
             _resultValue.isEnabled = isEnabled;
             _resultValue.lastModifiedTime = lastModifiedTime;
-            _resultValue.monthlyOccurrences = monthlyOccurrences;
+            _resultValue.monthlyOccurrence = monthlyOccurrence;
             _resultValue.nextRun = nextRun;
             _resultValue.nextRunOffsetMinutes = nextRunOffsetMinutes;
             _resultValue.startTime = startTime;

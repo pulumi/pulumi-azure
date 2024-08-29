@@ -289,14 +289,14 @@ public class Diagnostic extends com.pulumi.resources.CustomResource {
         return this.logClientIp;
     }
     /**
-     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
      * 
      */
     @Export(name="operationNameFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> operationNameFormat;
 
     /**
-     * @return The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     * @return The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
      * 
      */
     public Output<Optional<String>> operationNameFormat() {

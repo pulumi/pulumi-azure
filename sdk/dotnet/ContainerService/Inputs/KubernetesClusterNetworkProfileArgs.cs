@@ -18,17 +18,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("dnsServiceIp")]
         public Input<string>? DnsServiceIp { get; set; }
 
-        /// <summary>
-        /// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Input("dockerBridgeCidr")]
-        public Input<string>? DockerBridgeCidr { get; set; }
-
-        [Input("ebpfDataPlane")]
-        public Input<string>? EbpfDataPlane { get; set; }
-
         [Input("ipVersions")]
         private InputList<string>? _ipVersions;
 
@@ -69,8 +58,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
         /// 
         /// &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
-        /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         /// </summary>
         [Input("networkDataPlane")]
         public Input<string>? NetworkDataPlane { get; set; }
@@ -110,34 +97,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
-
-        [Input("outboundIpAddressIds")]
-        private InputList<string>? _outboundIpAddressIds;
-
-        /// <summary>
-        /// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-        /// 
-        /// &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-        /// </summary>
-        public InputList<string> OutboundIpAddressIds
-        {
-            get => _outboundIpAddressIds ?? (_outboundIpAddressIds = new InputList<string>());
-            set => _outboundIpAddressIds = value;
-        }
-
-        [Input("outboundIpPrefixIds")]
-        private InputList<string>? _outboundIpPrefixIds;
-
-        /// <summary>
-        /// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-        /// 
-        /// &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
-        /// </summary>
-        public InputList<string> OutboundIpPrefixIds
-        {
-            get => _outboundIpPrefixIds ?? (_outboundIpPrefixIds = new InputList<string>());
-            set => _outboundIpPrefixIds = value;
-        }
 
         /// <summary>
         /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).

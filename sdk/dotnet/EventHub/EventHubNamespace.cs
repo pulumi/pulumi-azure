@@ -134,10 +134,10 @@ namespace Pulumi.Azure.EventHub
         public Output<int?> MaximumThroughputUnits { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         /// </summary>
         [Output("minimumTlsVersion")]
-        public Output<string> MinimumTlsVersion { get; private set; } = null!;
+        public Output<string?> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -174,14 +174,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-        /// 
-        /// &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-        /// </summary>
-        [Output("zoneRedundant")]
-        public Output<bool?> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>
@@ -281,7 +273,7 @@ namespace Pulumi.Azure.EventHub
         public Input<int>? MaximumThroughputUnits { get; set; }
 
         /// <summary>
-        /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
@@ -327,14 +319,6 @@ namespace Pulumi.Azure.EventHub
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-        /// 
-        /// &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-        /// </summary>
-        [Input("zoneRedundant")]
-        public Input<bool>? ZoneRedundant { get; set; }
 
         public EventHubNamespaceArgs()
         {
@@ -483,7 +467,7 @@ namespace Pulumi.Azure.EventHub
         public Input<int>? MaximumThroughputUnits { get; set; }
 
         /// <summary>
-        /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
@@ -529,14 +513,6 @@ namespace Pulumi.Azure.EventHub
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-        /// 
-        /// &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-        /// </summary>
-        [Input("zoneRedundant")]
-        public Input<bool>? ZoneRedundant { get; set; }
 
         public EventHubNamespaceState()
         {

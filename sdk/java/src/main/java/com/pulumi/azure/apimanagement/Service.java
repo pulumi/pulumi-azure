@@ -11,7 +11,6 @@ import com.pulumi.azure.apimanagement.outputs.ServiceCertificate;
 import com.pulumi.azure.apimanagement.outputs.ServiceDelegation;
 import com.pulumi.azure.apimanagement.outputs.ServiceHostnameConfiguration;
 import com.pulumi.azure.apimanagement.outputs.ServiceIdentity;
-import com.pulumi.azure.apimanagement.outputs.ServicePolicy;
 import com.pulumi.azure.apimanagement.outputs.ServiceProtocols;
 import com.pulumi.azure.apimanagement.outputs.ServiceSecurity;
 import com.pulumi.azure.apimanagement.outputs.ServiceSignIn;
@@ -297,18 +296,6 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<String> notificationSenderEmail() {
         return this.notificationSenderEmail;
-    }
-    /**
-     * @deprecated
-     * The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider */
-    @Export(name="policy", refs={ServicePolicy.class}, tree="[0]")
-    private Output<ServicePolicy> policy;
-
-    public Output<ServicePolicy> policy() {
-        return this.policy;
     }
     /**
      * The URL for the Publisher Portal associated with this API Management service.

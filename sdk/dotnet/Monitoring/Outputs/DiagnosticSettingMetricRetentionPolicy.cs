@@ -13,15 +13,9 @@ namespace Pulumi.Azure.Monitoring.Outputs
     [OutputType]
     public sealed class DiagnosticSettingMetricRetentionPolicy
     {
-        /// <summary>
-        /// The number of days for which this Retention Policy should apply.
-        /// 
-        /// 
-        /// &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
-        /// </summary>
         public readonly int? Days;
         /// <summary>
-        /// Is this Retention Policy enabled?
+        /// Is this Diagnostic Metric enabled? Defaults to `true`.
         /// </summary>
         public readonly bool Enabled;
 

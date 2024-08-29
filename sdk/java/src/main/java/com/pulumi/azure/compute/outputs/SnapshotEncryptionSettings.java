@@ -6,7 +6,7 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.azure.compute.outputs.SnapshotEncryptionSettingsDiskEncryptionKey;
 import com.pulumi.azure.compute.outputs.SnapshotEncryptionSettingsKeyEncryptionKey;
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Boolean;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,14 +17,7 @@ public final class SnapshotEncryptionSettings {
      * @return A `disk_encryption_key` block as defined below.
      * 
      */
-    private @Nullable SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
-    /**
-     * @deprecated
-     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
-     * 
-     */
-    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
-    private @Nullable Boolean enabled;
+    private SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
     /**
      * @return A `key_encryption_key` block as defined below.
      * 
@@ -36,17 +29,8 @@ public final class SnapshotEncryptionSettings {
      * @return A `disk_encryption_key` block as defined below.
      * 
      */
-    public Optional<SnapshotEncryptionSettingsDiskEncryptionKey> diskEncryptionKey() {
-        return Optional.ofNullable(this.diskEncryptionKey);
-    }
-    /**
-     * @deprecated
-     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
-     * 
-     */
-    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
-    public Optional<Boolean> enabled() {
-        return Optional.ofNullable(this.enabled);
+    public SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey() {
+        return this.diskEncryptionKey;
     }
     /**
      * @return A `key_encryption_key` block as defined below.
@@ -65,27 +49,21 @@ public final class SnapshotEncryptionSettings {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
-        private @Nullable Boolean enabled;
+        private SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
         private @Nullable SnapshotEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
         public Builder() {}
         public Builder(SnapshotEncryptionSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskEncryptionKey = defaults.diskEncryptionKey;
-    	      this.enabled = defaults.enabled;
     	      this.keyEncryptionKey = defaults.keyEncryptionKey;
         }
 
         @CustomType.Setter
-        public Builder diskEncryptionKey(@Nullable SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey) {
-
+        public Builder diskEncryptionKey(SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey) {
+            if (diskEncryptionKey == null) {
+              throw new MissingRequiredPropertyException("SnapshotEncryptionSettings", "diskEncryptionKey");
+            }
             this.diskEncryptionKey = diskEncryptionKey;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enabled(@Nullable Boolean enabled) {
-
-            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
@@ -97,7 +75,6 @@ public final class SnapshotEncryptionSettings {
         public SnapshotEncryptionSettings build() {
             final var _resultValue = new SnapshotEncryptionSettings();
             _resultValue.diskEncryptionKey = diskEncryptionKey;
-            _resultValue.enabled = enabled;
             _resultValue.keyEncryptionKey = keyEncryptionKey;
             return _resultValue;
         }

@@ -9,8 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class TableEntityArgs extends com.pulumi.resources.ResourceArgs {
@@ -63,56 +61,18 @@ public final class TableEntityArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    @Import(name="storageAccountName")
-    private @Nullable Output<String> storageAccountName;
-
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    public Optional<Output<String>> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
-    }
-
-    /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="storageTableId")
-    private @Nullable Output<String> storageTableId;
+    @Import(name="storageTableId", required=true)
+    private Output<String> storageTableId;
 
     /**
      * @return The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      * 
      */
-    public Optional<Output<String>> storageTableId() {
-        return Optional.ofNullable(this.storageTableId);
-    }
-
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    @Import(name="tableName")
-    private @Nullable Output<String> tableName;
-
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    public Optional<Output<String>> tableName() {
-        return Optional.ofNullable(this.tableName);
+    public Output<String> storageTableId() {
+        return this.storageTableId;
     }
 
     private TableEntityArgs() {}
@@ -121,9 +81,7 @@ public final class TableEntityArgs extends com.pulumi.resources.ResourceArgs {
         this.entity = $.entity;
         this.partitionKey = $.partitionKey;
         this.rowKey = $.rowKey;
-        this.storageAccountName = $.storageAccountName;
         this.storageTableId = $.storageTableId;
-        this.tableName = $.tableName;
     }
 
     public static Builder builder() {
@@ -208,37 +166,12 @@ public final class TableEntityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-        public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
-            $.storageAccountName = storageAccountName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-        public Builder storageAccountName(String storageAccountName) {
-            return storageAccountName(Output.of(storageAccountName));
-        }
-
-        /**
          * @param storageTableId The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder storageTableId(@Nullable Output<String> storageTableId) {
+        public Builder storageTableId(Output<String> storageTableId) {
             $.storageTableId = storageTableId;
             return this;
         }
@@ -253,31 +186,6 @@ public final class TableEntityArgs extends com.pulumi.resources.ResourceArgs {
             return storageTableId(Output.of(storageTableId));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-        public Builder tableName(@Nullable Output<String> tableName) {
-            $.tableName = tableName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-        public Builder tableName(String tableName) {
-            return tableName(Output.of(tableName));
-        }
-
         public TableEntityArgs build() {
             if ($.entity == null) {
                 throw new MissingRequiredPropertyException("TableEntityArgs", "entity");
@@ -287,6 +195,9 @@ public final class TableEntityArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.rowKey == null) {
                 throw new MissingRequiredPropertyException("TableEntityArgs", "rowKey");
+            }
+            if ($.storageTableId == null) {
+                throw new MissingRequiredPropertyException("TableEntityArgs", "storageTableId");
             }
             return $;
         }

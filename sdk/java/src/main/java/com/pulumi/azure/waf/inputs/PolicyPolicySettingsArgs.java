@@ -123,6 +123,13 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.requestBodyCheck);
     }
 
+    @Import(name="requestBodyEnforcement")
+    private @Nullable Output<Boolean> requestBodyEnforcement;
+
+    public Optional<Output<Boolean>> requestBodyEnforcement() {
+        return Optional.ofNullable(this.requestBodyEnforcement);
+    }
+
     /**
      * Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
      * 
@@ -148,6 +155,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         this.maxRequestBodySizeInKb = $.maxRequestBodySizeInKb;
         this.mode = $.mode;
         this.requestBodyCheck = $.requestBodyCheck;
+        this.requestBodyEnforcement = $.requestBodyEnforcement;
         this.requestBodyInspectLimitInKb = $.requestBodyInspectLimitInKb;
     }
 
@@ -314,6 +322,15 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
          */
         public Builder requestBodyCheck(Boolean requestBodyCheck) {
             return requestBodyCheck(Output.of(requestBodyCheck));
+        }
+
+        public Builder requestBodyEnforcement(@Nullable Output<Boolean> requestBodyEnforcement) {
+            $.requestBodyEnforcement = requestBodyEnforcement;
+            return this;
+        }
+
+        public Builder requestBodyEnforcement(Boolean requestBodyEnforcement) {
+            return requestBodyEnforcement(Output.of(requestBodyEnforcement));
         }
 
         /**

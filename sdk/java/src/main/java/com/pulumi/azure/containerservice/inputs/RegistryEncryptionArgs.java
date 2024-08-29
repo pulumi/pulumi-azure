@@ -6,35 +6,13 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class RegistryEncryptionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RegistryEncryptionArgs Empty = new RegistryEncryptionArgs();
-
-    /**
-     * @deprecated
-     * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
-    @Import(name="enabled")
-    private @Nullable Output<Boolean> enabled;
-
-    /**
-     * @deprecated
-     * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
-    public Optional<Output<Boolean>> enabled() {
-        return Optional.ofNullable(this.enabled);
-    }
 
     /**
      * The client ID of the managed identity associated with the encryption key.
@@ -69,7 +47,6 @@ public final class RegistryEncryptionArgs extends com.pulumi.resources.ResourceA
     private RegistryEncryptionArgs() {}
 
     private RegistryEncryptionArgs(RegistryEncryptionArgs $) {
-        this.enabled = $.enabled;
         this.identityClientId = $.identityClientId;
         this.keyVaultKeyId = $.keyVaultKeyId;
     }
@@ -90,31 +67,6 @@ public final class RegistryEncryptionArgs extends com.pulumi.resources.ResourceA
 
         public Builder(RegistryEncryptionArgs defaults) {
             $ = new RegistryEncryptionArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
-        public Builder enabled(@Nullable Output<Boolean> enabled) {
-            $.enabled = enabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider. */
-        public Builder enabled(Boolean enabled) {
-            return enabled(Output.of(enabled));
         }
 
         /**

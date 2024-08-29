@@ -19,23 +19,31 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
     public static final SubscriptionState Empty = new SubscriptionState();
 
     /**
-     * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
+     * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
     @Import(name="autoDeleteOnIdle")
     private @Nullable Output<String> autoDeleteOnIdle;
 
     /**
-     * @return The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
+     * @return The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
     public Optional<Output<String>> autoDeleteOnIdle() {
         return Optional.ofNullable(this.autoDeleteOnIdle);
     }
 
+    /**
+     * Boolean flag which controls whether the Subscription supports batched operations.
+     * 
+     */
     @Import(name="batchedOperationsEnabled")
     private @Nullable Output<Boolean> batchedOperationsEnabled;
 
+    /**
+     * @return Boolean flag which controls whether the Subscription supports batched operations.
+     * 
+     */
     public Optional<Output<Boolean>> batchedOperationsEnabled() {
         return Optional.ofNullable(this.batchedOperationsEnabled);
     }
@@ -105,41 +113,18 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+     * The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
     @Import(name="defaultMessageTtl")
     private @Nullable Output<String> defaultMessageTtl;
 
     /**
-     * @return The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+     * @return The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
     public Optional<Output<String>> defaultMessageTtl() {
         return Optional.ofNullable(this.defaultMessageTtl);
-    }
-
-    /**
-     * Boolean flag which controls whether the Subscription supports batched operations.
-     * 
-     * @deprecated
-     * `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider. */
-    @Import(name="enableBatchedOperations")
-    private @Nullable Output<Boolean> enableBatchedOperations;
-
-    /**
-     * @return Boolean flag which controls whether the Subscription supports batched operations.
-     * 
-     * @deprecated
-     * `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> enableBatchedOperations() {
-        return Optional.ofNullable(this.enableBatchedOperations);
     }
 
     /**
@@ -173,14 +158,14 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
      * 
      */
     @Import(name="lockDuration")
     private @Nullable Output<String> lockDuration;
 
     /**
-     * @return The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+     * @return The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
      * 
      */
     public Optional<Output<String>> lockDuration() {
@@ -272,7 +257,6 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         this.deadLetteringOnFilterEvaluationError = $.deadLetteringOnFilterEvaluationError;
         this.deadLetteringOnMessageExpiration = $.deadLetteringOnMessageExpiration;
         this.defaultMessageTtl = $.defaultMessageTtl;
-        this.enableBatchedOperations = $.enableBatchedOperations;
         this.forwardDeadLetteredMessagesTo = $.forwardDeadLetteredMessagesTo;
         this.forwardTo = $.forwardTo;
         this.lockDuration = $.lockDuration;
@@ -302,7 +286,7 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDeleteOnIdle The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
+         * @param autoDeleteOnIdle The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
          * 
          * @return builder
          * 
@@ -313,7 +297,7 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDeleteOnIdle The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
+         * @param autoDeleteOnIdle The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
          * 
          * @return builder
          * 
@@ -322,11 +306,23 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
             return autoDeleteOnIdle(Output.of(autoDeleteOnIdle));
         }
 
+        /**
+         * @param batchedOperationsEnabled Boolean flag which controls whether the Subscription supports batched operations.
+         * 
+         * @return builder
+         * 
+         */
         public Builder batchedOperationsEnabled(@Nullable Output<Boolean> batchedOperationsEnabled) {
             $.batchedOperationsEnabled = batchedOperationsEnabled;
             return this;
         }
 
+        /**
+         * @param batchedOperationsEnabled Boolean flag which controls whether the Subscription supports batched operations.
+         * 
+         * @return builder
+         * 
+         */
         public Builder batchedOperationsEnabled(Boolean batchedOperationsEnabled) {
             return batchedOperationsEnabled(Output.of(batchedOperationsEnabled));
         }
@@ -420,7 +416,7 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultMessageTtl The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+         * @param defaultMessageTtl The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
          * 
          * @return builder
          * 
@@ -431,42 +427,13 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultMessageTtl The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+         * @param defaultMessageTtl The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
          * 
          * @return builder
          * 
          */
         public Builder defaultMessageTtl(String defaultMessageTtl) {
             return defaultMessageTtl(Output.of(defaultMessageTtl));
-        }
-
-        /**
-         * @param enableBatchedOperations Boolean flag which controls whether the Subscription supports batched operations.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider. */
-        public Builder enableBatchedOperations(@Nullable Output<Boolean> enableBatchedOperations) {
-            $.enableBatchedOperations = enableBatchedOperations;
-            return this;
-        }
-
-        /**
-         * @param enableBatchedOperations Boolean flag which controls whether the Subscription supports batched operations.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider. */
-        public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
-            return enableBatchedOperations(Output.of(enableBatchedOperations));
         }
 
         /**
@@ -512,7 +479,7 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockDuration The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+         * @param lockDuration The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
          * 
          * @return builder
          * 
@@ -523,7 +490,7 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockDuration The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
+         * @param lockDuration The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
          * 
          * @return builder
          * 

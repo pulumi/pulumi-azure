@@ -8,7 +8,6 @@ import com.pulumi.azure.sentinel.AutomationRuleArgs;
 import com.pulumi.azure.sentinel.inputs.AutomationRuleState;
 import com.pulumi.azure.sentinel.outputs.AutomationRuleActionIncident;
 import com.pulumi.azure.sentinel.outputs.AutomationRuleActionPlaybook;
-import com.pulumi.azure.sentinel.outputs.AutomationRuleCondition;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -137,36 +136,14 @@ public class AutomationRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="conditionJson", refs={String.class}, tree="[0]")
-    private Output<String> conditionJson;
+    private Output</* @Nullable */ String> conditionJson;
 
     /**
      * @return A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      * 
      */
-    public Output<String> conditionJson() {
-        return this.conditionJson;
-    }
-    /**
-     * One or more `condition` blocks as defined below.
-     * 
-     * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-     * 
-     * @deprecated
-     * This is deprecated in favor of `condition_json`
-     * 
-     */
-    @Deprecated /* This is deprecated in favor of `condition_json` */
-    @Export(name="conditions", refs={List.class,AutomationRuleCondition.class}, tree="[0,1]")
-    private Output<List<AutomationRuleCondition>> conditions;
-
-    /**
-     * @return One or more `condition` blocks as defined below.
-     * 
-     * &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-     * 
-     */
-    public Output<List<AutomationRuleCondition>> conditions() {
-        return this.conditions;
+    public Output<Optional<String>> conditionJson() {
+        return Codegen.optional(this.conditionJson);
     }
     /**
      * The display name which should be used for this Sentinel Automation Rule.

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? Caching { get; set; }
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
+        /// The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -53,6 +53,12 @@ namespace Pulumi.Azure.Compute.Inputs
         /// </summary>
         [Input("sizeGb")]
         public Input<int>? SizeGb { get; set; }
+
+        /// <summary>
+        /// The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageType", required: true)]
+        public Input<string> StorageType { get; set; } = null!;
 
         public ImageOsDiskArgs()
         {

@@ -18,10 +18,6 @@ namespace Pulumi.Azure.Consumption.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BudgetSubscriptionFilterDimension> Dimensions;
         /// <summary>
-        /// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        /// </summary>
-        public readonly Outputs.BudgetSubscriptionFilterNot? Not;
-        /// <summary>
         /// One or more `tag` blocks as defined below to filter the budget on.
         /// </summary>
         public readonly ImmutableArray<Outputs.BudgetSubscriptionFilterTag> Tags;
@@ -30,12 +26,9 @@ namespace Pulumi.Azure.Consumption.Outputs
         private BudgetSubscriptionFilter(
             ImmutableArray<Outputs.BudgetSubscriptionFilterDimension> dimensions,
 
-            Outputs.BudgetSubscriptionFilterNot? not,
-
             ImmutableArray<Outputs.BudgetSubscriptionFilterTag> tags)
         {
             Dimensions = dimensions;
-            Not = not;
             Tags = tags;
         }
     }

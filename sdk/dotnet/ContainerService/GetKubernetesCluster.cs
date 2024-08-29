@@ -131,7 +131,6 @@ namespace Pulumi.Azure.ContainerService
         /// Contains the current version of Kubernetes running on the Cluster.
         /// </summary>
         public readonly string CurrentKubernetesVersion;
-        public readonly ImmutableArray<string> CustomCaTrustCertificatesBase64s;
         /// <summary>
         /// The ID of the Disk Encryption Set used for the Nodes and Volumes.
         /// </summary>
@@ -285,8 +284,6 @@ namespace Pulumi.Azure.ContainerService
 
             string currentKubernetesVersion,
 
-            ImmutableArray<string> customCaTrustCertificatesBase64s,
-
             string diskEncryptionSetId,
 
             string dnsPrefix,
@@ -365,7 +362,6 @@ namespace Pulumi.Azure.ContainerService
             AzureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
             AzurePolicyEnabled = azurePolicyEnabled;
             CurrentKubernetesVersion = currentKubernetesVersion;
-            CustomCaTrustCertificatesBase64s = customCaTrustCertificatesBase64s;
             DiskEncryptionSetId = diskEncryptionSetId;
             DnsPrefix = dnsPrefix;
             Fqdn = fqdn;

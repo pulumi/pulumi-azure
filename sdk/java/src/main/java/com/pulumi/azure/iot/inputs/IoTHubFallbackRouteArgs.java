@@ -33,14 +33,14 @@ public final class IoTHubFallbackRouteArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Used to specify whether the fallback route is enabled.
+     * Used to specify whether the fallback route is enabled. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Used to specify whether the fallback route is enabled.
+     * @return Used to specify whether the fallback route is enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -126,7 +126,7 @@ public final class IoTHubFallbackRouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enabled Used to specify whether the fallback route is enabled.
+         * @param enabled Used to specify whether the fallback route is enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class IoTHubFallbackRouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enabled Used to specify whether the fallback route is enabled.
+         * @param enabled Used to specify whether the fallback route is enabled. Defaults to `true`.
          * 
          * @return builder
          * 

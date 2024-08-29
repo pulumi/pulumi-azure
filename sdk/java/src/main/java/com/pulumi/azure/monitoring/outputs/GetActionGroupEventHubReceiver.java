@@ -14,15 +14,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetActionGroupEventHubReceiver {
     /**
-     * @return The resource ID of the respective Event Hub.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
-    private String eventHubId;
-    /**
      * @return The name of the specific Event Hub queue.
      * 
      */
@@ -54,17 +45,6 @@ public final class GetActionGroupEventHubReceiver {
     private @Nullable Boolean useCommonAlertSchema;
 
     private GetActionGroupEventHubReceiver() {}
-    /**
-     * @return The resource ID of the respective Event Hub.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
-    public String eventHubId() {
-        return this.eventHubId;
-    }
     /**
      * @return The name of the specific Event Hub queue.
      * 
@@ -117,7 +97,6 @@ public final class GetActionGroupEventHubReceiver {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String eventHubId;
         private String eventHubName;
         private String eventHubNamespace;
         private String name;
@@ -127,7 +106,6 @@ public final class GetActionGroupEventHubReceiver {
         public Builder() {}
         public Builder(GetActionGroupEventHubReceiver defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.eventHubId = defaults.eventHubId;
     	      this.eventHubName = defaults.eventHubName;
     	      this.eventHubNamespace = defaults.eventHubNamespace;
     	      this.name = defaults.name;
@@ -136,14 +114,6 @@ public final class GetActionGroupEventHubReceiver {
     	      this.useCommonAlertSchema = defaults.useCommonAlertSchema;
         }
 
-        @CustomType.Setter
-        public Builder eventHubId(String eventHubId) {
-            if (eventHubId == null) {
-              throw new MissingRequiredPropertyException("GetActionGroupEventHubReceiver", "eventHubId");
-            }
-            this.eventHubId = eventHubId;
-            return this;
-        }
         @CustomType.Setter
         public Builder eventHubName(String eventHubName) {
             if (eventHubName == null) {
@@ -192,7 +162,6 @@ public final class GetActionGroupEventHubReceiver {
         }
         public GetActionGroupEventHubReceiver build() {
             final var _resultValue = new GetActionGroupEventHubReceiver();
-            _resultValue.eventHubId = eventHubId;
             _resultValue.eventHubName = eventHubName;
             _resultValue.eventHubNamespace = eventHubNamespace;
             _resultValue.name = name;

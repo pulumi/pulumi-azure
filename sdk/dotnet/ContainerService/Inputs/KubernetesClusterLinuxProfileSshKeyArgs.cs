@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterLinuxProfileSshKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Public SSH Key used to access the cluster.
+        /// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyData", required: true)]
         public Input<string> KeyData { get; set; } = null!;

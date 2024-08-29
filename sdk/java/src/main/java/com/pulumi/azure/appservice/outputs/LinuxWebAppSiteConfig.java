@@ -47,11 +47,6 @@ public final class LinuxWebAppSiteConfig {
      */
     private @Nullable LinuxWebAppSiteConfigApplicationStack applicationStack;
     /**
-     * @return Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-     * 
-     */
-    private @Nullable Boolean autoHealEnabled;
-    /**
      * @return A `auto_heal_setting` block as defined above. Required with `auto_heal`.
      * 
      */
@@ -213,13 +208,6 @@ public final class LinuxWebAppSiteConfig {
      */
     public Optional<LinuxWebAppSiteConfigApplicationStack> applicationStack() {
         return Optional.ofNullable(this.applicationStack);
-    }
-    /**
-     * @return Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-     * 
-     */
-    public Optional<Boolean> autoHealEnabled() {
-        return Optional.ofNullable(this.autoHealEnabled);
     }
     /**
      * @return A `auto_heal_setting` block as defined above. Required with `auto_heal`.
@@ -416,7 +404,6 @@ public final class LinuxWebAppSiteConfig {
         private @Nullable String apiManagementApiId;
         private @Nullable String appCommandLine;
         private @Nullable LinuxWebAppSiteConfigApplicationStack applicationStack;
-        private @Nullable Boolean autoHealEnabled;
         private @Nullable LinuxWebAppSiteConfigAutoHealSetting autoHealSetting;
         private @Nullable String containerRegistryManagedIdentityClientId;
         private @Nullable Boolean containerRegistryUseManagedIdentity;
@@ -453,7 +440,6 @@ public final class LinuxWebAppSiteConfig {
     	      this.apiManagementApiId = defaults.apiManagementApiId;
     	      this.appCommandLine = defaults.appCommandLine;
     	      this.applicationStack = defaults.applicationStack;
-    	      this.autoHealEnabled = defaults.autoHealEnabled;
     	      this.autoHealSetting = defaults.autoHealSetting;
     	      this.containerRegistryManagedIdentityClientId = defaults.containerRegistryManagedIdentityClientId;
     	      this.containerRegistryUseManagedIdentity = defaults.containerRegistryUseManagedIdentity;
@@ -512,12 +498,6 @@ public final class LinuxWebAppSiteConfig {
         public Builder applicationStack(@Nullable LinuxWebAppSiteConfigApplicationStack applicationStack) {
 
             this.applicationStack = applicationStack;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder autoHealEnabled(@Nullable Boolean autoHealEnabled) {
-
-            this.autoHealEnabled = autoHealEnabled;
             return this;
         }
         @CustomType.Setter
@@ -704,7 +684,6 @@ public final class LinuxWebAppSiteConfig {
             _resultValue.apiManagementApiId = apiManagementApiId;
             _resultValue.appCommandLine = appCommandLine;
             _resultValue.applicationStack = applicationStack;
-            _resultValue.autoHealEnabled = autoHealEnabled;
             _resultValue.autoHealSetting = autoHealSetting;
             _resultValue.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
             _resultValue.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;

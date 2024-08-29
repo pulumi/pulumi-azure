@@ -23,7 +23,6 @@ import com.pulumi.azure.compute.outputs.WindowsVirtualMachineScaleSetScaleIn;
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachineScaleSetSecret;
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachineScaleSetSourceImageReference;
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachineScaleSetSpotRestore;
-import com.pulumi.azure.compute.outputs.WindowsVirtualMachineScaleSetTerminateNotification;
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachineScaleSetTerminationNotification;
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachineScaleSetWinrmListener;
 import com.pulumi.core.Output;
@@ -405,7 +404,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="extensionOperationsEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> extensionOperationsEnabled;
+    private Output</* @Nullable */ Boolean> extensionOperationsEnabled;
 
     /**
      * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
@@ -413,8 +412,8 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
-    public Output<Boolean> extensionOperationsEnabled() {
-        return this.extensionOperationsEnabled;
+    public Output<Optional<Boolean>> extensionOperationsEnabled() {
+        return Codegen.optional(this.extensionOperationsEnabled);
     }
     /**
      * One or more `extension` blocks as defined below
@@ -448,27 +447,15 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * One or more `gallery_application` blocks as defined below.
      * 
      */
-    @Export(name="galleryApplication", refs={List.class,WindowsVirtualMachineScaleSetGalleryApplication.class}, tree="[0,1]")
-    private Output<List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplication;
+    @Export(name="galleryApplications", refs={List.class,WindowsVirtualMachineScaleSetGalleryApplication.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplications;
 
     /**
      * @return One or more `gallery_application` blocks as defined below.
      * 
      */
-    public Output<List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplication() {
-        return this.galleryApplication;
-    }
-    /**
-     * @deprecated
-     * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
-     * 
-     */
-    @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
-    @Export(name="galleryApplications", refs={List.class,WindowsVirtualMachineScaleSetGalleryApplication.class}, tree="[0,1]")
-    private Output<List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplications;
-
-    public Output<List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplications() {
-        return this.galleryApplications;
+    public Output<Optional<List<WindowsVirtualMachineScaleSetGalleryApplication>>> galleryApplications() {
+        return Codegen.optional(this.galleryApplications);
     }
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
@@ -743,26 +730,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * 
      */
     @Export(name="scaleIn", refs={WindowsVirtualMachineScaleSetScaleIn.class}, tree="[0]")
-    private Output<WindowsVirtualMachineScaleSetScaleIn> scaleIn;
+    private Output</* @Nullable */ WindowsVirtualMachineScaleSetScaleIn> scaleIn;
 
     /**
      * @return A `scale_in` block as defined below.
      * 
      */
-    public Output<WindowsVirtualMachineScaleSetScaleIn> scaleIn() {
-        return this.scaleIn;
-    }
-    /**
-     * @deprecated
-     * `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
-    @Export(name="scaleInPolicy", refs={String.class}, tree="[0]")
-    private Output<String> scaleInPolicy;
-
-    public Output<String> scaleInPolicy() {
-        return this.scaleInPolicy;
+    public Output<Optional<WindowsVirtualMachineScaleSetScaleIn>> scaleIn() {
+        return Codegen.optional(this.scaleIn);
     }
     /**
      * One or more `secret` blocks as defined below.
@@ -883,28 +858,6 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
-    }
-    /**
-     * A `terminate_notification` block as defined below.
-     * 
-     * &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
-     * 
-     */
-    @Deprecated /* `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0. */
-    @Export(name="terminateNotification", refs={WindowsVirtualMachineScaleSetTerminateNotification.class}, tree="[0]")
-    private Output<WindowsVirtualMachineScaleSetTerminateNotification> terminateNotification;
-
-    /**
-     * @return A `terminate_notification` block as defined below.
-     * 
-     * &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-     * 
-     */
-    public Output<WindowsVirtualMachineScaleSetTerminateNotification> terminateNotification() {
-        return this.terminateNotification;
     }
     /**
      * A `termination_notification` block as defined below.

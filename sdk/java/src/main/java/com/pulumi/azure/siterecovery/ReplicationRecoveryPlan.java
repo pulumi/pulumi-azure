@@ -9,7 +9,6 @@ import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanState;
 import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanAzureToAzureSettings;
 import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanBootRecoveryGroup;
 import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanFailoverRecoveryGroup;
-import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanRecoveryGroup;
 import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanShutdownRecoveryGroup;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -374,28 +373,6 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      */
     public Output<String> name() {
         return this.name;
-    }
-    /**
-     * Three or more `recovery_group` block defined as below.
-     * 
-     * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-     * 
-     * @deprecated
-     * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-    @Export(name="recoveryGroups", refs={List.class,ReplicationRecoveryPlanRecoveryGroup.class}, tree="[0,1]")
-    private Output<List<ReplicationRecoveryPlanRecoveryGroup>> recoveryGroups;
-
-    /**
-     * @return Three or more `recovery_group` block defined as below.
-     * 
-     * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-     * 
-     */
-    public Output<List<ReplicationRecoveryPlanRecoveryGroup>> recoveryGroups() {
-        return this.recoveryGroups;
     }
     /**
      * The ID of the vault that should be updated. Changing this forces a new resource to be created.

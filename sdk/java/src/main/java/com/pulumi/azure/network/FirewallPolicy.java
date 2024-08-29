@@ -279,18 +279,18 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
         return this.ruleCollectionGroups;
     }
     /**
-     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
-    private Output<String> sku;
+    private Output</* @Nullable */ String> sku;
 
     /**
-     * @return The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
+     * @return The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
      * 
      */
-    public Output<String> sku() {
-        return this.sku;
+    public Output<Optional<String>> sku() {
+        return Codegen.optional(this.sku);
     }
     /**
      * Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.

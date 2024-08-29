@@ -9,8 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs extends com.pulumi.resources.ResourceArgs {
@@ -48,29 +46,6 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestA
     }
 
     /**
-     * The path for which this slow request rule applies.
-     * 
-     * @deprecated
-     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
-    @Import(name="path")
-    private @Nullable Output<String> path;
-
-    /**
-     * @return The path for which this slow request rule applies.
-     * 
-     * @deprecated
-     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<String>> path() {
-        return Optional.ofNullable(this.path);
-    }
-
-    /**
      * The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
      * 
      */
@@ -90,7 +65,6 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestA
     private WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs(WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs $) {
         this.count = $.count;
         this.interval = $.interval;
-        this.path = $.path;
         this.timeTaken = $.timeTaken;
     }
 
@@ -152,35 +126,6 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestA
          */
         public Builder interval(String interval) {
             return interval(Output.of(interval));
-        }
-
-        /**
-         * @param path The path for which this slow request rule applies.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
-        public Builder path(@Nullable Output<String> path) {
-            $.path = path;
-            return this;
-        }
-
-        /**
-         * @param path The path for which this slow request rule applies.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
-        public Builder path(String path) {
-            return path(Output.of(path));
         }
 
         /**

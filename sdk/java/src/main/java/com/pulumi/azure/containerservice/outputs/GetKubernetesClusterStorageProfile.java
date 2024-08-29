@@ -6,7 +6,6 @@ package com.pulumi.azure.containerservice.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
-import java.lang.String;
 import java.util.Objects;
 
 @CustomType
@@ -21,13 +20,6 @@ public final class GetKubernetesClusterStorageProfile {
      * 
      */
     private Boolean diskDriverEnabled;
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    private String diskDriverVersion;
     /**
      * @return Is the File CSI driver enabled?
      * 
@@ -55,15 +47,6 @@ public final class GetKubernetesClusterStorageProfile {
         return this.diskDriverEnabled;
     }
     /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    public String diskDriverVersion() {
-        return this.diskDriverVersion;
-    }
-    /**
      * @return Is the File CSI driver enabled?
      * 
      */
@@ -89,7 +72,6 @@ public final class GetKubernetesClusterStorageProfile {
     public static final class Builder {
         private Boolean blobDriverEnabled;
         private Boolean diskDriverEnabled;
-        private String diskDriverVersion;
         private Boolean fileDriverEnabled;
         private Boolean snapshotControllerEnabled;
         public Builder() {}
@@ -97,7 +79,6 @@ public final class GetKubernetesClusterStorageProfile {
     	      Objects.requireNonNull(defaults);
     	      this.blobDriverEnabled = defaults.blobDriverEnabled;
     	      this.diskDriverEnabled = defaults.diskDriverEnabled;
-    	      this.diskDriverVersion = defaults.diskDriverVersion;
     	      this.fileDriverEnabled = defaults.fileDriverEnabled;
     	      this.snapshotControllerEnabled = defaults.snapshotControllerEnabled;
         }
@@ -116,14 +97,6 @@ public final class GetKubernetesClusterStorageProfile {
               throw new MissingRequiredPropertyException("GetKubernetesClusterStorageProfile", "diskDriverEnabled");
             }
             this.diskDriverEnabled = diskDriverEnabled;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder diskDriverVersion(String diskDriverVersion) {
-            if (diskDriverVersion == null) {
-              throw new MissingRequiredPropertyException("GetKubernetesClusterStorageProfile", "diskDriverVersion");
-            }
-            this.diskDriverVersion = diskDriverVersion;
             return this;
         }
         @CustomType.Setter
@@ -146,7 +119,6 @@ public final class GetKubernetesClusterStorageProfile {
             final var _resultValue = new GetKubernetesClusterStorageProfile();
             _resultValue.blobDriverEnabled = blobDriverEnabled;
             _resultValue.diskDriverEnabled = diskDriverEnabled;
-            _resultValue.diskDriverVersion = diskDriverVersion;
             _resultValue.fileDriverEnabled = fileDriverEnabled;
             _resultValue.snapshotControllerEnabled = snapshotControllerEnabled;
             return _resultValue;

@@ -180,28 +180,6 @@ public class GroupPolicyRemediation extends com.pulumi.resources.CustomResource 
         return this.policyAssignmentId;
     }
     /**
-     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-     * 
-     * @deprecated
-     * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-     * 
-     */
-    @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
-    @Export(name="policyDefinitionId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> policyDefinitionId;
-
-    /**
-     * @return The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-     * 
-     */
-    public Output<Optional<String>> policyDefinitionId() {
-        return Codegen.optional(this.policyDefinitionId);
-    }
-    /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      * 
      */
@@ -228,28 +206,6 @@ public class GroupPolicyRemediation extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<Integer>> resourceCount() {
         return Codegen.optional(this.resourceCount);
-    }
-    /**
-     * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     * 
-     * @deprecated
-     * `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     * 
-     */
-    @Deprecated /* `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below. */
-    @Export(name="resourceDiscoveryMode", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> resourceDiscoveryMode;
-
-    /**
-     * @return The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-     * 
-     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-     * 
-     */
-    public Output<Optional<String>> resourceDiscoveryMode() {
-        return Codegen.optional(this.resourceDiscoveryMode);
     }
 
     /**

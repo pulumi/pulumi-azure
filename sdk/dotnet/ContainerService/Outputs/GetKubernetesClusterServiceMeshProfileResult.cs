@@ -29,6 +29,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The mode of the service mesh.
         /// </summary>
         public readonly string Mode;
+        /// <summary>
+        /// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. Learn More.
+        /// </summary>
+        public readonly ImmutableArray<string> Revisions;
 
         [OutputConstructor]
         private GetKubernetesClusterServiceMeshProfileResult(
@@ -38,12 +42,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool internalIngressGatewayEnabled,
 
-            string mode)
+            string mode,
+
+            ImmutableArray<string> revisions)
         {
             CertificateAuthorities = certificateAuthorities;
             ExternalIngressGatewayEnabled = externalIngressGatewayEnabled;
             InternalIngressGatewayEnabled = internalIngressGatewayEnabled;
             Mode = mode;
+            Revisions = revisions;
         }
     }
 }

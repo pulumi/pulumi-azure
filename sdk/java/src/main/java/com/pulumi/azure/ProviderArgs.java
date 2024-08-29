@@ -295,10 +295,46 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The set of Resource Providers which should be automatically registered for the subscription.
+     * 
+     */
+    @Import(name="resourceProviderRegistrations")
+    private @Nullable Output<String> resourceProviderRegistrations;
+
+    /**
+     * @return The set of Resource Providers which should be automatically registered for the subscription.
+     * 
+     */
+    public Optional<Output<String>> resourceProviderRegistrations() {
+        return Optional.ofNullable(this.resourceProviderRegistrations);
+    }
+
+    /**
+     * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+     * `resource_provider_registrations` property.
+     * 
+     */
+    @Import(name="resourceProvidersToRegisters", json=true)
+    private @Nullable Output<List<String>> resourceProvidersToRegisters;
+
+    /**
+     * @return A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+     * `resource_provider_registrations` property.
+     * 
+     */
+    public Optional<Output<List<String>>> resourceProvidersToRegisters() {
+        return Optional.ofNullable(this.resourceProvidersToRegisters);
+    }
+
+    /**
      * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already
      * registered?
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead. */
     @Import(name="skipProviderRegistration", json=true)
     private @Nullable Output<Boolean> skipProviderRegistration;
 
@@ -306,7 +342,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * @return Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already
      * registered?
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead. */
     public Optional<Output<Boolean>> skipProviderRegistration() {
         return Optional.ofNullable(this.skipProviderRegistration);
     }
@@ -438,6 +478,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.oidcToken = $.oidcToken;
         this.oidcTokenFilePath = $.oidcTokenFilePath;
         this.partnerId = $.partnerId;
+        this.resourceProviderRegistrations = $.resourceProviderRegistrations;
+        this.resourceProvidersToRegisters = $.resourceProvidersToRegisters;
         this.skipProviderRegistration = $.skipProviderRegistration;
         this.storageUseAzuread = $.storageUseAzuread;
         this.subscriptionId = $.subscriptionId;
@@ -848,12 +890,71 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param resourceProviderRegistrations The set of Resource Providers which should be automatically registered for the subscription.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProviderRegistrations(@Nullable Output<String> resourceProviderRegistrations) {
+            $.resourceProviderRegistrations = resourceProviderRegistrations;
+            return this;
+        }
+
+        /**
+         * @param resourceProviderRegistrations The set of Resource Providers which should be automatically registered for the subscription.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProviderRegistrations(String resourceProviderRegistrations) {
+            return resourceProviderRegistrations(Output.of(resourceProviderRegistrations));
+        }
+
+        /**
+         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+         * `resource_provider_registrations` property.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProvidersToRegisters(@Nullable Output<List<String>> resourceProvidersToRegisters) {
+            $.resourceProvidersToRegisters = resourceProvidersToRegisters;
+            return this;
+        }
+
+        /**
+         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+         * `resource_provider_registrations` property.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProvidersToRegisters(List<String> resourceProvidersToRegisters) {
+            return resourceProvidersToRegisters(Output.of(resourceProvidersToRegisters));
+        }
+
+        /**
+         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+         * `resource_provider_registrations` property.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceProvidersToRegisters(String... resourceProvidersToRegisters) {
+            return resourceProvidersToRegisters(List.of(resourceProvidersToRegisters));
+        }
+
+        /**
          * @param skipProviderRegistration Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already
          * registered?
          * 
          * @return builder
          * 
+         * @deprecated
+         * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.
+         * 
          */
+        @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead. */
         public Builder skipProviderRegistration(@Nullable Output<Boolean> skipProviderRegistration) {
             $.skipProviderRegistration = skipProviderRegistration;
             return this;
@@ -865,7 +966,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.
+         * 
          */
+        @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead. */
         public Builder skipProviderRegistration(Boolean skipProviderRegistration) {
             return skipProviderRegistration(Output.of(skipProviderRegistration));
         }

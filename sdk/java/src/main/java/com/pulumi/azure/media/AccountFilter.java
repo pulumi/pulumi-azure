@@ -35,9 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.media.ServiceAccount;
- * import com.pulumi.azure.media.ServiceAccountArgs;
- * import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
+ * import com.pulumi.azurerm.mediaServicesAccount;
+ * import com.pulumi.azurerm.MediaServicesAccountArgs;
  * import com.pulumi.azure.media.AccountFilter;
  * import com.pulumi.azure.media.AccountFilterArgs;
  * import com.pulumi.azure.media.inputs.AccountFilterPresentationTimeRangeArgs;
@@ -68,14 +67,11 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("GRS")
  *             .build());
  * 
- *         var exampleServiceAccount = new ServiceAccount("exampleServiceAccount", ServiceAccountArgs.builder()
+ *         var exampleMediaServicesAccount = new MediaServicesAccount("exampleMediaServicesAccount", MediaServicesAccountArgs.builder()
  *             .name("examplemediaacc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
- *                 .id(exampleAccount.id())
- *                 .isPrimary(true)
- *                 .build())
+ *             .storageAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAccountFilter = new AccountFilter("exampleAccountFilter", AccountFilterArgs.builder()

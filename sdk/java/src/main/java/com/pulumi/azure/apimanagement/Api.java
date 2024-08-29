@@ -357,28 +357,6 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.serviceUrl;
     }
     /**
-     * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-     * 
-     * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider */
-    @Export(name="soapPassThrough", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> soapPassThrough;
-
-    /**
-     * @return Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-     * 
-     * &gt; **NOTE:** This property has been deprecated in favour of the `api_type` property and will be removed in version 4.0 of the provider.
-     * 
-     */
-    public Output<Boolean> soapPassThrough() {
-        return this.soapPassThrough;
-    }
-    /**
      * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
      * 
      */

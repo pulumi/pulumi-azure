@@ -105,21 +105,6 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-     * 
-     */
-    @Import(name="autoHealEnabled")
-    private @Nullable Output<Boolean> autoHealEnabled;
-
-    /**
-     * @return Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-     * 
-     */
-    public Optional<Output<Boolean>> autoHealEnabled() {
-        return Optional.ofNullable(this.autoHealEnabled);
-    }
-
-    /**
      * A `auto_heal_setting` block as defined above. Required with `auto_heal`.
      * 
      */
@@ -552,7 +537,6 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         this.apiManagementApiId = $.apiManagementApiId;
         this.appCommandLine = $.appCommandLine;
         this.applicationStack = $.applicationStack;
-        this.autoHealEnabled = $.autoHealEnabled;
         this.autoHealSetting = $.autoHealSetting;
         this.containerRegistryManagedIdentityClientId = $.containerRegistryManagedIdentityClientId;
         this.containerRegistryUseManagedIdentity = $.containerRegistryUseManagedIdentity;
@@ -711,27 +695,6 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
          */
         public Builder applicationStack(WindowsWebAppSiteConfigApplicationStackArgs applicationStack) {
             return applicationStack(Output.of(applicationStack));
-        }
-
-        /**
-         * @param autoHealEnabled Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder autoHealEnabled(@Nullable Output<Boolean> autoHealEnabled) {
-            $.autoHealEnabled = autoHealEnabled;
-            return this;
-        }
-
-        /**
-         * @param autoHealEnabled Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder autoHealEnabled(Boolean autoHealEnabled) {
-            return autoHealEnabled(Output.of(autoHealEnabled));
         }
 
         /**

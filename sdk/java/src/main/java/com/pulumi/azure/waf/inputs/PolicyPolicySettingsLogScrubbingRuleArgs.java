@@ -18,14 +18,14 @@ public final class PolicyPolicySettingsLogScrubbingRuleArgs extends com.pulumi.r
     public static final PolicyPolicySettingsLogScrubbingRuleArgs Empty = new PolicyPolicySettingsLogScrubbingRuleArgs();
 
     /**
-     * Describes if the managed rule is in enabled state or disabled state.
+     * Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Describes if the managed rule is in enabled state or disabled state.
+     * @return Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -89,7 +89,7 @@ public final class PolicyPolicySettingsLogScrubbingRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param enabled Describes if the managed rule is in enabled state or disabled state.
+         * @param enabled Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class PolicyPolicySettingsLogScrubbingRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param enabled Describes if the managed rule is in enabled state or disabled state.
+         * @param enabled Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
          * 
          * @return builder
          * 

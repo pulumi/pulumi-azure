@@ -5,7 +5,6 @@ package com.pulumi.azure.containerapp.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,14 +16,14 @@ public final class AppIngressCustomDomainArgs extends com.pulumi.resources.Resou
     public static final AppIngressCustomDomainArgs Empty = new AppIngressCustomDomainArgs();
 
     /**
-     * The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+     * The Binding type.
      * 
      */
     @Import(name="certificateBindingType")
     private @Nullable Output<String> certificateBindingType;
 
     /**
-     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+     * @return The Binding type.
      * 
      */
     public Optional<Output<String>> certificateBindingType() {
@@ -35,30 +34,30 @@ public final class AppIngressCustomDomainArgs extends com.pulumi.resources.Resou
      * The ID of the Container App Environment Certificate.
      * 
      */
-    @Import(name="certificateId", required=true)
-    private Output<String> certificateId;
+    @Import(name="certificateId")
+    private @Nullable Output<String> certificateId;
 
     /**
      * @return The ID of the Container App Environment Certificate.
      * 
      */
-    public Output<String> certificateId() {
-        return this.certificateId;
+    public Optional<Output<String>> certificateId() {
+        return Optional.ofNullable(this.certificateId);
     }
 
     /**
-     * The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+     * The name for this Container App. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
-     * @return The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+     * @return The name for this Container App. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     private AppIngressCustomDomainArgs() {}
@@ -88,7 +87,7 @@ public final class AppIngressCustomDomainArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param certificateBindingType The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+         * @param certificateBindingType The Binding type.
          * 
          * @return builder
          * 
@@ -99,7 +98,7 @@ public final class AppIngressCustomDomainArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param certificateBindingType The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+         * @param certificateBindingType The Binding type.
          * 
          * @return builder
          * 
@@ -114,7 +113,7 @@ public final class AppIngressCustomDomainArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder certificateId(Output<String> certificateId) {
+        public Builder certificateId(@Nullable Output<String> certificateId) {
             $.certificateId = certificateId;
             return this;
         }
@@ -130,18 +129,18 @@ public final class AppIngressCustomDomainArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+         * @param name The name for this Container App. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
         /**
-         * @param name The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+         * @param name The name for this Container App. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -151,12 +150,6 @@ public final class AppIngressCustomDomainArgs extends com.pulumi.resources.Resou
         }
 
         public AppIngressCustomDomainArgs build() {
-            if ($.certificateId == null) {
-                throw new MissingRequiredPropertyException("AppIngressCustomDomainArgs", "certificateId");
-            }
-            if ($.name == null) {
-                throw new MissingRequiredPropertyException("AppIngressCustomDomainArgs", "name");
-            }
             return $;
         }
     }

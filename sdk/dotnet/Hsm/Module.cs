@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Hsm
     ///         Name = "example-pip",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         AllocationMethod = "Dynamic",
+    ///         AllocationMethod = "Static",
     ///     });
     /// 
     ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("example", new()

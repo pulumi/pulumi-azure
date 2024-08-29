@@ -3,10 +3,13 @@
 
 package com.pulumi.azure.network.inputs;
 
+import com.pulumi.azure.network.inputs.VirtualNetworkSubnetDelegationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,18 +20,48 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
     public static final VirtualNetworkSubnetArgs Empty = new VirtualNetworkSubnetArgs();
 
     /**
-     * The address prefix to use for the subnet.
+     * The address prefixes to use for the subnet.
      * 
      */
-    @Import(name="addressPrefix", required=true)
-    private Output<String> addressPrefix;
+    @Import(name="addressPrefixes", required=true)
+    private Output<List<String>> addressPrefixes;
 
     /**
-     * @return The address prefix to use for the subnet.
+     * @return The address prefixes to use for the subnet.
      * 
      */
-    public Output<String> addressPrefix() {
-        return this.addressPrefix;
+    public Output<List<String>> addressPrefixes() {
+        return this.addressPrefixes;
+    }
+
+    /**
+     * Enable default outbound access to the internet for the subnet. Defaults to `true`.
+     * 
+     */
+    @Import(name="defaultOutboundAccessEnabled")
+    private @Nullable Output<Boolean> defaultOutboundAccessEnabled;
+
+    /**
+     * @return Enable default outbound access to the internet for the subnet. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> defaultOutboundAccessEnabled() {
+        return Optional.ofNullable(this.defaultOutboundAccessEnabled);
+    }
+
+    /**
+     * One or more `delegation` blocks as defined below.
+     * 
+     */
+    @Import(name="delegation")
+    private @Nullable Output<VirtualNetworkSubnetDelegationArgs> delegation;
+
+    /**
+     * @return One or more `delegation` blocks as defined below.
+     * 
+     */
+    public Optional<Output<VirtualNetworkSubnetDelegationArgs>> delegation() {
+        return Optional.ofNullable(this.delegation);
     }
 
     /**
@@ -62,6 +95,67 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
+     * 
+     * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+     * 
+     * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+     * 
+     * &gt; **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+     * 
+     */
+    @Import(name="privateEndpointNetworkPolicies")
+    private @Nullable Output<String> privateEndpointNetworkPolicies;
+
+    /**
+     * @return Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
+     * 
+     * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+     * 
+     * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+     * 
+     * &gt; **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+     * 
+     */
+    public Optional<Output<String>> privateEndpointNetworkPolicies() {
+        return Optional.ofNullable(this.privateEndpointNetworkPolicies);
+    }
+
+    /**
+     * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
+     * 
+     * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+     * 
+     */
+    @Import(name="privateLinkServiceNetworkPoliciesEnabled")
+    private @Nullable Output<Boolean> privateLinkServiceNetworkPoliciesEnabled;
+
+    /**
+     * @return Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
+     * 
+     * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+     * 
+     */
+    public Optional<Output<Boolean>> privateLinkServiceNetworkPoliciesEnabled() {
+        return Optional.ofNullable(this.privateLinkServiceNetworkPoliciesEnabled);
+    }
+
+    /**
+     * The ID of the Route Table that should be associated with this subnet.
+     * 
+     */
+    @Import(name="routeTableId")
+    private @Nullable Output<String> routeTableId;
+
+    /**
+     * @return The ID of the Route Table that should be associated with this subnet.
+     * 
+     */
+    public Optional<Output<String>> routeTableId() {
+        return Optional.ofNullable(this.routeTableId);
+    }
+
+    /**
      * The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
      * 
      */
@@ -76,13 +170,50 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.securityGroup);
     }
 
+    /**
+     * The list of IDs of Service Endpoint Policies to associate with the subnet.
+     * 
+     */
+    @Import(name="serviceEndpointPolicyIds")
+    private @Nullable Output<List<String>> serviceEndpointPolicyIds;
+
+    /**
+     * @return The list of IDs of Service Endpoint Policies to associate with the subnet.
+     * 
+     */
+    public Optional<Output<List<String>>> serviceEndpointPolicyIds() {
+        return Optional.ofNullable(this.serviceEndpointPolicyIds);
+    }
+
+    /**
+     * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+     * 
+     */
+    @Import(name="serviceEndpoints")
+    private @Nullable Output<List<String>> serviceEndpoints;
+
+    /**
+     * @return The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+     * 
+     */
+    public Optional<Output<List<String>>> serviceEndpoints() {
+        return Optional.ofNullable(this.serviceEndpoints);
+    }
+
     private VirtualNetworkSubnetArgs() {}
 
     private VirtualNetworkSubnetArgs(VirtualNetworkSubnetArgs $) {
-        this.addressPrefix = $.addressPrefix;
+        this.addressPrefixes = $.addressPrefixes;
+        this.defaultOutboundAccessEnabled = $.defaultOutboundAccessEnabled;
+        this.delegation = $.delegation;
         this.id = $.id;
         this.name = $.name;
+        this.privateEndpointNetworkPolicies = $.privateEndpointNetworkPolicies;
+        this.privateLinkServiceNetworkPoliciesEnabled = $.privateLinkServiceNetworkPoliciesEnabled;
+        this.routeTableId = $.routeTableId;
         this.securityGroup = $.securityGroup;
+        this.serviceEndpointPolicyIds = $.serviceEndpointPolicyIds;
+        this.serviceEndpoints = $.serviceEndpoints;
     }
 
     public static Builder builder() {
@@ -104,24 +235,76 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param addressPrefix The address prefix to use for the subnet.
+         * @param addressPrefixes The address prefixes to use for the subnet.
          * 
          * @return builder
          * 
          */
-        public Builder addressPrefix(Output<String> addressPrefix) {
-            $.addressPrefix = addressPrefix;
+        public Builder addressPrefixes(Output<List<String>> addressPrefixes) {
+            $.addressPrefixes = addressPrefixes;
             return this;
         }
 
         /**
-         * @param addressPrefix The address prefix to use for the subnet.
+         * @param addressPrefixes The address prefixes to use for the subnet.
          * 
          * @return builder
          * 
          */
-        public Builder addressPrefix(String addressPrefix) {
-            return addressPrefix(Output.of(addressPrefix));
+        public Builder addressPrefixes(List<String> addressPrefixes) {
+            return addressPrefixes(Output.of(addressPrefixes));
+        }
+
+        /**
+         * @param addressPrefixes The address prefixes to use for the subnet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addressPrefixes(String... addressPrefixes) {
+            return addressPrefixes(List.of(addressPrefixes));
+        }
+
+        /**
+         * @param defaultOutboundAccessEnabled Enable default outbound access to the internet for the subnet. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultOutboundAccessEnabled(@Nullable Output<Boolean> defaultOutboundAccessEnabled) {
+            $.defaultOutboundAccessEnabled = defaultOutboundAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param defaultOutboundAccessEnabled Enable default outbound access to the internet for the subnet. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultOutboundAccessEnabled(Boolean defaultOutboundAccessEnabled) {
+            return defaultOutboundAccessEnabled(Output.of(defaultOutboundAccessEnabled));
+        }
+
+        /**
+         * @param delegation One or more `delegation` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder delegation(@Nullable Output<VirtualNetworkSubnetDelegationArgs> delegation) {
+            $.delegation = delegation;
+            return this;
+        }
+
+        /**
+         * @param delegation One or more `delegation` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder delegation(VirtualNetworkSubnetDelegationArgs delegation) {
+            return delegation(Output.of(delegation));
         }
 
         /**
@@ -167,6 +350,85 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
+         * @param privateEndpointNetworkPolicies Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
+         * 
+         * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+         * 
+         * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+         * 
+         * &gt; **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointNetworkPolicies(@Nullable Output<String> privateEndpointNetworkPolicies) {
+            $.privateEndpointNetworkPolicies = privateEndpointNetworkPolicies;
+            return this;
+        }
+
+        /**
+         * @param privateEndpointNetworkPolicies Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
+         * 
+         * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+         * 
+         * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+         * 
+         * &gt; **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointNetworkPolicies(String privateEndpointNetworkPolicies) {
+            return privateEndpointNetworkPolicies(Output.of(privateEndpointNetworkPolicies));
+        }
+
+        /**
+         * @param privateLinkServiceNetworkPoliciesEnabled Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
+         * 
+         * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkServiceNetworkPoliciesEnabled(@Nullable Output<Boolean> privateLinkServiceNetworkPoliciesEnabled) {
+            $.privateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
+            return this;
+        }
+
+        /**
+         * @param privateLinkServiceNetworkPoliciesEnabled Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
+         * 
+         * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateLinkServiceNetworkPoliciesEnabled(Boolean privateLinkServiceNetworkPoliciesEnabled) {
+            return privateLinkServiceNetworkPoliciesEnabled(Output.of(privateLinkServiceNetworkPoliciesEnabled));
+        }
+
+        /**
+         * @param routeTableId The ID of the Route Table that should be associated with this subnet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routeTableId(@Nullable Output<String> routeTableId) {
+            $.routeTableId = routeTableId;
+            return this;
+        }
+
+        /**
+         * @param routeTableId The ID of the Route Table that should be associated with this subnet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routeTableId(String routeTableId) {
+            return routeTableId(Output.of(routeTableId));
+        }
+
+        /**
          * @param securityGroup The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
          * 
          * @return builder
@@ -187,9 +449,71 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
             return securityGroup(Output.of(securityGroup));
         }
 
+        /**
+         * @param serviceEndpointPolicyIds The list of IDs of Service Endpoint Policies to associate with the subnet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpointPolicyIds(@Nullable Output<List<String>> serviceEndpointPolicyIds) {
+            $.serviceEndpointPolicyIds = serviceEndpointPolicyIds;
+            return this;
+        }
+
+        /**
+         * @param serviceEndpointPolicyIds The list of IDs of Service Endpoint Policies to associate with the subnet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpointPolicyIds(List<String> serviceEndpointPolicyIds) {
+            return serviceEndpointPolicyIds(Output.of(serviceEndpointPolicyIds));
+        }
+
+        /**
+         * @param serviceEndpointPolicyIds The list of IDs of Service Endpoint Policies to associate with the subnet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpointPolicyIds(String... serviceEndpointPolicyIds) {
+            return serviceEndpointPolicyIds(List.of(serviceEndpointPolicyIds));
+        }
+
+        /**
+         * @param serviceEndpoints The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpoints(@Nullable Output<List<String>> serviceEndpoints) {
+            $.serviceEndpoints = serviceEndpoints;
+            return this;
+        }
+
+        /**
+         * @param serviceEndpoints The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpoints(List<String> serviceEndpoints) {
+            return serviceEndpoints(Output.of(serviceEndpoints));
+        }
+
+        /**
+         * @param serviceEndpoints The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpoints(String... serviceEndpoints) {
+            return serviceEndpoints(List.of(serviceEndpoints));
+        }
+
         public VirtualNetworkSubnetArgs build() {
-            if ($.addressPrefix == null) {
-                throw new MissingRequiredPropertyException("VirtualNetworkSubnetArgs", "addressPrefix");
+            if ($.addressPrefixes == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkSubnetArgs", "addressPrefixes");
             }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("VirtualNetworkSubnetArgs", "name");

@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -44,6 +45,21 @@ public final class ImageDataDiskArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> caching() {
         return Optional.ofNullable(this.caching);
+    }
+
+    /**
+     * The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="diskEncryptionSetId")
+    private @Nullable Output<String> diskEncryptionSetId;
+
+    /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> diskEncryptionSetId() {
+        return Optional.ofNullable(this.diskEncryptionSetId);
     }
 
     /**
@@ -91,14 +107,31 @@ public final class ImageDataDiskArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sizeGb);
     }
 
+    /**
+     * The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="storageType", required=true)
+    private Output<String> storageType;
+
+    /**
+     * @return The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> storageType() {
+        return this.storageType;
+    }
+
     private ImageDataDiskArgs() {}
 
     private ImageDataDiskArgs(ImageDataDiskArgs $) {
         this.blobUri = $.blobUri;
         this.caching = $.caching;
+        this.diskEncryptionSetId = $.diskEncryptionSetId;
         this.lun = $.lun;
         this.managedDiskId = $.managedDiskId;
         this.sizeGb = $.sizeGb;
+        this.storageType = $.storageType;
     }
 
     public static Builder builder() {
@@ -159,6 +192,27 @@ public final class ImageDataDiskArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder caching(String caching) {
             return caching(Output.of(caching));
+        }
+
+        /**
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskEncryptionSetId(@Nullable Output<String> diskEncryptionSetId) {
+            $.diskEncryptionSetId = diskEncryptionSetId;
+            return this;
+        }
+
+        /**
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskEncryptionSetId(String diskEncryptionSetId) {
+            return diskEncryptionSetId(Output.of(diskEncryptionSetId));
         }
 
         /**
@@ -224,7 +278,31 @@ public final class ImageDataDiskArgs extends com.pulumi.resources.ResourceArgs {
             return sizeGb(Output.of(sizeGb));
         }
 
+        /**
+         * @param storageType The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(Output<String> storageType) {
+            $.storageType = storageType;
+            return this;
+        }
+
+        /**
+         * @param storageType The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(String storageType) {
+            return storageType(Output.of(storageType));
+        }
+
         public ImageDataDiskArgs build() {
+            if ($.storageType == null) {
+                throw new MissingRequiredPropertyException("ImageDataDiskArgs", "storageType");
+            }
             return $;
         }
     }

@@ -40,25 +40,6 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
     }
 
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `workspace_id`
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `workspace_id` */
-    @Import(name="resourceGroupName")
-    private @Nullable Output<String> resourceGroupName;
-
-    /**
-     * @deprecated
-     * this property has been deprecated in favour of `workspace_id`
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `workspace_id` */
-    public Optional<Output<String>> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
-    }
-
-    /**
      * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      * 
      */
@@ -73,32 +54,11 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
         return Optional.ofNullable(this.workspaceId);
     }
 
-    /**
-     * @deprecated
-     * this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider */
-    @Import(name="workspaceName")
-    private @Nullable Output<String> workspaceName;
-
-    /**
-     * @deprecated
-     * this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider */
-    public Optional<Output<String>> workspaceName() {
-        return Optional.ofNullable(this.workspaceName);
-    }
-
     private LogAnalyticsWorkspaceOnboardingState() {}
 
     private LogAnalyticsWorkspaceOnboardingState(LogAnalyticsWorkspaceOnboardingState $) {
         this.customerManagedKeyEnabled = $.customerManagedKeyEnabled;
-        this.resourceGroupName = $.resourceGroupName;
         this.workspaceId = $.workspaceId;
-        this.workspaceName = $.workspaceName;
     }
 
     public static Builder builder() {
@@ -149,31 +109,6 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated in favour of `workspace_id`
-         * 
-         */
-        @Deprecated /* this property has been deprecated in favour of `workspace_id` */
-        public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated in favour of `workspace_id`
-         * 
-         */
-        @Deprecated /* this property has been deprecated in favour of `workspace_id` */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
-        }
-
-        /**
          * @param workspaceId Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -192,31 +127,6 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
          */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider */
-        public Builder workspaceName(@Nullable Output<String> workspaceName) {
-            $.workspaceName = workspaceName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider */
-        public Builder workspaceName(String workspaceName) {
-            return workspaceName(Output.of(workspaceName));
         }
 
         public LogAnalyticsWorkspaceOnboardingState build() {

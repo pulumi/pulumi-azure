@@ -159,14 +159,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+     * A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview{@literal @}1.0.0`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="template")
     private @Nullable Output<String> template;
 
     /**
-     * @return A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+     * @return A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview{@literal @}1.0.0`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> template() {
@@ -400,7 +400,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param template A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+         * @param template A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview{@literal @}1.0.0`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param template A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+         * @param template A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview{@literal @}1.0.0`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -17,14 +17,18 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
     public static final JobSecretArgs Empty = new JobSecretArgs();
 
     /**
-     * A `identity` block as defined below.
+     * The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+     * 
+     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
      * 
      */
     @Import(name="identity")
     private @Nullable Output<String> identity;
 
     /**
-     * @return A `identity` block as defined below.
+     * @return The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+     * 
+     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
      * 
      */
     public Optional<Output<String>> identity() {
@@ -32,14 +36,18 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+     * The ID of a Key Vault secret. This can be a versioned or version-less ID.
+     * 
+     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
      * 
      */
     @Import(name="keyVaultSecretId")
     private @Nullable Output<String> keyVaultSecretId;
 
     /**
-     * @return The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+     * @return The ID of a Key Vault secret. This can be a versioned or version-less ID.
+     * 
+     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
      * 
      */
     public Optional<Output<String>> keyVaultSecretId() {
@@ -47,14 +55,14 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+     * The secret name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+     * @return The secret name.
      * 
      */
     public Output<String> name() {
@@ -64,12 +72,16 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The value for this secret.
      * 
+     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+     * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
      * @return The value for this secret.
+     * 
+     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
      * 
      */
     public Optional<Output<String>> value() {
@@ -104,7 +116,9 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identity A `identity` block as defined below.
+         * @param identity The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+         * 
+         * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
          * 
          * @return builder
          * 
@@ -115,7 +129,9 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identity A `identity` block as defined below.
+         * @param identity The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+         * 
+         * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
          * 
          * @return builder
          * 
@@ -125,7 +141,9 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultSecretId The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+         * @param keyVaultSecretId The ID of a Key Vault secret. This can be a versioned or version-less ID.
+         * 
+         * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
          * 
          * @return builder
          * 
@@ -136,7 +154,9 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultSecretId The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+         * @param keyVaultSecretId The ID of a Key Vault secret. This can be a versioned or version-less ID.
+         * 
+         * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
          * 
          * @return builder
          * 
@@ -146,7 +166,7 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+         * @param name The secret name.
          * 
          * @return builder
          * 
@@ -157,7 +177,7 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+         * @param name The secret name.
          * 
          * @return builder
          * 
@@ -169,6 +189,8 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param value The value for this secret.
          * 
+         * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+         * 
          * @return builder
          * 
          */
@@ -179,6 +201,8 @@ public final class JobSecretArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param value The value for this secret.
+         * 
+         * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
          * 
          * @return builder
          * 

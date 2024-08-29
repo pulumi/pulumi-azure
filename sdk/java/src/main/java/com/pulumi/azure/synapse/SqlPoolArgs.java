@@ -143,15 +143,15 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
      * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
      * 
      */
-    @Import(name="storageAccountType")
-    private @Nullable Output<String> storageAccountType;
+    @Import(name="storageAccountType", required=true)
+    private Output<String> storageAccountType;
 
     /**
      * @return The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
      * 
      */
-    public Optional<Output<String>> storageAccountType() {
-        return Optional.ofNullable(this.storageAccountType);
+    public Output<String> storageAccountType() {
+        return this.storageAccountType;
     }
 
     /**
@@ -392,7 +392,7 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder storageAccountType(@Nullable Output<String> storageAccountType) {
+        public Builder storageAccountType(Output<String> storageAccountType) {
             $.storageAccountType = storageAccountType;
             return this;
         }
@@ -452,6 +452,9 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
         public SqlPoolArgs build() {
             if ($.skuName == null) {
                 throw new MissingRequiredPropertyException("SqlPoolArgs", "skuName");
+            }
+            if ($.storageAccountType == null) {
+                throw new MissingRequiredPropertyException("SqlPoolArgs", "storageAccountType");
             }
             if ($.synapseWorkspaceId == null) {
                 throw new MissingRequiredPropertyException("SqlPoolArgs", "synapseWorkspaceId");

@@ -36,14 +36,14 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Application Insights component daily data volume cap in GB.
+     * Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
      * 
      */
     @Import(name="dailyDataCapInGb")
     private @Nullable Output<Double> dailyDataCapInGb;
 
     /**
-     * @return Specifies the Application Insights component daily data volume cap in GB.
+     * @return Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
      * 
      */
     public Optional<Output<Double>> dailyDataCapInGb() {
@@ -51,14 +51,14 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if a notification email will be send when the daily data volume cap is met.
+     * Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
      * 
      */
     @Import(name="dailyDataCapNotificationsDisabled")
     private @Nullable Output<Boolean> dailyDataCapNotificationsDisabled;
 
     /**
-     * @return Specifies if a notification email will be send when the daily data volume cap is met.
+     * @return Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> dailyDataCapNotificationsDisabled() {
@@ -309,7 +309,7 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dailyDataCapInGb Specifies the Application Insights component daily data volume cap in GB.
+         * @param dailyDataCapInGb Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dailyDataCapInGb Specifies the Application Insights component daily data volume cap in GB.
+         * @param dailyDataCapInGb Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dailyDataCapNotificationsDisabled Specifies if a notification email will be send when the daily data volume cap is met.
+         * @param dailyDataCapNotificationsDisabled Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dailyDataCapNotificationsDisabled Specifies if a notification email will be send when the daily data volume cap is met.
+         * @param dailyDataCapNotificationsDisabled Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
          * 
          * @return builder
          * 

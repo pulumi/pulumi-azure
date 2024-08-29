@@ -19,14 +19,14 @@ public final class BlobInventoryPolicyRuleArgs extends com.pulumi.resources.Reso
     public static final BlobInventoryPolicyRuleArgs Empty = new BlobInventoryPolicyRuleArgs();
 
     /**
-     * A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+     * A `filter` block as defined above.
      * 
      */
     @Import(name="filter")
     private @Nullable Output<BlobInventoryPolicyRuleFilterArgs> filter;
 
     /**
-     * @return A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+     * @return A `filter` block as defined above.
      * 
      */
     public Optional<Output<BlobInventoryPolicyRuleFilterArgs>> filter() {
@@ -154,7 +154,7 @@ public final class BlobInventoryPolicyRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param filter A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+         * @param filter A `filter` block as defined above.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class BlobInventoryPolicyRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param filter A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+         * @param filter A `filter` block as defined above.
          * 
          * @return builder
          * 

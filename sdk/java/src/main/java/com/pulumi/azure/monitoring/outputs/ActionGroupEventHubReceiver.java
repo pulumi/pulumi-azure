@@ -14,24 +14,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ActionGroupEventHubReceiver {
     /**
-     * @return The resource ID of the respective Event Hub.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
-    private @Nullable String eventHubId;
-    /**
      * @return The name of the specific Event Hub queue.
      * 
      */
-    private @Nullable String eventHubName;
+    private String eventHubName;
     /**
      * @return The namespace name of the Event Hub.
      * 
      */
-    private @Nullable String eventHubNamespace;
+    private String eventHubNamespace;
     /**
      * @return The name of the EventHub Receiver, must be unique within action group.
      * 
@@ -39,8 +30,6 @@ public final class ActionGroupEventHubReceiver {
     private String name;
     /**
      * @return The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
-     * 
-     * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
      * 
      */
     private @Nullable String subscriptionId;
@@ -57,29 +46,18 @@ public final class ActionGroupEventHubReceiver {
 
     private ActionGroupEventHubReceiver() {}
     /**
-     * @return The resource ID of the respective Event Hub.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
-    public Optional<String> eventHubId() {
-        return Optional.ofNullable(this.eventHubId);
-    }
-    /**
      * @return The name of the specific Event Hub queue.
      * 
      */
-    public Optional<String> eventHubName() {
-        return Optional.ofNullable(this.eventHubName);
+    public String eventHubName() {
+        return this.eventHubName;
     }
     /**
      * @return The namespace name of the Event Hub.
      * 
      */
-    public Optional<String> eventHubNamespace() {
-        return Optional.ofNullable(this.eventHubNamespace);
+    public String eventHubNamespace() {
+        return this.eventHubNamespace;
     }
     /**
      * @return The name of the EventHub Receiver, must be unique within action group.
@@ -90,8 +68,6 @@ public final class ActionGroupEventHubReceiver {
     }
     /**
      * @return The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
-     * 
-     * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
      * 
      */
     public Optional<String> subscriptionId() {
@@ -121,9 +97,8 @@ public final class ActionGroupEventHubReceiver {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String eventHubId;
-        private @Nullable String eventHubName;
-        private @Nullable String eventHubNamespace;
+        private String eventHubName;
+        private String eventHubNamespace;
         private String name;
         private @Nullable String subscriptionId;
         private @Nullable String tenantId;
@@ -131,7 +106,6 @@ public final class ActionGroupEventHubReceiver {
         public Builder() {}
         public Builder(ActionGroupEventHubReceiver defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.eventHubId = defaults.eventHubId;
     	      this.eventHubName = defaults.eventHubName;
     	      this.eventHubNamespace = defaults.eventHubNamespace;
     	      this.name = defaults.name;
@@ -141,20 +115,18 @@ public final class ActionGroupEventHubReceiver {
         }
 
         @CustomType.Setter
-        public Builder eventHubId(@Nullable String eventHubId) {
-
-            this.eventHubId = eventHubId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder eventHubName(@Nullable String eventHubName) {
-
+        public Builder eventHubName(String eventHubName) {
+            if (eventHubName == null) {
+              throw new MissingRequiredPropertyException("ActionGroupEventHubReceiver", "eventHubName");
+            }
             this.eventHubName = eventHubName;
             return this;
         }
         @CustomType.Setter
-        public Builder eventHubNamespace(@Nullable String eventHubNamespace) {
-
+        public Builder eventHubNamespace(String eventHubNamespace) {
+            if (eventHubNamespace == null) {
+              throw new MissingRequiredPropertyException("ActionGroupEventHubReceiver", "eventHubNamespace");
+            }
             this.eventHubNamespace = eventHubNamespace;
             return this;
         }
@@ -186,7 +158,6 @@ public final class ActionGroupEventHubReceiver {
         }
         public ActionGroupEventHubReceiver build() {
             final var _resultValue = new ActionGroupEventHubReceiver();
-            _resultValue.eventHubId = eventHubId;
             _resultValue.eventHubName = eventHubName;
             _resultValue.eventHubNamespace = eventHubNamespace;
             _resultValue.name = name;

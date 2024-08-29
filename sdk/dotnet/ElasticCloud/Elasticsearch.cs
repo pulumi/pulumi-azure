@@ -103,7 +103,7 @@ namespace Pulumi.Azure.ElasticCloud
         /// A `logs` block as defined below.
         /// </summary>
         [Output("logs")]
-        public Output<Outputs.ElasticsearchLogs> Logs { get; private set; } = null!;
+        public Output<Outputs.ElasticsearchLogs?> Logs { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.

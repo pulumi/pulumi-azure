@@ -79,10 +79,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string?> ContentStoragePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
         /// </summary>
         [Output("dataLocale")]
-        public Output<string> DataLocale { get; private set; } = null!;
+        public Output<string?> DataLocale { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? ContentStoragePolicy { get; set; }
 
         /// <summary>
-        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
         /// </summary>
         [Input("dataLocale")]
         public Input<string>? DataLocale { get; set; }
@@ -366,7 +366,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? ContentStoragePolicy { get; set; }
 
         /// <summary>
-        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+        /// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
         /// </summary>
         [Input("dataLocale")]
         public Input<string>? DataLocale { get; set; }

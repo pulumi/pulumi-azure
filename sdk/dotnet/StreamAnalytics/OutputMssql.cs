@@ -19,6 +19,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -34,7 +35,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("example", new()
+    ///     var exampleSqlServer = new Azurerm.Index.SqlServer("example", new()
     ///     {
     ///         Name = "example-server",
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -44,7 +45,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         AdministratorLoginPassword = "example-password",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Sql.Database("example", new()
+    ///     var exampleSqlDatabase = new Azurerm.Index.SqlDatabase("example", new()
     ///     {
     ///         Name = "exampledb",
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -64,7 +65,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         Server = exampleSqlServer.FullyQualifiedDomainName,
     ///         User = exampleSqlServer.AdministratorLogin,
     ///         Password = exampleSqlServer.AdministratorLoginPassword,
-    ///         Database = exampleDatabase.Name,
+    ///         Database = exampleSqlDatabase.Name,
     ///         Table = "ExampleTable",
     ///     });
     /// 

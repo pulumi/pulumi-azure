@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetEnterpriseDatabasePlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -45,35 +43,11 @@ public final class GetEnterpriseDatabasePlainArgs extends com.pulumi.resources.I
         return this.name;
     }
 
-    /**
-     * The name of the resource group the Redis Enterprise Database instance is located in.
-     * 
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    @Import(name="resourceGroupName")
-    private @Nullable String resourceGroupName;
-
-    /**
-     * @return The name of the resource group the Redis Enterprise Database instance is located in.
-     * 
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    public Optional<String> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
-    }
-
     private GetEnterpriseDatabasePlainArgs() {}
 
     private GetEnterpriseDatabasePlainArgs(GetEnterpriseDatabasePlainArgs $) {
         this.clusterId = $.clusterId;
         this.name = $.name;
-        this.resourceGroupName = $.resourceGroupName;
     }
 
     public static Builder builder() {
@@ -113,21 +87,6 @@ public final class GetEnterpriseDatabasePlainArgs extends com.pulumi.resources.I
          */
         public Builder name(String name) {
             $.name = name;
-            return this;
-        }
-
-        /**
-         * @param resourceGroupName The name of the resource group the Redis Enterprise Database instance is located in.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in the next major version of the Azure Provider
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-        public Builder resourceGroupName(@Nullable String resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
             return this;
         }
 

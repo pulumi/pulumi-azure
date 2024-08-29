@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class BlobInventoryPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+        /// A `filter` block as defined above.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BlobInventoryPolicyRuleFilterArgs>? Filter { get; set; }

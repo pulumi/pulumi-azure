@@ -8,7 +8,6 @@ import com.pulumi.azure.apimanagement.inputs.ServiceCertificateArgs;
 import com.pulumi.azure.apimanagement.inputs.ServiceDelegationArgs;
 import com.pulumi.azure.apimanagement.inputs.ServiceHostnameConfigurationArgs;
 import com.pulumi.azure.apimanagement.inputs.ServiceIdentityArgs;
-import com.pulumi.azure.apimanagement.inputs.ServicePolicyArgs;
 import com.pulumi.azure.apimanagement.inputs.ServiceProtocolsArgs;
 import com.pulumi.azure.apimanagement.inputs.ServiceSecurityArgs;
 import com.pulumi.azure.apimanagement.inputs.ServiceSignInArgs;
@@ -253,25 +252,6 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> notificationSenderEmail() {
         return Optional.ofNullable(this.notificationSenderEmail);
-    }
-
-    /**
-     * @deprecated
-     * The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider */
-    @Import(name="policy")
-    private @Nullable Output<ServicePolicyArgs> policy;
-
-    /**
-     * @deprecated
-     * The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider */
-    public Optional<Output<ServicePolicyArgs>> policy() {
-        return Optional.ofNullable(this.policy);
     }
 
     /**
@@ -601,7 +581,6 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         this.minApiVersion = $.minApiVersion;
         this.name = $.name;
         this.notificationSenderEmail = $.notificationSenderEmail;
-        this.policy = $.policy;
         this.portalUrl = $.portalUrl;
         this.privateIpAddresses = $.privateIpAddresses;
         this.protocols = $.protocols;
@@ -974,31 +953,6 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder notificationSenderEmail(String notificationSenderEmail) {
             return notificationSenderEmail(Output.of(notificationSenderEmail));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider */
-        public Builder policy(@Nullable Output<ServicePolicyArgs> policy) {
-            $.policy = policy;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider */
-        public Builder policy(ServicePolicyArgs policy) {
-            return policy(Output.of(policy));
         }
 
         /**

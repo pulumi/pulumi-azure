@@ -59,16 +59,12 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     /**
      * An `identity` block as defined below.
      * 
-     * &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
-     * 
      */
     @Import(name="identity")
     private @Nullable Output<ConfigurationStoreIdentityArgs> identity;
 
     /**
      * @return An `identity` block as defined below.
-     * 
-     * &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
      * 
      */
     public Optional<Output<ConfigurationStoreIdentityArgs>> identity() {
@@ -153,7 +149,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      * 
      */
     @Import(name="publicNetworkAccess")
@@ -162,7 +158,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     /**
      * @return The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      * 
      */
     public Optional<Output<String>> publicNetworkAccess() {
@@ -251,12 +247,16 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     /**
      * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
      * 
+     * &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
+     * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
      * @return The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+     * 
+     * &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -382,8 +382,6 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         /**
          * @param identity An `identity` block as defined below.
          * 
-         * &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
-         * 
          * @return builder
          * 
          */
@@ -394,8 +392,6 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
 
         /**
          * @param identity An `identity` block as defined below.
-         * 
-         * &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
          * 
          * @return builder
          * 
@@ -532,7 +528,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         /**
          * @param publicNetworkAccess The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
          * 
-         * &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+         * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
          * 
          * @return builder
          * 
@@ -545,7 +541,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         /**
          * @param publicNetworkAccess The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
          * 
-         * &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+         * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
          * 
          * @return builder
          * 
@@ -696,6 +692,8 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         /**
          * @param sku The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
          * 
+         * &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
+         * 
          * @return builder
          * 
          */
@@ -706,6 +704,8 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
 
         /**
          * @param sku The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+         * 
+         * &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
          * 
          * @return builder
          * 

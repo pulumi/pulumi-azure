@@ -30,20 +30,6 @@ public final class GetNetworkInterfaceResult {
      */
     private List<String> dnsServers;
     /**
-     * @deprecated
-     * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    private Boolean enableAcceleratedNetworking;
-    /**
-     * @deprecated
-     * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    private Boolean enableIpForwarding;
-    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -126,24 +112,6 @@ public final class GetNetworkInterfaceResult {
      */
     public List<String> dnsServers() {
         return this.dnsServers;
-    }
-    /**
-     * @deprecated
-     * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    public Boolean enableAcceleratedNetworking() {
-        return this.enableAcceleratedNetworking;
-    }
-    /**
-     * @deprecated
-     * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    public Boolean enableIpForwarding() {
-        return this.enableIpForwarding;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -245,8 +213,6 @@ public final class GetNetworkInterfaceResult {
         private Boolean acceleratedNetworkingEnabled;
         private List<String> appliedDnsServers;
         private List<String> dnsServers;
-        private Boolean enableAcceleratedNetworking;
-        private Boolean enableIpForwarding;
         private String id;
         private String internalDnsNameLabel;
         private List<GetNetworkInterfaceIpConfiguration> ipConfigurations;
@@ -266,8 +232,6 @@ public final class GetNetworkInterfaceResult {
     	      this.acceleratedNetworkingEnabled = defaults.acceleratedNetworkingEnabled;
     	      this.appliedDnsServers = defaults.appliedDnsServers;
     	      this.dnsServers = defaults.dnsServers;
-    	      this.enableAcceleratedNetworking = defaults.enableAcceleratedNetworking;
-    	      this.enableIpForwarding = defaults.enableIpForwarding;
     	      this.id = defaults.id;
     	      this.internalDnsNameLabel = defaults.internalDnsNameLabel;
     	      this.ipConfigurations = defaults.ipConfigurations;
@@ -312,22 +276,6 @@ public final class GetNetworkInterfaceResult {
         }
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
-        }
-        @CustomType.Setter
-        public Builder enableAcceleratedNetworking(Boolean enableAcceleratedNetworking) {
-            if (enableAcceleratedNetworking == null) {
-              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "enableAcceleratedNetworking");
-            }
-            this.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableIpForwarding(Boolean enableIpForwarding) {
-            if (enableIpForwarding == null) {
-              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "enableIpForwarding");
-            }
-            this.enableIpForwarding = enableIpForwarding;
-            return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -444,8 +392,6 @@ public final class GetNetworkInterfaceResult {
             _resultValue.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             _resultValue.appliedDnsServers = appliedDnsServers;
             _resultValue.dnsServers = dnsServers;
-            _resultValue.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            _resultValue.enableIpForwarding = enableIpForwarding;
             _resultValue.id = id;
             _resultValue.internalDnsNameLabel = internalDnsNameLabel;
             _resultValue.ipConfigurations = ipConfigurations;

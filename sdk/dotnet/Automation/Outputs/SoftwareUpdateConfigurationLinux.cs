@@ -13,7 +13,6 @@ namespace Pulumi.Azure.Automation.Outputs
     [OutputType]
     public sealed class SoftwareUpdateConfigurationLinux
     {
-        public readonly string? ClassificationIncluded;
         /// <summary>
         /// Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
         /// 
@@ -35,8 +34,6 @@ namespace Pulumi.Azure.Automation.Outputs
 
         [OutputConstructor]
         private SoftwareUpdateConfigurationLinux(
-            string? classificationIncluded,
-
             ImmutableArray<string> classificationsIncludeds,
 
             ImmutableArray<string> excludedPackages,
@@ -45,7 +42,6 @@ namespace Pulumi.Azure.Automation.Outputs
 
             string? reboot)
         {
-            ClassificationIncluded = classificationIncluded;
             ClassificationsIncludeds = classificationsIncludeds;
             ExcludedPackages = excludedPackages;
             IncludedPackages = includedPackages;

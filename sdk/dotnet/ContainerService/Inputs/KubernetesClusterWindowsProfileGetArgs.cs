@@ -12,7 +12,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class KubernetesClusterWindowsProfileGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("adminPassword")]
+        [Input("adminPassword", required: true)]
         private Input<string>? _adminPassword;
 
         /// <summary>

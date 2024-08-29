@@ -162,14 +162,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should cross Tenant replication be enabled? Defaults to `true`.
+     * Should cross Tenant replication be enabled? Defaults to `false`.
      * 
      */
     @Import(name="crossTenantReplicationEnabled")
     private @Nullable Output<Boolean> crossTenantReplicationEnabled;
 
     /**
-     * @return Should cross Tenant replication be enabled? Defaults to `true`.
+     * @return Should cross Tenant replication be enabled? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> crossTenantReplicationEnabled() {
@@ -257,25 +257,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> edgeZone() {
         return Optional.ofNullable(this.edgeZone);
-    }
-
-    /**
-     * @deprecated
-     * The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="enableHttpsTrafficOnly")
-    private @Nullable Output<Boolean> enableHttpsTrafficOnly;
-
-    /**
-     * @deprecated
-     * The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> enableHttpsTrafficOnly() {
-        return Optional.ofNullable(this.enableHttpsTrafficOnly);
     }
 
     /**
@@ -1719,7 +1700,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
-     * &gt; **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+     * &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
      * 
      */
     @Import(name="tableEncryptionKeyType")
@@ -1728,7 +1709,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
-     * &gt; **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+     * &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
      * 
      */
     public Optional<Output<String>> tableEncryptionKeyType() {
@@ -1767,7 +1748,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.defaultToOauthAuthentication = $.defaultToOauthAuthentication;
         this.dnsEndpointType = $.dnsEndpointType;
         this.edgeZone = $.edgeZone;
-        this.enableHttpsTrafficOnly = $.enableHttpsTrafficOnly;
         this.httpsTrafficOnlyEnabled = $.httpsTrafficOnlyEnabled;
         this.identity = $.identity;
         this.immutabilityPolicy = $.immutabilityPolicy;
@@ -2065,7 +2045,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crossTenantReplicationEnabled Should cross Tenant replication be enabled? Defaults to `true`.
+         * @param crossTenantReplicationEnabled Should cross Tenant replication be enabled? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -2076,7 +2056,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crossTenantReplicationEnabled Should cross Tenant replication be enabled? Defaults to `true`.
+         * @param crossTenantReplicationEnabled Should cross Tenant replication be enabled? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -2196,31 +2176,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder edgeZone(String edgeZone) {
             return edgeZone(Output.of(edgeZone));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enableHttpsTrafficOnly(@Nullable Output<Boolean> enableHttpsTrafficOnly) {
-            $.enableHttpsTrafficOnly = enableHttpsTrafficOnly;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enableHttpsTrafficOnly(Boolean enableHttpsTrafficOnly) {
-            return enableHttpsTrafficOnly(Output.of(enableHttpsTrafficOnly));
         }
 
         /**
@@ -4224,7 +4179,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tableEncryptionKeyType The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
          * 
-         * &gt; **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+         * &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
          * 
          * @return builder
          * 
@@ -4237,7 +4192,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tableEncryptionKeyType The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
          * 
-         * &gt; **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+         * &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
          * 
          * @return builder
          * 

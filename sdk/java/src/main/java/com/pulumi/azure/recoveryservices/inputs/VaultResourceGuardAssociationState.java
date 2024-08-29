@@ -16,33 +16,6 @@ public final class VaultResourceGuardAssociationState extends com.pulumi.resourc
     public static final VaultResourceGuardAssociationState Empty = new VaultResourceGuardAssociationState();
 
     /**
-     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-     * 
-     * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * The `name` field will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `name` field will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="name")
-    private @Nullable Output<String> name;
-
-    /**
-     * @return Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-     * 
-     * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * The `name` field will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `name` field will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
-    }
-
-    /**
      * ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
      * 
      */
@@ -75,7 +48,6 @@ public final class VaultResourceGuardAssociationState extends com.pulumi.resourc
     private VaultResourceGuardAssociationState() {}
 
     private VaultResourceGuardAssociationState(VaultResourceGuardAssociationState $) {
-        this.name = $.name;
         this.resourceGuardId = $.resourceGuardId;
         this.vaultId = $.vaultId;
     }
@@ -96,39 +68,6 @@ public final class VaultResourceGuardAssociationState extends com.pulumi.resourc
 
         public Builder(VaultResourceGuardAssociationState defaults) {
             $ = new VaultResourceGuardAssociationState(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param name Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-         * 
-         * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `name` field will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The `name` field will be removed in v4.0 of the AzureRM Provider. */
-        public Builder name(@Nullable Output<String> name) {
-            $.name = name;
-            return this;
-        }
-
-        /**
-         * @param name Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-         * 
-         * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `name` field will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The `name` field will be removed in v4.0 of the AzureRM Provider. */
-        public Builder name(String name) {
-            return name(Output.of(name));
         }
 
         /**

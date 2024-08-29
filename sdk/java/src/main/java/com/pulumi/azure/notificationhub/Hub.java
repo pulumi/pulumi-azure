@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.notificationhub.HubArgs;
 import com.pulumi.azure.notificationhub.inputs.HubState;
 import com.pulumi.azure.notificationhub.outputs.HubApnsCredential;
+import com.pulumi.azure.notificationhub.outputs.HubBrowserCredential;
 import com.pulumi.azure.notificationhub.outputs.HubGcmCredential;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -103,6 +104,20 @@ public class Hub extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<HubApnsCredential>> apnsCredential() {
         return Codegen.optional(this.apnsCredential);
+    }
+    /**
+     * A `browser_credential` block as defined below.
+     * 
+     */
+    @Export(name="browserCredential", refs={HubBrowserCredential.class}, tree="[0]")
+    private Output</* @Nullable */ HubBrowserCredential> browserCredential;
+
+    /**
+     * @return A `browser_credential` block as defined below.
+     * 
+     */
+    public Output<Optional<HubBrowserCredential>> browserCredential() {
+        return Codegen.optional(this.browserCredential);
     }
     /**
      * A `gcm_credential` block as defined below.

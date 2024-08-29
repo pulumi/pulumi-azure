@@ -27,35 +27,7 @@ public final class GetAccountResult {
      * 
      */
     private List<GetAccountCapability> capabilities;
-    /**
-     * @deprecated
-     * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
-    private List<String> connectionStrings;
     private List<GetAccountConsistencyPolicy> consistencyPolicies;
-    /**
-     * @deprecated
-     * This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider */
-    private Boolean enableAutomaticFailover;
-    /**
-     * @deprecated
-     * This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider */
-    private Boolean enableFreeTier;
-    /**
-     * @deprecated
-     * This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider */
-    private Boolean enableMultipleWriteLocations;
     /**
      * @return The endpoint used to connect to the CosmosDB account.
      * 
@@ -205,44 +177,8 @@ public final class GetAccountResult {
     public List<GetAccountCapability> capabilities() {
         return this.capabilities;
     }
-    /**
-     * @deprecated
-     * This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider */
-    public List<String> connectionStrings() {
-        return this.connectionStrings;
-    }
     public List<GetAccountConsistencyPolicy> consistencyPolicies() {
         return this.consistencyPolicies;
-    }
-    /**
-     * @deprecated
-     * This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been renamed to `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM provider */
-    public Boolean enableAutomaticFailover() {
-        return this.enableAutomaticFailover;
-    }
-    /**
-     * @deprecated
-     * This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been renamed to `free_tier_enabled` and will be removed in v4.0 of the AzureRM provider */
-    public Boolean enableFreeTier() {
-        return this.enableFreeTier;
-    }
-    /**
-     * @deprecated
-     * This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* This property has been renamed to `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM provider */
-    public Boolean enableMultipleWriteLocations() {
-        return this.enableMultipleWriteLocations;
     }
     /**
      * @return The endpoint used to connect to the CosmosDB account.
@@ -447,11 +383,7 @@ public final class GetAccountResult {
     public static final class Builder {
         private Boolean automaticFailoverEnabled;
         private List<GetAccountCapability> capabilities;
-        private List<String> connectionStrings;
         private List<GetAccountConsistencyPolicy> consistencyPolicies;
-        private Boolean enableAutomaticFailover;
-        private Boolean enableFreeTier;
-        private Boolean enableMultipleWriteLocations;
         private String endpoint;
         private Boolean freeTierEnabled;
         private List<GetAccountGeoLocation> geoLocations;
@@ -486,11 +418,7 @@ public final class GetAccountResult {
     	      Objects.requireNonNull(defaults);
     	      this.automaticFailoverEnabled = defaults.automaticFailoverEnabled;
     	      this.capabilities = defaults.capabilities;
-    	      this.connectionStrings = defaults.connectionStrings;
     	      this.consistencyPolicies = defaults.consistencyPolicies;
-    	      this.enableAutomaticFailover = defaults.enableAutomaticFailover;
-    	      this.enableFreeTier = defaults.enableFreeTier;
-    	      this.enableMultipleWriteLocations = defaults.enableMultipleWriteLocations;
     	      this.endpoint = defaults.endpoint;
     	      this.freeTierEnabled = defaults.freeTierEnabled;
     	      this.geoLocations = defaults.geoLocations;
@@ -542,17 +470,6 @@ public final class GetAccountResult {
             return capabilities(List.of(capabilities));
         }
         @CustomType.Setter
-        public Builder connectionStrings(List<String> connectionStrings) {
-            if (connectionStrings == null) {
-              throw new MissingRequiredPropertyException("GetAccountResult", "connectionStrings");
-            }
-            this.connectionStrings = connectionStrings;
-            return this;
-        }
-        public Builder connectionStrings(String... connectionStrings) {
-            return connectionStrings(List.of(connectionStrings));
-        }
-        @CustomType.Setter
         public Builder consistencyPolicies(List<GetAccountConsistencyPolicy> consistencyPolicies) {
             if (consistencyPolicies == null) {
               throw new MissingRequiredPropertyException("GetAccountResult", "consistencyPolicies");
@@ -562,30 +479,6 @@ public final class GetAccountResult {
         }
         public Builder consistencyPolicies(GetAccountConsistencyPolicy... consistencyPolicies) {
             return consistencyPolicies(List.of(consistencyPolicies));
-        }
-        @CustomType.Setter
-        public Builder enableAutomaticFailover(Boolean enableAutomaticFailover) {
-            if (enableAutomaticFailover == null) {
-              throw new MissingRequiredPropertyException("GetAccountResult", "enableAutomaticFailover");
-            }
-            this.enableAutomaticFailover = enableAutomaticFailover;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableFreeTier(Boolean enableFreeTier) {
-            if (enableFreeTier == null) {
-              throw new MissingRequiredPropertyException("GetAccountResult", "enableFreeTier");
-            }
-            this.enableFreeTier = enableFreeTier;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableMultipleWriteLocations(Boolean enableMultipleWriteLocations) {
-            if (enableMultipleWriteLocations == null) {
-              throw new MissingRequiredPropertyException("GetAccountResult", "enableMultipleWriteLocations");
-            }
-            this.enableMultipleWriteLocations = enableMultipleWriteLocations;
-            return this;
         }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
@@ -835,11 +728,7 @@ public final class GetAccountResult {
             final var _resultValue = new GetAccountResult();
             _resultValue.automaticFailoverEnabled = automaticFailoverEnabled;
             _resultValue.capabilities = capabilities;
-            _resultValue.connectionStrings = connectionStrings;
             _resultValue.consistencyPolicies = consistencyPolicies;
-            _resultValue.enableAutomaticFailover = enableAutomaticFailover;
-            _resultValue.enableFreeTier = enableFreeTier;
-            _resultValue.enableMultipleWriteLocations = enableMultipleWriteLocations;
             _resultValue.endpoint = endpoint;
             _resultValue.freeTierEnabled = freeTierEnabled;
             _resultValue.geoLocations = geoLocations;

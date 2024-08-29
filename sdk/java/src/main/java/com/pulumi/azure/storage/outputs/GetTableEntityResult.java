@@ -23,21 +23,7 @@ public final class GetTableEntityResult {
     private String id;
     private String partitionKey;
     private String rowKey;
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    private String storageAccountName;
     private String storageTableId;
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    private String tableName;
 
     private GetTableEntityResult() {}
     /**
@@ -60,26 +46,8 @@ public final class GetTableEntityResult {
     public String rowKey() {
         return this.rowKey;
     }
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    public String storageAccountName() {
-        return this.storageAccountName;
-    }
     public String storageTableId() {
         return this.storageTableId;
-    }
-    /**
-     * @deprecated
-     * the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider */
-    public String tableName() {
-        return this.tableName;
     }
 
     public static Builder builder() {
@@ -95,9 +63,7 @@ public final class GetTableEntityResult {
         private String id;
         private String partitionKey;
         private String rowKey;
-        private String storageAccountName;
         private String storageTableId;
-        private String tableName;
         public Builder() {}
         public Builder(GetTableEntityResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -105,9 +71,7 @@ public final class GetTableEntityResult {
     	      this.id = defaults.id;
     	      this.partitionKey = defaults.partitionKey;
     	      this.rowKey = defaults.rowKey;
-    	      this.storageAccountName = defaults.storageAccountName;
     	      this.storageTableId = defaults.storageTableId;
-    	      this.tableName = defaults.tableName;
         }
 
         @CustomType.Setter
@@ -143,27 +107,11 @@ public final class GetTableEntityResult {
             return this;
         }
         @CustomType.Setter
-        public Builder storageAccountName(String storageAccountName) {
-            if (storageAccountName == null) {
-              throw new MissingRequiredPropertyException("GetTableEntityResult", "storageAccountName");
-            }
-            this.storageAccountName = storageAccountName;
-            return this;
-        }
-        @CustomType.Setter
         public Builder storageTableId(String storageTableId) {
             if (storageTableId == null) {
               throw new MissingRequiredPropertyException("GetTableEntityResult", "storageTableId");
             }
             this.storageTableId = storageTableId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder tableName(String tableName) {
-            if (tableName == null) {
-              throw new MissingRequiredPropertyException("GetTableEntityResult", "tableName");
-            }
-            this.tableName = tableName;
             return this;
         }
         public GetTableEntityResult build() {
@@ -172,9 +120,7 @@ public final class GetTableEntityResult {
             _resultValue.id = id;
             _resultValue.partitionKey = partitionKey;
             _resultValue.rowKey = rowKey;
-            _resultValue.storageAccountName = storageAccountName;
             _resultValue.storageTableId = storageTableId;
-            _resultValue.tableName = tableName;
             return _resultValue;
         }
     }

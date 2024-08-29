@@ -4,7 +4,6 @@
 package com.pulumi.azure.consumption.inputs;
 
 import com.pulumi.azure.consumption.inputs.BudgetManagementGroupFilterDimensionArgs;
-import com.pulumi.azure.consumption.inputs.BudgetManagementGroupFilterNotArgs;
 import com.pulumi.azure.consumption.inputs.BudgetManagementGroupFilterTagArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -34,29 +33,6 @@ public final class BudgetManagementGroupFilterArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-    @Import(name="not")
-    private @Nullable Output<BudgetManagementGroupFilterNotArgs> not;
-
-    /**
-     * @return A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-    public Optional<Output<BudgetManagementGroupFilterNotArgs>> not() {
-        return Optional.ofNullable(this.not);
-    }
-
-    /**
      * One or more `tag` blocks as defined below to filter the budget on.
      * 
      */
@@ -75,7 +51,6 @@ public final class BudgetManagementGroupFilterArgs extends com.pulumi.resources.
 
     private BudgetManagementGroupFilterArgs(BudgetManagementGroupFilterArgs $) {
         this.dimensions = $.dimensions;
-        this.not = $.not;
         this.tags = $.tags;
     }
 
@@ -126,35 +101,6 @@ public final class BudgetManagementGroupFilterArgs extends com.pulumi.resources.
          */
         public Builder dimensions(BudgetManagementGroupFilterDimensionArgs... dimensions) {
             return dimensions(List.of(dimensions));
-        }
-
-        /**
-         * @param not A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-        public Builder not(@Nullable Output<BudgetManagementGroupFilterNotArgs> not) {
-            $.not = not;
-            return this;
-        }
-
-        /**
-         * @param not A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-        public Builder not(BudgetManagementGroupFilterNotArgs not) {
-            return not(Output.of(not));
         }
 
         /**

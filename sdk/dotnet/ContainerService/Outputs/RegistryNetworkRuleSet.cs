@@ -25,19 +25,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryNetworkRuleSetIpRule> IpRules;
-        public readonly ImmutableArray<Outputs.RegistryNetworkRuleSetVirtualNetwork> VirtualNetworks;
 
         [OutputConstructor]
         private RegistryNetworkRuleSet(
             string? defaultAction,
 
-            ImmutableArray<Outputs.RegistryNetworkRuleSetIpRule> ipRules,
-
-            ImmutableArray<Outputs.RegistryNetworkRuleSetVirtualNetwork> virtualNetworks)
+            ImmutableArray<Outputs.RegistryNetworkRuleSetIpRule> ipRules)
         {
             DefaultAction = defaultAction;
             IpRules = ipRules;
-            VirtualNetworks = virtualNetworks;
         }
     }
 }
