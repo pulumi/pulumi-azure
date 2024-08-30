@@ -5,12 +5,15 @@ package provider
 import (
 	"context"
 	_ "embed"
+	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 	"testing"
 
 	"github.com/pulumi/providertest"
+	"github.com/pulumi/providertest/grpclog"
 	"github.com/pulumi/providertest/providers"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
@@ -41,8 +44,27 @@ func test(t *testing.T, dir string) {
 		return
 	}
 	subscriptionID := getSubscriptionID(t)
+	providerServerWithMockedInvokes := providers.ProviderInterceptFactory(context.Background(), providers.ResourceProviderFactory(providerServer), providers.ProviderInterceptors{
+		Invoke: func(ctx context.Context, in *pulumirpc.InvokeRequest, client pulumirpc.ResourceProviderClient) (*pulumirpc.InvokeResponse, error) {
+			log, err := grpclog.LoadLog(filepath.Join("testdata", "recorded", "TestProviderUpgrade", filepath.Base(dir), "5.60.0", "grpc.json"))
+			if err != nil {
+				return nil, fmt.Errorf("failed to load gRPC log: %w", err)
+			}
+			invokes, err := log.Invokes()
+			if err != nil {
+				return nil, fmt.Errorf("failed to get invokes from log: %w", err)
+			}
+			for i := 0; i < len(invokes); i++ {
+				if invokes[i].Request.Tok == in.GetTok() {
+					return &invokes[i].Response, nil
+				}
+			}
+			t.Logf("invoke not found, falling back to live execution: %s\n", in.GetTok())
+			return client.Invoke(ctx, in)
+		},
+	})
 	pt := pulumitest.NewPulumiTest(t, dir,
-		opttest.AttachProviderServer("azure", providerServer))
+		opttest.AttachProvider("azure", providerServerWithMockedInvokes))
 	pt.SetConfig(t, "azure:subscriptionId", subscriptionID)
 	previewResult := providertest.PreviewProviderUpgrade(t, pt, "azure", "5.60.0")
 	assertpreview.HasNoReplacements(t, previewResult)
