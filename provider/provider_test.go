@@ -5,6 +5,9 @@ package provider
 import (
 	"context"
 	_ "embed"
+	"os"
+	"os/exec"
+	"strings"
 	"testing"
 
 	"github.com/pulumi/providertest"
@@ -23,7 +26,7 @@ import (
 //go:embed cmd/pulumi-resource-azure/schema.json
 var schemaBytes []byte
 
-func providerServer(pt providers.PulumiTest) (pulumirpc.ResourceProviderServer, error) {
+func providerServer(_ providers.PulumiTest) (pulumirpc.ResourceProviderServer, error) {
 	ctx := context.Background()
 	version.Version = "0.0.1"
 	info := Provider()
@@ -37,12 +40,34 @@ func test(t *testing.T, dir string) {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without cloud credentials")
 		return
 	}
+	subscriptionID := getSubscriptionID(t)
 	pt := pulumitest.NewPulumiTest(t, dir,
 		opttest.AttachProviderServer("azure", providerServer))
+	pt.SetConfig(t, "azure:subscriptionId", subscriptionID)
 	previewResult := providertest.PreviewProviderUpgrade(t, pt, "azure", "5.60.0")
 	assertpreview.HasNoReplacements(t, previewResult)
 }
 
 func TestUpgradeCoverage(t *testing.T) {
 	providertest.ReportUpgradeCoverage(t)
+}
+
+func getSubscriptionID(t *testing.T) string {
+	// Prefer the environment variable, but fall back to the Azure CLI if it's not set.
+	// This should always be set in CI, but is useful for local testing.
+	subscriptionID := os.Getenv("ARM_SUBSCRIPTION_ID")
+	if subscriptionID == "" {
+		// Fetch from default Azure CLI profile
+		cmd := exec.Command("az", "account", "show", "--query", "id", "-o", "tsv")
+		out, err := cmd.Output()
+		if err != nil {
+			t.Fatal(err)
+		}
+		if len(out) == 0 {
+			t.Fatal("No Azure subscription ID found")
+		}
+		subscriptionID = strings.Trim(string(out), "\n")
+	}
+
+	return subscriptionID
 }
