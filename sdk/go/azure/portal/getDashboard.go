@@ -79,14 +79,20 @@ type LookupDashboardResult struct {
 
 func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDashboardResult, error) {
+		ApplyT(func(v interface{}) (LookupDashboardResultOutput, error) {
 			args := v.(LookupDashboardArgs)
-			r, err := LookupDashboard(ctx, &args, opts...)
-			var s LookupDashboardResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDashboardResult
+			secret, err := ctx.InvokePackageRaw("azure:portal/getDashboard:getDashboard", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDashboardResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDashboardResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDashboardResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDashboardResultOutput)
 }
 

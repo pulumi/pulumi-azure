@@ -102,14 +102,20 @@ type LookupCertificateOrderResult struct {
 
 func LookupCertificateOrderOutput(ctx *pulumi.Context, args LookupCertificateOrderOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateOrderResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCertificateOrderResult, error) {
+		ApplyT(func(v interface{}) (LookupCertificateOrderResultOutput, error) {
 			args := v.(LookupCertificateOrderArgs)
-			r, err := LookupCertificateOrder(ctx, &args, opts...)
-			var s LookupCertificateOrderResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCertificateOrderResult
+			secret, err := ctx.InvokePackageRaw("azure:appservice/getCertificateOrder:getCertificateOrder", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCertificateOrderResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCertificateOrderResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCertificateOrderResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCertificateOrderResultOutput)
 }
 

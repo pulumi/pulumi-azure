@@ -88,14 +88,20 @@ type LookupNetworkSimPolicyResult struct {
 
 func LookupNetworkSimPolicyOutput(ctx *pulumi.Context, args LookupNetworkSimPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSimPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkSimPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkSimPolicyResultOutput, error) {
 			args := v.(LookupNetworkSimPolicyArgs)
-			r, err := LookupNetworkSimPolicy(ctx, &args, opts...)
-			var s LookupNetworkSimPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkSimPolicyResult
+			secret, err := ctx.InvokePackageRaw("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkSimPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkSimPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkSimPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkSimPolicyResultOutput)
 }
 
