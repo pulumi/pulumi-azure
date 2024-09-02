@@ -101,14 +101,20 @@ type LookupDeploymentResult struct {
 
 func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDeploymentResult, error) {
+		ApplyT(func(v interface{}) (LookupDeploymentResultOutput, error) {
 			args := v.(LookupDeploymentArgs)
-			r, err := LookupDeployment(ctx, &args, opts...)
-			var s LookupDeploymentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDeploymentResult
+			secret, err := ctx.InvokePackageRaw("azure:nginx/getDeployment:getDeployment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDeploymentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDeploymentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDeploymentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDeploymentResultOutput)
 }
 
