@@ -78,14 +78,20 @@ type GetSrvRecordResult struct {
 
 func GetSrvRecordOutput(ctx *pulumi.Context, args GetSrvRecordOutputArgs, opts ...pulumi.InvokeOption) GetSrvRecordResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSrvRecordResult, error) {
+		ApplyT(func(v interface{}) (GetSrvRecordResultOutput, error) {
 			args := v.(GetSrvRecordArgs)
-			r, err := GetSrvRecord(ctx, &args, opts...)
-			var s GetSrvRecordResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSrvRecordResult
+			secret, err := ctx.InvokePackageRaw("azure:privatedns/getSrvRecord:getSrvRecord", args, &rv, "", opts...)
+			if err != nil {
+				return GetSrvRecordResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSrvRecordResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSrvRecordResultOutput), nil
+			}
+			return output, nil
 		}).(GetSrvRecordResultOutput)
 }
 

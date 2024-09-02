@@ -72,14 +72,20 @@ type GetPolicyResult struct {
 
 func GetPolicyOutput(ctx *pulumi.Context, args GetPolicyOutputArgs, opts ...pulumi.InvokeOption) GetPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPolicyResult, error) {
+		ApplyT(func(v interface{}) (GetPolicyResultOutput, error) {
 			args := v.(GetPolicyArgs)
-			r, err := GetPolicy(ctx, &args, opts...)
-			var s GetPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPolicyResult
+			secret, err := ctx.InvokePackageRaw("azure:storage/getPolicy:getPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return GetPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(GetPolicyResultOutput)
 }
 

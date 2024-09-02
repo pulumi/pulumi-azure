@@ -75,14 +75,20 @@ type GetRecommendationsResult struct {
 
 func GetRecommendationsOutput(ctx *pulumi.Context, args GetRecommendationsOutputArgs, opts ...pulumi.InvokeOption) GetRecommendationsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRecommendationsResult, error) {
+		ApplyT(func(v interface{}) (GetRecommendationsResultOutput, error) {
 			args := v.(GetRecommendationsArgs)
-			r, err := GetRecommendations(ctx, &args, opts...)
-			var s GetRecommendationsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRecommendationsResult
+			secret, err := ctx.InvokePackageRaw("azure:advisor/getRecommendations:getRecommendations", args, &rv, "", opts...)
+			if err != nil {
+				return GetRecommendationsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRecommendationsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRecommendationsResultOutput), nil
+			}
+			return output, nil
 		}).(GetRecommendationsResultOutput)
 }
 
