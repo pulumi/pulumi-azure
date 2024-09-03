@@ -121,7 +121,7 @@ class _TriggerHttpRequestState:
                  schema: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TriggerHttpRequest resources.
-        :param pulumi.Input[str] callback_url: The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+        :param pulumi.Input[str] callback_url: The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] method: Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
@@ -149,7 +149,7 @@ class _TriggerHttpRequestState:
     @pulumi.getter(name="callbackUrl")
     def callback_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+        The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         """
         return pulumi.get(self, "callback_url")
 
@@ -389,7 +389,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] callback_url: The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+        :param pulumi.Input[str] callback_url: The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] method: Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
@@ -416,7 +416,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
     @pulumi.getter(name="callbackUrl")
     def callback_url(self) -> pulumi.Output[str]:
         """
-        The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+        The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         """
         return pulumi.get(self, "callback_url")
 
