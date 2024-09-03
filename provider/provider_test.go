@@ -18,10 +18,9 @@ import (
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
+	"github.com/pulumi/pulumi-azure/provider/v6/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
-
-	"github.com/pulumi/pulumi-azure/provider/v6/pkg/version"
 )
 
 // Use the non-embedded schema to avoid having to run generation before running the tests.
@@ -44,25 +43,30 @@ func test(t *testing.T, dir string) {
 		return
 	}
 	subscriptionID := getSubscriptionID(t)
-	providerServerWithMockedInvokes := providers.ProviderInterceptFactory(context.Background(), providers.ResourceProviderFactory(providerServer), providers.ProviderInterceptors{
-		Invoke: func(ctx context.Context, in *pulumirpc.InvokeRequest, client pulumirpc.ResourceProviderClient) (*pulumirpc.InvokeResponse, error) {
-			log, err := grpclog.LoadLog(filepath.Join("testdata", "recorded", "TestProviderUpgrade", filepath.Base(dir), "5.60.0", "grpc.json"))
-			if err != nil {
-				return nil, fmt.Errorf("failed to load gRPC log: %w", err)
-			}
-			invokes, err := log.Invokes()
-			if err != nil {
-				return nil, fmt.Errorf("failed to get invokes from log: %w", err)
-			}
-			for i := 0; i < len(invokes); i++ {
-				if invokes[i].Request.Tok == in.GetTok() {
-					return &invokes[i].Response, nil
+	providerServerWithMockedInvokes := providers.ProviderInterceptFactory(
+		context.Background(),
+		providers.ResourceProviderFactory(providerServer),
+		providers.ProviderInterceptors{
+			Invoke: func(ctx context.Context, in *pulumirpc.InvokeRequest, client pulumirpc.ResourceProviderClient,
+			) (*pulumirpc.InvokeResponse, error) {
+				log, err := grpclog.LoadLog(filepath.Join("testdata", "recorded", "TestProviderUpgrade",
+					filepath.Base(dir), "5.60.0", "grpc.json"))
+				if err != nil {
+					return nil, fmt.Errorf("failed to load gRPC log: %w", err)
 				}
-			}
-			t.Logf("invoke not found, falling back to live execution: %s\n", in.GetTok())
-			return client.Invoke(ctx, in)
-		},
-	})
+				invokes, err := log.Invokes()
+				if err != nil {
+					return nil, fmt.Errorf("failed to get invokes from log: %w", err)
+				}
+				for i := 0; i < len(invokes); i++ {
+					if invokes[i].Request.Tok == in.GetTok() {
+						return &invokes[i].Response, nil
+					}
+				}
+				t.Logf("invoke not found, falling back to live execution: %s\n", in.GetTok())
+				return client.Invoke(ctx, in)
+			},
+		})
 	pt := pulumitest.NewPulumiTest(t, dir,
 		opttest.AttachProvider("azure", providerServerWithMockedInvokes))
 	pt.SetConfig(t, "azure:subscriptionId", subscriptionID)
