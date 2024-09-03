@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Storage Account Behind VNet And Firewall
+ * ### with storage account behind VNet and firewall
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

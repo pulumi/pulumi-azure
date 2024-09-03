@@ -12,13 +12,13 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Slot (within an App Service).
     /// 
-    /// !&gt; **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxWebAppSlot` resources instead.
+    /// !&gt; **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxWebAppSlot` and `azure.appservice.WindowsWebAppSlot` resources instead.
     /// 
     /// &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
     /// 
     /// ## Example Usage
     /// 
-    /// ### NET 4.X)
+    /// ### NET 4.x)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

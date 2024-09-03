@@ -36,7 +36,7 @@ namespace Pulumi.Azure.AppConfiguration
     /// });
     /// ```
     /// 
-    /// ### Encryption)
+    /// ### encryption)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

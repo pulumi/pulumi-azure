@@ -32,7 +32,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateContainerEnv> Envs;
         /// <summary>
-        /// The amount of ephemeral storage available to the Container App. 
+        /// The amount of ephemeral storage available to the Container App.
         /// 
         /// &gt; **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         /// </summary>

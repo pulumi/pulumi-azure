@@ -433,15 +433,15 @@ class DataFlow(pulumi.CustomResource):
                 },
             }],
             script=\"\"\"source(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          limit: 100, 
-          ignoreNoFilesFound: false, 
-          documentForm: 'documentPerLine') ~> source1 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          limit: 100,
+          ignoreNoFilesFound: false,
+          documentForm: 'documentPerLine') ~> source1
         source1 sink(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          skipDuplicateMapInputs: true, 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          skipDuplicateMapInputs: true,
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
         example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2",
@@ -460,15 +460,15 @@ class DataFlow(pulumi.CustomResource):
                 },
             }],
             script=\"\"\"source(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          limit: 100, 
-          ignoreNoFilesFound: false, 
-          documentForm: 'documentPerLine') ~> source1 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          limit: 100,
+          ignoreNoFilesFound: false,
+          documentForm: 'documentPerLine') ~> source1
         source1 sink(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          skipDuplicateMapInputs: true, 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          skipDuplicateMapInputs: true,
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
         example_data_flow = azure.datafactory.DataFlow("example",
@@ -499,15 +499,15 @@ class DataFlow(pulumi.CustomResource):
                 },
             }],
             script=\"\"\"source(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          limit: 100, 
-          ignoreNoFilesFound: false, 
-          documentForm: 'documentPerLine') ~> source1 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          limit: 100,
+          ignoreNoFilesFound: false,
+          documentForm: 'documentPerLine') ~> source1
         source1 sink(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          skipDuplicateMapInputs: true, 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          skipDuplicateMapInputs: true,
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
         ```
@@ -605,15 +605,15 @@ class DataFlow(pulumi.CustomResource):
                 },
             }],
             script=\"\"\"source(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          limit: 100, 
-          ignoreNoFilesFound: false, 
-          documentForm: 'documentPerLine') ~> source1 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          limit: 100,
+          ignoreNoFilesFound: false,
+          documentForm: 'documentPerLine') ~> source1
         source1 sink(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          skipDuplicateMapInputs: true, 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          skipDuplicateMapInputs: true,
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
         example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2",
@@ -632,15 +632,15 @@ class DataFlow(pulumi.CustomResource):
                 },
             }],
             script=\"\"\"source(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          limit: 100, 
-          ignoreNoFilesFound: false, 
-          documentForm: 'documentPerLine') ~> source1 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          limit: 100,
+          ignoreNoFilesFound: false,
+          documentForm: 'documentPerLine') ~> source1
         source1 sink(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          skipDuplicateMapInputs: true, 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          skipDuplicateMapInputs: true,
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
         example_data_flow = azure.datafactory.DataFlow("example",
@@ -671,15 +671,15 @@ class DataFlow(pulumi.CustomResource):
                 },
             }],
             script=\"\"\"source(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          limit: 100, 
-          ignoreNoFilesFound: false, 
-          documentForm: 'documentPerLine') ~> source1 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          limit: 100,
+          ignoreNoFilesFound: false,
+          documentForm: 'documentPerLine') ~> source1
         source1 sink(
-          allowSchemaDrift: true, 
-          validateSchema: false, 
-          skipDuplicateMapInputs: true, 
+          allowSchemaDrift: true,
+          validateSchema: false,
+          skipDuplicateMapInputs: true,
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
         ```

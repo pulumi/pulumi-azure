@@ -109,7 +109,7 @@ namespace Pulumi.Azure.ContainerService
     /// });
     /// ```
     /// 
-    /// ### Attaching A Container Registry To A Kubernetes Cluster)
+    /// ### Attaching a Container Registry to a Kubernetes Cluster)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

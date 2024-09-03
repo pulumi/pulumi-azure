@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Allow Access To Azure Services)
+ * ### Allow access to Azure services)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

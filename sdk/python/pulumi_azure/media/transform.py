@@ -243,7 +243,7 @@ class Transform(pulumi.CustomResource):
             }])
         ```
 
-        ### With Multiple Outputs
+        ### with Multiple Outputs
 
         ```python
         import pulumi
@@ -602,7 +602,7 @@ class Transform(pulumi.CustomResource):
             }])
         ```
 
-        ### With Multiple Outputs
+        ### with Multiple Outputs
 
         ```python
         import pulumi

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Backup.Outputs
     public sealed class PolicyFileShareBackup
     {
         /// <summary>
-        /// Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
+        /// Sets the backup frequency. Possible values are `Daily` and `Hourly`.
         /// 
         /// &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         /// </summary>

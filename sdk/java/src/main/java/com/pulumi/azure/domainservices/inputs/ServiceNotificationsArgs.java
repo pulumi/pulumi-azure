@@ -33,14 +33,14 @@ public final class ServiceNotificationsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+     * Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
      * 
      */
     @Import(name="notifyDcAdmins")
     private @Nullable Output<Boolean> notifyDcAdmins;
 
     /**
-     * @return Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+     * @return Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
      * 
      */
     public Optional<Output<Boolean>> notifyDcAdmins() {
@@ -120,7 +120,7 @@ public final class ServiceNotificationsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param notifyDcAdmins Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+         * @param notifyDcAdmins Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ServiceNotificationsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param notifyDcAdmins Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+         * @param notifyDcAdmins Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
          * 
          * @return builder
          * 

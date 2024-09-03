@@ -93,7 +93,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly infrastructureResourceGroupName!: pulumi.Output<string | undefined>;
     /**
-     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      *
      * > **Note:** The Subnet must have a `/21` or larger address space.
      */
@@ -242,7 +242,7 @@ export interface EnvironmentState {
      */
     infrastructureResourceGroupName?: pulumi.Input<string>;
     /**
-     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      *
      * > **Note:** The Subnet must have a `/21` or larger address space.
      */
@@ -318,7 +318,7 @@ export interface EnvironmentArgs {
      */
     infrastructureResourceGroupName?: pulumi.Input<string>;
     /**
-     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      *
      * > **Note:** The Subnet must have a `/21` or larger address space.
      */

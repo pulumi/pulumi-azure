@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Creating A Microsoft Peering)
+// ### Creating a Microsoft Peering)
 //
 // ```go
 // package main

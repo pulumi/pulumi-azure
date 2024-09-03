@@ -266,7 +266,7 @@ class Dashboard(pulumi.CustomResource):
                                     }}
                                 }}
                             }}
-                        }},               
+                        }},
                         "1": {{
                             "position": {{
                                 "x": 5,
@@ -310,7 +310,7 @@ class Dashboard(pulumi.CustomResource):
                                     "type": "ApplicationInsights"
                                 }}
                             }}
-                        }}              
+                        }}
                     }}
                 }}
             }},
@@ -445,7 +445,7 @@ class Dashboard(pulumi.CustomResource):
                                     }}
                                 }}
                             }}
-                        }},               
+                        }},
                         "1": {{
                             "position": {{
                                 "x": 5,
@@ -489,7 +489,7 @@ class Dashboard(pulumi.CustomResource):
                                     "type": "ApplicationInsights"
                                 }}
                             }}
-                        }}              
+                        }}
                     }}
                 }}
             }},

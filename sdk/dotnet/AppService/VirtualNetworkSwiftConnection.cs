@@ -35,7 +35,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// ## Example Usage
     /// 
-    /// ### With App Service)
+    /// ### with App Service)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.AppService
     /// });
     /// ```
     /// 
-    /// ### With Function App)
+    /// ### with Function App)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### With Base64 Certificate)
+ * ### with Base64 Certificate)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Key Vault Certificate)
+ * ### with Key Vault Certificate)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

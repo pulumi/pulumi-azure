@@ -104,7 +104,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        /// Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Output("applicationType")]
         public Output<string> ApplicationType { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.AppInsights
     public sealed class InsightsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        /// Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationType", required: true)]
         public Input<string> ApplicationType { get; set; } = null!;
@@ -371,7 +371,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? AppId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        /// Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationType")]
         public Input<string>? ApplicationType { get; set; }

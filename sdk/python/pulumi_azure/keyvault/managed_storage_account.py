@@ -326,7 +326,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             regeneration_period="P1D")
         ```
 
-        ### Automatically Regenerate Storage Account Access Key)
+        ### automatically regenerate Storage Account access key)
 
         ```python
         import pulumi
@@ -460,7 +460,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             regeneration_period="P1D")
         ```
 
-        ### Automatically Regenerate Storage Account Access Key)
+        ### automatically regenerate Storage Account access key)
 
         ```python
         import pulumi

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Search
     /// 
     /// ## Example Usage
     /// 
-    /// ### Supporting API Keys)
+    /// ### supporting API Keys)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Search
     /// });
     /// ```
     /// 
-    /// ### Using Both AzureAD And API Keys)
+    /// ### using both AzureAD and API Keys)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Search
     /// });
     /// ```
     /// 
-    /// ### Supporting Only AzureAD Authentication)
+    /// ### supporting only AzureAD Authentication)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

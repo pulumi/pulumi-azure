@@ -642,7 +642,7 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Supporting API Keys)
+        ### supporting API Keys)
 
         ```python
         import pulumi
@@ -658,7 +658,7 @@ class Service(pulumi.CustomResource):
             sku="standard")
         ```
 
-        ### Using Both AzureAD And API Keys)
+        ### using both AzureAD and API Keys)
 
         ```python
         import pulumi
@@ -676,7 +676,7 @@ class Service(pulumi.CustomResource):
             authentication_failure_mode="http403")
         ```
 
-        ### Supporting Only AzureAD Authentication)
+        ### supporting only AzureAD Authentication)
 
         ```python
         import pulumi
@@ -744,7 +744,7 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Supporting API Keys)
+        ### supporting API Keys)
 
         ```python
         import pulumi
@@ -760,7 +760,7 @@ class Service(pulumi.CustomResource):
             sku="standard")
         ```
 
-        ### Using Both AzureAD And API Keys)
+        ### using both AzureAD and API Keys)
 
         ```python
         import pulumi
@@ -778,7 +778,7 @@ class Service(pulumi.CustomResource):
             authentication_failure_mode="http403")
         ```
 
-        ### Supporting Only AzureAD Authentication)
+        ### supporting only AzureAD Authentication)
 
         ```python
         import pulumi

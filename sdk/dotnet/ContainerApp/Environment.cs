@@ -92,7 +92,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string?> InfrastructureResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** The Subnet must have a `/21` or larger address space.
         /// </summary>
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? InfrastructureResourceGroupName { get; set; }
 
         /// <summary>
-        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** The Subnet must have a `/21` or larger address space.
         /// </summary>
@@ -382,7 +382,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? InfrastructureResourceGroupName { get; set; }
 
         /// <summary>
-        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** The Subnet must have a `/21` or larger address space.
         /// </summary>

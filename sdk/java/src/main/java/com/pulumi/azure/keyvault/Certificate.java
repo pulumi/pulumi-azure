@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Importing A PFX)
+ * ### Importing a PFX)
  * 
  * &gt; **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
  * 

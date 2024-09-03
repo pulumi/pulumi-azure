@@ -20,7 +20,7 @@ import (
 //
 // > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedKeysOnDestroy` for more information.
 //
-// ### Additional Examples
+// ### Example Usage
 //
 // ```go
 // package main

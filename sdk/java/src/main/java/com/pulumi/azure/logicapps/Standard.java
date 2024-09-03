@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### With App Service Plan)
+ * ### with App Service Plan)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### For Container Mode)
+ * ### for container mode)
  * 
  * &gt; **Note:** You must set `azure.appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
  * 

@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Password In Key Vault
+ * ### with Password in Key Vault
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

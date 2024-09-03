@@ -17,14 +17,14 @@ public final class ServerMicrosoftSupportAuditingPolicyState extends com.pulumi.
     public static final ServerMicrosoftSupportAuditingPolicyState Empty = new ServerMicrosoftSupportAuditingPolicyState();
 
     /**
-     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+     * The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Microsoft support auditing logs.
      * 
      */
     @Import(name="blobStorageEndpoint")
     private @Nullable Output<String> blobStorageEndpoint;
 
     /**
-     * @return The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+     * @return The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Microsoft support auditing logs.
      * 
      */
     public Optional<Output<String>> blobStorageEndpoint() {
@@ -140,7 +140,7 @@ public final class ServerMicrosoftSupportAuditingPolicyState extends com.pulumi.
         }
 
         /**
-         * @param blobStorageEndpoint The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+         * @param blobStorageEndpoint The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Microsoft support auditing logs.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ServerMicrosoftSupportAuditingPolicyState extends com.pulumi.
         }
 
         /**
-         * @param blobStorageEndpoint The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+         * @param blobStorageEndpoint The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Microsoft support auditing logs.
          * 
          * @return builder
          * 

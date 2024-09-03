@@ -37,7 +37,7 @@ import (
 //
 // ## Example Usage
 //
-// ### With App Service)
+// ### with App Service)
 //
 // ```go
 // package main
@@ -127,7 +127,7 @@ import (
 //
 // ```
 //
-// ### With Function App)
+// ### with Function App)
 //
 // ```go
 // package main

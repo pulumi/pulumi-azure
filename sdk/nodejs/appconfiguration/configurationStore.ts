@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Encryption)
+ * ### encryption)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

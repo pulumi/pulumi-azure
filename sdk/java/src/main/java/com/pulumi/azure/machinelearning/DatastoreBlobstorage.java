@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### With Azure Blob
+ * ### with Azure Blob
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

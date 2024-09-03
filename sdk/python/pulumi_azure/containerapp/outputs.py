@@ -1084,7 +1084,7 @@ class AppTemplateContainer(dict):
         :param Sequence[str] args: A list of extra arguments to pass to the container.
         :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
         :param Sequence['AppTemplateContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
-        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App. 
+        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
                
                > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         :param Sequence['AppTemplateContainerLivenessProbeArgs'] liveness_probes: A `liveness_probe` block as detailed below.
@@ -1177,7 +1177,7 @@ class AppTemplateContainer(dict):
     @pulumi.getter(name="ephemeralStorage")
     def ephemeral_storage(self) -> Optional[str]:
         """
-        The amount of ephemeral storage available to the Container App. 
+        The amount of ephemeral storage available to the Container App.
 
         > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """

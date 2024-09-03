@@ -192,7 +192,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Repeating On Weekends)
+ * ### repeating on weekends)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -359,7 +359,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### For Fixed Dates)
+ * ### for fixed dates)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

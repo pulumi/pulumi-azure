@@ -49,7 +49,6 @@ export interface GetGatewayHostNameConfigurationArgs {
     apiManagementId: string;
     /**
      * The name of the API Management Gateway.
-     * *
      */
     gatewayName: string;
     /**
@@ -133,7 +132,6 @@ export interface GetGatewayHostNameConfigurationOutputArgs {
     apiManagementId: pulumi.Input<string>;
     /**
      * The name of the API Management Gateway.
-     * *
      */
     gatewayName: pulumi.Input<string>;
     /**

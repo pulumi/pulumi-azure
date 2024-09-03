@@ -346,7 +346,7 @@ class CacheNfsTarget(pulumi.CustomResource):
                 "private_ip_address_allocation": "Dynamic",
             }])
         custom_data = \"\"\"#!/bin/bash
-        sudo -i 
+        sudo -i
         apt-get install -y nfs-kernel-server
         mkdir -p /export/a/1
         mkdir -p /export/a/2
@@ -471,7 +471,7 @@ class CacheNfsTarget(pulumi.CustomResource):
                 "private_ip_address_allocation": "Dynamic",
             }])
         custom_data = \"\"\"#!/bin/bash
-        sudo -i 
+        sudo -i
         apt-get install -y nfs-kernel-server
         mkdir -p /export/a/1
         mkdir -p /export/a/2

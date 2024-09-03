@@ -19,7 +19,7 @@ namespace Pulumi.Azure.PaloAlto.Inputs
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Public IP Address on which to receive traffic. 
+        /// The ID of the Public IP Address on which to receive traffic.
         /// 
         /// &gt; **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
         /// </summary>

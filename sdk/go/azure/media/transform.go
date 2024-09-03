@@ -85,7 +85,7 @@ import (
 //
 // ```
 //
-// ### With Multiple Outputs
+// ### with Multiple Outputs
 //
 // ```go
 // package main

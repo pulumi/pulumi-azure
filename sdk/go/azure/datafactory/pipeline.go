@@ -57,7 +57,7 @@ import (
 //
 // ```
 //
-// ### With Activities
+// ### with Activities
 //
 // ```go
 // package main

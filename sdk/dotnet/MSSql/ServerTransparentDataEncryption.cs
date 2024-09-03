@@ -20,7 +20,7 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// ## Example Usage
     /// 
-    /// ### With Service Managed Key
+    /// ### with Service Managed Key
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.MSSql
     /// });
     /// ```
     /// 
-    /// ### With Customer Managed Key
+    /// ### with Customer Managed Key
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

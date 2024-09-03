@@ -15,7 +15,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Reference An Existing)
+// ### reference an existing)
 //
 // ```go
 // package main

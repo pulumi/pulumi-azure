@@ -116,7 +116,7 @@ type Insights struct {
 
 	// The App ID associated with this Application Insights component.
 	AppId pulumi.StringOutput `pulumi:"appId"`
-	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+	// Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
 	ApplicationType pulumi.StringOutput `pulumi:"applicationType"`
 	// The Connection String for this Application Insights component. (Sensitive)
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
@@ -197,7 +197,7 @@ func GetInsights(ctx *pulumi.Context,
 type insightsState struct {
 	// The App ID associated with this Application Insights component.
 	AppId *string `pulumi:"appId"`
-	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+	// Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
 	ApplicationType *string `pulumi:"applicationType"`
 	// The Connection String for this Application Insights component. (Sensitive)
 	ConnectionString *string `pulumi:"connectionString"`
@@ -238,7 +238,7 @@ type insightsState struct {
 type InsightsState struct {
 	// The App ID associated with this Application Insights component.
 	AppId pulumi.StringPtrInput
-	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+	// Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
 	ApplicationType pulumi.StringPtrInput
 	// The Connection String for this Application Insights component. (Sensitive)
 	ConnectionString pulumi.StringPtrInput
@@ -281,7 +281,7 @@ func (InsightsState) ElementType() reflect.Type {
 }
 
 type insightsArgs struct {
-	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+	// Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
 	ApplicationType string `pulumi:"applicationType"`
 	// Specifies the Application Insights component daily data volume cap in GB.
 	DailyDataCapInGb *float64 `pulumi:"dailyDataCapInGb"`
@@ -317,7 +317,7 @@ type insightsArgs struct {
 
 // The set of arguments for constructing a Insights resource.
 type InsightsArgs struct {
-	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+	// Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
 	ApplicationType pulumi.StringInput
 	// Specifies the Application Insights component daily data volume cap in GB.
 	DailyDataCapInGb pulumi.Float64PtrInput
@@ -443,7 +443,7 @@ func (o InsightsOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insights) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+// Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
 func (o InsightsOutput) ApplicationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insights) pulumi.StringOutput { return v.ApplicationType }).(pulumi.StringOutput)
 }

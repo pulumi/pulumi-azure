@@ -130,7 +130,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> ApplianceName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the stroage account that should be used for logging during replication. 
+        /// The ID of the stroage account that should be used for logging during replication.
         /// 
         /// &gt; **Note:** Only standard types of storage accounts are allowed.
         /// 
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string> ApplianceName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the stroage account that should be used for logging during replication. 
+        /// The ID of the stroage account that should be used for logging during replication.
         /// 
         /// &gt; **Note:** Only standard types of storage accounts are allowed.
         /// 
@@ -508,7 +508,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? ApplianceName { get; set; }
 
         /// <summary>
-        /// The ID of the stroage account that should be used for logging during replication. 
+        /// The ID of the stroage account that should be used for logging during replication.
         /// 
         /// &gt; **Note:** Only standard types of storage accounts are allowed.
         /// 

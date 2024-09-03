@@ -37,7 +37,7 @@ class SnapshotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
-        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
@@ -87,7 +87,7 @@ class SnapshotArgs:
     @pulumi.getter(name="createOption")
     def create_option(self) -> pulumi.Input[str]:
         """
-        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
 
         > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         """
@@ -276,7 +276,7 @@ class _SnapshotState:
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
-        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
@@ -331,7 +331,7 @@ class _SnapshotState:
     @pulumi.getter(name="createOption")
     def create_option(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
 
         > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         """
@@ -569,7 +569,7 @@ class Snapshot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
@@ -718,7 +718,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
@@ -763,7 +763,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="createOption")
     def create_option(self) -> pulumi.Output[str]:
         """
-        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
 
         > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         """

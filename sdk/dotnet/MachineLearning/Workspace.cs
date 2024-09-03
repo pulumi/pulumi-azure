@@ -71,7 +71,7 @@ namespace Pulumi.Azure.MachineLearning
     /// });
     /// ```
     /// 
-    /// ### With Data Encryption
+    /// ### with Data encryption
     /// 
     /// &gt; **NOTE:** The Key Vault must enable purge protection.
     /// 
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.MachineLearning
     /// });
     /// ```
     /// 
-    /// ### With User Assigned Identity And Data Encryption
+    /// ### with User Assigned Identity and Data Encryption
     /// 
     /// &gt; **NOTE:** The Key Vault must enable purge protection.
     /// 

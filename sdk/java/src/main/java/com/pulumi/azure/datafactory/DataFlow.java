@@ -140,15 +140,15 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .script("""
  * source(
- *   allowSchemaDrift: true, 
- *   validateSchema: false, 
- *   limit: 100, 
- *   ignoreNoFilesFound: false, 
- *   documentForm: 'documentPerLine') ~> source1 
+ *   allowSchemaDrift: true,
+ *   validateSchema: false,
+ *   limit: 100,
+ *   ignoreNoFilesFound: false,
+ *   documentForm: 'documentPerLine') ~> source1
  * source1 sink(
- *   allowSchemaDrift: true, 
- *   validateSchema: false, 
- *   skipDuplicateMapInputs: true, 
+ *   allowSchemaDrift: true,
+ *   validateSchema: false,
+ *   skipDuplicateMapInputs: true,
  *   skipDuplicateMapOutputs: true) ~> sink1
  *             """)
  *             .build());
@@ -170,15 +170,15 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .script("""
  * source(
- *   allowSchemaDrift: true, 
- *   validateSchema: false, 
- *   limit: 100, 
- *   ignoreNoFilesFound: false, 
- *   documentForm: 'documentPerLine') ~> source1 
+ *   allowSchemaDrift: true,
+ *   validateSchema: false,
+ *   limit: 100,
+ *   ignoreNoFilesFound: false,
+ *   documentForm: 'documentPerLine') ~> source1
  * source1 sink(
- *   allowSchemaDrift: true, 
- *   validateSchema: false, 
- *   skipDuplicateMapInputs: true, 
+ *   allowSchemaDrift: true,
+ *   validateSchema: false,
+ *   skipDuplicateMapInputs: true,
  *   skipDuplicateMapOutputs: true) ~> sink1
  *             """)
  *             .build());
@@ -208,15 +208,15 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .script("""
  * source(
- *   allowSchemaDrift: true, 
- *   validateSchema: false, 
- *   limit: 100, 
- *   ignoreNoFilesFound: false, 
- *   documentForm: 'documentPerLine') ~> source1 
+ *   allowSchemaDrift: true,
+ *   validateSchema: false,
+ *   limit: 100,
+ *   ignoreNoFilesFound: false,
+ *   documentForm: 'documentPerLine') ~> source1
  * source1 sink(
- *   allowSchemaDrift: true, 
- *   validateSchema: false, 
- *   skipDuplicateMapInputs: true, 
+ *   allowSchemaDrift: true,
+ *   validateSchema: false,
+ *   skipDuplicateMapInputs: true,
  *   skipDuplicateMapOutputs: true) ~> sink1
  *             """)
  *             .build());

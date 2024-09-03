@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Supporting API Keys)
+// ### supporting API Keys)
 //
 // ```go
 // package main
@@ -53,7 +53,7 @@ import (
 //
 // ```
 //
-// ### Using Both AzureAD And API Keys)
+// ### using both AzureAD and API Keys)
 //
 // ```go
 // package main
@@ -92,7 +92,7 @@ import (
 //
 // ```
 //
-// ### Supporting Only AzureAD Authentication)
+// ### supporting only AzureAD Authentication)
 //
 // ```go
 // package main

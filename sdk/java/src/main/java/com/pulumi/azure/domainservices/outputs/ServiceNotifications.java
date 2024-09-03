@@ -19,7 +19,7 @@ public final class ServiceNotifications {
      */
     private @Nullable List<String> additionalRecipients;
     /**
-     * @return Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+     * @return Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
      * 
      */
     private @Nullable Boolean notifyDcAdmins;
@@ -38,7 +38,7 @@ public final class ServiceNotifications {
         return this.additionalRecipients == null ? List.of() : this.additionalRecipients;
     }
     /**
-     * @return Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+     * @return Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
      * 
      */
     public Optional<Boolean> notifyDcAdmins() {

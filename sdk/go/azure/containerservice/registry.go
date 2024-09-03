@@ -129,7 +129,7 @@ import (
 //
 // ```
 //
-// ### Attaching A Container Registry To A Kubernetes Cluster)
+// ### Attaching a Container Registry to a Kubernetes Cluster)
 //
 // ```go
 // package main

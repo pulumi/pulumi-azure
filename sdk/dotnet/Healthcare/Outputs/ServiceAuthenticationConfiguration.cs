@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
     public sealed class ServiceAuthenticationConfiguration
     {
         /// <summary>
-        /// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+        /// The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
         /// </summary>
         public readonly string? Audience;
         /// <summary>

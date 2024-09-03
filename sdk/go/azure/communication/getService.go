@@ -53,10 +53,8 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 // A collection of arguments for invoking getService.
 type LookupServiceArgs struct {
 	// The name of this Communication Service.
-	// *
 	Name string `pulumi:"name"`
 	// The name of the Resource Group where the Communication Service exists.
-	// *
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -96,10 +94,8 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 // A collection of arguments for invoking getService.
 type LookupServiceOutputArgs struct {
 	// The name of this Communication Service.
-	// *
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group where the Communication Service exists.
-	// *
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 

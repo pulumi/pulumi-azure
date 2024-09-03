@@ -18,7 +18,7 @@ namespace Pulumi.Azure.DomainServices.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AdditionalRecipients;
         /// <summary>
-        /// Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+        /// Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
         /// </summary>
         public readonly bool? NotifyDcAdmins;
         /// <summary>

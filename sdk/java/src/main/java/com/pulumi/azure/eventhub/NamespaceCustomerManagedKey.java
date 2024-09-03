@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### With System Assigned Identity
+ * ### with System Assigned Identity
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With User Assigned Identity
+ * ### with User Assigned Identity
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

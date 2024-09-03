@@ -117,20 +117,116 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// ## `storage_tier` defaults based on `storage_mb`
     /// 
-    /// | `storage_mb` | GiB   | TiB | Default | Supported `storage_tier`'s           | Provisioned `IOPS`  |
-    /// |:------------:|:-----:|:---:|:-------:|:------------------------------------:|:-------------------:|
-    /// | 32768        | 32    |  -  | P4      | P4, P6, P10, P15, P20, P30, P40, P50 | 120                 |
-    /// | 65536        | 64    |  -  | P6      | P6, P10, P15, P20, P30, P40, P50     | 240                 |
-    /// | 131072       | 128   |  -  | P10     | P10, P15, P20, P30, P40, P50         | 500                 |
-    /// | 262144       | 256   |  -  | P15     | P15, P20, P30, P40, P50              | 1,100               |
-    /// | 524288       | 512   |  -  | P20     | P20, P30, P40, P50                   | 2,300               |
-    /// | 1048576      | 1024  |  1  | P30     | P30, P40, P50                        | 5,000               |
-    /// | 2097152      | 2048  |  2  | P40     | P40, P50                             | 7,500               |
-    /// | 4193280      | 4095  |  4  | P50     | P50                                  | 7,500               |
-    /// | 4194304      | 4096  |  4  | P50     | P50                                  | 7,500               |
-    /// | 8388608      | 8192  |  8  | P60     | P60, P70                             | 16,000              |
-    /// | 16777216     | 16384 |  16 | P70     | P70, P80                             | 18,000              |
-    /// | 33553408     | 32767 |  32 | P80     | P80                                  | 20,000              |
+    /// &lt;table&gt;
+    /// &lt;thead&gt;
+    /// &lt;tr&gt;
+    /// &lt;th style="text-align:center"&gt;`storage_mb`&lt;/th&gt;
+    /// &lt;th style="text-align:center"&gt;GiB&lt;/th&gt;
+    /// &lt;th style="text-align:center"&gt;TiB&lt;/th&gt;
+    /// &lt;th style="text-align:center"&gt;Default&lt;/th&gt;
+    /// &lt;th style="text-align:center"&gt;Supported `storage_tier`'s&lt;/th&gt;
+    /// &lt;th style="text-align:center"&gt;Provisioned `IOPS`&lt;/th&gt;
+    /// &lt;/tr&gt;
+    /// &lt;/thead&gt;
+    /// &lt;tbody&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;32768&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;32&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;-&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P4&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P4, P6, P10, P15, P20, P30, P40, P50&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;120&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;65536&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;64&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;-&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P6&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P6, P10, P15, P20, P30, P40, P50&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;240&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;131072&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;128&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;-&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P10&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P10, P15, P20, P30, P40, P50&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;500&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;262144&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;256&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;-&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P15&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P15, P20, P30, P40, P50&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;1,100&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;524288&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;512&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;-&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P20&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P20, P30, P40, P50&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;2,300&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;1048576&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;1024&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;1&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P30&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P30, P40, P50&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;5,000&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;2097152&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;2048&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;2&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P40&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P40, P50&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;7,500&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;4193280&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;4095&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;4&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P50&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P50&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;7,500&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;4194304&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;4096&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;4&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P50&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P50&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;7,500&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;8388608&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;8192&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;8&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P60&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P60, P70&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;16,000&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;16777216&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;16384&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;16&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P70&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P70, P80&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;18,000&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;tr&gt;
+    /// &lt;td style="text-align:center"&gt;33553408&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;32767&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;32&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P80&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;P80&lt;/td&gt;
+    /// &lt;td style="text-align:center"&gt;20,000&lt;/td&gt;
+    /// &lt;/tr&gt;
+    /// &lt;/tbody&gt;
+    /// &lt;/table&gt;
     /// 
     /// &gt; **Note:** Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4194304 MiB. This means any disk that is provisioned up to 4193280 MiB can take advantage of Host Caching. Host caching is not supported for disk sizes larger than 4193280 MiB. For example, a P50 premium disk provisioned at 4193280 GiB can take advantage of Host caching while a P50 disk provisioned at 4194304 MiB cannot. Moving from a smaller disk size to a larger disk size, greater than 4193280 MiB, will cause the disk to lose the disk caching ability.
     /// 

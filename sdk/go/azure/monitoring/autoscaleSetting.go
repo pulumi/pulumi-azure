@@ -187,7 +187,7 @@ import (
 //
 // ```
 //
-// ### Repeating On Weekends)
+// ### repeating on weekends)
 //
 // ```go
 // package main
@@ -355,7 +355,7 @@ import (
 //
 // ```
 //
-// ### For Fixed Dates)
+// ### for fixed dates)
 //
 // ```go
 // package main

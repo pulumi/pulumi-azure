@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Service Slot (within an App Service).
  *
- * !> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxWebAppSlot` resources instead.
+ * !> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxWebAppSlot` and `azure.appservice.WindowsWebAppSlot` resources instead.
  *
  * > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
  *
  * ## Example Usage
  *
- * ### NET 4.X)
+ * ### NET 4.x)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

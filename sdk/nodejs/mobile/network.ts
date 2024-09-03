@@ -70,11 +70,11 @@ export class Network extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+     * Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
      */
     public readonly mobileCountryCode!: pulumi.Output<string>;
     /**
-     * Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+     * Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
      */
     public readonly mobileNetworkCode!: pulumi.Output<string>;
     /**
@@ -147,11 +147,11 @@ export interface NetworkState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+     * Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
      */
     mobileCountryCode?: pulumi.Input<string>;
     /**
-     * Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+     * Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
      */
     mobileNetworkCode?: pulumi.Input<string>;
     /**
@@ -181,11 +181,11 @@ export interface NetworkArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+     * Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
      */
     mobileCountryCode: pulumi.Input<string>;
     /**
-     * Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+     * Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
      */
     mobileNetworkCode: pulumi.Input<string>;
     /**

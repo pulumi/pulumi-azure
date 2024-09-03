@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Reference An Existing)
+ * ### reference an existing)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -83,7 +83,7 @@ export interface GetUserAssignedIdentityResult {
  *
  * ## Example Usage
  *
- * ### Reference An Existing)
+ * ### reference an existing)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

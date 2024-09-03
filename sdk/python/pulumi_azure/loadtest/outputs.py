@@ -148,7 +148,6 @@ class LoadTestIdentity(dict):
         :param str type: Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
         :param Sequence[str] identity_ids: A list of the User Assigned Identity IDs that should be assigned to this Load Test.
         :param str principal_id: The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-               *
         :param str tenant_id: The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
         """
         pulumi.set(__self__, "type", type)
@@ -180,7 +179,6 @@ class LoadTestIdentity(dict):
     def principal_id(self) -> Optional[str]:
         """
         The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-        *
         """
         return pulumi.get(self, "principal_id")
 

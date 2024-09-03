@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Multiple Outputs
+ * ### with Multiple Outputs
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

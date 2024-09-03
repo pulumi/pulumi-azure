@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Multiple Outputs
+ * ### with Multiple Outputs
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

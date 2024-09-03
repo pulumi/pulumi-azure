@@ -478,7 +478,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             principal_id=example_disk_encryption_set.identity.principal_id)
         ```
 
-        ### With Automatic Key Rotation Enabled
+        ### with Automatic Key Rotation Enabled
 
         ```python
         import pulumi
@@ -669,7 +669,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             principal_id=example_disk_encryption_set.identity.principal_id)
         ```
 
-        ### With Automatic Key Rotation Enabled
+        ### with Automatic Key Rotation Enabled
 
         ```python
         import pulumi

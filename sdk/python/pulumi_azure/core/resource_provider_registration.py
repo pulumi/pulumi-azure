@@ -116,7 +116,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         example = azure.core.ResourceProviderRegistration("example", name="Microsoft.PolicyInsights")
         ```
 
-        ### Registering A Preview Feature)
+        ### Registering a Preview Feature)
 
         ```python
         import pulumi
@@ -166,7 +166,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         example = azure.core.ResourceProviderRegistration("example", name="Microsoft.PolicyInsights")
         ```
 
-        ### Registering A Preview Feature)
+        ### Registering a Preview Feature)
 
         ```python
         import pulumi

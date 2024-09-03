@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// ## Example Usage
     /// 
-    /// ### With Base64 Certificate)
+    /// ### with Base64 Certificate)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ApiManagement
     /// });
     /// ```
     /// 
-    /// ### With Key Vault Certificate)
+    /// ### with Key Vault Certificate)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

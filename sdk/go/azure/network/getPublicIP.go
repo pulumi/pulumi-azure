@@ -15,7 +15,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Reference An Existing)
+// ### reference an existing)
 //
 // ```go
 // package main
@@ -44,7 +44,7 @@ import (
 //
 // ```
 //
-// ### Retrieve The Dynamic Public IP Of A New VM)
+// ### Retrieve the Dynamic Public IP of a new VM)
 //
 // ```go
 // package main

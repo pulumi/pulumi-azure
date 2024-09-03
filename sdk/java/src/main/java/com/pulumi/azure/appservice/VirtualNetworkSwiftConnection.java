@@ -39,7 +39,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### With App Service)
+ * ### with App Service)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Function App)
+ * ### with Function App)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

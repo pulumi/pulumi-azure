@@ -34,9 +34,54 @@ import javax.annotation.Nullable;
 /**
  * Manages a virtual machine scale set.
  * 
+ * ## Example of storage_profile_image_reference with id
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.compute.Image;
+ * import com.pulumi.azure.compute.ImageArgs;
+ * import com.pulumi.azure.compute.ScaleSet;
+ * import com.pulumi.azure.compute.ScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileImageReferenceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Image("example", ImageArgs.builder()
+ *             .name("test")
+ *             .build());
+ * 
+ *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()
+ *             .name("test")
+ *             .storageProfileImageReference(ScaleSetStorageProfileImageReferenceArgs.builder()
+ *                 .id(example.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Example Usage
  * 
- * ### With Managed Disks (Recommended)
+ * ### with Managed Disks (Recommended)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -217,7 +262,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Unmanaged Disks
+ * ### with Unmanaged Disks
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -339,51 +384,6 @@ import javax.annotation.Nullable;
  *                 .offer("0001-com-ubuntu-server-jammy")
  *                 .sku("22_04-lts")
  *                 .version("latest")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ## Example of storage_profile_image_reference with id
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.compute.Image;
- * import com.pulumi.azure.compute.ImageArgs;
- * import com.pulumi.azure.compute.ScaleSet;
- * import com.pulumi.azure.compute.ScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileImageReferenceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Image("example", ImageArgs.builder()
- *             .name("test")
- *             .build());
- * 
- *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()
- *             .name("test")
- *             .storageProfileImageReference(ScaleSetStorageProfileImageReferenceArgs.builder()
- *                 .id(example.id())
  *                 .build())
  *             .build());
  * 

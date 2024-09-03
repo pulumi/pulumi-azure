@@ -98,7 +98,7 @@ import (
 //
 // ```
 //
-// ### Automatically Regenerate Storage Account Access Key)
+// ### automatically regenerate Storage Account access key)
 //
 // ```go
 // package main

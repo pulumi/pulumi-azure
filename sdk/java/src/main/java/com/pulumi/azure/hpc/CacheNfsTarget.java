@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  * 
  *         final var customData = """
  * #!/bin/bash
- * sudo -i 
+ * sudo -i
  * apt-get install -y nfs-kernel-server
  * mkdir -p /export/a/1
  * mkdir -p /export/a/2

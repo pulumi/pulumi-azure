@@ -248,7 +248,7 @@ func (o ServiceInitialReplicaSetPtrOutput) SubnetId() pulumi.StringPtrOutput {
 type ServiceNotifications struct {
 	// A list of additional email addresses to notify when there are alerts in the managed domain.
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+	// Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
 	NotifyDcAdmins *bool `pulumi:"notifyDcAdmins"`
 	// Whether to notify all Global Administrators when there are alerts in the managed domain.
 	NotifyGlobalAdmins *bool `pulumi:"notifyGlobalAdmins"`
@@ -268,7 +268,7 @@ type ServiceNotificationsInput interface {
 type ServiceNotificationsArgs struct {
 	// A list of additional email addresses to notify when there are alerts in the managed domain.
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+	// Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
 	NotifyDcAdmins pulumi.BoolPtrInput `pulumi:"notifyDcAdmins"`
 	// Whether to notify all Global Administrators when there are alerts in the managed domain.
 	NotifyGlobalAdmins pulumi.BoolPtrInput `pulumi:"notifyGlobalAdmins"`
@@ -356,7 +356,7 @@ func (o ServiceNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOut
 	return o.ApplyT(func(v ServiceNotifications) []string { return v.AdditionalRecipients }).(pulumi.StringArrayOutput)
 }
 
-// Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+// Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
 func (o ServiceNotificationsOutput) NotifyDcAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceNotifications) *bool { return v.NotifyDcAdmins }).(pulumi.BoolPtrOutput)
 }
@@ -400,7 +400,7 @@ func (o ServiceNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+// Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
 func (o ServiceNotificationsPtrOutput) NotifyDcAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceNotifications) *bool {
 		if v == nil {
@@ -925,7 +925,7 @@ func (o ServiceSecurityPtrOutput) TlsV1Enabled() pulumi.BoolPtrOutput {
 type GetServiceNotification struct {
 	// A list of additional email addresses to notify when there are alerts in the managed domain.
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
-	// Whethermembers of the _AAD DC Administrators_ group are notified when there are alerts in the managed domain.
+	// Whethermembers of the *AAD DC Administrators* group are notified when there are alerts in the managed domain.
 	NotifyDcAdmins bool `pulumi:"notifyDcAdmins"`
 	// Whether all Global Administrators are notified when there are alerts in the managed domain.
 	NotifyGlobalAdmins bool `pulumi:"notifyGlobalAdmins"`
@@ -945,7 +945,7 @@ type GetServiceNotificationInput interface {
 type GetServiceNotificationArgs struct {
 	// A list of additional email addresses to notify when there are alerts in the managed domain.
 	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	// Whethermembers of the _AAD DC Administrators_ group are notified when there are alerts in the managed domain.
+	// Whethermembers of the *AAD DC Administrators* group are notified when there are alerts in the managed domain.
 	NotifyDcAdmins pulumi.BoolInput `pulumi:"notifyDcAdmins"`
 	// Whether all Global Administrators are notified when there are alerts in the managed domain.
 	NotifyGlobalAdmins pulumi.BoolInput `pulumi:"notifyGlobalAdmins"`
@@ -1007,7 +1007,7 @@ func (o GetServiceNotificationOutput) AdditionalRecipients() pulumi.StringArrayO
 	return o.ApplyT(func(v GetServiceNotification) []string { return v.AdditionalRecipients }).(pulumi.StringArrayOutput)
 }
 
-// Whethermembers of the _AAD DC Administrators_ group are notified when there are alerts in the managed domain.
+// Whethermembers of the *AAD DC Administrators* group are notified when there are alerts in the managed domain.
 func (o GetServiceNotificationOutput) NotifyDcAdmins() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServiceNotification) bool { return v.NotifyDcAdmins }).(pulumi.BoolOutput)
 }

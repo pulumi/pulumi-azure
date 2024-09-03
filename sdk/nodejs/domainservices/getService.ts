@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Gets information about an Active Directory Domain Service.
  *
- * > **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+ * > **Supported Modes:** At present this data source only supports **User Forest** mode and *not* **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
  *
  * ## Example Usage
  *
@@ -60,7 +60,7 @@ export interface GetServiceResult {
      */
     readonly deploymentId: string;
     /**
-     * The forest type used by the managed domain. One of `ResourceTrusting`, for a _Resource Forest_, or blank, for a _User Forest_.
+     * The forest type used by the managed domain. One of `ResourceTrusting`, for a *Resource Forest*, or blank, for a *User Forest*.
      */
     readonly domainConfigurationType: string;
     /**
@@ -113,7 +113,7 @@ export interface GetServiceResult {
 /**
  * Gets information about an Active Directory Domain Service.
  *
- * > **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+ * > **Supported Modes:** At present this data source only supports **User Forest** mode and *not* **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
  *
  * ## Example Usage
  *

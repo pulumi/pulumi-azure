@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### With Service Managed Key
+ * ### with Service Managed Key
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  * const exampleManagedInstanceTransparentDataEncryption = new azure.mssql.ManagedInstanceTransparentDataEncryption("example", {managedInstanceId: exampleManagedInstance.id});
  * ```
  *
- * ### With Customer Managed Key
+ * ### with Customer Managed Key
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

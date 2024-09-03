@@ -22,12 +22,12 @@ public final class GetNetworkResult {
      */
     private String location;
     /**
-     * @return Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+     * @return Mobile country code (MCC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; .
      * 
      */
     private String mobileCountryCode;
     /**
-     * @return Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+     * @return Mobile network code (MNC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; .
      * 
      */
     private String mobileNetworkCode;
@@ -60,14 +60,14 @@ public final class GetNetworkResult {
         return this.location;
     }
     /**
-     * @return Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+     * @return Mobile country code (MCC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; .
      * 
      */
     public String mobileCountryCode() {
         return this.mobileCountryCode;
     }
     /**
-     * @return Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+     * @return Mobile network code (MNC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; .
      * 
      */
     public String mobileNetworkCode() {

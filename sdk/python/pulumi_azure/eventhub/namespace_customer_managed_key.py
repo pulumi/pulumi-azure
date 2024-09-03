@@ -191,7 +191,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With System Assigned Identity
+        ### with System Assigned Identity
 
         ```python
         import pulumi
@@ -266,7 +266,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_ids=[example_key.id])
         ```
 
-        ### With User Assigned Identity
+        ### with User Assigned Identity
 
         ```python
         import pulumi
@@ -379,7 +379,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With System Assigned Identity
+        ### with System Assigned Identity
 
         ```python
         import pulumi
@@ -454,7 +454,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_ids=[example_key.id])
         ```
 
-        ### With User Assigned Identity
+        ### with User Assigned Identity
 
         ```python
         import pulumi

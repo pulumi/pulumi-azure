@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### With Create Empty
+// ### with Create Empty
 //
 // ```go
 // package main
@@ -58,7 +58,7 @@ import (
 //
 // ```
 //
-// ### With Create Copy
+// ### with Create Copy
 //
 // ```go
 // package main

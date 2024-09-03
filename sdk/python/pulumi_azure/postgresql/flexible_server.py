@@ -1059,20 +1059,116 @@ class FlexibleServer(pulumi.CustomResource):
 
         ## `storage_tier` defaults based on `storage_mb`
 
-        | `storage_mb` | GiB   | TiB | Default | Supported `storage_tier`'s           | Provisioned `IOPS`  |
-        |:------------:|:-----:|:---:|:-------:|:------------------------------------:|:-------------------:|
-        | 32768        | 32    |  -  | P4      | P4, P6, P10, P15, P20, P30, P40, P50 | 120                 |
-        | 65536        | 64    |  -  | P6      | P6, P10, P15, P20, P30, P40, P50     | 240                 |
-        | 131072       | 128   |  -  | P10     | P10, P15, P20, P30, P40, P50         | 500                 |
-        | 262144       | 256   |  -  | P15     | P15, P20, P30, P40, P50              | 1,100               |
-        | 524288       | 512   |  -  | P20     | P20, P30, P40, P50                   | 2,300               |
-        | 1048576      | 1024  |  1  | P30     | P30, P40, P50                        | 5,000               |
-        | 2097152      | 2048  |  2  | P40     | P40, P50                             | 7,500               |
-        | 4193280      | 4095  |  4  | P50     | P50                                  | 7,500               |
-        | 4194304      | 4096  |  4  | P50     | P50                                  | 7,500               |
-        | 8388608      | 8192  |  8  | P60     | P60, P70                             | 16,000              |
-        | 16777216     | 16384 |  16 | P70     | P70, P80                             | 18,000              |
-        | 33553408     | 32767 |  32 | P80     | P80                                  | 20,000              |
+        <table>
+        <thead>
+        <tr>
+        <th style="text-align:center">`storage_mb`</th>
+        <th style="text-align:center">GiB</th>
+        <th style="text-align:center">TiB</th>
+        <th style="text-align:center">Default</th>
+        <th style="text-align:center">Supported `storage_tier`'s</th>
+        <th style="text-align:center">Provisioned `IOPS`</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td style="text-align:center">32768</td>
+        <td style="text-align:center">32</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">P4</td>
+        <td style="text-align:center">P4, P6, P10, P15, P20, P30, P40, P50</td>
+        <td style="text-align:center">120</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">65536</td>
+        <td style="text-align:center">64</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">P6</td>
+        <td style="text-align:center">P6, P10, P15, P20, P30, P40, P50</td>
+        <td style="text-align:center">240</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">131072</td>
+        <td style="text-align:center">128</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">P10</td>
+        <td style="text-align:center">P10, P15, P20, P30, P40, P50</td>
+        <td style="text-align:center">500</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">262144</td>
+        <td style="text-align:center">256</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">P15</td>
+        <td style="text-align:center">P15, P20, P30, P40, P50</td>
+        <td style="text-align:center">1,100</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">524288</td>
+        <td style="text-align:center">512</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">P20</td>
+        <td style="text-align:center">P20, P30, P40, P50</td>
+        <td style="text-align:center">2,300</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">1048576</td>
+        <td style="text-align:center">1024</td>
+        <td style="text-align:center">1</td>
+        <td style="text-align:center">P30</td>
+        <td style="text-align:center">P30, P40, P50</td>
+        <td style="text-align:center">5,000</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">2097152</td>
+        <td style="text-align:center">2048</td>
+        <td style="text-align:center">2</td>
+        <td style="text-align:center">P40</td>
+        <td style="text-align:center">P40, P50</td>
+        <td style="text-align:center">7,500</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">4193280</td>
+        <td style="text-align:center">4095</td>
+        <td style="text-align:center">4</td>
+        <td style="text-align:center">P50</td>
+        <td style="text-align:center">P50</td>
+        <td style="text-align:center">7,500</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">4194304</td>
+        <td style="text-align:center">4096</td>
+        <td style="text-align:center">4</td>
+        <td style="text-align:center">P50</td>
+        <td style="text-align:center">P50</td>
+        <td style="text-align:center">7,500</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">8388608</td>
+        <td style="text-align:center">8192</td>
+        <td style="text-align:center">8</td>
+        <td style="text-align:center">P60</td>
+        <td style="text-align:center">P60, P70</td>
+        <td style="text-align:center">16,000</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">16777216</td>
+        <td style="text-align:center">16384</td>
+        <td style="text-align:center">16</td>
+        <td style="text-align:center">P70</td>
+        <td style="text-align:center">P70, P80</td>
+        <td style="text-align:center">18,000</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">33553408</td>
+        <td style="text-align:center">32767</td>
+        <td style="text-align:center">32</td>
+        <td style="text-align:center">P80</td>
+        <td style="text-align:center">P80</td>
+        <td style="text-align:center">20,000</td>
+        </tr>
+        </tbody>
+        </table>
 
         > **Note:** Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4194304 MiB. This means any disk that is provisioned up to 4193280 MiB can take advantage of Host Caching. Host caching is not supported for disk sizes larger than 4193280 MiB. For example, a P50 premium disk provisioned at 4193280 GiB can take advantage of Host caching while a P50 disk provisioned at 4194304 MiB cannot. Moving from a smaller disk size to a larger disk size, greater than 4193280 MiB, will cause the disk to lose the disk caching ability.
 
@@ -1202,20 +1298,116 @@ class FlexibleServer(pulumi.CustomResource):
 
         ## `storage_tier` defaults based on `storage_mb`
 
-        | `storage_mb` | GiB   | TiB | Default | Supported `storage_tier`'s           | Provisioned `IOPS`  |
-        |:------------:|:-----:|:---:|:-------:|:------------------------------------:|:-------------------:|
-        | 32768        | 32    |  -  | P4      | P4, P6, P10, P15, P20, P30, P40, P50 | 120                 |
-        | 65536        | 64    |  -  | P6      | P6, P10, P15, P20, P30, P40, P50     | 240                 |
-        | 131072       | 128   |  -  | P10     | P10, P15, P20, P30, P40, P50         | 500                 |
-        | 262144       | 256   |  -  | P15     | P15, P20, P30, P40, P50              | 1,100               |
-        | 524288       | 512   |  -  | P20     | P20, P30, P40, P50                   | 2,300               |
-        | 1048576      | 1024  |  1  | P30     | P30, P40, P50                        | 5,000               |
-        | 2097152      | 2048  |  2  | P40     | P40, P50                             | 7,500               |
-        | 4193280      | 4095  |  4  | P50     | P50                                  | 7,500               |
-        | 4194304      | 4096  |  4  | P50     | P50                                  | 7,500               |
-        | 8388608      | 8192  |  8  | P60     | P60, P70                             | 16,000              |
-        | 16777216     | 16384 |  16 | P70     | P70, P80                             | 18,000              |
-        | 33553408     | 32767 |  32 | P80     | P80                                  | 20,000              |
+        <table>
+        <thead>
+        <tr>
+        <th style="text-align:center">`storage_mb`</th>
+        <th style="text-align:center">GiB</th>
+        <th style="text-align:center">TiB</th>
+        <th style="text-align:center">Default</th>
+        <th style="text-align:center">Supported `storage_tier`'s</th>
+        <th style="text-align:center">Provisioned `IOPS`</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td style="text-align:center">32768</td>
+        <td style="text-align:center">32</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">P4</td>
+        <td style="text-align:center">P4, P6, P10, P15, P20, P30, P40, P50</td>
+        <td style="text-align:center">120</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">65536</td>
+        <td style="text-align:center">64</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">P6</td>
+        <td style="text-align:center">P6, P10, P15, P20, P30, P40, P50</td>
+        <td style="text-align:center">240</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">131072</td>
+        <td style="text-align:center">128</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">P10</td>
+        <td style="text-align:center">P10, P15, P20, P30, P40, P50</td>
+        <td style="text-align:center">500</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">262144</td>
+        <td style="text-align:center">256</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">P15</td>
+        <td style="text-align:center">P15, P20, P30, P40, P50</td>
+        <td style="text-align:center">1,100</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">524288</td>
+        <td style="text-align:center">512</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">P20</td>
+        <td style="text-align:center">P20, P30, P40, P50</td>
+        <td style="text-align:center">2,300</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">1048576</td>
+        <td style="text-align:center">1024</td>
+        <td style="text-align:center">1</td>
+        <td style="text-align:center">P30</td>
+        <td style="text-align:center">P30, P40, P50</td>
+        <td style="text-align:center">5,000</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">2097152</td>
+        <td style="text-align:center">2048</td>
+        <td style="text-align:center">2</td>
+        <td style="text-align:center">P40</td>
+        <td style="text-align:center">P40, P50</td>
+        <td style="text-align:center">7,500</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">4193280</td>
+        <td style="text-align:center">4095</td>
+        <td style="text-align:center">4</td>
+        <td style="text-align:center">P50</td>
+        <td style="text-align:center">P50</td>
+        <td style="text-align:center">7,500</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">4194304</td>
+        <td style="text-align:center">4096</td>
+        <td style="text-align:center">4</td>
+        <td style="text-align:center">P50</td>
+        <td style="text-align:center">P50</td>
+        <td style="text-align:center">7,500</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">8388608</td>
+        <td style="text-align:center">8192</td>
+        <td style="text-align:center">8</td>
+        <td style="text-align:center">P60</td>
+        <td style="text-align:center">P60, P70</td>
+        <td style="text-align:center">16,000</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">16777216</td>
+        <td style="text-align:center">16384</td>
+        <td style="text-align:center">16</td>
+        <td style="text-align:center">P70</td>
+        <td style="text-align:center">P70, P80</td>
+        <td style="text-align:center">18,000</td>
+        </tr>
+        <tr>
+        <td style="text-align:center">33553408</td>
+        <td style="text-align:center">32767</td>
+        <td style="text-align:center">32</td>
+        <td style="text-align:center">P80</td>
+        <td style="text-align:center">P80</td>
+        <td style="text-align:center">20,000</td>
+        </tr>
+        </tbody>
+        </table>
 
         > **Note:** Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4194304 MiB. This means any disk that is provisioned up to 4193280 MiB can take advantage of Host Caching. Host caching is not supported for disk sizes larger than 4193280 MiB. For example, a P50 premium disk provisioned at 4193280 GiB can take advantage of Host caching while a P50 disk provisioned at 4194304 MiB cannot. Moving from a smaller disk size to a larger disk size, greater than 4193280 MiB, will cause the disk to lose the disk caching ability.
 

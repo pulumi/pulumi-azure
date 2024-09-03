@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### With Managed Identity & New Cluster
+// ### with managed identity & new cluster
 //
 // ```go
 // package main
@@ -105,7 +105,7 @@ import (
 //
 // ```
 //
-// ### With Access Token & Existing Cluster
+// ### with access token & existing cluster
 //
 // ```go
 // package main

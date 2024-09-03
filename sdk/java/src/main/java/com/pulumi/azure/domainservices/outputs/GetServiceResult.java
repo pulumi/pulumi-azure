@@ -25,7 +25,7 @@ public final class GetServiceResult {
      */
     private String deploymentId;
     /**
-     * @return The forest type used by the managed domain. One of `ResourceTrusting`, for a _Resource Forest_, or blank, for a _User Forest_.
+     * @return The forest type used by the managed domain. One of `ResourceTrusting`, for a *Resource Forest*, or blank, for a *User Forest*.
      * 
      */
     private String domainConfigurationType;
@@ -95,7 +95,7 @@ public final class GetServiceResult {
         return this.deploymentId;
     }
     /**
-     * @return The forest type used by the managed domain. One of `ResourceTrusting`, for a _Resource Forest_, or blank, for a _User Forest_.
+     * @return The forest type used by the managed domain. One of `ResourceTrusting`, for a *Resource Forest*, or blank, for a *User Forest*.
      * 
      */
     public String domainConfigurationType() {

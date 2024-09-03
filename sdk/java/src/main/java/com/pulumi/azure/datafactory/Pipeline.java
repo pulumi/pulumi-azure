@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Activities
+ * ### with Activities
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

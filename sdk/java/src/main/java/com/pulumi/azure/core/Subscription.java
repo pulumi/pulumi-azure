@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
- * ### Creating A New Alias And Subscription For An Enrollment Account
+ * ### creating a new Alias and Subscription for an Enrollment Account
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Creating A New Alias And Subscription For A Microsoft Customer Account
+ * ### creating a new Alias and Subscription for a Microsoft Customer Account
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Creating A New Alias And Subscription For A Microsoft Partner Account
+ * ### creating a new Alias and Subscription for a Microsoft Partner Account
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Adding An Alias To An Existing Subscription
+ * ### adding an Alias to an existing Subscription
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

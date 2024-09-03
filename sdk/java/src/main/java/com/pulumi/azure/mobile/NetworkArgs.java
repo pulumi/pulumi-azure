@@ -33,14 +33,14 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+     * Mobile country code (MCC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
      * 
      */
     @Import(name="mobileCountryCode", required=true)
     private Output<String> mobileCountryCode;
 
     /**
-     * @return Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+     * @return Mobile country code (MCC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
      * 
      */
     public Output<String> mobileCountryCode() {
@@ -48,14 +48,14 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+     * Mobile network code (MNC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
      * 
      */
     @Import(name="mobileNetworkCode", required=true)
     private Output<String> mobileNetworkCode;
 
     /**
-     * @return Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+     * @return Mobile network code (MNC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
      * 
      */
     public Output<String> mobileNetworkCode() {
@@ -158,7 +158,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mobileCountryCode Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+         * @param mobileCountryCode Mobile country code (MCC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mobileCountryCode Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+         * @param mobileCountryCode Mobile country code (MCC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mobileNetworkCode Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+         * @param mobileNetworkCode Mobile network code (MNC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mobileNetworkCode Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+         * @param mobileNetworkCode Mobile network code (MNC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

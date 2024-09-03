@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const example = new azure.core.ResourceProviderRegistration("example", {name: "Microsoft.PolicyInsights"});
  * ```
  *
- * ### Registering A Preview Feature)
+ * ### Registering a Preview Feature)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

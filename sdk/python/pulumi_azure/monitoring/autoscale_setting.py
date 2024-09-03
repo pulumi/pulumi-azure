@@ -457,7 +457,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             })
         ```
 
-        ### Repeating On Weekends)
+        ### repeating on weekends)
 
         ```python
         import pulumi
@@ -576,7 +576,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             })
         ```
 
-        ### For Fixed Dates)
+        ### for fixed dates)
 
         ```python
         import pulumi
@@ -841,7 +841,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             })
         ```
 
-        ### Repeating On Weekends)
+        ### repeating on weekends)
 
         ```python
         import pulumi
@@ -960,7 +960,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             })
         ```
 
-        ### For Fixed Dates)
+        ### for fixed dates)
 
         ```python
         import pulumi

@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Creating A Workspace With Customer Managed Key And Azure AD Admin
+ * ### creating a workspace with Customer Managed Key and Azure AD Admin
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

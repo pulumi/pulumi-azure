@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### HTTP Trigger With Code Upload
+ * ### HTTP Trigger with code upload
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

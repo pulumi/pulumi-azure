@@ -277,7 +277,7 @@ export class ManagedInstanceSecurityAlertPolicy extends pulumi.CustomResource {
      */
     public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
      */
     public readonly storageEndpoint!: pulumi.Output<string | undefined>;
 
@@ -367,7 +367,7 @@ export interface ManagedInstanceSecurityAlertPolicyState {
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**
-     * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
      */
     storageEndpoint?: pulumi.Input<string>;
 }
@@ -411,7 +411,7 @@ export interface ManagedInstanceSecurityAlertPolicyArgs {
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**
-     * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+     * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
      */
     storageEndpoint?: pulumi.Input<string>;
 }

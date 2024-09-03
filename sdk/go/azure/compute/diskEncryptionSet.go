@@ -146,7 +146,7 @@ import (
 //
 // ```
 //
-// ### With Automatic Key Rotation Enabled
+// ### with Automatic Key Rotation Enabled
 //
 // ```go
 // package main

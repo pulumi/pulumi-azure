@@ -6866,7 +6866,6 @@ class DiagnosticSettingEnabledLogRetentionPolicy(dict):
         :param bool enabled: Is this Retention Policy enabled?
         :param int days: The number of days for which this Retention Policy should apply.
                
-               
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -6886,7 +6885,6 @@ class DiagnosticSettingEnabledLogRetentionPolicy(dict):
     def days(self) -> Optional[int]:
         """
         The number of days for which this Retention Policy should apply.
-
 
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -6993,7 +6991,6 @@ class DiagnosticSettingLogRetentionPolicy(dict):
         :param bool enabled: Is this Retention Policy enabled?
         :param int days: The number of days for which this Retention Policy should apply.
                
-               
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -7013,7 +7010,6 @@ class DiagnosticSettingLogRetentionPolicy(dict):
     def days(self) -> Optional[int]:
         """
         The number of days for which this Retention Policy should apply.
-
 
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -7097,7 +7093,6 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
         :param bool enabled: Is this Retention Policy enabled?
         :param int days: The number of days for which this Retention Policy should apply.
                
-               
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -7117,7 +7112,6 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
     def days(self) -> Optional[int]:
         """
         The number of days for which this Retention Policy should apply.
-
 
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """

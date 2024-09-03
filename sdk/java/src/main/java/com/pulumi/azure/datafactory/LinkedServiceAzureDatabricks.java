@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### With Managed Identity &amp; New Cluster
+ * ### with managed identity &amp; new cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Access Token &amp; Existing Cluster
+ * ### with access token &amp; existing cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

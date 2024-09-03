@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### With System Assigned Identity
+ * ### with System Assigned Identity
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With User Assigned Identity
+ * ### with User Assigned Identity
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

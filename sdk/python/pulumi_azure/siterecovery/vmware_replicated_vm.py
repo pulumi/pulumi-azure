@@ -52,7 +52,7 @@ class VmwareReplicatedVmArgs:
         :param pulumi.Input[str] source_vm_name: The name of the source VM in VMWare. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_group_id: The ID of resource group where the VM should be created when a failover is done.
         :param pulumi.Input[str] target_vm_name: Name of the VM that should be created when a failover is done. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication. 
+        :param pulumi.Input[str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication.
                
                > **Note:** Only standard types of storage accounts are allowed.
                
@@ -218,7 +218,7 @@ class VmwareReplicatedVmArgs:
     @pulumi.getter(name="defaultLogStorageAccountId")
     def default_log_storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the stroage account that should be used for logging during replication. 
+        The ID of the stroage account that should be used for logging during replication.
 
         > **Note:** Only standard types of storage accounts are allowed.
 
@@ -447,7 +447,7 @@ class _VmwareReplicatedVmState:
         """
         Input properties used for looking up and filtering VmwareReplicatedVm resources.
         :param pulumi.Input[str] appliance_name: The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication. 
+        :param pulumi.Input[str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication.
                
                > **Note:** Only standard types of storage accounts are allowed.
                
@@ -554,7 +554,7 @@ class _VmwareReplicatedVmState:
     @pulumi.getter(name="defaultLogStorageAccountId")
     def default_log_storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the stroage account that should be used for logging during replication. 
+        The ID of the stroage account that should be used for logging during replication.
 
         > **Note:** Only standard types of storage accounts are allowed.
 
@@ -930,7 +930,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] appliance_name: The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication. 
+        :param pulumi.Input[str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication.
                
                > **Note:** Only standard types of storage accounts are allowed.
                
@@ -1176,7 +1176,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] appliance_name: The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication. 
+        :param pulumi.Input[str] default_log_storage_account_id: The ID of the stroage account that should be used for logging during replication.
                
                > **Note:** Only standard types of storage accounts are allowed.
                
@@ -1262,7 +1262,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
     @pulumi.getter(name="defaultLogStorageAccountId")
     def default_log_storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the stroage account that should be used for logging during replication. 
+        The ID of the stroage account that should be used for logging during replication.
 
         > **Note:** Only standard types of storage accounts are allowed.
 

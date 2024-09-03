@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Using A Built-In Role)
+// ### using a built-in Role)
 //
 // ```go
 // package main

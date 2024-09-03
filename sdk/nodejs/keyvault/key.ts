@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedKeysOnDestroy` for more information.
  *
- * ### Additional Examples
+ * ### Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

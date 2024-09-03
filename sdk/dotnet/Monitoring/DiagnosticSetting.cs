@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<Outputs.DiagnosticSettingEnabledLog>> EnabledLogs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
         /// 
         /// &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
         /// 
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> PartnerSolutionId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Storage Account where logs should be sent. 
+        /// The ID of the Storage Account where logs should be sent.
         /// 
         /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         /// </summary>
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
         /// 
         /// &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
         /// 
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? PartnerSolutionId { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account where logs should be sent. 
+        /// The ID of the Storage Account where logs should be sent.
         /// 
         /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         /// </summary>
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+        /// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
         /// 
         /// &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
         /// 
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? PartnerSolutionId { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account where logs should be sent. 
+        /// The ID of the Storage Account where logs should be sent.
         /// 
         /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         /// </summary>

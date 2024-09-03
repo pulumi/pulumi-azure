@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network
     /// 
     /// ## Example Usage
     /// 
-    /// ### Creating A Microsoft Peering)
+    /// ### Creating a Microsoft Peering)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.Network
         public Output<int> PeerAsn { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
         /// 
         /// &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         /// </summary>
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? PeerAsn { get; set; }
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
         /// 
         /// &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         /// </summary>
@@ -434,7 +434,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? PeerAsn { get; set; }
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
         /// 
         /// &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         /// </summary>

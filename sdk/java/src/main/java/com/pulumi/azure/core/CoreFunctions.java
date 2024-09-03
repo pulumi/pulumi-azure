@@ -1603,7 +1603,7 @@ public final class CoreFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1655,7 +1655,7 @@ public final class CoreFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1707,7 +1707,7 @@ public final class CoreFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1759,7 +1759,7 @@ public final class CoreFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>

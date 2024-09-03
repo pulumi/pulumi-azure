@@ -243,7 +243,7 @@ def get_public_ip(name: Optional[str] = None,
 
     ## Example Usage
 
-    ### Reference An Existing)
+    ### reference an existing)
 
     ```python
     import pulumi
@@ -255,7 +255,7 @@ def get_public_ip(name: Optional[str] = None,
     pulumi.export("publicIpAddress", example.ip_address)
     ```
 
-    ### Retrieve The Dynamic Public IP Of A New VM)
+    ### Retrieve the Dynamic Public IP of a new VM)
 
     ```python
     import pulumi
@@ -343,7 +343,7 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    ### Reference An Existing)
+    ### reference an existing)
 
     ```python
     import pulumi
@@ -355,7 +355,7 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("publicIpAddress", example.ip_address)
     ```
 
-    ### Retrieve The Dynamic Public IP Of A New VM)
+    ### Retrieve the Dynamic Public IP of a new VM)
 
     ```python
     import pulumi

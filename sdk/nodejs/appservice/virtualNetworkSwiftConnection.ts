@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### With App Service)
+ * ### with App Service)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Function App)
+ * ### with Function App)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Data Encryption
+ * ### with Data encryption
  * 
  * &gt; **NOTE:** The Key Vault must enable purge protection.
  * 
@@ -231,7 +231,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With User Assigned Identity And Data Encryption
+ * ### with User Assigned Identity and Data Encryption
  * 
  * &gt; **NOTE:** The Key Vault must enable purge protection.
  * 

@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Storage Account Behind VNet And Firewall
+ * ### with storage account behind VNet and firewall
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### With Base64 Certificate)
+// ### with Base64 Certificate)
 //
 // ```go
 // package main
@@ -71,7 +71,7 @@ import (
 //
 // ```
 //
-// ### With Key Vault Certificate)
+// ### with Key Vault Certificate)
 //
 // ```go
 // package main

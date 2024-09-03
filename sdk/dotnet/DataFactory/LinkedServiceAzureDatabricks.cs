@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// ## Example Usage
     /// 
-    /// ### With Managed Identity &amp; New Cluster
+    /// ### with managed identity &amp; new cluster
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.DataFactory
     /// });
     /// ```
     /// 
-    /// ### With Access Token &amp; Existing Cluster
+    /// ### with access token &amp; existing cluster
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

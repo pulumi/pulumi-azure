@@ -174,7 +174,6 @@ def get_gateway_host_name_configuration(api_management_id: Optional[str] = None,
 
     :param str api_management_id: The ID of the API Management Service.
     :param str gateway_name: The name of the API Management Gateway.
-           *
     :param str name: The name of the API Management Gateway Host Name Configuration.
     """
     __args__ = dict()
@@ -224,7 +223,6 @@ def get_gateway_host_name_configuration_output(api_management_id: Optional[pulum
 
     :param str api_management_id: The ID of the API Management Service.
     :param str gateway_name: The name of the API Management Gateway.
-           *
     :param str name: The name of the API Management Gateway Host Name Configuration.
     """
     ...

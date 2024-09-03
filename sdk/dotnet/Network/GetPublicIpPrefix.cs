@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Example Usage
         /// 
-        /// ### Reference An Existing)
+        /// ### reference an existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Example Usage
         /// 
-        /// ### Reference An Existing)
+        /// ### reference an existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

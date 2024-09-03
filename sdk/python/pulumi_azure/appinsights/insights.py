@@ -36,7 +36,7 @@ class InsightsArgs:
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Insights resource.
-        :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
@@ -87,7 +87,7 @@ class InsightsArgs:
     @pulumi.getter(name="applicationType")
     def application_type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_type")
 
@@ -290,7 +290,7 @@ class _InsightsState:
         """
         Input properties used for looking up and filtering Insights resources.
         :param pulumi.Input[str] app_id: The App ID associated with this Application Insights component.
-        :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] connection_string: The Connection String for this Application Insights component. (Sensitive)
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
@@ -363,7 +363,7 @@ class _InsightsState:
     @pulumi.getter(name="applicationType")
     def application_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_type")
 
@@ -643,7 +643,7 @@ class Insights(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
@@ -820,7 +820,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The App ID associated with this Application Insights component.
-        :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] connection_string: The Connection String for this Application Insights component. (Sensitive)
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
@@ -876,7 +876,7 @@ class Insights(pulumi.CustomResource):
     @pulumi.getter(name="applicationType")
     def application_type(self) -> pulumi.Output[str]:
         """
-        Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_type")
 

@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Network Rules
+ * ### with Network Rules
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

@@ -28,7 +28,7 @@ class ServerMicrosoftSupportAuditingPolicyArgs:
         """
         The set of arguments for constructing a ServerMicrosoftSupportAuditingPolicy resource.
         :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+        :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
                ->**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
@@ -64,7 +64,7 @@ class ServerMicrosoftSupportAuditingPolicyArgs:
     @pulumi.getter(name="blobStorageEndpoint")
     def blob_storage_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
         """
         return pulumi.get(self, "blob_storage_endpoint")
 
@@ -134,7 +134,7 @@ class _ServerMicrosoftSupportAuditingPolicyState:
                  storage_account_subscription_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServerMicrosoftSupportAuditingPolicy resources.
-        :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+        :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
                ->**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
@@ -160,7 +160,7 @@ class _ServerMicrosoftSupportAuditingPolicyState:
     @pulumi.getter(name="blobStorageEndpoint")
     def blob_storage_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
         """
         return pulumi.get(self, "blob_storage_endpoint")
 
@@ -274,7 +274,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key=example_account.primary_access_key)
         ```
 
-        ### With Storage Account Behind VNet And Firewall
+        ### with storage account behind VNet and firewall
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -363,7 +363,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+        :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
                ->**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
@@ -409,7 +409,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key=example_account.primary_access_key)
         ```
 
-        ### With Storage Account Behind VNet And Firewall
+        ### with storage account behind VNet and firewall
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -559,7 +559,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+        :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
                ->**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
@@ -584,7 +584,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="blobStorageEndpoint")
     def blob_storage_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
-        The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
         """
         return pulumi.get(self, "blob_storage_endpoint")
 

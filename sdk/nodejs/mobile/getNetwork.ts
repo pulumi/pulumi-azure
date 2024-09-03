@@ -55,11 +55,11 @@ export interface GetNetworkResult {
      */
     readonly location: string;
     /**
-     * Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+     * Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> .
      */
     readonly mobileCountryCode: string;
     /**
-     * Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+     * Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> .
      */
     readonly mobileNetworkCode: string;
     readonly name: string;

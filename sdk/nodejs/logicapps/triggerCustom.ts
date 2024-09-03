@@ -77,7 +77,7 @@ export class TriggerCustom extends pulumi.CustomResource {
      */
     public readonly body!: pulumi.Output<string>;
     /**
-     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
      */
     public /*out*/ readonly callbackUrl!: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export interface TriggerCustomState {
      */
     body?: pulumi.Input<string>;
     /**
-     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
      */
     callbackUrl?: pulumi.Input<string>;
     /**

@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Encryption)
+ * ### encryption)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

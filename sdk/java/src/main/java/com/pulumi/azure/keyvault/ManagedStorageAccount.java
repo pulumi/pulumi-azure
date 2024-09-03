@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Automatically Regenerate Storage Account Access Key)
+ * ### automatically regenerate Storage Account access key)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

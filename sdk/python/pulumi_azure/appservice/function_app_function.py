@@ -456,7 +456,7 @@ class FunctionAppFunction(pulumi.CustomResource):
             }))
         ```
 
-        ### HTTP Trigger With Code Upload
+        ### HTTP Trigger with code upload
 
         ```python
         import pulumi
@@ -616,7 +616,7 @@ class FunctionAppFunction(pulumi.CustomResource):
             }))
         ```
 
-        ### HTTP Trigger With Code Upload
+        ### HTTP Trigger with code upload
 
         ```python
         import pulumi

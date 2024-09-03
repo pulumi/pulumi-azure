@@ -1328,7 +1328,7 @@ class Database(pulumi.CustomResource):
             })
         ```
 
-        ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+        ### Transparent Data Encryption(TDE) with a Customer Managed Key(CMK) during Create
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -1532,7 +1532,7 @@ class Database(pulumi.CustomResource):
             })
         ```
 
-        ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+        ### Transparent Data Encryption(TDE) with a Customer Managed Key(CMK) during Create
         ```python
         import pulumi
         import pulumi_azure as azure

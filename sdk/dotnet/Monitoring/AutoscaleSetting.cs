@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Monitoring
     /// });
     /// ```
     /// 
-    /// ### Repeating On Weekends)
+    /// ### repeating on weekends)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -375,7 +375,7 @@ namespace Pulumi.Azure.Monitoring
     /// });
     /// ```
     /// 
-    /// ### For Fixed Dates)
+    /// ### for fixed dates)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

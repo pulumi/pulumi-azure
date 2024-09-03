@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Creating A Microsoft Peering)
+ * ### Creating a Microsoft Peering)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

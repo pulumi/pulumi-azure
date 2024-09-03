@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Password In Key Vault
+ * ### with Password in Key Vault
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

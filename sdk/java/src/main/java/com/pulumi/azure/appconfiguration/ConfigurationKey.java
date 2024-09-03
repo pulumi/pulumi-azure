@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### `Kv` Type
+ * ### kv type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### `Vault` Type
+ * ### vault type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

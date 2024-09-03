@@ -128,7 +128,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With App Service)
+        ### with App Service)
 
         ```python
         import pulumi
@@ -172,7 +172,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             subnet_id=example_subnet.id)
         ```
 
-        ### With Function App)
+        ### with Function App)
 
         ```python
         import pulumi
@@ -269,7 +269,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With App Service)
+        ### with App Service)
 
         ```python
         import pulumi
@@ -313,7 +313,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             subnet_id=example_subnet.id)
         ```
 
-        ### With Function App)
+        ### with Function App)
 
         ```python
         import pulumi

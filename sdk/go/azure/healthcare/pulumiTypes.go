@@ -1288,7 +1288,7 @@ func (o MedtechServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ServiceAuthenticationConfiguration struct {
-	// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+	// The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com>
 	Audience *string `pulumi:"audience"`
 	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
 	// Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
@@ -1309,7 +1309,7 @@ type ServiceAuthenticationConfigurationInput interface {
 }
 
 type ServiceAuthenticationConfigurationArgs struct {
-	// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+	// The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com>
 	Audience pulumi.StringPtrInput `pulumi:"audience"`
 	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
 	// Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
@@ -1395,7 +1395,7 @@ func (o ServiceAuthenticationConfigurationOutput) ToServiceAuthenticationConfigu
 	}).(ServiceAuthenticationConfigurationPtrOutput)
 }
 
-// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+// The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com>
 func (o ServiceAuthenticationConfigurationOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceAuthenticationConfiguration) *string { return v.Audience }).(pulumi.StringPtrOutput)
 }
@@ -1435,7 +1435,7 @@ func (o ServiceAuthenticationConfigurationPtrOutput) Elem() ServiceAuthenticatio
 	}).(ServiceAuthenticationConfigurationOutput)
 }
 
-// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+// The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com>
 func (o ServiceAuthenticationConfigurationPtrOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAuthenticationConfiguration) *string {
 		if v == nil {

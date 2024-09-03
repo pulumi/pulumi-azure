@@ -155,7 +155,7 @@ class ServiceNotifications(dict):
                  notify_global_admins: Optional[bool] = None):
         """
         :param Sequence[str] additional_recipients: A list of additional email addresses to notify when there are alerts in the managed domain.
-        :param bool notify_dc_admins: Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+        :param bool notify_dc_admins: Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
         :param bool notify_global_admins: Whether to notify all Global Administrators when there are alerts in the managed domain.
         """
         if additional_recipients is not None:
@@ -177,7 +177,7 @@ class ServiceNotifications(dict):
     @pulumi.getter(name="notifyDcAdmins")
     def notify_dc_admins(self) -> Optional[bool]:
         """
-        Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+        Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
         """
         return pulumi.get(self, "notify_dc_admins")
 
@@ -433,7 +433,7 @@ class GetServiceNotificationResult(dict):
                  notify_global_admins: bool):
         """
         :param Sequence[str] additional_recipients: A list of additional email addresses to notify when there are alerts in the managed domain.
-        :param bool notify_dc_admins: Whethermembers of the _AAD DC Administrators_ group are notified when there are alerts in the managed domain.
+        :param bool notify_dc_admins: Whethermembers of the *AAD DC Administrators* group are notified when there are alerts in the managed domain.
         :param bool notify_global_admins: Whether all Global Administrators are notified when there are alerts in the managed domain.
         """
         pulumi.set(__self__, "additional_recipients", additional_recipients)
@@ -452,7 +452,7 @@ class GetServiceNotificationResult(dict):
     @pulumi.getter(name="notifyDcAdmins")
     def notify_dc_admins(self) -> bool:
         """
-        Whethermembers of the _AAD DC Administrators_ group are notified when there are alerts in the managed domain.
+        Whethermembers of the *AAD DC Administrators* group are notified when there are alerts in the managed domain.
         """
         return pulumi.get(self, "notify_dc_admins")
 

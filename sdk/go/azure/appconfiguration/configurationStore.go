@@ -48,7 +48,7 @@ import (
 //
 // ```
 //
-// ### Encryption)
+// ### encryption)
 //
 // ```go
 // package main

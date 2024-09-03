@@ -2611,7 +2611,7 @@ class Account(pulumi.CustomResource):
             })
         ```
 
-        ### With Network Rules
+        ### with Network Rules
 
         ```python
         import pulumi
@@ -2757,7 +2757,7 @@ class Account(pulumi.CustomResource):
             })
         ```
 
-        ### With Network Rules
+        ### with Network Rules
 
         ```python
         import pulumi

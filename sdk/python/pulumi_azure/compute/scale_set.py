@@ -977,9 +977,23 @@ class ScaleSet(pulumi.CustomResource):
         """
         Manages a virtual machine scale set.
 
+        ## Example of storage_profile_image_reference with id
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.compute.Image("example", name="test")
+        example_scale_set = azure.compute.ScaleSet("example",
+            name="test",
+            storage_profile_image_reference={
+                "id": example.id,
+            })
+        ```
+
         ## Example Usage
 
-        ### With Managed Disks (Recommended)
+        ### with Managed Disks (Recommended)
 
         ```python
         import pulumi
@@ -1097,7 +1111,7 @@ class ScaleSet(pulumi.CustomResource):
             })
         ```
 
-        ### With Unmanaged Disks
+        ### with Unmanaged Disks
 
         ```python
         import pulumi
@@ -1175,20 +1189,6 @@ class ScaleSet(pulumi.CustomResource):
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
-            })
-        ```
-
-        ## Example of storage_profile_image_reference with id
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.compute.Image("example", name="test")
-        example_scale_set = azure.compute.ScaleSet("example",
-            name="test",
-            storage_profile_image_reference={
-                "id": example.id,
             })
         ```
 
@@ -1244,9 +1244,23 @@ class ScaleSet(pulumi.CustomResource):
         """
         Manages a virtual machine scale set.
 
+        ## Example of storage_profile_image_reference with id
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.compute.Image("example", name="test")
+        example_scale_set = azure.compute.ScaleSet("example",
+            name="test",
+            storage_profile_image_reference={
+                "id": example.id,
+            })
+        ```
+
         ## Example Usage
 
-        ### With Managed Disks (Recommended)
+        ### with Managed Disks (Recommended)
 
         ```python
         import pulumi
@@ -1364,7 +1378,7 @@ class ScaleSet(pulumi.CustomResource):
             })
         ```
 
-        ### With Unmanaged Disks
+        ### with Unmanaged Disks
 
         ```python
         import pulumi
@@ -1442,20 +1456,6 @@ class ScaleSet(pulumi.CustomResource):
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
-            })
-        ```
-
-        ## Example of storage_profile_image_reference with id
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.compute.Image("example", name="test")
-        example_scale_set = azure.compute.ScaleSet("example",
-            name="test",
-            storage_profile_image_reference={
-                "id": example.id,
             })
         ```
 

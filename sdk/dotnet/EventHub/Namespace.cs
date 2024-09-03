@@ -136,7 +136,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+        /// &gt; **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc &lt;https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium&gt; for more feature restrictions.
         /// </summary>
         [Output("premiumMessagingPartitions")]
         public Output<int?> PremiumMessagingPartitions { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+        /// &gt; **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc &lt;https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium&gt; for more feature restrictions.
         /// </summary>
         [Input("premiumMessagingPartitions")]
         public Input<int>? PremiumMessagingPartitions { get; set; }
@@ -451,7 +451,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+        /// &gt; **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc &lt;https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium&gt; for more feature restrictions.
         /// </summary>
         [Input("premiumMessagingPartitions")]
         public Input<int>? PremiumMessagingPartitions { get; set; }

@@ -116,11 +116,11 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        /// Mobile country code (MCC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; .
         /// </summary>
         public readonly string MobileCountryCode;
         /// <summary>
-        /// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        /// Mobile network code (MNC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; .
         /// </summary>
         public readonly string MobileNetworkCode;
         public readonly string Name;

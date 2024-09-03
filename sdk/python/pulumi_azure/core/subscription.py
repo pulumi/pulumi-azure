@@ -270,7 +270,7 @@ class Subscription(pulumi.CustomResource):
         """
         ## Example Usage
 
-        ### Creating A New Alias And Subscription For An Enrollment Account
+        ### creating a new Alias and Subscription for an Enrollment Account
 
         ```python
         import pulumi
@@ -283,7 +283,7 @@ class Subscription(pulumi.CustomResource):
             billing_scope_id=example.id)
         ```
 
-        ### Creating A New Alias And Subscription For A Microsoft Customer Account
+        ### creating a new Alias and Subscription for a Microsoft Customer Account
 
         ```python
         import pulumi
@@ -297,7 +297,7 @@ class Subscription(pulumi.CustomResource):
             billing_scope_id=example.id)
         ```
 
-        ### Creating A New Alias And Subscription For A Microsoft Partner Account
+        ### creating a new Alias and Subscription for a Microsoft Partner Account
 
         ```python
         import pulumi
@@ -310,7 +310,7 @@ class Subscription(pulumi.CustomResource):
             billing_scope_id=example.id)
         ```
 
-        ### Adding An Alias To An Existing Subscription
+        ### adding an Alias to an existing Subscription
 
         ```python
         import pulumi
@@ -354,7 +354,7 @@ class Subscription(pulumi.CustomResource):
         """
         ## Example Usage
 
-        ### Creating A New Alias And Subscription For An Enrollment Account
+        ### creating a new Alias and Subscription for an Enrollment Account
 
         ```python
         import pulumi
@@ -367,7 +367,7 @@ class Subscription(pulumi.CustomResource):
             billing_scope_id=example.id)
         ```
 
-        ### Creating A New Alias And Subscription For A Microsoft Customer Account
+        ### creating a new Alias and Subscription for a Microsoft Customer Account
 
         ```python
         import pulumi
@@ -381,7 +381,7 @@ class Subscription(pulumi.CustomResource):
             billing_scope_id=example.id)
         ```
 
-        ### Creating A New Alias And Subscription For A Microsoft Partner Account
+        ### creating a new Alias and Subscription for a Microsoft Partner Account
 
         ```python
         import pulumi
@@ -394,7 +394,7 @@ class Subscription(pulumi.CustomResource):
             billing_scope_id=example.id)
         ```
 
-        ### Adding An Alias To An Existing Subscription
+        ### adding an Alias to an existing Subscription
 
         ```python
         import pulumi

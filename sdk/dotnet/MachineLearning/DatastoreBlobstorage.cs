@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     /// ## Example Usage
     /// 
-    /// ### With Azure Blob
+    /// ### with Azure Blob
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

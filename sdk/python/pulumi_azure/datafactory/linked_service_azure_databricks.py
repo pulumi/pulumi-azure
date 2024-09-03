@@ -505,7 +505,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With Managed Identity & New Cluster
+        ### with managed identity & new cluster
 
         ```python
         import pulumi
@@ -560,7 +560,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             })
         ```
 
-        ### With Access Token & Existing Cluster
+        ### with access token & existing cluster
 
         ```python
         import pulumi
@@ -625,7 +625,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With Managed Identity & New Cluster
+        ### with managed identity & new cluster
 
         ```python
         import pulumi
@@ -680,7 +680,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             })
         ```
 
-        ### With Access Token & Existing Cluster
+        ### with access token & existing cluster
 
         ```python
         import pulumi

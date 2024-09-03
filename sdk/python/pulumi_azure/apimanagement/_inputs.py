@@ -4237,7 +4237,6 @@ if not MYPY:
         The client certificate resource id for the management endpoint.
 
         > **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
-        >
         """
         client_certificate_thumbprint: NotRequired[pulumi.Input[str]]
         """
@@ -4269,7 +4268,6 @@ class BackendServiceFabricClusterArgs:
         :param pulumi.Input[str] client_certificate_id: The client certificate resource id for the management endpoint.
                
                > **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
-               >
         :param pulumi.Input[str] client_certificate_thumbprint: The client certificate thumbprint for the management endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
         :param pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]] server_x509_names: One or more `server_x509_name` blocks as documented below.
@@ -4316,7 +4314,6 @@ class BackendServiceFabricClusterArgs:
         The client certificate resource id for the management endpoint.
 
         > **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
-        >
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -8745,7 +8742,7 @@ if not MYPY:
         """
         triple_des_ciphers_enabled: NotRequired[pulumi.Input[bool]]
         """
-        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 
         > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """
@@ -8821,7 +8818,7 @@ class ServiceSecurityArgs:
         :param pulumi.Input[bool] tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
                
                > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
-        :param pulumi.Input[bool] triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+        :param pulumi.Input[bool] triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
                
                > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """
@@ -9088,7 +9085,7 @@ class ServiceSecurityArgs:
     @pulumi.getter(name="tripleDesCiphersEnabled")
     def triple_des_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 
         > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """

@@ -35,12 +35,10 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
 export interface GetServiceArgs {
     /**
      * The name of this Communication Service.
-     * *
      */
     name: string;
     /**
      * The name of the Resource Group where the Communication Service exists.
-     * *
      */
     resourceGroupName: string;
 }
@@ -106,12 +104,10 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
 export interface GetServiceOutputArgs {
     /**
      * The name of this Communication Service.
-     * *
      */
     name: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Communication Service exists.
-     * *
      */
     resourceGroupName: pulumi.Input<string>;
 }

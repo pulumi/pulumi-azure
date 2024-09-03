@@ -69,13 +69,36 @@ public final class WindowsWebAppSiteConfigApplicationStack {
      * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
      * 
      * &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
-     * Portal Value | API value
-     * :--|--:
-     * ASP.NET V3.5 | v2.0
-     * ASP.NET V4.8 | v4.0
-     * .NET 6 (LTS) | v6.0
-     * .NET 7 (STS) | v7.0
-     * .NET 8 (LTS) | v8.0
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th style=&#34;text-align:left&#34;&gt;Portal Value&lt;/th&gt;
+     * &lt;th style=&#34;text-align:right&#34;&gt;API value&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td style=&#34;text-align:left&#34;&gt;ASP.NET V3.5&lt;/td&gt;
+     * &lt;td style=&#34;text-align:right&#34;&gt;v2.0&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td style=&#34;text-align:left&#34;&gt;ASP.NET V4.8&lt;/td&gt;
+     * &lt;td style=&#34;text-align:right&#34;&gt;v4.0&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td style=&#34;text-align:left&#34;&gt;.NET 6 (LTS)&lt;/td&gt;
+     * &lt;td style=&#34;text-align:right&#34;&gt;v6.0&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td style=&#34;text-align:left&#34;&gt;.NET 7 (STS)&lt;/td&gt;
+     * &lt;td style=&#34;text-align:right&#34;&gt;v7.0&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td style=&#34;text-align:left&#34;&gt;.NET 8 (LTS)&lt;/td&gt;
+     * &lt;td style=&#34;text-align:right&#34;&gt;v8.0&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     private @Nullable String dotnetVersion;
@@ -215,13 +238,36 @@ public final class WindowsWebAppSiteConfigApplicationStack {
      * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
      * 
      * &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
-     * Portal Value | API value
-     * :--|--:
-     * ASP.NET V3.5 | v2.0
-     * ASP.NET V4.8 | v4.0
-     * .NET 6 (LTS) | v6.0
-     * .NET 7 (STS) | v7.0
-     * .NET 8 (LTS) | v8.0
+     * &lt;table&gt;
+     * &lt;thead&gt;
+     * &lt;tr&gt;
+     * &lt;th style=&#34;text-align:left&#34;&gt;Portal Value&lt;/th&gt;
+     * &lt;th style=&#34;text-align:right&#34;&gt;API value&lt;/th&gt;
+     * &lt;/tr&gt;
+     * &lt;/thead&gt;
+     * &lt;tbody&gt;
+     * &lt;tr&gt;
+     * &lt;td style=&#34;text-align:left&#34;&gt;ASP.NET V3.5&lt;/td&gt;
+     * &lt;td style=&#34;text-align:right&#34;&gt;v2.0&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td style=&#34;text-align:left&#34;&gt;ASP.NET V4.8&lt;/td&gt;
+     * &lt;td style=&#34;text-align:right&#34;&gt;v4.0&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td style=&#34;text-align:left&#34;&gt;.NET 6 (LTS)&lt;/td&gt;
+     * &lt;td style=&#34;text-align:right&#34;&gt;v6.0&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td style=&#34;text-align:left&#34;&gt;.NET 7 (STS)&lt;/td&gt;
+     * &lt;td style=&#34;text-align:right&#34;&gt;v7.0&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;tr&gt;
+     * &lt;td style=&#34;text-align:left&#34;&gt;.NET 8 (LTS)&lt;/td&gt;
+     * &lt;td style=&#34;text-align:right&#34;&gt;v8.0&lt;/td&gt;
+     * &lt;/tr&gt;
+     * &lt;/tbody&gt;
+     * &lt;/table&gt;
      * 
      */
     public Optional<String> dotnetVersion() {

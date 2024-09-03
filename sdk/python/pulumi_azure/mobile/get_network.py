@@ -72,7 +72,7 @@ class GetNetworkResult:
     @pulumi.getter(name="mobileCountryCode")
     def mobile_country_code(self) -> str:
         """
-        Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> .
         """
         return pulumi.get(self, "mobile_country_code")
 
@@ -80,7 +80,7 @@ class GetNetworkResult:
     @pulumi.getter(name="mobileNetworkCode")
     def mobile_network_code(self) -> str:
         """
-        Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> .
         """
         return pulumi.get(self, "mobile_network_code")
 

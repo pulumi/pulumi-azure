@@ -329,7 +329,6 @@ type LoadTestIdentity struct {
 	// A list of the User Assigned Identity IDs that should be assigned to this Load Test.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-	// *
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
 	TenantId *string `pulumi:"tenantId"`
@@ -352,7 +351,6 @@ type LoadTestIdentityArgs struct {
 	// A list of the User Assigned Identity IDs that should be assigned to this Load Test.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-	// *
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
@@ -443,7 +441,6 @@ func (o LoadTestIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 }
 
 // The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-// *
 func (o LoadTestIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadTestIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -493,7 +490,6 @@ func (o LoadTestIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 }
 
 // The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-// *
 func (o LoadTestIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadTestIdentity) *string {
 		if v == nil {

@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Supporting API Keys)
+ * ### supporting API Keys)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Using Both AzureAD And API Keys)
+ * ### using both AzureAD and API Keys)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Supporting Only AzureAD Authentication)
+ * ### supporting only AzureAD Authentication)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

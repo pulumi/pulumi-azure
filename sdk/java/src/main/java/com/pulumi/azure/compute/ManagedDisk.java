@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### With Create Empty
+ * ### with Create Empty
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Create Copy
+ * ### with Create Copy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

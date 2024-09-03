@@ -2029,7 +2029,7 @@ class AppServiceSiteConfig(dict):
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`. 
+        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`.
                
                > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         :param bool use32_bit_worker_process: Should the App Service run in 32 bit mode, rather than 64 bit mode?
@@ -2325,7 +2325,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="scmUseMainIpRestriction")
     def scm_use_main_ip_restriction(self) -> Optional[bool]:
         """
-        IP security restrictions for scm to use main. Defaults to `false`. 
+        IP security restrictions for scm to use main. Defaults to `false`.
 
         > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         """
@@ -4119,7 +4119,7 @@ class FunctionAppSiteConfig(dict):
         :param str scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
                
                > **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
-        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`. 
+        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`.
                
                > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         :param bool use32_bit_worker_process: Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -4318,7 +4318,7 @@ class FunctionAppSiteConfig(dict):
     @pulumi.getter(name="scmUseMainIpRestriction")
     def scm_use_main_ip_restriction(self) -> Optional[bool]:
         """
-        IP security restrictions for scm to use main. Defaults to `false`. 
+        IP security restrictions for scm to use main. Defaults to `false`.
 
         > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         """
@@ -23938,7 +23938,7 @@ class SlotSiteConfig(dict):
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_type: The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`. 
+        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`.
                
                > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         :param bool use32_bit_worker_process: Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
@@ -24236,7 +24236,7 @@ class SlotSiteConfig(dict):
     @pulumi.getter(name="scmUseMainIpRestriction")
     def scm_use_main_ip_restriction(self) -> Optional[bool]:
         """
-        IP security restrictions for scm to use main. Defaults to `false`. 
+        IP security restrictions for scm to use main. Defaults to `false`.
 
         > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         """
@@ -35974,15 +35974,38 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
                
                > **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
-               Portal Value | API value
-               :--|--:
-               ASP.NET V3.5 | v2.0
-               ASP.NET V4.8 | v4.0
-               .NET 6 (LTS) | v6.0
-               .NET 7 (STS) | v7.0
-               .NET 8 (LTS) | v8.0
+               <table>
+               <thead>
+               <tr>
+               <th style="text-align:left">Portal Value</th>
+               <th style="text-align:right">API value</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td style="text-align:left">ASP.NET V3.5</td>
+               <td style="text-align:right">v2.0</td>
+               </tr>
+               <tr>
+               <td style="text-align:left">ASP.NET V4.8</td>
+               <td style="text-align:right">v4.0</td>
+               </tr>
+               <tr>
+               <td style="text-align:left">.NET 6 (LTS)</td>
+               <td style="text-align:right">v6.0</td>
+               </tr>
+               <tr>
+               <td style="text-align:left">.NET 7 (STS)</td>
+               <td style="text-align:right">v7.0</td>
+               </tr>
+               <tr>
+               <td style="text-align:left">.NET 8 (LTS)</td>
+               <td style="text-align:right">v8.0</td>
+               </tr>
+               </tbody>
+               </table>
         :param bool java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
-        :param str java_version: The version of Java to use when `current_stack` is set to `java`. 
+        :param str java_version: The version of Java to use when `current_stack` is set to `java`.
                
                > **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
         :param str node_version: The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
@@ -36118,13 +36141,36 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
 
         > **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
-        Portal Value | API value
-        :--|--:
-        ASP.NET V3.5 | v2.0
-        ASP.NET V4.8 | v4.0
-        .NET 6 (LTS) | v6.0
-        .NET 7 (STS) | v7.0
-        .NET 8 (LTS) | v8.0
+        <table>
+        <thead>
+        <tr>
+        <th style="text-align:left">Portal Value</th>
+        <th style="text-align:right">API value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td style="text-align:left">ASP.NET V3.5</td>
+        <td style="text-align:right">v2.0</td>
+        </tr>
+        <tr>
+        <td style="text-align:left">ASP.NET V4.8</td>
+        <td style="text-align:right">v4.0</td>
+        </tr>
+        <tr>
+        <td style="text-align:left">.NET 6 (LTS)</td>
+        <td style="text-align:right">v6.0</td>
+        </tr>
+        <tr>
+        <td style="text-align:left">.NET 7 (STS)</td>
+        <td style="text-align:right">v7.0</td>
+        </tr>
+        <tr>
+        <td style="text-align:left">.NET 8 (LTS)</td>
+        <td style="text-align:right">v8.0</td>
+        </tr>
+        </tbody>
+        </table>
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -36152,7 +36198,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[str]:
         """
-        The version of Java to use when `current_stack` is set to `java`. 
+        The version of Java to use when `current_stack` is set to `java`.
 
         > **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
         """

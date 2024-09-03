@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Creating A Workspace With Customer Managed Key And Azure AD Admin
+ * ### creating a workspace with Customer Managed Key and Azure AD Admin
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

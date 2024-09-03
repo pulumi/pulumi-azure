@@ -90,7 +90,7 @@ export class StaticWebAppFunctionAppRegistration extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+     * The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
      *
@@ -138,7 +138,7 @@ export class StaticWebAppFunctionAppRegistration extends pulumi.CustomResource {
  */
 export interface StaticWebAppFunctionAppRegistrationState {
     /**
-     * The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+     * The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
      *
@@ -156,7 +156,7 @@ export interface StaticWebAppFunctionAppRegistrationState {
  */
 export interface StaticWebAppFunctionAppRegistrationArgs {
     /**
-     * The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+     * The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
      *

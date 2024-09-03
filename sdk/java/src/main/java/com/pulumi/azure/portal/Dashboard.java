@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *                             }
  *                         }
  *                     }
- *                 },               
+ *                 },
  *                 "1": {
  *                     "position": {
  *                         "x": 5,
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *                             "type": "ApplicationInsights"
  *                         }
  *                     }
- *                 }              
+ *                 }
  *             }
  *         }
  *     },

@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Access Control
+ * ### with Access Control
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

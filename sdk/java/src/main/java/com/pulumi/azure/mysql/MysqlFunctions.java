@@ -196,7 +196,7 @@ public final class MysqlFunctions {
     /**
      * Use this data source to access information about an existing MySQL Server.
      * 
-     * &gt; **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: https://go.microsoft.com/fwlink/?linkid=2216041. The `azure.mysql.Server` data source is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `azure.mysql.FlexibleServer` data source instead.
+     * &gt; **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: &lt;https://go.microsoft.com/fwlink/?linkid=2216041&gt;. The `azure.mysql.Server` data source is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `azure.mysql.FlexibleServer` data source instead.
      * 
      * ## Example Usage
      * 
@@ -242,7 +242,7 @@ public final class MysqlFunctions {
     /**
      * Use this data source to access information about an existing MySQL Server.
      * 
-     * &gt; **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: https://go.microsoft.com/fwlink/?linkid=2216041. The `azure.mysql.Server` data source is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `azure.mysql.FlexibleServer` data source instead.
+     * &gt; **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: &lt;https://go.microsoft.com/fwlink/?linkid=2216041&gt;. The `azure.mysql.Server` data source is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `azure.mysql.FlexibleServer` data source instead.
      * 
      * ## Example Usage
      * 
@@ -288,7 +288,7 @@ public final class MysqlFunctions {
     /**
      * Use this data source to access information about an existing MySQL Server.
      * 
-     * &gt; **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: https://go.microsoft.com/fwlink/?linkid=2216041. The `azure.mysql.Server` data source is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `azure.mysql.FlexibleServer` data source instead.
+     * &gt; **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: &lt;https://go.microsoft.com/fwlink/?linkid=2216041&gt;. The `azure.mysql.Server` data source is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `azure.mysql.FlexibleServer` data source instead.
      * 
      * ## Example Usage
      * 
@@ -334,7 +334,7 @@ public final class MysqlFunctions {
     /**
      * Use this data source to access information about an existing MySQL Server.
      * 
-     * &gt; **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: https://go.microsoft.com/fwlink/?linkid=2216041. The `azure.mysql.Server` data source is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `azure.mysql.FlexibleServer` data source instead.
+     * &gt; **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: &lt;https://go.microsoft.com/fwlink/?linkid=2216041&gt;. The `azure.mysql.Server` data source is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `azure.mysql.FlexibleServer` data source instead.
      * 
      * ## Example Usage
      * 

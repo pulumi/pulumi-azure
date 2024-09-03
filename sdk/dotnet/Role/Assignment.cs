@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Role
     /// 
     /// ## Example Usage
     /// 
-    /// ### Using A Built-In Role)
+    /// ### using a built-in Role)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

@@ -25,7 +25,6 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-        /// *
         /// </summary>
         [Output("managedHsmId")]
         public Output<string> ManagedHsmId { get; private set; } = null!;
@@ -111,7 +110,6 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-        /// *
         /// </summary>
         [Input("managedHsmId")]
         public Input<string>? ManagedHsmId { get; set; }
@@ -153,7 +151,6 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-        /// *
         /// </summary>
         [Input("managedHsmId")]
         public Input<string>? ManagedHsmId { get; set; }

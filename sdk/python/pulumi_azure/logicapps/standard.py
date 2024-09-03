@@ -797,7 +797,7 @@ class Standard(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With App Service Plan)
+        ### with App Service Plan)
 
         ```python
         import pulumi
@@ -834,7 +834,7 @@ class Standard(pulumi.CustomResource):
             })
         ```
 
-        ### For Container Mode)
+        ### for container mode)
 
         > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
 
@@ -922,7 +922,7 @@ class Standard(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With App Service Plan)
+        ### with App Service Plan)
 
         ```python
         import pulumi
@@ -959,7 +959,7 @@ class Standard(pulumi.CustomResource):
             })
         ```
 
-        ### For Container Mode)
+        ### for container mode)
 
         > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
 

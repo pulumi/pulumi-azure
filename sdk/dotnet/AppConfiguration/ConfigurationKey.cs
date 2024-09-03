@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     /// ## Example Usage
     /// 
-    /// ### `Kv` Type
+    /// ### kv type
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.AppConfiguration
     /// });
     /// ```
     /// 
-    /// ### `Vault` Type
+    /// ### vault type
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

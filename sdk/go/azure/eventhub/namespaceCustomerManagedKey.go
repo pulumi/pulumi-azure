@@ -18,7 +18,7 @@ import (
 //
 // ## Example Usage
 //
-// ### With System Assigned Identity
+// ### with System Assigned Identity
 //
 // ```go
 // package main
@@ -147,7 +147,7 @@ import (
 //
 // ```
 //
-// ### With User Assigned Identity
+// ### with User Assigned Identity
 //
 // ```go
 // package main

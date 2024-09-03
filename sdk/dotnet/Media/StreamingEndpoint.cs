@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Media
     /// });
     /// ```
     /// 
-    /// ### With Access Control
+    /// ### with Access Control
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

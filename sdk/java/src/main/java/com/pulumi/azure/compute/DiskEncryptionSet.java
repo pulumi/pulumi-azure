@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Automatic Key Rotation Enabled
+ * ### with Automatic Key Rotation Enabled
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

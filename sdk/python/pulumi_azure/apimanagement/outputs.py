@@ -3115,7 +3115,6 @@ class BackendServiceFabricCluster(dict):
         :param str client_certificate_id: The client certificate resource id for the management endpoint.
                
                > **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
-               >
         :param str client_certificate_thumbprint: The client certificate thumbprint for the management endpoint.
         :param Sequence[str] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
         :param Sequence['BackendServiceFabricClusterServerX509NameArgs'] server_x509_names: One or more `server_x509_name` blocks as documented below.
@@ -3154,7 +3153,6 @@ class BackendServiceFabricCluster(dict):
         The client certificate resource id for the management endpoint.
 
         > **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
-        >
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -6561,7 +6559,7 @@ class ServiceSecurity(dict):
         :param bool tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
                
                > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
-        :param bool triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+        :param bool triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
                
                > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """
@@ -6764,7 +6762,7 @@ class ServiceSecurity(dict):
     @pulumi.getter(name="tripleDesCiphersEnabled")
     def triple_des_ciphers_enabled(self) -> Optional[bool]:
         """
-        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 
         > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """

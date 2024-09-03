@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Using A Built-In Role)
+ * ### using a built-in Role)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

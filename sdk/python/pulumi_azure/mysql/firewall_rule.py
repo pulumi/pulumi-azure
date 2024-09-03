@@ -26,7 +26,7 @@ class FirewallRuleArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
-        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. 
+        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule.
                
                > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
@@ -45,7 +45,7 @@ class FirewallRuleArgs:
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> pulumi.Input[str]:
         """
-        Specifies the End IP Address associated with this Firewall Rule. 
+        Specifies the End IP Address associated with this Firewall Rule.
 
         > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         """
@@ -114,7 +114,7 @@ class _FirewallRuleState:
                  start_ip_address: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FirewallRule resources.
-        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. 
+        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule.
                
                > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         :param pulumi.Input[str] name: Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
@@ -137,7 +137,7 @@ class _FirewallRuleState:
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the End IP Address associated with this Firewall Rule. 
+        Specifies the End IP Address associated with this Firewall Rule.
 
         > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         """
@@ -210,7 +210,7 @@ class FirewallRule(pulumi.CustomResource):
         """
         Manages a Firewall Rule for a MySQL Server.
 
-        > **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: https://go.microsoft.com/fwlink/?linkid=2216041. The `mysql.FirewallRule` resource is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `mysql.FlexibleServerFirewallRule` resource instead.
+        > **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: <https://go.microsoft.com/fwlink/?linkid=2216041>. The `mysql.FirewallRule` resource is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `mysql.FlexibleServerFirewallRule` resource instead.
 
         ## Example Usage
 
@@ -256,7 +256,7 @@ class FirewallRule(pulumi.CustomResource):
             end_ip_address="40.112.255.255")
         ```
 
-        ### Allow Access To Azure Services)
+        ### Allow access to Azure services)
 
         ```python
         import pulumi
@@ -284,7 +284,7 @@ class FirewallRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. 
+        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule.
                
                > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         :param pulumi.Input[str] name: Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
@@ -301,7 +301,7 @@ class FirewallRule(pulumi.CustomResource):
         """
         Manages a Firewall Rule for a MySQL Server.
 
-        > **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: https://go.microsoft.com/fwlink/?linkid=2216041. The `mysql.FirewallRule` resource is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `mysql.FlexibleServerFirewallRule` resource instead.
+        > **Note:** Azure Database for MySQL Single Server and its sub resources are scheduled for retirement by 2024-09-16 and will migrate to using Azure Database for MySQL Flexible Server: <https://go.microsoft.com/fwlink/?linkid=2216041>. The `mysql.FirewallRule` resource is deprecated and will be removed in v4.0 of the AzureRM Provider. Please use the `mysql.FlexibleServerFirewallRule` resource instead.
 
         ## Example Usage
 
@@ -347,7 +347,7 @@ class FirewallRule(pulumi.CustomResource):
             end_ip_address="40.112.255.255")
         ```
 
-        ### Allow Access To Azure Services)
+        ### Allow access to Azure services)
 
         ```python
         import pulumi
@@ -437,7 +437,7 @@ class FirewallRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. 
+        :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule.
                
                > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         :param pulumi.Input[str] name: Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
@@ -460,7 +460,7 @@ class FirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> pulumi.Output[str]:
         """
-        Specifies the End IP Address associated with this Firewall Rule. 
+        Specifies the End IP Address associated with this Firewall Rule.
 
         > **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         """

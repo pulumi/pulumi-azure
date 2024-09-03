@@ -84,7 +84,7 @@ namespace Pulumi.Azure.MySql
     /// });
     /// ```
     /// 
-    /// ### Allow Access To Azure Services)
+    /// ### Allow access to Azure services)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.MySql
     public partial class FlexibleServerFirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. 
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// 
         /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.MySql
     public sealed class FlexibleServerFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. 
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// 
         /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.MySql
     public sealed class FlexibleServerFirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. 
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// 
         /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>

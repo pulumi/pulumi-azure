@@ -18,7 +18,7 @@ public final class GetServiceNotification {
      */
     private List<String> additionalRecipients;
     /**
-     * @return Whethermembers of the _AAD DC Administrators_ group are notified when there are alerts in the managed domain.
+     * @return Whethermembers of the *AAD DC Administrators* group are notified when there are alerts in the managed domain.
      * 
      */
     private Boolean notifyDcAdmins;
@@ -37,7 +37,7 @@ public final class GetServiceNotification {
         return this.additionalRecipients;
     }
     /**
-     * @return Whethermembers of the _AAD DC Administrators_ group are notified when there are alerts in the managed domain.
+     * @return Whethermembers of the *AAD DC Administrators* group are notified when there are alerts in the managed domain.
      * 
      */
     public Boolean notifyDcAdmins() {

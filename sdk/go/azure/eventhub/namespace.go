@@ -94,7 +94,7 @@ type Namespace struct {
 	NetworkRuleSet NamespaceNetworkRuleSetOutput `pulumi:"networkRuleSet"`
 	// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 	//
-	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc <https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium> for more feature restrictions.
 	PremiumMessagingPartitions pulumi.IntPtrOutput `pulumi:"premiumMessagingPartitions"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -184,7 +184,7 @@ type namespaceState struct {
 	NetworkRuleSet *NamespaceNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 	//
-	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc <https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium> for more feature restrictions.
 	PremiumMessagingPartitions *int `pulumi:"premiumMessagingPartitions"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -232,7 +232,7 @@ type NamespaceState struct {
 	NetworkRuleSet NamespaceNetworkRuleSetPtrInput
 	// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 	//
-	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc <https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium> for more feature restrictions.
 	PremiumMessagingPartitions pulumi.IntPtrInput
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -274,7 +274,7 @@ type namespaceArgs struct {
 	NetworkRuleSet *NamespaceNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 	//
-	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc <https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium> for more feature restrictions.
 	PremiumMessagingPartitions *int `pulumi:"premiumMessagingPartitions"`
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -313,7 +313,7 @@ type NamespaceArgs struct {
 	NetworkRuleSet NamespaceNetworkRuleSetPtrInput
 	// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 	//
-	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+	// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc <https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium> for more feature restrictions.
 	PremiumMessagingPartitions pulumi.IntPtrInput
 	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -486,7 +486,7 @@ func (o NamespaceOutput) NetworkRuleSet() NamespaceNetworkRuleSetOutput {
 
 // Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
 //
-// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
+// > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc <https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium> for more feature restrictions.
 func (o NamespaceOutput) PremiumMessagingPartitions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.IntPtrOutput { return v.PremiumMessagingPartitions }).(pulumi.IntPtrOutput)
 }

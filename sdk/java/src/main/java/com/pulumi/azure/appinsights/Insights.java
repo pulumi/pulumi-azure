@@ -153,14 +153,14 @@ public class Insights extends com.pulumi.resources.CustomResource {
         return this.appId;
     }
     /**
-     * Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+     * Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="applicationType", refs={String.class}, tree="[0]")
     private Output<String> applicationType;
 
     /**
-     * @return Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+     * @return Specifies the type of Application Insights to create. Valid values are `ios` for *iOS*, `java` for *Java web*, `MobileCenter` for *App Center*, `Node.JS` for *Node.js*, `other` for *General*, `phone` for *Windows Phone*, `store` for *Windows Store* and `web` for *ASP.NET*. Please note these values are case sensitive; unmatched values are treated as *ASP.NET* by Azure. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> applicationType() {

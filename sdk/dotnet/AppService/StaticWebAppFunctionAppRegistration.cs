@@ -87,7 +87,7 @@ namespace Pulumi.Azure.AppService
     public partial class StaticWebAppFunctionAppRegistration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+        /// The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
         /// 
@@ -149,7 +149,7 @@ namespace Pulumi.Azure.AppService
     public sealed class StaticWebAppFunctionAppRegistrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+        /// The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
         /// 
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.AppService
     public sealed class StaticWebAppFunctionAppRegistrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+        /// The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
         /// 

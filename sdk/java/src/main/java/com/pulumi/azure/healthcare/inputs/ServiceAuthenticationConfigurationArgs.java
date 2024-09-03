@@ -17,14 +17,14 @@ public final class ServiceAuthenticationConfigurationArgs extends com.pulumi.res
     public static final ServiceAuthenticationConfigurationArgs Empty = new ServiceAuthenticationConfigurationArgs();
 
     /**
-     * The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+     * The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
      * 
      */
     @Import(name="audience")
     private @Nullable Output<String> audience;
 
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
      * 
      */
     public Optional<Output<String>> audience() {
@@ -90,7 +90,7 @@ public final class ServiceAuthenticationConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param audience The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+         * @param audience The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ServiceAuthenticationConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param audience The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+         * @param audience The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
          * 
          * @return builder
          * 

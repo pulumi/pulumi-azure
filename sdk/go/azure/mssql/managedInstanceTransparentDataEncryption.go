@@ -20,7 +20,7 @@ import (
 //
 // ## Example Usage
 //
-// ### With Service Managed Key
+// ### with Service Managed Key
 //
 // ```go
 // package main
@@ -108,7 +108,7 @@ import (
 //
 // ```
 //
-// ### With Customer Managed Key
+// ### with Customer Managed Key
 //
 // ```go
 // package main

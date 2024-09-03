@@ -108,7 +108,7 @@ import (
 //
 // ```
 //
-// ### Allow Access To Azure Services)
+// ### Allow access to Azure services)
 //
 // ```go
 // package main

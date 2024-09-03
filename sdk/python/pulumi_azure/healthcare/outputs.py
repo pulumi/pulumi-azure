@@ -533,7 +533,7 @@ class ServiceAuthenticationConfiguration(dict):
                  authority: Optional[str] = None,
                  smart_proxy_enabled: Optional[bool] = None):
         """
-        :param str audience: The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+        :param str audience: The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com>
         :param str authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
                Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
         :param bool smart_proxy_enabled: (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
@@ -549,7 +549,7 @@ class ServiceAuthenticationConfiguration(dict):
     @pulumi.getter
     def audience(self) -> Optional[str]:
         """
-        The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+        The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com>
         """
         return pulumi.get(self, "audience")
 

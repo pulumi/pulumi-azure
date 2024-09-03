@@ -218,22 +218,68 @@ import javax.annotation.Nullable;
  * Rule Set server variables provide access to structured information about the request. You can use server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted.
  * 
  * ### Supported Action Server Variables
- * 
- * | Variable name | Description |
- * |---------------|-------------|
- * | `socket_ip`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
- * | `client_ip`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
- * | `client_port`    | The IP port of the client that made the request. |
- * | `hostname`       | The host name in the request from the client. |
- * | `geo_country`    | Indicates the requester&#39;s country/region of origin through its country/region code. |
- * | `http_method`    | The method used to make the URL request, such as `GET` or `POST`. |
- * | `http_version`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
- * | `query_string`   | The list of variable/value pairs that follows the &#34;?&#34; in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `query_string` value will be `id=123&amp;title=fabrikam`. |
- * | `request_scheme` | The request scheme: `http` or `https`. |
- * | `request_uri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&amp;title=fabrikam`. |
- * | `ssl_protocol`   | The protocol of an established TLS connection. |
- * | `server_port`    | The port of the server that accepted a request. |
- * | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
+ * &lt;table&gt;
+ * &lt;thead&gt;
+ * &lt;tr&gt;
+ * &lt;th&gt;Variable name&lt;/th&gt;
+ * &lt;th&gt;Description&lt;/th&gt;
+ * &lt;/tr&gt;
+ * &lt;/thead&gt;
+ * &lt;tbody&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`socket_ip`&lt;/td&gt;
+ * &lt;td&gt;The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`client_ip`&lt;/td&gt;
+ * &lt;td&gt;The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`client_port`&lt;/td&gt;
+ * &lt;td&gt;The IP port of the client that made the request.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`hostname`&lt;/td&gt;
+ * &lt;td&gt;The host name in the request from the client.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`geo_country`&lt;/td&gt;
+ * &lt;td&gt;Indicates the requester&#39;s country/region of origin through its country/region code.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`http_method`&lt;/td&gt;
+ * &lt;td&gt;The method used to make the URL request, such as `GET` or `POST`.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`http_version`&lt;/td&gt;
+ * &lt;td&gt;The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`query_string`&lt;/td&gt;
+ * &lt;td&gt;The list of variable/value pairs that follows the &#34;?&#34; in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `query_string` value will be `id=123&amp;title=fabrikam`.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`request_scheme`&lt;/td&gt;
+ * &lt;td&gt;The request scheme: `http` or `https`.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`request_uri`&lt;/td&gt;
+ * &lt;td&gt;The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&amp;title=fabrikam`.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`ssl_protocol`&lt;/td&gt;
+ * &lt;td&gt;The protocol of an established TLS connection.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`server_port`&lt;/td&gt;
+ * &lt;td&gt;The port of the server that accepted a request.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;`url_path`&lt;/td&gt;
+ * &lt;td&gt;Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `uri_path` value will be `/article.aspx`.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;/tbody&gt;
+ * &lt;/table&gt;
  * 
  * ### Action Server Variable Format
  * 
@@ -260,29 +306,117 @@ import javax.annotation.Nullable;
  * ## Condition Operator list
  * 
  * For rules that accept values from the standard operator list, the following operators are valid:
- * 
- * | Operator                   | Description | Condition Value |
- * |----------------------------|-------------|-----------------|
- * | Any                        |Matches when there is any value, regardless of what it is. | Any |
- * | Equal                      | Matches when the value exactly matches the specified string. | Equal |
- * | Contains                   | Matches when the value contains the specified string. | Contains |
- * | Less Than                  | Matches when the length of the value is less than the specified integer. | LessThan |
- * | Greater Than               | Matches when the length of the value is greater than the specified integer. | GreaterThan |
- * | Less Than or Equal         | Matches when the length of the value is less than or equal to the specified integer. | LessThanOrEqual |
- * | Greater Than or Equal      | Matches when the length of the value is greater than or equal to the specified integer. | GreaterThanOrEqual |
- * | Begins With                | Matches when the value begins with the specified string. | BeginsWith |
- * | Ends With                  | Matches when the value ends with the specified string. | EndsWith |
- * | RegEx                      | Matches when the value matches the specified regular expression. See below for further details. | RegEx |
- * | Not Any                    | Matches when there is no value. | Any and negateCondition = true |
- * | Not Equal                  | Matches when the value does not match the specified string. | Equal and negateCondition : true |
- * | Not Contains               | Matches when the value does not contain the specified string. | Contains and negateCondition = true |
- * | Not Less Than              | Matches when the length of the value is not less than the specified integer. | LessThan and negateCondition = true |
- * | Not Greater Than           | Matches when the length of the value is not greater than the specified integer. | GreaterThan and negateCondition = true |
- * | Not Less Than or Equal     | Matches when the length of the value is not less than or equal to the specified integer. | LessThanOrEqual and negateCondition = true |
- * | Not Greater Than or Equals | Matches when the length of the value is not greater than or equal to the specified integer. | GreaterThanOrEqual and negateCondition = true |
- * | Not Begins With            | Matches when the value does not begin with the specified string. | BeginsWith and negateCondition = true |
- * | Not Ends With              | Matches when the value does not end with the specified string. | EndsWith and negateCondition = true |
- * | Not RegEx                  | Matches when the value does not match the specified regular expression. See `Condition Regular Expressions` for further details. | RegEx and negateCondition = true |
+ * &lt;table&gt;
+ * &lt;thead&gt;
+ * &lt;tr&gt;
+ * &lt;th&gt;Operator&lt;/th&gt;
+ * &lt;th&gt;Description&lt;/th&gt;
+ * &lt;th&gt;Condition Value&lt;/th&gt;
+ * &lt;/tr&gt;
+ * &lt;/thead&gt;
+ * &lt;tbody&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Any&lt;/td&gt;
+ * &lt;td&gt;Matches when there is any value, regardless of what it is.&lt;/td&gt;
+ * &lt;td&gt;Any&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Equal&lt;/td&gt;
+ * &lt;td&gt;Matches when the value exactly matches the specified string.&lt;/td&gt;
+ * &lt;td&gt;Equal&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Contains&lt;/td&gt;
+ * &lt;td&gt;Matches when the value contains the specified string.&lt;/td&gt;
+ * &lt;td&gt;Contains&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Less Than&lt;/td&gt;
+ * &lt;td&gt;Matches when the length of the value is less than the specified integer.&lt;/td&gt;
+ * &lt;td&gt;LessThan&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Greater Than&lt;/td&gt;
+ * &lt;td&gt;Matches when the length of the value is greater than the specified integer.&lt;/td&gt;
+ * &lt;td&gt;GreaterThan&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Less Than or Equal&lt;/td&gt;
+ * &lt;td&gt;Matches when the length of the value is less than or equal to the specified integer.&lt;/td&gt;
+ * &lt;td&gt;LessThanOrEqual&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Greater Than or Equal&lt;/td&gt;
+ * &lt;td&gt;Matches when the length of the value is greater than or equal to the specified integer.&lt;/td&gt;
+ * &lt;td&gt;GreaterThanOrEqual&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Begins With&lt;/td&gt;
+ * &lt;td&gt;Matches when the value begins with the specified string.&lt;/td&gt;
+ * &lt;td&gt;BeginsWith&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Ends With&lt;/td&gt;
+ * &lt;td&gt;Matches when the value ends with the specified string.&lt;/td&gt;
+ * &lt;td&gt;EndsWith&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;RegEx&lt;/td&gt;
+ * &lt;td&gt;Matches when the value matches the specified regular expression. See below for further details.&lt;/td&gt;
+ * &lt;td&gt;RegEx&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Not Any&lt;/td&gt;
+ * &lt;td&gt;Matches when there is no value.&lt;/td&gt;
+ * &lt;td&gt;Any and negateCondition = true&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Not Equal&lt;/td&gt;
+ * &lt;td&gt;Matches when the value does not match the specified string.&lt;/td&gt;
+ * &lt;td&gt;Equal and negateCondition : true&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Not Contains&lt;/td&gt;
+ * &lt;td&gt;Matches when the value does not contain the specified string.&lt;/td&gt;
+ * &lt;td&gt;Contains and negateCondition = true&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Not Less Than&lt;/td&gt;
+ * &lt;td&gt;Matches when the length of the value is not less than the specified integer.&lt;/td&gt;
+ * &lt;td&gt;LessThan and negateCondition = true&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Not Greater Than&lt;/td&gt;
+ * &lt;td&gt;Matches when the length of the value is not greater than the specified integer.&lt;/td&gt;
+ * &lt;td&gt;GreaterThan and negateCondition = true&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Not Less Than or Equal&lt;/td&gt;
+ * &lt;td&gt;Matches when the length of the value is not less than or equal to the specified integer.&lt;/td&gt;
+ * &lt;td&gt;LessThanOrEqual and negateCondition = true&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Not Greater Than or Equals&lt;/td&gt;
+ * &lt;td&gt;Matches when the length of the value is not greater than or equal to the specified integer.&lt;/td&gt;
+ * &lt;td&gt;GreaterThanOrEqual and negateCondition = true&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Not Begins With&lt;/td&gt;
+ * &lt;td&gt;Matches when the value does not begin with the specified string.&lt;/td&gt;
+ * &lt;td&gt;BeginsWith and negateCondition = true&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Not Ends With&lt;/td&gt;
+ * &lt;td&gt;Matches when the value does not end with the specified string.&lt;/td&gt;
+ * &lt;td&gt;EndsWith and negateCondition = true&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Not RegEx&lt;/td&gt;
+ * &lt;td&gt;Matches when the value does not match the specified regular expression. See `Condition Regular Expressions` for further details.&lt;/td&gt;
+ * &lt;td&gt;RegEx and negateCondition = true&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;/tbody&gt;
+ * &lt;/table&gt;
  * 
  * ***
  * 
@@ -306,15 +440,40 @@ import javax.annotation.Nullable;
  * ## Condition Transform List
  * 
  * For rules that can transform strings, the following transforms are valid:
- * 
- * | Transform   | Description |
- * |-------------|-------------|
- * | Lowercase   | Converts the string to the lowercase representation. |
- * | Uppercase   | Converts the string to the uppercase representation. |
- * | Trim        | Trims leading and trailing whitespace from the string. |
- * | RemoveNulls | Removes null values from the string. |
- * | URLEncode   | URL-encodes the string. |
- * | URLDecode   | URL-decodes the string. |
+ * &lt;table&gt;
+ * &lt;thead&gt;
+ * &lt;tr&gt;
+ * &lt;th&gt;Transform&lt;/th&gt;
+ * &lt;th&gt;Description&lt;/th&gt;
+ * &lt;/tr&gt;
+ * &lt;/thead&gt;
+ * &lt;tbody&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Lowercase&lt;/td&gt;
+ * &lt;td&gt;Converts the string to the lowercase representation.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Uppercase&lt;/td&gt;
+ * &lt;td&gt;Converts the string to the uppercase representation.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;Trim&lt;/td&gt;
+ * &lt;td&gt;Trims leading and trailing whitespace from the string.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;RemoveNulls&lt;/td&gt;
+ * &lt;td&gt;Removes null values from the string.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;URLEncode&lt;/td&gt;
+ * &lt;td&gt;URL-encodes the string.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt;URLDecode&lt;/td&gt;
+ * &lt;td&gt;URL-decodes the string.&lt;/td&gt;
+ * &lt;/tr&gt;
+ * &lt;/tbody&gt;
+ * &lt;/table&gt;
  * 
  * ***
  * 

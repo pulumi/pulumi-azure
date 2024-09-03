@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ## Example Usage
     /// 
-    /// ### With Create Empty
+    /// ### with Create Empty
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Compute
     /// });
     /// ```
     /// 
-    /// ### With Create Copy
+    /// ### with Create Copy
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -286,7 +286,6 @@ namespace Pulumi.Azure.Compute
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
-        /// 
         /// 
         /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
         /// 
@@ -579,7 +578,6 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
         /// 
-        /// 
         /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
         /// 
         /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
@@ -838,7 +836,6 @@ namespace Pulumi.Azure.Compute
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
-        /// 
         /// 
         /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
         /// 

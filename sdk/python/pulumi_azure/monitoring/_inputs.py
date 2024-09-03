@@ -9362,7 +9362,6 @@ if not MYPY:
         """
         The number of days for which this Retention Policy should apply.
 
-
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
 elif False:
@@ -9376,7 +9375,6 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
         """
         :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
         :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
-               
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -9401,7 +9399,6 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
     def days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days for which this Retention Policy should apply.
-
 
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -9542,7 +9539,6 @@ if not MYPY:
         """
         The number of days for which this Retention Policy should apply.
 
-
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
 elif False:
@@ -9556,7 +9552,6 @@ class DiagnosticSettingLogRetentionPolicyArgs:
         """
         :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
         :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
-               
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -9581,7 +9576,6 @@ class DiagnosticSettingLogRetentionPolicyArgs:
     def days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days for which this Retention Policy should apply.
-
 
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -9689,7 +9683,6 @@ if not MYPY:
         """
         The number of days for which this Retention Policy should apply.
 
-
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
 elif False:
@@ -9703,7 +9696,6 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
         """
         :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
         :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
-               
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -9728,7 +9720,6 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
     def days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days for which this Retention Policy should apply.
-
 
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """

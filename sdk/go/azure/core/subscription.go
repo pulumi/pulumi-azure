@@ -14,7 +14,7 @@ import (
 
 // ## Example Usage
 //
-// ### Creating A New Alias And Subscription For An Enrollment Account
+// ### creating a new Alias and Subscription for an Enrollment Account
 //
 // ```go
 // package main
@@ -49,7 +49,7 @@ import (
 //
 // ```
 //
-// ### Creating A New Alias And Subscription For A Microsoft Customer Account
+// ### creating a new Alias and Subscription for a Microsoft Customer Account
 //
 // ```go
 // package main
@@ -85,7 +85,7 @@ import (
 //
 // ```
 //
-// ### Creating A New Alias And Subscription For A Microsoft Partner Account
+// ### creating a new Alias and Subscription for a Microsoft Partner Account
 //
 // ```go
 // package main
@@ -120,7 +120,7 @@ import (
 //
 // ```
 //
-// ### Adding An Alias To An Existing Subscription
+// ### adding an Alias to an existing Subscription
 //
 // ```go
 // package main

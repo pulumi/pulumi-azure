@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Manages a Virtual Machine Gallery Application Assignment.
  *
  * > **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. It's recommended to use `ignoreChanges` for the `galleryApplication` block on the associated virtual machine resources, to avoid a persistent diff when using this resource.
+ *
  * ## Example Usage
  *
  * ```typescript

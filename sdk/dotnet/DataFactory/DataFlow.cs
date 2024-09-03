@@ -110,15 +110,15 @@ namespace Pulumi.Azure.DataFactory
     ///             },
     ///         },
     ///         Script = @"source(
-    ///   allowSchemaDrift: true, 
-    ///   validateSchema: false, 
-    ///   limit: 100, 
-    ///   ignoreNoFilesFound: false, 
-    ///   documentForm: 'documentPerLine') ~&gt; source1 
+    ///   allowSchemaDrift: true,
+    ///   validateSchema: false,
+    ///   limit: 100,
+    ///   ignoreNoFilesFound: false,
+    ///   documentForm: 'documentPerLine') ~&gt; source1
     /// source1 sink(
-    ///   allowSchemaDrift: true, 
-    ///   validateSchema: false, 
-    ///   skipDuplicateMapInputs: true, 
+    ///   allowSchemaDrift: true,
+    ///   validateSchema: false,
+    ///   skipDuplicateMapInputs: true,
     ///   skipDuplicateMapOutputs: true) ~&gt; sink1
     /// ",
     ///     });
@@ -150,15 +150,15 @@ namespace Pulumi.Azure.DataFactory
     ///             },
     ///         },
     ///         Script = @"source(
-    ///   allowSchemaDrift: true, 
-    ///   validateSchema: false, 
-    ///   limit: 100, 
-    ///   ignoreNoFilesFound: false, 
-    ///   documentForm: 'documentPerLine') ~&gt; source1 
+    ///   allowSchemaDrift: true,
+    ///   validateSchema: false,
+    ///   limit: 100,
+    ///   ignoreNoFilesFound: false,
+    ///   documentForm: 'documentPerLine') ~&gt; source1
     /// source1 sink(
-    ///   allowSchemaDrift: true, 
-    ///   validateSchema: false, 
-    ///   skipDuplicateMapInputs: true, 
+    ///   allowSchemaDrift: true,
+    ///   validateSchema: false,
+    ///   skipDuplicateMapInputs: true,
     ///   skipDuplicateMapOutputs: true) ~&gt; sink1
     /// ",
     ///     });
@@ -206,15 +206,15 @@ namespace Pulumi.Azure.DataFactory
     ///             },
     ///         },
     ///         Script = @"source(
-    ///   allowSchemaDrift: true, 
-    ///   validateSchema: false, 
-    ///   limit: 100, 
-    ///   ignoreNoFilesFound: false, 
-    ///   documentForm: 'documentPerLine') ~&gt; source1 
+    ///   allowSchemaDrift: true,
+    ///   validateSchema: false,
+    ///   limit: 100,
+    ///   ignoreNoFilesFound: false,
+    ///   documentForm: 'documentPerLine') ~&gt; source1
     /// source1 sink(
-    ///   allowSchemaDrift: true, 
-    ///   validateSchema: false, 
-    ///   skipDuplicateMapInputs: true, 
+    ///   allowSchemaDrift: true,
+    ///   validateSchema: false,
+    ///   skipDuplicateMapInputs: true,
     ///   skipDuplicateMapOutputs: true) ~&gt; sink1
     /// ",
     ///     });

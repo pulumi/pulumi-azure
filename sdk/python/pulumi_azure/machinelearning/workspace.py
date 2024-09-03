@@ -898,7 +898,7 @@ class Workspace(pulumi.CustomResource):
             })
         ```
 
-        ### With Data Encryption
+        ### with Data encryption
 
         > **NOTE:** The Key Vault must enable purge protection.
 
@@ -972,7 +972,7 @@ class Workspace(pulumi.CustomResource):
             })
         ```
 
-        ### With User Assigned Identity And Data Encryption
+        ### with User Assigned Identity and Data Encryption
 
         > **NOTE:** The Key Vault must enable purge protection.
 
@@ -1199,7 +1199,7 @@ class Workspace(pulumi.CustomResource):
             })
         ```
 
-        ### With Data Encryption
+        ### with Data encryption
 
         > **NOTE:** The Key Vault must enable purge protection.
 
@@ -1273,7 +1273,7 @@ class Workspace(pulumi.CustomResource):
             })
         ```
 
-        ### With User Assigned Identity And Data Encryption
+        ### with User Assigned Identity and Data Encryption
 
         > **NOTE:** The Key Vault must enable purge protection.
 

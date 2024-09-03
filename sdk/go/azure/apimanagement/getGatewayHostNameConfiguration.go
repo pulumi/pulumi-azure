@@ -70,7 +70,6 @@ type LookupGatewayHostNameConfigurationArgs struct {
 	// The ID of the API Management Service.
 	ApiManagementId string `pulumi:"apiManagementId"`
 	// The name of the API Management Gateway.
-	// *
 	GatewayName string `pulumi:"gatewayName"`
 	// The name of the API Management Gateway Host Name Configuration.
 	Name string `pulumi:"name"`
@@ -115,7 +114,6 @@ type LookupGatewayHostNameConfigurationOutputArgs struct {
 	// The ID of the API Management Service.
 	ApiManagementId pulumi.StringInput `pulumi:"apiManagementId"`
 	// The name of the API Management Gateway.
-	// *
 	GatewayName pulumi.StringInput `pulumi:"gatewayName"`
 	// The name of the API Management Gateway Host Name Configuration.
 	Name pulumi.StringInput `pulumi:"name"`

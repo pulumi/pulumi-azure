@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Authorization
         /// 
         /// ## Example Usage
         /// 
-        /// ### Reference An Existing)
+        /// ### reference an existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Authorization
         /// 
         /// ## Example Usage
         /// 
-        /// ### Reference An Existing)
+        /// ### reference an existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

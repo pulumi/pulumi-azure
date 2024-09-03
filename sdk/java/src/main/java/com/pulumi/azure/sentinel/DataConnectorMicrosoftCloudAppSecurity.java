@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Microsoft Cloud App Security Data Connector.
  * 
- *  !&gt; **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+ * !&gt; **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
  * 
  * ## Example Usage
  * 

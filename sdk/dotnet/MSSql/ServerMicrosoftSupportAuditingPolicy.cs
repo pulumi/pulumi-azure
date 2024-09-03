@@ -57,7 +57,7 @@ namespace Pulumi.Azure.MSSql
     /// });
     /// ```
     /// 
-    /// ### With Storage Account Behind VNet And Firewall
+    /// ### with storage account behind VNet and firewall
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.MSSql
     public partial class ServerMicrosoftSupportAuditingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Microsoft support auditing logs.
         /// </summary>
         [Output("blobStorageEndpoint")]
         public Output<string?> BlobStorageEndpoint { get; private set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerMicrosoftSupportAuditingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Microsoft support auditing logs.
         /// </summary>
         [Input("blobStorageEndpoint")]
         public Input<string>? BlobStorageEndpoint { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerMicrosoftSupportAuditingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Microsoft support auditing logs.
         /// </summary>
         [Input("blobStorageEndpoint")]
         public Input<string>? BlobStorageEndpoint { get; set; }

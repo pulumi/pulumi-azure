@@ -388,7 +388,7 @@ class Pipeline(pulumi.CustomResource):
             data_factory_id=example_factory.id)
         ```
 
-        ### With Activities
+        ### with Activities
 
         ```python
         import pulumi
@@ -463,7 +463,7 @@ class Pipeline(pulumi.CustomResource):
             data_factory_id=example_factory.id)
         ```
 
-        ### With Activities
+        ### with Activities
 
         ```python
         import pulumi

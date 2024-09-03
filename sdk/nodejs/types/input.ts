@@ -1012,7 +1012,6 @@ export namespace apimanagement {
          * The client certificate resource id for the management endpoint.
          *
          * > **Note:** At least one of `clientCertificateThumbprint`, and `clientCertificateId` must be set.
-         * >
          */
         clientCertificateId?: pulumi.Input<string>;
         /**
@@ -1998,7 +1997,7 @@ export namespace apimanagement {
          */
         tlsRsaWithAes256GcmSha384CiphersEnabled?: pulumi.Input<boolean>;
         /**
-         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
          *
          * > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
          */
@@ -3520,7 +3519,7 @@ export namespace appservice {
          */
         scmType?: pulumi.Input<string>;
         /**
-         * IP security restrictions for scm to use main. Defaults to `false`. 
+         * IP security restrictions for scm to use main. Defaults to `false`.
          *
          * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          */
@@ -4069,7 +4068,7 @@ export namespace appservice {
          */
         scmType?: pulumi.Input<string>;
         /**
-         * IP security restrictions for scm to use main. Defaults to `false`. 
+         * IP security restrictions for scm to use main. Defaults to `false`.
          *
          * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          */
@@ -9483,7 +9482,7 @@ export namespace appservice {
          */
         scmType?: pulumi.Input<string>;
         /**
-         * IP security restrictions for scm to use main. Defaults to `false`. 
+         * IP security restrictions for scm to use main. Defaults to `false`.
          *
          * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          */
@@ -12684,13 +12683,36 @@ export namespace appservice {
          * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
          *
          * > **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
-         * Portal Value | API value
-         * :--|--:
-         * ASP.NET V3.5 | v2.0
-         * ASP.NET V4.8 | v4.0
-         * .NET 6 (LTS) | v6.0
-         * .NET 7 (STS) | v7.0
-         * .NET 8 (LTS) | v8.0
+         * <table>
+         * <thead>
+         * <tr>
+         * <th style="text-align:left">Portal Value</th>
+         * <th style="text-align:right">API value</th>
+         * </tr>
+         * </thead>
+         * <tbody>
+         * <tr>
+         * <td style="text-align:left">ASP.NET V3.5</td>
+         * <td style="text-align:right">v2.0</td>
+         * </tr>
+         * <tr>
+         * <td style="text-align:left">ASP.NET V4.8</td>
+         * <td style="text-align:right">v4.0</td>
+         * </tr>
+         * <tr>
+         * <td style="text-align:left">.NET 6 (LTS)</td>
+         * <td style="text-align:right">v6.0</td>
+         * </tr>
+         * <tr>
+         * <td style="text-align:left">.NET 7 (STS)</td>
+         * <td style="text-align:right">v7.0</td>
+         * </tr>
+         * <tr>
+         * <td style="text-align:left">.NET 8 (LTS)</td>
+         * <td style="text-align:right">v8.0</td>
+         * </tr>
+         * </tbody>
+         * </table>
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -12706,7 +12728,7 @@ export namespace appservice {
          */
         javaEmbeddedServerEnabled?: pulumi.Input<boolean>;
         /**
-         * The version of Java to use when `currentStack` is set to `java`. 
+         * The version of Java to use when `currentStack` is set to `java`.
          *
          * > **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
          */
@@ -15268,7 +15290,7 @@ export namespace avs {
 export namespace backup {
     export interface PolicyFileShareBackup {
         /**
-         * Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
+         * Sets the backup frequency. Possible values are `Daily` and `Hourly`.
          *
          * > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
          */
@@ -19720,7 +19742,7 @@ export namespace compute {
         /**
          * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
          *
-         * > **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM's `skuName` is set to a Azure generation 2 directory within the GitHub Repository.
+         * > **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM's `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
          */
         hotpatchingEnabled?: pulumi.Input<boolean>;
         /**
@@ -22376,7 +22398,7 @@ export namespace containerapp {
          */
         envs?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainerEnv>[]>;
         /**
-         * The amount of ephemeral storage available to the Container App. 
+         * The amount of ephemeral storage available to the Container App.
          *
          * > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
          */
@@ -26591,7 +26613,7 @@ export namespace cosmosdb {
          */
         tier?: pulumi.Input<string>;
         /**
-         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
+         * The type of the `backup`. Possible values are `Continuous` and `Periodic`.
          *
          * > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
          */
@@ -30073,7 +30095,7 @@ export namespace domainservices {
          */
         additionalRecipients?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+         * Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
          */
         notifyDcAdmins?: pulumi.Input<boolean>;
         /**
@@ -35407,7 +35429,7 @@ export namespace healthcare {
 
     export interface ServiceAuthenticationConfiguration {
         /**
-         * The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+         * The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com>
          */
         audience?: pulumi.Input<string>;
         /**
@@ -37344,7 +37366,6 @@ export namespace loadtest {
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-         * *
          */
         principalId?: pulumi.Input<string>;
         /**
@@ -38439,7 +38460,7 @@ export namespace managedlustre {
         /**
          * The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+         * > **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See [official docs](https://learn.microsoft.com/en-us/azure/azure-managed-lustre/amlfs-prerequisites#access-roles-for-blob-integration) for more information.
          */
         importPrefix?: pulumi.Input<string>;
         /**
@@ -40630,7 +40651,7 @@ export namespace mobile {
          */
         ports?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of the allowed protocol(s) for this flow. If you want this flow to be able to use any protocol within the internet protocol suite, use the value `ip`. If you only want to allow a selection of protocols, you must use the corresponding IANA Assigned Internet Protocol Number for each protocol, as described in https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml. For example, for UDP, you must use 17. If you use the value `ip` then you must leave the field `port` unspecified.
+         * A list of the allowed protocol(s) for this flow. If you want this flow to be able to use any protocol within the internet protocol suite, use the value `ip`. If you only want to allow a selection of protocols, you must use the corresponding IANA Assigned Internet Protocol Number for each protocol, as described in <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml>. For example, for UDP, you must use 17. If you use the value `ip` then you must leave the field `port` unspecified.
          */
         protocols: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -42738,7 +42759,6 @@ export namespace monitoring {
         /**
          * The number of days for which this Retention Policy should apply.
          *
-         *
          * > **NOTE:** Setting this to `0` will retain the events indefinitely.
          */
         days?: pulumi.Input<number>;
@@ -42781,7 +42801,6 @@ export namespace monitoring {
         /**
          * The number of days for which this Retention Policy should apply.
          *
-         *
          * > **NOTE:** Setting this to `0` will retain the events indefinitely.
          */
         days?: pulumi.Input<number>;
@@ -42815,7 +42834,6 @@ export namespace monitoring {
     export interface DiagnosticSettingMetricRetentionPolicy {
         /**
          * The number of days for which this Retention Policy should apply.
-         *
          *
          * > **NOTE:** Setting this to `0` will retain the events indefinitely.
          */
@@ -48385,7 +48403,7 @@ export namespace paloalto {
          */
         port: pulumi.Input<number>;
         /**
-         * The ID of the Public IP Address on which to receive traffic. 
+         * The ID of the Public IP Address on which to receive traffic.
          *
          * > **Note:** This must be an Azure Public IP address ID also specified in the `publicIpAddressIds` list.
          */
@@ -49397,7 +49415,7 @@ export namespace privatelink {
          */
         requestMessage?: pulumi.Input<string>;
         /**
-         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
+         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
          *

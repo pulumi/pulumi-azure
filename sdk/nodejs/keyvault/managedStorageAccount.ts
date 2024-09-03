@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Automatically Regenerate Storage Account Access Key)
+ * ### automatically regenerate Storage Account access key)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

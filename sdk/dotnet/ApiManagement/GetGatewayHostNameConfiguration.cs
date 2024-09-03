@@ -107,7 +107,6 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The name of the API Management Gateway.
-        /// *
         /// </summary>
         [Input("gatewayName", required: true)]
         public string GatewayName { get; set; } = null!;
@@ -134,7 +133,6 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The name of the API Management Gateway.
-        /// *
         /// </summary>
         [Input("gatewayName", required: true)]
         public Input<string> GatewayName { get; set; } = null!;

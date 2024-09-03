@@ -219,22 +219,68 @@ import (
 // Rule Set server variables provide access to structured information about the request. You can use server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted.
 //
 // ### Supported Action Server Variables
-//
-// | Variable name | Description |
-// |---------------|-------------|
-// | `socketIp`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socketIp` is the IP address of the proxy or load balancer. |
-// | `clientIp`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
-// | `clientPort`    | The IP port of the client that made the request. |
-// | `hostname`       | The host name in the request from the client. |
-// | `geoCountry`    | Indicates the requester's country/region of origin through its country/region code. |
-// | `httpMethod`    | The method used to make the URL request, such as `GET` or `POST`. |
-// | `httpVersion`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
-// | `queryString`   | The list of variable/value pairs that follows the "?" in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `queryString` value will be `id=123&title=fabrikam`. |
-// | `requestScheme` | The request scheme: `http` or `https`. |
-// | `requestUri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `requestUri` value will be `/article.aspx?id=123&title=fabrikam`. |
-// | `sslProtocol`   | The protocol of an established TLS connection. |
-// | `serverPort`    | The port of the server that accepted a request. |
-// | `urlPath`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uriPath` value will be `/article.aspx`. |
+// <table>
+// <thead>
+// <tr>
+// <th>Variable name</th>
+// <th>Description</th>
+// </tr>
+// </thead>
+// <tbody>
+// <tr>
+// <td>`socketIp`</td>
+// <td>The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socketIp` is the IP address of the proxy or load balancer.</td>
+// </tr>
+// <tr>
+// <td>`clientIp`</td>
+// <td>The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header.</td>
+// </tr>
+// <tr>
+// <td>`clientPort`</td>
+// <td>The IP port of the client that made the request.</td>
+// </tr>
+// <tr>
+// <td>`hostname`</td>
+// <td>The host name in the request from the client.</td>
+// </tr>
+// <tr>
+// <td>`geoCountry`</td>
+// <td>Indicates the requester's country/region of origin through its country/region code.</td>
+// </tr>
+// <tr>
+// <td>`httpMethod`</td>
+// <td>The method used to make the URL request, such as `GET` or `POST`.</td>
+// </tr>
+// <tr>
+// <td>`httpVersion`</td>
+// <td>The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`.</td>
+// </tr>
+// <tr>
+// <td>`queryString`</td>
+// <td>The list of variable/value pairs that follows the "?" in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `queryString` value will be `id=123&title=fabrikam`.</td>
+// </tr>
+// <tr>
+// <td>`requestScheme`</td>
+// <td>The request scheme: `http` or `https`.</td>
+// </tr>
+// <tr>
+// <td>`requestUri`</td>
+// <td>The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `requestUri` value will be `/article.aspx?id=123&title=fabrikam`.</td>
+// </tr>
+// <tr>
+// <td>`sslProtocol`</td>
+// <td>The protocol of an established TLS connection.</td>
+// </tr>
+// <tr>
+// <td>`serverPort`</td>
+// <td>The port of the server that accepted a request.</td>
+// </tr>
+// <tr>
+// <td>`urlPath`</td>
+// <td>Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uriPath` value will be `/article.aspx`.</td>
+// </tr>
+// </tbody>
+// </table>
 //
 // ### Action Server Variable Format
 //
@@ -261,29 +307,117 @@ import (
 // ## Condition Operator list
 //
 // For rules that accept values from the standard operator list, the following operators are valid:
-//
-// | Operator                   | Description | Condition Value |
-// |----------------------------|-------------|-----------------|
-// | Any                        |Matches when there is any value, regardless of what it is. | Any |
-// | Equal                      | Matches when the value exactly matches the specified string. | Equal |
-// | Contains                   | Matches when the value contains the specified string. | Contains |
-// | Less Than                  | Matches when the length of the value is less than the specified integer. | LessThan |
-// | Greater Than               | Matches when the length of the value is greater than the specified integer. | GreaterThan |
-// | Less Than or Equal         | Matches when the length of the value is less than or equal to the specified integer. | LessThanOrEqual |
-// | Greater Than or Equal      | Matches when the length of the value is greater than or equal to the specified integer. | GreaterThanOrEqual |
-// | Begins With                | Matches when the value begins with the specified string. | BeginsWith |
-// | Ends With                  | Matches when the value ends with the specified string. | EndsWith |
-// | RegEx                      | Matches when the value matches the specified regular expression. See below for further details. | RegEx |
-// | Not Any                    | Matches when there is no value. | Any and negateCondition = true |
-// | Not Equal                  | Matches when the value does not match the specified string. | Equal and negateCondition : true |
-// | Not Contains               | Matches when the value does not contain the specified string. | Contains and negateCondition = true |
-// | Not Less Than              | Matches when the length of the value is not less than the specified integer. | LessThan and negateCondition = true |
-// | Not Greater Than           | Matches when the length of the value is not greater than the specified integer. | GreaterThan and negateCondition = true |
-// | Not Less Than or Equal     | Matches when the length of the value is not less than or equal to the specified integer. | LessThanOrEqual and negateCondition = true |
-// | Not Greater Than or Equals | Matches when the length of the value is not greater than or equal to the specified integer. | GreaterThanOrEqual and negateCondition = true |
-// | Not Begins With            | Matches when the value does not begin with the specified string. | BeginsWith and negateCondition = true |
-// | Not Ends With              | Matches when the value does not end with the specified string. | EndsWith and negateCondition = true |
-// | Not RegEx                  | Matches when the value does not match the specified regular expression. See `Condition Regular Expressions` for further details. | RegEx and negateCondition = true |
+// <table>
+// <thead>
+// <tr>
+// <th>Operator</th>
+// <th>Description</th>
+// <th>Condition Value</th>
+// </tr>
+// </thead>
+// <tbody>
+// <tr>
+// <td>Any</td>
+// <td>Matches when there is any value, regardless of what it is.</td>
+// <td>Any</td>
+// </tr>
+// <tr>
+// <td>Equal</td>
+// <td>Matches when the value exactly matches the specified string.</td>
+// <td>Equal</td>
+// </tr>
+// <tr>
+// <td>Contains</td>
+// <td>Matches when the value contains the specified string.</td>
+// <td>Contains</td>
+// </tr>
+// <tr>
+// <td>Less Than</td>
+// <td>Matches when the length of the value is less than the specified integer.</td>
+// <td>LessThan</td>
+// </tr>
+// <tr>
+// <td>Greater Than</td>
+// <td>Matches when the length of the value is greater than the specified integer.</td>
+// <td>GreaterThan</td>
+// </tr>
+// <tr>
+// <td>Less Than or Equal</td>
+// <td>Matches when the length of the value is less than or equal to the specified integer.</td>
+// <td>LessThanOrEqual</td>
+// </tr>
+// <tr>
+// <td>Greater Than or Equal</td>
+// <td>Matches when the length of the value is greater than or equal to the specified integer.</td>
+// <td>GreaterThanOrEqual</td>
+// </tr>
+// <tr>
+// <td>Begins With</td>
+// <td>Matches when the value begins with the specified string.</td>
+// <td>BeginsWith</td>
+// </tr>
+// <tr>
+// <td>Ends With</td>
+// <td>Matches when the value ends with the specified string.</td>
+// <td>EndsWith</td>
+// </tr>
+// <tr>
+// <td>RegEx</td>
+// <td>Matches when the value matches the specified regular expression. See below for further details.</td>
+// <td>RegEx</td>
+// </tr>
+// <tr>
+// <td>Not Any</td>
+// <td>Matches when there is no value.</td>
+// <td>Any and negateCondition = true</td>
+// </tr>
+// <tr>
+// <td>Not Equal</td>
+// <td>Matches when the value does not match the specified string.</td>
+// <td>Equal and negateCondition : true</td>
+// </tr>
+// <tr>
+// <td>Not Contains</td>
+// <td>Matches when the value does not contain the specified string.</td>
+// <td>Contains and negateCondition = true</td>
+// </tr>
+// <tr>
+// <td>Not Less Than</td>
+// <td>Matches when the length of the value is not less than the specified integer.</td>
+// <td>LessThan and negateCondition = true</td>
+// </tr>
+// <tr>
+// <td>Not Greater Than</td>
+// <td>Matches when the length of the value is not greater than the specified integer.</td>
+// <td>GreaterThan and negateCondition = true</td>
+// </tr>
+// <tr>
+// <td>Not Less Than or Equal</td>
+// <td>Matches when the length of the value is not less than or equal to the specified integer.</td>
+// <td>LessThanOrEqual and negateCondition = true</td>
+// </tr>
+// <tr>
+// <td>Not Greater Than or Equals</td>
+// <td>Matches when the length of the value is not greater than or equal to the specified integer.</td>
+// <td>GreaterThanOrEqual and negateCondition = true</td>
+// </tr>
+// <tr>
+// <td>Not Begins With</td>
+// <td>Matches when the value does not begin with the specified string.</td>
+// <td>BeginsWith and negateCondition = true</td>
+// </tr>
+// <tr>
+// <td>Not Ends With</td>
+// <td>Matches when the value does not end with the specified string.</td>
+// <td>EndsWith and negateCondition = true</td>
+// </tr>
+// <tr>
+// <td>Not RegEx</td>
+// <td>Matches when the value does not match the specified regular expression. See `Condition Regular Expressions` for further details.</td>
+// <td>RegEx and negateCondition = true</td>
+// </tr>
+// </tbody>
+// </table>
 //
 // ***
 //
@@ -307,15 +441,40 @@ import (
 // ## Condition Transform List
 //
 // For rules that can transform strings, the following transforms are valid:
-//
-// | Transform   | Description |
-// |-------------|-------------|
-// | Lowercase   | Converts the string to the lowercase representation. |
-// | Uppercase   | Converts the string to the uppercase representation. |
-// | Trim        | Trims leading and trailing whitespace from the string. |
-// | RemoveNulls | Removes null values from the string. |
-// | URLEncode   | URL-encodes the string. |
-// | URLDecode   | URL-decodes the string. |
+// <table>
+// <thead>
+// <tr>
+// <th>Transform</th>
+// <th>Description</th>
+// </tr>
+// </thead>
+// <tbody>
+// <tr>
+// <td>Lowercase</td>
+// <td>Converts the string to the lowercase representation.</td>
+// </tr>
+// <tr>
+// <td>Uppercase</td>
+// <td>Converts the string to the uppercase representation.</td>
+// </tr>
+// <tr>
+// <td>Trim</td>
+// <td>Trims leading and trailing whitespace from the string.</td>
+// </tr>
+// <tr>
+// <td>RemoveNulls</td>
+// <td>Removes null values from the string.</td>
+// </tr>
+// <tr>
+// <td>URLEncode</td>
+// <td>URL-encodes the string.</td>
+// </tr>
+// <tr>
+// <td>URLDecode</td>
+// <td>URL-decodes the string.</td>
+// </tr>
+// </tbody>
+// </table>
 //
 // ***
 //

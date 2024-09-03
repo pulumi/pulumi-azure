@@ -14,14 +14,14 @@ import (
 
 // Manages a Function App.
 //
-// !> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `appservice.LinuxFunctionApp` resources instead.
+// !> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `appservice.LinuxFunctionApp` and `appservice.WindowsFunctionApp` resources instead.
 //
 // > **Note:** To connect an Azure Function App and a subnet within the same region `appservice.VirtualNetworkSwiftConnection` can be used.
 // For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
 //
 // ## Example Usage
 //
-// ### With App Service Plan)
+// ### with App Service Plan)
 //
 // ```go
 // package main
@@ -83,7 +83,7 @@ import (
 //
 // ```
 //
-// ### In A Consumption Plan)
+// ### in a Consumption Plan)
 //
 // ```go
 // package main

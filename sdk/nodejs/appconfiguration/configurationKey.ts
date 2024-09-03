@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### `Kv` Type
+ * ### kv type
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### `Vault` Type
+ * ### vault type
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

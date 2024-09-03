@@ -73,7 +73,7 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      *
      * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      */
@@ -199,7 +199,7 @@ export class Snapshot extends pulumi.CustomResource {
  */
 export interface SnapshotState {
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      *
      * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      */
@@ -269,7 +269,7 @@ export interface SnapshotState {
  */
 export interface SnapshotArgs {
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      *
      * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      */

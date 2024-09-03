@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Using A Built-In Role)
+ * ### using a built-in Role)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

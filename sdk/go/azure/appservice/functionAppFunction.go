@@ -123,7 +123,7 @@ import (
 //
 // ```
 //
-// ### HTTP Trigger With Code Upload
+// ### HTTP Trigger with code upload
 //
 // ```go
 // package main

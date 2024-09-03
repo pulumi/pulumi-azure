@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### With Managed Identity & New Cluster
+ * ### with managed identity & new cluster
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Access Token & Existing Cluster
+ * ### with access token & existing cluster
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -27,14 +27,14 @@ import javax.annotation.Nullable;
 /**
  * Manages a Function App.
  * 
- * !&gt; **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxFunctionApp` resources instead.
+ * !&gt; **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` resources instead.
  * 
  * &gt; **Note:** To connect an Azure Function App and a subnet within the same region `azure.appservice.VirtualNetworkSwiftConnection` can be used.
  * For an example, check the `azure.appservice.VirtualNetworkSwiftConnection` documentation.
  * 
  * ## Example Usage
  * 
- * ### With App Service Plan)
+ * ### with App Service Plan)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### In A Consumption Plan)
+ * ### in a Consumption Plan)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -251,7 +251,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Version `~3` or `~4` is required for Linux Function Apps.
  * 
- * ### Python In A Consumption Plan)
+ * ### Python in a Consumption Plan)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

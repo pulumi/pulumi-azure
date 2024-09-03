@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Example Usage
         /// 
-        /// ### Reference An Existing)
+        /// ### reference an existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -40,8 +40,7 @@ namespace Pulumi.Azure.Network
         /// });
         /// ```
         /// 
-        /// 
-        /// ### Retrieve The Dynamic Public IP Of A New VM)
+        /// ### Retrieve the Dynamic Public IP of a new VM)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -142,7 +141,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// ## Example Usage
         /// 
-        /// ### Reference An Existing)
+        /// ### reference an existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -166,8 +165,7 @@ namespace Pulumi.Azure.Network
         /// });
         /// ```
         /// 
-        /// 
-        /// ### Retrieve The Dynamic Public IP Of A New VM)
+        /// ### Retrieve the Dynamic Public IP of a new VM)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

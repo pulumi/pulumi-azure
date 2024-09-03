@@ -135,7 +135,7 @@ def get_user_assigned_identity(name: Optional[str] = None,
 
     ## Example Usage
 
-    ### Reference An Existing)
+    ### reference an existing)
 
     ```python
     import pulumi
@@ -178,7 +178,7 @@ def get_user_assigned_identity_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    ### Reference An Existing)
+    ### reference an existing)
 
     ```python
     import pulumi

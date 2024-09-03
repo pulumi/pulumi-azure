@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Portal
     ///                             }}
     ///                         }}
     ///                     }}
-    ///                 }},               
+    ///                 }},
     ///                 ""1"": {{
     ///                     ""position"": {{
     ///                         ""x"": 5,
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Portal
     ///                             ""type"": ""ApplicationInsights""
     ///                         }}
     ///                     }}
-    ///                 }}              
+    ///                 }}
     ///             }}
     ///         }}
     ///     }},

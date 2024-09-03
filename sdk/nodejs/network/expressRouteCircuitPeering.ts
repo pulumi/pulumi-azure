@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Creating A Microsoft Peering)
+ * ### Creating a Microsoft Peering)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -165,7 +165,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
      */
     public readonly peerAsn!: pulumi.Output<number>;
     /**
-     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      *
      * > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
      */
@@ -302,7 +302,7 @@ export interface ExpressRouteCircuitPeeringState {
      */
     peerAsn?: pulumi.Input<number>;
     /**
-     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      *
      * > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
      */
@@ -368,7 +368,7 @@ export interface ExpressRouteCircuitPeeringArgs {
      */
     peerAsn?: pulumi.Input<number>;
     /**
-     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+     * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      *
      * > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
      */

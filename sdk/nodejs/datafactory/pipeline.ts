@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Activities
+ * ### with Activities
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

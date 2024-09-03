@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * ### Creating A New Alias And Subscription For An Enrollment Account
+ * ### creating a new Alias and Subscription for an Enrollment Account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Creating A New Alias And Subscription For A Microsoft Customer Account
+ * ### creating a new Alias and Subscription for a Microsoft Customer Account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Creating A New Alias And Subscription For A Microsoft Partner Account
+ * ### creating a new Alias and Subscription for a Microsoft Partner Account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Adding An Alias To An Existing Subscription
+ * ### adding an Alias to an existing Subscription
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

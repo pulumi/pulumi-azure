@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### With Base64 Certificate)
+ * ### with Base64 Certificate)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Key Vault Certificate)
+ * ### with Key Vault Certificate)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

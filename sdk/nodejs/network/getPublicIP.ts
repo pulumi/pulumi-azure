@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Reference An Existing)
+ * ### reference an existing)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * export const publicIpAddress = example.then(example => example.ipAddress);
  * ```
  *
- * ### Retrieve The Dynamic Public IP Of A New VM)
+ * ### Retrieve the Dynamic Public IP of a new VM)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -175,7 +175,7 @@ export interface GetPublicIPResult {
  *
  * ## Example Usage
  *
- * ### Reference An Existing)
+ * ### reference an existing)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -189,7 +189,7 @@ export interface GetPublicIPResult {
  * export const publicIpAddress = example.then(example => example.ipAddress);
  * ```
  *
- * ### Retrieve The Dynamic Public IP Of A New VM)
+ * ### Retrieve the Dynamic Public IP of a new VM)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -138,7 +138,7 @@ class AccountBackup(dict):
                  storage_redundancy: Optional[str] = None,
                  tier: Optional[str] = None):
         """
-        :param str type: The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
+        :param str type: The type of the `backup`. Possible values are `Continuous` and `Periodic`.
                
                > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
         :param int interval_in_minutes: The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
@@ -162,7 +162,7 @@ class AccountBackup(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
+        The type of the `backup`. Possible values are `Continuous` and `Periodic`.
 
         > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
         """

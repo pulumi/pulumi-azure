@@ -357,7 +357,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         ```
 
-        ### With Password In Key Vault
+        ### with Password in Key Vault
 
         ```python
         import pulumi
@@ -439,7 +439,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         ```
 
-        ### With Password In Key Vault
+        ### with Password in Key Vault
 
         ```python
         import pulumi

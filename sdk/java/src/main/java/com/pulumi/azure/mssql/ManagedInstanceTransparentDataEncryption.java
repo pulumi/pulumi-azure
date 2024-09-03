@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### With Service Managed Key
+ * ### with Service Managed Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Customer Managed Key
+ * ### with Customer Managed Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

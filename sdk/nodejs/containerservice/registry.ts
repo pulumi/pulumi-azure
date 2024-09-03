@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Attaching A Container Registry To A Kubernetes Cluster)
+ * ### Attaching a Container Registry to a Kubernetes Cluster)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

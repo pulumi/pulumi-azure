@@ -166,7 +166,7 @@ if not MYPY:
         """
         notify_dc_admins: NotRequired[pulumi.Input[bool]]
         """
-        Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+        Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
         """
         notify_global_admins: NotRequired[pulumi.Input[bool]]
         """
@@ -183,7 +183,7 @@ class ServiceNotificationsArgs:
                  notify_global_admins: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_recipients: A list of additional email addresses to notify when there are alerts in the managed domain.
-        :param pulumi.Input[bool] notify_dc_admins: Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+        :param pulumi.Input[bool] notify_dc_admins: Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
         :param pulumi.Input[bool] notify_global_admins: Whether to notify all Global Administrators when there are alerts in the managed domain.
         """
         if additional_recipients is not None:
@@ -209,7 +209,7 @@ class ServiceNotificationsArgs:
     @pulumi.getter(name="notifyDcAdmins")
     def notify_dc_admins(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
+        Whether to notify members of the *AAD DC Administrators* group when there are alerts in the managed domain.
         """
         return pulumi.get(self, "notify_dc_admins")
 

@@ -16,7 +16,6 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * The name of this Communication Service.
-     * *
      * 
      */
     @Import(name="name", required=true)
@@ -24,7 +23,6 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return The name of this Communication Service.
-     * *
      * 
      */
     public Output<String> name() {
@@ -33,7 +31,6 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * The name of the Resource Group where the Communication Service exists.
-     * *
      * 
      */
     @Import(name="resourceGroupName", required=true)
@@ -41,7 +38,6 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return The name of the Resource Group where the Communication Service exists.
-     * *
      * 
      */
     public Output<String> resourceGroupName() {
@@ -75,7 +71,6 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param name The name of this Communication Service.
-         * *
          * 
          * @return builder
          * 
@@ -87,7 +82,6 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param name The name of this Communication Service.
-         * *
          * 
          * @return builder
          * 
@@ -98,7 +92,6 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param resourceGroupName The name of the Resource Group where the Communication Service exists.
-         * *
          * 
          * @return builder
          * 
@@ -110,7 +103,6 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param resourceGroupName The name of the Resource Group where the Communication Service exists.
-         * *
          * 
          * @return builder
          * 

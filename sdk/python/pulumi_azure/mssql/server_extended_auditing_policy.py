@@ -408,7 +408,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             retention_in_days=6)
         ```
 
-        ### With Storage Account Behind VNet And Firewall
+        ### with storage account behind VNet and firewall
 
         ```python
         import pulumi
@@ -551,7 +551,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             retention_in_days=6)
         ```
 
-        ### With Storage Account Behind VNet And Firewall
+        ### with storage account behind VNet and firewall
 
         ```python
         import pulumi

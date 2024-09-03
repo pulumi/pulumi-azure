@@ -30,7 +30,6 @@ public final class GetGatewayHostNameConfigurationPlainArgs extends com.pulumi.r
 
     /**
      * The name of the API Management Gateway.
-     * *
      * 
      */
     @Import(name="gatewayName", required=true)
@@ -38,7 +37,6 @@ public final class GetGatewayHostNameConfigurationPlainArgs extends com.pulumi.r
 
     /**
      * @return The name of the API Management Gateway.
-     * *
      * 
      */
     public String gatewayName() {
@@ -99,7 +97,6 @@ public final class GetGatewayHostNameConfigurationPlainArgs extends com.pulumi.r
 
         /**
          * @param gatewayName The name of the API Management Gateway.
-         * *
          * 
          * @return builder
          * 

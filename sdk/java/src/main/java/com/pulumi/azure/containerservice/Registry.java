@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Attaching A Container Registry To A Kubernetes Cluster)
+ * ### Attaching a Container Registry to a Kubernetes Cluster)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

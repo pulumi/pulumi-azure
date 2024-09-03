@@ -85,7 +85,7 @@ namespace Pulumi.Azure.KeyVault
     /// });
     /// ```
     /// 
-    /// ### Automatically Regenerate Storage Account Access Key)
+    /// ### automatically regenerate Storage Account access key)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

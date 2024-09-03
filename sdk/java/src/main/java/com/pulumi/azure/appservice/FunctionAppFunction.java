@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### HTTP Trigger With Code Upload
+ * ### HTTP Trigger with code upload
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

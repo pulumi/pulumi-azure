@@ -344,7 +344,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With Base64 Certificate)
+        ### with Base64 Certificate)
 
         ```python
         import pulumi
@@ -368,7 +368,7 @@ class Certificate(pulumi.CustomResource):
             data=std.filebase64(input="example.pfx").result)
         ```
 
-        ### With Key Vault Certificate)
+        ### with Key Vault Certificate)
 
         ```python
         import pulumi
@@ -464,7 +464,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With Base64 Certificate)
+        ### with Base64 Certificate)
 
         ```python
         import pulumi
@@ -488,7 +488,7 @@ class Certificate(pulumi.CustomResource):
             data=std.filebase64(input="example.pfx").result)
         ```
 
-        ### With Key Vault Certificate)
+        ### with Key Vault Certificate)
 
         ```python
         import pulumi

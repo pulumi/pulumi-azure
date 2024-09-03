@@ -441,7 +441,7 @@ class Assignment(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Using A Built-In Role)
+        ### using a built-in Role)
 
         ```python
         import pulumi
@@ -618,7 +618,7 @@ class Assignment(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Using A Built-In Role)
+        ### using a built-in Role)
 
         ```python
         import pulumi

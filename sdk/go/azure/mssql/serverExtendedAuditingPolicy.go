@@ -74,7 +74,7 @@ import (
 //
 // ```
 //
-// ### With Storage Account Behind VNet And Firewall
+// ### with storage account behind VNet and firewall
 //
 // ```go
 // package main

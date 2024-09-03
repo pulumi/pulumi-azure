@@ -72,7 +72,7 @@ import (
 //
 // ```
 //
-// ### With Storage Account Behind VNet And Firewall
+// ### with storage account behind VNet and firewall
 // ```go
 // package main
 //
@@ -231,7 +231,7 @@ import (
 type ServerMicrosoftSupportAuditingPolicy struct {
 	pulumi.CustomResourceState
 
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
 	BlobStorageEndpoint pulumi.StringPtrOutput `pulumi:"blobStorageEndpoint"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
@@ -291,7 +291,7 @@ func GetServerMicrosoftSupportAuditingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerMicrosoftSupportAuditingPolicy resources.
 type serverMicrosoftSupportAuditingPolicyState struct {
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
 	BlobStorageEndpoint *string `pulumi:"blobStorageEndpoint"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
@@ -308,7 +308,7 @@ type serverMicrosoftSupportAuditingPolicyState struct {
 }
 
 type ServerMicrosoftSupportAuditingPolicyState struct {
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
 	BlobStorageEndpoint pulumi.StringPtrInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
@@ -329,7 +329,7 @@ func (ServerMicrosoftSupportAuditingPolicyState) ElementType() reflect.Type {
 }
 
 type serverMicrosoftSupportAuditingPolicyArgs struct {
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
 	BlobStorageEndpoint *string `pulumi:"blobStorageEndpoint"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
@@ -347,7 +347,7 @@ type serverMicrosoftSupportAuditingPolicyArgs struct {
 
 // The set of arguments for constructing a ServerMicrosoftSupportAuditingPolicy resource.
 type ServerMicrosoftSupportAuditingPolicyArgs struct {
-	// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
 	BlobStorageEndpoint pulumi.StringPtrInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	//
@@ -450,7 +450,7 @@ func (o ServerMicrosoftSupportAuditingPolicyOutput) ToServerMicrosoftSupportAudi
 	return o
 }
 
-// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
 func (o ServerMicrosoftSupportAuditingPolicyOutput) BlobStorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerMicrosoftSupportAuditingPolicy) pulumi.StringPtrOutput { return v.BlobStorageEndpoint }).(pulumi.StringPtrOutput)
 }

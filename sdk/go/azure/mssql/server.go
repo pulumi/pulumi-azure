@@ -61,7 +61,7 @@ import (
 //
 // ```
 //
-// ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+// ### Transparent Data Encryption(TDE) with a Customer Managed Key(CMK) during Create
 //
 // ```go
 // package main

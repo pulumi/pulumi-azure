@@ -75,14 +75,12 @@ namespace Pulumi.Azure.Communication
     {
         /// <summary>
         /// The name of this Communication Service.
-        /// *
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Communication Service exists.
-        /// *
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -97,14 +95,12 @@ namespace Pulumi.Azure.Communication
     {
         /// <summary>
         /// The name of this Communication Service.
-        /// *
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Communication Service exists.
-        /// *
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

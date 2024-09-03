@@ -563,7 +563,7 @@ class ConfigurationStore(pulumi.CustomResource):
             location=example.location)
         ```
 
-        ### Encryption)
+        ### encryption)
 
         ```python
         import pulumi
@@ -716,7 +716,7 @@ class ConfigurationStore(pulumi.CustomResource):
             location=example.location)
         ```
 
-        ### Encryption)
+        ### encryption)
 
         ```python
         import pulumi

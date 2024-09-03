@@ -63,9 +63,9 @@ type LookupNetworkResult struct {
 	Id string `pulumi:"id"`
 	// The Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
 	Location string `pulumi:"location"`
-	// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+	// Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> .
 	MobileCountryCode string `pulumi:"mobileCountryCode"`
-	// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+	// Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> .
 	MobileNetworkCode string `pulumi:"mobileNetworkCode"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -125,12 +125,12 @@ func (o LookupNetworkResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+// Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> .
 func (o LookupNetworkResultOutput) MobileCountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.MobileCountryCode }).(pulumi.StringOutput)
 }
 
-// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+// Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> .
 func (o LookupNetworkResultOutput) MobileNetworkCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.MobileNetworkCode }).(pulumi.StringOutput)
 }

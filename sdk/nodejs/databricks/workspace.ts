@@ -44,7 +44,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
-     * Access Connector ID to use when default storage account firewall is enabled. 
+     * Access Connector ID to use when default storage account firewall is enabled.
      *
      * > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
      */
@@ -226,7 +226,7 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceState {
     /**
-     * Access Connector ID to use when default storage account firewall is enabled. 
+     * Access Connector ID to use when default storage account firewall is enabled.
      *
      * > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
      */
@@ -332,7 +332,7 @@ export interface WorkspaceState {
  */
 export interface WorkspaceArgs {
     /**
-     * Access Connector ID to use when default storage account firewall is enabled. 
+     * Access Connector ID to use when default storage account firewall is enabled.
      *
      * > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
      */

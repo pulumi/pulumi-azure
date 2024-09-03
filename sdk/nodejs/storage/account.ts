@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Network Rules
+ * ### with Network Rules
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

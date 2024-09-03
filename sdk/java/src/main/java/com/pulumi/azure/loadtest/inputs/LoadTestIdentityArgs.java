@@ -34,7 +34,6 @@ public final class LoadTestIdentityArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-     * *
      * 
      */
     @Import(name="principalId")
@@ -42,7 +41,6 @@ public final class LoadTestIdentityArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-     * *
      * 
      */
     public Optional<Output<String>> principalId() {
@@ -139,7 +137,6 @@ public final class LoadTestIdentityArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param principalId The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-         * *
          * 
          * @return builder
          * 
@@ -151,7 +148,6 @@ public final class LoadTestIdentityArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param principalId The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-         * *
          * 
          * @return builder
          * 

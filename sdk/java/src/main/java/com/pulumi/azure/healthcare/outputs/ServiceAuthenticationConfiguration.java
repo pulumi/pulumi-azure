@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceAuthenticationConfiguration {
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
      * 
      */
     private @Nullable String audience;
@@ -31,7 +31,7 @@ public final class ServiceAuthenticationConfiguration {
 
     private ServiceAuthenticationConfiguration() {}
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
      * 
      */
     public Optional<String> audience() {

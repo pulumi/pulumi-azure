@@ -104,7 +104,7 @@ namespace Pulumi.Azure.AppService
     /// });
     /// ```
     /// 
-    /// ### HTTP Trigger With Code Upload
+    /// ### HTTP Trigger with code upload
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

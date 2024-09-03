@@ -14,9 +14,44 @@ import (
 
 // Manages a virtual machine scale set.
 //
+// ## Example of storageProfileImageReference with id
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := compute.NewImage(ctx, "example", &compute.ImageArgs{
+//				Name: pulumi.String("test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
+//				Name: pulumi.String("test"),
+//				StorageProfileImageReference: &compute.ScaleSetStorageProfileImageReferenceArgs{
+//					Id: example.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Example Usage
 //
-// ### With Managed Disks (Recommended)
+// ### with Managed Disks (Recommended)
 //
 // ```go
 // package main
@@ -209,7 +244,7 @@ import (
 //
 // ```
 //
-// ### With Unmanaged Disks
+// ### with Unmanaged Disks
 //
 // ```go
 // package main
@@ -338,41 +373,6 @@ import (
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
 //					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Example of storageProfileImageReference with id
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := compute.NewImage(ctx, "example", &compute.ImageArgs{
-//				Name: pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-//				Name: pulumi.String("test"),
-//				StorageProfileImageReference: &compute.ScaleSetStorageProfileImageReferenceArgs{
-//					Id: example.ID(),
 //				},
 //			})
 //			if err != nil {

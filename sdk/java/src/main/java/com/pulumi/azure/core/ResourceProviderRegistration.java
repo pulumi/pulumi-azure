@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Registering A Preview Feature)
+ * ### Registering a Preview Feature)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

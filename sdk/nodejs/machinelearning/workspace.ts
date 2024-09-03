@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Data Encryption
+ * ### with Data encryption
  *
  * > **NOTE:** The Key Vault must enable purge protection.
  *
@@ -133,7 +133,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With User Assigned Identity And Data Encryption
+ * ### with User Assigned Identity and Data Encryption
  *
  * > **NOTE:** The Key Vault must enable purge protection.
  *

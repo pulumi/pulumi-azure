@@ -879,7 +879,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### From An Azure Platform Image)
+        ### from an Azure Platform Image)
 
         This example provisions a Virtual Machine with Managed Disks.
 
@@ -1006,7 +1006,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### From An Azure Platform Image)
+        ### from an Azure Platform Image)
 
         This example provisions a Virtual Machine with Managed Disks.
 

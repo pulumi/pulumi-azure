@@ -354,7 +354,7 @@ class DatastoreBlobstorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With Azure Blob
+        ### with Azure Blob
 
         ```python
         import pulumi
@@ -437,7 +437,7 @@ class DatastoreBlobstorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With Azure Blob
+        ### with Azure Blob
 
         ```python
         import pulumi

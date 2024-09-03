@@ -158,9 +158,7 @@ def get_service(name: Optional[str] = None,
 
 
     :param str name: The name of this Communication Service.
-           *
     :param str resource_group_name: The name of the Resource Group where the Communication Service exists.
-           *
     """
     __args__ = dict()
     __args__['name'] = name
@@ -200,8 +198,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: The name of this Communication Service.
-           *
     :param str resource_group_name: The name of the Resource Group where the Communication Service exists.
-           *
     """
     ...

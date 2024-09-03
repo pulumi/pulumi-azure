@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Storage Account Behind VNet And Firewall
+ * ### with storage account behind VNet and firewall
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -165,7 +165,7 @@ export class ServerMicrosoftSupportAuditingPolicy extends pulumi.CustomResource 
     }
 
     /**
-     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
      */
     public readonly blobStorageEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -234,7 +234,7 @@ export class ServerMicrosoftSupportAuditingPolicy extends pulumi.CustomResource 
  */
 export interface ServerMicrosoftSupportAuditingPolicyState {
     /**
-     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
      */
     blobStorageEndpoint?: pulumi.Input<string>;
     /**
@@ -266,7 +266,7 @@ export interface ServerMicrosoftSupportAuditingPolicyState {
  */
 export interface ServerMicrosoftSupportAuditingPolicyArgs {
     /**
-     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Microsoft support auditing logs.
      */
     blobStorageEndpoint?: pulumi.Input<string>;
     /**

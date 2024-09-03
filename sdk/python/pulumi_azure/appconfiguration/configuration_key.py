@@ -397,7 +397,7 @@ class ConfigurationKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### `Kv` Type
+        ### kv type
 
         ```python
         import pulumi
@@ -423,7 +423,7 @@ class ConfigurationKey(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
 
-        ### `Vault` Type
+        ### vault type
 
         ```python
         import pulumi
@@ -522,7 +522,7 @@ class ConfigurationKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### `Kv` Type
+        ### kv type
 
         ```python
         import pulumi
@@ -548,7 +548,7 @@ class ConfigurationKey(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
 
-        ### `Vault` Type
+        ### vault type
 
         ```python
         import pulumi

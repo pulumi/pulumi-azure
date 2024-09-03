@@ -598,7 +598,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             scale_units=2)
         ```
 
-        ### With Access Control
+        ### with Access Control
 
         ```python
         import pulumi
@@ -719,7 +719,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             scale_units=2)
         ```
 
-        ### With Access Control
+        ### with Access Control
 
         ```python
         import pulumi

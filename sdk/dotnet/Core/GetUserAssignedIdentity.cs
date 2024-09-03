@@ -17,7 +17,7 @@ namespace Pulumi.Azure.Core
         /// 
         /// ## Example Usage
         /// 
-        /// ### Reference An Existing)
+        /// ### reference an existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Core
         /// 
         /// ## Example Usage
         /// 
-        /// ### Reference An Existing)
+        /// ### reference an existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

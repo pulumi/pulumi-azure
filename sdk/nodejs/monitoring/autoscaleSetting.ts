@@ -134,7 +134,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Repeating On Weekends)
+ * ### repeating on weekends)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -258,7 +258,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### For Fixed Dates)
+ * ### for fixed dates)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

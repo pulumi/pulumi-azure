@@ -62,13 +62,13 @@ namespace Pulumi.Azure.Mobile
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+        /// Mobile country code (MCC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
         /// </summary>
         [Output("mobileCountryCode")]
         public Output<string> MobileCountryCode { get; private set; } = null!;
 
         /// <summary>
-        /// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+        /// Mobile network code (MNC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
         /// </summary>
         [Output("mobileNetworkCode")]
         public Output<string> MobileNetworkCode { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+        /// Mobile country code (MCC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
         /// </summary>
         [Input("mobileCountryCode", required: true)]
         public Input<string> MobileCountryCode { get; set; } = null!;
 
         /// <summary>
-        /// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+        /// Mobile network code (MNC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
         /// </summary>
         [Input("mobileNetworkCode", required: true)]
         public Input<string> MobileNetworkCode { get; set; } = null!;
@@ -200,13 +200,13 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+        /// Mobile country code (MCC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
         /// </summary>
         [Input("mobileCountryCode")]
         public Input<string>? MobileCountryCode { get; set; }
 
         /// <summary>
-        /// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+        /// Mobile network code (MNC), defined in &lt;https://www.itu.int/rec/T-REC-E.212&gt; . Changing this forces a new resource to be created.
         /// </summary>
         [Input("mobileNetworkCode")]
         public Input<string>? MobileNetworkCode { get; set; }

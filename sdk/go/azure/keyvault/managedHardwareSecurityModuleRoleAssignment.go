@@ -25,7 +25,6 @@ type ManagedHardwareSecurityModuleRoleAssignment struct {
 	pulumi.CustomResourceState
 
 	// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-	// *
 	ManagedHsmId pulumi.StringOutput `pulumi:"managedHsmId"`
 	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -81,7 +80,6 @@ func GetManagedHardwareSecurityModuleRoleAssignment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ManagedHardwareSecurityModuleRoleAssignment resources.
 type managedHardwareSecurityModuleRoleAssignmentState struct {
 	// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-	// *
 	ManagedHsmId *string `pulumi:"managedHsmId"`
 	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name *string `pulumi:"name"`
@@ -99,7 +97,6 @@ type managedHardwareSecurityModuleRoleAssignmentState struct {
 
 type ManagedHardwareSecurityModuleRoleAssignmentState struct {
 	// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-	// *
 	ManagedHsmId pulumi.StringPtrInput
 	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name pulumi.StringPtrInput
@@ -121,7 +118,6 @@ func (ManagedHardwareSecurityModuleRoleAssignmentState) ElementType() reflect.Ty
 
 type managedHardwareSecurityModuleRoleAssignmentArgs struct {
 	// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-	// *
 	ManagedHsmId *string `pulumi:"managedHsmId"`
 	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name *string `pulumi:"name"`
@@ -138,7 +134,6 @@ type managedHardwareSecurityModuleRoleAssignmentArgs struct {
 // The set of arguments for constructing a ManagedHardwareSecurityModuleRoleAssignment resource.
 type ManagedHardwareSecurityModuleRoleAssignmentArgs struct {
 	// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-	// *
 	ManagedHsmId pulumi.StringPtrInput
 	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name pulumi.StringPtrInput
@@ -240,7 +235,6 @@ func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) ToManagedHardwareSecu
 }
 
 // The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-// *
 func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) ManagedHsmId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleAssignment) pulumi.StringOutput { return v.ManagedHsmId }).(pulumi.StringOutput)
 }

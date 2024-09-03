@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DomainServices
         /// <summary>
         /// Gets information about an Active Directory Domain Service.
         /// 
-        /// &gt; **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+        /// &gt; **Supported Modes:** At present this data source only supports **User Forest** mode and *not* **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
         /// 
         /// ## Example Usage
         /// 
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.DomainServices
         /// <summary>
         /// Gets information about an Active Directory Domain Service.
         /// 
-        /// &gt; **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+        /// &gt; **Supported Modes:** At present this data source only supports **User Forest** mode and *not* **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
         /// 
         /// ## Example Usage
         /// 
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.DomainServices
         /// </summary>
         public readonly string DeploymentId;
         /// <summary>
-        /// The forest type used by the managed domain. One of `ResourceTrusting`, for a _Resource Forest_, or blank, for a _User Forest_.
+        /// The forest type used by the managed domain. One of `ResourceTrusting`, for a *Resource Forest*, or blank, for a *User Forest*.
         /// </summary>
         public readonly string DomainConfigurationType;
         /// <summary>

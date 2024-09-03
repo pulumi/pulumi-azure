@@ -808,7 +808,7 @@ class Registry(pulumi.CustomResource):
             })
         ```
 
-        ### Attaching A Container Registry To A Kubernetes Cluster)
+        ### Attaching a Container Registry to a Kubernetes Cluster)
 
         ```python
         import pulumi
@@ -952,7 +952,7 @@ class Registry(pulumi.CustomResource):
             })
         ```
 
-        ### Attaching A Container Registry To A Kubernetes Cluster)
+        ### Attaching a Container Registry to a Kubernetes Cluster)
 
         ```python
         import pulumi

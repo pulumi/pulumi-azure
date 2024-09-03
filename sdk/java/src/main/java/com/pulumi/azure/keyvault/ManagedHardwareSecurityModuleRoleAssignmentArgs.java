@@ -18,7 +18,6 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
 
     /**
      * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-     * *
      * 
      */
     @Import(name="managedHsmId")
@@ -26,7 +25,6 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
 
     /**
      * @return The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-     * *
      * 
      */
     public Optional<Output<String>> managedHsmId() {
@@ -143,7 +141,6 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
 
         /**
          * @param managedHsmId The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-         * *
          * 
          * @return builder
          * 
@@ -155,7 +152,6 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
 
         /**
          * @param managedHsmId The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
-         * *
          * 
          * @return builder
          * 

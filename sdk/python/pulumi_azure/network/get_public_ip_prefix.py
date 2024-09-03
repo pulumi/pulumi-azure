@@ -147,7 +147,7 @@ def get_public_ip_prefix(name: Optional[str] = None,
 
     ## Example Usage
 
-    ### Reference An Existing)
+    ### reference an existing)
 
     ```python
     import pulumi
@@ -189,7 +189,7 @@ def get_public_ip_prefix_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    ### Reference An Existing)
+    ### reference an existing)
 
     ```python
     import pulumi

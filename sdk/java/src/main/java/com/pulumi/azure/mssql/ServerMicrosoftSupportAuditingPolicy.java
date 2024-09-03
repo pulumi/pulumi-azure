@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Storage Account Behind VNet And Firewall
+ * ### with storage account behind VNet and firewall
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -239,14 +239,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy")
 public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+     * The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Microsoft support auditing logs.
      * 
      */
     @Export(name="blobStorageEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> blobStorageEndpoint;
 
     /**
-     * @return The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
+     * @return The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Microsoft support auditing logs.
      * 
      */
     public Output<Optional<String>> blobStorageEndpoint() {

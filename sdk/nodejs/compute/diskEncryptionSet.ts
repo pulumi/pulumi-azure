@@ -96,7 +96,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Automatic Key Rotation Enabled
+ * ### with Automatic Key Rotation Enabled
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

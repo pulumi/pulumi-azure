@@ -67,9 +67,9 @@ type Network struct {
 
 	// Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+	// Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 	MobileCountryCode pulumi.StringOutput `pulumi:"mobileCountryCode"`
-	// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+	// Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 	MobileNetworkCode pulumi.StringOutput `pulumi:"mobileNetworkCode"`
 	// Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -122,9 +122,9 @@ func GetNetwork(ctx *pulumi.Context,
 type networkState struct {
 	// Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
 	Location *string `pulumi:"location"`
-	// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+	// Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 	MobileCountryCode *string `pulumi:"mobileCountryCode"`
-	// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+	// Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 	MobileNetworkCode *string `pulumi:"mobileNetworkCode"`
 	// Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
 	Name *string `pulumi:"name"`
@@ -139,9 +139,9 @@ type networkState struct {
 type NetworkState struct {
 	// Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
 	Location pulumi.StringPtrInput
-	// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+	// Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 	MobileCountryCode pulumi.StringPtrInput
-	// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+	// Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 	MobileNetworkCode pulumi.StringPtrInput
 	// Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
 	Name pulumi.StringPtrInput
@@ -160,9 +160,9 @@ func (NetworkState) ElementType() reflect.Type {
 type networkArgs struct {
 	// Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
 	Location *string `pulumi:"location"`
-	// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+	// Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 	MobileCountryCode string `pulumi:"mobileCountryCode"`
-	// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+	// Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 	MobileNetworkCode string `pulumi:"mobileNetworkCode"`
 	// Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
 	Name *string `pulumi:"name"`
@@ -176,9 +176,9 @@ type networkArgs struct {
 type NetworkArgs struct {
 	// Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
 	Location pulumi.StringPtrInput
-	// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+	// Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 	MobileCountryCode pulumi.StringInput
-	// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+	// Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 	MobileNetworkCode pulumi.StringInput
 	// Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
 	Name pulumi.StringPtrInput
@@ -280,12 +280,12 @@ func (o NetworkOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+// Mobile country code (MCC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 func (o NetworkOutput) MobileCountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.MobileCountryCode }).(pulumi.StringOutput)
 }
 
-// Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+// Mobile network code (MNC), defined in <https://www.itu.int/rec/T-REC-E.212> . Changing this forces a new resource to be created.
 func (o NetworkOutput) MobileNetworkCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.MobileNetworkCode }).(pulumi.StringOutput)
 }

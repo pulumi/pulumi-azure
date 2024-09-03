@@ -1182,11 +1182,28 @@ type GetEndpointConnectionPrivateServiceConnection struct {
 	// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// Possible values are as follows:
-	// Value | Meaning
-	// -- | --
-	// `Auto-Approved` | The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.
-	// `Deleted state` | The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.
-	// `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Value</th>
+	// <th>Meaning</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>`Auto-Approved`</td>
+	// <td>The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.</td>
+	// </tr>
+	// <tr>
+	// <td>`Deleted state`</td>
+	// <td>The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.</td>
+	// </tr>
+	// <tr>
+	// <td>`request/response message`</td>
+	// <td>If you submitted a manual private endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	RequestResponse string `pulumi:"requestResponse"`
 	// The current status of the private endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
 	Status string `pulumi:"status"`
@@ -1209,11 +1226,28 @@ type GetEndpointConnectionPrivateServiceConnectionArgs struct {
 	// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 	// Possible values are as follows:
-	// Value | Meaning
-	// -- | --
-	// `Auto-Approved` | The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.
-	// `Deleted state` | The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.
-	// `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text
+	// <table>
+	// <thead>
+	// <tr>
+	// <th>Value</th>
+	// <th>Meaning</th>
+	// </tr>
+	// </thead>
+	// <tbody>
+	// <tr>
+	// <td>`Auto-Approved`</td>
+	// <td>The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.</td>
+	// </tr>
+	// <tr>
+	// <td>`Deleted state`</td>
+	// <td>The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.</td>
+	// </tr>
+	// <tr>
+	// <td>`request/response message`</td>
+	// <td>If you submitted a manual private endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text</td>
+	// </tr>
+	// </tbody>
+	// </table>
 	RequestResponse pulumi.StringInput `pulumi:"requestResponse"`
 	// The current status of the private endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -1281,11 +1315,28 @@ func (o GetEndpointConnectionPrivateServiceConnectionOutput) PrivateIpAddress() 
 }
 
 // Possible values are as follows:
-// Value | Meaning
-// -- | --
-// `Auto-Approved` | The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.
-// `Deleted state` | The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.
-// `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text
+// <table>
+// <thead>
+// <tr>
+// <th>Value</th>
+// <th>Meaning</th>
+// </tr>
+// </thead>
+// <tbody>
+// <tr>
+// <td>`Auto-Approved`</td>
+// <td>The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.</td>
+// </tr>
+// <tr>
+// <td>`Deleted state`</td>
+// <td>The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.</td>
+// </tr>
+// <tr>
+// <td>`request/response message`</td>
+// <td>If you submitted a manual private endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text</td>
+// </tr>
+// </tbody>
+// </table>
 func (o GetEndpointConnectionPrivateServiceConnectionOutput) RequestResponse() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointConnectionPrivateServiceConnection) string { return v.RequestResponse }).(pulumi.StringOutput)
 }

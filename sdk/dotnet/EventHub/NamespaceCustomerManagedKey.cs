@@ -16,7 +16,7 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// ## Example Usage
     /// 
-    /// ### With System Assigned Identity
+    /// ### with System Assigned Identity
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.EventHub
     /// });
     /// ```
     /// 
-    /// ### With User Assigned Identity
+    /// ### with User Assigned Identity
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

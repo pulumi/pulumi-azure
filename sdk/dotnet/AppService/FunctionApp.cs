@@ -12,14 +12,14 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages a Function App.
     /// 
-    /// !&gt; **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxFunctionApp` resources instead.
+    /// !&gt; **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` resources instead.
     /// 
     /// &gt; **Note:** To connect an Azure Function App and a subnet within the same region `azure.appservice.VirtualNetworkSwiftConnection` can be used.
     /// For an example, check the `azure.appservice.VirtualNetworkSwiftConnection` documentation.
     /// 
     /// ## Example Usage
     /// 
-    /// ### With App Service Plan)
+    /// ### with App Service Plan)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.AppService
     /// });
     /// ```
     /// 
-    /// ### In A Consumption Plan)
+    /// ### in a Consumption Plan)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

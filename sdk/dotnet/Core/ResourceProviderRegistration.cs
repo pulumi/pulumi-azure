@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Core
     /// });
     /// ```
     /// 
-    /// ### Registering A Preview Feature)
+    /// ### Registering a Preview Feature)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

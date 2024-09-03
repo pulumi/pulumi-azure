@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// ## Example Usage
     /// 
-    /// ### Creating A New Alias And Subscription For An Enrollment Account
+    /// ### creating a new Alias and Subscription for an Enrollment Account
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Core
     /// });
     /// ```
     /// 
-    /// ### Creating A New Alias And Subscription For A Microsoft Customer Account
+    /// ### creating a new Alias and Subscription for a Microsoft Customer Account
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Core
     /// });
     /// ```
     /// 
-    /// ### Creating A New Alias And Subscription For A Microsoft Partner Account
+    /// ### creating a new Alias and Subscription for a Microsoft Partner Account
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Core
     /// });
     /// ```
     /// 
-    /// ### Adding An Alias To An Existing Subscription
+    /// ### adding an Alias to an existing Subscription
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

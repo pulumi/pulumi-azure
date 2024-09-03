@@ -12,9 +12,36 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a virtual machine scale set.
     /// 
+    /// ## Example of storage_profile_image_reference with id
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Compute.Image("example", new()
+    ///     {
+    ///         Name = "test",
+    ///     });
+    /// 
+    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("example", new()
+    ///     {
+    ///         Name = "test",
+    ///         StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
+    ///         {
+    ///             Id = example.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Example Usage
     /// 
-    /// ### With Managed Disks (Recommended)
+    /// ### with Managed Disks (Recommended)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -207,7 +234,7 @@ namespace Pulumi.Azure.Compute
     /// });
     /// ```
     /// 
-    /// ### With Unmanaged Disks
+    /// ### with Unmanaged Disks
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -336,33 +363,6 @@ namespace Pulumi.Azure.Compute
     ///             Offer = "0001-com-ubuntu-server-jammy",
     ///             Sku = "22_04-lts",
     ///             Version = "latest",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Example of storage_profile_image_reference with id
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Compute.Image("example", new()
-    ///     {
-    ///         Name = "test",
-    ///     });
-    /// 
-    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("example", new()
-    ///     {
-    ///         Name = "test",
-    ///         StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
-    ///         {
-    ///             Id = example.Id,
     ///         },
     ///     });
     /// 

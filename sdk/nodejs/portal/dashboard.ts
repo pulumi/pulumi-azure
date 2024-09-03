@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *                             }
  *                         }
  *                     }
- *                 },               
+ *                 },
  *                 "1": {
  *                     "position": {
  *                         "x": 5,
@@ -101,7 +101,7 @@ import * as utilities from "../utilities";
  *                             "type": "ApplicationInsights"
  *                         }
  *                     }
- *                 }              
+ *                 }
  *             }
  *         }
  *     },

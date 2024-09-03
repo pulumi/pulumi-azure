@@ -9,9 +9,24 @@ import * as utilities from "../utilities";
 /**
  * Manages a virtual machine scale set.
  *
+ * ## Example of storageProfileImageReference with id
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.compute.Image("example", {name: "test"});
+ * const exampleScaleSet = new azure.compute.ScaleSet("example", {
+ *     name: "test",
+ *     storageProfileImageReference: {
+ *         id: example.id,
+ *     },
+ * });
+ * ```
+ *
  * ## Example Usage
  *
- * ### With Managed Disks (Recommended)
+ * ### with Managed Disks (Recommended)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -140,7 +155,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Unmanaged Disks
+ * ### with Unmanaged Disks
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -221,21 +236,6 @@ import * as utilities from "../utilities";
  *         offer: "0001-com-ubuntu-server-jammy",
  *         sku: "22_04-lts",
  *         version: "latest",
- *     },
- * });
- * ```
- *
- * ## Example of storageProfileImageReference with id
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.compute.Image("example", {name: "test"});
- * const exampleScaleSet = new azure.compute.ScaleSet("example", {
- *     name: "test",
- *     storageProfileImageReference: {
- *         id: example.id,
  *     },
  * });
  * ```

@@ -114,7 +114,7 @@ export class SpringCloudGatewayRouteConfig extends pulumi.CustomResource {
      */
     public readonly predicates!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
+     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
      *
      * > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
      */
@@ -199,7 +199,7 @@ export interface SpringCloudGatewayRouteConfigState {
      */
     predicates?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
+     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
      *
      * > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
      */
@@ -243,7 +243,7 @@ export interface SpringCloudGatewayRouteConfigArgs {
      */
     predicates?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
+     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
      *
      * > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
      */

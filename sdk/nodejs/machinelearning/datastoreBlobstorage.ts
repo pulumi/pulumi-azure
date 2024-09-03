@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### With Azure Blob
+ * ### with Azure Blob
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

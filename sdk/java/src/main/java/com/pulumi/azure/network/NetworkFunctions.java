@@ -3199,7 +3199,7 @@ public final class NetworkFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -3237,7 +3237,7 @@ public final class NetworkFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ### Retrieve The Dynamic Public IP Of A New VM)
+     * ### Retrieve the Dynamic Public IP of a new VM)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -3344,7 +3344,7 @@ public final class NetworkFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -3382,7 +3382,7 @@ public final class NetworkFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ### Retrieve The Dynamic Public IP Of A New VM)
+     * ### Retrieve the Dynamic Public IP of a new VM)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -3489,7 +3489,7 @@ public final class NetworkFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -3527,7 +3527,7 @@ public final class NetworkFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ### Retrieve The Dynamic Public IP Of A New VM)
+     * ### Retrieve the Dynamic Public IP of a new VM)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -3634,7 +3634,7 @@ public final class NetworkFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -3672,7 +3672,7 @@ public final class NetworkFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * ### Retrieve The Dynamic Public IP Of A New VM)
+     * ### Retrieve the Dynamic Public IP of a new VM)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -3951,7 +3951,7 @@ public final class NetworkFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -3997,7 +3997,7 @@ public final class NetworkFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4043,7 +4043,7 @@ public final class NetworkFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4089,7 +4089,7 @@ public final class NetworkFunctions {
      * 
      * ## Example Usage
      * 
-     * ### Reference An Existing)
+     * ### reference an existing)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Supporting API Keys)
+ * ### supporting API Keys)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Using Both AzureAD And API Keys)
+ * ### using both AzureAD and API Keys)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Supporting Only AzureAD Authentication)
+ * ### supporting only AzureAD Authentication)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Healthcare.Inputs
     public sealed class ServiceAuthenticationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+        /// The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
         /// </summary>
         [Input("audience")]
         public Input<string>? Audience { get; set; }

@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Media
     /// });
     /// ```
     /// 
-    /// ### With Multiple Outputs
+    /// ### with Multiple Outputs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

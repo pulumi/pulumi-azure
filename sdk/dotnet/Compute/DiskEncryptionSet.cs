@@ -127,7 +127,7 @@ namespace Pulumi.Azure.Compute
     /// });
     /// ```
     /// 
-    /// ### With Automatic Key Rotation Enabled
+    /// ### with Automatic Key Rotation Enabled
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

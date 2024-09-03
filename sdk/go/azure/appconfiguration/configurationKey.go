@@ -18,7 +18,7 @@ import (
 //
 // ## Example Usage
 //
-// ### `Kv` Type
+// ### kv type
 //
 // ```go
 // package main
@@ -78,7 +78,7 @@ import (
 //
 // ```
 //
-// ### `Vault` Type
+// ### vault type
 //
 // ```go
 // package main

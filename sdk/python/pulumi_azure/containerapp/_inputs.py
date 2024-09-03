@@ -1344,7 +1344,7 @@ if not MYPY:
         """
         ephemeral_storage: NotRequired[pulumi.Input[str]]
         """
-        The amount of ephemeral storage available to the Container App. 
+        The amount of ephemeral storage available to the Container App.
 
         > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """
@@ -1394,7 +1394,7 @@ class AppTemplateContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] args: A list of extra arguments to pass to the container.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArgs']]] envs: One or more `env` blocks as detailed below.
-        :param pulumi.Input[str] ephemeral_storage: The amount of ephemeral storage available to the Container App. 
+        :param pulumi.Input[str] ephemeral_storage: The amount of ephemeral storage available to the Container App.
                
                > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArgs']]] liveness_probes: A `liveness_probe` block as detailed below.
@@ -1515,7 +1515,7 @@ class AppTemplateContainerArgs:
     @pulumi.getter(name="ephemeralStorage")
     def ephemeral_storage(self) -> Optional[pulumi.Input[str]]:
         """
-        The amount of ephemeral storage available to the Container App. 
+        The amount of ephemeral storage available to the Container App.
 
         > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """

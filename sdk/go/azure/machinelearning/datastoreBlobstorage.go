@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### With Azure Blob
+// ### with Azure Blob
 //
 // ```go
 // package main

@@ -450,7 +450,7 @@ class EndpointPrivateServiceConnection(dict):
         :param str request_message: A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
                
                > **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
-        :param Sequence[str] subresource_names: A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
+        :param Sequence[str] subresource_names: A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
                
                > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
                
@@ -525,7 +525,7 @@ class EndpointPrivateServiceConnection(dict):
     @pulumi.getter(name="subresourceNames")
     def subresource_names(self) -> Optional[Sequence[str]]:
         """
-        A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
+        A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 
         > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
 
@@ -574,11 +574,28 @@ class GetEndpointConnectionPrivateServiceConnectionResult(dict):
         :param str name: Specifies the Name of the private endpoint.
         :param str private_ip_address: The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
         :param str request_response: Possible values are as follows:
-               Value | Meaning
-               -- | --
-               `Auto-Approved` | The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.
-               `Deleted state` | The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.
-               `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `request_response` will display the same text from your `request_message` in the `private_service_connection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `request_response` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `request_response` text
+               <table>
+               <thead>
+               <tr>
+               <th>Value</th>
+               <th>Meaning</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr>
+               <td>`Auto-Approved`</td>
+               <td>The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.</td>
+               </tr>
+               <tr>
+               <td>`Deleted state`</td>
+               <td>The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.</td>
+               </tr>
+               <tr>
+               <td>`request/response message`</td>
+               <td>If you submitted a manual private endpoint connection request, while in the `Pending` status the `request_response` will display the same text from your `request_message` in the `private_service_connection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `request_response` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `request_response` text</td>
+               </tr>
+               </tbody>
+               </table>
         :param str status: The current status of the private endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
         """
         pulumi.set(__self__, "name", name)
@@ -607,11 +624,28 @@ class GetEndpointConnectionPrivateServiceConnectionResult(dict):
     def request_response(self) -> str:
         """
         Possible values are as follows:
-        Value | Meaning
-        -- | --
-        `Auto-Approved` | The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.
-        `Deleted state` | The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.
-        `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `request_response` will display the same text from your `request_message` in the `private_service_connection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `request_response` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `request_response` text
+        <table>
+        <thead>
+        <tr>
+        <th>Value</th>
+        <th>Meaning</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>`Auto-Approved`</td>
+        <td>The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.</td>
+        </tr>
+        <tr>
+        <td>`Deleted state`</td>
+        <td>The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.</td>
+        </tr>
+        <tr>
+        <td>`request/response message`</td>
+        <td>If you submitted a manual private endpoint connection request, while in the `Pending` status the `request_response` will display the same text from your `request_message` in the `private_service_connection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `request_response` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `request_response` text</td>
+        </tr>
+        </tbody>
+        </table>
         """
         return pulumi.get(self, "request_response")
 

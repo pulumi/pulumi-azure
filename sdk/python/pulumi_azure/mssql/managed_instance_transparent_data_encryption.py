@@ -145,7 +145,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With Service Managed Key
+        ### with Service Managed Key
 
         ```python
         import pulumi
@@ -192,7 +192,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         example_managed_instance_transparent_data_encryption = azure.mssql.ManagedInstanceTransparentDataEncryption("example", managed_instance_id=example_managed_instance.id)
         ```
 
-        ### With Customer Managed Key
+        ### with Customer Managed Key
 
         ```python
         import pulumi
@@ -316,7 +316,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With Service Managed Key
+        ### with Service Managed Key
 
         ```python
         import pulumi
@@ -363,7 +363,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         example_managed_instance_transparent_data_encryption = azure.mssql.ManagedInstanceTransparentDataEncryption("example", managed_instance_id=example_managed_instance.id)
         ```
 
-        ### With Customer Managed Key
+        ### with Customer Managed Key
 
         ```python
         import pulumi
