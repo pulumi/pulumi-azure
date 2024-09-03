@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-01-03T12:43:25.019351-05:00",
-      "magic": "150a904cce61863691bbb0e43d95bdf765d68edc1e12cbcb9cc4cbb164078ab7",
-      "version": "3.97.0"
+      "time": "2024-09-03T16:04:17.831607+02:00",
+      "magic": "59ab42470ec682a2eb8566128a64ecaee8e5d25c6d5902576977eb325cf4d7b3",
+      "version": "v3.130.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:SHa0ku8wkew=:v1:rTmMIbkBxy4l95qZ:LgPjxqVo535mqC53Kfgxf96yBuiy/w=="
+        "salt": "v1:PXX831VaCRU=:v1:TyAOD4ETHKz9rKQK:zLa8V7KZ0Gvw/ZNiVwZonLbfvhvBKA=="
       }
     },
     "resources": [
@@ -17,49 +17,61 @@
         "urn": "urn:pulumi:test::monitoring::pulumi:pulumi:Stack::monitoring-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-01-03T17:40:51.906059Z",
-        "modified": "2024-01-03T17:40:51.906059Z"
+        "created": "2024-09-03T14:00:36.117039Z",
+        "modified": "2024-09-03T14:00:36.117039Z"
       },
       {
         "urn": "urn:pulumi:test::monitoring::pulumi:providers:azure::default",
         "custom": true,
-        "id": "235bb742-816d-4686-bb5d-5003a8d56fd3",
+        "id": "4d2860da-dd92-489a-a724-b5220c2e580a",
         "type": "pulumi:providers:azure",
-        "created": "2024-01-03T17:40:54.958486Z",
-        "modified": "2024-01-03T17:40:54.958486Z"
+        "inputs": {
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"0282681f-7a9e-424b-80b2-96babd57a8a1\""
+          }
+        },
+        "outputs": {
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"0282681f-7a9e-424b-80b2-96babd57a8a1\""
+          }
+        },
+        "created": "2024-09-03T14:00:36.54161Z",
+        "modified": "2024-09-03T14:00:36.54161Z"
       },
       {
         "urn": "urn:pulumi:test::monitoring::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b",
         "type": "azure:core/resourceGroup:ResourceGroup",
         "inputs": {
           "__defaults": [
             "name"
           ],
           "location": "North Central US",
-          "name": "exampleresourcegroup09e2e217"
+          "name": "exampleresourcegroup2844ad1b"
         },
         "outputs": {
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":5400000000000,\"delete\":5400000000000,\"read\":300000000000,\"update\":5400000000000}}",
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b",
           "location": "northcentralus",
           "managedBy": "",
-          "name": "exampleresourcegroup09e2e217",
-          "tags": {}
+          "name": "exampleresourcegroup2844ad1b",
+          "tags": null
         },
         "parent": "urn:pulumi:test::monitoring::pulumi:pulumi:Stack::monitoring-test",
-        "provider": "urn:pulumi:test::monitoring::pulumi:providers:azure::default::235bb742-816d-4686-bb5d-5003a8d56fd3",
+        "provider": "urn:pulumi:test::monitoring::pulumi:providers:azure::default::4d2860da-dd92-489a-a724-b5220c2e580a",
         "propertyDependencies": {
-          "location": null
+          "location": []
         },
-        "created": "2024-01-03T17:41:03.500554Z",
-        "modified": "2024-01-03T17:41:03.500554Z"
+        "created": "2024-09-03T14:00:55.912583Z",
+        "modified": "2024-09-03T14:00:55.912583Z"
       },
       {
         "urn": "urn:pulumi:test::monitoring::azure:monitoring/actionGroup:ActionGroup::main",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217/providers/Microsoft.Insights/actionGroups/main1b00eede",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b/providers/Microsoft.Insights/actionGroups/mainb7d748dc",
         "type": "azure:monitoring/actionGroup:ActionGroup",
         "inputs": {
           "__defaults": [
@@ -69,8 +81,8 @@
           ],
           "enabled": true,
           "location": "northcentralus",
-          "name": "main1b00eede",
-          "resourceGroupName": "exampleresourcegroup09e2e217",
+          "name": "mainb7d748dc",
+          "resourceGroupName": "exampleresourcegroup2844ad1b",
           "shortName": "exampleact",
           "webhookReceivers": [
             {
@@ -89,15 +101,15 @@
           "emailReceivers": [],
           "enabled": true,
           "eventHubReceivers": [],
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217/providers/Microsoft.Insights/actionGroups/main1b00eede",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b/providers/Microsoft.Insights/actionGroups/mainb7d748dc",
           "itsmReceivers": [],
           "location": "northcentralus",
           "logicAppReceivers": [],
-          "name": "main1b00eede",
-          "resourceGroupName": "exampleresourcegroup09e2e217",
+          "name": "mainb7d748dc",
+          "resourceGroupName": "exampleresourcegroup2844ad1b",
           "shortName": "exampleact",
           "smsReceivers": [],
-          "tags": {},
+          "tags": null,
           "voiceReceivers": [],
           "webhookReceivers": [
             {
@@ -112,21 +124,21 @@
         "dependencies": [
           "urn:pulumi:test::monitoring::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
         ],
-        "provider": "urn:pulumi:test::monitoring::pulumi:providers:azure::default::235bb742-816d-4686-bb5d-5003a8d56fd3",
+        "provider": "urn:pulumi:test::monitoring::pulumi:providers:azure::default::4d2860da-dd92-489a-a724-b5220c2e580a",
         "propertyDependencies": {
           "resourceGroupName": [
             "urn:pulumi:test::monitoring::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
           ],
-          "shortName": null,
-          "webhookReceivers": null
+          "shortName": [],
+          "webhookReceivers": []
         },
-        "created": "2024-01-03T17:41:04.47784Z",
-        "modified": "2024-01-03T17:41:04.47784Z"
+        "created": "2024-09-03T14:01:00.704211Z",
+        "modified": "2024-09-03T14:01:00.704211Z"
       },
       {
         "urn": "urn:pulumi:test::monitoring::azure:storage/account:Account::toMonitor",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217/providers/Microsoft.Storage/storageAccounts/tomonitorf716e2fa",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b/providers/Microsoft.Storage/storageAccounts/tomonitor07c36eb4",
         "type": "azure:storage/account:Account",
         "inputs": {
           "__defaults": [
@@ -134,9 +146,10 @@
             "allowNestedItemsToBePublic",
             "crossTenantReplicationEnabled",
             "defaultToOauthAuthentication",
-            "enableHttpsTrafficOnly",
+            "dnsEndpointType",
             "infrastructureEncryptionEnabled",
             "isHnsEnabled",
+            "localUserEnabled",
             "minTlsVersion",
             "name",
             "nfsv3Enabled",
@@ -152,16 +165,17 @@
           "allowNestedItemsToBePublic": true,
           "crossTenantReplicationEnabled": true,
           "defaultToOauthAuthentication": false,
-          "enableHttpsTrafficOnly": true,
+          "dnsEndpointType": "Standard",
           "infrastructureEncryptionEnabled": false,
           "isHnsEnabled": false,
+          "localUserEnabled": true,
           "location": "northcentralus",
           "minTlsVersion": "TLS1_2",
-          "name": "tomonitorf716e2fa",
+          "name": "tomonitor07c36eb4",
           "nfsv3Enabled": false,
           "publicNetworkAccessEnabled": true,
           "queueEncryptionKeyType": "Service",
-          "resourceGroupName": "exampleresourcegroup09e2e217",
+          "resourceGroupName": "exampleresourcegroup2844ad1b",
           "sftpEnabled": false,
           "sharedAccessKeyEnabled": true,
           "tableEncryptionKeyType": "Service"
@@ -190,50 +204,55 @@
           "customDomain": null,
           "customerManagedKey": null,
           "defaultToOauthAuthentication": false,
+          "dnsEndpointType": "Standard",
           "edgeZone": "",
           "enableHttpsTrafficOnly": true,
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217/providers/Microsoft.Storage/storageAccounts/tomonitorf716e2fa",
+          "httpsTrafficOnlyEnabled": true,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b/providers/Microsoft.Storage/storageAccounts/tomonitor07c36eb4",
           "identity": null,
+          "immutabilityPolicy": null,
           "infrastructureEncryptionEnabled": false,
           "isHnsEnabled": false,
+          "largeFileShareEnabled": false,
+          "localUserEnabled": true,
           "location": "northcentralus",
           "minTlsVersion": "TLS1_2",
-          "name": "tomonitorf716e2fa",
-          "networkRules": {
-            "bypasses": [
-              "AzureServices"
-            ],
-            "defaultAction": "Allow",
-            "ipRules": [],
-            "privateLinkAccesses": [],
-            "virtualNetworkSubnetIds": []
-          },
+          "name": "tomonitor07c36eb4",
+          "networkRules": null,
           "nfsv3Enabled": false,
-          "primaryAccessKey": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:RYe8Lb6TNcoyn1+R:j8sTPS0tmjZyvmJHX4WGCp8x19xbbbfnP/QE+CLmzm+wwdADoR7tMGWwHRKTCqx1CRgeuzkHvp2qKXV5+JDOBtkmk5rUaRdhFwjk03FJZZmoYuyF6BzMcuPFJ79yv7EgAIbyTxIxamUVng=="
-          },
-          "primaryBlobConnectionString": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:w40wdbo9yH3vTrbj:NfC4fie2v7Uryt5/N3aXYhlAUXLLUtun3WQaklM4+42112mz8UIfoIPPiOcC3oUncIoohbPbQiqT1xZqh4faa0hqV+ozo6r8GsHWAcTrgGXAj+zGdD7+iwYEstXtmSr8e0ZwzXl+g/tJ3W3oEKq1c7QahV4wS+VIajRyo4EewI2fe+dp/ZLlROdClK6APgKlBXTC4M154bNqmz/9eRf/H1ubG2DqgOp+moA1S3NOk9wru7981pNPAtrjsx/Td9vutvQyV6/UpJzkOEbLgKnSwdZidf7BoKRJhNk+jAwhbTaUyN7kEv44MgHbrNKMVPSB"
-          },
-          "primaryBlobEndpoint": "https://tomonitorf716e2fa.blob.core.windows.net/",
-          "primaryBlobHost": "tomonitorf716e2fa.blob.core.windows.net",
-          "primaryConnectionString": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:1ZlVgvav/BsuAJ2J:15DtsYLubmhh0fF6xP5mA0K5/iqmzNb6bbhC23CSHWHY3pn6maHM8pxY2l1umVeAU/jL+BwxHQLv8PQk2g735pWacFW+OzOkwg+ao2Y+7+nFguAJuOPzdL7ez7qbPLmsrcSjKqJu9SWdV+fHE/FSIuiPviaXZsAQYF6vSQyo4w31QqmvMVEC4yajq0w7jh+O/+gqP5s3tF0O2SoUDN9F+c+rCukf+kB1lHB1xn5BkV+dw445Bkpx9xxhWmcWa2cjqiz8VrsIvoPCvPGEpa6pe4AV"
-          },
-          "primaryDfsEndpoint": "https://tomonitorf716e2fa.dfs.core.windows.net/",
-          "primaryDfsHost": "tomonitorf716e2fa.dfs.core.windows.net",
-          "primaryFileEndpoint": "https://tomonitorf716e2fa.file.core.windows.net/",
-          "primaryFileHost": "tomonitorf716e2fa.file.core.windows.net",
+          "primaryBlobEndpoint": "https://tomonitor07c36eb4.blob.core.windows.net/",
+          "primaryBlobHost": "tomonitor07c36eb4.blob.core.windows.net",
+          "primaryBlobInternetEndpoint": "",
+          "primaryBlobInternetHost": "",
+          "primaryBlobMicrosoftEndpoint": "",
+          "primaryBlobMicrosoftHost": "",
+          "primaryDfsEndpoint": "https://tomonitor07c36eb4.dfs.core.windows.net/",
+          "primaryDfsHost": "tomonitor07c36eb4.dfs.core.windows.net",
+          "primaryDfsInternetEndpoint": "",
+          "primaryDfsInternetHost": "",
+          "primaryDfsMicrosoftEndpoint": "",
+          "primaryDfsMicrosoftHost": "",
+          "primaryFileEndpoint": "https://tomonitor07c36eb4.file.core.windows.net/",
+          "primaryFileHost": "tomonitor07c36eb4.file.core.windows.net",
+          "primaryFileInternetEndpoint": "",
+          "primaryFileInternetHost": "",
+          "primaryFileMicrosoftEndpoint": "",
+          "primaryFileMicrosoftHost": "",
           "primaryLocation": "northcentralus",
-          "primaryQueueEndpoint": "https://tomonitorf716e2fa.queue.core.windows.net/",
-          "primaryQueueHost": "tomonitorf716e2fa.queue.core.windows.net",
-          "primaryTableEndpoint": "https://tomonitorf716e2fa.table.core.windows.net/",
-          "primaryTableHost": "tomonitorf716e2fa.table.core.windows.net",
-          "primaryWebEndpoint": "https://tomonitorf716e2fa.z14.web.core.windows.net/",
-          "primaryWebHost": "tomonitorf716e2fa.z14.web.core.windows.net",
+          "primaryQueueEndpoint": "https://tomonitor07c36eb4.queue.core.windows.net/",
+          "primaryQueueHost": "tomonitor07c36eb4.queue.core.windows.net",
+          "primaryQueueMicrosoftEndpoint": "",
+          "primaryQueueMicrosoftHost": "",
+          "primaryTableEndpoint": "https://tomonitor07c36eb4.table.core.windows.net/",
+          "primaryTableHost": "tomonitor07c36eb4.table.core.windows.net",
+          "primaryTableMicrosoftEndpoint": "",
+          "primaryTableMicrosoftHost": "",
+          "primaryWebEndpoint": "https://tomonitor07c36eb4.z14.web.core.windows.net/",
+          "primaryWebHost": "tomonitor07c36eb4.z14.web.core.windows.net",
+          "primaryWebInternetEndpoint": "",
+          "primaryWebInternetHost": "",
+          "primaryWebMicrosoftEndpoint": "",
+          "primaryWebMicrosoftHost": "",
           "publicNetworkAccessEnabled": true,
           "queueEncryptionKeyType": "Service",
           "queueProperties": {
@@ -258,22 +277,42 @@
               "version": "1.0"
             }
           },
-          "resourceGroupName": "exampleresourcegroup09e2e217",
+          "resourceGroupName": "exampleresourcegroup2844ad1b",
           "routing": null,
           "sasPolicy": null,
-          "secondaryAccessKey": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:TRQU1GLjGSctaYvA:xZK7irqOs4JUcF2FnIF6xAb1rH8Alvg0r1xHWncdVSSOpK3UIGN+qpwX49baxdYs1Ki0gy8RwtOUZt5GrCGM/pcD0dS2eAV87ZuQ3CXQn3Y46d/LQwtvDtI8HRgm5WJJuDvL6EwWRun7fQ=="
-          },
-          "secondaryBlobConnectionString": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:ajb7grAI5OTYbkIq:A6dU/MHC57UNCaWZbPVDCXZr"
-          },
-          "secondaryConnectionString": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:nYX/djBxiA8BdvzS:bz5wikfGNkHYprtTddhqcKXVrxAqCnhbzWoY1n15l05BCslbbY0MzYoO9/h7dSjZMrqsANDMWVkOpZo3zIvyRXLWVdtLuhM2BgvDh1auV07ZPCLp1n1iNxTyT9JLlfnxvcuXXjETn3ikEWVLubaqxaLKeKMb1QyYKD/fS1YtwDjBEsSHvkE6JtvtPs3qqbIwJh/cBUmhXizVW/vaqRQmitSw9l3HBmbKZULbY647Fk7I4yk3J6C/Wgojcrx79/YryoXZV/e0YYvU+Aah+caef6wz"
-          },
+          "secondaryBlobEndpoint": "",
+          "secondaryBlobHost": "",
+          "secondaryBlobInternetEndpoint": "",
+          "secondaryBlobInternetHost": "",
+          "secondaryBlobMicrosoftEndpoint": "",
+          "secondaryBlobMicrosoftHost": "",
+          "secondaryDfsEndpoint": "",
+          "secondaryDfsHost": "",
+          "secondaryDfsInternetEndpoint": "",
+          "secondaryDfsInternetHost": "",
+          "secondaryDfsMicrosoftEndpoint": "",
+          "secondaryDfsMicrosoftHost": "",
+          "secondaryFileEndpoint": "",
+          "secondaryFileHost": "",
+          "secondaryFileInternetEndpoint": "",
+          "secondaryFileInternetHost": "",
+          "secondaryFileMicrosoftEndpoint": "",
+          "secondaryFileMicrosoftHost": "",
           "secondaryLocation": "",
+          "secondaryQueueEndpoint": "",
+          "secondaryQueueHost": "",
+          "secondaryQueueMicrosoftEndpoint": "",
+          "secondaryQueueMicrosoftHost": "",
+          "secondaryTableEndpoint": "",
+          "secondaryTableHost": "",
+          "secondaryTableMicrosoftEndpoint": "",
+          "secondaryTableMicrosoftHost": "",
+          "secondaryWebEndpoint": "",
+          "secondaryWebHost": "",
+          "secondaryWebInternetEndpoint": "",
+          "secondaryWebInternetHost": "",
+          "secondaryWebMicrosoftEndpoint": "",
+          "secondaryWebMicrosoftHost": "",
           "sftpEnabled": false,
           "shareProperties": {
             "corsRules": [],
@@ -285,16 +324,16 @@
           "sharedAccessKeyEnabled": true,
           "staticWebsite": null,
           "tableEncryptionKeyType": "Service",
-          "tags": {}
+          "tags": null
         },
         "parent": "urn:pulumi:test::monitoring::pulumi:pulumi:Stack::monitoring-test",
         "dependencies": [
           "urn:pulumi:test::monitoring::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
         ],
-        "provider": "urn:pulumi:test::monitoring::pulumi:providers:azure::default::235bb742-816d-4686-bb5d-5003a8d56fd3",
+        "provider": "urn:pulumi:test::monitoring::pulumi:providers:azure::default::4d2860da-dd92-489a-a724-b5220c2e580a",
         "propertyDependencies": {
-          "accountReplicationType": null,
-          "accountTier": null,
+          "accountReplicationType": [],
+          "accountTier": [],
           "location": [
             "urn:pulumi:test::monitoring::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
           ],
@@ -310,13 +349,13 @@
           "secondaryBlobConnectionString",
           "secondaryConnectionString"
         ],
-        "created": "2024-01-03T17:41:25.468725Z",
-        "modified": "2024-01-03T17:41:25.468725Z"
+        "created": "2024-09-03T14:02:08.814597Z",
+        "modified": "2024-09-03T14:02:08.814597Z"
       },
       {
         "urn": "urn:pulumi:test::monitoring::azure:monitoring/metricAlert:MetricAlert::alert",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217/providers/Microsoft.Insights/metricAlerts/alert726cc01",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b/providers/Microsoft.Insights/metricAlerts/alert216a7ec",
         "type": "azure:monitoring/metricAlert:MetricAlert",
         "inputs": {
           "__defaults": [
@@ -330,7 +369,7 @@
           "actions": [
             {
               "__defaults": [],
-              "actionGroupId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217/providers/Microsoft.Insights/actionGroups/main1b00eede"
+              "actionGroupId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b/providers/Microsoft.Insights/actionGroups/mainb7d748dc"
             }
           ],
           "autoMitigate": true,
@@ -360,10 +399,10 @@
           "description": "Action will be triggered when Transactions count is greater than 50.",
           "enabled": true,
           "frequency": "PT1M",
-          "name": "alert726cc01",
-          "resourceGroupName": "exampleresourcegroup09e2e217",
+          "name": "alert216a7ec",
+          "resourceGroupName": "exampleresourcegroup2844ad1b",
           "scopes": [
-            "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217/providers/Microsoft.Storage/storageAccounts/tomonitorf716e2fa"
+            "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b/providers/Microsoft.Storage/storageAccounts/tomonitor07c36eb4"
           ],
           "severity": 3,
           "windowSize": "PT5M"
@@ -372,10 +411,11 @@
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000},\"schema_version\":\"1\"}",
           "actions": [
             {
-              "actionGroupId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217/providers/Microsoft.Insights/actionGroups/main1b00eede",
-              "webhookProperties": {}
+              "actionGroupId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b/providers/Microsoft.Insights/actionGroups/mainb7d748dc",
+              "webhookProperties": null
             }
           ],
+          "applicationInsightsWebTestLocationAvailabilityCriteria": null,
           "autoMitigate": true,
           "criterias": [
             {
@@ -397,16 +437,17 @@
             }
           ],
           "description": "Action will be triggered when Transactions count is greater than 50.",
+          "dynamicCriteria": null,
           "enabled": true,
           "frequency": "PT1M",
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217/providers/Microsoft.Insights/metricAlerts/alert726cc01",
-          "name": "alert726cc01",
-          "resourceGroupName": "exampleresourcegroup09e2e217",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b/providers/Microsoft.Insights/metricAlerts/alert216a7ec",
+          "name": "alert216a7ec",
+          "resourceGroupName": "exampleresourcegroup2844ad1b",
           "scopes": [
-            "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup09e2e217/providers/Microsoft.Storage/storageAccounts/tomonitorf716e2fa"
+            "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup2844ad1b/providers/Microsoft.Storage/storageAccounts/tomonitor07c36eb4"
           ],
           "severity": 3,
-          "tags": {},
+          "tags": null,
           "targetResourceLocation": "",
           "targetResourceType": "",
           "windowSize": "PT5M"
@@ -417,13 +458,13 @@
           "urn:pulumi:test::monitoring::azure:monitoring/actionGroup:ActionGroup::main",
           "urn:pulumi:test::monitoring::azure:storage/account:Account::toMonitor"
         ],
-        "provider": "urn:pulumi:test::monitoring::pulumi:providers:azure::default::235bb742-816d-4686-bb5d-5003a8d56fd3",
+        "provider": "urn:pulumi:test::monitoring::pulumi:providers:azure::default::4d2860da-dd92-489a-a724-b5220c2e580a",
         "propertyDependencies": {
           "actions": [
             "urn:pulumi:test::monitoring::azure:monitoring/actionGroup:ActionGroup::main"
           ],
-          "criterias": null,
-          "description": null,
+          "criterias": [],
+          "description": [],
           "resourceGroupName": [
             "urn:pulumi:test::monitoring::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
           ],
@@ -431,8 +472,8 @@
             "urn:pulumi:test::monitoring::azure:storage/account:Account::toMonitor"
           ]
         },
-        "created": "2024-01-03T17:43:25.019133Z",
-        "modified": "2024-01-03T17:43:25.019133Z"
+        "created": "2024-09-03T14:04:17.827882Z",
+        "modified": "2024-09-03T14:04:17.827882Z"
       }
     ]
   }

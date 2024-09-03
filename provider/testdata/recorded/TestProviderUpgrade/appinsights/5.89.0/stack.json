@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-01-03T11:43:38.099475-05:00",
-      "magic": "150a904cce61863691bbb0e43d95bdf765d68edc1e12cbcb9cc4cbb164078ab7",
-      "version": "3.97.0"
+      "time": "2024-09-03T15:43:01.582108+02:00",
+      "magic": "59ab42470ec682a2eb8566128a64ecaee8e5d25c6d5902576977eb325cf4d7b3",
+      "version": "v3.130.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:QaXzJBS81eI=:v1:qZ6+NzT5ide/BpCl:v9hZuNqodVNADBFwczXpWqhBgc1x3Q=="
+        "salt": "v1:ifVirhMjS4U=:v1:+7GIJC2OrEEAsFRw:Y86OmDHJLDqpzkGJD9bgyKtlGqpPEQ=="
       }
     },
     "resources": [
@@ -17,49 +17,61 @@
         "urn": "urn:pulumi:test::appinsights::pulumi:pulumi:Stack::appinsights-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-01-03T16:43:19.981809Z",
-        "modified": "2024-01-03T16:43:19.981809Z"
+        "created": "2024-09-03T13:42:25.888329Z",
+        "modified": "2024-09-03T13:42:25.888329Z"
       },
       {
         "urn": "urn:pulumi:test::appinsights::pulumi:providers:azure::default",
         "custom": true,
-        "id": "11fa6667-c74c-4bf7-89d8-af48db0f7c4c",
+        "id": "a8a77e81-1a32-4f35-aefe-d650cda98eab",
         "type": "pulumi:providers:azure",
-        "created": "2024-01-03T16:43:22.061964Z",
-        "modified": "2024-01-03T16:43:22.061964Z"
+        "inputs": {
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"0282681f-7a9e-424b-80b2-96babd57a8a1\""
+          }
+        },
+        "outputs": {
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"0282681f-7a9e-424b-80b2-96babd57a8a1\""
+          }
+        },
+        "created": "2024-09-03T13:42:26.399749Z",
+        "modified": "2024-09-03T13:42:26.399749Z"
       },
       {
         "urn": "urn:pulumi:test::appinsights::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupacbe3cfd",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4af6a402",
         "type": "azure:core/resourceGroup:ResourceGroup",
         "inputs": {
           "__defaults": [
             "name"
           ],
           "location": "East US",
-          "name": "exampleresourcegroupacbe3cfd"
+          "name": "exampleresourcegroup4af6a402"
         },
         "outputs": {
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":5400000000000,\"delete\":5400000000000,\"read\":300000000000,\"update\":5400000000000}}",
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupacbe3cfd",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4af6a402",
           "location": "eastus",
           "managedBy": "",
-          "name": "exampleresourcegroupacbe3cfd",
-          "tags": {}
+          "name": "exampleresourcegroup4af6a402",
+          "tags": null
         },
         "parent": "urn:pulumi:test::appinsights::pulumi:pulumi:Stack::appinsights-test",
-        "provider": "urn:pulumi:test::appinsights::pulumi:providers:azure::default::11fa6667-c74c-4bf7-89d8-af48db0f7c4c",
+        "provider": "urn:pulumi:test::appinsights::pulumi:providers:azure::default::a8a77e81-1a32-4f35-aefe-d650cda98eab",
         "propertyDependencies": {
-          "location": null
+          "location": []
         },
-        "created": "2024-01-03T16:43:27.679741Z",
-        "modified": "2024-01-03T16:43:27.679741Z"
+        "created": "2024-09-03T13:42:46.735888Z",
+        "modified": "2024-09-03T13:42:46.735888Z"
       },
       {
         "urn": "urn:pulumi:test::appinsights::azure:appinsights/insights:Insights::exampleInsights",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupacbe3cfd/providers/Microsoft.Insights/components/exampleinsightsddf082c9",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4af6a402/providers/Microsoft.Insights/components/exampleinsightscea88185",
         "type": "azure:appinsights/insights:Insights",
         "inputs": {
           "__defaults": [
@@ -78,45 +90,45 @@
           "internetQueryEnabled": true,
           "localAuthenticationDisabled": false,
           "location": "eastus",
-          "name": "exampleinsightsddf082c9",
-          "resourceGroupName": "exampleresourcegroupacbe3cfd",
+          "name": "exampleinsightscea88185",
+          "resourceGroupName": "exampleresourcegroup4af6a402",
           "retentionInDays": 90
         },
         "outputs": {
-          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":3600000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000},\"schema_version\":\"1\"}",
-          "appId": "acb0991c-c336-49db-8e5a-ab819182d020",
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":3600000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000},\"schema_version\":\"2\"}",
+          "appId": "1d290f53-bbfd-4767-a788-ef543b611e28",
           "applicationType": "web",
           "connectionString": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:40tWVLY5Zk6n73gH:adJ/wgmowlgDxNDKKR9znUYIoTETOV7PLttb6V0zP1WjuIV4qvQZI9TOJ2olzOP/v5w53WJQPocCSlYtSMC+R7+EWNmWN0EBELJXkbooQ34VSS5M3hLARZJqPRXuk0UmXIfRGDq6WD+LPI3WpkrHbSMbEWmBsjkcABaZd16cB6Ud3IeEFAg9OEFwHbXkYGUzDRCk9is3j8rHKagOBjUZZNp37iIbkKYTmgKLSZZ9GcxNGdk8KAHdq8JizsIIvx6VD94dqI0u5LvnSGfc2w=="
+            "plaintext": "\"InstrumentationKey=a08228e4-ab8a-4326-ad11-59d9a6e1f7ef;IngestionEndpoint=https://eastus-3.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/;ApplicationId=1d290f53-bbfd-4767-a788-ef543b611e28\""
           },
           "dailyDataCapInGb": 100,
           "dailyDataCapNotificationsDisabled": false,
           "disableIpMasking": false,
           "forceCustomerStorageForProfiler": false,
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupacbe3cfd/providers/Microsoft.Insights/components/exampleinsightsddf082c9",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4af6a402/providers/Microsoft.Insights/components/exampleinsightscea88185",
           "instrumentationKey": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:5eDwD4+BVzhxwKfc:KdS5tRogL2sxe/TSEQFb+oDrtw209A/M6McC9o3fxwGMEu4+JiC+SBshgg7exn7LCww0RYK9"
+            "plaintext": "\"a08228e4-ab8a-4326-ad11-59d9a6e1f7ef\""
           },
           "internetIngestionEnabled": true,
           "internetQueryEnabled": true,
           "localAuthenticationDisabled": false,
           "location": "eastus",
-          "name": "exampleinsightsddf082c9",
-          "resourceGroupName": "exampleresourcegroupacbe3cfd",
+          "name": "exampleinsightscea88185",
+          "resourceGroupName": "exampleresourcegroup4af6a402",
           "retentionInDays": 90,
           "samplingPercentage": 100,
-          "tags": {},
+          "tags": null,
           "workspaceId": ""
         },
         "parent": "urn:pulumi:test::appinsights::pulumi:pulumi:Stack::appinsights-test",
         "dependencies": [
           "urn:pulumi:test::appinsights::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
         ],
-        "provider": "urn:pulumi:test::appinsights::pulumi:providers:azure::default::11fa6667-c74c-4bf7-89d8-af48db0f7c4c",
+        "provider": "urn:pulumi:test::appinsights::pulumi:providers:azure::default::a8a77e81-1a32-4f35-aefe-d650cda98eab",
         "propertyDependencies": {
-          "applicationType": null,
+          "applicationType": [],
           "location": [
             "urn:pulumi:test::appinsights::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
           ],
@@ -128,8 +140,8 @@
           "connectionString",
           "instrumentationKey"
         ],
-        "created": "2024-01-03T16:43:38.099264Z",
-        "modified": "2024-01-03T16:43:38.099264Z"
+        "created": "2024-09-03T13:43:01.578678Z",
+        "modified": "2024-09-03T13:43:01.578678Z"
       }
     ]
   }

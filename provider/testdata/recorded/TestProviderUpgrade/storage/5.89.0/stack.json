@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-01-03T12:34:38.581893-05:00",
-      "magic": "150a904cce61863691bbb0e43d95bdf765d68edc1e12cbcb9cc4cbb164078ab7",
-      "version": "3.97.0"
+      "time": "2024-09-03T16:14:57.705179+02:00",
+      "magic": "59ab42470ec682a2eb8566128a64ecaee8e5d25c6d5902576977eb325cf4d7b3",
+      "version": "v3.130.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:LJBIdhdu+68=:v1:iaOQaCNwgDriuvn5:3VeYuHh7Ft9fwyg2dsP3LwG/cnhx2w=="
+        "salt": "v1:C67U+f8xcH0=:v1:uommugYm7niaBb1E:di7N+tHhzrlLCPHdp6nCFi9Z+0laaA=="
       }
     },
     "resources": [
@@ -17,49 +17,61 @@
         "urn": "urn:pulumi:test::storage::pulumi:pulumi:Stack::storage-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-01-03T17:33:51.5879Z",
-        "modified": "2024-01-03T17:33:51.5879Z"
+        "created": "2024-09-03T14:13:24.487664Z",
+        "modified": "2024-09-03T14:13:24.487664Z"
       },
       {
         "urn": "urn:pulumi:test::storage::pulumi:providers:azure::default",
         "custom": true,
-        "id": "e56fc0f3-1896-405a-a4e7-22ff00fc8121",
+        "id": "a0aa5ede-3cb8-4e0b-80ce-c4a59d9fdacc",
         "type": "pulumi:providers:azure",
-        "created": "2024-01-03T17:33:54.125284Z",
-        "modified": "2024-01-03T17:33:54.125284Z"
+        "inputs": {
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"0282681f-7a9e-424b-80b2-96babd57a8a1\""
+          }
+        },
+        "outputs": {
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"0282681f-7a9e-424b-80b2-96babd57a8a1\""
+          }
+        },
+        "created": "2024-09-03T14:13:24.946697Z",
+        "modified": "2024-09-03T14:13:24.946697Z"
       },
       {
         "urn": "urn:pulumi:test::storage::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup8aecaa3f",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupe17c0191",
         "type": "azure:core/resourceGroup:ResourceGroup",
         "inputs": {
           "__defaults": [
             "name"
           ],
           "location": "East US",
-          "name": "exampleresourcegroup8aecaa3f"
+          "name": "exampleresourcegroupe17c0191"
         },
         "outputs": {
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":5400000000000,\"delete\":5400000000000,\"read\":300000000000,\"update\":5400000000000}}",
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup8aecaa3f",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupe17c0191",
           "location": "eastus",
           "managedBy": "",
-          "name": "exampleresourcegroup8aecaa3f",
-          "tags": {}
+          "name": "exampleresourcegroupe17c0191",
+          "tags": null
         },
         "parent": "urn:pulumi:test::storage::pulumi:pulumi:Stack::storage-test",
-        "provider": "urn:pulumi:test::storage::pulumi:providers:azure::default::e56fc0f3-1896-405a-a4e7-22ff00fc8121",
+        "provider": "urn:pulumi:test::storage::pulumi:providers:azure::default::a0aa5ede-3cb8-4e0b-80ce-c4a59d9fdacc",
         "propertyDependencies": {
-          "location": null
+          "location": []
         },
-        "created": "2024-01-03T17:34:06.187601Z",
-        "modified": "2024-01-03T17:34:06.187601Z"
+        "created": "2024-09-03T14:13:42.815428Z",
+        "modified": "2024-09-03T14:13:42.815428Z"
       },
       {
         "urn": "urn:pulumi:test::storage::azure:storage/account:Account::exampleAccount",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup8aecaa3f/providers/Microsoft.Storage/storageAccounts/exampleaccount5a07e6b7",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupe17c0191/providers/Microsoft.Storage/storageAccounts/exampleaccounte62de76a",
         "type": "azure:storage/account:Account",
         "inputs": {
           "__defaults": [
@@ -67,9 +79,10 @@
             "allowNestedItemsToBePublic",
             "crossTenantReplicationEnabled",
             "defaultToOauthAuthentication",
-            "enableHttpsTrafficOnly",
+            "dnsEndpointType",
             "infrastructureEncryptionEnabled",
             "isHnsEnabled",
+            "localUserEnabled",
             "minTlsVersion",
             "name",
             "nfsv3Enabled",
@@ -85,16 +98,17 @@
           "allowNestedItemsToBePublic": true,
           "crossTenantReplicationEnabled": true,
           "defaultToOauthAuthentication": false,
-          "enableHttpsTrafficOnly": true,
+          "dnsEndpointType": "Standard",
           "infrastructureEncryptionEnabled": false,
           "isHnsEnabled": false,
+          "localUserEnabled": true,
           "location": "eastus",
           "minTlsVersion": "TLS1_2",
-          "name": "exampleaccount5a07e6b7",
+          "name": "exampleaccounte62de76a",
           "nfsv3Enabled": false,
           "publicNetworkAccessEnabled": true,
           "queueEncryptionKeyType": "Service",
-          "resourceGroupName": "exampleresourcegroup8aecaa3f",
+          "resourceGroupName": "exampleresourcegroupe17c0191",
           "sftpEnabled": false,
           "sharedAccessKeyEnabled": true,
           "tableEncryptionKeyType": "Service",
@@ -126,50 +140,55 @@
           "customDomain": null,
           "customerManagedKey": null,
           "defaultToOauthAuthentication": false,
+          "dnsEndpointType": "Standard",
           "edgeZone": "",
           "enableHttpsTrafficOnly": true,
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup8aecaa3f/providers/Microsoft.Storage/storageAccounts/exampleaccount5a07e6b7",
+          "httpsTrafficOnlyEnabled": true,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupe17c0191/providers/Microsoft.Storage/storageAccounts/exampleaccounte62de76a",
           "identity": null,
+          "immutabilityPolicy": null,
           "infrastructureEncryptionEnabled": false,
           "isHnsEnabled": false,
+          "largeFileShareEnabled": false,
+          "localUserEnabled": true,
           "location": "eastus",
           "minTlsVersion": "TLS1_2",
-          "name": "exampleaccount5a07e6b7",
-          "networkRules": {
-            "bypasses": [
-              "AzureServices"
-            ],
-            "defaultAction": "Allow",
-            "ipRules": [],
-            "privateLinkAccesses": [],
-            "virtualNetworkSubnetIds": []
-          },
+          "name": "exampleaccounte62de76a",
+          "networkRules": null,
           "nfsv3Enabled": false,
-          "primaryAccessKey": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:YrfTba5EBPkcPxjF:hHqFp6UofdYhUUxG5RAjerbmQThtMmvfR1dq7qJDR7i0421V1a2Y2R0CFSA75lcTal+RhcgEpH0kckyXEVs6WlR4eu3kws5C8DRysf9isPYfVKaGo7E3q3L21nprLSoWcMYPHv20AmWzIQ=="
-          },
-          "primaryBlobConnectionString": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:SnnQrb42r9wxhhiT:0N8i9ZEYyB0v8JcvoehAUn0cc48NtYuGVUv5hjZNsESkf4f4nwZZbeRNCADMwbGuTeFXSjdpMBk+jMCjCLZqPWDAIONboJNAWkD2rF2jEj0IiH1UkqzTcFXODBHcBA5ZAuhKRSMRV1UO7TvdZG+ceaxttDx45DyKdcqh6eOJDjA4kVoBroWTS1nmBejBda4a/ZBqpgqdxqoXErHmYVEY2PyCG9HnUEwqGlcbd+FJlE8M+31UahoW42ojmZz5kVh6/P3JoTGhPF+FQkcDuSn8XBwTcdeWXNpWfcwIgbVWZo3IQe4BjLJemFMt4yfcFtC6qcX0Hxm3QfA6aA=="
-          },
-          "primaryBlobEndpoint": "https://exampleaccount5a07e6b7.blob.core.windows.net/",
-          "primaryBlobHost": "exampleaccount5a07e6b7.blob.core.windows.net",
-          "primaryConnectionString": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:tqtkyc3sdNxAPv08:olZzVUWx6ZqzjtWstoVi3PIVyxUhVYXCRvHNwa6l488yHJgXyp6lbl91hlaGyWRFXAg2+K4SvOvsoJ3vZ38wHej+ijOXIiF2S5eO8d43SGrthHhswDKxWR75uDSAKZgI63hISYgkHOiCmDnToiZcL2NyUIPPAkUaJ345UWLP7xAEiG+M1JPDTaaAwrTVo65iXCwglyCqZwk7LRURF5U1l40RJknz6680N9I4MUkRRMIGuk3pYLvtzZRzEgyefiWX7F6/jPUJwGn/wJ7tsSDr8+9H+PdVU00="
-          },
-          "primaryDfsEndpoint": "https://exampleaccount5a07e6b7.dfs.core.windows.net/",
-          "primaryDfsHost": "exampleaccount5a07e6b7.dfs.core.windows.net",
-          "primaryFileEndpoint": "https://exampleaccount5a07e6b7.file.core.windows.net/",
-          "primaryFileHost": "exampleaccount5a07e6b7.file.core.windows.net",
+          "primaryBlobEndpoint": "https://exampleaccounte62de76a.blob.core.windows.net/",
+          "primaryBlobHost": "exampleaccounte62de76a.blob.core.windows.net",
+          "primaryBlobInternetEndpoint": "",
+          "primaryBlobInternetHost": "",
+          "primaryBlobMicrosoftEndpoint": "",
+          "primaryBlobMicrosoftHost": "",
+          "primaryDfsEndpoint": "https://exampleaccounte62de76a.dfs.core.windows.net/",
+          "primaryDfsHost": "exampleaccounte62de76a.dfs.core.windows.net",
+          "primaryDfsInternetEndpoint": "",
+          "primaryDfsInternetHost": "",
+          "primaryDfsMicrosoftEndpoint": "",
+          "primaryDfsMicrosoftHost": "",
+          "primaryFileEndpoint": "https://exampleaccounte62de76a.file.core.windows.net/",
+          "primaryFileHost": "exampleaccounte62de76a.file.core.windows.net",
+          "primaryFileInternetEndpoint": "",
+          "primaryFileInternetHost": "",
+          "primaryFileMicrosoftEndpoint": "",
+          "primaryFileMicrosoftHost": "",
           "primaryLocation": "eastus",
-          "primaryQueueEndpoint": "https://exampleaccount5a07e6b7.queue.core.windows.net/",
-          "primaryQueueHost": "exampleaccount5a07e6b7.queue.core.windows.net",
-          "primaryTableEndpoint": "https://exampleaccount5a07e6b7.table.core.windows.net/",
-          "primaryTableHost": "exampleaccount5a07e6b7.table.core.windows.net",
-          "primaryWebEndpoint": "https://exampleaccount5a07e6b7.z13.web.core.windows.net/",
-          "primaryWebHost": "exampleaccount5a07e6b7.z13.web.core.windows.net",
+          "primaryQueueEndpoint": "https://exampleaccounte62de76a.queue.core.windows.net/",
+          "primaryQueueHost": "exampleaccounte62de76a.queue.core.windows.net",
+          "primaryQueueMicrosoftEndpoint": "",
+          "primaryQueueMicrosoftHost": "",
+          "primaryTableEndpoint": "https://exampleaccounte62de76a.table.core.windows.net/",
+          "primaryTableHost": "exampleaccounte62de76a.table.core.windows.net",
+          "primaryTableMicrosoftEndpoint": "",
+          "primaryTableMicrosoftHost": "",
+          "primaryWebEndpoint": "https://exampleaccounte62de76a.z13.web.core.windows.net/",
+          "primaryWebHost": "exampleaccounte62de76a.z13.web.core.windows.net",
+          "primaryWebInternetEndpoint": "",
+          "primaryWebInternetHost": "",
+          "primaryWebMicrosoftEndpoint": "",
+          "primaryWebMicrosoftHost": "",
           "publicNetworkAccessEnabled": true,
           "queueEncryptionKeyType": "Service",
           "queueProperties": {
@@ -194,22 +213,42 @@
               "version": "1.0"
             }
           },
-          "resourceGroupName": "exampleresourcegroup8aecaa3f",
+          "resourceGroupName": "exampleresourcegroupe17c0191",
           "routing": null,
           "sasPolicy": null,
-          "secondaryAccessKey": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:JATxzUcY3sfLp8Kt:BmpP9hNnOKpCosBLbuYULnsVbffFLxR8A6CWM7OZvDJwX8ID7Nl+DAChBnbGtUKkRzHhix5DGmigIlAFJtIA/wpHA8B5z96QVpX00P18bODzHcj/TkSYPHWXLoO1S65Nh6T4SvEPdL3G0w=="
-          },
-          "secondaryBlobConnectionString": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:TkDv1xtwq6T6+StB:GhILcPHQZYTWMSTAZea9MIYo"
-          },
-          "secondaryConnectionString": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:0E64rP7QxCyro83a:xzRgyWl2BX/z/90vcVEIxuv45i3Z/1ShJdODvvcUdFPU8kPbfaMYqTfOTprA5uCGbR4bu98mjirSB/sdMyDxlZqUJerddpELUxj+NizgIvlt7U1cGa6FIY6j2KJjxfMTfJQrPrBUyW5w3dKob9yFwHgy5r7z4Q/8DGlh8BxFiBJ1IORXXivMFV4iPJWiTgaTnffp3Y4tT2SYxYgCi+XfrS5M+1f33S6vTahwxEGAO56NSYcYYT8XvicyT9sTUb6XfxIo0opcbMazantBV6h2v3KYgRibIWI="
-          },
+          "secondaryBlobEndpoint": "",
+          "secondaryBlobHost": "",
+          "secondaryBlobInternetEndpoint": "",
+          "secondaryBlobInternetHost": "",
+          "secondaryBlobMicrosoftEndpoint": "",
+          "secondaryBlobMicrosoftHost": "",
+          "secondaryDfsEndpoint": "",
+          "secondaryDfsHost": "",
+          "secondaryDfsInternetEndpoint": "",
+          "secondaryDfsInternetHost": "",
+          "secondaryDfsMicrosoftEndpoint": "",
+          "secondaryDfsMicrosoftHost": "",
+          "secondaryFileEndpoint": "",
+          "secondaryFileHost": "",
+          "secondaryFileInternetEndpoint": "",
+          "secondaryFileInternetHost": "",
+          "secondaryFileMicrosoftEndpoint": "",
+          "secondaryFileMicrosoftHost": "",
           "secondaryLocation": "",
+          "secondaryQueueEndpoint": "",
+          "secondaryQueueHost": "",
+          "secondaryQueueMicrosoftEndpoint": "",
+          "secondaryQueueMicrosoftHost": "",
+          "secondaryTableEndpoint": "",
+          "secondaryTableHost": "",
+          "secondaryTableMicrosoftEndpoint": "",
+          "secondaryTableMicrosoftHost": "",
+          "secondaryWebEndpoint": "",
+          "secondaryWebHost": "",
+          "secondaryWebInternetEndpoint": "",
+          "secondaryWebInternetHost": "",
+          "secondaryWebMicrosoftEndpoint": "",
+          "secondaryWebMicrosoftHost": "",
           "sftpEnabled": false,
           "shareProperties": {
             "corsRules": [],
@@ -229,17 +268,17 @@
         "dependencies": [
           "urn:pulumi:test::storage::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
         ],
-        "provider": "urn:pulumi:test::storage::pulumi:providers:azure::default::e56fc0f3-1896-405a-a4e7-22ff00fc8121",
+        "provider": "urn:pulumi:test::storage::pulumi:providers:azure::default::a0aa5ede-3cb8-4e0b-80ce-c4a59d9fdacc",
         "propertyDependencies": {
-          "accountReplicationType": null,
-          "accountTier": null,
+          "accountReplicationType": [],
+          "accountTier": [],
           "location": [
             "urn:pulumi:test::storage::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
           ],
           "resourceGroupName": [
             "urn:pulumi:test::storage::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
           ],
-          "tags": null
+          "tags": []
         },
         "additionalSecretOutputs": [
           "primaryAccessKey",
@@ -249,51 +288,55 @@
           "secondaryBlobConnectionString",
           "secondaryConnectionString"
         ],
-        "created": "2024-01-03T17:34:38.440708Z",
-        "modified": "2024-01-03T17:34:38.440708Z"
+        "created": "2024-09-03T14:14:53.786833Z",
+        "modified": "2024-09-03T14:14:53.786833Z"
       },
       {
         "urn": "urn:pulumi:test::storage::azure:storage/container:Container::exampleContainer",
         "custom": true,
-        "id": "https://exampleaccount5a07e6b7.blob.core.windows.net/examplecontainer8005fac3",
+        "id": "https://exampleaccounte62de76a.blob.core.windows.net/examplecontainer9b4c3c0e",
         "type": "azure:storage/container:Container",
         "inputs": {
           "__defaults": [
+            "encryptionScopeOverrideEnabled",
             "name"
           ],
           "containerAccessType": "private",
-          "name": "examplecontainer8005fac3",
-          "storageAccountName": "exampleaccount5a07e6b7"
+          "encryptionScopeOverrideEnabled": true,
+          "name": "examplecontainer9b4c3c0e",
+          "storageAccountName": "exampleaccounte62de76a"
         },
         "outputs": {
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000},\"schema_version\":\"1\"}",
           "containerAccessType": "private",
+          "defaultEncryptionScope": "$account-encryption-key",
+          "encryptionScopeOverrideEnabled": true,
           "hasImmutabilityPolicy": false,
           "hasLegalHold": false,
-          "id": "https://exampleaccount5a07e6b7.blob.core.windows.net/examplecontainer8005fac3",
+          "id": "https://exampleaccounte62de76a.blob.core.windows.net/examplecontainer9b4c3c0e",
           "metadata": {},
-          "name": "examplecontainer8005fac3",
-          "resourceManagerId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup8aecaa3f/providers/Microsoft.Storage/storageAccounts/exampleaccount5a07e6b7/blobServices/default/containers/examplecontainer8005fac3",
-          "storageAccountName": "exampleaccount5a07e6b7"
+          "name": "examplecontainer9b4c3c0e",
+          "resourceManagerId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupe17c0191/providers/Microsoft.Storage/storageAccounts/exampleaccounte62de76a/blobServices/default/containers/examplecontainer9b4c3c0e",
+          "storageAccountName": "exampleaccounte62de76a"
         },
         "parent": "urn:pulumi:test::storage::pulumi:pulumi:Stack::storage-test",
         "dependencies": [
           "urn:pulumi:test::storage::azure:storage/account:Account::exampleAccount"
         ],
-        "provider": "urn:pulumi:test::storage::pulumi:providers:azure::default::e56fc0f3-1896-405a-a4e7-22ff00fc8121",
+        "provider": "urn:pulumi:test::storage::pulumi:providers:azure::default::a0aa5ede-3cb8-4e0b-80ce-c4a59d9fdacc",
         "propertyDependencies": {
-          "containerAccessType": null,
+          "containerAccessType": [],
           "storageAccountName": [
             "urn:pulumi:test::storage::azure:storage/account:Account::exampleAccount"
           ]
         },
-        "created": "2024-01-03T17:34:38.498848Z",
-        "modified": "2024-01-03T17:34:38.498848Z"
+        "created": "2024-09-03T14:14:55.265999Z",
+        "modified": "2024-09-03T14:14:55.265999Z"
       },
       {
         "urn": "urn:pulumi:test::storage::azure:storage/blob:Blob::exampleBlob",
         "custom": true,
-        "id": "https://exampleaccount5a07e6b7.blob.core.windows.net/examplecontainer8005fac3/exampleblob8a15c918",
+        "id": "https://exampleaccounte62de76a.blob.core.windows.net/examplecontainer9b4c3c0e/exampleblobccefa76f",
         "type": "azure:storage/blob:Blob",
         "inputs": {
           "__defaults": [
@@ -303,16 +346,16 @@
             "size"
           ],
           "contentType": "application/octet-stream",
-          "name": "exampleblob8a15c918",
+          "name": "exampleblobccefa76f",
           "parallelism": 8,
           "size": 0,
           "source": {
             "4dabf18193072939515e22adb298388d": "c44067f5952c0a294b673a41bacd8c17",
-            "hash": "26e73b5daa1bae4dd1cd3a522afecd082eed2d69ef6af3a00cd1eeda772ed269",
-            "path": "/private/var/folders/gk/cchgxh512m72f_dmkcc3d09h0000gp/T/com.apple.shortcuts.mac-helper/test-3048947384/Pulumi.yaml"
+            "hash": "2dd49021499d3307ed4d681d8bfdac05663c9f149e8a24ba1fbe6cb89dd32d3b",
+            "path": "/private/var/folders/xm/974bx_2j3cxb3v_7czt_3l7c0000gn/T/Test_storage2311506485/007/storage/Pulumi.yaml"
           },
-          "storageAccountName": "exampleaccount5a07e6b7",
-          "storageContainerName": "examplecontainer8005fac3",
+          "storageAccountName": "exampleaccounte62de76a",
+          "storageContainerName": "examplecontainer9b4c3c0e",
           "type": "Block"
         },
         "outputs": {
@@ -321,39 +364,42 @@
           "cacheControl": "",
           "contentMd5": "",
           "contentType": "application/octet-stream",
-          "id": "https://exampleaccount5a07e6b7.blob.core.windows.net/examplecontainer8005fac3/exampleblob8a15c918",
+          "encryptionScope": "",
+          "id": "https://exampleaccounte62de76a.blob.core.windows.net/examplecontainer9b4c3c0e/exampleblobccefa76f",
           "metadata": {},
-          "name": "exampleblob8a15c918",
+          "name": "exampleblobccefa76f",
           "parallelism": 8,
           "size": 0,
           "source": {
             "4dabf18193072939515e22adb298388d": "c44067f5952c0a294b673a41bacd8c17",
-            "hash": "26e73b5daa1bae4dd1cd3a522afecd082eed2d69ef6af3a00cd1eeda772ed269",
-            "path": "/private/var/folders/gk/cchgxh512m72f_dmkcc3d09h0000gp/T/com.apple.shortcuts.mac-helper/test-3048947384/Pulumi.yaml"
+            "hash": "2dd49021499d3307ed4d681d8bfdac05663c9f149e8a24ba1fbe6cb89dd32d3b",
+            "path": "/private/var/folders/xm/974bx_2j3cxb3v_7czt_3l7c0000gn/T/Test_storage2311506485/007/storage/Pulumi.yaml"
           },
-          "storageAccountName": "exampleaccount5a07e6b7",
-          "storageContainerName": "examplecontainer8005fac3",
+          "sourceContent": null,
+          "sourceUri": null,
+          "storageAccountName": "exampleaccounte62de76a",
+          "storageContainerName": "examplecontainer9b4c3c0e",
           "type": "Block",
-          "url": "https://exampleaccount5a07e6b7.blob.core.windows.net/examplecontainer8005fac3/exampleblob8a15c918"
+          "url": "https://exampleaccounte62de76a.blob.core.windows.net/examplecontainer9b4c3c0e/exampleblobccefa76f"
         },
         "parent": "urn:pulumi:test::storage::pulumi:pulumi:Stack::storage-test",
         "dependencies": [
           "urn:pulumi:test::storage::azure:storage/account:Account::exampleAccount",
           "urn:pulumi:test::storage::azure:storage/container:Container::exampleContainer"
         ],
-        "provider": "urn:pulumi:test::storage::pulumi:providers:azure::default::e56fc0f3-1896-405a-a4e7-22ff00fc8121",
+        "provider": "urn:pulumi:test::storage::pulumi:providers:azure::default::a0aa5ede-3cb8-4e0b-80ce-c4a59d9fdacc",
         "propertyDependencies": {
-          "source": null,
+          "source": [],
           "storageAccountName": [
             "urn:pulumi:test::storage::azure:storage/account:Account::exampleAccount"
           ],
           "storageContainerName": [
             "urn:pulumi:test::storage::azure:storage/container:Container::exampleContainer"
           ],
-          "type": null
+          "type": []
         },
-        "created": "2024-01-03T17:34:38.581784Z",
-        "modified": "2024-01-03T17:34:38.581784Z"
+        "created": "2024-09-03T14:14:57.699647Z",
+        "modified": "2024-09-03T14:14:57.699647Z"
       }
     ]
   }

@@ -50,7 +50,7 @@ func test(t *testing.T, dir string) {
 			Invoke: func(ctx context.Context, in *pulumirpc.InvokeRequest, client pulumirpc.ResourceProviderClient,
 			) (*pulumirpc.InvokeResponse, error) {
 				log, err := grpclog.LoadLog(filepath.Join("testdata", "recorded", "TestProviderUpgrade",
-					filepath.Base(dir), "5.60.0", "grpc.json"))
+					filepath.Base(dir), "5.89.0", "grpc.json"))
 				if err != nil {
 					return nil, fmt.Errorf("failed to load gRPC log: %w", err)
 				}
@@ -70,7 +70,7 @@ func test(t *testing.T, dir string) {
 	pt := pulumitest.NewPulumiTest(t, dir,
 		opttest.AttachProvider("azure", providerServerWithMockedInvokes))
 	pt.SetConfig(t, "azure:subscriptionId", subscriptionID)
-	previewResult := providertest.PreviewProviderUpgrade(t, pt, "azure", "5.60.0")
+	previewResult := providertest.PreviewProviderUpgrade(t, pt, "azure", "5.89.0")
 	assertpreview.HasNoReplacements(t, previewResult)
 }
 

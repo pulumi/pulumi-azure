@@ -1,0 +1,522 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-09-03T16:06:28.151799+02:00",
+      "magic": "59ab42470ec682a2eb8566128a64ecaee8e5d25c6d5902576977eb325cf4d7b3",
+      "version": "v3.130.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:kHJaUKKoPCM=:v1:YD4DiNxzZt3rCkI1:pqj4zEgA2RtSh8mfOWw95DaYholurw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::network::pulumi:pulumi:Stack::network-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-09-03T14:05:44.309373Z",
+        "modified": "2024-09-03T14:05:44.309373Z"
+      },
+      {
+        "urn": "urn:pulumi:test::network::pulumi:providers:azure::default",
+        "custom": true,
+        "id": "96ceaa78-e558-400b-9ea2-f39b881d90fb",
+        "type": "pulumi:providers:azure",
+        "inputs": {
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"0282681f-7a9e-424b-80b2-96babd57a8a1\""
+          }
+        },
+        "outputs": {
+          "subscriptionId": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"0282681f-7a9e-424b-80b2-96babd57a8a1\""
+          }
+        },
+        "created": "2024-09-03T14:05:44.734276Z",
+        "modified": "2024-09-03T14:05:44.734276Z"
+      },
+      {
+        "urn": "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673",
+        "type": "azure:core/resourceGroup:ResourceGroup",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "location": "East US",
+          "name": "exampleresourcegroupc1163673"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":5400000000000,\"delete\":5400000000000,\"read\":300000000000,\"update\":5400000000000}}",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673",
+          "location": "eastus",
+          "managedBy": "",
+          "name": "exampleresourcegroupc1163673",
+          "tags": null
+        },
+        "parent": "urn:pulumi:test::network::pulumi:pulumi:Stack::network-test",
+        "provider": "urn:pulumi:test::network::pulumi:providers:azure::default::96ceaa78-e558-400b-9ea2-f39b881d90fb",
+        "propertyDependencies": {
+          "location": []
+        },
+        "created": "2024-09-03T14:06:01.494172Z",
+        "modified": "2024-09-03T14:06:01.494172Z"
+      },
+      {
+        "urn": "urn:pulumi:test::network::azure:network/networkSecurityGroup:NetworkSecurityGroup::exampleNetworkSecurityGroup",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/networkSecurityGroups/examplenetworksecuritygroupb821250b",
+        "type": "azure:network/networkSecurityGroup:NetworkSecurityGroup",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "location": "eastus",
+          "name": "examplenetworksecuritygroupb821250b",
+          "resourceGroupName": "exampleresourcegroupc1163673"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/networkSecurityGroups/examplenetworksecuritygroupb821250b",
+          "location": "eastus",
+          "name": "examplenetworksecuritygroupb821250b",
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "securityRules": [],
+          "tags": null
+        },
+        "parent": "urn:pulumi:test::network::pulumi:pulumi:Stack::network-test",
+        "dependencies": [
+          "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+        ],
+        "provider": "urn:pulumi:test::network::pulumi:providers:azure::default::96ceaa78-e558-400b-9ea2-f39b881d90fb",
+        "propertyDependencies": {
+          "location": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ]
+        },
+        "created": "2024-09-03T14:06:05.982286Z",
+        "modified": "2024-09-03T14:06:05.982286Z"
+      },
+      {
+        "urn": "urn:pulumi:test::network::azure:network/publicIp:PublicIp::examplePublicIp",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/publicIPAddresses/examplepublicip0ad32b1c",
+        "type": "azure:network/publicIp:PublicIp",
+        "inputs": {
+          "__defaults": [
+            "ddosProtectionMode",
+            "idleTimeoutInMinutes",
+            "ipVersion",
+            "name",
+            "sku",
+            "skuTier"
+          ],
+          "allocationMethod": "Static",
+          "ddosProtectionMode": "VirtualNetworkInherited",
+          "idleTimeoutInMinutes": 4,
+          "ipVersion": "IPv4",
+          "location": "eastus",
+          "name": "examplepublicip0ad32b1c",
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "sku": "Basic",
+          "skuTier": "Regional",
+          "tags": {
+            "environment": "Production"
+          }
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "allocationMethod": "Static",
+          "ddosProtectionMode": "VirtualNetworkInherited",
+          "ddosProtectionPlanId": null,
+          "domainNameLabel": null,
+          "edgeZone": "",
+          "fqdn": null,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/publicIPAddresses/examplepublicip0ad32b1c",
+          "idleTimeoutInMinutes": 4,
+          "ipAddress": "172.190.41.148",
+          "ipTags": null,
+          "ipVersion": "IPv4",
+          "location": "eastus",
+          "name": "examplepublicip0ad32b1c",
+          "publicIpPrefixId": null,
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "reverseFqdn": null,
+          "sku": "Basic",
+          "skuTier": "Regional",
+          "tags": {
+            "environment": "Production"
+          },
+          "zones": null
+        },
+        "parent": "urn:pulumi:test::network::pulumi:pulumi:Stack::network-test",
+        "dependencies": [
+          "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+        ],
+        "provider": "urn:pulumi:test::network::pulumi:providers:azure::default::96ceaa78-e558-400b-9ea2-f39b881d90fb",
+        "propertyDependencies": {
+          "allocationMethod": [],
+          "location": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "tags": []
+        },
+        "created": "2024-09-03T14:06:06.467314Z",
+        "modified": "2024-09-03T14:06:06.467314Z"
+      },
+      {
+        "urn": "urn:pulumi:test::network::azure:network/routeTable:RouteTable::exampleRouteTable",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/routeTables/exampleRouteTable135e77f",
+        "type": "azure:network/routeTable:RouteTable",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "location": "eastus",
+          "name": "exampleRouteTable135e77f",
+          "resourceGroupName": "exampleresourcegroupc1163673"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "bgpRoutePropagationEnabled": true,
+          "disableBgpRoutePropagation": false,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/routeTables/exampleRouteTable135e77f",
+          "location": "eastus",
+          "name": "exampleRouteTable135e77f",
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "routes": [],
+          "subnets": [],
+          "tags": null
+        },
+        "parent": "urn:pulumi:test::network::pulumi:pulumi:Stack::network-test",
+        "dependencies": [
+          "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+        ],
+        "provider": "urn:pulumi:test::network::pulumi:providers:azure::default::96ceaa78-e558-400b-9ea2-f39b881d90fb",
+        "propertyDependencies": {
+          "location": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ]
+        },
+        "created": "2024-09-03T14:06:07.890023Z",
+        "modified": "2024-09-03T14:06:07.890023Z"
+      },
+      {
+        "urn": "urn:pulumi:test::network::azure:network/virtualNetwork:VirtualNetwork::exampleVirtualNetwork",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork95038346",
+        "type": "azure:network/virtualNetwork:VirtualNetwork",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "addressSpaces": [
+            "10.0.0.0/16"
+          ],
+          "location": "eastus",
+          "name": "examplevirtualnetwork95038346",
+          "resourceGroupName": "exampleresourcegroupc1163673"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "addressSpaces": [
+            "10.0.0.0/16"
+          ],
+          "bgpCommunity": "",
+          "ddosProtectionPlan": null,
+          "dnsServers": [],
+          "edgeZone": "",
+          "encryption": null,
+          "flowTimeoutInMinutes": 0,
+          "guid": "474ba3e8-3bef-40c1-b933-b3e8dc0fad8a",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork95038346",
+          "location": "eastus",
+          "name": "examplevirtualnetwork95038346",
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "subnets": [],
+          "tags": null
+        },
+        "parent": "urn:pulumi:test::network::pulumi:pulumi:Stack::network-test",
+        "dependencies": [
+          "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+        ],
+        "provider": "urn:pulumi:test::network::pulumi:providers:azure::default::96ceaa78-e558-400b-9ea2-f39b881d90fb",
+        "propertyDependencies": {
+          "addressSpaces": [],
+          "location": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ]
+        },
+        "created": "2024-09-03T14:06:08.059949Z",
+        "modified": "2024-09-03T14:06:08.059949Z"
+      },
+      {
+        "urn": "urn:pulumi:test::network::azure:network/networkSecurityRule:NetworkSecurityRule::exampleNetworkSecurityRule",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/networkSecurityGroups/examplenetworksecuritygroupb821250b/securityRules/examplenetworksecurityrule2de561b5",
+        "type": "azure:network/networkSecurityRule:NetworkSecurityRule",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "access": "Allow",
+          "destinationAddressPrefix": "*",
+          "destinationPortRange": "*",
+          "direction": "Outbound",
+          "name": "examplenetworksecurityrule2de561b5",
+          "networkSecurityGroupName": "examplenetworksecuritygroupb821250b",
+          "priority": 100,
+          "protocol": "Tcp",
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "sourceAddressPrefix": "*",
+          "sourcePortRange": "*"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "access": "Allow",
+          "description": "",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": null,
+          "destinationApplicationSecurityGroupIds": null,
+          "destinationPortRange": "*",
+          "destinationPortRanges": null,
+          "direction": "Outbound",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/networkSecurityGroups/examplenetworksecuritygroupb821250b/securityRules/examplenetworksecurityrule2de561b5",
+          "name": "examplenetworksecurityrule2de561b5",
+          "networkSecurityGroupName": "examplenetworksecuritygroupb821250b",
+          "priority": 100,
+          "protocol": "Tcp",
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "sourceAddressPrefix": "*",
+          "sourceAddressPrefixes": null,
+          "sourceApplicationSecurityGroupIds": null,
+          "sourcePortRange": "*",
+          "sourcePortRanges": null
+        },
+        "parent": "urn:pulumi:test::network::pulumi:pulumi:Stack::network-test",
+        "dependencies": [
+          "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
+          "urn:pulumi:test::network::azure:network/networkSecurityGroup:NetworkSecurityGroup::exampleNetworkSecurityGroup"
+        ],
+        "provider": "urn:pulumi:test::network::pulumi:providers:azure::default::96ceaa78-e558-400b-9ea2-f39b881d90fb",
+        "propertyDependencies": {
+          "access": [],
+          "destinationAddressPrefix": [],
+          "destinationPortRange": [],
+          "direction": [],
+          "networkSecurityGroupName": [
+            "urn:pulumi:test::network::azure:network/networkSecurityGroup:NetworkSecurityGroup::exampleNetworkSecurityGroup"
+          ],
+          "priority": [],
+          "protocol": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "sourceAddressPrefix": [],
+          "sourcePortRange": []
+        },
+        "created": "2024-09-03T14:06:09.515739Z",
+        "modified": "2024-09-03T14:06:09.515739Z"
+      },
+      {
+        "urn": "urn:pulumi:test::network::azure:network/route:Route::exampleRoute",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/routeTables/exampleRouteTable135e77f/routes/exampleRoute05a12e6",
+        "type": "azure:network/route:Route",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "addressPrefix": "10.1.0.0/16",
+          "name": "exampleRoute05a12e6",
+          "nextHopType": "VnetLocal",
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "routeTableName": "exampleRouteTable135e77f"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "addressPrefix": "10.1.0.0/16",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/routeTables/exampleRouteTable135e77f/routes/exampleRoute05a12e6",
+          "name": "exampleRoute05a12e6",
+          "nextHopInIpAddress": "",
+          "nextHopType": "VnetLocal",
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "routeTableName": "exampleRouteTable135e77f"
+        },
+        "parent": "urn:pulumi:test::network::pulumi:pulumi:Stack::network-test",
+        "dependencies": [
+          "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
+          "urn:pulumi:test::network::azure:network/routeTable:RouteTable::exampleRouteTable"
+        ],
+        "provider": "urn:pulumi:test::network::pulumi:providers:azure::default::96ceaa78-e558-400b-9ea2-f39b881d90fb",
+        "propertyDependencies": {
+          "addressPrefix": [],
+          "nextHopType": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "routeTableName": [
+            "urn:pulumi:test::network::azure:network/routeTable:RouteTable::exampleRouteTable"
+          ]
+        },
+        "created": "2024-09-03T14:06:12.583878Z",
+        "modified": "2024-09-03T14:06:12.583878Z"
+      },
+      {
+        "urn": "urn:pulumi:test::network::azure:network/subnet:Subnet::exampleSubnet",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork95038346/subnets/examplesubnet99d3b1bf",
+        "type": "azure:network/subnet:Subnet",
+        "inputs": {
+          "__defaults": [
+            "defaultOutboundAccessEnabled",
+            "name"
+          ],
+          "addressPrefixes": [
+            "10.0.2.0/24"
+          ],
+          "defaultOutboundAccessEnabled": true,
+          "name": "examplesubnet99d3b1bf",
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "virtualNetworkName": "examplevirtualnetwork95038346"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "addressPrefixes": [
+            "10.0.2.0/24"
+          ],
+          "defaultOutboundAccessEnabled": true,
+          "delegations": [],
+          "enforcePrivateLinkEndpointNetworkPolicies": false,
+          "enforcePrivateLinkServiceNetworkPolicies": false,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork95038346/subnets/examplesubnet99d3b1bf",
+          "name": "examplesubnet99d3b1bf",
+          "privateEndpointNetworkPolicies": "Enabled",
+          "privateEndpointNetworkPoliciesEnabled": true,
+          "privateLinkServiceNetworkPoliciesEnabled": true,
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "serviceEndpointPolicyIds": null,
+          "serviceEndpoints": null,
+          "virtualNetworkName": "examplevirtualnetwork95038346"
+        },
+        "parent": "urn:pulumi:test::network::pulumi:pulumi:Stack::network-test",
+        "dependencies": [
+          "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
+          "urn:pulumi:test::network::azure:network/virtualNetwork:VirtualNetwork::exampleVirtualNetwork"
+        ],
+        "provider": "urn:pulumi:test::network::pulumi:providers:azure::default::96ceaa78-e558-400b-9ea2-f39b881d90fb",
+        "propertyDependencies": {
+          "addressPrefixes": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "virtualNetworkName": [
+            "urn:pulumi:test::network::azure:network/virtualNetwork:VirtualNetwork::exampleVirtualNetwork"
+          ]
+        },
+        "created": "2024-09-03T14:06:14.459784Z",
+        "modified": "2024-09-03T14:06:14.459784Z"
+      },
+      {
+        "urn": "urn:pulumi:test::network::azure:network/networkInterface:NetworkInterface::exampleNetworkInterface",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/networkInterfaces/examplenetworkinterface806694de",
+        "type": "azure:network/networkInterface:NetworkInterface",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "ipConfigurations": [
+            {
+              "__defaults": [
+                "privateIpAddressVersion"
+              ],
+              "name": "internal",
+              "privateIpAddressAllocation": "Dynamic",
+              "privateIpAddressVersion": "IPv4",
+              "subnetId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork95038346/subnets/examplesubnet99d3b1bf"
+            }
+          ],
+          "location": "eastus",
+          "name": "examplenetworkinterface806694de",
+          "resourceGroupName": "exampleresourcegroupc1163673"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "acceleratedNetworkingEnabled": false,
+          "appliedDnsServers": [],
+          "auxiliaryMode": "",
+          "auxiliarySku": "",
+          "dnsServers": [],
+          "edgeZone": "",
+          "enableAcceleratedNetworking": false,
+          "enableIpForwarding": false,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/networkInterfaces/examplenetworkinterface806694de",
+          "internalDnsNameLabel": "",
+          "internalDomainNameSuffix": "3cruwr5phpaubojtwpunyd3nrc.bx.internal.cloudapp.net",
+          "ipConfigurations": [
+            {
+              "gatewayLoadBalancerFrontendIpConfigurationId": "",
+              "name": "internal",
+              "primary": true,
+              "privateIpAddress": "10.0.2.4",
+              "privateIpAddressAllocation": "Dynamic",
+              "privateIpAddressVersion": "IPv4",
+              "publicIpAddressId": "",
+              "subnetId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupc1163673/providers/Microsoft.Network/virtualNetworks/examplevirtualnetwork95038346/subnets/examplesubnet99d3b1bf"
+            }
+          ],
+          "ipForwardingEnabled": false,
+          "location": "eastus",
+          "macAddress": "",
+          "name": "examplenetworkinterface806694de",
+          "privateIpAddress": "10.0.2.4",
+          "privateIpAddresses": [
+            "10.0.2.4"
+          ],
+          "resourceGroupName": "exampleresourcegroupc1163673",
+          "tags": null,
+          "virtualMachineId": ""
+        },
+        "parent": "urn:pulumi:test::network::pulumi:pulumi:Stack::network-test",
+        "dependencies": [
+          "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
+          "urn:pulumi:test::network::azure:network/subnet:Subnet::exampleSubnet"
+        ],
+        "provider": "urn:pulumi:test::network::pulumi:providers:azure::default::96ceaa78-e558-400b-9ea2-f39b881d90fb",
+        "propertyDependencies": {
+          "ipConfigurations": [
+            "urn:pulumi:test::network::azure:network/subnet:Subnet::exampleSubnet"
+          ],
+          "location": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::network::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ]
+        },
+        "created": "2024-09-03T14:06:28.131274Z",
+        "modified": "2024-09-03T14:06:28.131274Z"
+      }
+    ]
+  }
+}
