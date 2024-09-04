@@ -21,13 +21,13 @@ resources:
     type: azure:servicebus:Queue
     properties:
       namespaceId: ${exampleNamespace.id}
-      enablePartitioning: true
+      partitioningEnabled: true
 
   exampleTopic:
     type: azure:servicebus:Topic
     properties:
       namespaceId: ${exampleNamespace.id}
-      enablePartitioning: true
+      partitioningEnabled: true
 
   exampleSubsn:
     type: azure:servicebus:Subscription
