@@ -15,6 +15,7 @@ import (
 
 	"github.com/pulumi/providertest"
 	"github.com/pulumi/providertest/grpclog"
+	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/providers"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
@@ -38,7 +39,7 @@ func providerServer(_ providers.PulumiTest) (pulumirpc.ResourceProviderServer, e
 	return tfbridge.NewProvider(ctx, nil, "azure", version.Version, info.P, info, schemaBytes), nil
 }
 
-func test(t *testing.T, dir string) {
+func test(t *testing.T, dir string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
 	t.Helper()
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without cloud credentials")
@@ -72,7 +73,7 @@ func test(t *testing.T, dir string) {
 	pt := pulumitest.NewPulumiTest(t, dir,
 		opttest.AttachProvider("azure", providerServerWithMockedInvokes))
 	pt.SetConfig(t, "azure:subscriptionId", subscriptionID)
-	previewResult := providertest.PreviewProviderUpgrade(t, pt, "azure", "5.89.0")
+	previewResult := providertest.PreviewProviderUpgrade(t, pt, "azure", "5.89.0", opts...)
 	assertpreview.HasNoReplacements(t, previewResult)
 }
 

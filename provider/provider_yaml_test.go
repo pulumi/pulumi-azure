@@ -8,6 +8,8 @@ package provider
 import (
 	"path/filepath"
 	"testing"
+
+	"github.com/pulumi/providertest/optproviderupgrade"
 )
 
 func Test_appinsights(t *testing.T) {
@@ -47,5 +49,5 @@ func Test_sql(t *testing.T) {
 }
 
 func Test_storage(t *testing.T) {
-	test(t, filepath.Join("test-programs", "storage"))
+	test(t, filepath.Join("test-programs", "storage"), optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "storage", "account tier casing")))
 }
