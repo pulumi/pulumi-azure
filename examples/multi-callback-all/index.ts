@@ -45,7 +45,7 @@ const blobFunc = container.getEventFunction("storage-blob",
 // ServiceBus Queue
 const namespace = new azure.eventhub.Namespace("servicebus", {
     resourceGroupName: resourceGroup.name,
-    sku: "standard",
+    sku: "Standard",
 });
 
 const serviceBusQueue = new azure.eventhub.Queue("queue", {
@@ -81,7 +81,7 @@ const serviceBusTopicFunc = topic.getEventFunction("servicebus-topic", {
 // Event Hub
 const ehNamespace = new azure.eventhub.EventHubNamespace("namespace", {
     resourceGroupName: resourceGroup.name,
-    sku: "standard",
+    sku: "Standard",
 });
 
 const eventHub = new azure.eventhub.EventHub("eventhub", {
