@@ -1927,6 +1927,7 @@ func Provider() tfbridge.ProviderInfo {
 					if _, ok := pm["dnsEndpointType"]; !ok {
 						pm["dnsEndpointType"] = resource.NewStringProperty("Standard")
 					}
+					fixEnumCase(pm, "accountTier", "Standard", "Premium")
 					return pm, nil
 				},
 			},
@@ -3457,4 +3458,17 @@ func defaultAzureLocation(ctx context.Context,
 // See: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules
 func lowercaseLettersAndNumbers(name string) string {
 	return regexp.MustCompile("[^a-z0-9]").ReplaceAllString(strings.ToLower(name), "")
+}
+
+// Transforms resource state to fix where a string was previously case insensitive but is now case sensitive.
+func fixEnumCase(pm resource.PropertyMap, fieldName string, allowedValues ...string) {
+	propertyKey := resource.PropertyKey(fieldName)
+	if v, ok := pm[propertyKey]; ok && v.IsString() {
+		for i, av := range allowedValues {
+			if strings.EqualFold(v.StringValue(), av) {
+				pm[propertyKey] = resource.NewStringProperty(allowedValues[i])
+				return
+			}
+		}
+	}
 }
