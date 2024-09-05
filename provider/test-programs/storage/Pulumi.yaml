@@ -13,7 +13,7 @@ resources:
     properties:
       resourceGroupName: ${exampleResourceGroup.name}
       location: ${exampleResourceGroup.location}
-      accountTier: Standard
+      accountTier: standard
       accountReplicationType: LRS
       tags:
         environment: staging

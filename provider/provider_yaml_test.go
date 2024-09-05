@@ -49,5 +49,5 @@ func Test_sql(t *testing.T) {
 }
 
 func Test_storage(t *testing.T) {
-	test(t, filepath.Join("test-programs", "storage"), optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "storage", "account tier casing")))
+	test(t, filepath.Join("test-programs", "storage"), optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "storage", "v6")))
 }
