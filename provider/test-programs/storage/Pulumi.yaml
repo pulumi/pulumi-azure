@@ -31,4 +31,4 @@ resources:
       storageContainerName: ${exampleContainer.name}
       type: Block
       source:
-        fn::fileAsset: Pulumi.yaml
+        fn::stringAsset: foo
