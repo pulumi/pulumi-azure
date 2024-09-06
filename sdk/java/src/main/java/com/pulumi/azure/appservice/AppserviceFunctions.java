@@ -59,7 +59,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service.
      * 
-     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -105,7 +105,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service.
      * 
-     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -151,7 +151,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service.
      * 
-     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -197,7 +197,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service.
      * 
-     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -1131,7 +1131,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about a Function App.
      * 
-     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
+     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -1176,7 +1176,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about a Function App.
      * 
-     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
+     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -1221,7 +1221,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about a Function App.
      * 
-     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
+     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -1266,7 +1266,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about a Function App.
      * 
-     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
+     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
      * 
      * ## Example Usage
      * 
