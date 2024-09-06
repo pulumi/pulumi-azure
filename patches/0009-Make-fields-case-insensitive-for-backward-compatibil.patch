@@ -8,6 +8,8 @@ Try to make diffs as robust and mergable as possible:
 - Put added import lines in own block to avoid conflicts.
 - Update 2024-09 - only maintain case insensitivity for properties which cause replacement (ForceNew=true).
 
+Revert automation and cdn
+
 diff --git a/internal/features/four_point_oh.go b/internal/features/four_point_oh.go
 index cb63f60555..c807830589 100644
 --- a/internal/features/four_point_oh.go
@@ -22,50 +24,6 @@ index cb63f60555..c807830589 100644
 +func CaseInsensitive() bool {
 +	return true
 +}
-diff --git a/internal/services/automation/automation_runbook_resource.go b/internal/services/automation/automation_runbook_resource.go
-index 4ed2210440..c2ac042ad2 100644
---- a/internal/services/automation/automation_runbook_resource.go
-+++ b/internal/services/automation/automation_runbook_resource.go
-@@ -21,6 +21,7 @@ import (
- 	"github.com/hashicorp/terraform-provider-azurerm/helpers/azure"
- 	"github.com/hashicorp/terraform-provider-azurerm/helpers/tf"
- 	"github.com/hashicorp/terraform-provider-azurerm/internal/clients"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
- 	"github.com/hashicorp/terraform-provider-azurerm/internal/services/automation/helper"
- 	"github.com/hashicorp/terraform-provider-azurerm/internal/services/automation/validate"
- 	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/pluginsdk"
-@@ -133,7 +134,7 @@ func resourceAutomationRunbook() *pluginsdk.Resource {
- 					string(runbook.RunbookTypeEnumPowerShellWorkflow),
- 					string(runbook.RunbookTypeEnumPowerShellSevenTwo),
- 					string(runbook.RunbookTypeEnumScript),
--				}, false),
-+				}, features.CaseInsensitive()),
- 			},
- 
- 			"log_progress": {
-diff --git a/internal/services/cdn/cdn_profile_resource.go b/internal/services/cdn/cdn_profile_resource.go
-index 67956f15c9..0b70ccb184 100644
---- a/internal/services/cdn/cdn_profile_resource.go
-+++ b/internal/services/cdn/cdn_profile_resource.go
-@@ -5,6 +5,8 @@ package cdn
- 
- import (
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
- 	"time"
- 
- 	"github.com/Azure/azure-sdk-for-go/services/cdn/mgmt/2020-09-01/cdn" // nolint: staticcheck
-@@ -67,7 +69,8 @@ func resourceCdnProfile() *pluginsdk.Resource {
- 					string(cdn.SkuNameStandardVerizon),
- 					string(cdn.SkuNameStandardMicrosoft),
- 					string(cdn.SkuNamePremiumVerizon),
--				}, false),
-+				}, features.CaseInsensitive()),
-+				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
- 			},
- 
- 			"tags": tags.Schema(),
 diff --git a/internal/services/compute/image_resource.go b/internal/services/compute/image_resource.go
 index dd65c7cac1..e31dd1b95a 100644
 --- a/internal/services/compute/image_resource.go

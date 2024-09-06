@@ -56,3 +56,8 @@ func Test_storage(t *testing.T) {
 func Test_automation_runbook(t *testing.T) {
 	test(t, filepath.Join("test-programs", "automation_runbook"))
 }
+
+func Test_cdn_profile(t *testing.T) {
+	test(t, filepath.Join("test-programs", "cdn_profile"),
+		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "cdn_profile", "v6")))
+}
