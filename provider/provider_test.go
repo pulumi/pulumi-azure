@@ -4,7 +4,6 @@ package provider
 
 import (
 	"context"
-	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -14,7 +13,6 @@ import (
 	_ "embed"
 
 	"github.com/pulumi/providertest"
-	"github.com/pulumi/providertest/grpclog"
 	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/providers"
 	"github.com/pulumi/providertest/pulumitest"
@@ -46,32 +44,11 @@ func test(t *testing.T, dir string, opts ...optproviderupgrade.PreviewProviderUp
 		return
 	}
 	subscriptionID := getSubscriptionID(t)
-	providerServerWithMockedInvokes := providers.ProviderInterceptFactory(
-		context.Background(),
-		providers.ResourceProviderFactory(providerServer),
-		providers.ProviderInterceptors{
-			Invoke: func(ctx context.Context, in *pulumirpc.InvokeRequest, client pulumirpc.ResourceProviderClient,
-			) (*pulumirpc.InvokeResponse, error) {
-				log, err := grpclog.LoadLog(filepath.Join("testdata", "recorded", "TestProviderUpgrade",
-					filepath.Base(dir), "5.89.0", "grpc.json"))
-				if err != nil {
-					return nil, fmt.Errorf("failed to load gRPC log: %w", err)
-				}
-				invokes, err := log.Invokes()
-				if err != nil {
-					return nil, fmt.Errorf("failed to get invokes from log: %w", err)
-				}
-				for i := 0; i < len(invokes); i++ {
-					if invokes[i].Request.Tok == in.GetTok() {
-						return &invokes[i].Response, nil
-					}
-				}
-				t.Logf("invoke not found, falling back to live execution: %s\n", in.GetTok())
-				return client.Invoke(ctx, in)
-			},
-		})
+	rpFactory := providers.ResourceProviderFactory(providerServer)
+	cacheDir := providertest.GetUpgradeCacheDir(filepath.Base(dir), "5.89.0")
 	pt := pulumitest.NewPulumiTest(t, dir,
-		opttest.AttachProvider("azure", providerServerWithMockedInvokes))
+		opttest.AttachProvider("azure",
+			rpFactory.ReplayInvokes(filepath.Join(cacheDir, "grpc.json"), false /* allowLiveFallback */)))
 	pt.SetConfig(t, "azure:subscriptionId", subscriptionID)
 	previewResult := providertest.PreviewProviderUpgrade(t, pt, "azure", "5.89.0", opts...)
 	assertpreview.HasNoReplacements(t, previewResult)
