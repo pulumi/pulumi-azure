@@ -10,7 +10,7 @@ const accessTier = "Hot";
 
 const storageAccount = new azure.storage.Account("storageaccount", {
   resourceGroupName: resourceGroup.name,
-  accountTier: "standard",
+  accountTier: "Standard",
   accountReplicationType: "LRS",
   accessTier,
 });
