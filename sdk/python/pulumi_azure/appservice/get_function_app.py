@@ -261,7 +261,7 @@ def get_function_app(name: Optional[str] = None,
     """
     Use this data source to access information about a Function App.
 
-    !> **Note:** The `appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.LinuxFunctionApp` data sources instead.
+    !> **Note:** The `appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.LinuxFunctionApp` and `appservice.WindowsFunctionApp` data sources instead.
 
     ## Example Usage
 
@@ -314,7 +314,7 @@ def get_function_app_output(name: Optional[pulumi.Input[str]] = None,
     """
     Use this data source to access information about a Function App.
 
-    !> **Note:** The `appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.LinuxFunctionApp` data sources instead.
+    !> **Note:** The `appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.LinuxFunctionApp` and `appservice.WindowsFunctionApp` data sources instead.
 
     ## Example Usage
 

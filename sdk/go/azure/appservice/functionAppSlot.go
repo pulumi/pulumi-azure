@@ -14,7 +14,7 @@ import (
 
 // Manages a Function App deployment Slot.
 //
-// !> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `appservice.LinuxFunctionAppSlot` resources instead.
+// !> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `appservice.LinuxFunctionAppSlot` and `appservice.WindowsFunctionAppSlot` resources instead.
 //
 // ## Example Usage
 //
