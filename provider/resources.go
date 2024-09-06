@@ -1046,9 +1046,21 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_managed_disk":         {Tok: azureResource(azureCompute, "ManagedDisk")},
-			"azurerm_snapshot":             {Tok: azureResource(azureCompute, "Snapshot")},
-			"azurerm_image":                {Tok: azureResource(azureCompute, "Image")},
+			"azurerm_managed_disk": {Tok: azureResource(azureCompute, "ManagedDisk")},
+			"azurerm_snapshot":     {Tok: azureResource(azureCompute, "Snapshot")},
+			"azurerm_image": {
+				Tok: azureResource(azureCompute, "Image"),
+				TransformFromState: func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					if osDisk, ok := pm["os_disk"]; ok && osDisk.IsObject() {
+						osDiskMap := osDisk.ObjectValue()
+						fixEnumCase(osDiskMap, "os_type", "Linux", "Windows")
+						fixEnumCase(osDiskMap, "os_state", "Generalized", "Specialized")
+						fixEnumCase(osDiskMap, "caching", "None", "ReadOnly", "ReadWrite")
+						pm["os_disk"] = resource.NewObjectProperty(osDiskMap)
+					}
+					return pm, nil
+				},
+			},
 			"azurerm_shared_image":         {Tok: azureResource(azureCompute, "SharedImage")},
 			"azurerm_shared_image_gallery": {Tok: azureResource(azureCompute, "SharedImageGallery")},
 			"azurerm_shared_image_version": {Tok: azureResource(azureCompute, "SharedImageVersion")},

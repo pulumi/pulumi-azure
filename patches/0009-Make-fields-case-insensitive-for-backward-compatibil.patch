@@ -9,6 +9,7 @@ Try to make diffs as robust and mergable as possible:
 - Update 2024-09 - only maintain case insensitivity for properties which cause replacement (ForceNew=true).
 
 Revert automation and cdn
+Revert compute_image
 
 diff --git a/internal/features/four_point_oh.go b/internal/features/four_point_oh.go
 index cb63f60555..c807830589 100644
@@ -24,37 +25,6 @@ index cb63f60555..c807830589 100644
 +func CaseInsensitive() bool {
 +	return true
 +}
-diff --git a/internal/services/compute/image_resource.go b/internal/services/compute/image_resource.go
-index dd65c7cac1..e31dd1b95a 100644
---- a/internal/services/compute/image_resource.go
-+++ b/internal/services/compute/image_resource.go
-@@ -91,7 +91,7 @@ func resourceImage() *pluginsdk.Resource {
- 							ValidateFunc: validation.StringInSlice([]string{
- 								string(images.OperatingSystemTypesLinux),
- 								string(images.OperatingSystemTypesWindows),
--							}, false),
-+							}, features.CaseInsensitive()),
- 						},
- 
- 						"os_state": {
-@@ -100,7 +100,7 @@ func resourceImage() *pluginsdk.Resource {
- 							ValidateFunc: validation.StringInSlice([]string{
- 								string(images.OperatingSystemStateTypesGeneralized),
- 								string(images.OperatingSystemStateTypesSpecialized),
--							}, false),
-+							}, features.CaseInsensitive()),
- 						},
- 
- 						"managed_disk_id": {
-@@ -127,7 +127,7 @@ func resourceImage() *pluginsdk.Resource {
- 								string(images.CachingTypesNone),
- 								string(images.CachingTypesReadOnly),
- 								string(images.CachingTypesReadWrite),
--							}, false),
-+							}, features.CaseInsensitive()),
- 						},
- 
- 						"size_gb": {
 diff --git a/internal/services/compute/virtual_machine_data_disk_attachment_resource.go b/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
 index a24ea85041..184ed30752 100644
 --- a/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
