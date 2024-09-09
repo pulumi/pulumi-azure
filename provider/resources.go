@@ -880,6 +880,12 @@ func Provider() tfbridge.ProviderInfo {
 						Transform: strings.ToLower,
 					}),
 				},
+				TransformFromState: func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					fixEnumCase(pm, "ip_address_type", "Public", "Private", "None")
+					fixEnumCase(pm, "os_type", "Linux", "Windows")
+					fixEnumCase(pm, "restart_policy", "Always", "Never", "OnFailure")
+					return pm, nil
+				},
 			},
 			"azurerm_kubernetes_cluster": {Tok: azureResource(azureContainerService, "KubernetesCluster")},
 			"azurerm_kubernetes_cluster_node_pool": {
