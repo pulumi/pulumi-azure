@@ -887,7 +887,17 @@ func Provider() tfbridge.ProviderInfo {
 					return pm, nil
 				},
 			},
-			"azurerm_kubernetes_cluster": {Tok: azureResource(azureContainerService, "KubernetesCluster")},
+			"azurerm_kubernetes_cluster": {
+				Tok: azureResource(azureContainerService, "KubernetesCluster"),
+				TransformFromState: func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					if networkProfile, ok := pm["network_profile"]; ok && networkProfile.IsObject() {
+						np := networkProfile.ObjectValue()
+						fixEnumCase(np, "load_balancer_sku", "Basic", "Standard")
+						pm["network_profile"] = resource.NewObjectProperty(np)
+					}
+					return pm, nil
+				},
+			},
 			"azurerm_kubernetes_cluster_node_pool": {
 				Tok: azureResource(azureContainerService, "KubernetesClusterNodePool"),
 			},
