@@ -880,7 +880,7 @@ func Provider() tfbridge.ProviderInfo {
 						Transform: strings.ToLower,
 					}),
 				},
-				TransformFromState: func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					fixEnumCase(pm, "ip_address_type", "Public", "Private", "None")
 					fixEnumCase(pm, "os_type", "Linux", "Windows")
 					fixEnumCase(pm, "restart_policy", "Always", "Never", "OnFailure")
@@ -889,7 +889,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_kubernetes_cluster": {
 				Tok: azureResource(azureContainerService, "KubernetesCluster"),
-				TransformFromState: func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					if networkProfile, ok := pm["network_profile"]; ok && networkProfile.IsObject() {
 						np := networkProfile.ObjectValue()
 						fixEnumCase(np, "load_balancer_sku", "Basic", "Standard")
@@ -1066,7 +1066,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_snapshot":     {Tok: azureResource(azureCompute, "Snapshot")},
 			"azurerm_image": {
 				Tok: azureResource(azureCompute, "Image"),
-				TransformFromState: func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					if osDisk, ok := pm["os_disk"]; ok && osDisk.IsObject() {
 						osDiskMap := osDisk.ObjectValue()
 						fixEnumCase(osDiskMap, "os_type", "Linux", "Windows")
@@ -1325,7 +1325,7 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "iothub.html.markdown",
 				},
-				TransformFromState: func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					// The upstream `endpoint` property is an array type
 					if endpointsProp, ok := pm["endpoint"]; ok && endpointsProp.IsArray() {
 						endpoints := endpointsProp.ArrayValue()
@@ -1498,7 +1498,7 @@ func Provider() tfbridge.ProviderInfo {
 						Transform: strings.ToLower,
 					}),
 				},
-				TransformFromState: func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					fixEnumCase(pm, "kind", "GlobalDocumentDB", "MongoDB", "Parse")
 					return pm, nil
 				},
@@ -3528,6 +3528,7 @@ func fixHdInsightTier(_ context.Context, pm resource.PropertyMap) (resource.Prop
 			role := rolesObj[roleKey]
 			if role.IsObject() {
 				roleObj := role.ObjectValue()
+				//nolint:lll
 				// Snapshotted from https://github.com/hashicorp/terraform-provider-azurerm/blob/83622ed3ea75ef9dbbe6faf34b33473b21f10cca/internal/services/hdinsight/validate/node_definition_vm_size.go#L12-L111
 				fixEnumCase(roleObj, "vm_size",
 					"ExtraSmall",
