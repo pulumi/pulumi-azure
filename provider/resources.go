@@ -1824,6 +1824,11 @@ func Provider() tfbridge.ProviderInfo {
 						Transform: strings.ToLower,
 					}),
 				},
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					fixEnumCase(pm, "ip_version", "IPv4", "IPv6")
+					fixEnumCase(pm, "sku", "Basic", "Standard")
+					return pm, nil
+				},
 			},
 			"azurerm_public_ip_prefix": {
 				Tok: azureResource(azureNetwork, "PublicIpPrefix"),
