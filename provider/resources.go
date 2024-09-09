@@ -1325,6 +1325,21 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "iothub.html.markdown",
 				},
+				TransformFromState: func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					// The upstream `endpoint` property is an array type
+					if endpointsProp, ok := pm["endpoint"]; ok && endpointsProp.IsArray() {
+						endpoints := endpointsProp.ArrayValue()
+						for i, endpointProp := range endpoints {
+							if endpointProp.IsObject() {
+								endpoint := endpointProp.ObjectValue()
+								fixEnumCase(endpoint, "encoding", "Avro", "AvroDeflate", "JSON")
+								endpoints[i] = resource.NewObjectProperty(endpoint)
+							}
+						}
+						pm["endpoint"] = resource.NewArrayProperty(endpoints)
+					}
+					return pm, nil
+				},
 			},
 			"azurerm_iothub_consumer_group":             {Tok: azureResource(azureIot, "ConsumerGroup")},
 			"azurerm_iothub_dps":                        {Tok: azureResource(azureIot, "IotHubDps")},
