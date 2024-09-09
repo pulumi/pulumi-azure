@@ -1483,6 +1483,10 @@ func Provider() tfbridge.ProviderInfo {
 						Transform: strings.ToLower,
 					}),
 				},
+				TransformFromState: func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					fixEnumCase(pm, "kind", "GlobalDocumentDB", "MongoDB", "Parse")
+					return pm, nil
+				},
 			},
 			"azurerm_cosmosdb_cassandra_keyspace":    {Tok: azureResource(azureCosmosDB, "CassandraKeyspace")},
 			"azurerm_cosmosdb_mongo_collection":      {Tok: azureResource(azureCosmosDB, "MongoCollection")},
