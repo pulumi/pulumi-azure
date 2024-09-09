@@ -1825,11 +1825,17 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_public_ip_prefix": {Tok: azureResource(azureNetwork, "PublicIpPrefix")},
-			"azurerm_route":            {Tok: azureResource(azureNetwork, "Route")},
-			"azurerm_route_filter":     {Tok: azureResource(azureNetwork, "RouteFilter")},
-			"azurerm_route_table":      {Tok: azureResource(azureNetwork, "RouteTable")},
-			"azurerm_route_map":        {Tok: azureResource(azureNetwork, "RouteMap")},
+			"azurerm_public_ip_prefix": {
+				Tok: azureResource(azureNetwork, "PublicIpPrefix"),
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					fixEnumCase(pm, "ip_version", "IPv4", "IPv6")
+					return pm, nil
+				},
+			},
+			"azurerm_route":        {Tok: azureResource(azureNetwork, "Route")},
+			"azurerm_route_filter": {Tok: azureResource(azureNetwork, "RouteFilter")},
+			"azurerm_route_table":  {Tok: azureResource(azureNetwork, "RouteTable")},
+			"azurerm_route_map":    {Tok: azureResource(azureNetwork, "RouteMap")},
 			"azurerm_subnet": {
 				Tok: azureResource(azureNetwork, "Subnet"),
 				Fields: map[string]*tfbridge.SchemaInfo{
