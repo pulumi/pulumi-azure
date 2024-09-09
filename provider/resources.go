@@ -1290,11 +1290,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_elastic_cloud_elasticsearch": {Tok: azureResource(azureElasticCloud, "Elasticsearch")},
 
 			// HDInsights
-			"azurerm_hdinsight_hadoop_cluster":            {Tok: azureResource(azureHdInsight, "HadoopCluster")},
-			"azurerm_hdinsight_hbase_cluster":             {Tok: azureResource(azureHdInsight, "HBaseCluster")},
-			"azurerm_hdinsight_interactive_query_cluster": {Tok: azureResource(azureHdInsight, "InteractiveQueryCluster")},
-			"azurerm_hdinsight_kafka_cluster":             {Tok: azureResource(azureHdInsight, "KafkaCluster")},
-			"azurerm_hdinsight_spark_cluster":             {Tok: azureResource(azureHdInsight, "SparkCluster")},
+			"azurerm_hdinsight_hadoop_cluster":            {Tok: azureResource(azureHdInsight, "HadoopCluster"), TransformFromState: fixHdInsightTier},
+			"azurerm_hdinsight_hbase_cluster":             {Tok: azureResource(azureHdInsight, "HBaseCluster"), TransformFromState: fixHdInsightTier},
+			"azurerm_hdinsight_interactive_query_cluster": {Tok: azureResource(azureHdInsight, "InteractiveQueryCluster"), TransformFromState: fixHdInsightTier},
+			"azurerm_hdinsight_kafka_cluster":             {Tok: azureResource(azureHdInsight, "KafkaCluster"), TransformFromState: fixHdInsightTier},
+			"azurerm_hdinsight_spark_cluster":             {Tok: azureResource(azureHdInsight, "SparkCluster"), TransformFromState: fixHdInsightTier},
 
 			// EventHub
 			"azurerm_eventhub":                        {Tok: azureResource(azureEventHub, "EventHub")},
@@ -3503,4 +3503,120 @@ func fixEnumCase(pm resource.PropertyMap, fieldName string, allowedValues ...str
 			}
 		}
 	}
+}
+
+func fixHdInsightTier(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+	fixEnumCase(pm, "tier", "Standard", "Premium")
+	if roles, ok := pm["roles"]; ok && roles.IsObject() {
+		rolesObj := roles.ObjectValue()
+		for roleKey := range rolesObj {
+			role := rolesObj[roleKey]
+			if role.IsObject() {
+				roleObj := role.ObjectValue()
+				// Snapshotted from https://github.com/hashicorp/terraform-provider-azurerm/blob/83622ed3ea75ef9dbbe6faf34b33473b21f10cca/internal/services/hdinsight/validate/node_definition_vm_size.go#L12-L111
+				fixEnumCase(roleObj, "vm_size",
+					"ExtraSmall",
+					"Small",
+					"Medium",
+					"Large",
+					"ExtraLarge",
+					"A5",
+					"A6",
+					"A7",
+					"A8",
+					"A9",
+					"A10",
+					"A11",
+					"Standard_A1_V2",
+					"Standard_A2_V2",
+					"Standard_A2m_V2",
+					"Standard_A3",
+					"Standard_A4_V2",
+					"Standard_A4m_V2",
+					"Standard_A8_V2",
+					"Standard_A8m_V2",
+					"Standard_D1",
+					"Standard_D2",
+					"Standard_D3",
+					"Standard_D4",
+					"Standard_D11",
+					"Standard_D12",
+					"Standard_D13",
+					"Standard_D14",
+					"Standard_D1_V2",
+					"Standard_D2_V2",
+					"Standard_D3_V2",
+					"Standard_D4_V2",
+					"Standard_D5_V2",
+					"Standard_D11_V2",
+					"Standard_D12_V2",
+					"Standard_D13_V2",
+					"Standard_D14_V2",
+					"Standard_DS1_V2",
+					"Standard_DS2_V2",
+					"Standard_DS3_V2",
+					"Standard_DS4_V2",
+					"Standard_DS5_V2",
+					"Standard_DS11_V2",
+					"Standard_DS12_V2",
+					"Standard_DS13_V2",
+					"Standard_DS14_V2",
+					"Standard_E2_V3",
+					"Standard_E4_V3",
+					"Standard_E8_V3",
+					"Standard_E16_V3",
+					"Standard_E20_V3",
+					"Standard_E32_V3",
+					"Standard_E64_V3",
+					"Standard_E64i_V3",
+					"Standard_E2s_V3",
+					"Standard_E4s_V3",
+					"Standard_E8s_V3",
+					"Standard_E16s_V3",
+					"Standard_E20s_V3",
+					"Standard_E32s_V3",
+					"Standard_E64s_V3",
+					"Standard_E64is_V3",
+					"Standard_D2a_V4",
+					"Standard_D4a_V4",
+					"Standard_D8a_V4",
+					"Standard_D16a_V4",
+					"Standard_D32a_V4",
+					"Standard_D48a_V4",
+					"Standard_D64a_V4",
+					"Standard_D96a_V4",
+					"Standard_E2a_V4",
+					"Standard_E4a_V4",
+					"Standard_E8a_V4",
+					"Standard_E16a_V4",
+					"Standard_E20a_V4",
+					"Standard_E32a_V4",
+					"Standard_E48a_V4",
+					"Standard_E64a_V4",
+					"Standard_E96a_V4",
+					"Standard_G1",
+					"Standard_G2",
+					"Standard_G3",
+					"Standard_G4",
+					"Standard_G5",
+					"Standard_F2s_V2",
+					"Standard_F4s_V2",
+					"Standard_F8s_V2",
+					"Standard_F16s_V2",
+					"Standard_F32s_V2",
+					"Standard_F64s_V2",
+					"Standard_F72s_V2",
+					"Standard_GS1",
+					"Standard_GS2",
+					"Standard_GS3",
+					"Standard_GS4",
+					"Standard_GS5",
+					"Standard_NC24",
+				)
+				rolesObj[roleKey] = resource.NewObjectProperty(roleObj)
+			}
+		}
+		pm["roles"] = resource.NewObjectProperty(rolesObj)
+	}
+	return pm, nil
 }
