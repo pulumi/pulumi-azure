@@ -1390,6 +1390,10 @@ func Provider() tfbridge.ProviderInfo {
 						Transform: strings.ToLower,
 					}),
 				},
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					fixEnumCase(pm, "sku", "Basic", "Standard", "Gateway")
+					return pm, nil
+				},
 			},
 			"azurerm_lb_backend_address_pool": {
 				Tok: azureResource(azureLB, "BackendAddressPool"),
