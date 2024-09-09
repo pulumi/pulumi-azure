@@ -65,7 +65,7 @@ namespace Pulumi.Azure.LogicApps
     public partial class TriggerHttpRequest : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+        /// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         /// </summary>
         [Output("callbackUrl")]
         public Output<string> CallbackUrl { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.LogicApps
     public sealed class TriggerHttpRequestState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group.
+        /// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         /// </summary>
         [Input("callbackUrl")]
         public Input<string>? CallbackUrl { get; set; }

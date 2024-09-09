@@ -211,14 +211,14 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to Azure Data Factory connector for the type values syntax. Changing this forces a new resource to be created.
+     * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Please refer to Microsoft.DataFactory factories/linkedservices for the type values syntax. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to Azure Data Factory connector for the type values syntax. Changing this forces a new resource to be created.
+     * @return The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Please refer to Microsoft.DataFactory factories/linkedservices for the type values syntax. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {
