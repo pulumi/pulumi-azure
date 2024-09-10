@@ -76,3 +76,8 @@ func Test_loadbalancer(t *testing.T) {
 func Test_iot_iothub(t *testing.T) {
 	test(t, filepath.Join("test-programs", "iot_iothub"))
 }
+
+func Test_cosmosdb(t *testing.T) {
+	t.Skip("Can't record as all tested regions are returning 'ServiceUnavailable' error")
+	test(t, filepath.Join("test-programs", "cosmosdb"))
+}
