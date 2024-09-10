@@ -1718,6 +1718,11 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 				},
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					fixEnumCase(pm, "type", "ExpressRoute", "Vpn")
+					fixEnumCase(pm, "vpn_type", "RouteBased", "PolicyBased")
+					return pm, nil
+				},
 			},
 			"azurerm_virtual_network_gateway_connection": {
 				Tok: azureResource(azureNetwork, "VirtualNetworkGatewayConnection"),
