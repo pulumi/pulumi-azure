@@ -40,8 +40,8 @@ resources:
       resourceGroupName: ${exampleResourceGroup.name}
       location: ${exampleResourceGroup.location}
       allocationMethod: Static
-      sku: basic
-      ipVersion: ipv4
+      sku: Basic
+      ipVersion: IPv4
       tags:
         environment: Production
 

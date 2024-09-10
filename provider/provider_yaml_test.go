@@ -37,7 +37,8 @@ func Test_monitoring(t *testing.T) {
 }
 
 func Test_network(t *testing.T) {
-	test(t, filepath.Join("test-programs", "network"))
+	test(t, filepath.Join("test-programs", "network"),
+		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "network", "v6")))
 }
 
 func Test_servicebus(t *testing.T) {
