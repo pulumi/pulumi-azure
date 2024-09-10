@@ -41,8 +41,8 @@ const image = new docker.Image("image", {
 
 const containerGroup = new azure.containerservice.Group("containergroup", {
   resourceGroupName: resourceGroup.name,
-  ipAddressType: "public",
-  osType: "linux",
+  ipAddressType: "Public",
+  osType: "Linux",
   imageRegistryCredentials: [
     {
       server: registry.loginServer,
