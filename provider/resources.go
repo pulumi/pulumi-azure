@@ -2307,8 +2307,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_site_recovery_fabric":               {Tok: azureResource(azureSiteRecovery, "Fabric")},
 			"azurerm_site_recovery_network_mapping":      {Tok: azureResource(azureSiteRecovery, "NetworkMapping")},
 			"azurerm_site_recovery_protection_container": {Tok: azureResource(azureSiteRecovery, "ProtectionContainer")},
-			"azurerm_site_recovery_replicated_vm":        {Tok: azureResource(azureSiteRecovery, "ReplicatedVM")},
-			"azurerm_site_recovery_replication_policy":   {Tok: azureResource(azureSiteRecovery, "ReplicationPolicy")},
+			"azurerm_site_recovery_replicated_vm": {
+				Tok: azureResource(azureSiteRecovery, "ReplicatedVM"),
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					fixEnumCase(pm, "target_disk_type", "Standard_LRS", "Premium_LRS", "StandardSSD_LRS", "UltraSSD_LRS")
+					fixEnumCase(pm, "target_replica_disk_type", "Standard_LRS", "Premium_LRS", "StandardSSD_LRS", "UltraSSD_LRS")
+					return pm, nil
+				},
+			},
+			"azurerm_site_recovery_replication_policy": {Tok: azureResource(azureSiteRecovery, "ReplicationPolicy")},
 			"azurerm_site_recovery_protection_container_mapping": {
 				Tok: azureResource(azureSiteRecovery, "ProtectionContainerMapping"),
 			},
