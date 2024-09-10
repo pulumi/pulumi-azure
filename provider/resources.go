@@ -1939,9 +1939,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_route_server_bgp_connection":           {Tok: azureResource(azureNetwork, "RouteServerBgpConnection")},
 
 			// Redis
-			"azurerm_redis_cache":               {Tok: azureResource(azureRedis, "Cache")},
-			"azurerm_redis_firewall_rule":       {Tok: azureResource(azureRedis, "FirewallRule")},
-			"azurerm_redis_linked_server":       {Tok: azureResource(azureRedis, "LinkedServer")},
+			"azurerm_redis_cache":         {Tok: azureResource(azureRedis, "Cache")},
+			"azurerm_redis_firewall_rule": {Tok: azureResource(azureRedis, "FirewallRule")},
+			"azurerm_redis_linked_server": {
+				Tok: azureResource(azureRedis, "LinkedServer"),
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					fixEnumCase(pm, "server_role", "Primary", "Secondary")
+					return pm, nil
+				},
+			},
 			"azurerm_redis_enterprise_cluster":  {Tok: azureResource(azureRedis, "EnterpriseCluster")},
 			"azurerm_redis_enterprise_database": {Tok: azureResource(azureRedis, "EnterpriseDatabase")},
 
