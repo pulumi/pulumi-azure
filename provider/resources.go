@@ -1475,7 +1475,13 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Notification Hub
-			"azurerm_notification_hub":                    {Tok: azureResource(azureNotificationHub, "Hub")},
+			"azurerm_notification_hub": {
+				Tok: azureResource(azureNotificationHub, "Hub"),
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					fixEnumCase(pm, "namespace_type", "Messaging", "NotificationHub")
+					return pm, nil
+				},
+			},
 			"azurerm_notification_hub_authorization_rule": {Tok: azureResource(azureNotificationHub, "AuthorizationRule")},
 			"azurerm_notification_hub_namespace":          {Tok: azureResource(azureNotificationHub, "Namespace")},
 
