@@ -1727,6 +1727,10 @@ func Provider() tfbridge.ProviderInfo {
 						MaxItemsOne: ref(true),
 					},
 				},
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					fixEnumCase(pm, "type", "ExpressRoute", "IPsec", "Vnet2Vnet")
+					return pm, nil
+				},
 			},
 			"azurerm_local_network_gateway": {Tok: azureResource(azureNetwork, "LocalNetworkGateway")},
 			"azurerm_application_gateway": {
