@@ -72,3 +72,7 @@ func Test_loadbalancer(t *testing.T) {
 	test(t, filepath.Join("test-programs", "loadbalancer"),
 		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "loadbalancer", "v6")))
 }
+
+func Test_iot_iothub(t *testing.T) {
+	test(t, filepath.Join("test-programs", "iot_iothub"))
+}
