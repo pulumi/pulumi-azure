@@ -881,19 +881,19 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-					fixEnumCase(pm, "ip_address_type", "Public", "Private", "None")
-					fixEnumCase(pm, "os_type", "Linux", "Windows")
-					fixEnumCase(pm, "restart_policy", "Always", "Never", "OnFailure")
+					fixEnumCase(pm, "ipAddressType", "Public", "Private", "None")
+					fixEnumCase(pm, "osType", "Linux", "Windows")
+					fixEnumCase(pm, "restartPolicy", "Always", "Never", "OnFailure")
 					return pm, nil
 				},
 			},
 			"azurerm_kubernetes_cluster": {
 				Tok: azureResource(azureContainerService, "KubernetesCluster"),
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-					if networkProfile, ok := pm["network_profile"]; ok && networkProfile.IsObject() {
+					if networkProfile, ok := pm["networkProfile"]; ok && networkProfile.IsObject() {
 						np := networkProfile.ObjectValue()
-						fixEnumCase(np, "load_balancer_sku", "Basic", "Standard")
-						pm["network_profile"] = resource.NewObjectProperty(np)
+						fixEnumCase(np, "loadBalancerSku", "Basic", "Standard")
+						pm["networkProfile"] = resource.NewObjectProperty(np)
 					}
 					return pm, nil
 				},
@@ -1067,12 +1067,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_image": {
 				Tok: azureResource(azureCompute, "Image"),
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-					if osDisk, ok := pm["os_disk"]; ok && osDisk.IsObject() {
+					if osDisk, ok := pm["osDisk"]; ok && osDisk.IsObject() {
 						osDiskMap := osDisk.ObjectValue()
-						fixEnumCase(osDiskMap, "os_type", "Linux", "Windows")
-						fixEnumCase(osDiskMap, "os_state", "Generalized", "Specialized")
+						fixEnumCase(osDiskMap, "osType", "Linux", "Windows")
+						fixEnumCase(osDiskMap, "osState", "Generalized", "Specialized")
 						fixEnumCase(osDiskMap, "caching", "None", "ReadOnly", "ReadWrite")
-						pm["os_disk"] = resource.NewObjectProperty(osDiskMap)
+						pm["osDisk"] = resource.NewObjectProperty(osDiskMap)
 					}
 					return pm, nil
 				},
@@ -1327,7 +1327,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					// The upstream `endpoint` property is an array type
-					if endpointsProp, ok := pm["endpoint"]; ok && endpointsProp.IsArray() {
+					if endpointsProp, ok := pm["endpoints"]; ok && endpointsProp.IsArray() {
 						endpoints := endpointsProp.ArrayValue()
 						for i, endpointProp := range endpoints {
 							if endpointProp.IsObject() {
@@ -1336,7 +1336,7 @@ func Provider() tfbridge.ProviderInfo {
 								endpoints[i] = resource.NewObjectProperty(endpoint)
 							}
 						}
-						pm["endpoint"] = resource.NewArrayProperty(endpoints)
+						pm["endpoints"] = resource.NewArrayProperty(endpoints)
 					}
 					return pm, nil
 				},
@@ -1478,7 +1478,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_notification_hub": {
 				Tok: azureResource(azureNotificationHub, "Hub"),
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-					fixEnumCase(pm, "namespace_type", "Messaging", "NotificationHub")
+					fixEnumCase(pm, "namespaceType", "Messaging", "NotificationHub")
 					return pm, nil
 				},
 			},
@@ -1658,7 +1658,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_policy_definition": {
 				Tok: azureResource(azurePolicy, "Definition"),
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-					fixEnumCase(pm, "policy_type", "BuiltIn", "Custom", "NotSpecified", "Static")
+					fixEnumCase(pm, "policyType", "BuiltIn", "Custom", "NotSpecified", "Static")
 					return pm, nil
 				},
 			},
@@ -1732,7 +1732,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					fixEnumCase(pm, "type", "ExpressRoute", "Vpn")
-					fixEnumCase(pm, "vpn_type", "RouteBased", "PolicyBased")
+					fixEnumCase(pm, "vpnType", "RouteBased", "PolicyBased")
 					return pm, nil
 				},
 			},
@@ -1846,7 +1846,7 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-					fixEnumCase(pm, "ip_version", "IPv4", "IPv6")
+					fixEnumCase(pm, "ipVersion", "IPv4", "IPv6")
 					fixEnumCase(pm, "sku", "Basic", "Standard")
 					return pm, nil
 				},
@@ -1854,7 +1854,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_public_ip_prefix": {
 				Tok: azureResource(azureNetwork, "PublicIpPrefix"),
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-					fixEnumCase(pm, "ip_version", "IPv4", "IPv6")
+					fixEnumCase(pm, "ipVersion", "IPv4", "IPv6")
 					return pm, nil
 				},
 			},
@@ -1944,7 +1944,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_redis_linked_server": {
 				Tok: azureResource(azureRedis, "LinkedServer"),
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-					fixEnumCase(pm, "server_role", "Primary", "Secondary")
+					fixEnumCase(pm, "serverRole", "Primary", "Secondary")
 					return pm, nil
 				},
 			},
@@ -2316,8 +2316,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_site_recovery_replicated_vm": {
 				Tok: azureResource(azureSiteRecovery, "ReplicatedVM"),
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-					fixEnumCase(pm, "target_disk_type", "Standard_LRS", "Premium_LRS", "StandardSSD_LRS", "UltraSSD_LRS")
-					fixEnumCase(pm, "target_replica_disk_type", "Standard_LRS", "Premium_LRS", "StandardSSD_LRS", "UltraSSD_LRS")
+					fixEnumCase(pm, "targetDiskType", "Standard_LRS", "Premium_LRS", "StandardSSD_LRS", "UltraSSD_LRS")
+					fixEnumCase(pm, "targetReplicaDiskType", "Standard_LRS", "Premium_LRS", "StandardSSD_LRS", "UltraSSD_LRS")
 					return pm, nil
 				},
 			},
@@ -3579,7 +3579,7 @@ func fixHdInsightTier(_ context.Context, pm resource.PropertyMap) (resource.Prop
 				roleObj := role.ObjectValue()
 				//nolint:lll
 				// Snapshotted from https://github.com/hashicorp/terraform-provider-azurerm/blob/83622ed3ea75ef9dbbe6faf34b33473b21f10cca/internal/services/hdinsight/validate/node_definition_vm_size.go#L12-L111
-				fixEnumCase(roleObj, "vm_size",
+				fixEnumCase(roleObj, "vmSize",
 					"ExtraSmall",
 					"Small",
 					"Medium",
