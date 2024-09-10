@@ -67,3 +67,8 @@ func Test_compute_datadiskattachment(t *testing.T) {
 	test(t, filepath.Join("test-programs", "compute_datadiskattachment"),
 		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "compute_datadiskattachment", "v6")))
 }
+
+func Test_loadbalancer(t *testing.T) {
+	test(t, filepath.Join("test-programs", "loadbalancer"),
+		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "loadbalancer", "v6")))
+}
