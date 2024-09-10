@@ -1655,7 +1655,13 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Policy
-			"azurerm_policy_definition":     {Tok: azureResource(azurePolicy, "Definition")},
+			"azurerm_policy_definition": {
+				Tok: azureResource(azurePolicy, "Definition"),
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					fixEnumCase(pm, "policy_type", "BuiltIn", "Custom", "NotSpecified", "Static")
+					return pm, nil
+				},
+			},
 			"azurerm_policy_set_definition": {Tok: azureResource(azurePolicy, "PolicySetDefinition")},
 			"azurerm_policy_virtual_machine_configuration_assignment": {
 				Tok: azureResource(azurePolicy, "VirtualMachineConfigurationAssignment"),
