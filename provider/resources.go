@@ -35,6 +35,7 @@ import (
 	"github.com/hashicorp/terraform-provider-azurerm/shim"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	tfshim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -589,6 +590,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_restore_point_collection",
 		},
 		PreConfigureCallback: preConfigureCallback,
+		DocRules: &info.DocRule{
+			EditRules: func(defaults []info.DocsEdit) []info.DocsEdit {
+				return append(defaults, info.DocsEdit{
+					Path: "*",
+					Edit: func(_ string, content []byte) ([]byte, error) {
+						return []byte(strings.ReplaceAll(string(content), "imported into Terraform using", "imported into Pulumi using")), nil
+					},
+				})
+			},
+		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// ActiveDirectoryDomainService
 			"azurerm_active_directory_domain_service": {
