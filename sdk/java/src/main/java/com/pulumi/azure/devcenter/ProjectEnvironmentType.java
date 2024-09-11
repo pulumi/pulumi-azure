@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Dev Center Project Environment Type can be imported into Terraform using the `resource id`, e.g.
+ * An existing Dev Center Project Environment Type can be imported into Pulumi using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:devcenter/projectEnvironmentType:ProjectEnvironmentType example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/projects/project1/environmentTypes/et1

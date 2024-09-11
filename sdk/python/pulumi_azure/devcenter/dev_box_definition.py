@@ -262,7 +262,7 @@ class DevBoxDefinition(pulumi.CustomResource):
 
         ## Import
 
-        An existing Dev Center Dev Box Definition can be imported into Terraform using the `resource id`, e.g.
+        An existing Dev Center Dev Box Definition can be imported into Pulumi using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:devcenter/devBoxDefinition:DevBoxDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/devCenters/dc1/devBoxDefinitions/et1
@@ -312,7 +312,7 @@ class DevBoxDefinition(pulumi.CustomResource):
 
         ## Import
 
-        An existing Dev Center Dev Box Definition can be imported into Terraform using the `resource id`, e.g.
+        An existing Dev Center Dev Box Definition can be imported into Pulumi using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:devcenter/devBoxDefinition:DevBoxDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/devCenters/dc1/devBoxDefinitions/et1

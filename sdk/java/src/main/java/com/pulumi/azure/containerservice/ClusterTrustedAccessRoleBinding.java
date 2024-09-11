@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Kubernetes Cluster Trusted Access Role Binding can be imported into Terraform using the `resource id`, e.g.
+ * An existing Kubernetes Cluster Trusted Access Role Binding can be imported into Pulumi using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}

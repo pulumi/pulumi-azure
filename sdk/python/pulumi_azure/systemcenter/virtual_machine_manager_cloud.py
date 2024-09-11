@@ -265,7 +265,7 @@ class VirtualMachineManagerCloud(pulumi.CustomResource):
 
         ## Import
 
-        System Center Virtual Machine Manager Clouds can be imported into Terraform using the `resource id`, e.g.
+        System Center Virtual Machine Manager Clouds can be imported into Pulumi using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:systemcenter/virtualMachineManagerCloud:VirtualMachineManagerCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/clouds/cloud1
@@ -318,7 +318,7 @@ class VirtualMachineManagerCloud(pulumi.CustomResource):
 
         ## Import
 
-        System Center Virtual Machine Manager Clouds can be imported into Terraform using the `resource id`, e.g.
+        System Center Virtual Machine Manager Clouds can be imported into Pulumi using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:systemcenter/virtualMachineManagerCloud:VirtualMachineManagerCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/clouds/cloud1

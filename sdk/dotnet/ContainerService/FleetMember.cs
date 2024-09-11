@@ -71,7 +71,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// ## Import
     /// 
-    /// An existing Kubernetes Fleet Member can be imported into Terraform using the `resource id`, e.g.
+    /// An existing Kubernetes Fleet Member can be imported into Pulumi using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:containerservice/fleetMember:FleetMember example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{memberName}

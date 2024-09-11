@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Federated Identity Credential can be imported into Terraform using the `resource id`, e.g.
+ * An existing Federated Identity Credential can be imported into Pulumi using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{parentIdentityName}/federatedIdentityCredentials/{resourceName}

@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Load Test can be imported into Terraform using the `resource id`, e.g.
+ * An existing Load Test can be imported into Pulumi using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests/{loadTestName}

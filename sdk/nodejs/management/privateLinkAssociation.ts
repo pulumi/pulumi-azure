@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * An existing Private Link Association can be imported into Terraform using the `resource id`, e.g.
+ * An existing Private Link Association can be imported into Pulumi using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:management/privateLinkAssociation:PrivateLinkAssociation example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/privateLinkAssociations/00000000-0000-0000-0000-000000000000

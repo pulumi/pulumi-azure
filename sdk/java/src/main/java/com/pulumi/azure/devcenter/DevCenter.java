@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Dev Center can be imported into Terraform using the `resource id`, e.g.
+ * An existing Dev Center can be imported into Pulumi using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:devcenter/devCenter:DevCenter example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}

@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Dev Center Network Connection can be imported into Terraform using the `resource id`, e.g.
+ * An existing Dev Center Network Connection can be imported into Pulumi using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:devcenter/networkConnection:NetworkConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevCenter/networkConnections/networkConnection1

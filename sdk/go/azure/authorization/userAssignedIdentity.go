@@ -54,7 +54,7 @@ import (
 //
 // ## Import
 //
-// An existing User Assigned Identity can be imported into Terraform using the `resource id`, e.g.
+// An existing User Assigned Identity can be imported into Pulumi using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:authorization/userAssignedIdentity:UserAssignedIdentity example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}

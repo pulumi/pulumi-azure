@@ -263,7 +263,7 @@ class VirtualMachineManagerAvailabilitySet(pulumi.CustomResource):
 
         ## Import
 
-        System Center Virtual Machine Manager Availability Sets can be imported into Terraform using the `resource id`, e.g.
+        System Center Virtual Machine Manager Availability Sets can be imported into Pulumi using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/availabilitySets/availabilitySet1
@@ -314,7 +314,7 @@ class VirtualMachineManagerAvailabilitySet(pulumi.CustomResource):
 
         ## Import
 
-        System Center Virtual Machine Manager Availability Sets can be imported into Terraform using the `resource id`, e.g.
+        System Center Virtual Machine Manager Availability Sets can be imported into Pulumi using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/availabilitySets/availabilitySet1

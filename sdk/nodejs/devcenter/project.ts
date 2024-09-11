@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * An existing Dev Center Project can be imported into Terraform using the `resource id`, e.g.
+ * An existing Dev Center Project can be imported into Pulumi using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:devcenter/project:Project example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/projects/{projectName}

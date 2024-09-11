@@ -224,7 +224,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
 
         ## Import
 
-        An existing Kubernetes Fleet Manager can be imported into Terraform using the `resource id`, e.g.
+        An existing Kubernetes Fleet Manager can be imported into Pulumi using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:containerservice/kubernetesFleetManager:KubernetesFleetManager example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}
@@ -269,7 +269,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
 
         ## Import
 
-        An existing Kubernetes Fleet Manager can be imported into Terraform using the `resource id`, e.g.
+        An existing Kubernetes Fleet Manager can be imported into Pulumi using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:containerservice/kubernetesFleetManager:KubernetesFleetManager example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}
