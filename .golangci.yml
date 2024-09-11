@@ -33,3 +33,6 @@ linters-settings:
       - prefix(github.com/pulumi/) # Custom section: groups all imports with the github.com/pulumi/ prefix.
       - prefix(github.com/pulumi/pulumi-azure) # Custom section: local imports
     custom-order: true
+  misspell:
+    ignore-words:
+      - hdinsight

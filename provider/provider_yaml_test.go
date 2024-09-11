@@ -86,3 +86,8 @@ func Test_containerservice_k8scluster(t *testing.T) {
 	test(t, filepath.Join("test-programs", "containerservice_k8scluster"),
 		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "containerservice_k8scluster", "v6")))
 }
+
+func Test_hdinsight(t *testing.T) {
+	test(t, filepath.Join("test-programs", "hdinsight"),
+		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "hdinsight", "v6")))
+}
