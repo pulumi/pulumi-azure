@@ -2815,7 +2815,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_diagnostic_categories": {
 				Tok: azureDataSource(azureMonitoring, "getDiagnosticCategories"),
 			},
-			"azurerm_monitor_log_profile": {Tok: azureDataSource(azureMonitoring, "getLogProfile")},
 			"azurerm_monitor_scheduled_query_rules_alert": {
 				Tok: azureDataSource(azureMonitoring, "getScheduledQueryRulesAlert"),
 			},
@@ -3149,7 +3148,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mobile_network_sim_policy":   {Tok: azureDataSource(azureMobile, "getNetworkSimPolicy")},
 
 			"azurerm_virtual_desktop_host_pool": {Tok: azureDataSource(azureDesktopVirtualization, "getHostPool")},
-			"azurerm_hybrid_compute_machine":    {Tok: azureDataSource(azureHybrid, "getComputeMachine")},
 
 			"azurerm_orchestrated_virtual_machine_scale_set": {Tok: azureDataSource(azureCompute, "getOrchestratedVirtualMachineScaleSet")},
 			"azurerm_container_app":                          {Tok: azureDataSource(azureContainerApp, "getApp")},
