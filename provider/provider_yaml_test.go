@@ -81,3 +81,8 @@ func Test_cosmosdb(t *testing.T) {
 	t.Skip("Can't record as all tested regions are returning 'ServiceUnavailable' error")
 	test(t, filepath.Join("test-programs", "cosmosdb"))
 }
+
+func Test_containerservice_k8scluster(t *testing.T) {
+	test(t, filepath.Join("test-programs", "containerservice_k8scluster"),
+		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "containerservice_k8scluster", "v6")))
+}

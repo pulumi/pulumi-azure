@@ -892,7 +892,7 @@ func Provider() tfbridge.ProviderInfo {
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					if networkProfile, ok := pm["networkProfile"]; ok && networkProfile.IsObject() {
 						np := networkProfile.ObjectValue()
-						fixEnumCase(np, "loadBalancerSku", "Basic", "Standard")
+						fixEnumCase(np, "loadBalancerSku", "basic", "standard")
 						pm["networkProfile"] = resource.NewObjectProperty(np)
 					}
 					return pm, nil
