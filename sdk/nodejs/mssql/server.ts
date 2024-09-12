@@ -292,6 +292,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["restorableDroppedDatabaseIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:sql/sqlServer:SqlServer" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["administratorLoginPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Server.__pulumiType, name, resourceInputs, opts);

@@ -122,6 +122,8 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:sql/firewallRule:FirewallRule" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }
 }

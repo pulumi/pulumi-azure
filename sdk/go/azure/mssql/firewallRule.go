@@ -100,6 +100,12 @@ func NewFirewallRule(ctx *pulumi.Context,
 	if args.StartIpAddress == nil {
 		return nil, errors.New("invalid value for required argument 'StartIpAddress'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:sql/firewallRule:FirewallRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallRule
 	err := ctx.RegisterResource("azure:mssql/firewallRule:FirewallRule", name, args, &resource, opts...)

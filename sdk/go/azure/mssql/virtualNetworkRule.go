@@ -122,6 +122,12 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:sql/virtualNetworkRule:VirtualNetworkRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualNetworkRule
 	err := ctx.RegisterResource("azure:mssql/virtualNetworkRule:VirtualNetworkRule", name, args, &resource, opts...)

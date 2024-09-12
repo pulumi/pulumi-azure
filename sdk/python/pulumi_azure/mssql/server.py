@@ -921,6 +921,8 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["fully_qualified_domain_name"] = None
             __props__.__dict__["restorable_dropped_database_ids"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:sql/sqlServer:SqlServer")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorLoginPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Server, __self__).__init__(

@@ -8,6 +8,7 @@ import com.pulumi.azure.mssql.FailoverGroupArgs;
 import com.pulumi.azure.mssql.inputs.FailoverGroupState;
 import com.pulumi.azure.mssql.outputs.FailoverGroupPartnerServer;
 import com.pulumi.azure.mssql.outputs.FailoverGroupReadWriteEndpointFailoverPolicy;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -258,6 +259,9 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("azure:sql/failoverGroup:FailoverGroup").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

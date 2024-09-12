@@ -437,6 +437,8 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:sql/database:Database" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);
     }
 }

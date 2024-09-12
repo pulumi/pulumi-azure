@@ -131,6 +131,8 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:sql/virtualNetworkRule:VirtualNetworkRule" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkRule.__pulumiType, name, resourceInputs, opts);
     }
 }

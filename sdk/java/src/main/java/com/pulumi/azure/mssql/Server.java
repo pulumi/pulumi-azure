@@ -8,6 +8,7 @@ import com.pulumi.azure.mssql.ServerArgs;
 import com.pulumi.azure.mssql.inputs.ServerState;
 import com.pulumi.azure.mssql.outputs.ServerAzureadAdministrator;
 import com.pulumi.azure.mssql.outputs.ServerIdentity;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -504,6 +505,9 @@ public class Server extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("azure:sql/sqlServer:SqlServer").build())
+            ))
             .additionalSecretOutputs(List.of(
                 "administratorLoginPassword"
             ))

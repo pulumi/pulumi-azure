@@ -248,6 +248,12 @@ func NewServer(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:sql/sqlServer:SqlServer"),
+		},
+	})
+	opts = append(opts, aliases)
 	if args.AdministratorLoginPassword != nil {
 		args.AdministratorLoginPassword = pulumi.ToSecret(args.AdministratorLoginPassword).(pulumi.StringPtrInput)
 	}

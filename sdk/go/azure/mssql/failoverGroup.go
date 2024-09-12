@@ -139,6 +139,12 @@ func NewFailoverGroup(ctx *pulumi.Context,
 	if args.ServerId == nil {
 		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:sql/failoverGroup:FailoverGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FailoverGroup
 	err := ctx.RegisterResource("azure:mssql/failoverGroup:FailoverGroup", name, args, &resource, opts...)
