@@ -6,7 +6,7 @@ resources:
   exampleResourceGroup:
     type: azure:core:ResourceGroup
     properties:
-      location: West US
+      location: East US
 
   random:
     type: random:RandomString
@@ -18,7 +18,7 @@ resources:
 
   # Ignoring deprecation warning because the resource is still widely used.
   examplesql:
-    type: azure:mssql:Server
+    type: azure:sql:SqlServer
     properties:
       resourceGroupName: ${exampleResourceGroup.name}
       location: ${exampleResourceGroup.location}
@@ -37,15 +37,18 @@ resources:
       accountReplicationType: LRS
 
   exampleDatabase:
-    type: azure:mssql:Database
+    type: azure:sql:Database
     properties:
-      serverId: ${examplesql.id}
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      serverName: ${examplesql.name}
       tags:
         environment: production
 
   exampleFwRule:
-    type: azure:mssql:FirewallRule
+    type: azure:sql:FirewallRule
     properties:
-      serverId: ${examplesql.id}
+      resourceGroupName: ${exampleResourceGroup.name}
+      serverName: ${examplesql.name}
       startIpAddress: 10.0.17.62
       endIpAddress: 10.0.17.62

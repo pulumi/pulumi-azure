@@ -2639,7 +2639,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Portal
-			"azurerm_portal_dashboard": {Tok: azureResource(azurePortal, "PortalDashboard")},
+			"azurerm_portal_dashboard": {Tok: azureResource(azurePortal, "PortalDashboard"), Aliases: []tfbridge.AliasInfo{{Type: ref("azure:portal/dashboard:Dashboard")}}},
 
 			// Orbital
 			"azurerm_orbital_spacecraft": {
@@ -3114,9 +3114,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_private_dns_resolver_outbound_endpoint":      {Tok: azureDataSource(azurePrivateDNS, "getResolverOutboundEndpoint")},
 			"azurerm_private_dns_resolver_virtual_network_link":   {Tok: azureDataSource(azurePrivateDNS, "getResolverVirtualNetworkLink")},
 
-			// Dashboard
-			// TODO: This resource is in the "Portal" module in the upstream provider. Move to a new namespace when terraform-provider-azurerm hits v3.0.
-			"azurerm_portal_dashboard": {Tok: azureDataSource(azureDashboard, "azurerm_portal_dashboard")},
+			"azurerm_portal_dashboard": {Tok: azureDataSource(azurePortal, "azurerm_portal_dashboard")},
 
 			"azurerm_role_management_policy": {Tok: azureDataSource(azurePim, "getRoleManagementPolicy")},
 
