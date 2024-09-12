@@ -128,7 +128,7 @@ jobs:
 
   test:
     name: test
-    needs: 
+    needs:
       - prerequisites
       - build_sdk
     permissions:
@@ -149,10 +149,11 @@ jobs:
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
-        tools: pulumictl, pulumicli, go, node, dotnet, python, java
+        tools: pulumictl, pulumicli, ${{ matrix.language }}
     - name: Download bin
       uses: ./.github/actions/download-bin
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
+      if: matrix.language == 'dotnet'
     - name: Download SDK
       uses: ./.github/actions/download-sdk
       with:
@@ -160,6 +161,7 @@ jobs:
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
+      if: matrix.language == 'python'
       run: |-
         pip3 install virtualenv==20.0.23
         pip3 install pipenv
@@ -177,7 +179,7 @@ jobs:
       run: |
         cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - name: Run tests
-      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      run: cd examples && go test -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4
     strategy:
       fail-fast: false
       matrix:
