@@ -1625,7 +1625,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_database": {
 				Tok:                azureResource(azureMSSQL, "Database"),
 				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/database:Database")}},
-				TransformFromState: fixMssqlServerId,
+				TransformFromState: fixMssqlServerID,
 			},
 			"azurerm_mssql_virtual_machine":                   {Tok: azureResource(azureMSSQL, "VirtualMachine")},
 			"azurerm_mssql_server":                            {Tok: azureResource(azureMSSQL, "Server"), Aliases: []tfbridge.AliasInfo{{Type: ref("azure:sql/sqlServer:SqlServer")}}},
@@ -1634,12 +1634,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_firewall_rule": {
 				Tok:                azureResource(azureMSSQL, "FirewallRule"),
 				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/firewallRule:FirewallRule")}},
-				TransformFromState: fixMssqlServerId,
+				TransformFromState: fixMssqlServerID,
 			},
 			"azurerm_mssql_virtual_network_rule": {
 				Tok:                azureResource(azureMSSQL, "VirtualNetworkRule"),
 				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/virtualNetworkRule:VirtualNetworkRule")}},
-				TransformFromState: fixMssqlServerId,
+				TransformFromState: fixMssqlServerID,
 			},
 			"azurerm_mssql_job_agent":                          {Tok: azureResource(azureMSSQL, "JobAgent")},
 			"azurerm_mssql_job_credential":                     {Tok: azureResource(azureMSSQL, "JobCredential")},
@@ -1647,7 +1647,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_failover_group": {
 				Tok:                azureResource(azureMSSQL, "FailoverGroup"),
 				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/failoverGroup:FailoverGroup")}},
-				TransformFromState: fixMssqlServerId,
+				TransformFromState: fixMssqlServerID,
 			},
 			"azurerm_mssql_outbound_firewall_rule":                          {Tok: azureResource(azureMSSQL, "OutboundFirewallRule")},
 			"azurerm_mssql_managed_database":                                {Tok: azureResource(azureMSSQL, "ManagedDatabase")},
@@ -3616,15 +3616,15 @@ func fixHdInsightTier(_ context.Context, pm resource.PropertyMap) (resource.Prop
 }
 
 // upstream v3 used serverName, but v4 uses serverId
-func fixMssqlServerId(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+func fixMssqlServerID(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 	if pm.HasValue("serverName") && pm.HasValue("id") && pm.HasValue("resourceGroupName") {
 		id := pm["id"].StringValue()
 		// /subscriptions/ID/resourceGroups/... -> ID
 		sub := strings.SplitN(id, "/", 4)[2]
 		rg := pm["resourceGroupName"].StringValue()
 		serverName := pm["serverName"].StringValue()
-		serverId := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Sql/servers/%s", sub, rg, serverName)
-		pm["serverId"] = resource.NewStringProperty(serverId)
+		serverID := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Sql/servers/%s", sub, rg, serverName)
+		pm["serverId"] = resource.NewStringProperty(serverID)
 	}
 	return pm, nil
 }

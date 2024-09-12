@@ -32,27 +32,28 @@ func TestFixMssqlServerId(t *testing.T) {
 		resourceGroup  = "exampleresourcegroupeb1b9585"
 		serverName     = "superServer"
 	)
-	serverId := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Sql/servers/%s", subscriptionID, resourceGroup, serverName)
-	serverFirewallId := fmt.Sprintf("%s/firewallRules/exampleFwRule6fd4913", serverId)
+	serverID := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Sql/servers/%s",
+		subscriptionID, resourceGroup, serverName)
+	serverFirewallID := fmt.Sprintf("%s/firewallRules/exampleFwRule6fd4913", serverID)
 
 	t.Run("Happy path", func(t *testing.T) {
 		properties := map[string]any{
-			"id":                serverFirewallId,
+			"id":                serverFirewallID,
 			"resourceGroupName": resourceGroup,
 			"serverName":        serverName,
 		}
 		pm := resource.NewPropertyMapFromMap(properties)
-		actual, err := fixMssqlServerId(context.Background(), pm)
+		actual, err := fixMssqlServerID(context.Background(), pm)
 		require.NoError(t, err)
 
 		actualMap := actual.Mappable()
 		assert.Contains(t, actualMap, "serverId")
-		assert.Equal(t, serverId, actualMap["serverId"])
+		assert.Equal(t, serverID, actualMap["serverId"])
 	})
 
-	assertNoServerId := func(properties map[string]any) {
+	assertNoServerID := func(t *testing.T, properties map[string]any) {
 		pm := resource.NewPropertyMapFromMap(properties)
-		actual, err := fixMssqlServerId(context.Background(), pm)
+		actual, err := fixMssqlServerID(context.Background(), pm)
 		require.NoError(t, err)
 
 		actualMap := actual.Mappable()
@@ -61,10 +62,10 @@ func TestFixMssqlServerId(t *testing.T) {
 
 	t.Run("Needs serverName", func(t *testing.T) {
 		properties := map[string]any{
-			"id":                serverFirewallId,
+			"id":                serverFirewallID,
 			"resourceGroupName": resourceGroup,
 		}
-		assertNoServerId(properties)
+		assertNoServerID(t, properties)
 	})
 
 	t.Run("Needs id", func(t *testing.T) {
@@ -72,14 +73,14 @@ func TestFixMssqlServerId(t *testing.T) {
 			"resourceGroupName": resourceGroup,
 			"serverName":        serverName,
 		}
-		assertNoServerId(properties)
+		assertNoServerID(t, properties)
 	})
 
 	t.Run("Needs resourceGroupName", func(t *testing.T) {
 		properties := map[string]any{
-			"id":         serverFirewallId,
+			"id":         serverFirewallID,
 			"serverName": serverName,
 		}
-		assertNoServerId(properties)
+		assertNoServerID(t, properties)
 	})
 }
