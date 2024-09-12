@@ -1622,17 +1622,33 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_server_security_alert_policy": {
 				Tok: azureResource(azureMSSQL, "ServerSecurityAlertPolicy"),
 			},
-			"azurerm_mssql_database":                                        {Tok: azureResource(azureMSSQL, "Database")},
-			"azurerm_mssql_virtual_machine":                                 {Tok: azureResource(azureMSSQL, "VirtualMachine")},
-			"azurerm_mssql_server":                                          {Tok: azureResource(azureMSSQL, "Server")},
-			"azurerm_mssql_database_extended_auditing_policy":               {Tok: azureResource(azureMSSQL, "DatabaseExtendedAuditingPolicy")},
-			"azurerm_mssql_server_extended_auditing_policy":                 {Tok: azureResource(azureMSSQL, "ServerExtendedAuditingPolicy")},
-			"azurerm_mssql_firewall_rule":                                   {Tok: azureResource(azureMSSQL, "FirewallRule")},
-			"azurerm_mssql_virtual_network_rule":                            {Tok: azureResource(azureMSSQL, "VirtualNetworkRule")},
-			"azurerm_mssql_job_agent":                                       {Tok: azureResource(azureMSSQL, "JobAgent")},
-			"azurerm_mssql_job_credential":                                  {Tok: azureResource(azureMSSQL, "JobCredential")},
-			"azurerm_mssql_server_transparent_data_encryption":              {Tok: azureResource(azureMSSQL, "ServerTransparentDataEncryption")},
-			"azurerm_mssql_failover_group":                                  {Tok: azureResource(azureMSSQL, "FailoverGroup")},
+			"azurerm_mssql_database": {
+				Tok:                azureResource(azureMSSQL, "Database"),
+				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/database:Database")}},
+				TransformFromState: fixMssqlServerId,
+			},
+			"azurerm_mssql_virtual_machine":                   {Tok: azureResource(azureMSSQL, "VirtualMachine")},
+			"azurerm_mssql_server":                            {Tok: azureResource(azureMSSQL, "Server"), Aliases: []tfbridge.AliasInfo{{Type: ref("azure:sql/sqlServer:SqlServer")}}},
+			"azurerm_mssql_database_extended_auditing_policy": {Tok: azureResource(azureMSSQL, "DatabaseExtendedAuditingPolicy")},
+			"azurerm_mssql_server_extended_auditing_policy":   {Tok: azureResource(azureMSSQL, "ServerExtendedAuditingPolicy")},
+			"azurerm_mssql_firewall_rule": {
+				Tok:                azureResource(azureMSSQL, "FirewallRule"),
+				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/firewallRule:FirewallRule")}},
+				TransformFromState: fixMssqlServerId,
+			},
+			"azurerm_mssql_virtual_network_rule": {
+				Tok:                azureResource(azureMSSQL, "VirtualNetworkRule"),
+				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/virtualNetworkRule:VirtualNetworkRule")}},
+				TransformFromState: fixMssqlServerId,
+			},
+			"azurerm_mssql_job_agent":                          {Tok: azureResource(azureMSSQL, "JobAgent")},
+			"azurerm_mssql_job_credential":                     {Tok: azureResource(azureMSSQL, "JobCredential")},
+			"azurerm_mssql_server_transparent_data_encryption": {Tok: azureResource(azureMSSQL, "ServerTransparentDataEncryption")},
+			"azurerm_mssql_failover_group": {
+				Tok:                azureResource(azureMSSQL, "FailoverGroup"),
+				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/failoverGroup:FailoverGroup")}},
+				TransformFromState: fixMssqlServerId,
+			},
 			"azurerm_mssql_outbound_firewall_rule":                          {Tok: azureResource(azureMSSQL, "OutboundFirewallRule")},
 			"azurerm_mssql_managed_database":                                {Tok: azureResource(azureMSSQL, "ManagedDatabase")},
 			"azurerm_mssql_managed_instance":                                {Tok: azureResource(azureMSSQL, "ManagedInstance")},
@@ -3596,5 +3612,19 @@ func fixEnumCase(pm resource.PropertyMap, fieldName string, allowedValues ...str
 
 func fixHdInsightTier(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 	fixEnumCase(pm, "tier", "Standard", "Premium")
+	return pm, nil
+}
+
+// upstream v3 used serverName, but v4 uses serverId
+func fixMssqlServerId(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+	if pm.HasValue("serverName") && pm.HasValue("id") && pm.HasValue("resourceGroupName") {
+		id := pm["id"].StringValue()
+		// /subscriptions/ID/resourceGroups/... -> ID
+		sub := strings.SplitN(id, "/", 4)[2]
+		rg := pm["resourceGroupName"].StringValue()
+		serverName := pm["serverName"].StringValue()
+		serverId := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Sql/servers/%s", sub, rg, serverName)
+		pm["serverId"] = resource.NewStringProperty(serverId)
+	}
 	return pm, nil
 }
