@@ -1141,8 +1141,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cost_management_scheduled_action": {Tok: azureResource(azureCostManagement, "ScheduledAction")},
 
 			// DataBricks
-			"azurerm_databricks_access_connector":        {Tok: azureResource(azureDataBricks, "AccessConnector")},
-			"azurerm_databricks_workspace":               {Tok: azureResource(azureDataBricks, "Workspace")},
+			"azurerm_databricks_access_connector": {Tok: azureResource(azureDataBricks, "AccessConnector")},
+			"azurerm_databricks_workspace":        {Tok: azureResource(azureDataBricks, "Workspace")},
+			"azurerm_databricks_workspace_root_dbfs_customer_managed_key": {
+				Tok:     azureResource(azureDataBricks, "WorkspaceRootDbfsCustomerManagedKey"),
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey")}},
+			},
 			"azurerm_databricks_virtual_network_peering": {Tok: azureResource(azureDataBricks, "VirtualNetworkPeering")},
 
 			// Databox
@@ -1186,6 +1190,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_key_vault": {
 				Tok: azureResource(azureDataFactory, "LinkedServiceKeyVault"),
 			},
+			"azurerm_data_factory_integration_runtime_azure": {Tok: azureResource(azureDataFactory, "IntegrationRuntimeRule")},
+			"azurerm_data_factory_integration_runtime_azure_ssis": {
+				Tok:     azureResource(azureDataFactory, "IntegrationRuntimeSsis"),
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged")}},
+			},
 			"azurerm_data_factory_integration_runtime_self_hosted": {
 				Tok: azureResource(azureDataFactory, "IntegrationRuntimeSelfHosted"),
 			},
@@ -1220,8 +1229,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_azure_sql_database": {
 				Tok: azureResource(azureDataFactory, "LinkedServiceAzureSqlDatabase"),
 			},
-			"azurerm_data_factory_integration_runtime_azure":       {Tok: azureResource(azureDataFactory, "IntegrationRuntimeRule")},
-			"azurerm_data_factory_integration_runtime_azure_ssis":  {Tok: azureResource(azureDataFactory, "IntegrationRuntimeSsis")},
 			"azurerm_data_factory_dataset_parquet":                 {Tok: azureResource(azureDataFactory, "DatasetParquet")},
 			"azurerm_data_factory_linked_service_azure_databricks": {Tok: azureResource(azureDataFactory, "LinkedServiceAzureDatabricks")},
 			"azurerm_data_factory_dataset_snowflake":               {Tok: azureResource(azureDataFactory, "DatasetSnowflake")},
@@ -1328,6 +1335,11 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "extended_location_custom_location.html.markdown",
 				},
+			},
+
+			"azurerm_graph_services_account": {
+				Tok:     azureResource(azureGraph, "ServicesAccount"),
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:graph/account:Account")}},
 			},
 
 			// IoT Resources
@@ -1589,9 +1601,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_scheduled_query_rules_alert_v2": {
 				Tok: azureResource(azureMonitoring, "ScheduledQueryRulesAlertV2"),
 			},
-			"azurerm_monitor_data_collection_rule_association":   {Tok: azureResource(azureMonitoring, "DataCollectionRuleAssociation")},
-			"azurerm_monitor_alert_processing_rule_action_group": {Tok: azureResource(azureMonitoring, "AlertProcessingRuleActionGroup")},
-			"azurerm_monitor_alert_processing_rule_suppression":  {Tok: azureResource(azureMonitoring, "AlertProcessingRuleSuppression")},
+			"azurerm_monitor_data_collection_rule_association": {Tok: azureResource(azureMonitoring, "DataCollectionRuleAssociation")},
+			"azurerm_monitor_alert_processing_rule_action_group": {
+				Tok:     azureResource(azureMonitoring, "AlertProcessingRuleActionGroup"),
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup")}},
+			},
+			"azurerm_monitor_alert_processing_rule_suppression": {
+				Tok:     azureResource(azureMonitoring, "AlertProcessingRuleSuppression"),
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:monitoring/actionRuleSuppression:ActionRuleSuppression")}},
+			},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
