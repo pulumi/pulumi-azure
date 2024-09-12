@@ -95,6 +95,12 @@ func NewServicesAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:graph/account:Account"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServicesAccount
 	err := ctx.RegisterResource("azure:graph/servicesAccount:ServicesAccount", name, args, &resource, opts...)

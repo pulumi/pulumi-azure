@@ -119,6 +119,8 @@ export class ServicesAccount extends pulumi.CustomResource {
             resourceInputs["billingPlanId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:graph/account:Account" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServicesAccount.__pulumiType, name, resourceInputs, opts);
     }
 }

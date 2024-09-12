@@ -1254,6 +1254,7 @@
         "policy/index.ts",
         "policy/policySetDefinition.ts",
         "policy/virtualMachineConfigurationAssignment.ts",
+        "portal/azurerm_portal_dashboard.ts",
         "portal/index.ts",
         "portal/portalDashboard.ts",
         "postgresql/activeDirectoryAdministrator.ts",

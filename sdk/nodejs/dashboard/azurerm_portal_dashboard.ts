@@ -13,14 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = azure.dashboard.azurerm_portal_dashboard({
+ * const example = azure.portal.azurerm_portal_dashboard({
  *     name: "existing-dashboard",
  *     resourceGroupName: "dashboard-rg",
  * });
  * export const id = exampleAzurermDashboard.id;
  * ```
  */
+/** @deprecated azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard */
 export function azurerm_portal_dashboard(args: Azurerm_portal_dashboardArgs, opts?: pulumi.InvokeOptions): Promise<Azurerm_portal_dashboardResult> {
+    pulumi.log.warn("azurerm_portal_dashboard is deprecated: azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", {
@@ -86,13 +88,14 @@ export interface Azurerm_portal_dashboardResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = azure.dashboard.azurerm_portal_dashboard({
+ * const example = azure.portal.azurerm_portal_dashboard({
  *     name: "existing-dashboard",
  *     resourceGroupName: "dashboard-rg",
  * });
  * export const id = exampleAzurermDashboard.id;
  * ```
  */
+/** @deprecated azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard */
 export function azurerm_portal_dashboardOutput(args: Azurerm_portal_dashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<Azurerm_portal_dashboardResult> {
     return pulumi.output(args).apply((a: any) => azurerm_portal_dashboard(a, opts))
 }

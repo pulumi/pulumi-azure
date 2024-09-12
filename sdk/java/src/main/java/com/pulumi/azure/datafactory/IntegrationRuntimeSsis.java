@@ -15,6 +15,7 @@ import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisPackageStore;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisPipelineExternalComputeScale;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisProxy;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisVnetIntegration;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -402,6 +403,9 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

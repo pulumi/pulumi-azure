@@ -124,6 +124,12 @@ func NewIntegrationRuntimeSsis(ctx *pulumi.Context,
 	if args.NodeSize == nil {
 		return nil, errors.New("invalid value for required argument 'NodeSize'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationRuntimeSsis
 	err := ctx.RegisterResource("azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis", name, args, &resource, opts...)

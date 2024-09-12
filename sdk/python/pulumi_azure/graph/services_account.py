@@ -296,6 +296,8 @@ class ServicesAccount(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["billing_plan_id"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:graph/account:Account")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServicesAccount, __self__).__init__(
             'azure:graph/servicesAccount:ServicesAccount',
             resource_name,

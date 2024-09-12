@@ -181,6 +181,12 @@ func NewWorkspaceRootDbfsCustomerManagedKey(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WorkspaceRootDbfsCustomerManagedKey
 	err := ctx.RegisterResource("azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey", name, args, &resource, opts...)

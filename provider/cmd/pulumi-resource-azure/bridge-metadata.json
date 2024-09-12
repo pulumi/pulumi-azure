@@ -27945,8 +27945,13 @@
                 "majorVersion": 6
             },
             "azurerm_portal_dashboard": {
-                "current": "azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard",
+                "current": "azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard",
                 "past": [
+                    {
+                        "name": "azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard",
+                        "inCodegen": true,
+                        "majorVersion": 6
+                    },
                     {
                         "name": "azure:portal/getDashboard:getDashboard",
                         "inCodegen": true,
@@ -30184,6 +30189,13 @@
             "azurerm_virtual_machine_restore_point_collection": {
                 "renames": [
                     "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection"
+                ]
+            }
+        },
+        "datasources": {
+            "azurerm_portal_dashboard": {
+                "renames": [
+                    "azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard"
                 ]
             }
         }

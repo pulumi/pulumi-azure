@@ -177,6 +177,8 @@ export class WorkspaceRootDbfsCustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceRootDbfsCustomerManagedKey.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -285,6 +285,8 @@ class PortalDashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:portal/dashboard:Dashboard")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PortalDashboard, __self__).__init__(
             'azure:portal/portalDashboard:PortalDashboard',
             resource_name,

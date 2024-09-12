@@ -51,6 +51,12 @@ func NewPortalDashboard(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:portal/dashboard:Dashboard"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PortalDashboard
 	err := ctx.RegisterResource("azure:portal/portalDashboard:PortalDashboard", name, args, &resource, opts...)

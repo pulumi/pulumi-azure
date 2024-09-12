@@ -149,6 +149,12 @@ func NewAlertProcessingRuleActionGroup(ctx *pulumi.Context,
 	if args.Scopes == nil {
 		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AlertProcessingRuleActionGroup
 	err := ctx.RegisterResource("azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup", name, args, &resource, opts...)

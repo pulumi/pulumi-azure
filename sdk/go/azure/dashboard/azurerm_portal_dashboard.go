@@ -20,14 +20,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dashboard"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/portal"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dashboard.Azurerm_portal_dashboard(ctx, &dashboard.Azurerm_portal_dashboardArgs{
+//			_, err := portal.Azurerm_portal_dashboard(ctx, &portal.Azurerm_portal_dashboardArgs{
 //				Name:              pulumi.StringRef("existing-dashboard"),
 //				ResourceGroupName: "dashboard-rg",
 //			}, nil)
@@ -40,6 +40,8 @@ import (
 //	}
 //
 // ```
+//
+// Deprecated: azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard
 func Azurerm_portal_dashboard(ctx *pulumi.Context, args *Azurerm_portal_dashboardArgs, opts ...pulumi.InvokeOption) (*Azurerm_portal_dashboardResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv Azurerm_portal_dashboardResult

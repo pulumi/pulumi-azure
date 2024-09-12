@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { Azurerm_portal_dashboardArgs, Azurerm_portal_dashboardResult, Azurerm_portal_dashboardOutputArgs } from "./azurerm_portal_dashboard";
+export const azurerm_portal_dashboard: typeof import("./azurerm_portal_dashboard").azurerm_portal_dashboard = null as any;
+export const azurerm_portal_dashboardOutput: typeof import("./azurerm_portal_dashboard").azurerm_portal_dashboardOutput = null as any;
+utilities.lazyLoad(exports, ["azurerm_portal_dashboard","azurerm_portal_dashboardOutput"], () => require("./azurerm_portal_dashboard"));
+
 export { PortalDashboardArgs, PortalDashboardState } from "./portalDashboard";
 export type PortalDashboard = import("./portalDashboard").PortalDashboard;
 export const PortalDashboard: typeof import("./portalDashboard").PortalDashboard = null as any;

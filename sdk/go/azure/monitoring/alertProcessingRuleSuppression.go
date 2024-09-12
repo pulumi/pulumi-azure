@@ -133,6 +133,12 @@ func NewAlertProcessingRuleSuppression(ctx *pulumi.Context,
 	if args.Scopes == nil {
 		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:monitoring/actionRuleSuppression:ActionRuleSuppression"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AlertProcessingRuleSuppression
 	err := ctx.RegisterResource("azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression", name, args, &resource, opts...)

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Dashboard
 {
+    [Obsolete(@"azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard")]
     public static class Azurerm_portal_dashboard
     {
         /// <summary>
@@ -24,7 +25,7 @@ namespace Pulumi.Azure.Dashboard
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Azure.Dashboard.Azurerm_portal_dashboard.Invoke(new()
+        ///     var example = Azure.Portal.Azurerm_portal_dashboard.Invoke(new()
         ///     {
         ///         Name = "existing-dashboard",
         ///         ResourceGroupName = "dashboard-rg",
@@ -53,7 +54,7 @@ namespace Pulumi.Azure.Dashboard
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Azure.Dashboard.Azurerm_portal_dashboard.Invoke(new()
+        ///     var example = Azure.Portal.Azurerm_portal_dashboard.Invoke(new()
         ///     {
         ///         Name = "existing-dashboard",
         ///         ResourceGroupName = "dashboard-rg",
