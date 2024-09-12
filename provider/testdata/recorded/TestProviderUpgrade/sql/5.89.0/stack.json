@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-09-04T17:34:21.687653+02:00",
-      "magic": "59ab42470ec682a2eb8566128a64ecaee8e5d25c6d5902576977eb325cf4d7b3",
-      "version": "v3.130.0"
+      "time": "2024-09-11T14:10:02.457688+02:00",
+      "magic": "a4cfd9a93ae38591734ea5c772b472059b867e4ed007da611baf1b2abaf4c095",
+      "version": "v3.131.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:jsbJnJd0WIE=:v1:AOsIBpsifq95Cu0o:KuYcKSgDwiESsR5B2GygVRb5DoIX4Q=="
+        "salt": "v1:LH6iHNLRtu4=:v1:SSua+tBpnxAhReVB:JvzDHecuearfgy4Xinq+f4TuzcZjZg=="
       }
     },
     "resources": [
@@ -17,41 +17,41 @@
         "urn": "urn:pulumi:test::sql::pulumi:pulumi:Stack::sql-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-09-04T15:31:41.775914Z",
-        "modified": "2024-09-04T15:31:41.775914Z"
+        "created": "2024-09-11T12:07:10.521236Z",
+        "modified": "2024-09-11T12:07:10.521236Z"
       },
       {
         "urn": "urn:pulumi:test::sql::pulumi:providers:azure::default",
         "custom": true,
-        "id": "27436cc3-25a7-41d7-b144-0938980731ee",
+        "id": "e1366efe-0d5b-468e-810b-51c780c45640",
         "type": "pulumi:providers:azure",
         "inputs": {
           "subscriptionId": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "\"0282681f-7a9e-424b-80b2-96babd57a8a1\""
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
           }
         },
         "outputs": {
           "subscriptionId": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "\"0282681f-7a9e-424b-80b2-96babd57a8a1\""
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
           }
         },
-        "created": "2024-09-04T15:31:42.206304Z",
-        "modified": "2024-09-04T15:31:42.206304Z"
+        "created": "2024-09-11T12:07:10.965414Z",
+        "modified": "2024-09-11T12:07:10.965414Z"
       },
       {
         "urn": "urn:pulumi:test::sql::pulumi:providers:random::default",
         "custom": true,
-        "id": "f188a50a-eb66-4d79-bd16-90ece314bd62",
+        "id": "6c67de81-05d9-4d1a-a160-a289f5167a31",
         "type": "pulumi:providers:random",
-        "created": "2024-09-04T15:31:42.283701Z",
-        "modified": "2024-09-04T15:31:42.283701Z"
+        "created": "2024-09-11T12:07:11.053315Z",
+        "modified": "2024-09-11T12:07:11.053315Z"
       },
       {
         "urn": "urn:pulumi:test::sql::random:index/randomString:RandomString::random",
         "custom": true,
-        "id": "dl6-w5jh",
+        "id": "yti9-myr",
         "type": "random:index/randomString:RandomString",
         "inputs": {
           "length": 8,
@@ -61,7 +61,7 @@
         },
         "outputs": {
           "__meta": "{\"schema_version\":\"2\"}",
-          "id": "dl6-w5jh",
+          "id": "yti9-myr",
           "length": 8,
           "lower": true,
           "minLower": 0,
@@ -71,175 +71,53 @@
           "number": true,
           "numeric": true,
           "overrideSpecial": "-",
-          "result": "dl6-w5jh",
+          "result": "yti9-myr",
           "special": true,
           "upper": false
         },
         "parent": "urn:pulumi:test::sql::pulumi:pulumi:Stack::sql-test",
-        "provider": "urn:pulumi:test::sql::pulumi:providers:random::default::f188a50a-eb66-4d79-bd16-90ece314bd62",
+        "provider": "urn:pulumi:test::sql::pulumi:providers:random::default::6c67de81-05d9-4d1a-a160-a289f5167a31",
         "propertyDependencies": {
           "length": [],
           "overrideSpecial": [],
           "special": [],
           "upper": []
         },
-        "created": "2024-09-04T15:31:51.389733Z",
-        "modified": "2024-09-04T15:31:51.389733Z"
+        "created": "2024-09-11T12:07:18.337289Z",
+        "modified": "2024-09-11T12:07:18.337289Z"
       },
       {
         "urn": "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4a382022",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupeb1b9585",
         "type": "azure:core/resourceGroup:ResourceGroup",
         "inputs": {
           "__defaults": [
             "name"
           ],
           "location": "West US",
-          "name": "exampleresourcegroup4a382022"
+          "name": "exampleresourcegroupeb1b9585"
         },
         "outputs": {
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":5400000000000,\"delete\":5400000000000,\"read\":300000000000,\"update\":5400000000000}}",
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4a382022",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupeb1b9585",
           "location": "westus",
           "managedBy": "",
-          "name": "exampleresourcegroup4a382022",
+          "name": "exampleresourcegroupeb1b9585",
           "tags": null
         },
         "parent": "urn:pulumi:test::sql::pulumi:pulumi:Stack::sql-test",
-        "provider": "urn:pulumi:test::sql::pulumi:providers:azure::default::27436cc3-25a7-41d7-b144-0938980731ee",
+        "provider": "urn:pulumi:test::sql::pulumi:providers:azure::default::e1366efe-0d5b-468e-810b-51c780c45640",
         "propertyDependencies": {
           "location": []
         },
-        "created": "2024-09-04T15:32:06.284399Z",
-        "modified": "2024-09-04T15:32:06.284399Z"
-      },
-      {
-        "urn": "urn:pulumi:test::sql::azure:mssql/server:Server::examplesql",
-        "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4a382022/providers/Microsoft.Sql/servers/examplesql13f8fb0",
-        "type": "azure:mssql/server:Server",
-        "inputs": {
-          "__defaults": [
-            "connectionPolicy",
-            "minimumTlsVersion",
-            "name",
-            "outboundNetworkRestrictionEnabled",
-            "publicNetworkAccessEnabled"
-          ],
-          "administratorLogin": "4dm1n157r470r",
-          "administratorLoginPassword": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "\"4-v3ry-53cr37-p455w0rd\""
-          },
-          "connectionPolicy": "Default",
-          "location": "westus",
-          "minimumTlsVersion": "1.2",
-          "name": "examplesql13f8fb0",
-          "outboundNetworkRestrictionEnabled": false,
-          "publicNetworkAccessEnabled": true,
-          "resourceGroupName": "exampleresourcegroup4a382022",
-          "tags": {
-            "environment": "production"
-          },
-          "version": "12.0"
-        },
-        "outputs": {
-          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":3600000000000,\"delete\":3600000000000,\"read\":300000000000,\"update\":3600000000000}}",
-          "administratorLogin": "4dm1n157r470r",
-          "administratorLoginPassword": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "\"4-v3ry-53cr37-p455w0rd\""
-          },
-          "azureadAdministrator": null,
-          "connectionPolicy": "Default",
-          "fullyQualifiedDomainName": "examplesql13f8fb0.database.windows.net",
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4a382022/providers/Microsoft.Sql/servers/examplesql13f8fb0",
-          "identity": null,
-          "location": "westus",
-          "minimumTlsVersion": "1.2",
-          "name": "examplesql13f8fb0",
-          "outboundNetworkRestrictionEnabled": false,
-          "primaryUserAssignedIdentityId": "",
-          "publicNetworkAccessEnabled": true,
-          "resourceGroupName": "exampleresourcegroup4a382022",
-          "restorableDroppedDatabaseIds": [],
-          "tags": {
-            "environment": "production"
-          },
-          "transparentDataEncryptionKeyVaultKeyId": "",
-          "version": "12.0"
-        },
-        "parent": "urn:pulumi:test::sql::pulumi:pulumi:Stack::sql-test",
-        "dependencies": [
-          "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
-        ],
-        "provider": "urn:pulumi:test::sql::pulumi:providers:azure::default::27436cc3-25a7-41d7-b144-0938980731ee",
-        "propertyDependencies": {
-          "administratorLogin": [],
-          "administratorLoginPassword": [],
-          "location": [
-            "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
-          ],
-          "resourceGroupName": [
-            "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
-          ],
-          "tags": [],
-          "version": []
-        },
-        "additionalSecretOutputs": [
-          "administratorLoginPassword"
-        ],
-        "created": "2024-09-04T15:33:13.965456Z",
-        "modified": "2024-09-04T15:33:13.965456Z"
-      },
-      {
-        "urn": "urn:pulumi:test::sql::azure:sql/firewallRule:FirewallRule::exampleFwRule",
-        "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4a382022/providers/Microsoft.Sql/servers/examplesql13f8fb0/firewallRules/exampleFwRule589dfd4",
-        "type": "azure:sql/firewallRule:FirewallRule",
-        "inputs": {
-          "__defaults": [
-            "name"
-          ],
-          "endIpAddress": "10.0.17.62",
-          "name": "exampleFwRule589dfd4",
-          "resourceGroupName": "exampleresourcegroup4a382022",
-          "serverName": "examplesql13f8fb0",
-          "startIpAddress": "10.0.17.62"
-        },
-        "outputs": {
-          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
-          "endIpAddress": "10.0.17.62",
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4a382022/providers/Microsoft.Sql/servers/examplesql13f8fb0/firewallRules/exampleFwRule589dfd4",
-          "name": "exampleFwRule589dfd4",
-          "resourceGroupName": "exampleresourcegroup4a382022",
-          "serverName": "examplesql13f8fb0",
-          "startIpAddress": "10.0.17.62"
-        },
-        "parent": "urn:pulumi:test::sql::pulumi:pulumi:Stack::sql-test",
-        "dependencies": [
-          "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
-          "urn:pulumi:test::sql::azure:mssql/server:Server::examplesql"
-        ],
-        "provider": "urn:pulumi:test::sql::pulumi:providers:azure::default::27436cc3-25a7-41d7-b144-0938980731ee",
-        "propertyDependencies": {
-          "endIpAddress": [],
-          "resourceGroupName": [
-            "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
-          ],
-          "serverName": [
-            "urn:pulumi:test::sql::azure:mssql/server:Server::examplesql"
-          ],
-          "startIpAddress": []
-        },
-        "created": "2024-09-04T15:33:17.515468Z",
-        "modified": "2024-09-04T15:33:17.515468Z"
+        "created": "2024-09-11T12:07:32.200839Z",
+        "modified": "2024-09-11T12:07:32.200839Z"
       },
       {
         "urn": "urn:pulumi:test::sql::azure:storage/account:Account::exampleAccount",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4a382022/providers/Microsoft.Storage/storageAccounts/exampleaccount473a7182",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupeb1b9585/providers/Microsoft.Storage/storageAccounts/exampleaccount3743319e",
         "type": "azure:storage/account:Account",
         "inputs": {
           "__defaults": [
@@ -272,11 +150,11 @@
           "localUserEnabled": true,
           "location": "westus",
           "minTlsVersion": "TLS1_2",
-          "name": "exampleaccount473a7182",
+          "name": "exampleaccount3743319e",
           "nfsv3Enabled": false,
           "publicNetworkAccessEnabled": true,
           "queueEncryptionKeyType": "Service",
-          "resourceGroupName": "exampleresourcegroup4a382022",
+          "resourceGroupName": "exampleresourcegroupeb1b9585",
           "sftpEnabled": false,
           "sharedAccessKeyEnabled": true,
           "tableEncryptionKeyType": "Service"
@@ -309,7 +187,7 @@
           "edgeZone": "",
           "enableHttpsTrafficOnly": true,
           "httpsTrafficOnlyEnabled": true,
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4a382022/providers/Microsoft.Storage/storageAccounts/exampleaccount473a7182",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupeb1b9585/providers/Microsoft.Storage/storageAccounts/exampleaccount3743319e",
           "identity": null,
           "immutabilityPolicy": null,
           "infrastructureEncryptionEnabled": false,
@@ -318,38 +196,50 @@
           "localUserEnabled": true,
           "location": "westus",
           "minTlsVersion": "TLS1_2",
-          "name": "exampleaccount473a7182",
+          "name": "exampleaccount3743319e",
           "networkRules": null,
           "nfsv3Enabled": false,
-          "primaryBlobEndpoint": "https://exampleaccount473a7182.blob.core.windows.net/",
-          "primaryBlobHost": "exampleaccount473a7182.blob.core.windows.net",
+          "primaryAccessKey": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "primaryBlobConnectionString": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "primaryBlobEndpoint": "https://exampleaccount3743319e.blob.core.windows.net/",
+          "primaryBlobHost": "exampleaccount3743319e.blob.core.windows.net",
           "primaryBlobInternetEndpoint": "",
           "primaryBlobInternetHost": "",
           "primaryBlobMicrosoftEndpoint": "",
           "primaryBlobMicrosoftHost": "",
-          "primaryDfsEndpoint": "https://exampleaccount473a7182.dfs.core.windows.net/",
-          "primaryDfsHost": "exampleaccount473a7182.dfs.core.windows.net",
+          "primaryConnectionString": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "primaryDfsEndpoint": "https://exampleaccount3743319e.dfs.core.windows.net/",
+          "primaryDfsHost": "exampleaccount3743319e.dfs.core.windows.net",
           "primaryDfsInternetEndpoint": "",
           "primaryDfsInternetHost": "",
           "primaryDfsMicrosoftEndpoint": "",
           "primaryDfsMicrosoftHost": "",
-          "primaryFileEndpoint": "https://exampleaccount473a7182.file.core.windows.net/",
-          "primaryFileHost": "exampleaccount473a7182.file.core.windows.net",
+          "primaryFileEndpoint": "https://exampleaccount3743319e.file.core.windows.net/",
+          "primaryFileHost": "exampleaccount3743319e.file.core.windows.net",
           "primaryFileInternetEndpoint": "",
           "primaryFileInternetHost": "",
           "primaryFileMicrosoftEndpoint": "",
           "primaryFileMicrosoftHost": "",
           "primaryLocation": "westus",
-          "primaryQueueEndpoint": "https://exampleaccount473a7182.queue.core.windows.net/",
-          "primaryQueueHost": "exampleaccount473a7182.queue.core.windows.net",
+          "primaryQueueEndpoint": "https://exampleaccount3743319e.queue.core.windows.net/",
+          "primaryQueueHost": "exampleaccount3743319e.queue.core.windows.net",
           "primaryQueueMicrosoftEndpoint": "",
           "primaryQueueMicrosoftHost": "",
-          "primaryTableEndpoint": "https://exampleaccount473a7182.table.core.windows.net/",
-          "primaryTableHost": "exampleaccount473a7182.table.core.windows.net",
+          "primaryTableEndpoint": "https://exampleaccount3743319e.table.core.windows.net/",
+          "primaryTableHost": "exampleaccount3743319e.table.core.windows.net",
           "primaryTableMicrosoftEndpoint": "",
           "primaryTableMicrosoftHost": "",
-          "primaryWebEndpoint": "https://exampleaccount473a7182.z22.web.core.windows.net/",
-          "primaryWebHost": "exampleaccount473a7182.z22.web.core.windows.net",
+          "primaryWebEndpoint": "https://exampleaccount3743319e.z22.web.core.windows.net/",
+          "primaryWebHost": "exampleaccount3743319e.z22.web.core.windows.net",
           "primaryWebInternetEndpoint": "",
           "primaryWebInternetHost": "",
           "primaryWebMicrosoftEndpoint": "",
@@ -378,15 +268,27 @@
               "version": "1.0"
             }
           },
-          "resourceGroupName": "exampleresourcegroup4a382022",
+          "resourceGroupName": "exampleresourcegroupeb1b9585",
           "routing": null,
           "sasPolicy": null,
+          "secondaryAccessKey": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "secondaryBlobConnectionString": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
           "secondaryBlobEndpoint": "",
           "secondaryBlobHost": "",
           "secondaryBlobInternetEndpoint": "",
           "secondaryBlobInternetHost": "",
           "secondaryBlobMicrosoftEndpoint": "",
           "secondaryBlobMicrosoftHost": "",
+          "secondaryConnectionString": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
           "secondaryDfsEndpoint": "",
           "secondaryDfsHost": "",
           "secondaryDfsInternetEndpoint": "",
@@ -431,7 +333,7 @@
         "dependencies": [
           "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
         ],
-        "provider": "urn:pulumi:test::sql::pulumi:providers:azure::default::27436cc3-25a7-41d7-b144-0938980731ee",
+        "provider": "urn:pulumi:test::sql::pulumi:providers:azure::default::e1366efe-0d5b-468e-810b-51c780c45640",
         "propertyDependencies": {
           "accountReplicationType": [],
           "accountTier": [],
@@ -450,13 +352,138 @@
           "secondaryBlobConnectionString",
           "secondaryConnectionString"
         ],
-        "created": "2024-09-04T15:33:22.052213Z",
-        "modified": "2024-09-04T15:33:22.052213Z"
+        "created": "2024-09-11T12:08:50.16219Z",
+        "modified": "2024-09-11T12:08:50.16219Z"
+      },
+      {
+        "urn": "urn:pulumi:test::sql::azure:sql/sqlServer:SqlServer::examplesql",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupeb1b9585/providers/Microsoft.Sql/servers/examplesql5dafa56",
+        "type": "azure:sql/sqlServer:SqlServer",
+        "inputs": {
+          "__defaults": [
+            "connectionPolicy",
+            "name"
+          ],
+          "administratorLogin": "4dm1n157r470r",
+          "administratorLoginPassword": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "connectionPolicy": "Default",
+          "location": "westus",
+          "name": "examplesql5dafa56",
+          "resourceGroupName": "exampleresourcegroupeb1b9585",
+          "tags": {
+            "environment": "production"
+          },
+          "version": "12.0"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":3600000000000,\"delete\":3600000000000,\"read\":300000000000,\"update\":3600000000000}}",
+          "administratorLogin": "4dm1n157r470r",
+          "administratorLoginPassword": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "connectionPolicy": "Default",
+          "fullyQualifiedDomainName": "examplesql5dafa56.database.windows.net",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupeb1b9585/providers/Microsoft.Sql/servers/examplesql5dafa56",
+          "identity": null,
+          "location": "westus",
+          "name": "examplesql5dafa56",
+          "resourceGroupName": "exampleresourcegroupeb1b9585",
+          "tags": {
+            "environment": "production"
+          },
+          "threatDetectionPolicy": {
+            "disabledAlerts": [
+              ""
+            ],
+            "emailAccountAdmins": false,
+            "emailAddresses": [
+              ""
+            ],
+            "retentionDays": 0,
+            "state": "Disabled",
+            "storageAccountAccessKey": {
+              "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+              "plaintext": "\"REDACTED BY PROVIDERTEST\""
+            },
+            "storageEndpoint": ""
+          },
+          "version": "12.0"
+        },
+        "parent": "urn:pulumi:test::sql::pulumi:pulumi:Stack::sql-test",
+        "dependencies": [
+          "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+        ],
+        "provider": "urn:pulumi:test::sql::pulumi:providers:azure::default::e1366efe-0d5b-468e-810b-51c780c45640",
+        "propertyDependencies": {
+          "administratorLogin": [],
+          "administratorLoginPassword": [],
+          "location": [
+            "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "tags": [],
+          "version": []
+        },
+        "additionalSecretOutputs": [
+          "administratorLoginPassword"
+        ],
+        "created": "2024-09-11T12:08:52.54689Z",
+        "modified": "2024-09-11T12:08:52.54689Z"
+      },
+      {
+        "urn": "urn:pulumi:test::sql::azure:sql/firewallRule:FirewallRule::exampleFwRule",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupeb1b9585/providers/Microsoft.Sql/servers/examplesql5dafa56/firewallRules/exampleFwRule6fd4913",
+        "type": "azure:sql/firewallRule:FirewallRule",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "endIpAddress": "10.0.17.62",
+          "name": "exampleFwRule6fd4913",
+          "resourceGroupName": "exampleresourcegroupeb1b9585",
+          "serverName": "examplesql5dafa56",
+          "startIpAddress": "10.0.17.62"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
+          "endIpAddress": "10.0.17.62",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupeb1b9585/providers/Microsoft.Sql/servers/examplesql5dafa56/firewallRules/exampleFwRule6fd4913",
+          "name": "exampleFwRule6fd4913",
+          "resourceGroupName": "exampleresourcegroupeb1b9585",
+          "serverName": "examplesql5dafa56",
+          "startIpAddress": "10.0.17.62"
+        },
+        "parent": "urn:pulumi:test::sql::pulumi:pulumi:Stack::sql-test",
+        "dependencies": [
+          "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
+          "urn:pulumi:test::sql::azure:sql/sqlServer:SqlServer::examplesql"
+        ],
+        "provider": "urn:pulumi:test::sql::pulumi:providers:azure::default::e1366efe-0d5b-468e-810b-51c780c45640",
+        "propertyDependencies": {
+          "endIpAddress": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+          ],
+          "serverName": [
+            "urn:pulumi:test::sql::azure:sql/sqlServer:SqlServer::examplesql"
+          ],
+          "startIpAddress": []
+        },
+        "created": "2024-09-11T12:08:56.802032Z",
+        "modified": "2024-09-11T12:08:56.802032Z"
       },
       {
         "urn": "urn:pulumi:test::sql::azure:sql/database:Database::exampleDatabase",
         "custom": true,
-        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4a382022/providers/Microsoft.Sql/servers/examplesql13f8fb0/databases/exampleDatabaseeae3934",
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupeb1b9585/providers/Microsoft.Sql/servers/examplesql5dafa56/databases/exampleDatabasec3a4c5b",
         "type": "azure:sql/database:Database",
         "inputs": {
           "__defaults": [
@@ -466,10 +493,10 @@
           ],
           "createMode": "Default",
           "location": "westus",
-          "name": "exampleDatabaseeae3934",
+          "name": "exampleDatabasec3a4c5b",
           "readScale": false,
-          "resourceGroupName": "exampleresourcegroup4a382022",
-          "serverName": "examplesql13f8fb0",
+          "resourceGroupName": "exampleresourcegroupeb1b9585",
+          "serverName": "examplesql5dafa56",
           "tags": {
             "environment": "production"
           }
@@ -478,23 +505,23 @@
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":3600000000000,\"delete\":3600000000000,\"read\":300000000000,\"update\":3600000000000}}",
           "collation": "SQL_Latin1_General_CP1_CI_AS",
           "createMode": "Default",
-          "creationDate": "2024-09-04T15:33:58.48Z",
+          "creationDate": "2024-09-11T12:09:43.167Z",
           "defaultSecondaryLocation": "East US",
           "edition": "GeneralPurpose",
           "elasticPoolName": "",
           "encryption": "",
-          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroup4a382022/providers/Microsoft.Sql/servers/examplesql13f8fb0/databases/exampleDatabaseeae3934",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupeb1b9585/providers/Microsoft.Sql/servers/examplesql5dafa56/databases/exampleDatabasec3a4c5b",
           "import": null,
           "location": "westus",
           "maxSizeBytes": "34359738368",
           "maxSizeGb": null,
-          "name": "exampleDatabaseeae3934",
+          "name": "exampleDatabasec3a4c5b",
           "readScale": false,
           "requestedServiceObjectiveId": "f21733ad-9b9b-4d4e-a4fa-94a133c41718",
           "requestedServiceObjectiveName": "GP_Gen5_2",
-          "resourceGroupName": "exampleresourcegroup4a382022",
+          "resourceGroupName": "exampleresourcegroupeb1b9585",
           "restorePointInTime": null,
-          "serverName": "examplesql13f8fb0",
+          "serverName": "examplesql5dafa56",
           "sourceDatabaseDeletionDate": null,
           "sourceDatabaseId": null,
           "tags": {
@@ -506,6 +533,10 @@
             "emailAddresses": [],
             "retentionDays": 0,
             "state": "Disabled",
+            "storageAccountAccessKey": {
+              "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+              "plaintext": "\"REDACTED BY PROVIDERTEST\""
+            },
             "storageEndpoint": ""
           },
           "zoneRedundant": false
@@ -513,9 +544,9 @@
         "parent": "urn:pulumi:test::sql::pulumi:pulumi:Stack::sql-test",
         "dependencies": [
           "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
-          "urn:pulumi:test::sql::azure:mssql/server:Server::examplesql"
+          "urn:pulumi:test::sql::azure:sql/sqlServer:SqlServer::examplesql"
         ],
-        "provider": "urn:pulumi:test::sql::pulumi:providers:azure::default::27436cc3-25a7-41d7-b144-0938980731ee",
+        "provider": "urn:pulumi:test::sql::pulumi:providers:azure::default::e1366efe-0d5b-468e-810b-51c780c45640",
         "propertyDependencies": {
           "location": [
             "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
@@ -524,12 +555,12 @@
             "urn:pulumi:test::sql::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
           ],
           "serverName": [
-            "urn:pulumi:test::sql::azure:mssql/server:Server::examplesql"
+            "urn:pulumi:test::sql::azure:sql/sqlServer:SqlServer::examplesql"
           ],
           "tags": []
         },
-        "created": "2024-09-04T15:34:21.680573Z",
-        "modified": "2024-09-04T15:34:21.680573Z"
+        "created": "2024-09-11T12:10:02.443196Z",
+        "modified": "2024-09-11T12:10:02.443196Z"
       }
     ]
   }

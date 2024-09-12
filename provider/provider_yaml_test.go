@@ -46,7 +46,8 @@ func Test_servicebus(t *testing.T) {
 }
 
 func Test_sql(t *testing.T) {
-	test(t, filepath.Join("test-programs", "sql"))
+	test(t, filepath.Join("test-programs", "sql"),
+		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "sql", "v6")))
 }
 
 func Test_storage(t *testing.T) {

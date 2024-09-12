@@ -16,9 +16,8 @@ resources:
       upper: false
       special: true
 
-  # Ignoring deprecation warning because the resource is still widely used.
   examplesql:
-    type: azure:sql:SqlServer
+    type: azure:mssql:Server
     properties:
       resourceGroupName: ${exampleResourceGroup.name}
       location: ${exampleResourceGroup.location}
@@ -37,18 +36,15 @@ resources:
       accountReplicationType: LRS
 
   exampleDatabase:
-    type: azure:sql:Database
+    type: azure:mssql:Database
     properties:
-      resourceGroupName: ${exampleResourceGroup.name}
-      location: ${exampleResourceGroup.location}
-      serverName: ${examplesql.name}
+      serverId: ${examplesql.id}
       tags:
         environment: production
 
   exampleFwRule:
-    type: azure:sql:FirewallRule
+    type: azure:mssql:FirewallRule
     properties:
-      resourceGroupName: ${exampleResourceGroup.name}
-      serverName: ${examplesql.name}
+      serverId: ${examplesql.id}
       startIpAddress: 10.0.17.62
       endIpAddress: 10.0.17.62
