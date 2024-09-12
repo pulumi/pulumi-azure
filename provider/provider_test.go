@@ -52,6 +52,7 @@ func test(t *testing.T, dir string, opts ...optproviderupgrade.PreviewProviderUp
 	pt.SetConfig(t, "azure:subscriptionId", subscriptionID)
 	previewResult := providertest.PreviewProviderUpgrade(t, pt, "azure", "5.89.0", opts...)
 	assertpreview.HasNoReplacements(t, previewResult)
+	assertpreview.HasNoDeletes(t, previewResult)
 }
 
 func TestUpgradeCoverage(t *testing.T) {
