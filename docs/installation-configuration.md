@@ -12,16 +12,16 @@ Pulumi uses the Azure SDK and the credentials in your environment to authenticat
 
 The Azure Classic provider is available as a package in all Pulumi languages:
 
-* JavaScript/TypeScript: [`@pulumi/azure`](https://www.npmjs.com/package/@pulumi/azure)
-* Python: [`pulumi-azure`](https://pypi.org/project/pulumi-azure/)
-* Go: [`github.com/pulumi/pulumi-azure/sdk/v5/go/azure`](https://github.com/pulumi/pulumi-azure)
-* .NET: [`Pulumi.Azure`](https://www.nuget.org/packages/Pulumi.Azure)
-* Java: [`com.pulumi.azure`](https://search.maven.org/search?q=com.pulumi.azure)
-
+- JavaScript/TypeScript: [`@pulumi/azure`](https://www.npmjs.com/package/@pulumi/azure)
+- Python: [`pulumi-azure`](https://pypi.org/project/pulumi-azure/)
+- Go: [`github.com/pulumi/pulumi-azure/sdk/v5/go/azure`](https://github.com/pulumi/pulumi-azure)
+- .NET: [`Pulumi.Azure`](https://www.nuget.org/packages/Pulumi.Azure)
+- Java: [`com.pulumi.azure`](https://search.maven.org/search?q=com.pulumi.azure)
 
 ## Authentication Methods
 
 Pulumi can authenticate to Azure via several methods:
+
 - Azure CLI
 - OpenID Connect (OIDC)
 - Service Principal with a client secret or certificate
@@ -34,7 +34,6 @@ environments, particularly in Continuous Integration, one of the other options i
 Authenticating using the CLI will not work for Service Principal logins (e.g.,
 `az login --service-principal`).  For such cases, authenticate using the Service Principal method instead.
 {{% /notes %}}
-
 
 ### Authenticate using the CLI
 
@@ -56,13 +55,13 @@ If you're using Government or China Clouds, you'll need to configure the Azure C
 The Azure CLI, and thus Pulumi, will use the Default Subscription by default. You can override the subscription by setting your subscription ID to the `id` output from `az account list`'s output:
 
 ```bash
-$ az account list
+az account list
 ```
 
 Pick out the `<id>` from the list and run:
 
 ```bash
-$ az account set --subscription=<id>
+az account set --subscription=<id>
 ```
 
 ### Authenticate with OpenID Connect (OIDC)
@@ -85,6 +84,7 @@ environment variable `ARM_USE_OIDC` to "true".
 
 Next, supply the Pulumi provider with the ID token to exchange for an Azure token. This step depends on the service
 (identity provider) your program will run on.
+
 - On GitHub, you don't need to configure anything since
 [GitHub sets the relevant environment variables](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) by default and the Pulumi provider reads them automatically.
 - Other identity providers offer a way to access the ID token. For instance, in GitLab CI/CD jobs, the ID token is available
@@ -95,8 +95,9 @@ the Pulumi configuration `azure:oidcToken` or the environment variable `ARM_OIDC
 If your identity provider does not offer an ID token directly but it does offer a way to exchange a local bearer token
 for an ID token, you can configure this exchange as well. This is a rare case that you won't need unless the identity
 provider's documentation explicitly requests it. In that case, set one of the following pairs:
-  - both the `azure:oidcRequestToken` and `azure:oidcRequestUrl` Pulumi configuration values, **or**
-  - both the `ARM_OIDC_REQUEST_TOKEN` and `ARM_OIDC_REQUEST_URL` environment variables.
+
+- both the `azure:oidcRequestToken` and `azure:oidcRequestUrl` Pulumi configuration values, **or**
+- both the `ARM_OIDC_REQUEST_TOKEN` and `ARM_OIDC_REQUEST_URL` environment variables.
 {{% /notes %}}
 
 Finally, configure the client and tenant IDs of your Azure Active Directory application. Refer to the
@@ -193,7 +194,7 @@ Make sure that your local environment does not have Azure credentials configured
 
 A Service Principal is an application in Azure Active Directory with a client ID and a tenant ID, exactly like the one
 used in the OIDC scenario. In this scenario, instead of a pre-configured trust relationship, a client secret is used to
-authenticate with Azure. 
+authenticate with Azure.
 
 #### Create your Service Principal and get your tokens
 
@@ -203,9 +204,9 @@ You can create a Service Principal [using the Azure CLI](https://docs.microsoft.
 
 After creating a Service Principal, you will obtain three important tokens:
 
-* `appId` is the client ID
-* `password` is the client secret
-* `tenant` is the tenant ID
+- `appId` is the client ID
+- `password` is the client secret
+- `tenant` is the tenant ID
 
 For example, a common Service Principal as displayed by the Azure CLI looks something like this:
 
@@ -222,13 +223,13 @@ For example, a common Service Principal as displayed by the Azure CLI looks some
 You also need to obtain a Subscription ID. To retrieve your current Subscription ID, you can use:
 
 ```bash
-$ az account show --query id -o tsv
+az account show --query id -o tsv
 ```
 
 To list all available subscriptions, you can use:
 
 ```bash
-$ az account list --query '[].{subscriptionName:name,subscriptionId:id}' -o tsv
+az account list --query '[].{subscriptionName:name,subscriptionId:id}' -o tsv
 ```
 
 #### Make tokens available to Pulumi
@@ -252,10 +253,10 @@ Remember to pass `--secret` when setting `clientSecret` so that it is properly e
 {{% choosable os linux %}}
 
 ```bash
-$ export ARM_CLIENT_ID=<YOUR_ARM_CLIENT_ID>
-$ export ARM_CLIENT_SECRET=<YOUR_ARM_CLIENT_SECRET>
-$ export ARM_TENANT_ID=<YOUR_ARM_TENANT_ID>
-$ export ARM_SUBSCRIPTION_ID=<YOUR_ARM_SUBSCRIPTION_ID>
+export ARM_CLIENT_ID=<YOUR_ARM_CLIENT_ID>
+export ARM_CLIENT_SECRET=<YOUR_ARM_CLIENT_SECRET>
+export ARM_TENANT_ID=<YOUR_ARM_TENANT_ID>
+export ARM_SUBSCRIPTION_ID=<YOUR_ARM_SUBSCRIPTION_ID>
 ```
 
 {{% /choosable %}}
@@ -263,10 +264,10 @@ $ export ARM_SUBSCRIPTION_ID=<YOUR_ARM_SUBSCRIPTION_ID>
 {{% choosable os macos %}}
 
 ```bash
-$ export ARM_CLIENT_ID=<YOUR_ARM_CLIENT_ID>
-$ export ARM_CLIENT_SECRET=<YOUR_ARM_CLIENT_SECRET>
-$ export ARM_TENANT_ID=<YOUR_ARM_TENANT_ID>
-$ export ARM_SUBSCRIPTION_ID=<YOUR_ARM_SUBSCRIPTION_ID>
+export ARM_CLIENT_ID=<YOUR_ARM_CLIENT_ID>
+export ARM_CLIENT_SECRET=<YOUR_ARM_CLIENT_SECRET>
+export ARM_TENANT_ID=<YOUR_ARM_TENANT_ID>
+export ARM_SUBSCRIPTION_ID=<YOUR_ARM_SUBSCRIPTION_ID>
 ```
 
 {{% /choosable %}}
