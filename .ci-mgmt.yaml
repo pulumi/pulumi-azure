@@ -53,6 +53,7 @@ actions:
 pulumiConvert: 1
 releaseVerification:
   nodejs: examples/topic
-  python: examples/eventhub-py
+  # Disable python until https://github.com/pulumi/verify-provider-release/issues/39 is addressed
+  # python: examples/eventhub-py
   dotnet: examples/appservice-cs
   go: examples/network-go
