@@ -10,7 +10,9 @@ import (
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
-		rg, err := core.NewResourceGroup(ctx, "server-rg", nil)
+		rg, err := core.NewResourceGroup(ctx, "server-rg", &core.ResourceGroupArgs{
+			Location: pulumi.String("WestUS"),
+		})
 		if err != nil {
 			return err
 		}

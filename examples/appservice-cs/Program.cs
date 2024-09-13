@@ -14,7 +14,10 @@ class Program
     static Task<int> Main(string[] args)
     {
         return Deployment.RunAsync(() => {
-            var resourceGroup = new ResourceGroup("appservice-rg");
+            var resourceGroup = new ResourceGroup("appservice-rg", new ResourceGroupArgs
+            {
+                Location = "WestUS",
+            });
 
             var storageAccount = new Account("sa", new AccountArgs
             {

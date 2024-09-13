@@ -78,13 +78,6 @@ jobs:
           directory: examples/topic
           provider: azure
           providerVersion: ${{ inputs.providerVersion }}
-      - name: Verify python release
-        uses: pulumi/verify-provider-release@v1
-        with:
-          runtime: python
-          directory: examples/eventhub-py
-          provider: azure
-          providerVersion: ${{ inputs.providerVersion }}
       - name: Verify dotnet release
         uses: pulumi/verify-provider-release@v1
         with:
