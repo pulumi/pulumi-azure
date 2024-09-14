@@ -117,6 +117,12 @@ func NewManagedDatabase(ctx *pulumi.Context,
 	if args.ManagedInstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagedInstanceId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:sql/managedDatabase:ManagedDatabase"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedDatabase
 	err := ctx.RegisterResource("azure:mssql/managedDatabase:ManagedDatabase", name, args, &resource, opts...)

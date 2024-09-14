@@ -379,6 +379,8 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__.__dict__["tenant_id"] = tenant_id
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstanceActiveDirectoryAdministrator, __self__).__init__(
             'azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator',
             resource_name,

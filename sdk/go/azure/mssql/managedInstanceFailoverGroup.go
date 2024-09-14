@@ -196,6 +196,12 @@ func NewManagedInstanceFailoverGroup(ctx *pulumi.Context,
 	if args.ReadWriteEndpointFailoverPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'ReadWriteEndpointFailoverPolicy'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedInstanceFailoverGroup
 	err := ctx.RegisterResource("azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup", name, args, &resource, opts...)

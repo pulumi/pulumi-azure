@@ -50,6 +50,13 @@ func Test_sql(t *testing.T) {
 		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "sql", "v6")))
 }
 
+func Test_sql_managed(t *testing.T) {
+	t.Skip("Waiting for more quota, Azure support request 2409140020000074")
+	test(t, filepath.Join("test-programs", "sql_managed"),
+		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "sql_managed", "v6")),
+	)
+}
+
 func Test_storage(t *testing.T) {
 	test(t, filepath.Join("test-programs", "storage"),
 		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "storage", "v6")))

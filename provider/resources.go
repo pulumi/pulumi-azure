@@ -1627,8 +1627,11 @@ func Provider() tfbridge.ProviderInfo {
 				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/database:Database")}},
 				TransformFromState: fixMssqlServerID,
 			},
-			"azurerm_mssql_virtual_machine":                   {Tok: azureResource(azureMSSQL, "VirtualMachine")},
-			"azurerm_mssql_server":                            {Tok: azureResource(azureMSSQL, "Server"), Aliases: []tfbridge.AliasInfo{{Type: ref("azure:sql/sqlServer:SqlServer")}}},
+			"azurerm_mssql_virtual_machine": {Tok: azureResource(azureMSSQL, "VirtualMachine")},
+			"azurerm_mssql_server": {
+				Tok:     azureResource(azureMSSQL, "Server"),
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:sql/sqlServer:SqlServer")}},
+			},
 			"azurerm_mssql_database_extended_auditing_policy": {Tok: azureResource(azureMSSQL, "DatabaseExtendedAuditingPolicy")},
 			"azurerm_mssql_server_extended_auditing_policy":   {Tok: azureResource(azureMSSQL, "ServerExtendedAuditingPolicy")},
 			"azurerm_mssql_firewall_rule": {
@@ -1649,16 +1652,34 @@ func Provider() tfbridge.ProviderInfo {
 				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/failoverGroup:FailoverGroup")}},
 				TransformFromState: fixMssqlServerID,
 			},
-			"azurerm_mssql_outbound_firewall_rule":                          {Tok: azureResource(azureMSSQL, "OutboundFirewallRule")},
-			"azurerm_mssql_managed_database":                                {Tok: azureResource(azureMSSQL, "ManagedDatabase")},
-			"azurerm_mssql_managed_instance":                                {Tok: azureResource(azureMSSQL, "ManagedInstance")},
-			"azurerm_mssql_managed_instance_active_directory_administrator": {Tok: azureResource(azureMSSQL, "ManagedInstanceActiveDirectoryAdministrator")},
-			"azurerm_mssql_managed_instance_failover_group":                 {Tok: azureResource(azureMSSQL, "ManagedInstanceFailoverGroup")},
-			"azurerm_mssql_managed_instance_security_alert_policy":          {Tok: azureResource(azureMSSQL, "ManagedInstanceSecurityAlertPolicy")},
-			"azurerm_mssql_managed_instance_transparent_data_encryption":    {Tok: azureResource(azureMSSQL, "ManagedInstanceTransparentDataEncryption")},
-			"azurerm_mssql_managed_instance_vulnerability_assessment":       {Tok: azureResource(azureMSSQL, "ManagedInstanceVulnerabilityAssessment")},
-			"azurerm_mssql_server_dns_alias":                                {Tok: azureResource(azureMSSQL, "ServerDnsAlias")},
-			"azurerm_mssql_server_microsoft_support_auditing_policy":        {Tok: azureResource(azureMSSQL, "ServerMicrosoftSupportAuditingPolicy")},
+			"azurerm_mssql_outbound_firewall_rule": {Tok: azureResource(azureMSSQL, "OutboundFirewallRule")},
+			"azurerm_mssql_managed_database": {
+				Tok:     azureResource(azureMSSQL, "ManagedDatabase"),
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:sql/managedDatabase:ManagedDatabase")}},
+				// In upstream v4, the ForceNew property sql_managed_instance_id has been renamed to managed_instance_id.
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					if instanceID, ok := pm["sqlManagedInstanceId"]; ok {
+						pm["managedInstanceId"] = instanceID
+					}
+					return pm, nil
+				},
+			},
+			"azurerm_mssql_managed_instance": {Tok: azureResource(azureMSSQL, "ManagedInstance")},
+			"azurerm_mssql_managed_instance_active_directory_administrator": {
+				Tok:                azureResource(azureMSSQL, "ManagedInstanceActiveDirectoryAdministrator"),
+				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator")}},
+				TransformFromState: fixMssqlManagedInstanceID,
+			},
+			"azurerm_mssql_managed_instance_failover_group": {
+				Tok:                azureResource(azureMSSQL, "ManagedInstanceFailoverGroup"),
+				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup")}},
+				TransformFromState: fixMssqlManagedInstanceID,
+			},
+			"azurerm_mssql_managed_instance_security_alert_policy":       {Tok: azureResource(azureMSSQL, "ManagedInstanceSecurityAlertPolicy")},
+			"azurerm_mssql_managed_instance_transparent_data_encryption": {Tok: azureResource(azureMSSQL, "ManagedInstanceTransparentDataEncryption")},
+			"azurerm_mssql_managed_instance_vulnerability_assessment":    {Tok: azureResource(azureMSSQL, "ManagedInstanceVulnerabilityAssessment")},
+			"azurerm_mssql_server_dns_alias":                             {Tok: azureResource(azureMSSQL, "ServerDnsAlias")},
+			"azurerm_mssql_server_microsoft_support_auditing_policy":     {Tok: azureResource(azureMSSQL, "ServerMicrosoftSupportAuditingPolicy")},
 
 			// MySQL
 			"azurerm_mysql_flexible_server":               {Tok: azureResource(azureMySQL, "FlexibleServer")},
@@ -3617,14 +3638,26 @@ func fixHdInsightTier(_ context.Context, pm resource.PropertyMap) (resource.Prop
 
 // upstream v3 used serverName, but v4 uses serverId
 func fixMssqlServerID(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-	if pm.HasValue("serverName") && pm.HasValue("id") && pm.HasValue("resourceGroupName") {
+	return mssqlNameToID(pm, "serverName", "serverId", "servers"), nil
+}
+
+// upstream v3 used managed_instance_name, but v4 uses managed_instance_id
+func fixMssqlManagedInstanceID(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+	return mssqlNameToID(pm, "managedInstanceName", "managedInstanceId", "managedInstances"), nil
+}
+
+func mssqlNameToID(pm resource.PropertyMap, nameField, idField, resourceKind string) resource.PropertyMap {
+	if pm.HasValue(resource.PropertyKey(nameField)) && pm.HasValue("id") && pm.HasValue("resourceGroupName") {
+		// Get the subscription id from the resource id.
 		id := pm["id"].StringValue()
 		// /subscriptions/ID/resourceGroups/... -> ID
 		sub := strings.SplitN(id, "/", 4)[2]
+
 		rg := pm["resourceGroupName"].StringValue()
-		serverName := pm["serverName"].StringValue()
-		serverID := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Sql/servers/%s", sub, rg, serverName)
-		pm["serverId"] = resource.NewStringProperty(serverID)
+		name := pm[resource.PropertyKey(nameField)].StringValue()
+		serverID := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Sql/%s/%s",
+			sub, rg, resourceKind, name)
+		pm[resource.PropertyKey(idField)] = resource.NewStringProperty(serverID)
 	}
-	return pm, nil
+	return pm
 }

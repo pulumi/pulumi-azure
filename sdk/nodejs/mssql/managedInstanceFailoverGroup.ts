@@ -214,6 +214,8 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
             resourceInputs["role"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceFailoverGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

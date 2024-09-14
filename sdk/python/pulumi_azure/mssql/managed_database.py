@@ -342,6 +342,8 @@ class ManagedDatabase(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["point_in_time_restore"] = point_in_time_restore
             __props__.__dict__["short_term_retention_days"] = short_term_retention_days
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:sql/managedDatabase:ManagedDatabase")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedDatabase, __self__).__init__(
             'azure:mssql/managedDatabase:ManagedDatabase',
             resource_name,

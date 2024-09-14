@@ -161,6 +161,8 @@ export class ManagedInstanceActiveDirectoryAdministrator extends pulumi.CustomRe
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceActiveDirectoryAdministrator.__pulumiType, name, resourceInputs, opts);
     }
 }
