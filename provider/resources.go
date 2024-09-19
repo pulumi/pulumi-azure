@@ -2024,16 +2024,24 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_relay_hybrid_connection_authorization_rule": {Tok: azureResource(azureRelay, "HybridConnectionAuthorizationRule")},
 
 			// Security Center
-			"azurerm_security_center_contact":                                         {Tok: azureResource(azureSecurityCenter, "Contact")},
-			"azurerm_security_center_subscription_pricing":                            {Tok: azureResource(azureSecurityCenter, "SubscriptionPricing")},
-			"azurerm_security_center_workspace":                                       {Tok: azureResource(azureSecurityCenter, "Workspace")},
-			"azurerm_advanced_threat_protection":                                      {Tok: azureResource(azureSecurityCenter, "AdvancedThreatProtection")},
-			"azurerm_security_center_setting":                                         {Tok: azureResource(azureSecurityCenter, "Setting")},
-			"azurerm_security_center_auto_provisioning":                               {Tok: azureResource(azureSecurityCenter, "AutoProvisioning")},
-			"azurerm_security_center_automation":                                      {Tok: azureResource(azureSecurityCenter, "Automation")},
-			"azurerm_security_center_assessment":                                      {Tok: azureResource(azureSecurityCenter, "Assessment")},
-			"azurerm_security_center_assessment_policy":                               {Tok: azureResource(azureSecurityCenter, "AssessmentPolicy")},
-			"azurerm_security_center_server_vulnerability_assessment_virtual_machine": {Tok: azureResource(azureSecurityCenter, "ServerVulnerabilityAssessmentVirtualMachine")},
+			"azurerm_security_center_contact":              {Tok: azureResource(azureSecurityCenter, "Contact")},
+			"azurerm_security_center_subscription_pricing": {Tok: azureResource(azureSecurityCenter, "SubscriptionPricing")},
+			"azurerm_security_center_workspace":            {Tok: azureResource(azureSecurityCenter, "Workspace")},
+			"azurerm_advanced_threat_protection":           {Tok: azureResource(azureSecurityCenter, "AdvancedThreatProtection")},
+			"azurerm_security_center_setting":              {Tok: azureResource(azureSecurityCenter, "Setting")},
+			"azurerm_security_center_auto_provisioning":    {Tok: azureResource(azureSecurityCenter, "AutoProvisioning")},
+			"azurerm_security_center_automation":           {Tok: azureResource(azureSecurityCenter, "Automation")},
+			"azurerm_security_center_assessment":           {Tok: azureResource(azureSecurityCenter, "Assessment")},
+			"azurerm_security_center_assessment_policy":    {Tok: azureResource(azureSecurityCenter, "AssessmentPolicy")},
+			"azurerm_security_center_server_vulnerability_assessment_virtual_machine": {
+				Tok:     azureResource(azureSecurityCenter, "ServerVulnerabilityAssessmentVirtualMachine"),
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:securitycenter/serverVulnerabilityAssessment:ServerVulnerabilityAssessment")}},
+				// A ForceNew property was dropped, remove it from the state.
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					delete(pm, "hybridMachineId")
+					return pm, nil
+				},
+			},
 
 			// Service Fabric
 			"azurerm_service_fabric_cluster":         {Tok: azureResource(azureServiceFabric, "Cluster")},
