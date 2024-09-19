@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFrontdoorCustomDomain(args: GetFrontdoorCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorCustomDomainResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", {
         "name": args.name,
@@ -100,7 +99,12 @@ export interface GetFrontdoorCustomDomainResult {
  * ```
  */
 export function getFrontdoorCustomDomainOutput(args: GetFrontdoorCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorCustomDomainResult> {
-    return pulumi.output(args).apply((a: any) => getFrontdoorCustomDomain(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", {
+        "name": args.name,
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResolverOutboundEndpoint(args: GetResolverOutboundEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverOutboundEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getResolverOutboundEndpoint:getResolverOutboundEndpoint", {
         "name": args.name,
@@ -81,7 +80,11 @@ export interface GetResolverOutboundEndpointResult {
  * ```
  */
 export function getResolverOutboundEndpointOutput(args: GetResolverOutboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverOutboundEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getResolverOutboundEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:privatedns/getResolverOutboundEndpoint:getResolverOutboundEndpoint", {
+        "name": args.name,
+        "privateDnsResolverId": args.privateDnsResolverId,
+    }, opts);
 }
 
 /**
