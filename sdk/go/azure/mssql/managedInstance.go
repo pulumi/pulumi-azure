@@ -105,6 +105,12 @@ func NewManagedInstance(ctx *pulumi.Context,
 	if args.Vcores == nil {
 		return nil, errors.New("invalid value for required argument 'Vcores'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:sql/managedInstance:ManagedInstance"),
+		},
+	})
+	opts = append(opts, aliases)
 	if args.AdministratorLoginPassword != nil {
 		args.AdministratorLoginPassword = pulumi.ToSecret(args.AdministratorLoginPassword).(pulumi.StringInput)
 	}

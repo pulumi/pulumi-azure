@@ -897,6 +897,8 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["zone_redundant_enabled"] = zone_redundant_enabled
             __props__.__dict__["dns_zone"] = None
             __props__.__dict__["fqdn"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:sql/managedInstance:ManagedInstance")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorLoginPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ManagedInstance, __self__).__init__(

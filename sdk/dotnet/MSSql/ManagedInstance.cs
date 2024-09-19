@@ -186,6 +186,10 @@ namespace Pulumi.Azure.MSSql
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure:sql/managedInstance:ManagedInstance" },
+                },
                 AdditionalSecretOutputs =
                 {
                     "administratorLoginPassword",

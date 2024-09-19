@@ -227,6 +227,8 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:sql/managedInstance:ManagedInstance" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["administratorLoginPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ManagedInstance.__pulumiType, name, resourceInputs, opts);

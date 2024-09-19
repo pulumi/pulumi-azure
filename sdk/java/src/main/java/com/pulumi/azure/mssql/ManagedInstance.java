@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mssql.ManagedInstanceArgs;
 import com.pulumi.azure.mssql.inputs.ManagedInstanceState;
 import com.pulumi.azure.mssql.outputs.ManagedInstanceIdentity;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -402,6 +403,9 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("azure:sql/managedInstance:ManagedInstance").build())
+            ))
             .additionalSecretOutputs(List.of(
                 "administratorLoginPassword"
             ))
