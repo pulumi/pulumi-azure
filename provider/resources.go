@@ -1612,47 +1612,28 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// MS SQL
-			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
-			"azurerm_mssql_database_vulnerability_assessment_rule_baseline": {
-				Tok: azureResource(azureMSSQL, "DatabaseVulnerabilityAssessmentRuleBaseline"),
-			},
-			"azurerm_mssql_server_vulnerability_assessment": {
-				Tok: azureResource(azureMSSQL, "ServerVulnerabilityAssessment"),
-			},
-			"azurerm_mssql_server_security_alert_policy": {
-				Tok: azureResource(azureMSSQL, "ServerSecurityAlertPolicy"),
-			},
 			"azurerm_mssql_database": {
 				Tok:                azureResource(azureMSSQL, "Database"),
 				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/database:Database")}},
 				TransformFromState: fixMssqlServerID,
 			},
-			"azurerm_mssql_virtual_machine": {Tok: azureResource(azureMSSQL, "VirtualMachine")},
-			"azurerm_mssql_server": {
-				Tok:     azureResource(azureMSSQL, "Server"),
-				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:sql/sqlServer:SqlServer")}},
-			},
 			"azurerm_mssql_database_extended_auditing_policy": {Tok: azureResource(azureMSSQL, "DatabaseExtendedAuditingPolicy")},
-			"azurerm_mssql_server_extended_auditing_policy":   {Tok: azureResource(azureMSSQL, "ServerExtendedAuditingPolicy")},
-			"azurerm_mssql_firewall_rule": {
-				Tok:                azureResource(azureMSSQL, "FirewallRule"),
-				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/firewallRule:FirewallRule")}},
-				TransformFromState: fixMssqlServerID,
+			"azurerm_mssql_database_vulnerability_assessment_rule_baseline": {
+				Tok: azureResource(azureMSSQL, "DatabaseVulnerabilityAssessmentRuleBaseline"),
 			},
-			"azurerm_mssql_virtual_network_rule": {
-				Tok:                azureResource(azureMSSQL, "VirtualNetworkRule"),
-				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/virtualNetworkRule:VirtualNetworkRule")}},
-				TransformFromState: fixMssqlServerID,
-			},
-			"azurerm_mssql_job_agent":                          {Tok: azureResource(azureMSSQL, "JobAgent")},
-			"azurerm_mssql_job_credential":                     {Tok: azureResource(azureMSSQL, "JobCredential")},
-			"azurerm_mssql_server_transparent_data_encryption": {Tok: azureResource(azureMSSQL, "ServerTransparentDataEncryption")},
+			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
 			"azurerm_mssql_failover_group": {
 				Tok:                azureResource(azureMSSQL, "FailoverGroup"),
 				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/failoverGroup:FailoverGroup")}},
 				TransformFromState: fixMssqlServerID,
 			},
-			"azurerm_mssql_outbound_firewall_rule": {Tok: azureResource(azureMSSQL, "OutboundFirewallRule")},
+			"azurerm_mssql_firewall_rule": {
+				Tok:                azureResource(azureMSSQL, "FirewallRule"),
+				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/firewallRule:FirewallRule")}},
+				TransformFromState: fixMssqlServerID,
+			},
+			"azurerm_mssql_job_agent":      {Tok: azureResource(azureMSSQL, "JobAgent")},
+			"azurerm_mssql_job_credential": {Tok: azureResource(azureMSSQL, "JobCredential")},
 			"azurerm_mssql_managed_database": {
 				Tok:     azureResource(azureMSSQL, "ManagedDatabase"),
 				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:sql/managedDatabase:ManagedDatabase")}},
@@ -1678,8 +1659,27 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_managed_instance_security_alert_policy":       {Tok: azureResource(azureMSSQL, "ManagedInstanceSecurityAlertPolicy")},
 			"azurerm_mssql_managed_instance_transparent_data_encryption": {Tok: azureResource(azureMSSQL, "ManagedInstanceTransparentDataEncryption")},
 			"azurerm_mssql_managed_instance_vulnerability_assessment":    {Tok: azureResource(azureMSSQL, "ManagedInstanceVulnerabilityAssessment")},
-			"azurerm_mssql_server_dns_alias":                             {Tok: azureResource(azureMSSQL, "ServerDnsAlias")},
-			"azurerm_mssql_server_microsoft_support_auditing_policy":     {Tok: azureResource(azureMSSQL, "ServerMicrosoftSupportAuditingPolicy")},
+			"azurerm_mssql_outbound_firewall_rule":                       {Tok: azureResource(azureMSSQL, "OutboundFirewallRule")},
+			"azurerm_mssql_server": {
+				Tok:     azureResource(azureMSSQL, "Server"),
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:sql/sqlServer:SqlServer")}},
+			},
+			"azurerm_mssql_server_dns_alias":                         {Tok: azureResource(azureMSSQL, "ServerDnsAlias")},
+			"azurerm_mssql_server_extended_auditing_policy":          {Tok: azureResource(azureMSSQL, "ServerExtendedAuditingPolicy")},
+			"azurerm_mssql_server_microsoft_support_auditing_policy": {Tok: azureResource(azureMSSQL, "ServerMicrosoftSupportAuditingPolicy")},
+			"azurerm_mssql_server_security_alert_policy": {
+				Tok: azureResource(azureMSSQL, "ServerSecurityAlertPolicy"),
+			},
+			"azurerm_mssql_virtual_network_rule": {
+				Tok:                azureResource(azureMSSQL, "VirtualNetworkRule"),
+				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/virtualNetworkRule:VirtualNetworkRule")}},
+				TransformFromState: fixMssqlServerID,
+			},
+			"azurerm_mssql_server_transparent_data_encryption": {Tok: azureResource(azureMSSQL, "ServerTransparentDataEncryption")},
+			"azurerm_mssql_server_vulnerability_assessment": {
+				Tok: azureResource(azureMSSQL, "ServerVulnerabilityAssessment"),
+			},
+			"azurerm_mssql_virtual_machine": {Tok: azureResource(azureMSSQL, "VirtualMachine")},
 
 			// MySQL
 			"azurerm_mysql_flexible_server":               {Tok: azureResource(azureMySQL, "FlexibleServer")},
