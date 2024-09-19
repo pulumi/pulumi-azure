@@ -1645,7 +1645,10 @@ func Provider() tfbridge.ProviderInfo {
 					return pm, nil
 				},
 			},
-			"azurerm_mssql_managed_instance": {Tok: azureResource(azureMSSQL, "ManagedInstance")},
+			"azurerm_mssql_managed_instance": {
+				Tok:     azureResource(azureMSSQL, "ManagedInstance"),
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:sql/managedInstance:ManagedInstance")}},
+			},
 			"azurerm_mssql_managed_instance_active_directory_administrator": {
 				Tok:                azureResource(azureMSSQL, "ManagedInstanceActiveDirectoryAdministrator"),
 				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator")}},
