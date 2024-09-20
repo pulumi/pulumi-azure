@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGrafana(args: GetGrafanaArgs, opts?: pulumi.InvokeOptions): Promise<GetGrafanaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:dashboard/getGrafana:getGrafana", {
         "identity": args.identity,
@@ -131,7 +130,12 @@ export interface GetGrafanaResult {
  * ```
  */
 export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrafanaResult> {
-    return pulumi.output(args).apply((a: any) => getGrafana(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:dashboard/getGrafana:getGrafana", {
+        "identity": args.identity,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

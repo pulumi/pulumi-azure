@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshPublicKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getSshPublicKey:getSshPublicKey", {
         "name": args.name,
@@ -81,7 +80,12 @@ export interface GetSshPublicKeyResult {
  * ```
  */
 export function getSshPublicKeyOutput(args: GetSshPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshPublicKeyResult> {
-    return pulumi.output(args).apply((a: any) => getSshPublicKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getSshPublicKey:getSshPublicKey", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

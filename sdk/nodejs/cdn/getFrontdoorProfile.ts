@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFrontdoorProfile(args: GetFrontdoorProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", {
         "name": args.name,
@@ -85,7 +84,11 @@ export interface GetFrontdoorProfileResult {
  * ```
  */
 export function getFrontdoorProfileOutput(args: GetFrontdoorProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorProfileResult> {
-    return pulumi.output(args).apply((a: any) => getFrontdoorProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

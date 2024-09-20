@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPolicyFileshare(args: GetPolicyFileshareArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyFileshareResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:backup/getPolicyFileshare:getPolicyFileshare", {
         "name": args.name,
@@ -77,7 +76,12 @@ export interface GetPolicyFileshareResult {
  * ```
  */
 export function getPolicyFileshareOutput(args: GetPolicyFileshareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyFileshareResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyFileshare(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:backup/getPolicyFileshare:getPolicyFileshare", {
+        "name": args.name,
+        "recoveryVaultName": args.recoveryVaultName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

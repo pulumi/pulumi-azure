@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResolverVirtualNetworkLink(args: GetResolverVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverVirtualNetworkLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", {
         "dnsForwardingRulesetId": args.dnsForwardingRulesetId,
@@ -77,7 +76,11 @@ export interface GetResolverVirtualNetworkLinkResult {
  * ```
  */
 export function getResolverVirtualNetworkLinkOutput(args: GetResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverVirtualNetworkLinkResult> {
-    return pulumi.output(args).apply((a: any) => getResolverVirtualNetworkLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", {
+        "dnsForwardingRulesetId": args.dnsForwardingRulesetId,
+        "name": args.name,
+    }, opts);
 }
 
 /**
