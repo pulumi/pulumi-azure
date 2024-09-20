@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): Promise<GetRunbookResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:automation/getRunbook:getRunbook", {
         "automationAccountName": args.automationAccountName,
@@ -111,7 +110,12 @@ export interface GetRunbookResult {
  * ```
  */
 export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRunbookResult> {
-    return pulumi.output(args).apply((a: any) => getRunbook(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:automation/getRunbook:getRunbook", {
+        "automationAccountName": args.automationAccountName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

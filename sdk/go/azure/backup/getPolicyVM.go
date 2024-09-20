@@ -71,14 +71,20 @@ type LookupPolicyVMResult struct {
 
 func LookupPolicyVMOutput(ctx *pulumi.Context, args LookupPolicyVMOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyVMResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPolicyVMResult, error) {
+		ApplyT(func(v interface{}) (LookupPolicyVMResultOutput, error) {
 			args := v.(LookupPolicyVMArgs)
-			r, err := LookupPolicyVM(ctx, &args, opts...)
-			var s LookupPolicyVMResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPolicyVMResult
+			secret, err := ctx.InvokePackageRaw("azure:backup/getPolicyVM:getPolicyVM", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPolicyVMResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPolicyVMResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPolicyVMResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPolicyVMResultOutput)
 }
 

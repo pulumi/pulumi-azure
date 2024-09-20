@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSqlDatabase(args: GetSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDatabaseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cosmosdb/getSqlDatabase:getSqlDatabase", {
         "accountName": args.accountName,
@@ -87,7 +86,12 @@ export interface GetSqlDatabaseResult {
  * ```
  */
 export function getSqlDatabaseOutput(args: GetSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getSqlDatabase(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:cosmosdb/getSqlDatabase:getSqlDatabase", {
+        "accountName": args.accountName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

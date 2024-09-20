@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLinuxWebApp(args: GetLinuxWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetLinuxWebAppResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getLinuxWebApp:getLinuxWebApp", {
         "name": args.name,
@@ -217,7 +216,11 @@ export interface GetLinuxWebAppResult {
  * ```
  */
 export function getLinuxWebAppOutput(args: GetLinuxWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinuxWebAppResult> {
-    return pulumi.output(args).apply((a: any) => getLinuxWebApp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appservice/getLinuxWebApp:getLinuxWebApp", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

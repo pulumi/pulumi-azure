@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getFirewall:getFirewall", {
         "dnsProxyEnabled": args.dnsProxyEnabled,
@@ -126,7 +125,12 @@ export interface GetFirewallResult {
  * ```
  */
 export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
-    return pulumi.output(args).apply((a: any) => getFirewall(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getFirewall:getFirewall", {
+        "dnsProxyEnabled": args.dnsProxyEnabled,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

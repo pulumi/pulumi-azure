@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:desktopvirtualization/getHostPool:getHostPool", {
         "name": args.name,
@@ -123,7 +122,11 @@ export interface GetHostPoolResult {
  * ```
  */
 export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
-    return pulumi.output(args).apply((a: any) => getHostPool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:desktopvirtualization/getHostPool:getHostPool", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

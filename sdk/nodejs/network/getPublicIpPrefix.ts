@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPublicIpPrefix(args: GetPublicIpPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpPrefixResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getPublicIpPrefix:getPublicIpPrefix", {
         "name": args.name,
@@ -99,7 +98,11 @@ export interface GetPublicIpPrefixResult {
  * ```
  */
 export function getPublicIpPrefixOutput(args: GetPublicIpPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpPrefixResult> {
-    return pulumi.output(args).apply((a: any) => getPublicIpPrefix(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getPublicIpPrefix:getPublicIpPrefix", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

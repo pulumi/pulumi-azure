@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIntegrationAccount(args: GetIntegrationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:logicapps/getIntegrationAccount:getIntegrationAccount", {
         "name": args.name,
@@ -83,7 +82,11 @@ export interface GetIntegrationAccountResult {
  * ```
  */
 export function getIntegrationAccountOutput(args: GetIntegrationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountResult> {
-    return pulumi.output(args).apply((a: any) => getIntegrationAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:logicapps/getIntegrationAccount:getIntegrationAccount", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

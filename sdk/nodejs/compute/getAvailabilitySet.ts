@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", {
         "name": args.name,
@@ -91,7 +90,11 @@ export interface GetAvailabilitySetResult {
  * ```
  */
 export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
-    return pulumi.output(args).apply((a: any) => getAvailabilitySet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getAvailabilitySet:getAvailabilitySet", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
