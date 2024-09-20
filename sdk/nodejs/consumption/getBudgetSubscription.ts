@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBudgetSubscription(args: GetBudgetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:consumption/getBudgetSubscription:getBudgetSubscription", {
         "name": args.name,
@@ -96,7 +95,11 @@ export interface GetBudgetSubscriptionResult {
  * ```
  */
 export function getBudgetSubscriptionOutput(args: GetBudgetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getBudgetSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:consumption/getBudgetSubscription:getBudgetSubscription", {
+        "name": args.name,
+        "subscriptionId": args.subscriptionId,
+    }, opts);
 }
 
 /**

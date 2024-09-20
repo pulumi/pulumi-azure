@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConfidentialLedger(args: GetConfidentialLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetConfidentialLedgerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getConfidentialLedger:getConfidentialLedger", {
         "name": args.name,
@@ -95,7 +94,11 @@ export interface GetConfidentialLedgerResult {
  * ```
  */
 export function getConfidentialLedgerOutput(args: GetConfidentialLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfidentialLedgerResult> {
-    return pulumi.output(args).apply((a: any) => getConfidentialLedger(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getConfidentialLedger:getConfidentialLedger", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
