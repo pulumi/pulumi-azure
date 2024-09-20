@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:sql/getDatabase:getDatabase", {
         "name": args.name,
@@ -129,7 +128,13 @@ export interface GetDatabaseResult {
  * ```
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:sql/getDatabase:getDatabase", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

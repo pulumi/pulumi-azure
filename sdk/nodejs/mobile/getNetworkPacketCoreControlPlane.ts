@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNetworkPacketCoreControlPlane(args: GetNetworkPacketCoreControlPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPacketCoreControlPlaneResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane", {
         "name": args.name,
@@ -122,7 +121,11 @@ export interface GetNetworkPacketCoreControlPlaneResult {
  * ```
  */
 export function getNetworkPacketCoreControlPlaneOutput(args: GetNetworkPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPacketCoreControlPlaneResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkPacketCoreControlPlane(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

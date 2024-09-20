@@ -62,14 +62,20 @@ type GetLBRuleResult struct {
 
 func GetLBRuleOutput(ctx *pulumi.Context, args GetLBRuleOutputArgs, opts ...pulumi.InvokeOption) GetLBRuleResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLBRuleResult, error) {
+		ApplyT(func(v interface{}) (GetLBRuleResultOutput, error) {
 			args := v.(GetLBRuleArgs)
-			r, err := GetLBRule(ctx, &args, opts...)
-			var s GetLBRuleResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetLBRuleResult
+			secret, err := ctx.InvokePackageRaw("azure:lb/getLBRule:getLBRule", args, &rv, "", opts...)
+			if err != nil {
+				return GetLBRuleResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetLBRuleResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetLBRuleResultOutput), nil
+			}
+			return output, nil
 		}).(GetLBRuleResultOutput)
 }
 

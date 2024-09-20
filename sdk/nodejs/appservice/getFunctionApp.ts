@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFunctionApp(args: GetFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getFunctionApp:getFunctionApp", {
         "name": args.name,
@@ -135,7 +134,12 @@ export interface GetFunctionAppResult {
  * ```
  */
 export function getFunctionAppOutput(args: GetFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppResult> {
-    return pulumi.output(args).apply((a: any) => getFunctionApp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appservice/getFunctionApp:getFunctionApp", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

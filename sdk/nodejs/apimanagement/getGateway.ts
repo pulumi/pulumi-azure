@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:apimanagement/getGateway:getGateway", {
         "apiManagementId": args.apiManagementId,
@@ -90,7 +89,11 @@ export interface GetGatewayResult {
  * ```
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:apimanagement/getGateway:getGateway", {
+        "apiManagementId": args.apiManagementId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

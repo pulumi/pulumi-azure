@@ -129,14 +129,20 @@ type GetComputeMachineResult struct {
 
 func GetComputeMachineOutput(ctx *pulumi.Context, args GetComputeMachineOutputArgs, opts ...pulumi.InvokeOption) GetComputeMachineResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetComputeMachineResult, error) {
+		ApplyT(func(v interface{}) (GetComputeMachineResultOutput, error) {
 			args := v.(GetComputeMachineArgs)
-			r, err := GetComputeMachine(ctx, &args, opts...)
-			var s GetComputeMachineResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetComputeMachineResult
+			secret, err := ctx.InvokePackageRaw("azure:hybrid/getComputeMachine:getComputeMachine", args, &rv, "", opts...)
+			if err != nil {
+				return GetComputeMachineResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetComputeMachineResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetComputeMachineResultOutput), nil
+			}
+			return output, nil
 		}).(GetComputeMachineResultOutput)
 }
 
