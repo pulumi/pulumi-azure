@@ -206,9 +206,6 @@ def get_service(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'),
         visibility_subscription_ids=pulumi.get(__ret__, 'visibility_subscription_ids'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
@@ -230,4 +227,20 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the private link service.
     :param str resource_group_name: The name of the resource group in which the private link service resides.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:privatelink/getService:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        alias=pulumi.get(__response__, 'alias'),
+        auto_approval_subscription_ids=pulumi.get(__response__, 'auto_approval_subscription_ids'),
+        enable_proxy_protocol=pulumi.get(__response__, 'enable_proxy_protocol'),
+        id=pulumi.get(__response__, 'id'),
+        load_balancer_frontend_ip_configuration_ids=pulumi.get(__response__, 'load_balancer_frontend_ip_configuration_ids'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        nat_ip_configurations=pulumi.get(__response__, 'nat_ip_configurations'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        visibility_subscription_ids=pulumi.get(__response__, 'visibility_subscription_ids')))

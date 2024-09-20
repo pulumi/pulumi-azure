@@ -82,14 +82,20 @@ type LookupNetworkSliceResult struct {
 
 func LookupNetworkSliceOutput(ctx *pulumi.Context, args LookupNetworkSliceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSliceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkSliceResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkSliceResultOutput, error) {
 			args := v.(LookupNetworkSliceArgs)
-			r, err := LookupNetworkSlice(ctx, &args, opts...)
-			var s LookupNetworkSliceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkSliceResult
+			secret, err := ctx.InvokePackageRaw("azure:mobile/getNetworkSlice:getNetworkSlice", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkSliceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkSliceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkSliceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkSliceResultOutput)
 }
 

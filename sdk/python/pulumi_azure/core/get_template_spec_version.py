@@ -138,9 +138,6 @@ def get_template_spec_version(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template_body=pulumi.get(__ret__, 'template_body'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_template_spec_version)
 def get_template_spec_version_output(name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      version: Optional[pulumi.Input[str]] = None,
@@ -165,4 +162,16 @@ def get_template_spec_version_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the Resource Group where the Template Spec exists.
     :param str version: The Version Name of the Template Spec.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:core/getTemplateSpecVersion:getTemplateSpecVersion', __args__, opts=opts, typ=GetTemplateSpecVersionResult)
+    return __ret__.apply(lambda __response__: GetTemplateSpecVersionResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        template_body=pulumi.get(__response__, 'template_body'),
+        version=pulumi.get(__response__, 'version')))

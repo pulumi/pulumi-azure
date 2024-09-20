@@ -350,9 +350,6 @@ def get_standard(name: Optional[str] = None,
         use_extension_bundle=pulumi.get(__ret__, 'use_extension_bundle'),
         version=pulumi.get(__ret__, 'version'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
-
-
-@_utilities.lift_output_func(get_standard)
 def get_standard_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         site_config: Optional[pulumi.Input[Optional[Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict']]]] = None,
@@ -376,4 +373,38 @@ def get_standard_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Logic App.
     :param str resource_group_name: The name of the Resource Group where the Logic App exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['siteConfig'] = site_config
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:logicapps/getStandard:getStandard', __args__, opts=opts, typ=GetStandardResult)
+    return __ret__.apply(lambda __response__: GetStandardResult(
+        app_service_plan_id=pulumi.get(__response__, 'app_service_plan_id'),
+        app_settings=pulumi.get(__response__, 'app_settings'),
+        bundle_version=pulumi.get(__response__, 'bundle_version'),
+        client_affinity_enabled=pulumi.get(__response__, 'client_affinity_enabled'),
+        client_certificate_mode=pulumi.get(__response__, 'client_certificate_mode'),
+        connection_strings=pulumi.get(__response__, 'connection_strings'),
+        custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
+        default_hostname=pulumi.get(__response__, 'default_hostname'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        https_only=pulumi.get(__response__, 'https_only'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        possible_outbound_ip_addresses=pulumi.get(__response__, 'possible_outbound_ip_addresses'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        site_config=pulumi.get(__response__, 'site_config'),
+        site_credentials=pulumi.get(__response__, 'site_credentials'),
+        storage_account_access_key=pulumi.get(__response__, 'storage_account_access_key'),
+        storage_account_name=pulumi.get(__response__, 'storage_account_name'),
+        storage_account_share_name=pulumi.get(__response__, 'storage_account_share_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        use_extension_bundle=pulumi.get(__response__, 'use_extension_bundle'),
+        version=pulumi.get(__response__, 'version'),
+        virtual_network_subnet_id=pulumi.get(__response__, 'virtual_network_subnet_id')))

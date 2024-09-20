@@ -362,9 +362,6 @@ def get_cache(name: Optional[str] = None,
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_cache)
 def get_cache_output(name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
@@ -387,4 +384,33 @@ def get_cache_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Redis cache
     :param str resource_group_name: The name of the resource group the Redis cache instance is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:redis/getCache:getCache', __args__, opts=opts, typ=GetCacheResult)
+    return __ret__.apply(lambda __response__: GetCacheResult(
+        capacity=pulumi.get(__response__, 'capacity'),
+        enable_non_ssl_port=pulumi.get(__response__, 'enable_non_ssl_port'),
+        family=pulumi.get(__response__, 'family'),
+        hostname=pulumi.get(__response__, 'hostname'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        minimum_tls_version=pulumi.get(__response__, 'minimum_tls_version'),
+        name=pulumi.get(__response__, 'name'),
+        non_ssl_port_enabled=pulumi.get(__response__, 'non_ssl_port_enabled'),
+        patch_schedules=pulumi.get(__response__, 'patch_schedules'),
+        port=pulumi.get(__response__, 'port'),
+        primary_access_key=pulumi.get(__response__, 'primary_access_key'),
+        primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
+        private_static_ip_address=pulumi.get(__response__, 'private_static_ip_address'),
+        redis_configurations=pulumi.get(__response__, 'redis_configurations'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__response__, 'secondary_access_key'),
+        secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
+        shard_count=pulumi.get(__response__, 'shard_count'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        ssl_port=pulumi.get(__response__, 'ssl_port'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        zones=pulumi.get(__response__, 'zones')))

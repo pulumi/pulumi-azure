@@ -153,9 +153,6 @@ def get_dashboard(dashboard_properties: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_dashboard)
 def get_dashboard_output(dashboard_properties: Optional[pulumi.Input[Optional[str]]] = None,
                          display_name: Optional[pulumi.Input[Optional[str]]] = None,
                          name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -181,4 +178,18 @@ def get_dashboard_output(dashboard_properties: Optional[pulumi.Input[Optional[st
     :param str name: Specifies the name of the shared Azure Portal Dashboard.
     :param str resource_group_name: Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['dashboardProperties'] = dashboard_properties
+    __args__['displayName'] = display_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:portal/getDashboard:getDashboard', __args__, opts=opts, typ=GetDashboardResult)
+    return __ret__.apply(lambda __response__: GetDashboardResult(
+        dashboard_properties=pulumi.get(__response__, 'dashboard_properties'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

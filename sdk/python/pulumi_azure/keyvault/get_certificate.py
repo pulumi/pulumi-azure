@@ -278,9 +278,6 @@ def get_certificate(key_vault_id: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'),
         versionless_id=pulumi.get(__ret__, 'versionless_id'),
         versionless_secret_id=pulumi.get(__ret__, 'versionless_secret_id'))
-
-
-@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(key_vault_id: Optional[pulumi.Input[str]] = None,
                            name: Optional[pulumi.Input[str]] = None,
                            version: Optional[pulumi.Input[Optional[str]]] = None,
@@ -308,4 +305,26 @@ def get_certificate_output(key_vault_id: Optional[pulumi.Input[str]] = None,
            
            **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['keyVaultId'] = key_vault_id
+    __args__['name'] = name
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
+    return __ret__.apply(lambda __response__: GetCertificateResult(
+        certificate_data=pulumi.get(__response__, 'certificate_data'),
+        certificate_data_base64=pulumi.get(__response__, 'certificate_data_base64'),
+        certificate_policies=pulumi.get(__response__, 'certificate_policies'),
+        expires=pulumi.get(__response__, 'expires'),
+        id=pulumi.get(__response__, 'id'),
+        key_vault_id=pulumi.get(__response__, 'key_vault_id'),
+        name=pulumi.get(__response__, 'name'),
+        not_before=pulumi.get(__response__, 'not_before'),
+        resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
+        resource_manager_versionless_id=pulumi.get(__response__, 'resource_manager_versionless_id'),
+        secret_id=pulumi.get(__response__, 'secret_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        thumbprint=pulumi.get(__response__, 'thumbprint'),
+        version=pulumi.get(__response__, 'version'),
+        versionless_id=pulumi.get(__response__, 'versionless_id'),
+        versionless_secret_id=pulumi.get(__response__, 'versionless_secret_id')))
