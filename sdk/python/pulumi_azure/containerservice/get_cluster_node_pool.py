@@ -432,9 +432,6 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
         vm_size=pulumi.get(__ret__, 'vm_size'),
         vnet_subnet_id=pulumi.get(__ret__, 'vnet_subnet_id'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_cluster_node_pool)
 def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
                                  name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -459,4 +456,39 @@ def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[
     :param str name: The name of this Kubernetes Cluster Node Pool.
     :param str resource_group_name: The name of the Resource Group where the Kubernetes Cluster exists.
     """
-    ...
+    __args__ = dict()
+    __args__['kubernetesClusterName'] = kubernetes_cluster_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:containerservice/getClusterNodePool:getClusterNodePool', __args__, opts=opts, typ=GetClusterNodePoolResult)
+    return __ret__.apply(lambda __response__: GetClusterNodePoolResult(
+        auto_scaling_enabled=pulumi.get(__response__, 'auto_scaling_enabled'),
+        enable_auto_scaling=pulumi.get(__response__, 'enable_auto_scaling'),
+        enable_node_public_ip=pulumi.get(__response__, 'enable_node_public_ip'),
+        eviction_policy=pulumi.get(__response__, 'eviction_policy'),
+        id=pulumi.get(__response__, 'id'),
+        kubernetes_cluster_name=pulumi.get(__response__, 'kubernetes_cluster_name'),
+        max_count=pulumi.get(__response__, 'max_count'),
+        max_pods=pulumi.get(__response__, 'max_pods'),
+        min_count=pulumi.get(__response__, 'min_count'),
+        mode=pulumi.get(__response__, 'mode'),
+        name=pulumi.get(__response__, 'name'),
+        node_count=pulumi.get(__response__, 'node_count'),
+        node_labels=pulumi.get(__response__, 'node_labels'),
+        node_public_ip_enabled=pulumi.get(__response__, 'node_public_ip_enabled'),
+        node_public_ip_prefix_id=pulumi.get(__response__, 'node_public_ip_prefix_id'),
+        node_taints=pulumi.get(__response__, 'node_taints'),
+        orchestrator_version=pulumi.get(__response__, 'orchestrator_version'),
+        os_disk_size_gb=pulumi.get(__response__, 'os_disk_size_gb'),
+        os_disk_type=pulumi.get(__response__, 'os_disk_type'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        priority=pulumi.get(__response__, 'priority'),
+        proximity_placement_group_id=pulumi.get(__response__, 'proximity_placement_group_id'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        spot_max_price=pulumi.get(__response__, 'spot_max_price'),
+        tags=pulumi.get(__response__, 'tags'),
+        upgrade_settings=pulumi.get(__response__, 'upgrade_settings'),
+        vm_size=pulumi.get(__response__, 'vm_size'),
+        vnet_subnet_id=pulumi.get(__response__, 'vnet_subnet_id'),
+        zones=pulumi.get(__response__, 'zones')))

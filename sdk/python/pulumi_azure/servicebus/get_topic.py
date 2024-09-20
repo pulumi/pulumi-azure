@@ -258,9 +258,6 @@ def get_topic(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         status=pulumi.get(__ret__, 'status'),
         support_ordering=pulumi.get(__ret__, 'support_ordering'))
-
-
-@_utilities.lift_output_func(get_topic)
 def get_topic_output(name: Optional[pulumi.Input[str]] = None,
                      namespace_id: Optional[pulumi.Input[Optional[str]]] = None,
                      namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -288,4 +285,26 @@ def get_topic_output(name: Optional[pulumi.Input[str]] = None,
            
            > **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['namespaceId'] = namespace_id
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getTopic:getTopic', __args__, opts=opts, typ=GetTopicResult)
+    return __ret__.apply(lambda __response__: GetTopicResult(
+        auto_delete_on_idle=pulumi.get(__response__, 'auto_delete_on_idle'),
+        default_message_ttl=pulumi.get(__response__, 'default_message_ttl'),
+        duplicate_detection_history_time_window=pulumi.get(__response__, 'duplicate_detection_history_time_window'),
+        enable_batched_operations=pulumi.get(__response__, 'enable_batched_operations'),
+        enable_express=pulumi.get(__response__, 'enable_express'),
+        enable_partitioning=pulumi.get(__response__, 'enable_partitioning'),
+        id=pulumi.get(__response__, 'id'),
+        max_size_in_megabytes=pulumi.get(__response__, 'max_size_in_megabytes'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_id=pulumi.get(__response__, 'namespace_id'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        requires_duplicate_detection=pulumi.get(__response__, 'requires_duplicate_detection'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        status=pulumi.get(__response__, 'status'),
+        support_ordering=pulumi.get(__response__, 'support_ordering')))

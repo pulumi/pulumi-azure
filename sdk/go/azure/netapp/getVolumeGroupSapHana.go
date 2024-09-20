@@ -81,14 +81,20 @@ type LookupVolumeGroupSapHanaResult struct {
 
 func LookupVolumeGroupSapHanaOutput(ctx *pulumi.Context, args LookupVolumeGroupSapHanaOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeGroupSapHanaResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVolumeGroupSapHanaResult, error) {
+		ApplyT(func(v interface{}) (LookupVolumeGroupSapHanaResultOutput, error) {
 			args := v.(LookupVolumeGroupSapHanaArgs)
-			r, err := LookupVolumeGroupSapHana(ctx, &args, opts...)
-			var s LookupVolumeGroupSapHanaResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVolumeGroupSapHanaResult
+			secret, err := ctx.InvokePackageRaw("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVolumeGroupSapHanaResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVolumeGroupSapHanaResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVolumeGroupSapHanaResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVolumeGroupSapHanaResultOutput)
 }
 

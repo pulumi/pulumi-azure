@@ -202,9 +202,6 @@ def get_registry(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_registry)
 def get_registry_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
@@ -226,4 +223,20 @@ def get_registry_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Container Registry.
     :param str resource_group_name: The Name of the Resource Group where this Container Registry exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:containerservice/getRegistry:getRegistry', __args__, opts=opts, typ=GetRegistryResult)
+    return __ret__.apply(lambda __response__: GetRegistryResult(
+        admin_enabled=pulumi.get(__response__, 'admin_enabled'),
+        admin_password=pulumi.get(__response__, 'admin_password'),
+        admin_username=pulumi.get(__response__, 'admin_username'),
+        data_endpoint_enabled=pulumi.get(__response__, 'data_endpoint_enabled'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        login_server=pulumi.get(__response__, 'login_server'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags')))

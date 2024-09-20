@@ -90,14 +90,20 @@ type GetSoaRecordResult struct {
 
 func GetSoaRecordOutput(ctx *pulumi.Context, args GetSoaRecordOutputArgs, opts ...pulumi.InvokeOption) GetSoaRecordResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSoaRecordResult, error) {
+		ApplyT(func(v interface{}) (GetSoaRecordResultOutput, error) {
 			args := v.(GetSoaRecordArgs)
-			r, err := GetSoaRecord(ctx, &args, opts...)
-			var s GetSoaRecordResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSoaRecordResult
+			secret, err := ctx.InvokePackageRaw("azure:privatedns/getSoaRecord:getSoaRecord", args, &rv, "", opts...)
+			if err != nil {
+				return GetSoaRecordResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSoaRecordResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSoaRecordResultOutput), nil
+			}
+			return output, nil
 		}).(GetSoaRecordResultOutput)
 }
 

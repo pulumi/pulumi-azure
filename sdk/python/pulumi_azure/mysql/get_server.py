@@ -319,9 +319,6 @@ def get_server(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         threat_detection_policies=pulumi.get(__ret__, 'threat_detection_policies'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_server)
 def get_server_output(name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
@@ -345,4 +342,29 @@ def get_server_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the MySQL Server.
     :param str resource_group_name: The name of the resource group for the MySQL Server.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mysql/getServer:getServer', __args__, opts=opts, typ=GetServerResult)
+    return __ret__.apply(lambda __response__: GetServerResult(
+        administrator_login=pulumi.get(__response__, 'administrator_login'),
+        auto_grow_enabled=pulumi.get(__response__, 'auto_grow_enabled'),
+        backup_retention_days=pulumi.get(__response__, 'backup_retention_days'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        geo_redundant_backup_enabled=pulumi.get(__response__, 'geo_redundant_backup_enabled'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        infrastructure_encryption_enabled=pulumi.get(__response__, 'infrastructure_encryption_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        restore_point_in_time=pulumi.get(__response__, 'restore_point_in_time'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        ssl_enforcement_enabled=pulumi.get(__response__, 'ssl_enforcement_enabled'),
+        ssl_minimal_tls_version_enforced=pulumi.get(__response__, 'ssl_minimal_tls_version_enforced'),
+        storage_mb=pulumi.get(__response__, 'storage_mb'),
+        tags=pulumi.get(__response__, 'tags'),
+        threat_detection_policies=pulumi.get(__response__, 'threat_detection_policies'),
+        version=pulumi.get(__response__, 'version')))

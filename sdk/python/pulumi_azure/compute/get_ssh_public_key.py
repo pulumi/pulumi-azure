@@ -124,9 +124,6 @@ def get_ssh_public_key(name: Optional[str] = None,
         public_key=pulumi.get(__ret__, 'public_key'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_ssh_public_key)
 def get_ssh_public_key_output(name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -150,4 +147,15 @@ def get_ssh_public_key_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the Resource Group where the SSH Public Key exists.
     :param Mapping[str, str] tags: A mapping of tags which should be assigned to the SSH Public Key.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getSshPublicKey:getSshPublicKey', __args__, opts=opts, typ=GetSshPublicKeyResult)
+    return __ret__.apply(lambda __response__: GetSshPublicKeyResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        public_key=pulumi.get(__response__, 'public_key'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))
