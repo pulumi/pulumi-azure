@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getManagedHardwareSecurityModuleRoleDefinition(args: GetManagedHardwareSecurityModuleRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHardwareSecurityModuleRoleDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", {
         "managedHsmId": args.managedHsmId,
@@ -100,7 +99,12 @@ export interface GetManagedHardwareSecurityModuleRoleDefinitionResult {
  * ```
  */
 export function getManagedHardwareSecurityModuleRoleDefinitionOutput(args: GetManagedHardwareSecurityModuleRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getManagedHardwareSecurityModuleRoleDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", {
+        "managedHsmId": args.managedHsmId,
+        "name": args.name,
+        "vaultBaseUrl": args.vaultBaseUrl,
+    }, opts);
 }
 
 /**

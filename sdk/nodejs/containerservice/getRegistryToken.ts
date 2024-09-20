@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRegistryToken(args: GetRegistryTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:containerservice/getRegistryToken:getRegistryToken", {
         "containerRegistryName": args.containerRegistryName,
@@ -87,7 +86,12 @@ export interface GetRegistryTokenResult {
  * ```
  */
 export function getRegistryTokenOutput(args: GetRegistryTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryTokenResult> {
-    return pulumi.output(args).apply((a: any) => getRegistryToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:containerservice/getRegistryToken:getRegistryToken", {
+        "containerRegistryName": args.containerRegistryName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

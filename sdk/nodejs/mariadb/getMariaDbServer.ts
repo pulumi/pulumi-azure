@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMariaDbServer(args: GetMariaDbServerArgs, opts?: pulumi.InvokeOptions): Promise<GetMariaDbServerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mariadb/getMariaDbServer:getMariaDbServer", {
         "name": args.name,
@@ -105,7 +104,11 @@ export interface GetMariaDbServerResult {
  * ```
  */
 export function getMariaDbServerOutput(args: GetMariaDbServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMariaDbServerResult> {
-    return pulumi.output(args).apply((a: any) => getMariaDbServer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:mariadb/getMariaDbServer:getMariaDbServer", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
