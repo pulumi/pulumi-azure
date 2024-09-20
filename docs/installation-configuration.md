@@ -14,7 +14,7 @@ The Azure Classic provider is available as a package in all Pulumi languages:
 
 - JavaScript/TypeScript: [`@pulumi/azure`](https://www.npmjs.com/package/@pulumi/azure)
 - Python: [`pulumi-azure`](https://pypi.org/project/pulumi-azure/)
-- Go: [`github.com/pulumi/pulumi-azure/sdk/v5/go/azure`](https://github.com/pulumi/pulumi-azure)
+- Go: [`github.com/pulumi/pulumi-azure/sdk/v6/go/azure`](https://github.com/pulumi/pulumi-azure)
 - .NET: [`Pulumi.Azure`](https://www.nuget.org/packages/Pulumi.Azure)
 - Java: [`com.pulumi.azure`](https://search.maven.org/search?q=com.pulumi.azure)
 
