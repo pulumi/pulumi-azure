@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServicePlan(args: GetServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetServicePlanResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getServicePlan:getServicePlan", {
         "name": args.name,
@@ -115,7 +114,11 @@ export interface GetServicePlanResult {
  * ```
  */
 export function getServicePlanOutput(args: GetServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServicePlanResult> {
-    return pulumi.output(args).apply((a: any) => getServicePlan(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appservice/getServicePlan:getServicePlan", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

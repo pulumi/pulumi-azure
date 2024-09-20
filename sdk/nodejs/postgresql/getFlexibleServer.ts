@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFlexibleServer(args: GetFlexibleServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFlexibleServerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:postgresql/getFlexibleServer:getFlexibleServer", {
         "name": args.name,
@@ -115,7 +114,11 @@ export interface GetFlexibleServerResult {
  * ```
  */
 export function getFlexibleServerOutput(args: GetFlexibleServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlexibleServerResult> {
-    return pulumi.output(args).apply((a: any) => getFlexibleServer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:postgresql/getFlexibleServer:getFlexibleServer", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

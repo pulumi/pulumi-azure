@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBlob(args: GetBlobArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getBlob:getBlob", {
         "metadata": args.metadata,
@@ -110,7 +109,13 @@ export interface GetBlobResult {
  * ```
  */
 export function getBlobOutput(args: GetBlobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobResult> {
-    return pulumi.output(args).apply((a: any) => getBlob(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:storage/getBlob:getBlob", {
+        "metadata": args.metadata,
+        "name": args.name,
+        "storageAccountName": args.storageAccountName,
+        "storageContainerName": args.storageContainerName,
+    }, opts);
 }
 
 /**

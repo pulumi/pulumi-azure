@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", {
         "name": args.name,
@@ -87,7 +86,12 @@ export interface GetTemplateSpecVersionResult {
  * ```
  */
 export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
-    return pulumi.output(args).apply((a: any) => getTemplateSpecVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "version": args.version,
+    }, opts);
 }
 
 /**
