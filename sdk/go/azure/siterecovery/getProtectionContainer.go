@@ -75,14 +75,20 @@ type LookupProtectionContainerResult struct {
 
 func LookupProtectionContainerOutput(ctx *pulumi.Context, args LookupProtectionContainerOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionContainerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupProtectionContainerResult, error) {
+		ApplyT(func(v interface{}) (LookupProtectionContainerResultOutput, error) {
 			args := v.(LookupProtectionContainerArgs)
-			r, err := LookupProtectionContainer(ctx, &args, opts...)
-			var s LookupProtectionContainerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupProtectionContainerResult
+			secret, err := ctx.InvokePackageRaw("azure:siterecovery/getProtectionContainer:getProtectionContainer", args, &rv, "", opts...)
+			if err != nil {
+				return LookupProtectionContainerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupProtectionContainerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupProtectionContainerResultOutput), nil
+			}
+			return output, nil
 		}).(LookupProtectionContainerResultOutput)
 }
 

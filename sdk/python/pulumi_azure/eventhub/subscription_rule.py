@@ -323,7 +323,7 @@ class SubscriptionRule(pulumi.CustomResource):
                 "correlation_id": "high",
                 "label": "red",
                 "properties": {
-                    "custom_property": "value",
+                    "customProperty": "value",
                 },
             })
         ```
@@ -421,7 +421,7 @@ class SubscriptionRule(pulumi.CustomResource):
                 "correlation_id": "high",
                 "label": "red",
                 "properties": {
-                    "custom_property": "value",
+                    "customProperty": "value",
                 },
             })
         ```
