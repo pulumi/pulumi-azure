@@ -96,14 +96,20 @@ type GetServiceBusNamespaceResult struct {
 
 func GetServiceBusNamespaceOutput(ctx *pulumi.Context, args GetServiceBusNamespaceOutputArgs, opts ...pulumi.InvokeOption) GetServiceBusNamespaceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetServiceBusNamespaceResult, error) {
+		ApplyT(func(v interface{}) (GetServiceBusNamespaceResultOutput, error) {
 			args := v.(GetServiceBusNamespaceArgs)
-			r, err := GetServiceBusNamespace(ctx, &args, opts...)
-			var s GetServiceBusNamespaceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetServiceBusNamespaceResult
+			secret, err := ctx.InvokePackageRaw("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args, &rv, "", opts...)
+			if err != nil {
+				return GetServiceBusNamespaceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetServiceBusNamespaceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetServiceBusNamespaceResultOutput), nil
+			}
+			return output, nil
 		}).(GetServiceBusNamespaceResultOutput)
 }
 

@@ -73,14 +73,20 @@ type LookupResolverInboundEndpointResult struct {
 
 func LookupResolverInboundEndpointOutput(ctx *pulumi.Context, args LookupResolverInboundEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupResolverInboundEndpointResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupResolverInboundEndpointResult, error) {
+		ApplyT(func(v interface{}) (LookupResolverInboundEndpointResultOutput, error) {
 			args := v.(LookupResolverInboundEndpointArgs)
-			r, err := LookupResolverInboundEndpoint(ctx, &args, opts...)
-			var s LookupResolverInboundEndpointResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupResolverInboundEndpointResult
+			secret, err := ctx.InvokePackageRaw("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args, &rv, "", opts...)
+			if err != nil {
+				return LookupResolverInboundEndpointResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupResolverInboundEndpointResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupResolverInboundEndpointResultOutput), nil
+			}
+			return output, nil
 		}).(LookupResolverInboundEndpointResultOutput)
 }
 

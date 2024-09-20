@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", {
         "name": args.name,
@@ -99,7 +98,11 @@ export interface GetApplicationGroupResult {
  * ```
  */
 export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
