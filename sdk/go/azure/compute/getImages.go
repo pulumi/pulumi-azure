@@ -68,14 +68,20 @@ type GetImagesResult struct {
 
 func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulumi.InvokeOption) GetImagesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetImagesResult, error) {
+		ApplyT(func(v interface{}) (GetImagesResultOutput, error) {
 			args := v.(GetImagesArgs)
-			r, err := GetImages(ctx, &args, opts...)
-			var s GetImagesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetImagesResult
+			secret, err := ctx.InvokePackageRaw("azure:compute/getImages:getImages", args, &rv, "", opts...)
+			if err != nil {
+				return GetImagesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetImagesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetImagesResultOutput), nil
+			}
+			return output, nil
 		}).(GetImagesResultOutput)
 }
 

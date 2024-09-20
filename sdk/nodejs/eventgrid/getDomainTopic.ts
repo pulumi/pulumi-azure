@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventgrid/getDomainTopic:getDomainTopic", {
         "domainName": args.domainName,
@@ -78,7 +77,12 @@ export interface GetDomainTopicResult {
  * ```
  */
 export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {
-    return pulumi.output(args).apply((a: any) => getDomainTopic(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:eventgrid/getDomainTopic:getDomainTopic", {
+        "domainName": args.domainName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

@@ -373,7 +373,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             actions=[{
                 "action_group_id": main.id,
                 "webhook_properties": {
-                    "from_": "source",
+                    "from": "source",
                 },
             }])
         ```
@@ -443,7 +443,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             actions=[{
                 "action_group_id": main.id,
                 "webhook_properties": {
-                    "from_": "source",
+                    "from": "source",
                 },
             }])
         ```

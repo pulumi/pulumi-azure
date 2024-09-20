@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualMachineManagerInventoryItems(args: GetVirtualMachineManagerInventoryItemsArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineManagerInventoryItemsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", {
         "inventoryType": args.inventoryType,
@@ -75,7 +74,11 @@ export interface GetVirtualMachineManagerInventoryItemsResult {
  * ```
  */
 export function getVirtualMachineManagerInventoryItemsOutput(args: GetVirtualMachineManagerInventoryItemsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineManagerInventoryItemsResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineManagerInventoryItems(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", {
+        "inventoryType": args.inventoryType,
+        "systemCenterVirtualMachineManagerServerId": args.systemCenterVirtualMachineManagerServerId,
+    }, opts);
 }
 
 /**

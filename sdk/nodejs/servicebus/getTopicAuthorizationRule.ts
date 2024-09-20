@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", {
         "name": args.name,
@@ -120,7 +119,15 @@ export interface GetTopicAuthorizationRuleResult {
  * ```
  */
 export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getTopicAuthorizationRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", {
+        "name": args.name,
+        "namespaceName": args.namespaceName,
+        "queueName": args.queueName,
+        "resourceGroupName": args.resourceGroupName,
+        "topicId": args.topicId,
+        "topicName": args.topicName,
+    }, opts);
 }
 
 /**
