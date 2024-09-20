@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTxtRecord(args: GetTxtRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetTxtRecordResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getTxtRecord:getTxtRecord", {
         "name": args.name,
@@ -93,7 +92,12 @@ export interface GetTxtRecordResult {
  * ```
  */
 export function getTxtRecordOutput(args: GetTxtRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTxtRecordResult> {
-    return pulumi.output(args).apply((a: any) => getTxtRecord(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:privatedns/getTxtRecord:getTxtRecord", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "zoneName": args.zoneName,
+    }, opts);
 }
 
 /**

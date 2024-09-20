@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:apimanagement/getApiVersionSet:getApiVersionSet", {
         "apiManagementName": args.apiManagementName,
@@ -96,7 +95,12 @@ export interface GetApiVersionSetResult {
  * ```
  */
 export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionSetResult> {
-    return pulumi.output(args).apply((a: any) => getApiVersionSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:apimanagement/getApiVersionSet:getApiVersionSet", {
+        "apiManagementName": args.apiManagementName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

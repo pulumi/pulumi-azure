@@ -95,14 +95,20 @@ type LookupTopicAuthorizationRuleResult struct {
 
 func LookupTopicAuthorizationRuleOutput(ctx *pulumi.Context, args LookupTopicAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupTopicAuthorizationRuleResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTopicAuthorizationRuleResult, error) {
+		ApplyT(func(v interface{}) (LookupTopicAuthorizationRuleResultOutput, error) {
 			args := v.(LookupTopicAuthorizationRuleArgs)
-			r, err := LookupTopicAuthorizationRule(ctx, &args, opts...)
-			var s LookupTopicAuthorizationRuleResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTopicAuthorizationRuleResult
+			secret, err := ctx.InvokePackageRaw("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTopicAuthorizationRuleResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTopicAuthorizationRuleResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTopicAuthorizationRuleResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTopicAuthorizationRuleResultOutput)
 }
 

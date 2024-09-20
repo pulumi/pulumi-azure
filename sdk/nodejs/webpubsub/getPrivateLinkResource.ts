@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPrivateLinkResource(args: GetPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkResourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", {
         "webPubsubId": args.webPubsubId,
@@ -89,7 +88,10 @@ export interface GetPrivateLinkResourceResult {
  * ```
  */
 export function getPrivateLinkResourceOutput(args: GetPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkResourceResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkResource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", {
+        "webPubsubId": args.webPubsubId,
+    }, opts);
 }
 
 /**

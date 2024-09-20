@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFrontdoorSecret(args: GetFrontdoorSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorSecretResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", {
         "name": args.name,
@@ -87,7 +86,12 @@ export interface GetFrontdoorSecretResult {
  * ```
  */
 export function getFrontdoorSecretOutput(args: GetFrontdoorSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorSecretResult> {
-    return pulumi.output(args).apply((a: any) => getFrontdoorSecret(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", {
+        "name": args.name,
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

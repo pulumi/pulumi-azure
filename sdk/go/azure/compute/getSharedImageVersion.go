@@ -99,14 +99,20 @@ type LookupSharedImageVersionResult struct {
 
 func LookupSharedImageVersionOutput(ctx *pulumi.Context, args LookupSharedImageVersionOutputArgs, opts ...pulumi.InvokeOption) LookupSharedImageVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSharedImageVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupSharedImageVersionResultOutput, error) {
 			args := v.(LookupSharedImageVersionArgs)
-			r, err := LookupSharedImageVersion(ctx, &args, opts...)
-			var s LookupSharedImageVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSharedImageVersionResult
+			secret, err := ctx.InvokePackageRaw("azure:compute/getSharedImageVersion:getSharedImageVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSharedImageVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSharedImageVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSharedImageVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSharedImageVersionResultOutput)
 }
 

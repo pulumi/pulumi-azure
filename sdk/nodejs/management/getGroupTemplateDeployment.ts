@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Management Group Template Deployment.
  */
 export function getGroupTemplateDeployment(args: GetGroupTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupTemplateDeploymentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", {
         "managementGroupId": args.managementGroupId,
@@ -49,7 +48,11 @@ export interface GetGroupTemplateDeploymentResult {
  * Use this data source to access information about an existing Management Group Template Deployment.
  */
 export function getGroupTemplateDeploymentOutput(args: GetGroupTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupTemplateDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getGroupTemplateDeployment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", {
+        "managementGroupId": args.managementGroupId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

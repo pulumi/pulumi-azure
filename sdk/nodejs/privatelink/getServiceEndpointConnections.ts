@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServiceEndpointConnections(args: GetServiceEndpointConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointConnectionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", {
         "resourceGroupName": args.resourceGroupName,
@@ -79,7 +78,11 @@ export interface GetServiceEndpointConnectionsResult {
  * ```
  */
 export function getServiceEndpointConnectionsOutput(args: GetServiceEndpointConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointConnectionsResult> {
-    return pulumi.output(args).apply((a: any) => getServiceEndpointConnections(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", {
+        "resourceGroupName": args.resourceGroupName,
+        "serviceId": args.serviceId,
+    }, opts);
 }
 
 /**

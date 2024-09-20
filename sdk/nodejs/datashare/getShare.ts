@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:datashare/getShare:getShare", {
         "accountId": args.accountId,
@@ -100,7 +99,11 @@ export interface GetShareResult {
  * ```
  */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
-    return pulumi.output(args).apply((a: any) => getShare(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:datashare/getShare:getShare", {
+        "accountId": args.accountId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

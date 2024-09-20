@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVolumeGroupSapHana(args: GetVolumeGroupSapHanaArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupSapHanaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", {
         "accountName": args.accountName,
@@ -100,7 +99,12 @@ export interface GetVolumeGroupSapHanaResult {
  * ```
  */
 export function getVolumeGroupSapHanaOutput(args: GetVolumeGroupSapHanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupSapHanaResult> {
-    return pulumi.output(args).apply((a: any) => getVolumeGroupSapHana(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", {
+        "accountName": args.accountName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

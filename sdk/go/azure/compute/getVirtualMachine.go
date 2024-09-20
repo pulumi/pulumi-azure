@@ -81,14 +81,20 @@ type LookupVirtualMachineResult struct {
 
 func LookupVirtualMachineOutput(ctx *pulumi.Context, args LookupVirtualMachineOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualMachineResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualMachineResultOutput, error) {
 			args := v.(LookupVirtualMachineArgs)
-			r, err := LookupVirtualMachine(ctx, &args, opts...)
-			var s LookupVirtualMachineResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualMachineResult
+			secret, err := ctx.InvokePackageRaw("azure:compute/getVirtualMachine:getVirtualMachine", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualMachineResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualMachineResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualMachineResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualMachineResultOutput)
 }
 

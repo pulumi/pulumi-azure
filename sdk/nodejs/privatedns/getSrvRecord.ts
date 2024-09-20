@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSrvRecord(args: GetSrvRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetSrvRecordResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getSrvRecord:getSrvRecord", {
         "name": args.name,
@@ -93,7 +92,12 @@ export interface GetSrvRecordResult {
  * ```
  */
 export function getSrvRecordOutput(args: GetSrvRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSrvRecordResult> {
-    return pulumi.output(args).apply((a: any) => getSrvRecord(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:privatedns/getSrvRecord:getSrvRecord", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "zoneName": args.zoneName,
+    }, opts);
 }
 
 /**

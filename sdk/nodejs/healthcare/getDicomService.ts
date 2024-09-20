@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDicomService(args: GetDicomServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDicomServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:healthcare/getDicomService:getDicomService", {
         "name": args.name,
@@ -91,7 +90,11 @@ export interface GetDicomServiceResult {
  * ```
  */
 export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {
-    return pulumi.output(args).apply((a: any) => getDicomService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:healthcare/getDicomService:getDicomService", {
+        "name": args.name,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 /**

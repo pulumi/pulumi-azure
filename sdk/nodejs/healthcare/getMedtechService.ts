@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMedtechService(args: GetMedtechServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMedtechServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:healthcare/getMedtechService:getMedtechService", {
         "name": args.name,
@@ -93,7 +92,11 @@ export interface GetMedtechServiceResult {
  * ```
  */
 export function getMedtechServiceOutput(args: GetMedtechServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMedtechServiceResult> {
-    return pulumi.output(args).apply((a: any) => getMedtechService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:healthcare/getMedtechService:getMedtechService", {
+        "name": args.name,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 /**

@@ -104,14 +104,20 @@ type LookupManagedInstanceResult struct {
 
 func LookupManagedInstanceOutput(ctx *pulumi.Context, args LookupManagedInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupManagedInstanceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupManagedInstanceResult, error) {
+		ApplyT(func(v interface{}) (LookupManagedInstanceResultOutput, error) {
 			args := v.(LookupManagedInstanceArgs)
-			r, err := LookupManagedInstance(ctx, &args, opts...)
-			var s LookupManagedInstanceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupManagedInstanceResult
+			secret, err := ctx.InvokePackageRaw("azure:mssql/getManagedInstance:getManagedInstance", args, &rv, "", opts...)
+			if err != nil {
+				return LookupManagedInstanceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupManagedInstanceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupManagedInstanceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupManagedInstanceResultOutput)
 }
 

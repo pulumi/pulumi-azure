@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccessConnector(args: GetAccessConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:databricks/getAccessConnector:getAccessConnector", {
         "name": args.name,
@@ -85,7 +84,11 @@ export interface GetAccessConnectorResult {
  * ```
  */
 export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getAccessConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:databricks/getAccessConnector:getAccessConnector", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

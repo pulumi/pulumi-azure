@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResolverForwardingRule(args: GetResolverForwardingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverForwardingRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", {
         "dnsForwardingRulesetId": args.dnsForwardingRulesetId,
@@ -87,7 +86,11 @@ export interface GetResolverForwardingRuleResult {
  * ```
  */
 export function getResolverForwardingRuleOutput(args: GetResolverForwardingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverForwardingRuleResult> {
-    return pulumi.output(args).apply((a: any) => getResolverForwardingRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", {
+        "dnsForwardingRulesetId": args.dnsForwardingRulesetId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

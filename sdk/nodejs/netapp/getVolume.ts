@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:netapp/getVolume:getVolume", {
         "accountName": args.accountName,
@@ -148,7 +147,14 @@ export interface GetVolumeResult {
  * ```
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:netapp/getVolume:getVolume", {
+        "accountName": args.accountName,
+        "name": args.name,
+        "poolName": args.poolName,
+        "resourceGroupName": args.resourceGroupName,
+        "securityStyle": args.securityStyle,
+    }, opts);
 }
 
 /**

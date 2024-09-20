@@ -82,14 +82,20 @@ type LookupScheduledQueryRulesLogResult struct {
 
 func LookupScheduledQueryRulesLogOutput(ctx *pulumi.Context, args LookupScheduledQueryRulesLogOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledQueryRulesLogResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupScheduledQueryRulesLogResult, error) {
+		ApplyT(func(v interface{}) (LookupScheduledQueryRulesLogResultOutput, error) {
 			args := v.(LookupScheduledQueryRulesLogArgs)
-			r, err := LookupScheduledQueryRulesLog(ctx, &args, opts...)
-			var s LookupScheduledQueryRulesLogResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupScheduledQueryRulesLogResult
+			secret, err := ctx.InvokePackageRaw("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args, &rv, "", opts...)
+			if err != nil {
+				return LookupScheduledQueryRulesLogResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupScheduledQueryRulesLogResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupScheduledQueryRulesLogResultOutput), nil
+			}
+			return output, nil
 		}).(LookupScheduledQueryRulesLogResultOutput)
 }
 

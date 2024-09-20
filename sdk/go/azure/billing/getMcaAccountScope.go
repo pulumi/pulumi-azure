@@ -72,14 +72,20 @@ type GetMcaAccountScopeResult struct {
 
 func GetMcaAccountScopeOutput(ctx *pulumi.Context, args GetMcaAccountScopeOutputArgs, opts ...pulumi.InvokeOption) GetMcaAccountScopeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetMcaAccountScopeResult, error) {
+		ApplyT(func(v interface{}) (GetMcaAccountScopeResultOutput, error) {
 			args := v.(GetMcaAccountScopeArgs)
-			r, err := GetMcaAccountScope(ctx, &args, opts...)
-			var s GetMcaAccountScopeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetMcaAccountScopeResult
+			secret, err := ctx.InvokePackageRaw("azure:billing/getMcaAccountScope:getMcaAccountScope", args, &rv, "", opts...)
+			if err != nil {
+				return GetMcaAccountScopeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetMcaAccountScopeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetMcaAccountScopeResultOutput), nil
+			}
+			return output, nil
 		}).(GetMcaAccountScopeResultOutput)
 }
 

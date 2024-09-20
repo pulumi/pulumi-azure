@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAgreement(args: GetAgreementArgs, opts?: pulumi.InvokeOptions): Promise<GetAgreementResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:marketplace/getAgreement:getAgreement", {
         "offer": args.offer,
@@ -81,7 +80,12 @@ export interface GetAgreementResult {
  * ```
  */
 export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgreementResult> {
-    return pulumi.output(args).apply((a: any) => getAgreement(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:marketplace/getAgreement:getAgreement", {
+        "offer": args.offer,
+        "plan": args.plan,
+        "publisher": args.publisher,
+    }, opts);
 }
 
 /**

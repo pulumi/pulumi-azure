@@ -91,14 +91,20 @@ type GetResult struct {
 
 func GetOutput(ctx *pulumi.Context, args GetOutputArgs, opts ...pulumi.InvokeOption) GetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetResult, error) {
+		ApplyT(func(v interface{}) (GetResultOutput, error) {
 			args := v.(GetArgs)
-			r, err := Get(ctx, &args, opts...)
-			var s GetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetResult
+			secret, err := ctx.InvokePackageRaw("azure:elasticsan/get:get", args, &rv, "", opts...)
+			if err != nil {
+				return GetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetResultOutput), nil
+			}
+			return output, nil
 		}).(GetResultOutput)
 }
 

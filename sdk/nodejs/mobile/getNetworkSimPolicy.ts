@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNetworkSimPolicy(args: GetNetworkSimPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSimPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", {
         "mobileNetworkId": args.mobileNetworkId,
@@ -107,7 +106,11 @@ export interface GetNetworkSimPolicyResult {
  * ```
  */
 export function getNetworkSimPolicyOutput(args: GetNetworkSimPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSimPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkSimPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", {
+        "mobileNetworkId": args.mobileNetworkId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

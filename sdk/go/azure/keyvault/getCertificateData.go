@@ -96,14 +96,20 @@ type GetCertificateDataResult struct {
 
 func GetCertificateDataOutput(ctx *pulumi.Context, args GetCertificateDataOutputArgs, opts ...pulumi.InvokeOption) GetCertificateDataResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetCertificateDataResult, error) {
+		ApplyT(func(v interface{}) (GetCertificateDataResultOutput, error) {
 			args := v.(GetCertificateDataArgs)
-			r, err := GetCertificateData(ctx, &args, opts...)
-			var s GetCertificateDataResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetCertificateDataResult
+			secret, err := ctx.InvokePackageRaw("azure:keyvault/getCertificateData:getCertificateData", args, &rv, "", opts...)
+			if err != nil {
+				return GetCertificateDataResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetCertificateDataResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetCertificateDataResultOutput), nil
+			}
+			return output, nil
 		}).(GetCertificateDataResultOutput)
 }
 

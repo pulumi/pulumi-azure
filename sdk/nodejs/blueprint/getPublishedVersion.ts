@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPublishedVersion(args: GetPublishedVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:blueprint/getPublishedVersion:getPublishedVersion", {
         "blueprintName": args.blueprintName,
@@ -101,7 +100,12 @@ export interface GetPublishedVersionResult {
  * ```
  */
 export function getPublishedVersionOutput(args: GetPublishedVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedVersionResult> {
-    return pulumi.output(args).apply((a: any) => getPublishedVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:blueprint/getPublishedVersion:getPublishedVersion", {
+        "blueprintName": args.blueprintName,
+        "scopeId": args.scopeId,
+        "version": args.version,
+    }, opts);
 }
 
 /**

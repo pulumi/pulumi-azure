@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStaticWebApp(args: GetStaticWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticWebAppResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getStaticWebApp:getStaticWebApp", {
         "name": args.name,
@@ -82,7 +81,11 @@ export interface GetStaticWebAppResult {
  * ```
  */
 export function getStaticWebAppOutput(args: GetStaticWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticWebAppResult> {
-    return pulumi.output(args).apply((a: any) => getStaticWebApp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appservice/getStaticWebApp:getStaticWebApp", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

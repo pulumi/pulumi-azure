@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNetworkPacketCoreDataPlane(args: GetNetworkPacketCoreDataPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPacketCoreDataPlaneResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", {
         "mobileNetworkPacketCoreControlPlaneId": args.mobileNetworkPacketCoreControlPlaneId,
@@ -101,7 +100,11 @@ export interface GetNetworkPacketCoreDataPlaneResult {
  * ```
  */
 export function getNetworkPacketCoreDataPlaneOutput(args: GetNetworkPacketCoreDataPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPacketCoreDataPlaneResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkPacketCoreDataPlane(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", {
+        "mobileNetworkPacketCoreControlPlaneId": args.mobileNetworkPacketCoreControlPlaneId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

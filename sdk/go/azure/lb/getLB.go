@@ -81,14 +81,20 @@ type GetLBResult struct {
 
 func GetLBOutput(ctx *pulumi.Context, args GetLBOutputArgs, opts ...pulumi.InvokeOption) GetLBResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLBResult, error) {
+		ApplyT(func(v interface{}) (GetLBResultOutput, error) {
 			args := v.(GetLBArgs)
-			r, err := GetLB(ctx, &args, opts...)
-			var s GetLBResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetLBResult
+			secret, err := ctx.InvokePackageRaw("azure:lb/getLB:getLB", args, &rv, "", opts...)
+			if err != nil {
+				return GetLBResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetLBResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetLBResultOutput), nil
+			}
+			return output, nil
 		}).(GetLBResultOutput)
 }
 

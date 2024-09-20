@@ -72,14 +72,20 @@ type GetWorkspacePrivateEndpointConnectionResult struct {
 
 func GetWorkspacePrivateEndpointConnectionOutput(ctx *pulumi.Context, args GetWorkspacePrivateEndpointConnectionOutputArgs, opts ...pulumi.InvokeOption) GetWorkspacePrivateEndpointConnectionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetWorkspacePrivateEndpointConnectionResult, error) {
+		ApplyT(func(v interface{}) (GetWorkspacePrivateEndpointConnectionResultOutput, error) {
 			args := v.(GetWorkspacePrivateEndpointConnectionArgs)
-			r, err := GetWorkspacePrivateEndpointConnection(ctx, &args, opts...)
-			var s GetWorkspacePrivateEndpointConnectionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetWorkspacePrivateEndpointConnectionResult
+			secret, err := ctx.InvokePackageRaw("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", args, &rv, "", opts...)
+			if err != nil {
+				return GetWorkspacePrivateEndpointConnectionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetWorkspacePrivateEndpointConnectionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetWorkspacePrivateEndpointConnectionResultOutput), nil
+			}
+			return output, nil
 		}).(GetWorkspacePrivateEndpointConnectionResultOutput)
 }
 

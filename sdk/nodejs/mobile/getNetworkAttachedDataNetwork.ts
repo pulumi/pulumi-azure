@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNetworkAttachedDataNetwork(args: GetNetworkAttachedDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAttachedDataNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", {
         "mobileNetworkDataNetworkName": args.mobileNetworkDataNetworkName,
@@ -113,7 +112,11 @@ export interface GetNetworkAttachedDataNetworkResult {
  * ```
  */
 export function getNetworkAttachedDataNetworkOutput(args: GetNetworkAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAttachedDataNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkAttachedDataNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", {
+        "mobileNetworkDataNetworkName": args.mobileNetworkDataNetworkName,
+        "mobileNetworkPacketCoreDataPlaneId": args.mobileNetworkPacketCoreDataPlaneId,
+    }, opts);
 }
 
 /**

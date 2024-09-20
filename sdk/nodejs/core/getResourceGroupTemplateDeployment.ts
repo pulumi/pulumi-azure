@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Resource Group Template Deployment.
  */
 export function getResourceGroupTemplateDeployment(args: GetResourceGroupTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupTemplateDeploymentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", {
         "name": args.name,
@@ -49,7 +48,11 @@ export interface GetResourceGroupTemplateDeploymentResult {
  * Use this data source to access information about an existing Resource Group Template Deployment.
  */
 export function getResourceGroupTemplateDeploymentOutput(args: GetResourceGroupTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupTemplateDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getResourceGroupTemplateDeployment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

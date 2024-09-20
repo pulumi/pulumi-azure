@@ -84,14 +84,20 @@ type GetUserAssignedIdentityResult struct {
 
 func GetUserAssignedIdentityOutput(ctx *pulumi.Context, args GetUserAssignedIdentityOutputArgs, opts ...pulumi.InvokeOption) GetUserAssignedIdentityResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetUserAssignedIdentityResult, error) {
+		ApplyT(func(v interface{}) (GetUserAssignedIdentityResultOutput, error) {
 			args := v.(GetUserAssignedIdentityArgs)
-			r, err := GetUserAssignedIdentity(ctx, &args, opts...)
-			var s GetUserAssignedIdentityResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetUserAssignedIdentityResult
+			secret, err := ctx.InvokePackageRaw("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args, &rv, "", opts...)
+			if err != nil {
+				return GetUserAssignedIdentityResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetUserAssignedIdentityResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetUserAssignedIdentityResultOutput), nil
+			}
+			return output, nil
 		}).(GetUserAssignedIdentityResultOutput)
 }
 

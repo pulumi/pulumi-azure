@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getClusterNodePool(args: GetClusterNodePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterNodePoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:containerservice/getClusterNodePool:getClusterNodePool", {
         "kubernetesClusterName": args.kubernetesClusterName,
@@ -175,7 +174,12 @@ export interface GetClusterNodePoolResult {
  * ```
  */
 export function getClusterNodePoolOutput(args: GetClusterNodePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterNodePoolResult> {
-    return pulumi.output(args).apply((a: any) => getClusterNodePool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:containerservice/getClusterNodePool:getClusterNodePool", {
+        "kubernetesClusterName": args.kubernetesClusterName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

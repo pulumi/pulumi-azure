@@ -82,14 +82,20 @@ type GetServerResult struct {
 
 func GetServerOutput(ctx *pulumi.Context, args GetServerOutputArgs, opts ...pulumi.InvokeOption) GetServerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetServerResult, error) {
+		ApplyT(func(v interface{}) (GetServerResultOutput, error) {
 			args := v.(GetServerArgs)
-			r, err := GetServer(ctx, &args, opts...)
-			var s GetServerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetServerResult
+			secret, err := ctx.InvokePackageRaw("azure:sql/getServer:getServer", args, &rv, "", opts...)
+			if err != nil {
+				return GetServerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetServerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetServerResultOutput), nil
+			}
+			return output, nil
 		}).(GetServerResultOutput)
 }
 

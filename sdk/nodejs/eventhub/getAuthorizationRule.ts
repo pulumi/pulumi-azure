@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAuthorizationRule(args: GetAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventhub/getAuthorizationRule:getAuthorizationRule", {
         "eventhubName": args.eventhubName,
@@ -118,7 +117,16 @@ export interface GetAuthorizationRuleResult {
  * ```
  */
 export function getAuthorizationRuleOutput(args: GetAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorizationRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:eventhub/getAuthorizationRule:getAuthorizationRule", {
+        "eventhubName": args.eventhubName,
+        "listen": args.listen,
+        "manage": args.manage,
+        "name": args.name,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+        "send": args.send,
+    }, opts);
 }
 
 /**

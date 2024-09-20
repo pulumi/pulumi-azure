@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  */
 export function getPublicConfigurations(args?: GetPublicConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicConfigurationsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:maintenance/getPublicConfigurations:getPublicConfigurations", {
         "location": args.location,
@@ -92,7 +91,13 @@ export interface GetPublicConfigurationsResult {
  * ```
  */
 export function getPublicConfigurationsOutput(args?: GetPublicConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicConfigurationsResult> {
-    return pulumi.output(args).apply((a: any) => getPublicConfigurations(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:maintenance/getPublicConfigurations:getPublicConfigurations", {
+        "location": args.location,
+        "recurEvery": args.recurEvery,
+        "scope": args.scope,
+    }, opts);
 }
 
 /**

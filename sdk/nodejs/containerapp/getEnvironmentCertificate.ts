@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEnvironmentCertificate(args: GetEnvironmentCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", {
         "containerAppEnvironmentId": args.containerAppEnvironmentId,
@@ -101,7 +100,11 @@ export interface GetEnvironmentCertificateResult {
  * ```
  */
 export function getEnvironmentCertificateOutput(args: GetEnvironmentCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironmentCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", {
+        "containerAppEnvironmentId": args.containerAppEnvironmentId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

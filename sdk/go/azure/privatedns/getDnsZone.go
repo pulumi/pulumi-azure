@@ -82,14 +82,20 @@ type GetDnsZoneResult struct {
 
 func GetDnsZoneOutput(ctx *pulumi.Context, args GetDnsZoneOutputArgs, opts ...pulumi.InvokeOption) GetDnsZoneResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDnsZoneResult, error) {
+		ApplyT(func(v interface{}) (GetDnsZoneResultOutput, error) {
 			args := v.(GetDnsZoneArgs)
-			r, err := GetDnsZone(ctx, &args, opts...)
-			var s GetDnsZoneResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDnsZoneResult
+			secret, err := ctx.InvokePackageRaw("azure:privatedns/getDnsZone:getDnsZone", args, &rv, "", opts...)
+			if err != nil {
+				return GetDnsZoneResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDnsZoneResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDnsZoneResultOutput), nil
+			}
+			return output, nil
 		}).(GetDnsZoneResultOutput)
 }
 

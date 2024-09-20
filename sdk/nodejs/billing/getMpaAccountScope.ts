@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMpaAccountScope(args: GetMpaAccountScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetMpaAccountScopeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:billing/getMpaAccountScope:getMpaAccountScope", {
         "billingAccountName": args.billingAccountName,
@@ -71,7 +70,11 @@ export interface GetMpaAccountScopeResult {
  * ```
  */
 export function getMpaAccountScopeOutput(args: GetMpaAccountScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMpaAccountScopeResult> {
-    return pulumi.output(args).apply((a: any) => getMpaAccountScope(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:billing/getMpaAccountScope:getMpaAccountScope", {
+        "billingAccountName": args.billingAccountName,
+        "customerName": args.customerName,
+    }, opts);
 }
 
 /**

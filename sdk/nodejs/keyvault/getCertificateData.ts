@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCertificateData(args: GetCertificateDataArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateDataResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getCertificateData:getCertificateData", {
         "keyVaultId": args.keyVaultId,
@@ -119,7 +118,12 @@ export interface GetCertificateDataResult {
  * ```
  */
 export function getCertificateDataOutput(args: GetCertificateDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateDataResult> {
-    return pulumi.output(args).apply((a: any) => getCertificateData(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:keyvault/getCertificateData:getCertificateData", {
+        "keyVaultId": args.keyVaultId,
+        "name": args.name,
+        "version": args.version,
+    }, opts);
 }
 
 /**

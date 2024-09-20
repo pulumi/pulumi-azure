@@ -73,14 +73,20 @@ type LookupResolverDnsForwardingRulesetResult struct {
 
 func LookupResolverDnsForwardingRulesetOutput(ctx *pulumi.Context, args LookupResolverDnsForwardingRulesetOutputArgs, opts ...pulumi.InvokeOption) LookupResolverDnsForwardingRulesetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupResolverDnsForwardingRulesetResult, error) {
+		ApplyT(func(v interface{}) (LookupResolverDnsForwardingRulesetResultOutput, error) {
 			args := v.(LookupResolverDnsForwardingRulesetArgs)
-			r, err := LookupResolverDnsForwardingRuleset(ctx, &args, opts...)
-			var s LookupResolverDnsForwardingRulesetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupResolverDnsForwardingRulesetResult
+			secret, err := ctx.InvokePackageRaw("azure:privatedns/getResolverDnsForwardingRuleset:getResolverDnsForwardingRuleset", args, &rv, "", opts...)
+			if err != nil {
+				return LookupResolverDnsForwardingRulesetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupResolverDnsForwardingRulesetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupResolverDnsForwardingRulesetResultOutput), nil
+			}
+			return output, nil
 		}).(LookupResolverDnsForwardingRulesetResultOutput)
 }
 

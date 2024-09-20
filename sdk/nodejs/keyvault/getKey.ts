@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getKey:getKey", {
         "keyVaultId": args.keyVaultId,
@@ -133,7 +132,11 @@ export interface GetKeyResult {
  * ```
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
-    return pulumi.output(args).apply((a: any) => getKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:keyvault/getKey:getKey", {
+        "keyVaultId": args.keyVaultId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

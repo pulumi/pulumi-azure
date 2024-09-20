@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDpsSharedAccessPolicy(args: GetDpsSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsSharedAccessPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", {
         "iothubDpsName": args.iothubDpsName,
@@ -93,7 +92,12 @@ export interface GetDpsSharedAccessPolicyResult {
  * ```
  */
 export function getDpsSharedAccessPolicyOutput(args: GetDpsSharedAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsSharedAccessPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getDpsSharedAccessPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", {
+        "iothubDpsName": args.iothubDpsName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

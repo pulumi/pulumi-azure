@@ -52,14 +52,20 @@ type LookupNamespaceDisasterRecoveryConfigResult struct {
 
 func LookupNamespaceDisasterRecoveryConfigOutput(ctx *pulumi.Context, args LookupNamespaceDisasterRecoveryConfigOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceDisasterRecoveryConfigResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNamespaceDisasterRecoveryConfigResult, error) {
+		ApplyT(func(v interface{}) (LookupNamespaceDisasterRecoveryConfigResultOutput, error) {
 			args := v.(LookupNamespaceDisasterRecoveryConfigArgs)
-			r, err := LookupNamespaceDisasterRecoveryConfig(ctx, &args, opts...)
-			var s LookupNamespaceDisasterRecoveryConfigResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNamespaceDisasterRecoveryConfigResult
+			secret, err := ctx.InvokePackageRaw("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNamespaceDisasterRecoveryConfigResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNamespaceDisasterRecoveryConfigResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNamespaceDisasterRecoveryConfigResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNamespaceDisasterRecoveryConfigResultOutput)
 }
 

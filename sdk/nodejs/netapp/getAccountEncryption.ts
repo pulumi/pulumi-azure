@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccountEncryption(args: GetAccountEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountEncryptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:netapp/getAccountEncryption:getAccountEncryption", {
         "encryptionKey": args.encryptionKey,
@@ -81,7 +80,13 @@ export interface GetAccountEncryptionResult {
  * ```
  */
 export function getAccountEncryptionOutput(args: GetAccountEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountEncryptionResult> {
-    return pulumi.output(args).apply((a: any) => getAccountEncryption(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:netapp/getAccountEncryption:getAccountEncryption", {
+        "encryptionKey": args.encryptionKey,
+        "netappAccountId": args.netappAccountId,
+        "systemAssignedIdentityPrincipalId": args.systemAssignedIdentityPrincipalId,
+        "userAssignedIdentityId": args.userAssignedIdentityId,
+    }, opts);
 }
 
 /**

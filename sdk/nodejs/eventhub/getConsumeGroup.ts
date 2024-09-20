@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConsumeGroup(args: GetConsumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumeGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventhub/getConsumeGroup:getConsumeGroup", {
         "eventhubName": args.eventhubName,
@@ -89,7 +88,13 @@ export interface GetConsumeGroupResult {
  * ```
  */
 export function getConsumeGroupOutput(args: GetConsumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumeGroupResult> {
-    return pulumi.output(args).apply((a: any) => getConsumeGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:eventhub/getConsumeGroup:getConsumeGroup", {
+        "eventhubName": args.eventhubName,
+        "name": args.name,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

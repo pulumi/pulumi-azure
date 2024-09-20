@@ -79,14 +79,20 @@ type LookupDpsSharedAccessPolicyResult struct {
 
 func LookupDpsSharedAccessPolicyOutput(ctx *pulumi.Context, args LookupDpsSharedAccessPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupDpsSharedAccessPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDpsSharedAccessPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupDpsSharedAccessPolicyResultOutput, error) {
 			args := v.(LookupDpsSharedAccessPolicyArgs)
-			r, err := LookupDpsSharedAccessPolicy(ctx, &args, opts...)
-			var s LookupDpsSharedAccessPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDpsSharedAccessPolicyResult
+			secret, err := ctx.InvokePackageRaw("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDpsSharedAccessPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDpsSharedAccessPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDpsSharedAccessPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDpsSharedAccessPolicyResultOutput)
 }
 

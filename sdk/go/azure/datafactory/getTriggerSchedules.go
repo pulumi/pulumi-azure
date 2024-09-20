@@ -66,14 +66,20 @@ type GetTriggerSchedulesResult struct {
 
 func GetTriggerSchedulesOutput(ctx *pulumi.Context, args GetTriggerSchedulesOutputArgs, opts ...pulumi.InvokeOption) GetTriggerSchedulesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTriggerSchedulesResult, error) {
+		ApplyT(func(v interface{}) (GetTriggerSchedulesResultOutput, error) {
 			args := v.(GetTriggerSchedulesArgs)
-			r, err := GetTriggerSchedules(ctx, &args, opts...)
-			var s GetTriggerSchedulesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetTriggerSchedulesResult
+			secret, err := ctx.InvokePackageRaw("azure:datafactory/getTriggerSchedules:getTriggerSchedules", args, &rv, "", opts...)
+			if err != nil {
+				return GetTriggerSchedulesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetTriggerSchedulesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetTriggerSchedulesResultOutput), nil
+			}
+			return output, nil
 		}).(GetTriggerSchedulesResultOutput)
 }
 

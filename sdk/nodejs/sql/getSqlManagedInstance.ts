@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSqlManagedInstance(args: GetSqlManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlManagedInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:sql/getSqlManagedInstance:getSqlManagedInstance", {
         "name": args.name,
@@ -150,7 +149,12 @@ export interface GetSqlManagedInstanceResult {
  * ```
  */
 export function getSqlManagedInstanceOutput(args: GetSqlManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlManagedInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getSqlManagedInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:sql/getSqlManagedInstance:getSqlManagedInstance", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

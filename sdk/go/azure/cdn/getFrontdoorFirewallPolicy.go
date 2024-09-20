@@ -77,14 +77,20 @@ type LookupFrontdoorFirewallPolicyResult struct {
 
 func LookupFrontdoorFirewallPolicyOutput(ctx *pulumi.Context, args LookupFrontdoorFirewallPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorFirewallPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFrontdoorFirewallPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupFrontdoorFirewallPolicyResultOutput, error) {
 			args := v.(LookupFrontdoorFirewallPolicyArgs)
-			r, err := LookupFrontdoorFirewallPolicy(ctx, &args, opts...)
-			var s LookupFrontdoorFirewallPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFrontdoorFirewallPolicyResult
+			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFrontdoorFirewallPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFrontdoorFirewallPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFrontdoorFirewallPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFrontdoorFirewallPolicyResultOutput)
 }
 

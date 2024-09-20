@@ -81,7 +81,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getPublicIP:getPublicIP", {
         "name": args.name,
@@ -247,7 +246,11 @@ export interface GetPublicIPResult {
  * ```
  */
 export function getPublicIPOutput(args: GetPublicIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPResult> {
-    return pulumi.output(args).apply((a: any) => getPublicIP(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getPublicIP:getPublicIP", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

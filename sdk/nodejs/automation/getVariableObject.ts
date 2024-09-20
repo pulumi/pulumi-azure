@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Automation Object Variable.
  */
 export function getVariableObject(args: GetVariableObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableObjectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:automation/getVariableObject:getVariableObject", {
         "automationAccountName": args.automationAccountName,
@@ -63,7 +62,12 @@ export interface GetVariableObjectResult {
  * Use this data source to access information about an existing Automation Object Variable.
  */
 export function getVariableObjectOutput(args: GetVariableObjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableObjectResult> {
-    return pulumi.output(args).apply((a: any) => getVariableObject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:automation/getVariableObject:getVariableObject", {
+        "automationAccountName": args.automationAccountName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

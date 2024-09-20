@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGatewayHostNameConfiguration(args: GetGatewayHostNameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostNameConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", {
         "apiManagementId": args.apiManagementId,
@@ -120,7 +119,12 @@ export interface GetGatewayHostNameConfigurationResult {
  * ```
  */
 export function getGatewayHostNameConfigurationOutput(args: GetGatewayHostNameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostNameConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getGatewayHostNameConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", {
+        "apiManagementId": args.apiManagementId,
+        "gatewayName": args.gatewayName,
+        "name": args.name,
+    }, opts);
 }
 
 /**

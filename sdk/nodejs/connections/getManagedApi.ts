@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getManagedApi(args: GetManagedApiArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedApiResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:connections/getManagedApi:getManagedApi", {
         "location": args.location,
@@ -72,7 +71,11 @@ export interface GetManagedApiResult {
  * ```
  */
 export function getManagedApiOutput(args: GetManagedApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedApiResult> {
-    return pulumi.output(args).apply((a: any) => getManagedApi(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:connections/getManagedApi:getManagedApi", {
+        "location": args.location,
+        "name": args.name,
+    }, opts);
 }
 
 /**

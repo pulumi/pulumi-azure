@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventgrid/getSystemTopic:getSystemTopic", {
         "name": args.name,
@@ -92,7 +91,11 @@ export interface GetSystemTopicResult {
  * ```
  */
 export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicResult> {
-    return pulumi.output(args).apply((a: any) => getSystemTopic(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:eventgrid/getSystemTopic:getSystemTopic", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

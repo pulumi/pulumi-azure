@@ -77,14 +77,20 @@ type LookupFrontdoorEndpointResult struct {
 
 func LookupFrontdoorEndpointOutput(ctx *pulumi.Context, args LookupFrontdoorEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorEndpointResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFrontdoorEndpointResult, error) {
+		ApplyT(func(v interface{}) (LookupFrontdoorEndpointResultOutput, error) {
 			args := v.(LookupFrontdoorEndpointArgs)
-			r, err := LookupFrontdoorEndpoint(ctx, &args, opts...)
-			var s LookupFrontdoorEndpointResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFrontdoorEndpointResult
+			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFrontdoorEndpointResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFrontdoorEndpointResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFrontdoorEndpointResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFrontdoorEndpointResultOutput)
 }
 

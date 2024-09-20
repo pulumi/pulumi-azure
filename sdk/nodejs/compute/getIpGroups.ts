@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
 /** @deprecated azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups */
 export function getIpGroups(args: GetIpGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupsResult> {
     pulumi.log.warn("getIpGroups is deprecated: azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups")
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getIpGroups:getIpGroups", {
         "name": args.name,
@@ -84,7 +83,12 @@ export interface GetIpGroupsResult {
  */
 /** @deprecated azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups */
 export function getIpGroupsOutput(args: GetIpGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupsResult> {
-    return pulumi.output(args).apply((a: any) => getIpGroups(a, opts))
+    pulumi.log.warn("getIpGroups is deprecated: azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups")
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getIpGroups:getIpGroups", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

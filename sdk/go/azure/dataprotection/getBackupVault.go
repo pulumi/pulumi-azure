@@ -79,14 +79,20 @@ type LookupBackupVaultResult struct {
 
 func LookupBackupVaultOutput(ctx *pulumi.Context, args LookupBackupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupBackupVaultResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBackupVaultResult, error) {
+		ApplyT(func(v interface{}) (LookupBackupVaultResultOutput, error) {
 			args := v.(LookupBackupVaultArgs)
-			r, err := LookupBackupVault(ctx, &args, opts...)
-			var s LookupBackupVaultResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBackupVaultResult
+			secret, err := ctx.InvokePackageRaw("azure:dataprotection/getBackupVault:getBackupVault", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBackupVaultResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBackupVaultResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBackupVaultResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBackupVaultResultOutput)
 }
 

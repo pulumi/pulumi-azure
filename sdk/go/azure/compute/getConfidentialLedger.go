@@ -80,14 +80,20 @@ type GetConfidentialLedgerResult struct {
 
 func GetConfidentialLedgerOutput(ctx *pulumi.Context, args GetConfidentialLedgerOutputArgs, opts ...pulumi.InvokeOption) GetConfidentialLedgerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetConfidentialLedgerResult, error) {
+		ApplyT(func(v interface{}) (GetConfidentialLedgerResultOutput, error) {
 			args := v.(GetConfidentialLedgerArgs)
-			r, err := GetConfidentialLedger(ctx, &args, opts...)
-			var s GetConfidentialLedgerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetConfidentialLedgerResult
+			secret, err := ctx.InvokePackageRaw("azure:compute/getConfidentialLedger:getConfidentialLedger", args, &rv, "", opts...)
+			if err != nil {
+				return GetConfidentialLedgerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetConfidentialLedgerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetConfidentialLedgerResultOutput), nil
+			}
+			return output, nil
 		}).(GetConfidentialLedgerResultOutput)
 }
 

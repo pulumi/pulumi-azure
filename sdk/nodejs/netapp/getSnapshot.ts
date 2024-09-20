@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:netapp/getSnapshot:getSnapshot", {
         "accountName": args.accountName,
@@ -99,7 +98,14 @@ export interface GetSnapshotResult {
  * ```
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
-    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:netapp/getSnapshot:getSnapshot", {
+        "accountName": args.accountName,
+        "name": args.name,
+        "poolName": args.poolName,
+        "resourceGroupName": args.resourceGroupName,
+        "volumeName": args.volumeName,
+    }, opts);
 }
 
 /**

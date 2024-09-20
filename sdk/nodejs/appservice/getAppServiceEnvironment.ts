@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", {
         "name": args.name,
@@ -108,7 +107,11 @@ export interface GetAppServiceEnvironmentResult {
  * ```
  */
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getAppServiceEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getEncryptionScope:getEncryptionScope", {
         "name": args.name,
@@ -87,7 +86,11 @@ export interface GetEncryptionScopeResult {
  * ```
  */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
-    return pulumi.output(args).apply((a: any) => getEncryptionScope(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:storage/getEncryptionScope:getEncryptionScope", {
+        "name": args.name,
+        "storageAccountId": args.storageAccountId,
+    }, opts);
 }
 
 /**

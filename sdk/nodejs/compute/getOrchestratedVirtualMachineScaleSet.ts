@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getOrchestratedVirtualMachineScaleSet(args: GetOrchestratedVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetOrchestratedVirtualMachineScaleSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", {
         "name": args.name,
@@ -88,7 +87,11 @@ export interface GetOrchestratedVirtualMachineScaleSetResult {
  * ```
  */
 export function getOrchestratedVirtualMachineScaleSetOutput(args: GetOrchestratedVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrchestratedVirtualMachineScaleSetResult> {
-    return pulumi.output(args).apply((a: any) => getOrchestratedVirtualMachineScaleSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

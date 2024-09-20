@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getResourceGroup:getResourceGroup", {
         "name": args.name,
@@ -72,7 +71,10 @@ export interface GetResourceGroupResult {
  * ```
  */
 export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
-    return pulumi.output(args).apply((a: any) => getResourceGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:core/getResourceGroup:getResourceGroup", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

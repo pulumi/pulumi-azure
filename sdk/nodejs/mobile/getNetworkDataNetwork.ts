@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNetworkDataNetwork(args: GetNetworkDataNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDataNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", {
         "mobileNetworkId": args.mobileNetworkId,
@@ -89,7 +88,11 @@ export interface GetNetworkDataNetworkResult {
  * ```
  */
 export function getNetworkDataNetworkOutput(args: GetNetworkDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkDataNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkDataNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", {
+        "mobileNetworkId": args.mobileNetworkId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

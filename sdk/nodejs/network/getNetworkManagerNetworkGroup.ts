@@ -42,7 +42,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNetworkManagerNetworkGroup(args: GetNetworkManagerNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerNetworkGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", {
         "name": args.name,
@@ -117,7 +116,11 @@ export interface GetNetworkManagerNetworkGroupResult {
  * ```
  */
 export function getNetworkManagerNetworkGroupOutput(args: GetNetworkManagerNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerNetworkGroupResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkManagerNetworkGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", {
+        "name": args.name,
+        "networkManagerId": args.networkManagerId,
+    }, opts);
 }
 
 /**

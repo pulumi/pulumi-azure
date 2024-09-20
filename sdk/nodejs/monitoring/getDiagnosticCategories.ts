@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDiagnosticCategories(args: GetDiagnosticCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticCategoriesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", {
         "resourceId": args.resourceId,
@@ -87,7 +86,10 @@ export interface GetDiagnosticCategoriesResult {
  * ```
  */
 export function getDiagnosticCategoriesOutput(args: GetDiagnosticCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticCategoriesResult> {
-    return pulumi.output(args).apply((a: any) => getDiagnosticCategories(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", {
+        "resourceId": args.resourceId,
+    }, opts);
 }
 
 /**

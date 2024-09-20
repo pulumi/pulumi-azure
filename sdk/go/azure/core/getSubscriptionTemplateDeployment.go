@@ -39,14 +39,20 @@ type LookupSubscriptionTemplateDeploymentResult struct {
 
 func LookupSubscriptionTemplateDeploymentOutput(ctx *pulumi.Context, args LookupSubscriptionTemplateDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriptionTemplateDeploymentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSubscriptionTemplateDeploymentResult, error) {
+		ApplyT(func(v interface{}) (LookupSubscriptionTemplateDeploymentResultOutput, error) {
 			args := v.(LookupSubscriptionTemplateDeploymentArgs)
-			r, err := LookupSubscriptionTemplateDeployment(ctx, &args, opts...)
-			var s LookupSubscriptionTemplateDeploymentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSubscriptionTemplateDeploymentResult
+			secret, err := ctx.InvokePackageRaw("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSubscriptionTemplateDeploymentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSubscriptionTemplateDeploymentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSubscriptionTemplateDeploymentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSubscriptionTemplateDeploymentResultOutput)
 }
 

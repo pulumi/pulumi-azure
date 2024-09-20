@@ -147,14 +147,20 @@ type LookupLinuxFunctionAppResult struct {
 
 func LookupLinuxFunctionAppOutput(ctx *pulumi.Context, args LookupLinuxFunctionAppOutputArgs, opts ...pulumi.InvokeOption) LookupLinuxFunctionAppResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLinuxFunctionAppResult, error) {
+		ApplyT(func(v interface{}) (LookupLinuxFunctionAppResultOutput, error) {
 			args := v.(LookupLinuxFunctionAppArgs)
-			r, err := LookupLinuxFunctionApp(ctx, &args, opts...)
-			var s LookupLinuxFunctionAppResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLinuxFunctionAppResult
+			secret, err := ctx.InvokePackageRaw("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLinuxFunctionAppResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLinuxFunctionAppResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLinuxFunctionAppResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLinuxFunctionAppResultOutput)
 }
 

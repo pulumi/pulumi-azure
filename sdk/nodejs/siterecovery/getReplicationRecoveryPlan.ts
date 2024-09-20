@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryPlanResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", {
         "name": args.name,
@@ -96,7 +95,11 @@ export interface GetReplicationRecoveryPlanResult {
  * ```
  */
 export function getReplicationRecoveryPlanOutput(args: GetReplicationRecoveryPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryPlanResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationRecoveryPlan(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", {
+        "name": args.name,
+        "recoveryVaultId": args.recoveryVaultId,
+    }, opts);
 }
 
 /**

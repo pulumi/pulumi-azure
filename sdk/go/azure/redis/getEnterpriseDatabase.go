@@ -86,14 +86,20 @@ type LookupEnterpriseDatabaseResult struct {
 
 func LookupEnterpriseDatabaseOutput(ctx *pulumi.Context, args LookupEnterpriseDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupEnterpriseDatabaseResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEnterpriseDatabaseResult, error) {
+		ApplyT(func(v interface{}) (LookupEnterpriseDatabaseResultOutput, error) {
 			args := v.(LookupEnterpriseDatabaseArgs)
-			r, err := LookupEnterpriseDatabase(ctx, &args, opts...)
-			var s LookupEnterpriseDatabaseResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEnterpriseDatabaseResult
+			secret, err := ctx.InvokePackageRaw("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEnterpriseDatabaseResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEnterpriseDatabaseResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEnterpriseDatabaseResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEnterpriseDatabaseResultOutput)
 }
 

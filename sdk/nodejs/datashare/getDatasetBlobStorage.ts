@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDatasetBlobStorage(args: GetDatasetBlobStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetBlobStorageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", {
         "dataShareId": args.dataShareId,
@@ -96,7 +95,11 @@ export interface GetDatasetBlobStorageResult {
  * ```
  */
 export function getDatasetBlobStorageOutput(args: GetDatasetBlobStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetBlobStorageResult> {
-    return pulumi.output(args).apply((a: any) => getDatasetBlobStorage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", {
+        "dataShareId": args.dataShareId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

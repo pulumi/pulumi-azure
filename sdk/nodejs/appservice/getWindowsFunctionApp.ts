@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWindowsFunctionApp(args: GetWindowsFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWindowsFunctionAppResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", {
         "name": args.name,
@@ -224,7 +223,11 @@ export interface GetWindowsFunctionAppResult {
  * ```
  */
 export function getWindowsFunctionAppOutput(args: GetWindowsFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWindowsFunctionAppResult> {
-    return pulumi.output(args).apply((a: any) => getWindowsFunctionApp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

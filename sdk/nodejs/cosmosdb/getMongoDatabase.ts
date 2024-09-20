@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMongoDatabase(args: GetMongoDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDatabaseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cosmosdb/getMongoDatabase:getMongoDatabase", {
         "accountName": args.accountName,
@@ -83,7 +82,12 @@ export interface GetMongoDatabaseResult {
  * ```
  */
 export function getMongoDatabaseOutput(args: GetMongoDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getMongoDatabase(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:cosmosdb/getMongoDatabase:getMongoDatabase", {
+        "accountName": args.accountName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

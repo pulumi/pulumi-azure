@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:monitoring/getActionGroup:getActionGroup", {
         "name": args.name,
@@ -128,7 +127,11 @@ export interface GetActionGroupResult {
  * ```
  */
 export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionGroupResult> {
-    return pulumi.output(args).apply((a: any) => getActionGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:monitoring/getActionGroup:getActionGroup", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

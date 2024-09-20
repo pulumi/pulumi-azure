@@ -84,14 +84,20 @@ type LookupReplicationRecoveryPlanResult struct {
 
 func LookupReplicationRecoveryPlanOutput(ctx *pulumi.Context, args LookupReplicationRecoveryPlanOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationRecoveryPlanResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupReplicationRecoveryPlanResult, error) {
+		ApplyT(func(v interface{}) (LookupReplicationRecoveryPlanResultOutput, error) {
 			args := v.(LookupReplicationRecoveryPlanArgs)
-			r, err := LookupReplicationRecoveryPlan(ctx, &args, opts...)
-			var s LookupReplicationRecoveryPlanResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupReplicationRecoveryPlanResult
+			secret, err := ctx.InvokePackageRaw("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", args, &rv, "", opts...)
+			if err != nil {
+				return LookupReplicationRecoveryPlanResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupReplicationRecoveryPlanResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupReplicationRecoveryPlanResultOutput), nil
+			}
+			return output, nil
 		}).(LookupReplicationRecoveryPlanResultOutput)
 }
 

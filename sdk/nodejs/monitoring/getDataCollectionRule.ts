@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:monitoring/getDataCollectionRule:getDataCollectionRule", {
         "name": args.name,
@@ -117,7 +116,11 @@ export interface GetDataCollectionRuleResult {
  * ```
  */
 export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
-    return pulumi.output(args).apply((a: any) => getDataCollectionRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:monitoring/getDataCollectionRule:getDataCollectionRule", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

@@ -77,14 +77,20 @@ type GetKubernetesServiceVersionsResult struct {
 
 func GetKubernetesServiceVersionsOutput(ctx *pulumi.Context, args GetKubernetesServiceVersionsOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesServiceVersionsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetKubernetesServiceVersionsResult, error) {
+		ApplyT(func(v interface{}) (GetKubernetesServiceVersionsResultOutput, error) {
 			args := v.(GetKubernetesServiceVersionsArgs)
-			r, err := GetKubernetesServiceVersions(ctx, &args, opts...)
-			var s GetKubernetesServiceVersionsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetKubernetesServiceVersionsResult
+			secret, err := ctx.InvokePackageRaw("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args, &rv, "", opts...)
+			if err != nil {
+				return GetKubernetesServiceVersionsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetKubernetesServiceVersionsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetKubernetesServiceVersionsResultOutput), nil
+			}
+			return output, nil
 		}).(GetKubernetesServiceVersionsResultOutput)
 }
 

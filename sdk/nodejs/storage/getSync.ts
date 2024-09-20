@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSync(args: GetSyncArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getSync:getSync", {
         "name": args.name,
@@ -83,7 +82,11 @@ export interface GetSyncResult {
  * ```
  */
 export function getSyncOutput(args: GetSyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncResult> {
-    return pulumi.output(args).apply((a: any) => getSync(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:storage/getSync:getSync", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

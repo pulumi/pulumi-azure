@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getPolicy:getPolicy", {
         "storageAccountId": args.storageAccountId,
@@ -75,7 +74,10 @@ export interface GetPolicyResult {
  * ```
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:storage/getPolicy:getPolicy", {
+        "storageAccountId": args.storageAccountId,
+    }, opts);
 }
 
 /**

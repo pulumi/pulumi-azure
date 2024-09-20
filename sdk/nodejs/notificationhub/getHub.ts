@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:notificationhub/getHub:getHub", {
         "name": args.name,
@@ -97,7 +96,12 @@ export interface GetHubResult {
  * ```
  */
 export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
-    return pulumi.output(args).apply((a: any) => getHub(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:notificationhub/getHub:getHub", {
+        "name": args.name,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

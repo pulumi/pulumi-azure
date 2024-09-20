@@ -65,14 +65,20 @@ type GetExtendedLocationsResult struct {
 
 func GetExtendedLocationsOutput(ctx *pulumi.Context, args GetExtendedLocationsOutputArgs, opts ...pulumi.InvokeOption) GetExtendedLocationsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetExtendedLocationsResult, error) {
+		ApplyT(func(v interface{}) (GetExtendedLocationsResultOutput, error) {
 			args := v.(GetExtendedLocationsArgs)
-			r, err := GetExtendedLocations(ctx, &args, opts...)
-			var s GetExtendedLocationsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetExtendedLocationsResult
+			secret, err := ctx.InvokePackageRaw("azure:core/getExtendedLocations:getExtendedLocations", args, &rv, "", opts...)
+			if err != nil {
+				return GetExtendedLocationsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetExtendedLocationsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetExtendedLocationsResultOutput), nil
+			}
+			return output, nil
 		}).(GetExtendedLocationsResultOutput)
 }
 

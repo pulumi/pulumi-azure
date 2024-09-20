@@ -76,14 +76,20 @@ type GetPublicConfigurationsResult struct {
 
 func GetPublicConfigurationsOutput(ctx *pulumi.Context, args GetPublicConfigurationsOutputArgs, opts ...pulumi.InvokeOption) GetPublicConfigurationsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPublicConfigurationsResult, error) {
+		ApplyT(func(v interface{}) (GetPublicConfigurationsResultOutput, error) {
 			args := v.(GetPublicConfigurationsArgs)
-			r, err := GetPublicConfigurations(ctx, &args, opts...)
-			var s GetPublicConfigurationsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPublicConfigurationsResult
+			secret, err := ctx.InvokePackageRaw("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args, &rv, "", opts...)
+			if err != nil {
+				return GetPublicConfigurationsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPublicConfigurationsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPublicConfigurationsResultOutput), nil
+			}
+			return output, nil
 		}).(GetPublicConfigurationsResultOutput)
 }
 

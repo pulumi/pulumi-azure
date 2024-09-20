@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  */
 export function getRecommendations(args?: GetRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<GetRecommendationsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:advisor/getRecommendations:getRecommendations", {
         "filterByCategories": args.filterByCategories,
@@ -84,7 +83,12 @@ export interface GetRecommendationsResult {
  * ```
  */
 export function getRecommendationsOutput(args?: GetRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecommendationsResult> {
-    return pulumi.output(args).apply((a: any) => getRecommendations(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:advisor/getRecommendations:getRecommendations", {
+        "filterByCategories": args.filterByCategories,
+        "filterByResourceGroups": args.filterByResourceGroups,
+    }, opts);
 }
 
 /**

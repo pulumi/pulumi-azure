@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getKubernetesServiceVersions(args: GetKubernetesServiceVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesServiceVersionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", {
         "includePreview": args.includePreview,
@@ -89,7 +88,12 @@ export interface GetKubernetesServiceVersionsResult {
  * ```
  */
 export function getKubernetesServiceVersionsOutput(args: GetKubernetesServiceVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesServiceVersionsResult> {
-    return pulumi.output(args).apply((a: any) => getKubernetesServiceVersions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", {
+        "includePreview": args.includePreview,
+        "location": args.location,
+        "versionPrefix": args.versionPrefix,
+    }, opts);
 }
 
 /**

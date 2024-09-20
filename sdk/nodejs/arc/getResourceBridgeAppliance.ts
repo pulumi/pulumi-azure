@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResourceBridgeAppliance(args: GetResourceBridgeApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceBridgeApplianceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", {
         "name": args.name,
@@ -97,7 +96,11 @@ export interface GetResourceBridgeApplianceResult {
  * ```
  */
 export function getResourceBridgeApplianceOutput(args: GetResourceBridgeApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceBridgeApplianceResult> {
-    return pulumi.output(args).apply((a: any) => getResourceBridgeAppliance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

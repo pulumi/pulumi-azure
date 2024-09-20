@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNsRecord(args: GetNsRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetNsRecordResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:dns/getNsRecord:getNsRecord", {
         "name": args.name,
@@ -91,7 +90,12 @@ export interface GetNsRecordResult {
  * ```
  */
 export function getNsRecordOutput(args: GetNsRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNsRecordResult> {
-    return pulumi.output(args).apply((a: any) => getNsRecord(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:dns/getNsRecord:getNsRecord", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "zoneName": args.zoneName,
+    }, opts);
 }
 
 /**

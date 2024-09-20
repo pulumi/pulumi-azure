@@ -94,14 +94,20 @@ type LookupSnapshotPolicyResult struct {
 
 func LookupSnapshotPolicyOutput(ctx *pulumi.Context, args LookupSnapshotPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSnapshotPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupSnapshotPolicyResultOutput, error) {
 			args := v.(LookupSnapshotPolicyArgs)
-			r, err := LookupSnapshotPolicy(ctx, &args, opts...)
-			var s LookupSnapshotPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSnapshotPolicyResult
+			secret, err := ctx.InvokePackageRaw("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSnapshotPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSnapshotPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSnapshotPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSnapshotPolicyResultOutput)
 }
 

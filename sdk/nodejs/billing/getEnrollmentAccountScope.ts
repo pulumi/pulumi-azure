@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEnrollmentAccountScope(args: GetEnrollmentAccountScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEnrollmentAccountScopeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", {
         "billingAccountName": args.billingAccountName,
@@ -71,7 +70,11 @@ export interface GetEnrollmentAccountScopeResult {
  * ```
  */
 export function getEnrollmentAccountScopeOutput(args: GetEnrollmentAccountScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnrollmentAccountScopeResult> {
-    return pulumi.output(args).apply((a: any) => getEnrollmentAccountScope(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", {
+        "billingAccountName": args.billingAccountName,
+        "enrollmentAccountName": args.enrollmentAccountName,
+    }, opts);
 }
 
 /**

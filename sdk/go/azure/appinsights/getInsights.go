@@ -84,14 +84,20 @@ type LookupInsightsResult struct {
 
 func LookupInsightsOutput(ctx *pulumi.Context, args LookupInsightsOutputArgs, opts ...pulumi.InvokeOption) LookupInsightsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupInsightsResult, error) {
+		ApplyT(func(v interface{}) (LookupInsightsResultOutput, error) {
 			args := v.(LookupInsightsArgs)
-			r, err := LookupInsights(ctx, &args, opts...)
-			var s LookupInsightsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupInsightsResult
+			secret, err := ctx.InvokePackageRaw("azure:appinsights/getInsights:getInsights", args, &rv, "", opts...)
+			if err != nil {
+				return LookupInsightsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupInsightsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupInsightsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupInsightsResultOutput)
 }
 

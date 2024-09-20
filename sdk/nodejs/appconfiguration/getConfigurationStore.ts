@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appconfiguration/getConfigurationStore:getConfigurationStore", {
         "name": args.name,
@@ -134,7 +133,11 @@ export interface GetConfigurationStoreResult {
  * ```
  */
 export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationStore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appconfiguration/getConfigurationStore:getConfigurationStore", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

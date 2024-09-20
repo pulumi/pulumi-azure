@@ -38,7 +38,6 @@ import * as utilities from "../utilities";
  */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:authorization/getRoleDefinition:getRoleDefinition", {
         "name": args.name,
@@ -128,7 +127,13 @@ export interface GetRoleDefinitionResult {
  * ```
  */
 export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getRoleDefinition(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:authorization/getRoleDefinition:getRoleDefinition", {
+        "name": args.name,
+        "roleDefinitionId": args.roleDefinitionId,
+        "scope": args.scope,
+    }, opts);
 }
 
 /**

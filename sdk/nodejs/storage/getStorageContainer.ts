@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageContainerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getStorageContainer:getStorageContainer", {
         "metadata": args.metadata,
@@ -102,7 +101,12 @@ export interface GetStorageContainerResult {
  * ```
  */
 export function getStorageContainerOutput(args: GetStorageContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageContainerResult> {
-    return pulumi.output(args).apply((a: any) => getStorageContainer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:storage/getStorageContainer:getStorageContainer", {
+        "metadata": args.metadata,
+        "name": args.name,
+        "storageAccountName": args.storageAccountName,
+    }, opts);
 }
 
 /**

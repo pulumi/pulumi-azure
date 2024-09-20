@@ -68,14 +68,20 @@ type GetGeographicalLocationResult struct {
 
 func GetGeographicalLocationOutput(ctx *pulumi.Context, args GetGeographicalLocationOutputArgs, opts ...pulumi.InvokeOption) GetGeographicalLocationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetGeographicalLocationResult, error) {
+		ApplyT(func(v interface{}) (GetGeographicalLocationResultOutput, error) {
 			args := v.(GetGeographicalLocationArgs)
-			r, err := GetGeographicalLocation(ctx, &args, opts...)
-			var s GetGeographicalLocationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetGeographicalLocationResult
+			secret, err := ctx.InvokePackageRaw("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args, &rv, "", opts...)
+			if err != nil {
+				return GetGeographicalLocationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetGeographicalLocationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetGeographicalLocationResultOutput), nil
+			}
+			return output, nil
 		}).(GetGeographicalLocationResultOutput)
 }
 

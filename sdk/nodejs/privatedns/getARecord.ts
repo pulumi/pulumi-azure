@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getARecord(args: GetARecordArgs, opts?: pulumi.InvokeOptions): Promise<GetARecordResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getARecord:getARecord", {
         "name": args.name,
@@ -91,7 +90,12 @@ export interface GetARecordResult {
  * ```
  */
 export function getARecordOutput(args: GetARecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetARecordResult> {
-    return pulumi.output(args).apply((a: any) => getARecord(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:privatedns/getARecord:getARecord", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "zoneName": args.zoneName,
+    }, opts);
 }
 
 /**

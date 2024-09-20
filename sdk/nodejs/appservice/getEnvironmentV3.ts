@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEnvironmentV3(args: GetEnvironmentV3Args, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentV3Result> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getEnvironmentV3:getEnvironmentV3", {
         "name": args.name,
@@ -138,7 +137,11 @@ export interface GetEnvironmentV3Result {
  * ```
  */
 export function getEnvironmentV3Output(args: GetEnvironmentV3OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentV3Result> {
-    return pulumi.output(args).apply((a: any) => getEnvironmentV3(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appservice/getEnvironmentV3:getEnvironmentV3", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

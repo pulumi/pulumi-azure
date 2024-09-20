@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mssql/getElasticPool:getElasticPool", {
         "name": args.name,
@@ -124,7 +123,12 @@ export interface GetElasticPoolResult {
  * ```
  */
 export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
-    return pulumi.output(args).apply((a: any) => getElasticPool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:mssql/getElasticPool:getElasticPool", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "serverName": args.serverName,
+    }, opts);
 }
 
 /**

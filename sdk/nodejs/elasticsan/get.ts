@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function get(args: GetArgs, opts?: pulumi.InvokeOptions): Promise<GetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:elasticsan/get:get", {
         "name": args.name,
@@ -120,7 +119,11 @@ export interface GetResult {
  * ```
  */
 export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResult> {
-    return pulumi.output(args).apply((a: any) => get(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:elasticsan/get:get", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

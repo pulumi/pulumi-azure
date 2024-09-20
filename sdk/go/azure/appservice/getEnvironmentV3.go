@@ -101,14 +101,20 @@ type LookupEnvironmentV3Result struct {
 
 func LookupEnvironmentV3Output(ctx *pulumi.Context, args LookupEnvironmentV3OutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentV3ResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEnvironmentV3Result, error) {
+		ApplyT(func(v interface{}) (LookupEnvironmentV3ResultOutput, error) {
 			args := v.(LookupEnvironmentV3Args)
-			r, err := LookupEnvironmentV3(ctx, &args, opts...)
-			var s LookupEnvironmentV3Result
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEnvironmentV3Result
+			secret, err := ctx.InvokePackageRaw("azure:appservice/getEnvironmentV3:getEnvironmentV3", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEnvironmentV3ResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEnvironmentV3ResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEnvironmentV3ResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEnvironmentV3ResultOutput)
 }
 

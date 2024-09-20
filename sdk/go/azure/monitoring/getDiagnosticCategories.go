@@ -81,14 +81,20 @@ type GetDiagnosticCategoriesResult struct {
 
 func GetDiagnosticCategoriesOutput(ctx *pulumi.Context, args GetDiagnosticCategoriesOutputArgs, opts ...pulumi.InvokeOption) GetDiagnosticCategoriesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDiagnosticCategoriesResult, error) {
+		ApplyT(func(v interface{}) (GetDiagnosticCategoriesResultOutput, error) {
 			args := v.(GetDiagnosticCategoriesArgs)
-			r, err := GetDiagnosticCategories(ctx, &args, opts...)
-			var s GetDiagnosticCategoriesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDiagnosticCategoriesResult
+			secret, err := ctx.InvokePackageRaw("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args, &rv, "", opts...)
+			if err != nil {
+				return GetDiagnosticCategoriesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDiagnosticCategoriesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDiagnosticCategoriesResultOutput), nil
+			}
+			return output, nil
 		}).(GetDiagnosticCategoriesResultOutput)
 }
 

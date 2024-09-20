@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFunctionAppHostKeys(args: GetFunctionAppHostKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppHostKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", {
         "name": args.name,
@@ -98,7 +97,11 @@ export interface GetFunctionAppHostKeysResult {
  * ```
  */
 export function getFunctionAppHostKeysOutput(args: GetFunctionAppHostKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppHostKeysResult> {
-    return pulumi.output(args).apply((a: any) => getFunctionAppHostKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

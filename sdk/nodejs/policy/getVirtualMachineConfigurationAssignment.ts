@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualMachineConfigurationAssignment(args: GetVirtualMachineConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineConfigurationAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", {
         "name": args.name,
@@ -103,7 +102,12 @@ export interface GetVirtualMachineConfigurationAssignmentResult {
  * ```
  */
 export function getVirtualMachineConfigurationAssignmentOutput(args: GetVirtualMachineConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineConfigurationAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMachineConfigurationAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualMachineName": args.virtualMachineName,
+    }, opts);
 }
 
 /**

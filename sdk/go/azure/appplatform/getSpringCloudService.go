@@ -79,14 +79,20 @@ type LookupSpringCloudServiceResult struct {
 
 func LookupSpringCloudServiceOutput(ctx *pulumi.Context, args LookupSpringCloudServiceOutputArgs, opts ...pulumi.InvokeOption) LookupSpringCloudServiceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSpringCloudServiceResult, error) {
+		ApplyT(func(v interface{}) (LookupSpringCloudServiceResultOutput, error) {
 			args := v.(LookupSpringCloudServiceArgs)
-			r, err := LookupSpringCloudService(ctx, &args, opts...)
-			var s LookupSpringCloudServiceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSpringCloudServiceResult
+			secret, err := ctx.InvokePackageRaw("azure:appplatform/getSpringCloudService:getSpringCloudService", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSpringCloudServiceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSpringCloudServiceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSpringCloudServiceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSpringCloudServiceResultOutput)
 }
 

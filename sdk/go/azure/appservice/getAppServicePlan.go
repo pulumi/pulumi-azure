@@ -92,14 +92,20 @@ type GetAppServicePlanResult struct {
 
 func GetAppServicePlanOutput(ctx *pulumi.Context, args GetAppServicePlanOutputArgs, opts ...pulumi.InvokeOption) GetAppServicePlanResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAppServicePlanResult, error) {
+		ApplyT(func(v interface{}) (GetAppServicePlanResultOutput, error) {
 			args := v.(GetAppServicePlanArgs)
-			r, err := GetAppServicePlan(ctx, &args, opts...)
-			var s GetAppServicePlanResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAppServicePlanResult
+			secret, err := ctx.InvokePackageRaw("azure:appservice/getAppServicePlan:getAppServicePlan", args, &rv, "", opts...)
+			if err != nil {
+				return GetAppServicePlanResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAppServicePlanResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAppServicePlanResultOutput), nil
+			}
+			return output, nil
 		}).(GetAppServicePlanResultOutput)
 }
 

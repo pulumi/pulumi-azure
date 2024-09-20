@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSharedImageVersion(args: GetSharedImageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getSharedImageVersion:getSharedImageVersion", {
         "galleryName": args.galleryName,
@@ -133,7 +132,15 @@ export interface GetSharedImageVersionResult {
  * ```
  */
 export function getSharedImageVersionOutput(args: GetSharedImageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedImageVersionResult> {
-    return pulumi.output(args).apply((a: any) => getSharedImageVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getSharedImageVersion:getSharedImageVersion", {
+        "galleryName": args.galleryName,
+        "imageName": args.imageName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "sortVersionsBySemver": args.sortVersionsBySemver,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

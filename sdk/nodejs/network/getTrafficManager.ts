@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTrafficManager(args: GetTrafficManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getTrafficManager:getTrafficManager", {
         "name": args.name,
@@ -67,7 +66,10 @@ export interface GetTrafficManagerResult {
  * ```
  */
 export function getTrafficManagerOutput(args: GetTrafficManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficManagerResult> {
-    return pulumi.output(args).apply((a: any) => getTrafficManager(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getTrafficManager:getTrafficManager", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

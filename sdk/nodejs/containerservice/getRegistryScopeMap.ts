@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRegistryScopeMap(args: GetRegistryScopeMapArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryScopeMapResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", {
         "containerRegistryName": args.containerRegistryName,
@@ -84,7 +83,12 @@ export interface GetRegistryScopeMapResult {
  * ```
  */
 export function getRegistryScopeMapOutput(args: GetRegistryScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryScopeMapResult> {
-    return pulumi.output(args).apply((a: any) => getRegistryScopeMap(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", {
+        "containerRegistryName": args.containerRegistryName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

@@ -76,14 +76,20 @@ type GetConfigurationKeysResult struct {
 
 func GetConfigurationKeysOutput(ctx *pulumi.Context, args GetConfigurationKeysOutputArgs, opts ...pulumi.InvokeOption) GetConfigurationKeysResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetConfigurationKeysResult, error) {
+		ApplyT(func(v interface{}) (GetConfigurationKeysResultOutput, error) {
 			args := v.(GetConfigurationKeysArgs)
-			r, err := GetConfigurationKeys(ctx, &args, opts...)
-			var s GetConfigurationKeysResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetConfigurationKeysResult
+			secret, err := ctx.InvokePackageRaw("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args, &rv, "", opts...)
+			if err != nil {
+				return GetConfigurationKeysResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetConfigurationKeysResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetConfigurationKeysResultOutput), nil
+			}
+			return output, nil
 		}).(GetConfigurationKeysResultOutput)
 }
 

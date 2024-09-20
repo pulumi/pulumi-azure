@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getKubernetesNodePoolSnapshot(args: GetKubernetesNodePoolSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesNodePoolSnapshotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", {
         "name": args.name,
@@ -74,7 +73,11 @@ export interface GetKubernetesNodePoolSnapshotResult {
  * ```
  */
 export function getKubernetesNodePoolSnapshotOutput(args: GetKubernetesNodePoolSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesNodePoolSnapshotResult> {
-    return pulumi.output(args).apply((a: any) => getKubernetesNodePoolSnapshot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTagsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getServiceTags:getServiceTags", {
         "location": args.location,
@@ -97,7 +96,12 @@ export interface GetServiceTagsResult {
  * ```
  */
 export function getServiceTagsOutput(args: GetServiceTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTagsResult> {
-    return pulumi.output(args).apply((a: any) => getServiceTags(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getServiceTags:getServiceTags", {
+        "location": args.location,
+        "locationFilter": args.locationFilter,
+        "service": args.service,
+    }, opts);
 }
 
 /**

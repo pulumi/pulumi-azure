@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getExtendedLocations(args: GetExtendedLocationsArgs, opts?: pulumi.InvokeOptions): Promise<GetExtendedLocationsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getExtendedLocations:getExtendedLocations", {
         "location": args.location,
@@ -65,7 +64,10 @@ export interface GetExtendedLocationsResult {
  * ```
  */
 export function getExtendedLocationsOutput(args: GetExtendedLocationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtendedLocationsResult> {
-    return pulumi.output(args).apply((a: any) => getExtendedLocations(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:core/getExtendedLocations:getExtendedLocations", {
+        "location": args.location,
+    }, opts);
 }
 
 /**

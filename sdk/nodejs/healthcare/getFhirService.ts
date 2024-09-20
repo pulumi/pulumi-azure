@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
  */
 export function getFhirService(args: GetFhirServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetFhirServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:healthcare/getFhirService:getFhirService", {
         "name": args.name,
@@ -88,7 +87,12 @@ export interface GetFhirServiceResult {
  * Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
  */
 export function getFhirServiceOutput(args: GetFhirServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFhirServiceResult> {
-    return pulumi.output(args).apply((a: any) => getFhirService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:healthcare/getFhirService:getFhirService", {
+        "name": args.name,
+        "tags": args.tags,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 /**

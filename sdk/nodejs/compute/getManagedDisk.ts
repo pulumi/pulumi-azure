@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDiskResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getManagedDisk:getManagedDisk", {
         "name": args.name,
@@ -134,7 +133,11 @@ export interface GetManagedDiskResult {
  * ```
  */
 export function getManagedDiskOutput(args: GetManagedDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDiskResult> {
-    return pulumi.output(args).apply((a: any) => getManagedDisk(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getManagedDisk:getManagedDisk", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

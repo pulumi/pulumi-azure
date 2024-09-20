@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getPlatformImage:getPlatformImage", {
         "location": args.location,
@@ -93,7 +92,14 @@ export interface GetPlatformImageResult {
  * ```
  */
 export function getPlatformImageOutput(args: GetPlatformImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlatformImageResult> {
-    return pulumi.output(args).apply((a: any) => getPlatformImage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getPlatformImage:getPlatformImage", {
+        "location": args.location,
+        "offer": args.offer,
+        "publisher": args.publisher,
+        "sku": args.sku,
+        "version": args.version,
+    }, opts);
 }
 
 /**

@@ -90,14 +90,20 @@ type GetCircuitPeeringResult struct {
 
 func GetCircuitPeeringOutput(ctx *pulumi.Context, args GetCircuitPeeringOutputArgs, opts ...pulumi.InvokeOption) GetCircuitPeeringResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetCircuitPeeringResult, error) {
+		ApplyT(func(v interface{}) (GetCircuitPeeringResultOutput, error) {
 			args := v.(GetCircuitPeeringArgs)
-			r, err := GetCircuitPeering(ctx, &args, opts...)
-			var s GetCircuitPeeringResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetCircuitPeeringResult
+			secret, err := ctx.InvokePackageRaw("azure:expressroute/getCircuitPeering:getCircuitPeering", args, &rv, "", opts...)
+			if err != nil {
+				return GetCircuitPeeringResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetCircuitPeeringResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetCircuitPeeringResultOutput), nil
+			}
+			return output, nil
 		}).(GetCircuitPeeringResultOutput)
 }
 

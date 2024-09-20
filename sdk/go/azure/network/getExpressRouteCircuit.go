@@ -81,14 +81,20 @@ type LookupExpressRouteCircuitResult struct {
 
 func LookupExpressRouteCircuitOutput(ctx *pulumi.Context, args LookupExpressRouteCircuitOutputArgs, opts ...pulumi.InvokeOption) LookupExpressRouteCircuitResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupExpressRouteCircuitResult, error) {
+		ApplyT(func(v interface{}) (LookupExpressRouteCircuitResultOutput, error) {
 			args := v.(LookupExpressRouteCircuitArgs)
-			r, err := LookupExpressRouteCircuit(ctx, &args, opts...)
-			var s LookupExpressRouteCircuitResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupExpressRouteCircuitResult
+			secret, err := ctx.InvokePackageRaw("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args, &rv, "", opts...)
+			if err != nil {
+				return LookupExpressRouteCircuitResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupExpressRouteCircuitResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupExpressRouteCircuitResultOutput), nil
+			}
+			return output, nil
 		}).(LookupExpressRouteCircuitResultOutput)
 }
 

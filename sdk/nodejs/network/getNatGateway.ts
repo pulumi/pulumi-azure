@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing NAT Gateway.
  */
 export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getNatGateway:getNatGateway", {
         "name": args.name,
@@ -87,7 +86,13 @@ export interface GetNatGatewayResult {
  * Use this data source to access information about an existing NAT Gateway.
  */
 export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getNatGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getNatGateway:getNatGateway", {
+        "name": args.name,
+        "publicIpAddressIds": args.publicIpAddressIds,
+        "publicIpPrefixIds": args.publicIpPrefixIds,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

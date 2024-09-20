@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPtrRecord(args: GetPtrRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetPtrRecordResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:dns/getPtrRecord:getPtrRecord", {
         "name": args.name,
@@ -91,7 +90,12 @@ export interface GetPtrRecordResult {
  * ```
  */
 export function getPtrRecordOutput(args: GetPtrRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPtrRecordResult> {
-    return pulumi.output(args).apply((a: any) => getPtrRecord(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:dns/getPtrRecord:getPtrRecord", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "zoneName": args.zoneName,
+    }, opts);
 }
 
 /**

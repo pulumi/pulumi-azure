@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Encrypts or Decrypts a value using a Key Vault Key.
  */
 export function getEncryptedValue(args: GetEncryptedValueArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptedValueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getEncryptedValue:getEncryptedValue", {
         "algorithm": args.algorithm,
@@ -63,7 +62,13 @@ export interface GetEncryptedValueResult {
  * Encrypts or Decrypts a value using a Key Vault Key.
  */
 export function getEncryptedValueOutput(args: GetEncryptedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptedValueResult> {
-    return pulumi.output(args).apply((a: any) => getEncryptedValue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:keyvault/getEncryptedValue:getEncryptedValue", {
+        "algorithm": args.algorithm,
+        "encryptedData": args.encryptedData,
+        "keyVaultKeyId": args.keyVaultKeyId,
+        "plainTextValue": args.plainTextValue,
+    }, opts);
 }
 
 /**

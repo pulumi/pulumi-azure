@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Container Registry Cache Rule.
  */
 export function getRegistryCacheRule(args: GetRegistryCacheRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryCacheRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", {
         "containerRegistryId": args.containerRegistryId,
@@ -57,7 +56,11 @@ export interface GetRegistryCacheRuleResult {
  * Use this data source to access information about an existing Container Registry Cache Rule.
  */
 export function getRegistryCacheRuleOutput(args: GetRegistryCacheRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryCacheRuleResult> {
-    return pulumi.output(args).apply((a: any) => getRegistryCacheRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", {
+        "containerRegistryId": args.containerRegistryId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

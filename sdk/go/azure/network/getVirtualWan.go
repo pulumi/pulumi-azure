@@ -56,14 +56,20 @@ type LookupVirtualWanResult struct {
 
 func LookupVirtualWanOutput(ctx *pulumi.Context, args LookupVirtualWanOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualWanResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualWanResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualWanResultOutput, error) {
 			args := v.(LookupVirtualWanArgs)
-			r, err := LookupVirtualWan(ctx, &args, opts...)
-			var s LookupVirtualWanResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualWanResult
+			secret, err := ctx.InvokePackageRaw("azure:network/getVirtualWan:getVirtualWan", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualWanResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualWanResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualWanResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualWanResultOutput)
 }
 

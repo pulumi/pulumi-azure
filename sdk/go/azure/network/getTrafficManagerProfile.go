@@ -87,14 +87,20 @@ type LookupTrafficManagerProfileResult struct {
 
 func LookupTrafficManagerProfileOutput(ctx *pulumi.Context, args LookupTrafficManagerProfileOutputArgs, opts ...pulumi.InvokeOption) LookupTrafficManagerProfileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTrafficManagerProfileResult, error) {
+		ApplyT(func(v interface{}) (LookupTrafficManagerProfileResultOutput, error) {
 			args := v.(LookupTrafficManagerProfileArgs)
-			r, err := LookupTrafficManagerProfile(ctx, &args, opts...)
-			var s LookupTrafficManagerProfileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTrafficManagerProfileResult
+			secret, err := ctx.InvokePackageRaw("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTrafficManagerProfileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTrafficManagerProfileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTrafficManagerProfileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTrafficManagerProfileResultOutput)
 }
 

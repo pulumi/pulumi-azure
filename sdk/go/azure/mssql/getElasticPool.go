@@ -93,14 +93,20 @@ type LookupElasticPoolResult struct {
 
 func LookupElasticPoolOutput(ctx *pulumi.Context, args LookupElasticPoolOutputArgs, opts ...pulumi.InvokeOption) LookupElasticPoolResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupElasticPoolResult, error) {
+		ApplyT(func(v interface{}) (LookupElasticPoolResultOutput, error) {
 			args := v.(LookupElasticPoolArgs)
-			r, err := LookupElasticPool(ctx, &args, opts...)
-			var s LookupElasticPoolResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupElasticPoolResult
+			secret, err := ctx.InvokePackageRaw("azure:mssql/getElasticPool:getElasticPool", args, &rv, "", opts...)
+			if err != nil {
+				return LookupElasticPoolResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupElasticPoolResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupElasticPoolResultOutput), nil
+			}
+			return output, nil
 		}).(LookupElasticPoolResultOutput)
 }
 

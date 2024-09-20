@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPolicyVM(args: GetPolicyVMArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyVMResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:backup/getPolicyVM:getPolicyVM", {
         "name": args.name,
@@ -77,7 +76,12 @@ export interface GetPolicyVMResult {
  * ```
  */
 export function getPolicyVMOutput(args: GetPolicyVMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyVMResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyVM(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:backup/getPolicyVM:getPolicyVM", {
+        "name": args.name,
+        "recoveryVaultName": args.recoveryVaultName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

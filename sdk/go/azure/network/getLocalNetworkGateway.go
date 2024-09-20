@@ -80,14 +80,20 @@ type LookupLocalNetworkGatewayResult struct {
 
 func LookupLocalNetworkGatewayOutput(ctx *pulumi.Context, args LookupLocalNetworkGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupLocalNetworkGatewayResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocalNetworkGatewayResult, error) {
+		ApplyT(func(v interface{}) (LookupLocalNetworkGatewayResultOutput, error) {
 			args := v.(LookupLocalNetworkGatewayArgs)
-			r, err := LookupLocalNetworkGateway(ctx, &args, opts...)
-			var s LookupLocalNetworkGatewayResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocalNetworkGatewayResult
+			secret, err := ctx.InvokePackageRaw("azure:network/getLocalNetworkGateway:getLocalNetworkGateway", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocalNetworkGatewayResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocalNetworkGatewayResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocalNetworkGatewayResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocalNetworkGatewayResultOutput)
 }
 

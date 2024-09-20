@@ -76,14 +76,20 @@ type LookupLogProfileResult struct {
 
 func LookupLogProfileOutput(ctx *pulumi.Context, args LookupLogProfileOutputArgs, opts ...pulumi.InvokeOption) LookupLogProfileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLogProfileResult, error) {
+		ApplyT(func(v interface{}) (LookupLogProfileResultOutput, error) {
 			args := v.(LookupLogProfileArgs)
-			r, err := LookupLogProfile(ctx, &args, opts...)
-			var s LookupLogProfileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLogProfileResult
+			secret, err := ctx.InvokePackageRaw("azure:monitoring/getLogProfile:getLogProfile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLogProfileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLogProfileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLogProfileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLogProfileResultOutput)
 }
 

@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  */
 export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:management/getGroup:getGroup", {
         "displayName": args.displayName,
@@ -96,7 +95,12 @@ export interface GetGroupResult {
  * ```
  */
 export function getGroupOutput(args?: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getGroup(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:management/getGroup:getGroup", {
+        "displayName": args.displayName,
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -78,14 +78,20 @@ type LookupNsRecordResult struct {
 
 func LookupNsRecordOutput(ctx *pulumi.Context, args LookupNsRecordOutputArgs, opts ...pulumi.InvokeOption) LookupNsRecordResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNsRecordResult, error) {
+		ApplyT(func(v interface{}) (LookupNsRecordResultOutput, error) {
 			args := v.(LookupNsRecordArgs)
-			r, err := LookupNsRecord(ctx, &args, opts...)
-			var s LookupNsRecordResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNsRecordResult
+			secret, err := ctx.InvokePackageRaw("azure:dns/getNsRecord:getNsRecord", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNsRecordResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNsRecordResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNsRecordResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNsRecordResultOutput)
 }
 

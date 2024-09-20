@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDnsZone(args: GetDnsZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsZoneResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getDnsZone:getDnsZone", {
         "name": args.name,
@@ -98,7 +97,12 @@ export interface GetDnsZoneResult {
  * ```
  */
 export function getDnsZoneOutput(args: GetDnsZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsZoneResult> {
-    return pulumi.output(args).apply((a: any) => getDnsZone(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:privatedns/getDnsZone:getDnsZone", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

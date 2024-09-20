@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVariables(args: GetVariablesArgs, opts?: pulumi.InvokeOptions): Promise<GetVariablesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:automation/getVariables:getVariables", {
         "automationAccountId": args.automationAccountId,
@@ -98,7 +97,10 @@ export interface GetVariablesResult {
  * ```
  */
 export function getVariablesOutput(args: GetVariablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariablesResult> {
-    return pulumi.output(args).apply((a: any) => getVariables(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:automation/getVariables:getVariables", {
+        "automationAccountId": args.automationAccountId,
+    }, opts);
 }
 
 /**

@@ -83,14 +83,20 @@ type LookupAnalyticsWorkspaceResult struct {
 
 func LookupAnalyticsWorkspaceOutput(ctx *pulumi.Context, args LookupAnalyticsWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupAnalyticsWorkspaceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAnalyticsWorkspaceResult, error) {
+		ApplyT(func(v interface{}) (LookupAnalyticsWorkspaceResultOutput, error) {
 			args := v.(LookupAnalyticsWorkspaceArgs)
-			r, err := LookupAnalyticsWorkspace(ctx, &args, opts...)
-			var s LookupAnalyticsWorkspaceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAnalyticsWorkspaceResult
+			secret, err := ctx.InvokePackageRaw("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAnalyticsWorkspaceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAnalyticsWorkspaceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAnalyticsWorkspaceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAnalyticsWorkspaceResultOutput)
 }
 

@@ -39,14 +39,20 @@ type LookupTenantTemplateDeploymentResult struct {
 
 func LookupTenantTemplateDeploymentOutput(ctx *pulumi.Context, args LookupTenantTemplateDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupTenantTemplateDeploymentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTenantTemplateDeploymentResult, error) {
+		ApplyT(func(v interface{}) (LookupTenantTemplateDeploymentResultOutput, error) {
 			args := v.(LookupTenantTemplateDeploymentArgs)
-			r, err := LookupTenantTemplateDeployment(ctx, &args, opts...)
-			var s LookupTenantTemplateDeploymentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTenantTemplateDeploymentResult
+			secret, err := ctx.InvokePackageRaw("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTenantTemplateDeploymentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTenantTemplateDeploymentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTenantTemplateDeploymentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTenantTemplateDeploymentResultOutput)
 }
 

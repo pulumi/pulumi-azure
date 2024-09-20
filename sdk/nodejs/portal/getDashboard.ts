@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:portal/getDashboard:getDashboard", {
         "dashboardProperties": args.dashboardProperties,
@@ -94,7 +93,13 @@ export interface GetDashboardResult {
  * ```
  */
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
-    return pulumi.output(args).apply((a: any) => getDashboard(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:portal/getDashboard:getDashboard", {
+        "dashboardProperties": args.dashboardProperties,
+        "displayName": args.displayName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

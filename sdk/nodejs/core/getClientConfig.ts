@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getClientConfig:getClientConfig", {
     }, opts);
@@ -63,5 +62,7 @@ export interface GetClientConfigResult {
  * ```
  */
 export function getClientConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetClientConfigResult> {
-    return pulumi.output(getClientConfig(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:core/getClientConfig:getClientConfig", {
+    }, opts);
 }

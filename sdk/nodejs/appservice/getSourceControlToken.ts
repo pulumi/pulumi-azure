@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSourceControlToken(args: GetSourceControlTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getSourceControlToken:getSourceControlToken", {
         "type": args.type,
@@ -64,7 +63,10 @@ export interface GetSourceControlTokenResult {
  * ```
  */
 export function getSourceControlTokenOutput(args: GetSourceControlTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlTokenResult> {
-    return pulumi.output(args).apply((a: any) => getSourceControlToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appservice/getSourceControlToken:getSourceControlToken", {
+        "type": args.type,
+    }, opts);
 }
 
 /**

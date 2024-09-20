@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Use this data source to retrieve a list of certificate names from an existing Key Vault.
  */
 export function getCertificates(args: GetCertificatesArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificatesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getCertificates:getCertificates", {
         "includePending": args.includePending,
@@ -60,7 +59,11 @@ export interface GetCertificatesResult {
  * Use this data source to retrieve a list of certificate names from an existing Key Vault.
  */
 export function getCertificatesOutput(args: GetCertificatesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificatesResult> {
-    return pulumi.output(args).apply((a: any) => getCertificates(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:keyvault/getCertificates:getCertificates", {
+        "includePending": args.includePending,
+        "keyVaultId": args.keyVaultId,
+    }, opts);
 }
 
 /**

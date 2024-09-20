@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 export function getLocalRulestack(args: GetLocalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRulestackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:paloalto/getLocalRulestack:getLocalRulestack", {
         "name": args.name,
@@ -43,7 +42,11 @@ export interface GetLocalRulestackResult {
     readonly vulnerabilityProfile: string;
 }
 export function getLocalRulestackOutput(args: GetLocalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRulestackResult> {
-    return pulumi.output(args).apply((a: any) => getLocalRulestack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:paloalto/getLocalRulestack:getLocalRulestack", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

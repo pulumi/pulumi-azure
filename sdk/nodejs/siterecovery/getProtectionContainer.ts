@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:siterecovery/getProtectionContainer:getProtectionContainer", {
         "name": args.name,
@@ -85,7 +84,13 @@ export interface GetProtectionContainerResult {
  * ```
  */
 export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionContainerResult> {
-    return pulumi.output(args).apply((a: any) => getProtectionContainer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:siterecovery/getProtectionContainer:getProtectionContainer", {
+        "name": args.name,
+        "recoveryFabricName": args.recoveryFabricName,
+        "recoveryVaultName": args.recoveryVaultName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:datafactory/getFactory:getFactory", {
         "name": args.name,
@@ -93,7 +92,11 @@ export interface GetFactoryResult {
  * ```
  */
 export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {
-    return pulumi.output(args).apply((a: any) => getFactory(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:datafactory/getFactory:getFactory", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

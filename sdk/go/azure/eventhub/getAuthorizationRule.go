@@ -93,14 +93,20 @@ type LookupAuthorizationRuleResult struct {
 
 func LookupAuthorizationRuleOutput(ctx *pulumi.Context, args LookupAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizationRuleResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAuthorizationRuleResult, error) {
+		ApplyT(func(v interface{}) (LookupAuthorizationRuleResultOutput, error) {
 			args := v.(LookupAuthorizationRuleArgs)
-			r, err := LookupAuthorizationRule(ctx, &args, opts...)
-			var s LookupAuthorizationRuleResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAuthorizationRuleResult
+			secret, err := ctx.InvokePackageRaw("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAuthorizationRuleResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAuthorizationRuleResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAuthorizationRuleResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAuthorizationRuleResultOutput)
 }
 

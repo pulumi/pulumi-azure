@@ -77,14 +77,20 @@ type GetVirtualMachineScaleSetResult struct {
 
 func GetVirtualMachineScaleSetOutput(ctx *pulumi.Context, args GetVirtualMachineScaleSetOutputArgs, opts ...pulumi.InvokeOption) GetVirtualMachineScaleSetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetVirtualMachineScaleSetResult, error) {
+		ApplyT(func(v interface{}) (GetVirtualMachineScaleSetResultOutput, error) {
 			args := v.(GetVirtualMachineScaleSetArgs)
-			r, err := GetVirtualMachineScaleSet(ctx, &args, opts...)
-			var s GetVirtualMachineScaleSetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetVirtualMachineScaleSetResult
+			secret, err := ctx.InvokePackageRaw("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", args, &rv, "", opts...)
+			if err != nil {
+				return GetVirtualMachineScaleSetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetVirtualMachineScaleSetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetVirtualMachineScaleSetResultOutput), nil
+			}
+			return output, nil
 		}).(GetVirtualMachineScaleSetResultOutput)
 }
 
