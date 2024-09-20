@@ -963,8 +963,11 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_resource_deployment_script_azure_cli":         {Tok: azureResource(azureCore, "ResourceDeploymentScriptAzureCli")},
 			"azurerm_resource_deployment_script_azure_power_shell": {Tok: azureResource(azureCore, "ResourceDeploymentScriptPowerShell")},
-			"azurerm_resource_group_template_deployment":           {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
-			"azurerm_resource_group_policy_assignment":             {Tok: azureResource(azureCore, "ResourceGroupPolicyAssignment")},
+			"azurerm_resource_group_template_deployment": {
+				Tok:     azureResource(azureCore, "ResourceGroupTemplateDeployment"),
+				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:core/templateDeployment:TemplateDeployment")}},
+			},
+			"azurerm_resource_group_policy_assignment": {Tok: azureResource(azureCore, "ResourceGroupPolicyAssignment")},
 			"azurerm_resource_group_policy_exemption": {
 				Tok: azureResource(azureCore, "ResourceGroupPolicyExemption"),
 				Docs: &tfbridge.DocInfo{
