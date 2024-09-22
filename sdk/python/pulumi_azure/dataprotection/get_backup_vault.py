@@ -165,9 +165,6 @@ def get_backup_vault(name: Optional[str] = None,
         redundancy=pulumi.get(__ret__, 'redundancy'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_backup_vault)
 def get_backup_vault_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupVaultResult]:
@@ -190,4 +187,17 @@ def get_backup_vault_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Backup Vault.
     :param str resource_group_name: The name of the Resource Group where the Backup Vault exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:dataprotection/getBackupVault:getBackupVault', __args__, opts=opts, typ=GetBackupVaultResult)
+    return __ret__.apply(lambda __response__: GetBackupVaultResult(
+        datastore_type=pulumi.get(__response__, 'datastore_type'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        redundancy=pulumi.get(__response__, 'redundancy'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -470,9 +470,6 @@ def get_compute_machine(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vm_id=pulumi.get(__ret__, 'vm_id'),
         vm_uuid=pulumi.get(__ret__, 'vm_uuid'))
-
-
-@_utilities.lift_output_func(get_compute_machine)
 def get_compute_machine_output(name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputeMachineResult]:
@@ -498,4 +495,40 @@ def get_compute_machine_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this hybrid compute machine.
     :param str resource_group_name: The name of the Resource Group where the Hybrid Compute exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:hybrid/getComputeMachine:getComputeMachine', __args__, opts=opts, typ=GetComputeMachineResult)
+    return __ret__.apply(lambda __response__: GetComputeMachineResult(
+        ad_fqdn=pulumi.get(__response__, 'ad_fqdn'),
+        agent_configurations=pulumi.get(__response__, 'agent_configurations'),
+        agent_version=pulumi.get(__response__, 'agent_version'),
+        client_public_key=pulumi.get(__response__, 'client_public_key'),
+        cloud_metadatas=pulumi.get(__response__, 'cloud_metadatas'),
+        detected_properties=pulumi.get(__response__, 'detected_properties'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        dns_fqdn=pulumi.get(__response__, 'dns_fqdn'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        error_details=pulumi.get(__response__, 'error_details'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        last_status_change=pulumi.get(__response__, 'last_status_change'),
+        location=pulumi.get(__response__, 'location'),
+        location_datas=pulumi.get(__response__, 'location_datas'),
+        machine_fqdn=pulumi.get(__response__, 'machine_fqdn'),
+        mssql_discovered=pulumi.get(__response__, 'mssql_discovered'),
+        name=pulumi.get(__response__, 'name'),
+        os_name=pulumi.get(__response__, 'os_name'),
+        os_profiles=pulumi.get(__response__, 'os_profiles'),
+        os_sku=pulumi.get(__response__, 'os_sku'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        os_version=pulumi.get(__response__, 'os_version'),
+        parent_cluster_resource_id=pulumi.get(__response__, 'parent_cluster_resource_id'),
+        private_link_scope_resource_id=pulumi.get(__response__, 'private_link_scope_resource_id'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        service_statuses=pulumi.get(__response__, 'service_statuses'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        vm_id=pulumi.get(__response__, 'vm_id'),
+        vm_uuid=pulumi.get(__response__, 'vm_uuid')))

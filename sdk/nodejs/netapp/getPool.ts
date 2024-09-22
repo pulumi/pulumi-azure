@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:netapp/getPool:getPool", {
         "accountName": args.accountName,
@@ -95,7 +94,12 @@ export interface GetPoolResult {
  * ```
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
-    return pulumi.output(args).apply((a: any) => getPool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:netapp/getPool:getPool", {
+        "accountName": args.accountName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

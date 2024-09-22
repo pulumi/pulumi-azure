@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:policy/getPolicyAssignment:getPolicyAssignment", {
         "name": args.name,
@@ -113,7 +112,11 @@ export interface GetPolicyAssignmentResult {
  * ```
  */
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyAssignment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:policy/getPolicyAssignment:getPolicyAssignment", {
+        "name": args.name,
+        "scopeId": args.scopeId,
+    }, opts);
 }
 
 /**

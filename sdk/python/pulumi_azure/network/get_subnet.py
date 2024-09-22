@@ -246,9 +246,6 @@ def get_subnet(name: Optional[str] = None,
         route_table_id=pulumi.get(__ret__, 'route_table_id'),
         service_endpoints=pulumi.get(__ret__, 'service_endpoints'),
         virtual_network_name=pulumi.get(__ret__, 'virtual_network_name'))
-
-
-@_utilities.lift_output_func(get_subnet)
 def get_subnet_output(name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       virtual_network_name: Optional[pulumi.Input[str]] = None,
@@ -273,4 +270,25 @@ def get_subnet_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Specifies the name of the resource group the Virtual Network is located in.
     :param str virtual_network_name: Specifies the name of the Virtual Network this Subnet is located within.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualNetworkName'] = virtual_network_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getSubnet:getSubnet', __args__, opts=opts, typ=GetSubnetResult)
+    return __ret__.apply(lambda __response__: GetSubnetResult(
+        address_prefix=pulumi.get(__response__, 'address_prefix'),
+        address_prefixes=pulumi.get(__response__, 'address_prefixes'),
+        default_outbound_access_enabled=pulumi.get(__response__, 'default_outbound_access_enabled'),
+        enforce_private_link_endpoint_network_policies=pulumi.get(__response__, 'enforce_private_link_endpoint_network_policies'),
+        enforce_private_link_service_network_policies=pulumi.get(__response__, 'enforce_private_link_service_network_policies'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        network_security_group_id=pulumi.get(__response__, 'network_security_group_id'),
+        private_endpoint_network_policies=pulumi.get(__response__, 'private_endpoint_network_policies'),
+        private_endpoint_network_policies_enabled=pulumi.get(__response__, 'private_endpoint_network_policies_enabled'),
+        private_link_service_network_policies_enabled=pulumi.get(__response__, 'private_link_service_network_policies_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        route_table_id=pulumi.get(__response__, 'route_table_id'),
+        service_endpoints=pulumi.get(__response__, 'service_endpoints'),
+        virtual_network_name=pulumi.get(__response__, 'virtual_network_name')))

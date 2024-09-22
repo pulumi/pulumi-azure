@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSharedAccessPolicy(args: GetSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedAccessPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", {
         "iothubName": args.iothubName,
@@ -93,7 +92,12 @@ export interface GetSharedAccessPolicyResult {
  * ```
  */
 export function getSharedAccessPolicyOutput(args: GetSharedAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedAccessPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getSharedAccessPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", {
+        "iothubName": args.iothubName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

@@ -84,14 +84,20 @@ type GetMariaDbServerResult struct {
 
 func GetMariaDbServerOutput(ctx *pulumi.Context, args GetMariaDbServerOutputArgs, opts ...pulumi.InvokeOption) GetMariaDbServerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetMariaDbServerResult, error) {
+		ApplyT(func(v interface{}) (GetMariaDbServerResultOutput, error) {
 			args := v.(GetMariaDbServerArgs)
-			r, err := GetMariaDbServer(ctx, &args, opts...)
-			var s GetMariaDbServerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetMariaDbServerResult
+			secret, err := ctx.InvokePackageRaw("azure:mariadb/getMariaDbServer:getMariaDbServer", args, &rv, "", opts...)
+			if err != nil {
+				return GetMariaDbServerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetMariaDbServerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetMariaDbServerResultOutput), nil
+			}
+			return output, nil
 		}).(GetMariaDbServerResultOutput)
 }
 

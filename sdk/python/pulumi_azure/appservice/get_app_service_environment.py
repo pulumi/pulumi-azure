@@ -206,9 +206,6 @@ def get_app_service_environment(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         service_ip_address=pulumi.get(__ret__, 'service_ip_address'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_app_service_environment)
 def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentResult]:
@@ -230,4 +227,20 @@ def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this App Service Environment.
     :param str resource_group_name: The name of the Resource Group where the App Service Environment exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment', __args__, opts=opts, typ=GetAppServiceEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetAppServiceEnvironmentResult(
+        cluster_settings=pulumi.get(__response__, 'cluster_settings'),
+        front_end_scale_factor=pulumi.get(__response__, 'front_end_scale_factor'),
+        id=pulumi.get(__response__, 'id'),
+        internal_ip_address=pulumi.get(__response__, 'internal_ip_address'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        pricing_tier=pulumi.get(__response__, 'pricing_tier'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        service_ip_address=pulumi.get(__response__, 'service_ip_address'),
+        tags=pulumi.get(__response__, 'tags')))

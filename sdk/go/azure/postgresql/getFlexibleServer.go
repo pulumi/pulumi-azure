@@ -90,14 +90,20 @@ type LookupFlexibleServerResult struct {
 
 func LookupFlexibleServerOutput(ctx *pulumi.Context, args LookupFlexibleServerOutputArgs, opts ...pulumi.InvokeOption) LookupFlexibleServerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFlexibleServerResult, error) {
+		ApplyT(func(v interface{}) (LookupFlexibleServerResultOutput, error) {
 			args := v.(LookupFlexibleServerArgs)
-			r, err := LookupFlexibleServer(ctx, &args, opts...)
-			var s LookupFlexibleServerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFlexibleServerResult
+			secret, err := ctx.InvokePackageRaw("azure:postgresql/getFlexibleServer:getFlexibleServer", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFlexibleServerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFlexibleServerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFlexibleServerResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFlexibleServerResultOutput)
 }
 

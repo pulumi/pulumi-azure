@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFrontdoorEndpoint(args: GetFrontdoorEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", {
         "name": args.name,
@@ -89,7 +88,12 @@ export interface GetFrontdoorEndpointResult {
  * ```
  */
 export function getFrontdoorEndpointOutput(args: GetFrontdoorEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getFrontdoorEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", {
+        "name": args.name,
+        "profileName": args.profileName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

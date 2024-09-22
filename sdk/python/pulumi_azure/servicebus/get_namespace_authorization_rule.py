@@ -206,9 +206,6 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-
-
-@_utilities.lift_output_func(get_namespace_authorization_rule)
 def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = None,
                                             namespace_id: Optional[pulumi.Input[Optional[str]]] = None,
                                             namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -236,4 +233,22 @@ def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = 
            
            > **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['namespaceId'] = namespace_id
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule', __args__, opts=opts, typ=GetNamespaceAuthorizationRuleResult)
+    return __ret__.apply(lambda __response__: GetNamespaceAuthorizationRuleResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_id=pulumi.get(__response__, 'namespace_id'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
+        primary_connection_string_alias=pulumi.get(__response__, 'primary_connection_string_alias'),
+        primary_key=pulumi.get(__response__, 'primary_key'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
+        secondary_connection_string_alias=pulumi.get(__response__, 'secondary_connection_string_alias'),
+        secondary_key=pulumi.get(__response__, 'secondary_key')))
