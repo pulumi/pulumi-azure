@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getComputeMachine(args: GetComputeMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeMachineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:hybrid/getComputeMachine:getComputeMachine", {
         "name": args.name,
@@ -196,7 +195,11 @@ export interface GetComputeMachineResult {
  * ```
  */
 export function getComputeMachineOutput(args: GetComputeMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeMachineResult> {
-    return pulumi.output(args).apply((a: any) => getComputeMachine(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:hybrid/getComputeMachine:getComputeMachine", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

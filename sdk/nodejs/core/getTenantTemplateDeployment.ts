@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Tenant Template Deployment.
  */
 export function getTenantTemplateDeployment(args: GetTenantTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantTemplateDeploymentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", {
         "name": args.name,
@@ -43,7 +42,10 @@ export interface GetTenantTemplateDeploymentResult {
  * Use this data source to access information about an existing Tenant Template Deployment.
  */
 export function getTenantTemplateDeploymentOutput(args: GetTenantTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantTemplateDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getTenantTemplateDeployment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

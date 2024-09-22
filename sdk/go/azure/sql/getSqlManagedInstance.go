@@ -106,14 +106,20 @@ type GetSqlManagedInstanceResult struct {
 
 func GetSqlManagedInstanceOutput(ctx *pulumi.Context, args GetSqlManagedInstanceOutputArgs, opts ...pulumi.InvokeOption) GetSqlManagedInstanceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSqlManagedInstanceResult, error) {
+		ApplyT(func(v interface{}) (GetSqlManagedInstanceResultOutput, error) {
 			args := v.(GetSqlManagedInstanceArgs)
-			r, err := GetSqlManagedInstance(ctx, &args, opts...)
-			var s GetSqlManagedInstanceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSqlManagedInstanceResult
+			secret, err := ctx.InvokePackageRaw("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args, &rv, "", opts...)
+			if err != nil {
+				return GetSqlManagedInstanceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSqlManagedInstanceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSqlManagedInstanceResultOutput), nil
+			}
+			return output, nil
 		}).(GetSqlManagedInstanceResultOutput)
 }
 

@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCircuitPeering(args: GetCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetCircuitPeeringResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:expressroute/getCircuitPeering:getCircuitPeering", {
         "expressRouteCircuitName": args.expressRouteCircuitName,
@@ -112,7 +111,12 @@ export interface GetCircuitPeeringResult {
  * ```
  */
 export function getCircuitPeeringOutput(args: GetCircuitPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCircuitPeeringResult> {
-    return pulumi.output(args).apply((a: any) => getCircuitPeering(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:expressroute/getCircuitPeering:getCircuitPeering", {
+        "expressRouteCircuitName": args.expressRouteCircuitName,
+        "peeringType": args.peeringType,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

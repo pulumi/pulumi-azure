@@ -514,9 +514,6 @@ def get_account(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'),
         write_endpoints=pulumi.get(__ret__, 'write_endpoints'))
-
-
-@_utilities.lift_output_func(get_account)
 def get_account_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
@@ -538,4 +535,45 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the CosmosDB Account.
     :param str resource_group_name: Specifies the name of the resource group in which the CosmosDB Account resides.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:cosmosdb/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
+    return __ret__.apply(lambda __response__: GetAccountResult(
+        automatic_failover_enabled=pulumi.get(__response__, 'automatic_failover_enabled'),
+        capabilities=pulumi.get(__response__, 'capabilities'),
+        connection_strings=pulumi.get(__response__, 'connection_strings'),
+        consistency_policies=pulumi.get(__response__, 'consistency_policies'),
+        enable_automatic_failover=pulumi.get(__response__, 'enable_automatic_failover'),
+        enable_free_tier=pulumi.get(__response__, 'enable_free_tier'),
+        enable_multiple_write_locations=pulumi.get(__response__, 'enable_multiple_write_locations'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        free_tier_enabled=pulumi.get(__response__, 'free_tier_enabled'),
+        geo_locations=pulumi.get(__response__, 'geo_locations'),
+        id=pulumi.get(__response__, 'id'),
+        ip_range_filter=pulumi.get(__response__, 'ip_range_filter'),
+        is_virtual_network_filter_enabled=pulumi.get(__response__, 'is_virtual_network_filter_enabled'),
+        key_vault_key_id=pulumi.get(__response__, 'key_vault_key_id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        multiple_write_locations_enabled=pulumi.get(__response__, 'multiple_write_locations_enabled'),
+        name=pulumi.get(__response__, 'name'),
+        offer_type=pulumi.get(__response__, 'offer_type'),
+        primary_key=pulumi.get(__response__, 'primary_key'),
+        primary_mongodb_connection_string=pulumi.get(__response__, 'primary_mongodb_connection_string'),
+        primary_readonly_key=pulumi.get(__response__, 'primary_readonly_key'),
+        primary_readonly_mongodb_connection_string=pulumi.get(__response__, 'primary_readonly_mongodb_connection_string'),
+        primary_readonly_sql_connection_string=pulumi.get(__response__, 'primary_readonly_sql_connection_string'),
+        primary_sql_connection_string=pulumi.get(__response__, 'primary_sql_connection_string'),
+        read_endpoints=pulumi.get(__response__, 'read_endpoints'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_key=pulumi.get(__response__, 'secondary_key'),
+        secondary_mongodb_connection_string=pulumi.get(__response__, 'secondary_mongodb_connection_string'),
+        secondary_readonly_key=pulumi.get(__response__, 'secondary_readonly_key'),
+        secondary_readonly_mongodb_connection_string=pulumi.get(__response__, 'secondary_readonly_mongodb_connection_string'),
+        secondary_readonly_sql_connection_string=pulumi.get(__response__, 'secondary_readonly_sql_connection_string'),
+        secondary_sql_connection_string=pulumi.get(__response__, 'secondary_sql_connection_string'),
+        tags=pulumi.get(__response__, 'tags'),
+        virtual_network_rules=pulumi.get(__response__, 'virtual_network_rules'),
+        write_endpoints=pulumi.get(__response__, 'write_endpoints')))

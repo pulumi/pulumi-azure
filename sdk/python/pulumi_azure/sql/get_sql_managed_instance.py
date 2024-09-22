@@ -325,9 +325,6 @@ def get_sql_managed_instance(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timezone_id=pulumi.get(__ret__, 'timezone_id'),
         vcores=pulumi.get(__ret__, 'vcores'))
-
-
-@_utilities.lift_output_func(get_sql_managed_instance)
 def get_sql_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -353,4 +350,30 @@ def get_sql_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the Resource Group in which the SQL Managed Instance exists.
     :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:sql/getSqlManagedInstance:getSqlManagedInstance', __args__, opts=opts, typ=GetSqlManagedInstanceResult)
+    return __ret__.apply(lambda __response__: GetSqlManagedInstanceResult(
+        administrator_login=pulumi.get(__response__, 'administrator_login'),
+        collation=pulumi.get(__response__, 'collation'),
+        dns_zone_partner_id=pulumi.get(__response__, 'dns_zone_partner_id'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        license_type=pulumi.get(__response__, 'license_type'),
+        location=pulumi.get(__response__, 'location'),
+        minimum_tls_version=pulumi.get(__response__, 'minimum_tls_version'),
+        name=pulumi.get(__response__, 'name'),
+        proxy_override=pulumi.get(__response__, 'proxy_override'),
+        public_data_endpoint_enabled=pulumi.get(__response__, 'public_data_endpoint_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        storage_account_type=pulumi.get(__response__, 'storage_account_type'),
+        storage_size_in_gb=pulumi.get(__response__, 'storage_size_in_gb'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        timezone_id=pulumi.get(__response__, 'timezone_id'),
+        vcores=pulumi.get(__response__, 'vcores')))

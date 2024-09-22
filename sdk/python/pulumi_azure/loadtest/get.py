@@ -177,9 +177,6 @@ def get(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get)
 def get_output(name: Optional[pulumi.Input[str]] = None,
                resource_group_name: Optional[pulumi.Input[str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResult]:
@@ -201,4 +198,18 @@ def get_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Load Test Service.
     :param str resource_group_name: The name of the Resource Group in which the Load Test Service exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:loadtest/get:get', __args__, opts=opts, typ=GetResult)
+    return __ret__.apply(lambda __response__: GetResult(
+        data_plane_uri=pulumi.get(__response__, 'data_plane_uri'),
+        description=pulumi.get(__response__, 'description'),
+        encryptions=pulumi.get(__response__, 'encryptions'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

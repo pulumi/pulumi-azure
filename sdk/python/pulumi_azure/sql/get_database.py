@@ -230,9 +230,6 @@ def get_database(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         server_name=pulumi.get(__ret__, 'server_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_database)
 def get_database_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         server_name: Optional[pulumi.Input[str]] = None,
@@ -261,4 +258,23 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
     :param str server_name: The name of the SQL Server.
     :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:sql/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
+    return __ret__.apply(lambda __response__: GetDatabaseResult(
+        collation=pulumi.get(__response__, 'collation'),
+        default_secondary_location=pulumi.get(__response__, 'default_secondary_location'),
+        edition=pulumi.get(__response__, 'edition'),
+        elastic_pool_name=pulumi.get(__response__, 'elastic_pool_name'),
+        failover_group_id=pulumi.get(__response__, 'failover_group_id'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        read_scale=pulumi.get(__response__, 'read_scale'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        server_name=pulumi.get(__response__, 'server_name'),
+        tags=pulumi.get(__response__, 'tags')))
