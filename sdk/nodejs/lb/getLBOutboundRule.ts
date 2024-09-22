@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLBOutboundRule(args: GetLBOutboundRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetLBOutboundRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:lb/getLBOutboundRule:getLBOutboundRule", {
         "loadbalancerId": args.loadbalancerId,
@@ -100,7 +99,11 @@ export interface GetLBOutboundRuleResult {
  * ```
  */
 export function getLBOutboundRuleOutput(args: GetLBOutboundRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLBOutboundRuleResult> {
-    return pulumi.output(args).apply((a: any) => getLBOutboundRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:lb/getLBOutboundRule:getLBOutboundRule", {
+        "loadbalancerId": args.loadbalancerId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -82,14 +82,20 @@ type LookupTableEntityResult struct {
 
 func LookupTableEntityOutput(ctx *pulumi.Context, args LookupTableEntityOutputArgs, opts ...pulumi.InvokeOption) LookupTableEntityResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTableEntityResult, error) {
+		ApplyT(func(v interface{}) (LookupTableEntityResultOutput, error) {
 			args := v.(LookupTableEntityArgs)
-			r, err := LookupTableEntity(ctx, &args, opts...)
-			var s LookupTableEntityResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTableEntityResult
+			secret, err := ctx.InvokePackageRaw("azure:storage/getTableEntity:getTableEntity", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTableEntityResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTableEntityResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTableEntityResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTableEntityResultOutput)
 }
 

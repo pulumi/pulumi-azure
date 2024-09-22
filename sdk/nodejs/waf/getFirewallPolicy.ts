@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:waf/getFirewallPolicy:getFirewallPolicy", {
         "name": args.name,
@@ -75,7 +74,12 @@ export interface GetFirewallPolicyResult {
  * ```
  */
 export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getFirewallPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:waf/getFirewallPolicy:getFirewallPolicy", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

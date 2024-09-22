@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", {
         "accountName": args.accountName,
@@ -127,7 +126,12 @@ export interface GetSnapshotPolicyResult {
  * ```
  */
 export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getSnapshotPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", {
+        "accountName": args.accountName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

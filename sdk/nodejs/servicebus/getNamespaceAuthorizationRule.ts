@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", {
         "name": args.name,
@@ -119,7 +118,13 @@ export interface GetNamespaceAuthorizationRuleResult {
  * ```
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
-    return pulumi.output(args).apply((a: any) => getNamespaceAuthorizationRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", {
+        "name": args.name,
+        "namespaceId": args.namespaceId,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
