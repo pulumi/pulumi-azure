@@ -219,9 +219,6 @@ def get_account(name: Optional[str] = None,
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_account)
 def get_account_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
@@ -243,4 +240,21 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Batch account.
     :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:batch/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
+    return __ret__.apply(lambda __response__: GetAccountResult(
+        account_endpoint=pulumi.get(__response__, 'account_endpoint'),
+        encryption=pulumi.get(__response__, 'encryption'),
+        id=pulumi.get(__response__, 'id'),
+        key_vault_references=pulumi.get(__response__, 'key_vault_references'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        pool_allocation_mode=pulumi.get(__response__, 'pool_allocation_mode'),
+        primary_access_key=pulumi.get(__response__, 'primary_access_key'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__response__, 'secondary_access_key'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
+        tags=pulumi.get(__response__, 'tags')))

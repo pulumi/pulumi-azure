@@ -141,9 +141,6 @@ def get_volume_snapshot(name: Optional[str] = None,
         source_volume_size_in_gib=pulumi.get(__ret__, 'source_volume_size_in_gib'),
         volume_group_id=pulumi.get(__ret__, 'volume_group_id'),
         volume_name=pulumi.get(__ret__, 'volume_name'))
-
-
-@_utilities.lift_output_func(get_volume_snapshot)
 def get_volume_snapshot_output(name: Optional[pulumi.Input[str]] = None,
                                volume_group_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeSnapshotResult]:
@@ -169,4 +166,15 @@ def get_volume_snapshot_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Elastic SAN Volume Snapshot.
     :param str volume_group_id: The Elastic SAN Volume Group ID within which the Elastic SAN Volume Snapshot exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['volumeGroupId'] = volume_group_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot', __args__, opts=opts, typ=GetVolumeSnapshotResult)
+    return __ret__.apply(lambda __response__: GetVolumeSnapshotResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        source_id=pulumi.get(__response__, 'source_id'),
+        source_volume_size_in_gib=pulumi.get(__response__, 'source_volume_size_in_gib'),
+        volume_group_id=pulumi.get(__response__, 'volume_group_id'),
+        volume_name=pulumi.get(__response__, 'volume_name')))

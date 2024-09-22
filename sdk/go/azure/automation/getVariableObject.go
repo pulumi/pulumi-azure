@@ -49,14 +49,20 @@ type LookupVariableObjectResult struct {
 
 func LookupVariableObjectOutput(ctx *pulumi.Context, args LookupVariableObjectOutputArgs, opts ...pulumi.InvokeOption) LookupVariableObjectResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVariableObjectResult, error) {
+		ApplyT(func(v interface{}) (LookupVariableObjectResultOutput, error) {
 			args := v.(LookupVariableObjectArgs)
-			r, err := LookupVariableObject(ctx, &args, opts...)
-			var s LookupVariableObjectResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVariableObjectResult
+			secret, err := ctx.InvokePackageRaw("azure:automation/getVariableObject:getVariableObject", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVariableObjectResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVariableObjectResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVariableObjectResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVariableObjectResultOutput)
 }
 

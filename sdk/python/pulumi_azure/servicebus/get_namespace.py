@@ -244,9 +244,6 @@ def get_namespace(name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-
-
-@_utilities.lift_output_func(get_namespace)
 def get_namespace_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
@@ -268,4 +265,23 @@ def get_namespace_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getNamespace:getNamespace', __args__, opts=opts, typ=GetNamespaceResult)
+    return __ret__.apply(lambda __response__: GetNamespaceResult(
+        capacity=pulumi.get(__response__, 'capacity'),
+        default_primary_connection_string=pulumi.get(__response__, 'default_primary_connection_string'),
+        default_primary_key=pulumi.get(__response__, 'default_primary_key'),
+        default_secondary_connection_string=pulumi.get(__response__, 'default_secondary_connection_string'),
+        default_secondary_key=pulumi.get(__response__, 'default_secondary_key'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        premium_messaging_partitions=pulumi.get(__response__, 'premium_messaging_partitions'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        zone_redundant=pulumi.get(__response__, 'zone_redundant')))
