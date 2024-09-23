@@ -147,14 +147,20 @@ type LookupKubernetesClusterResult struct {
 
 func LookupKubernetesClusterOutput(ctx *pulumi.Context, args LookupKubernetesClusterOutputArgs, opts ...pulumi.InvokeOption) LookupKubernetesClusterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupKubernetesClusterResult, error) {
+		ApplyT(func(v interface{}) (LookupKubernetesClusterResultOutput, error) {
 			args := v.(LookupKubernetesClusterArgs)
-			r, err := LookupKubernetesCluster(ctx, &args, opts...)
-			var s LookupKubernetesClusterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupKubernetesClusterResult
+			secret, err := ctx.InvokePackageRaw("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args, &rv, "", opts...)
+			if err != nil {
+				return LookupKubernetesClusterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupKubernetesClusterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupKubernetesClusterResultOutput), nil
+			}
+			return output, nil
 		}).(LookupKubernetesClusterResultOutput)
 }
 

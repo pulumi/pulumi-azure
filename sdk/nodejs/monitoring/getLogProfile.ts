@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:monitoring/getLogProfile:getLogProfile", {
         "name": args.name,
@@ -89,7 +88,10 @@ export interface GetLogProfileResult {
  * ```
  */
 export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogProfileResult> {
-    return pulumi.output(args).apply((a: any) => getLogProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:monitoring/getLogProfile:getLogProfile", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

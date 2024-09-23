@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getScheduledQueryRulesAlert(args: GetScheduledQueryRulesAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRulesAlertResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", {
         "name": args.name,
@@ -126,7 +125,11 @@ export interface GetScheduledQueryRulesAlertResult {
  * ```
  */
 export function getScheduledQueryRulesAlertOutput(args: GetScheduledQueryRulesAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRulesAlertResult> {
-    return pulumi.output(args).apply((a: any) => getScheduledQueryRulesAlert(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

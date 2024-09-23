@@ -82,14 +82,20 @@ type LookupFrontdoorCustomDomainResult struct {
 
 func LookupFrontdoorCustomDomainOutput(ctx *pulumi.Context, args LookupFrontdoorCustomDomainOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorCustomDomainResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFrontdoorCustomDomainResult, error) {
+		ApplyT(func(v interface{}) (LookupFrontdoorCustomDomainResultOutput, error) {
 			args := v.(LookupFrontdoorCustomDomainArgs)
-			r, err := LookupFrontdoorCustomDomain(ctx, &args, opts...)
-			var s LookupFrontdoorCustomDomainResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFrontdoorCustomDomainResult
+			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFrontdoorCustomDomainResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFrontdoorCustomDomainResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFrontdoorCustomDomainResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFrontdoorCustomDomainResultOutput)
 }
 
