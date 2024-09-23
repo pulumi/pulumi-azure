@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNetworkSlice(args: GetNetworkSliceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSliceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mobile/getNetworkSlice:getNetworkSlice", {
         "mobileNetworkId": args.mobileNetworkId,
@@ -95,7 +94,11 @@ export interface GetNetworkSliceResult {
  * ```
  */
 export function getNetworkSliceOutput(args: GetNetworkSliceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSliceResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkSlice(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:mobile/getNetworkSlice:getNetworkSlice", {
+        "mobileNetworkId": args.mobileNetworkId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

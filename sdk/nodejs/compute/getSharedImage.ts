@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSharedImage(args: GetSharedImageArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getSharedImage:getSharedImage", {
         "galleryName": args.galleryName,
@@ -151,7 +150,12 @@ export interface GetSharedImageResult {
  * ```
  */
 export function getSharedImageOutput(args: GetSharedImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedImageResult> {
-    return pulumi.output(args).apply((a: any) => getSharedImage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getSharedImage:getSharedImage", {
+        "galleryName": args.galleryName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

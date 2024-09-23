@@ -80,14 +80,20 @@ type LookupNetworkManagerConnectivityConfigurationResult struct {
 
 func LookupNetworkManagerConnectivityConfigurationOutput(ctx *pulumi.Context, args LookupNetworkManagerConnectivityConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkManagerConnectivityConfigurationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkManagerConnectivityConfigurationResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkManagerConnectivityConfigurationResultOutput, error) {
 			args := v.(LookupNetworkManagerConnectivityConfigurationArgs)
-			r, err := LookupNetworkManagerConnectivityConfiguration(ctx, &args, opts...)
-			var s LookupNetworkManagerConnectivityConfigurationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkManagerConnectivityConfigurationResult
+			secret, err := ctx.InvokePackageRaw("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkManagerConnectivityConfigurationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkManagerConnectivityConfigurationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkManagerConnectivityConfigurationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkManagerConnectivityConfigurationResultOutput)
 }
 

@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSpringCloudService(args: GetSpringCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetSpringCloudServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appplatform/getSpringCloudService:getSpringCloudService", {
         "name": args.name,
@@ -96,7 +95,11 @@ export interface GetSpringCloudServiceResult {
  * ```
  */
 export function getSpringCloudServiceOutput(args: GetSpringCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringCloudServiceResult> {
-    return pulumi.output(args).apply((a: any) => getSpringCloudService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appplatform/getSpringCloudService:getSpringCloudService", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

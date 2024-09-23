@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSpringCloudApp(args: GetSpringCloudAppArgs, opts?: pulumi.InvokeOptions): Promise<GetSpringCloudAppResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appplatform/getSpringCloudApp:getSpringCloudApp", {
         "name": args.name,
@@ -109,7 +108,12 @@ export interface GetSpringCloudAppResult {
  * ```
  */
 export function getSpringCloudAppOutput(args: GetSpringCloudAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringCloudAppResult> {
-    return pulumi.output(args).apply((a: any) => getSpringCloudApp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appplatform/getSpringCloudApp:getSpringCloudApp", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 /**

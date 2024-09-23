@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTriggerSchedules(args: GetTriggerSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerSchedulesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:datafactory/getTriggerSchedules:getTriggerSchedules", {
         "dataFactoryId": args.dataFactoryId,
@@ -67,7 +66,10 @@ export interface GetTriggerSchedulesResult {
  * ```
  */
 export function getTriggerSchedulesOutput(args: GetTriggerSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerSchedulesResult> {
-    return pulumi.output(args).apply((a: any) => getTriggerSchedules(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:datafactory/getTriggerSchedules:getTriggerSchedules", {
+        "dataFactoryId": args.dataFactoryId,
+    }, opts);
 }
 
 /**
