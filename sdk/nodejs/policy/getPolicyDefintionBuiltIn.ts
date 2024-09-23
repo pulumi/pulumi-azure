@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  */
 export function getPolicyDefintionBuiltIn(args?: GetPolicyDefintionBuiltInArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefintionBuiltInResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", {
         "displayName": args.displayName,
@@ -110,7 +109,13 @@ export interface GetPolicyDefintionBuiltInResult {
  * ```
  */
 export function getPolicyDefintionBuiltInOutput(args?: GetPolicyDefintionBuiltInOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefintionBuiltInResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyDefintionBuiltIn(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", {
+        "displayName": args.displayName,
+        "managementGroupName": args.managementGroupName,
+        "name": args.name,
+    }, opts);
 }
 
 /**
