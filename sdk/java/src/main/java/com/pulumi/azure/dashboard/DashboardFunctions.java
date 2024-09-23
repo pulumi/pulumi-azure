@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class DashboardFunctions {
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -31,7 +31,7 @@ public final class DashboardFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
-     * import com.pulumi.azure.portal.inputs.GetDashboardArgs;
+     * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -45,7 +45,7 @@ public final class DashboardFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
      *             .name("existing-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
@@ -58,15 +58,15 @@ public final class DashboardFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
-     * azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard
+     * azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard
      * 
      */
-    @Deprecated /* azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard */
+    @Deprecated /* azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard */
     public static Output<Azurerm_portal_dashboardResult> azurerm_portal_dashboard(Azurerm_portal_dashboardArgs args) {
         return azurerm_portal_dashboard(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -79,7 +79,7 @@ public final class DashboardFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
-     * import com.pulumi.azure.portal.inputs.GetDashboardArgs;
+     * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -93,7 +93,7 @@ public final class DashboardFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
      *             .name("existing-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
@@ -106,15 +106,15 @@ public final class DashboardFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
-     * azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard
+     * azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard
      * 
      */
-    @Deprecated /* azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard */
+    @Deprecated /* azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard */
     public static CompletableFuture<Azurerm_portal_dashboardResult> azurerm_portal_dashboardPlain(Azurerm_portal_dashboardPlainArgs args) {
         return azurerm_portal_dashboardPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -127,7 +127,7 @@ public final class DashboardFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
-     * import com.pulumi.azure.portal.inputs.GetDashboardArgs;
+     * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -141,7 +141,7 @@ public final class DashboardFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
      *             .name("existing-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
@@ -154,15 +154,15 @@ public final class DashboardFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
-     * azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard
+     * azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard
      * 
      */
-    @Deprecated /* azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard */
+    @Deprecated /* azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard */
     public static Output<Azurerm_portal_dashboardResult> azurerm_portal_dashboard(Azurerm_portal_dashboardArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", TypeShape.of(Azurerm_portal_dashboardResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -175,7 +175,7 @@ public final class DashboardFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
-     * import com.pulumi.azure.portal.inputs.GetDashboardArgs;
+     * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -189,7 +189,7 @@ public final class DashboardFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
      *             .name("existing-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
@@ -202,10 +202,10 @@ public final class DashboardFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * @deprecated
-     * azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard
+     * azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard
      * 
      */
-    @Deprecated /* azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard */
+    @Deprecated /* azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard */
     public static CompletableFuture<Azurerm_portal_dashboardResult> azurerm_portal_dashboardPlain(Azurerm_portal_dashboardPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", TypeShape.of(Azurerm_portal_dashboardResult.class), args, Utilities.withVersion(options));
     }

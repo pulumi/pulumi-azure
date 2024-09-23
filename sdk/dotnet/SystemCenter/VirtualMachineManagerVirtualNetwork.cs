@@ -59,7 +59,7 @@ namespace Pulumi.Azure.SystemCenter
     /// 
     /// ## Import
     /// 
-    /// System Center Virtual Machine Manager Virtual Networks can be imported into Terraform using the `resource id`, e.g.
+    /// System Center Virtual Machine Manager Virtual Networks can be imported into Pulumi using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ScVmm/virtualNetworks/virtualNetwork1

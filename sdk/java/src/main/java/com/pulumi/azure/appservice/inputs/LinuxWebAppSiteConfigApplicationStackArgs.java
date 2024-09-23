@@ -16,25 +16,6 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     public static final LinuxWebAppSiteConfigApplicationStackArgs Empty = new LinuxWebAppSiteConfigApplicationStackArgs();
 
     /**
-     * @deprecated
-     * This property has been deprecated and will be removed in 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-    @Import(name="dockerImage")
-    private @Nullable Output<String> dockerImage;
-
-    /**
-     * @deprecated
-     * This property has been deprecated and will be removed in 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-    public Optional<Output<String>> dockerImage() {
-        return Optional.ofNullable(this.dockerImage);
-    }
-
-    /**
      * The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
      * 
      */
@@ -47,25 +28,6 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
      */
     public Optional<Output<String>> dockerImageName() {
         return Optional.ofNullable(this.dockerImageName);
-    }
-
-    /**
-     * @deprecated
-     * This property has been deprecated and will be removed in 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-    @Import(name="dockerImageTag")
-    private @Nullable Output<String> dockerImageTag;
-
-    /**
-     * @deprecated
-     * This property has been deprecated and will be removed in 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-    public Optional<Output<String>> dockerImageTag() {
-        return Optional.ofNullable(this.dockerImageTag);
     }
 
     /**
@@ -275,9 +237,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     private LinuxWebAppSiteConfigApplicationStackArgs() {}
 
     private LinuxWebAppSiteConfigApplicationStackArgs(LinuxWebAppSiteConfigApplicationStackArgs $) {
-        this.dockerImage = $.dockerImage;
         this.dockerImageName = $.dockerImageName;
-        this.dockerImageTag = $.dockerImageTag;
         this.dockerRegistryPassword = $.dockerRegistryPassword;
         this.dockerRegistryUrl = $.dockerRegistryUrl;
         this.dockerRegistryUsername = $.dockerRegistryUsername;
@@ -311,31 +271,6 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated and will be removed in 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-        public Builder dockerImage(@Nullable Output<String> dockerImage) {
-            $.dockerImage = dockerImage;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated and will be removed in 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-        public Builder dockerImage(String dockerImage) {
-            return dockerImage(Output.of(dockerImage));
-        }
-
-        /**
          * @param dockerImageName The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
          * 
          * @return builder
@@ -354,31 +289,6 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
          */
         public Builder dockerImageName(String dockerImageName) {
             return dockerImageName(Output.of(dockerImageName));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated and will be removed in 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-        public Builder dockerImageTag(@Nullable Output<String> dockerImageTag) {
-            $.dockerImageTag = dockerImageTag;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated and will be removed in 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-        public Builder dockerImageTag(String dockerImageTag) {
-            return dockerImageTag(Output.of(dockerImageTag));
         }
 
         /**

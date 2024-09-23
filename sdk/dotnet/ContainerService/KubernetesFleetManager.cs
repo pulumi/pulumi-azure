@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService
 {
     /// <summary>
-    /// &lt;!-- Note: This documentation is generated. Any manual changes will be overwritten --&gt;
-    /// 
     /// Manages a Kubernetes Fleet Manager.
     /// 
     /// ## Example Usage
@@ -40,22 +38,9 @@ namespace Pulumi.Azure.ContainerService
     /// });
     /// ```
     /// 
-    /// ## Blocks Reference
-    /// 
-    /// ### `hub_profile` Block
-    /// 
-    /// The `hub_profile` block supports the following arguments:
-    /// 
-    /// * `dns_prefix` - (Required)
-    /// 
-    /// In addition to the arguments defined above, the `hub_profile` block exports the following attributes:
-    /// 
-    /// * `fqdn` -
-    /// * `kubernetes_version` -
-    /// 
     /// ## Import
     /// 
-    /// An existing Kubernetes Fleet Manager can be imported into Terraform using the `resource id`, e.g.
+    /// An existing Kubernetes Fleet Manager can be imported into Pulumi using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:containerservice/kubernetesFleetManager:KubernetesFleetManager example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}

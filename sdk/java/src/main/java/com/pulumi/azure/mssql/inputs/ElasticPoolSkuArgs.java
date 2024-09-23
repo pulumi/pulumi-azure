@@ -33,14 +33,14 @@ public final class ElasticPoolSkuArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+     * The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
      * 
      */
     @Import(name="family")
     private @Nullable Output<String> family;
 
     /**
-     * @return The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+     * @return The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
      * 
      */
     public Optional<Output<String>> family() {
@@ -48,14 +48,14 @@ public final class ElasticPoolSkuArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+     * @return Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
      * 
      */
     public Output<String> name() {
@@ -126,7 +126,7 @@ public final class ElasticPoolSkuArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param family The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+         * @param family The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ElasticPoolSkuArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param family The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+         * @param family The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ElasticPoolSkuArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+         * @param name Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ElasticPoolSkuArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+         * @param name Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
          * 
          * @return builder
          * 

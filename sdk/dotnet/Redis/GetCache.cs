@@ -118,13 +118,13 @@ namespace Pulumi.Azure.Redis
     public sealed class GetCacheResult
     {
         /// <summary>
+        /// Specifies if access key authentication is enabled.
+        /// </summary>
+        public readonly bool AccessKeysAuthenticationEnabled;
+        /// <summary>
         /// The size of the Redis Cache deployed.
         /// </summary>
         public readonly int Capacity;
-        /// <summary>
-        /// Whether the SSL port is enabled.
-        /// </summary>
-        public readonly bool EnableNonSslPort;
         /// <summary>
         /// The SKU family/pricing group used. Possible values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         /// </summary>
@@ -198,9 +198,9 @@ namespace Pulumi.Azure.Redis
 
         [OutputConstructor]
         private GetCacheResult(
-            int capacity,
+            bool accessKeysAuthenticationEnabled,
 
-            bool enableNonSslPort,
+            int capacity,
 
             string family,
 
@@ -246,8 +246,8 @@ namespace Pulumi.Azure.Redis
 
             ImmutableArray<string> zones)
         {
+            AccessKeysAuthenticationEnabled = accessKeysAuthenticationEnabled;
             Capacity = capacity;
-            EnableNonSslPort = enableNonSslPort;
             Family = family;
             Hostname = hostname;
             Id = id;

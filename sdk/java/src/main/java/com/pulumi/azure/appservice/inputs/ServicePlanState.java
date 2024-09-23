@@ -21,7 +21,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the App Service Environment to create this Service Plan in.
      * 
-     * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+     * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
      * 
      */
     @Import(name="appServiceEnvironmentId")
@@ -30,7 +30,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the App Service Environment to create this Service Plan in.
      * 
-     * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+     * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
      * 
      */
     public Optional<Output<String>> appServiceEnvironmentId() {
@@ -268,7 +268,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appServiceEnvironmentId The ID of the App Service Environment to create this Service Plan in.
          * 
-         * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+         * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appServiceEnvironmentId The ID of the App Service Environment to create this Service Plan in.
          * 
-         * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+         * &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
          * 
          * @return builder
          * 

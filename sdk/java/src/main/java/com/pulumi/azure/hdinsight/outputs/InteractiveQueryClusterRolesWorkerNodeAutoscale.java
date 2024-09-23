@@ -3,7 +3,6 @@
 
 package com.pulumi.azure.hdinsight.outputs;
 
-import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -13,28 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InteractiveQueryClusterRolesWorkerNodeAutoscale {
     /**
-     * @deprecated
-     * HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
-     * 
-     */
-    @Deprecated /* HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead. */
-    private @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity capacity;
-    /**
      * @return A `recurrence` block as defined below.
      * 
      */
     private @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
 
     private InteractiveQueryClusterRolesWorkerNodeAutoscale() {}
-    /**
-     * @deprecated
-     * HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
-     * 
-     */
-    @Deprecated /* HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead. */
-    public Optional<InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity> capacity() {
-        return Optional.ofNullable(this.capacity);
-    }
     /**
      * @return A `recurrence` block as defined below.
      * 
@@ -52,21 +35,13 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscale {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity capacity;
         private @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
         public Builder() {}
         public Builder(InteractiveQueryClusterRolesWorkerNodeAutoscale defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.capacity = defaults.capacity;
     	      this.recurrence = defaults.recurrence;
         }
 
-        @CustomType.Setter
-        public Builder capacity(@Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity capacity) {
-
-            this.capacity = capacity;
-            return this;
-        }
         @CustomType.Setter
         public Builder recurrence(@Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
 
@@ -75,7 +50,6 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscale {
         }
         public InteractiveQueryClusterRolesWorkerNodeAutoscale build() {
             final var _resultValue = new InteractiveQueryClusterRolesWorkerNodeAutoscale();
-            _resultValue.capacity = capacity;
             _resultValue.recurrence = recurrence;
             return _resultValue;
         }

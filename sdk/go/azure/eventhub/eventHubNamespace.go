@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/eventhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,8 +91,8 @@ type EventHubNamespace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits pulumi.IntPtrOutput `pulumi:"maximumThroughputUnits"`
-	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
-	MinimumTlsVersion pulumi.StringOutput `pulumi:"minimumTlsVersion"`
+	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkRulesets` block as defined below.
@@ -105,12 +105,6 @@ type EventHubNamespace struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-	//
-	// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewEventHubNamespace registers a new resource with the given unique name, arguments, and options.
@@ -184,7 +178,7 @@ type eventHubNamespaceState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
-	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -198,12 +192,6 @@ type eventHubNamespaceState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-	//
-	// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type EventHubNamespaceState struct {
@@ -233,7 +221,7 @@ type EventHubNamespaceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits pulumi.IntPtrInput
-	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -247,12 +235,6 @@ type EventHubNamespaceState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-	//
-	// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (EventHubNamespaceState) ElementType() reflect.Type {
@@ -274,7 +256,7 @@ type eventHubNamespaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
-	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -288,12 +270,6 @@ type eventHubNamespaceArgs struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-	//
-	// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a EventHubNamespace resource.
@@ -312,7 +288,7 @@ type EventHubNamespaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits pulumi.IntPtrInput
-	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -326,12 +302,6 @@ type EventHubNamespaceArgs struct {
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-	//
-	// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-	//
-	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (EventHubNamespaceArgs) ElementType() reflect.Type {
@@ -486,9 +456,9 @@ func (o EventHubNamespaceOutput) MaximumThroughputUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.IntPtrOutput { return v.MaximumThroughputUnits }).(pulumi.IntPtrOutput)
 }
 
-// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
-func (o EventHubNamespaceOutput) MinimumTlsVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringOutput { return v.MinimumTlsVersion }).(pulumi.StringOutput)
+// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+func (o EventHubNamespaceOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -519,15 +489,6 @@ func (o EventHubNamespaceOutput) Sku() pulumi.StringOutput {
 // A mapping of tags to assign to the resource.
 func (o EventHubNamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
-//
-// > **Note:** For eventhub premium namespace, `zoneRedundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
-//
-// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-func (o EventHubNamespaceOutput) ZoneRedundant() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EventHubNamespace) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }
 
 type EventHubNamespaceArrayOutput struct{ *pulumi.OutputState }

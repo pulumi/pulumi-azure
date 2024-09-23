@@ -38,6 +38,7 @@ import * as utilities from "../utilities";
  * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("main", {
  *     name: "example-activitylogalert",
  *     resourceGroupName: example.name,
+ *     location: example.location,
  *     scopes: [example.id],
  *     description: "This alert will monitor a specific storage account updates.",
  *     criteria: {
@@ -107,7 +108,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -196,7 +197,7 @@ export interface ActivityLogAlertState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -238,7 +239,7 @@ export interface ActivityLogAlertArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**

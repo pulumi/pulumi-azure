@@ -25,9 +25,6 @@ class QueueArgs:
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
                  duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
-                 enable_batched_operations: Optional[pulumi.Input[bool]] = None,
-                 enable_express: Optional[pulumi.Input[bool]] = None,
-                 enable_partitioning: Optional[pulumi.Input[bool]] = None,
                  express_enabled: Optional[pulumi.Input[bool]] = None,
                  forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
                  forward_to: Optional[pulumi.Input[str]] = None,
@@ -43,24 +40,24 @@ class QueueArgs:
         """
         The set of arguments for constructing a Queue resource.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
+        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+        :param pulumi.Input[bool] batched_operations_enabled: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
-        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
-        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
-        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
+        :param pulumi.Input[bool] express_enabled: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
                
-               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
-               
-               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
-        :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
+        :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
         :param pulumi.Input[int] max_delivery_count: Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
-        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] partitioning_enabled: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] status: The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
@@ -76,21 +73,6 @@ class QueueArgs:
             pulumi.set(__self__, "default_message_ttl", default_message_ttl)
         if duplicate_detection_history_time_window is not None:
             pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
-        if enable_batched_operations is not None:
-            warnings.warn("""The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_batched_operations is deprecated: The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_batched_operations is not None:
-            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
-        if enable_express is not None:
-            warnings.warn("""The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_express is deprecated: The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_express is not None:
-            pulumi.set(__self__, "enable_express", enable_express)
-        if enable_partitioning is not None:
-            warnings.warn("""The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_partitioning is deprecated: The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_partitioning is not None:
-            pulumi.set(__self__, "enable_partitioning", enable_partitioning)
         if express_enabled is not None:
             pulumi.set(__self__, "express_enabled", express_enabled)
         if forward_dead_lettered_messages_to is not None:
@@ -132,7 +114,7 @@ class QueueArgs:
     @pulumi.getter(name="autoDeleteOnIdle")
     def auto_delete_on_idle(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
+        The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
@@ -143,6 +125,9 @@ class QueueArgs:
     @property
     @pulumi.getter(name="batchedOperationsEnabled")
     def batched_operations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+        """
         return pulumi.get(self, "batched_operations_enabled")
 
     @batched_operations_enabled.setter
@@ -165,7 +150,7 @@ class QueueArgs:
     @pulumi.getter(name="defaultMessageTtl")
     def default_message_ttl(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
+        The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
         """
         return pulumi.get(self, "default_message_ttl")
 
@@ -177,7 +162,7 @@ class QueueArgs:
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
     def duplicate_detection_history_time_window(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
+        The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
         """
         return pulumi.get(self, "duplicate_detection_history_time_window")
 
@@ -186,51 +171,13 @@ class QueueArgs:
         pulumi.set(self, "duplicate_detection_history_time_window", value)
 
     @property
-    @pulumi.getter(name="enableBatchedOperations")
-    @_utilities.deprecated("""The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
-        """
-        return pulumi.get(self, "enable_batched_operations")
-
-    @enable_batched_operations.setter
-    def enable_batched_operations(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_batched_operations", value)
-
-    @property
-    @pulumi.getter(name="enableExpress")
-    @_utilities.deprecated("""The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_express(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="expressEnabled")
+    def express_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 
-        > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
+        > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
         """
-        return pulumi.get(self, "enable_express")
-
-    @enable_express.setter
-    def enable_express(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_express", value)
-
-    @property
-    @pulumi.getter(name="enablePartitioning")
-    @_utilities.deprecated("""The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
-
-        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
-        """
-        return pulumi.get(self, "enable_partitioning")
-
-    @enable_partitioning.setter
-    def enable_partitioning(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_partitioning", value)
-
-    @property
-    @pulumi.getter(name="expressEnabled")
-    def express_enabled(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "express_enabled")
 
     @express_enabled.setter
@@ -265,7 +212,7 @@ class QueueArgs:
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
+        The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
         """
         return pulumi.get(self, "lock_duration")
 
@@ -289,7 +236,7 @@ class QueueArgs:
     @pulumi.getter(name="maxMessageSizeInKilobytes")
     def max_message_size_in_kilobytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -301,7 +248,7 @@ class QueueArgs:
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
         """
         return pulumi.get(self, "max_size_in_megabytes")
 
@@ -324,6 +271,11 @@ class QueueArgs:
     @property
     @pulumi.getter(name="partitioningEnabled")
     def partitioning_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+
+        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+        """
         return pulumi.get(self, "partitioning_enabled")
 
     @partitioning_enabled.setter
@@ -375,9 +327,6 @@ class _QueueState:
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
                  duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
-                 enable_batched_operations: Optional[pulumi.Input[bool]] = None,
-                 enable_express: Optional[pulumi.Input[bool]] = None,
-                 enable_partitioning: Optional[pulumi.Input[bool]] = None,
                  express_enabled: Optional[pulumi.Input[bool]] = None,
                  forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
                  forward_to: Optional[pulumi.Input[str]] = None,
@@ -395,25 +344,25 @@ class _QueueState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Queue resources.
-        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
+        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+        :param pulumi.Input[bool] batched_operations_enabled: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
-        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
-        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
-        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
+        :param pulumi.Input[bool] express_enabled: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
                
-               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
-               
-               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
-        :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
+        :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
         :param pulumi.Input[int] max_delivery_count: Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
-        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] partitioning_enabled: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] status: The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
@@ -428,21 +377,6 @@ class _QueueState:
             pulumi.set(__self__, "default_message_ttl", default_message_ttl)
         if duplicate_detection_history_time_window is not None:
             pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
-        if enable_batched_operations is not None:
-            warnings.warn("""The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_batched_operations is deprecated: The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_batched_operations is not None:
-            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
-        if enable_express is not None:
-            warnings.warn("""The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_express is deprecated: The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_express is not None:
-            pulumi.set(__self__, "enable_express", enable_express)
-        if enable_partitioning is not None:
-            warnings.warn("""The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_partitioning is deprecated: The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_partitioning is not None:
-            pulumi.set(__self__, "enable_partitioning", enable_partitioning)
         if express_enabled is not None:
             pulumi.set(__self__, "express_enabled", express_enabled)
         if forward_dead_lettered_messages_to is not None:
@@ -478,7 +412,7 @@ class _QueueState:
     @pulumi.getter(name="autoDeleteOnIdle")
     def auto_delete_on_idle(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
+        The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
@@ -489,6 +423,9 @@ class _QueueState:
     @property
     @pulumi.getter(name="batchedOperationsEnabled")
     def batched_operations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+        """
         return pulumi.get(self, "batched_operations_enabled")
 
     @batched_operations_enabled.setter
@@ -511,7 +448,7 @@ class _QueueState:
     @pulumi.getter(name="defaultMessageTtl")
     def default_message_ttl(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
+        The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
         """
         return pulumi.get(self, "default_message_ttl")
 
@@ -523,7 +460,7 @@ class _QueueState:
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
     def duplicate_detection_history_time_window(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
+        The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
         """
         return pulumi.get(self, "duplicate_detection_history_time_window")
 
@@ -532,51 +469,13 @@ class _QueueState:
         pulumi.set(self, "duplicate_detection_history_time_window", value)
 
     @property
-    @pulumi.getter(name="enableBatchedOperations")
-    @_utilities.deprecated("""The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
-        """
-        return pulumi.get(self, "enable_batched_operations")
-
-    @enable_batched_operations.setter
-    def enable_batched_operations(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_batched_operations", value)
-
-    @property
-    @pulumi.getter(name="enableExpress")
-    @_utilities.deprecated("""The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_express(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter(name="expressEnabled")
+    def express_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 
-        > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
+        > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
         """
-        return pulumi.get(self, "enable_express")
-
-    @enable_express.setter
-    def enable_express(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_express", value)
-
-    @property
-    @pulumi.getter(name="enablePartitioning")
-    @_utilities.deprecated("""The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
-
-        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
-        """
-        return pulumi.get(self, "enable_partitioning")
-
-    @enable_partitioning.setter
-    def enable_partitioning(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_partitioning", value)
-
-    @property
-    @pulumi.getter(name="expressEnabled")
-    def express_enabled(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "express_enabled")
 
     @express_enabled.setter
@@ -611,7 +510,7 @@ class _QueueState:
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
+        The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
         """
         return pulumi.get(self, "lock_duration")
 
@@ -635,7 +534,7 @@ class _QueueState:
     @pulumi.getter(name="maxMessageSizeInKilobytes")
     def max_message_size_in_kilobytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -647,7 +546,7 @@ class _QueueState:
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
         """
         return pulumi.get(self, "max_size_in_megabytes")
 
@@ -691,6 +590,11 @@ class _QueueState:
     @property
     @pulumi.getter(name="partitioningEnabled")
     def partitioning_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+
+        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+        """
         return pulumi.get(self, "partitioning_enabled")
 
     @partitioning_enabled.setter
@@ -753,9 +657,6 @@ class Queue(pulumi.CustomResource):
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
                  duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
-                 enable_batched_operations: Optional[pulumi.Input[bool]] = None,
-                 enable_express: Optional[pulumi.Input[bool]] = None,
-                 enable_partitioning: Optional[pulumi.Input[bool]] = None,
                  express_enabled: Optional[pulumi.Input[bool]] = None,
                  forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
                  forward_to: Optional[pulumi.Input[str]] = None,
@@ -793,7 +694,7 @@ class Queue(pulumi.CustomResource):
         example_queue = azure.servicebus.Queue("example",
             name="tfex_servicebus_queue",
             namespace_id=example_namespace.id,
-            enable_partitioning=True)
+            partitioning_enabled=True)
         ```
 
         ## Import
@@ -806,25 +707,25 @@ class Queue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
+        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+        :param pulumi.Input[bool] batched_operations_enabled: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
-        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
-        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
-        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
+        :param pulumi.Input[bool] express_enabled: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
                
-               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
-               
-               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
-        :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
+        :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
         :param pulumi.Input[int] max_delivery_count: Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
-        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] partitioning_enabled: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] status: The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
@@ -858,7 +759,7 @@ class Queue(pulumi.CustomResource):
         example_queue = azure.servicebus.Queue("example",
             name="tfex_servicebus_queue",
             namespace_id=example_namespace.id,
-            enable_partitioning=True)
+            partitioning_enabled=True)
         ```
 
         ## Import
@@ -889,9 +790,6 @@ class Queue(pulumi.CustomResource):
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
                  duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
-                 enable_batched_operations: Optional[pulumi.Input[bool]] = None,
-                 enable_express: Optional[pulumi.Input[bool]] = None,
-                 enable_partitioning: Optional[pulumi.Input[bool]] = None,
                  express_enabled: Optional[pulumi.Input[bool]] = None,
                  forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
                  forward_to: Optional[pulumi.Input[str]] = None,
@@ -919,9 +817,6 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["dead_lettering_on_message_expiration"] = dead_lettering_on_message_expiration
             __props__.__dict__["default_message_ttl"] = default_message_ttl
             __props__.__dict__["duplicate_detection_history_time_window"] = duplicate_detection_history_time_window
-            __props__.__dict__["enable_batched_operations"] = enable_batched_operations
-            __props__.__dict__["enable_express"] = enable_express
-            __props__.__dict__["enable_partitioning"] = enable_partitioning
             __props__.__dict__["express_enabled"] = express_enabled
             __props__.__dict__["forward_dead_lettered_messages_to"] = forward_dead_lettered_messages_to
             __props__.__dict__["forward_to"] = forward_to
@@ -956,9 +851,6 @@ class Queue(pulumi.CustomResource):
             dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
             default_message_ttl: Optional[pulumi.Input[str]] = None,
             duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
-            enable_batched_operations: Optional[pulumi.Input[bool]] = None,
-            enable_express: Optional[pulumi.Input[bool]] = None,
-            enable_partitioning: Optional[pulumi.Input[bool]] = None,
             express_enabled: Optional[pulumi.Input[bool]] = None,
             forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
             forward_to: Optional[pulumi.Input[str]] = None,
@@ -981,25 +873,25 @@ class Queue(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
+        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+        :param pulumi.Input[bool] batched_operations_enabled: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
-        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
-        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
-        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
+        :param pulumi.Input[bool] express_enabled: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
                
-               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
-               
-               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
-        :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
+        :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
         :param pulumi.Input[int] max_delivery_count: Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
-        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] partitioning_enabled: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] status: The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
@@ -1013,9 +905,6 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["dead_lettering_on_message_expiration"] = dead_lettering_on_message_expiration
         __props__.__dict__["default_message_ttl"] = default_message_ttl
         __props__.__dict__["duplicate_detection_history_time_window"] = duplicate_detection_history_time_window
-        __props__.__dict__["enable_batched_operations"] = enable_batched_operations
-        __props__.__dict__["enable_express"] = enable_express
-        __props__.__dict__["enable_partitioning"] = enable_partitioning
         __props__.__dict__["express_enabled"] = express_enabled
         __props__.__dict__["forward_dead_lettered_messages_to"] = forward_dead_lettered_messages_to
         __props__.__dict__["forward_to"] = forward_to
@@ -1035,15 +924,18 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> pulumi.Output[str]:
+    def auto_delete_on_idle(self) -> pulumi.Output[Optional[str]]:
         """
-        The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
+        The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
     @property
     @pulumi.getter(name="batchedOperationsEnabled")
-    def batched_operations_enabled(self) -> pulumi.Output[bool]:
+    def batched_operations_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+        """
         return pulumi.get(self, "batched_operations_enabled")
 
     @property
@@ -1056,54 +948,28 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultMessageTtl")
-    def default_message_ttl(self) -> pulumi.Output[str]:
+    def default_message_ttl(self) -> pulumi.Output[Optional[str]]:
         """
-        The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
+        The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
         """
         return pulumi.get(self, "default_message_ttl")
 
     @property
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
-    def duplicate_detection_history_time_window(self) -> pulumi.Output[str]:
+    def duplicate_detection_history_time_window(self) -> pulumi.Output[Optional[str]]:
         """
-        The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
+        The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
         """
         return pulumi.get(self, "duplicate_detection_history_time_window")
 
     @property
-    @pulumi.getter(name="enableBatchedOperations")
-    @_utilities.deprecated("""The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
-        """
-        return pulumi.get(self, "enable_batched_operations")
-
-    @property
-    @pulumi.getter(name="enableExpress")
-    @_utilities.deprecated("""The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_express(self) -> pulumi.Output[Optional[bool]]:
+    @pulumi.getter(name="expressEnabled")
+    def express_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 
-        > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
+        > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
         """
-        return pulumi.get(self, "enable_express")
-
-    @property
-    @pulumi.getter(name="enablePartitioning")
-    @_utilities.deprecated("""The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_partitioning(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
-
-        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
-        """
-        return pulumi.get(self, "enable_partitioning")
-
-    @property
-    @pulumi.getter(name="expressEnabled")
-    def express_enabled(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "express_enabled")
 
     @property
@@ -1124,9 +990,9 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockDuration")
-    def lock_duration(self) -> pulumi.Output[str]:
+    def lock_duration(self) -> pulumi.Output[Optional[str]]:
         """
-        The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
+        The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
         """
         return pulumi.get(self, "lock_duration")
 
@@ -1142,7 +1008,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="maxMessageSizeInKilobytes")
     def max_message_size_in_kilobytes(self) -> pulumi.Output[int]:
         """
-        Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
@@ -1150,7 +1016,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> pulumi.Output[int]:
         """
-        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+        Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
         """
         return pulumi.get(self, "max_size_in_megabytes")
 
@@ -1177,7 +1043,12 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitioningEnabled")
-    def partitioning_enabled(self) -> pulumi.Output[bool]:
+    def partitioning_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+
+        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+        """
         return pulumi.get(self, "partitioning_enabled")
 
     @property

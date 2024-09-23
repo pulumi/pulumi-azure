@@ -285,18 +285,18 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ssh);
     }
     /**
-     * A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
     @Export(name="sshPublicAccessEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> sshPublicAccessEnabled;
+    private Output</* @Nullable */ Boolean> sshPublicAccessEnabled;
 
     /**
-     * @return A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    public Output<Boolean> sshPublicAccessEnabled() {
-        return this.sshPublicAccessEnabled;
+    public Output<Optional<Boolean>> sshPublicAccessEnabled() {
+        return Codegen.optional(this.sshPublicAccessEnabled);
     }
     /**
      * The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.

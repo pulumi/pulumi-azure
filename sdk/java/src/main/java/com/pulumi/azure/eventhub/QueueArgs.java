@@ -19,23 +19,31 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     public static final QueueArgs Empty = new QueueArgs();
 
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
+     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
     @Import(name="autoDeleteOnIdle")
     private @Nullable Output<String> autoDeleteOnIdle;
 
     /**
-     * @return The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
+     * @return The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
     public Optional<Output<String>> autoDeleteOnIdle() {
         return Optional.ofNullable(this.autoDeleteOnIdle);
     }
 
+    /**
+     * Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+     * 
+     */
     @Import(name="batchedOperationsEnabled")
     private @Nullable Output<Boolean> batchedOperationsEnabled;
 
+    /**
+     * @return Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> batchedOperationsEnabled() {
         return Optional.ofNullable(this.batchedOperationsEnabled);
     }
@@ -56,14 +64,14 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
+     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
     @Import(name="defaultMessageTtl")
     private @Nullable Output<String> defaultMessageTtl;
 
     /**
-     * @return The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
+     * @return The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      * 
      */
     public Optional<Output<String>> defaultMessageTtl() {
@@ -71,14 +79,14 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
      * 
      */
     @Import(name="duplicateDetectionHistoryTimeWindow")
     private @Nullable Output<String> duplicateDetectionHistoryTimeWindow;
 
     /**
-     * @return The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
+     * @return The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
      * 
      */
     public Optional<Output<String>> duplicateDetectionHistoryTimeWindow() {
@@ -86,85 +94,20 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
-     * 
-     * @deprecated
-     * The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="enableBatchedOperations")
-    private @Nullable Output<Boolean> enableBatchedOperations;
-
-    /**
-     * @return Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
-     * 
-     * @deprecated
-     * The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> enableBatchedOperations() {
-        return Optional.ofNullable(this.enableBatchedOperations);
-    }
-
-    /**
      * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      * 
-     * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
-     * 
-     * @deprecated
-     * The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
      * 
      */
-    @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="enableExpress")
-    private @Nullable Output<Boolean> enableExpress;
+    @Import(name="expressEnabled")
+    private @Nullable Output<Boolean> expressEnabled;
 
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      * 
-     * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
-     * 
-     * @deprecated
-     * The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
      * 
      */
-    @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> enableExpress() {
-        return Optional.ofNullable(this.enableExpress);
-    }
-
-    /**
-     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
-     * 
-     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
-     * 
-     * @deprecated
-     * The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="enablePartitioning")
-    private @Nullable Output<Boolean> enablePartitioning;
-
-    /**
-     * @return Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
-     * 
-     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
-     * 
-     * @deprecated
-     * The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> enablePartitioning() {
-        return Optional.ofNullable(this.enablePartitioning);
-    }
-
-    @Import(name="expressEnabled")
-    private @Nullable Output<Boolean> expressEnabled;
-
     public Optional<Output<Boolean>> expressEnabled() {
         return Optional.ofNullable(this.expressEnabled);
     }
@@ -200,14 +143,14 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
+     * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
      * 
      */
     @Import(name="lockDuration")
     private @Nullable Output<String> lockDuration;
 
     /**
-     * @return The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
+     * @return The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
      * 
      */
     public Optional<Output<String>> lockDuration() {
@@ -230,14 +173,14 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
      * 
      */
     @Import(name="maxMessageSizeInKilobytes")
     private @Nullable Output<Integer> maxMessageSizeInKilobytes;
 
     /**
-     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
      * 
      */
     public Optional<Output<Integer>> maxMessageSizeInKilobytes() {
@@ -245,14 +188,14 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
      * 
      */
     @Import(name="maxSizeInMegabytes")
     private @Nullable Output<Integer> maxSizeInMegabytes;
 
     /**
-     * @return Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+     * @return Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
      * 
      */
     public Optional<Output<Integer>> maxSizeInMegabytes() {
@@ -289,9 +232,21 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         return this.namespaceId;
     }
 
+    /**
+     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+     * 
+     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+     * 
+     */
     @Import(name="partitioningEnabled")
     private @Nullable Output<Boolean> partitioningEnabled;
 
+    /**
+     * @return Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+     * 
+     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+     * 
+     */
     public Optional<Output<Boolean>> partitioningEnabled() {
         return Optional.ofNullable(this.partitioningEnabled);
     }
@@ -349,9 +304,6 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         this.deadLetteringOnMessageExpiration = $.deadLetteringOnMessageExpiration;
         this.defaultMessageTtl = $.defaultMessageTtl;
         this.duplicateDetectionHistoryTimeWindow = $.duplicateDetectionHistoryTimeWindow;
-        this.enableBatchedOperations = $.enableBatchedOperations;
-        this.enableExpress = $.enableExpress;
-        this.enablePartitioning = $.enablePartitioning;
         this.expressEnabled = $.expressEnabled;
         this.forwardDeadLetteredMessagesTo = $.forwardDeadLetteredMessagesTo;
         this.forwardTo = $.forwardTo;
@@ -386,7 +338,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
+         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
          * 
          * @return builder
          * 
@@ -397,7 +349,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
+         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
          * 
          * @return builder
          * 
@@ -406,11 +358,23 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
             return autoDeleteOnIdle(Output.of(autoDeleteOnIdle));
         }
 
+        /**
+         * @param batchedOperationsEnabled Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder batchedOperationsEnabled(@Nullable Output<Boolean> batchedOperationsEnabled) {
             $.batchedOperationsEnabled = batchedOperationsEnabled;
             return this;
         }
 
+        /**
+         * @param batchedOperationsEnabled Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder batchedOperationsEnabled(Boolean batchedOperationsEnabled) {
             return batchedOperationsEnabled(Output.of(batchedOperationsEnabled));
         }
@@ -437,7 +401,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultMessageTtl The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
+         * @param defaultMessageTtl The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
          * 
          * @return builder
          * 
@@ -448,7 +412,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultMessageTtl The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
+         * @param defaultMessageTtl The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
          * 
          * @return builder
          * 
@@ -458,7 +422,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param duplicateDetectionHistoryTimeWindow The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
+         * @param duplicateDetectionHistoryTimeWindow The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
          * 
          * @return builder
          * 
@@ -469,7 +433,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param duplicateDetectionHistoryTimeWindow The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
+         * @param duplicateDetectionHistoryTimeWindow The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
          * 
          * @return builder
          * 
@@ -479,105 +443,26 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableBatchedOperations Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+         * @param expressEnabled Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+         * 
+         * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
          * 
          * @return builder
          * 
-         * @deprecated
-         * The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
          */
-        @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enableBatchedOperations(@Nullable Output<Boolean> enableBatchedOperations) {
-            $.enableBatchedOperations = enableBatchedOperations;
-            return this;
-        }
-
-        /**
-         * @param enableBatchedOperations Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
-            return enableBatchedOperations(Output.of(enableBatchedOperations));
-        }
-
-        /**
-         * @param enableExpress Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
-         * 
-         * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enableExpress(@Nullable Output<Boolean> enableExpress) {
-            $.enableExpress = enableExpress;
-            return this;
-        }
-
-        /**
-         * @param enableExpress Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
-         * 
-         * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enableExpress(Boolean enableExpress) {
-            return enableExpress(Output.of(enableExpress));
-        }
-
-        /**
-         * @param enablePartitioning Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
-         * 
-         * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enablePartitioning(@Nullable Output<Boolean> enablePartitioning) {
-            $.enablePartitioning = enablePartitioning;
-            return this;
-        }
-
-        /**
-         * @param enablePartitioning Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
-         * 
-         * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enablePartitioning(Boolean enablePartitioning) {
-            return enablePartitioning(Output.of(enablePartitioning));
-        }
-
         public Builder expressEnabled(@Nullable Output<Boolean> expressEnabled) {
             $.expressEnabled = expressEnabled;
             return this;
         }
 
+        /**
+         * @param expressEnabled Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+         * 
+         * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expressEnabled(Boolean expressEnabled) {
             return expressEnabled(Output.of(expressEnabled));
         }
@@ -625,7 +510,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockDuration The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
+         * @param lockDuration The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
          * 
          * @return builder
          * 
@@ -636,7 +521,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockDuration The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
+         * @param lockDuration The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
          * 
          * @return builder
          * 
@@ -667,7 +552,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
          * 
          * @return builder
          * 
@@ -678,7 +563,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
          * 
          * @return builder
          * 
@@ -688,7 +573,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSizeInMegabytes Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+         * @param maxSizeInMegabytes Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
          * 
          * @return builder
          * 
@@ -699,7 +584,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSizeInMegabytes Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
+         * @param maxSizeInMegabytes Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
          * 
          * @return builder
          * 
@@ -750,11 +635,27 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
             return namespaceId(Output.of(namespaceId));
         }
 
+        /**
+         * @param partitioningEnabled Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+         * 
+         * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder partitioningEnabled(@Nullable Output<Boolean> partitioningEnabled) {
             $.partitioningEnabled = partitioningEnabled;
             return this;
         }
 
+        /**
+         * @param partitioningEnabled Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+         * 
+         * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+         * 
+         * @return builder
+         * 
+         */
         public Builder partitioningEnabled(Boolean partitioningEnabled) {
             return partitioningEnabled(Output.of(partitioningEnabled));
         }

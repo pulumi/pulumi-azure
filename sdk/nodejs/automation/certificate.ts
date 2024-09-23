@@ -87,7 +87,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The is exportable flag of the certificate.
      */
-    public readonly exportable!: pulumi.Output<boolean>;
+    public readonly exportable!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Certificate. Changing this forces a new resource to be created.
      */

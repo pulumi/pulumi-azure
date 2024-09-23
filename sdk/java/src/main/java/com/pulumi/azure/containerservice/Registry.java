@@ -10,13 +10,12 @@ import com.pulumi.azure.containerservice.outputs.RegistryEncryption;
 import com.pulumi.azure.containerservice.outputs.RegistryGeoreplication;
 import com.pulumi.azure.containerservice.outputs.RegistryIdentity;
 import com.pulumi.azure.containerservice.outputs.RegistryNetworkRuleSet;
-import com.pulumi.azure.containerservice.outputs.RegistryRetentionPolicy;
-import com.pulumi.azure.containerservice.outputs.RegistryTrustPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -327,7 +326,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
      * 
-     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     @Export(name="exportPolicyEnabled", refs={Boolean.class}, tree="[0]")
@@ -336,7 +335,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
     /**
      * @return Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
      * 
-     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     public Output<Optional<Boolean>> exportPolicyEnabled() {
@@ -495,18 +494,18 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `retention_policy` block as documented below.
+     * The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
      * 
      */
-    @Export(name="retentionPolicy", refs={RegistryRetentionPolicy.class}, tree="[0]")
-    private Output<RegistryRetentionPolicy> retentionPolicy;
+    @Export(name="retentionPolicyInDays", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> retentionPolicyInDays;
 
     /**
-     * @return A `retention_policy` block as documented below.
+     * @return The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
      * 
      */
-    public Output<RegistryRetentionPolicy> retentionPolicy() {
-        return this.retentionPolicy;
+    public Output<Optional<Integer>> retentionPolicyInDays() {
+        return Codegen.optional(this.retentionPolicyInDays);
     }
     /**
      * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
@@ -537,18 +536,18 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `trust_policy` block as documented below.
+     * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
      * 
      */
-    @Export(name="trustPolicy", refs={RegistryTrustPolicy.class}, tree="[0]")
-    private Output<RegistryTrustPolicy> trustPolicy;
+    @Export(name="trustPolicyEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> trustPolicyEnabled;
 
     /**
-     * @return A `trust_policy` block as documented below.
+     * @return Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
      * 
      */
-    public Output<RegistryTrustPolicy> trustPolicy() {
-        return this.trustPolicy;
+    public Output<Optional<Boolean>> trustPolicyEnabled() {
+        return Codegen.optional(this.trustPolicyEnabled);
     }
     /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.

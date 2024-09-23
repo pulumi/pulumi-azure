@@ -83,18 +83,18 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+     * Which major version of Grafana to deploy. Possible values are `9`, `10`. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="grafanaMajorVersion")
-    private @Nullable Output<String> grafanaMajorVersion;
+    @Import(name="grafanaMajorVersion", required=true)
+    private Output<String> grafanaMajorVersion;
 
     /**
-     * @return Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+     * @return Which major version of Grafana to deploy. Possible values are `9`, `10`. Changing this forces a new resource to be created.
      * 
      */
-    public Optional<Output<String>> grafanaMajorVersion() {
-        return Optional.ofNullable(this.grafanaMajorVersion);
+    public Output<String> grafanaMajorVersion() {
+        return this.grafanaMajorVersion;
     }
 
     /**
@@ -364,18 +364,18 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grafanaMajorVersion Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+         * @param grafanaMajorVersion Which major version of Grafana to deploy. Possible values are `9`, `10`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder grafanaMajorVersion(@Nullable Output<String> grafanaMajorVersion) {
+        public Builder grafanaMajorVersion(Output<String> grafanaMajorVersion) {
             $.grafanaMajorVersion = grafanaMajorVersion;
             return this;
         }
 
         /**
-         * @param grafanaMajorVersion Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+         * @param grafanaMajorVersion Which major version of Grafana to deploy. Possible values are `9`, `10`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -574,6 +574,9 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GrafanaArgs build() {
+            if ($.grafanaMajorVersion == null) {
+                throw new MissingRequiredPropertyException("GrafanaArgs", "grafanaMajorVersion");
+            }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("GrafanaArgs", "resourceGroupName");
             }

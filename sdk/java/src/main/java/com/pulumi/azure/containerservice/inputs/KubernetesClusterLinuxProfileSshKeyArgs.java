@@ -15,14 +15,14 @@ public final class KubernetesClusterLinuxProfileSshKeyArgs extends com.pulumi.re
     public static final KubernetesClusterLinuxProfileSshKeyArgs Empty = new KubernetesClusterLinuxProfileSshKeyArgs();
 
     /**
-     * The Public SSH Key used to access the cluster.
+     * The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="keyData", required=true)
     private Output<String> keyData;
 
     /**
-     * @return The Public SSH Key used to access the cluster.
+     * @return The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> keyData() {
@@ -54,7 +54,7 @@ public final class KubernetesClusterLinuxProfileSshKeyArgs extends com.pulumi.re
         }
 
         /**
-         * @param keyData The Public SSH Key used to access the cluster.
+         * @param keyData The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class KubernetesClusterLinuxProfileSshKeyArgs extends com.pulumi.re
         }
 
         /**
-         * @param keyData The Public SSH Key used to access the cluster.
+         * @param keyData The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

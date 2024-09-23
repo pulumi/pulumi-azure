@@ -110,9 +110,9 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      */
-    public readonly minimumTlsVersion!: pulumi.Output<string>;
+    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
      */
@@ -144,14 +144,6 @@ export class Namespace extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
-     *
-     * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-     */
-    public readonly zoneRedundant!: pulumi.Output<boolean>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -187,7 +179,6 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -209,7 +200,6 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             resourceInputs["defaultPrimaryConnectionString"] = undefined /*out*/;
             resourceInputs["defaultPrimaryKey"] = undefined /*out*/;
             resourceInputs["defaultSecondaryConnectionString"] = undefined /*out*/;
@@ -268,7 +258,7 @@ export interface NamespaceState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
@@ -302,14 +292,6 @@ export interface NamespaceState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
-     *
-     * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-     */
-    zoneRedundant?: pulumi.Input<boolean>;
 }
 
 /**
@@ -337,7 +319,7 @@ export interface NamespaceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
@@ -371,12 +353,4 @@ export interface NamespaceArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
-     *
-     * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-     */
-    zoneRedundant?: pulumi.Input<boolean>;
 }

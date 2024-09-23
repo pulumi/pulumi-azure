@@ -55,26 +55,6 @@ export type DiskEncryptionSet = import("./diskEncryptionSet").DiskEncryptionSet;
 export const DiskEncryptionSet: typeof import("./diskEncryptionSet").DiskEncryptionSet = null as any;
 utilities.lazyLoad(exports, ["DiskEncryptionSet"], () => require("./diskEncryptionSet"));
 
-export { DiskPoolArgs, DiskPoolState } from "./diskPool";
-export type DiskPool = import("./diskPool").DiskPool;
-export const DiskPool: typeof import("./diskPool").DiskPool = null as any;
-utilities.lazyLoad(exports, ["DiskPool"], () => require("./diskPool"));
-
-export { DiskPoolIscsiTargetArgs, DiskPoolIscsiTargetState } from "./diskPoolIscsiTarget";
-export type DiskPoolIscsiTarget = import("./diskPoolIscsiTarget").DiskPoolIscsiTarget;
-export const DiskPoolIscsiTarget: typeof import("./diskPoolIscsiTarget").DiskPoolIscsiTarget = null as any;
-utilities.lazyLoad(exports, ["DiskPoolIscsiTarget"], () => require("./diskPoolIscsiTarget"));
-
-export { DiskPoolIscsiTargetLunArgs, DiskPoolIscsiTargetLunState } from "./diskPoolIscsiTargetLun";
-export type DiskPoolIscsiTargetLun = import("./diskPoolIscsiTargetLun").DiskPoolIscsiTargetLun;
-export const DiskPoolIscsiTargetLun: typeof import("./diskPoolIscsiTargetLun").DiskPoolIscsiTargetLun = null as any;
-utilities.lazyLoad(exports, ["DiskPoolIscsiTargetLun"], () => require("./diskPoolIscsiTargetLun"));
-
-export { DiskPoolManagedDiskAttachmentArgs, DiskPoolManagedDiskAttachmentState } from "./diskPoolManagedDiskAttachment";
-export type DiskPoolManagedDiskAttachment = import("./diskPoolManagedDiskAttachment").DiskPoolManagedDiskAttachment;
-export const DiskPoolManagedDiskAttachment: typeof import("./diskPoolManagedDiskAttachment").DiskPoolManagedDiskAttachment = null as any;
-utilities.lazyLoad(exports, ["DiskPoolManagedDiskAttachment"], () => require("./diskPoolManagedDiskAttachment"));
-
 export { ExtensionArgs, ExtensionState } from "./extension";
 export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
@@ -139,11 +119,6 @@ export { GetImagesArgs, GetImagesResult, GetImagesOutputArgs } from "./getImages
 export const getImages: typeof import("./getImages").getImages = null as any;
 export const getImagesOutput: typeof import("./getImages").getImagesOutput = null as any;
 utilities.lazyLoad(exports, ["getImages","getImagesOutput"], () => require("./getImages"));
-
-export { GetIpGroupsArgs, GetIpGroupsResult, GetIpGroupsOutputArgs } from "./getIpGroups";
-export const getIpGroups: typeof import("./getIpGroups").getIpGroups = null as any;
-export const getIpGroupsOutput: typeof import("./getIpGroups").getIpGroupsOutput = null as any;
-utilities.lazyLoad(exports, ["getIpGroups","getIpGroupsOutput"], () => require("./getIpGroups"));
 
 export { GetManagedDiskArgs, GetManagedDiskResult, GetManagedDiskOutputArgs } from "./getManagedDisk";
 export const getManagedDisk: typeof import("./getManagedDisk").getManagedDisk = null as any;
@@ -295,11 +270,6 @@ export type VirtualMachine = import("./virtualMachine").VirtualMachine;
 export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
 utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
 
-export { VirtualMachineRestorePointCollectionArgs, VirtualMachineRestorePointCollectionState } from "./virtualMachineRestorePointCollection";
-export type VirtualMachineRestorePointCollection = import("./virtualMachineRestorePointCollection").VirtualMachineRestorePointCollection;
-export const VirtualMachineRestorePointCollection: typeof import("./virtualMachineRestorePointCollection").VirtualMachineRestorePointCollection = null as any;
-utilities.lazyLoad(exports, ["VirtualMachineRestorePointCollection"], () => require("./virtualMachineRestorePointCollection"));
-
 export { VirtualMachineScaleSetExtensionArgs, VirtualMachineScaleSetExtensionState } from "./virtualMachineScaleSetExtension";
 export type VirtualMachineScaleSetExtension = import("./virtualMachineScaleSetExtension").VirtualMachineScaleSetExtension;
 export const VirtualMachineScaleSetExtension: typeof import("./virtualMachineScaleSetExtension").VirtualMachineScaleSetExtension = null as any;
@@ -340,14 +310,6 @@ const _module = {
                 return new DiskAccess(name, <any>undefined, { urn })
             case "azure:compute/diskEncryptionSet:DiskEncryptionSet":
                 return new DiskEncryptionSet(name, <any>undefined, { urn })
-            case "azure:compute/diskPool:DiskPool":
-                return new DiskPool(name, <any>undefined, { urn })
-            case "azure:compute/diskPoolIscsiTarget:DiskPoolIscsiTarget":
-                return new DiskPoolIscsiTarget(name, <any>undefined, { urn })
-            case "azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun":
-                return new DiskPoolIscsiTargetLun(name, <any>undefined, { urn })
-            case "azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment":
-                return new DiskPoolManagedDiskAttachment(name, <any>undefined, { urn })
             case "azure:compute/extension:Extension":
                 return new Extension(name, <any>undefined, { urn })
             case "azure:compute/galleryApplication:GalleryApplication":
@@ -394,8 +356,6 @@ const _module = {
                 return new SshPublicKey(name, <any>undefined, { urn })
             case "azure:compute/virtualMachine:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
-            case "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection":
-                return new VirtualMachineRestorePointCollection(name, <any>undefined, { urn })
             case "azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension":
                 return new VirtualMachineScaleSetExtension(name, <any>undefined, { urn })
             case "azure:compute/windowsVirtualMachine:WindowsVirtualMachine":
@@ -417,10 +377,6 @@ pulumi.runtime.registerResourceModule("azure", "compute/dedicatedHost", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/dedicatedHostGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/diskAccess", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/diskEncryptionSet", _module)
-pulumi.runtime.registerResourceModule("azure", "compute/diskPool", _module)
-pulumi.runtime.registerResourceModule("azure", "compute/diskPoolIscsiTarget", _module)
-pulumi.runtime.registerResourceModule("azure", "compute/diskPoolIscsiTargetLun", _module)
-pulumi.runtime.registerResourceModule("azure", "compute/diskPoolManagedDiskAttachment", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/extension", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/galleryApplication", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/galleryApplicationAssignment", _module)
@@ -444,7 +400,6 @@ pulumi.runtime.registerResourceModule("azure", "compute/sharedImageVersion", _mo
 pulumi.runtime.registerResourceModule("azure", "compute/snapshot", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sshPublicKey", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/virtualMachine", _module)
-pulumi.runtime.registerResourceModule("azure", "compute/virtualMachineRestorePointCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/virtualMachineScaleSetExtension", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/windowsVirtualMachine", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/windowsVirtualMachineScaleSet", _module)

@@ -60,9 +60,6 @@ namespace Pulumi.Azure.KeyVault
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
-        [Output("vaultBaseUrl")]
-        public Output<string> VaultBaseUrl { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a ManagedHardwareSecurityModuleRoleAssignment resource with the given unique name, arguments, and options.
@@ -113,8 +110,8 @@ namespace Pulumi.Azure.KeyVault
         /// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         /// *
         /// </summary>
-        [Input("managedHsmId")]
-        public Input<string>? ManagedHsmId { get; set; }
+        [Input("managedHsmId", required: true)]
+        public Input<string> ManagedHsmId { get; set; } = null!;
 
         /// <summary>
         /// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
@@ -139,9 +136,6 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
-
-        [Input("vaultBaseUrl")]
-        public Input<string>? VaultBaseUrl { get; set; }
 
         public ManagedHardwareSecurityModuleRoleAssignmentArgs()
         {
@@ -187,9 +181,6 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
-
-        [Input("vaultBaseUrl")]
-        public Input<string>? VaultBaseUrl { get; set; }
 
         public ManagedHardwareSecurityModuleRoleAssignmentState()
         {

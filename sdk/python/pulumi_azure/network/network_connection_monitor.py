@@ -740,7 +740,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputWorkspaceResourceIds")
-    def output_workspace_resource_ids(self) -> pulumi.Output[Sequence[str]]:
+    def output_workspace_resource_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
         """

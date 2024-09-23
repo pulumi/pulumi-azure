@@ -28,7 +28,7 @@ class GetEventhubNamespaceResult:
     """
     A collection of values returned by getEventhubNamespace.
     """
-    def __init__(__self__, auto_inflate_enabled=None, capacity=None, dedicated_cluster_id=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, id=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
+    def __init__(__self__, auto_inflate_enabled=None, capacity=None, dedicated_cluster_id=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, id=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None):
         if auto_inflate_enabled and not isinstance(auto_inflate_enabled, bool):
             raise TypeError("Expected argument 'auto_inflate_enabled' to be a bool")
         pulumi.set(__self__, "auto_inflate_enabled", auto_inflate_enabled)
@@ -80,9 +80,6 @@ class GetEventhubNamespaceResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if zone_redundant and not isinstance(zone_redundant, bool):
-            raise TypeError("Expected argument 'zone_redundant' to be a bool")
-        pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="autoInflateEnabled")
@@ -215,15 +212,6 @@ class GetEventhubNamespaceResult:
         """
         return pulumi.get(self, "tags")
 
-    @property
-    @pulumi.getter(name="zoneRedundant")
-    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
-    def zone_redundant(self) -> bool:
-        """
-        Is this EventHub Namespace deployed across Availability Zones?
-        """
-        return pulumi.get(self, "zone_redundant")
-
 
 class AwaitableGetEventhubNamespaceResult(GetEventhubNamespaceResult):
     # pylint: disable=using-constant-test
@@ -247,8 +235,7 @@ class AwaitableGetEventhubNamespaceResult(GetEventhubNamespaceResult):
             name=self.name,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
-            tags=self.tags,
-            zone_redundant=self.zone_redundant)
+            tags=self.tags)
 
 
 def get_eventhub_namespace(name: Optional[str] = None,
@@ -296,8 +283,7 @@ def get_eventhub_namespace(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku=pulumi.get(__ret__, 'sku'),
-        tags=pulumi.get(__ret__, 'tags'),
-        zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_eventhub_namespace)

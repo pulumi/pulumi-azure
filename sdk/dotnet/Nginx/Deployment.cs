@@ -139,9 +139,6 @@ namespace Pulumi.Azure.Nginx
         [Output("capacity")]
         public Output<int?> Capacity { get; private set; } = null!;
 
-        [Output("configuration")]
-        public Output<Outputs.DeploymentConfiguration> Configuration { get; private set; } = null!;
-
         /// <summary>
         /// Should the metrics be exported to Azure Monitor?
         /// </summary>
@@ -301,9 +298,6 @@ namespace Pulumi.Azure.Nginx
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
-        [Input("configuration")]
-        public Input<Inputs.DeploymentConfigurationArgs>? Configuration { get; set; }
-
         /// <summary>
         /// Should the metrics be exported to Azure Monitor?
         /// </summary>
@@ -436,9 +430,6 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
-
-        [Input("configuration")]
-        public Input<Inputs.DeploymentConfigurationGetArgs>? Configuration { get; set; }
 
         /// <summary>
         /// Should the metrics be exported to Azure Monitor?

@@ -162,6 +162,21 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="hibernationEnabled")
+    private @Nullable Output<Boolean> hibernationEnabled;
+
+    /**
+     * @return Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> hibernationEnabled() {
+        return Optional.ofNullable(this.hibernationEnabled);
+    }
+
+    /**
      * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      * 
      */
@@ -432,6 +447,7 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
         this.endOfLifeDate = $.endOfLifeDate;
         this.eula = $.eula;
         this.galleryName = $.galleryName;
+        this.hibernationEnabled = $.hibernationEnabled;
         this.hyperVGeneration = $.hyperVGeneration;
         this.identifier = $.identifier;
         this.location = $.location;
@@ -670,6 +686,27 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder galleryName(String galleryName) {
             return galleryName(Output.of(galleryName));
+        }
+
+        /**
+         * @param hibernationEnabled Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hibernationEnabled(@Nullable Output<Boolean> hibernationEnabled) {
+            $.hibernationEnabled = hibernationEnabled;
+            return this;
+        }
+
+        /**
+         * @param hibernationEnabled Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hibernationEnabled(Boolean hibernationEnabled) {
+            return hibernationEnabled(Output.of(hibernationEnabled));
         }
 
         /**

@@ -23,6 +23,21 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     public static final CacheState Empty = new CacheState();
 
     /**
+     * Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+     * 
+     */
+    @Import(name="accessKeysAuthenticationEnabled")
+    private @Nullable Output<Boolean> accessKeysAuthenticationEnabled;
+
+    /**
+     * @return Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+     * 
+     */
+    public Optional<Output<Boolean>> accessKeysAuthenticationEnabled() {
+        return Optional.ofNullable(this.accessKeysAuthenticationEnabled);
+    }
+
+    /**
      * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      * 
      */
@@ -35,29 +50,6 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> capacity() {
         return Optional.ofNullable(this.capacity);
-    }
-
-    /**
-     * Enable the non-SSL port (6379) - disabled by default.
-     * 
-     * @deprecated
-     * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
-    @Import(name="enableNonSslPort")
-    private @Nullable Output<Boolean> enableNonSslPort;
-
-    /**
-     * @return Enable the non-SSL port (6379) - disabled by default.
-     * 
-     * @deprecated
-     * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> enableNonSslPort() {
-        return Optional.ofNullable(this.enableNonSslPort);
     }
 
     /**
@@ -150,9 +142,17 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Enable the non-SSL port (6379) - disabled by default.
+     * 
+     */
     @Import(name="nonSslPortEnabled")
     private @Nullable Output<Boolean> nonSslPortEnabled;
 
+    /**
+     * @return Enable the non-SSL port (6379) - disabled by default.
+     * 
+     */
     public Optional<Output<Boolean>> nonSslPortEnabled() {
         return Optional.ofNullable(this.nonSslPortEnabled);
     }
@@ -263,14 +263,14 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Redis version. Only major version needed. Valid values: `4`, `6`.
+     * Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
      * 
      */
     @Import(name="redisVersion")
     private @Nullable Output<String> redisVersion;
 
     /**
-     * @return Redis version. Only major version needed. Valid values: `4`, `6`.
+     * @return Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
      * 
      */
     public Optional<Output<String>> redisVersion() {
@@ -472,8 +472,8 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     private CacheState() {}
 
     private CacheState(CacheState $) {
+        this.accessKeysAuthenticationEnabled = $.accessKeysAuthenticationEnabled;
         this.capacity = $.capacity;
-        this.enableNonSslPort = $.enableNonSslPort;
         this.family = $.family;
         this.hostname = $.hostname;
         this.identity = $.identity;
@@ -522,6 +522,27 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param accessKeysAuthenticationEnabled Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessKeysAuthenticationEnabled(@Nullable Output<Boolean> accessKeysAuthenticationEnabled) {
+            $.accessKeysAuthenticationEnabled = accessKeysAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param accessKeysAuthenticationEnabled Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessKeysAuthenticationEnabled(Boolean accessKeysAuthenticationEnabled) {
+            return accessKeysAuthenticationEnabled(Output.of(accessKeysAuthenticationEnabled));
+        }
+
+        /**
          * @param capacity The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
          * 
          * @return builder
@@ -540,35 +561,6 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder capacity(Integer capacity) {
             return capacity(Output.of(capacity));
-        }
-
-        /**
-         * @param enableNonSslPort Enable the non-SSL port (6379) - disabled by default.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
-        public Builder enableNonSslPort(@Nullable Output<Boolean> enableNonSslPort) {
-            $.enableNonSslPort = enableNonSslPort;
-            return this;
-        }
-
-        /**
-         * @param enableNonSslPort Enable the non-SSL port (6379) - disabled by default.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
-        public Builder enableNonSslPort(Boolean enableNonSslPort) {
-            return enableNonSslPort(Output.of(enableNonSslPort));
         }
 
         /**
@@ -697,11 +689,23 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param nonSslPortEnabled Enable the non-SSL port (6379) - disabled by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nonSslPortEnabled(@Nullable Output<Boolean> nonSslPortEnabled) {
             $.nonSslPortEnabled = nonSslPortEnabled;
             return this;
         }
 
+        /**
+         * @param nonSslPortEnabled Enable the non-SSL port (6379) - disabled by default.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nonSslPortEnabled(Boolean nonSslPortEnabled) {
             return nonSslPortEnabled(Output.of(nonSslPortEnabled));
         }
@@ -864,7 +868,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redisVersion Redis version. Only major version needed. Valid values: `4`, `6`.
+         * @param redisVersion Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
          * 
          * @return builder
          * 
@@ -875,7 +879,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redisVersion Redis version. Only major version needed. Valid values: `4`, `6`.
+         * @param redisVersion Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
          * 
          * @return builder
          * 

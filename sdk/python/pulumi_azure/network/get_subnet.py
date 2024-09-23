@@ -26,7 +26,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, address_prefix=None, address_prefixes=None, default_outbound_access_enabled=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, id=None, name=None, network_security_group_id=None, private_endpoint_network_policies=None, private_endpoint_network_policies_enabled=None, private_link_service_network_policies_enabled=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
+    def __init__(__self__, address_prefix=None, address_prefixes=None, default_outbound_access_enabled=None, id=None, name=None, network_security_group_id=None, private_endpoint_network_policies=None, private_link_service_network_policies_enabled=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -36,12 +36,6 @@ class GetSubnetResult:
         if default_outbound_access_enabled and not isinstance(default_outbound_access_enabled, bool):
             raise TypeError("Expected argument 'default_outbound_access_enabled' to be a bool")
         pulumi.set(__self__, "default_outbound_access_enabled", default_outbound_access_enabled)
-        if enforce_private_link_endpoint_network_policies and not isinstance(enforce_private_link_endpoint_network_policies, bool):
-            raise TypeError("Expected argument 'enforce_private_link_endpoint_network_policies' to be a bool")
-        pulumi.set(__self__, "enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
-        if enforce_private_link_service_network_policies and not isinstance(enforce_private_link_service_network_policies, bool):
-            raise TypeError("Expected argument 'enforce_private_link_service_network_policies' to be a bool")
-        pulumi.set(__self__, "enforce_private_link_service_network_policies", enforce_private_link_service_network_policies)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,9 +48,6 @@ class GetSubnetResult:
         if private_endpoint_network_policies and not isinstance(private_endpoint_network_policies, str):
             raise TypeError("Expected argument 'private_endpoint_network_policies' to be a str")
         pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
-        if private_endpoint_network_policies_enabled and not isinstance(private_endpoint_network_policies_enabled, bool):
-            raise TypeError("Expected argument 'private_endpoint_network_policies_enabled' to be a bool")
-        pulumi.set(__self__, "private_endpoint_network_policies_enabled", private_endpoint_network_policies_enabled)
         if private_link_service_network_policies_enabled and not isinstance(private_link_service_network_policies_enabled, bool):
             raise TypeError("Expected argument 'private_link_service_network_policies_enabled' to be a bool")
         pulumi.set(__self__, "private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
@@ -95,18 +86,6 @@ class GetSubnetResult:
         return pulumi.get(self, "default_outbound_access_enabled")
 
     @property
-    @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
-    @_utilities.deprecated("""This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enforce_private_link_endpoint_network_policies(self) -> bool:
-        return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
-
-    @property
-    @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
-    @_utilities.deprecated("""This property has been superseded by `private_link_service_network_policies_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enforce_private_link_service_network_policies(self) -> bool:
-        return pulumi.get(self, "enforce_private_link_service_network_policies")
-
-    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -134,12 +113,6 @@ class GetSubnetResult:
         Enable or Disable network policies for the private endpoint on the subnet.
         """
         return pulumi.get(self, "private_endpoint_network_policies")
-
-    @property
-    @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
-    @_utilities.deprecated("""This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.""")
-    def private_endpoint_network_policies_enabled(self) -> bool:
-        return pulumi.get(self, "private_endpoint_network_policies_enabled")
 
     @property
     @pulumi.getter(name="privateLinkServiceNetworkPoliciesEnabled")
@@ -185,13 +158,10 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             address_prefix=self.address_prefix,
             address_prefixes=self.address_prefixes,
             default_outbound_access_enabled=self.default_outbound_access_enabled,
-            enforce_private_link_endpoint_network_policies=self.enforce_private_link_endpoint_network_policies,
-            enforce_private_link_service_network_policies=self.enforce_private_link_service_network_policies,
             id=self.id,
             name=self.name,
             network_security_group_id=self.network_security_group_id,
             private_endpoint_network_policies=self.private_endpoint_network_policies,
-            private_endpoint_network_policies_enabled=self.private_endpoint_network_policies_enabled,
             private_link_service_network_policies_enabled=self.private_link_service_network_policies_enabled,
             resource_group_name=self.resource_group_name,
             route_table_id=self.route_table_id,
@@ -234,13 +204,10 @@ def get_subnet(name: Optional[str] = None,
         address_prefix=pulumi.get(__ret__, 'address_prefix'),
         address_prefixes=pulumi.get(__ret__, 'address_prefixes'),
         default_outbound_access_enabled=pulumi.get(__ret__, 'default_outbound_access_enabled'),
-        enforce_private_link_endpoint_network_policies=pulumi.get(__ret__, 'enforce_private_link_endpoint_network_policies'),
-        enforce_private_link_service_network_policies=pulumi.get(__ret__, 'enforce_private_link_service_network_policies'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         network_security_group_id=pulumi.get(__ret__, 'network_security_group_id'),
         private_endpoint_network_policies=pulumi.get(__ret__, 'private_endpoint_network_policies'),
-        private_endpoint_network_policies_enabled=pulumi.get(__ret__, 'private_endpoint_network_policies_enabled'),
         private_link_service_network_policies_enabled=pulumi.get(__ret__, 'private_link_service_network_policies_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         route_table_id=pulumi.get(__ret__, 'route_table_id'),

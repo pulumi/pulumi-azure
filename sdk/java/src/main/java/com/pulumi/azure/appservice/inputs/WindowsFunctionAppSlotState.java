@@ -602,6 +602,21 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * 
+     */
+    @Import(name="vnetImagePullEnabled")
+    private @Nullable Output<Boolean> vnetImagePullEnabled;
+
+    /**
+     * @return Is container image pull over virtual network enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> vnetImagePullEnabled() {
+        return Optional.ofNullable(this.vnetImagePullEnabled);
+    }
+
+    /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      */
@@ -657,6 +672,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         this.storageUsesManagedIdentity = $.storageUsesManagedIdentity;
         this.tags = $.tags;
         this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
+        this.vnetImagePullEnabled = $.vnetImagePullEnabled;
         this.webdeployPublishBasicAuthenticationEnabled = $.webdeployPublishBasicAuthenticationEnabled;
     }
 
@@ -1524,6 +1540,27 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
 
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
+        }
+
+        /**
+         * @param vnetImagePullEnabled Is container image pull over virtual network enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vnetImagePullEnabled(@Nullable Output<Boolean> vnetImagePullEnabled) {
+            $.vnetImagePullEnabled = vnetImagePullEnabled;
+            return this;
+        }
+
+        /**
+         * @param vnetImagePullEnabled Is container image pull over virtual network enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vnetImagePullEnabled(Boolean vnetImagePullEnabled) {
+            return vnetImagePullEnabled(Output.of(vnetImagePullEnabled));
         }
 
         /**

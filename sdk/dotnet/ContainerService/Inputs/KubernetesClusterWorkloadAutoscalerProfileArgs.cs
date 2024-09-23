@@ -18,9 +18,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("kedaEnabled")]
         public Input<bool>? KedaEnabled { get; set; }
 
-        [Input("verticalPodAutoscalerControlledValues")]
-        public Input<string>? VerticalPodAutoscalerControlledValues { get; set; }
-
         /// <summary>
         /// Specifies whether Vertical Pod Autoscaler should be enabled.
         /// 
@@ -28,9 +25,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("verticalPodAutoscalerEnabled")]
         public Input<bool>? VerticalPodAutoscalerEnabled { get; set; }
-
-        [Input("verticalPodAutoscalerUpdateMode")]
-        public Input<string>? VerticalPodAutoscalerUpdateMode { get; set; }
 
         public KubernetesClusterWorkloadAutoscalerProfileArgs()
         {

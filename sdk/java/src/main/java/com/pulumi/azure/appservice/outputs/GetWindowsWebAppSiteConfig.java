@@ -46,11 +46,6 @@ public final class GetWindowsWebAppSiteConfig {
      */
     private List<GetWindowsWebAppSiteConfigApplicationStack> applicationStacks;
     /**
-     * @return Are Auto heal rules to be enabled.
-     * 
-     */
-    private Boolean autoHealEnabled;
-    /**
      * @return A `auto_heal_setting` block as defined above.
      * 
      */
@@ -232,13 +227,6 @@ public final class GetWindowsWebAppSiteConfig {
      */
     public List<GetWindowsWebAppSiteConfigApplicationStack> applicationStacks() {
         return this.applicationStacks;
-    }
-    /**
-     * @return Are Auto heal rules to be enabled.
-     * 
-     */
-    public Boolean autoHealEnabled() {
-        return this.autoHealEnabled;
     }
     /**
      * @return A `auto_heal_setting` block as defined above.
@@ -461,7 +449,6 @@ public final class GetWindowsWebAppSiteConfig {
         private String apiManagementApiId;
         private String appCommandLine;
         private List<GetWindowsWebAppSiteConfigApplicationStack> applicationStacks;
-        private Boolean autoHealEnabled;
         private List<GetWindowsWebAppSiteConfigAutoHealSetting> autoHealSettings;
         private String containerRegistryManagedIdentityClientId;
         private Boolean containerRegistryUseManagedIdentity;
@@ -500,7 +487,6 @@ public final class GetWindowsWebAppSiteConfig {
     	      this.apiManagementApiId = defaults.apiManagementApiId;
     	      this.appCommandLine = defaults.appCommandLine;
     	      this.applicationStacks = defaults.applicationStacks;
-    	      this.autoHealEnabled = defaults.autoHealEnabled;
     	      this.autoHealSettings = defaults.autoHealSettings;
     	      this.containerRegistryManagedIdentityClientId = defaults.containerRegistryManagedIdentityClientId;
     	      this.containerRegistryUseManagedIdentity = defaults.containerRegistryUseManagedIdentity;
@@ -575,14 +561,6 @@ public final class GetWindowsWebAppSiteConfig {
         }
         public Builder applicationStacks(GetWindowsWebAppSiteConfigApplicationStack... applicationStacks) {
             return applicationStacks(List.of(applicationStacks));
-        }
-        @CustomType.Setter
-        public Builder autoHealEnabled(Boolean autoHealEnabled) {
-            if (autoHealEnabled == null) {
-              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "autoHealEnabled");
-            }
-            this.autoHealEnabled = autoHealEnabled;
-            return this;
         }
         @CustomType.Setter
         public Builder autoHealSettings(List<GetWindowsWebAppSiteConfigAutoHealSetting> autoHealSettings) {
@@ -852,7 +830,6 @@ public final class GetWindowsWebAppSiteConfig {
             _resultValue.apiManagementApiId = apiManagementApiId;
             _resultValue.appCommandLine = appCommandLine;
             _resultValue.applicationStacks = applicationStacks;
-            _resultValue.autoHealEnabled = autoHealEnabled;
             _resultValue.autoHealSettings = autoHealSettings;
             _resultValue.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
             _resultValue.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;

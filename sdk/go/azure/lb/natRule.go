@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,7 +47,7 @@ type NatRule struct {
 	// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
 	FrontendPortStart pulumi.IntPtrOutput `pulumi:"frontendPortStart"`
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
-	IdleTimeoutInMinutes pulumi.IntOutput `pulumi:"idleTimeoutInMinutes"`
+	IdleTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
 	// Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
@@ -363,8 +363,8 @@ func (o NatRuleOutput) FrontendPortStart() pulumi.IntPtrOutput {
 }
 
 // Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
-func (o NatRuleOutput) IdleTimeoutInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v *NatRule) pulumi.IntOutput { return v.IdleTimeoutInMinutes }).(pulumi.IntOutput)
+func (o NatRuleOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NatRule) pulumi.IntPtrOutput { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.

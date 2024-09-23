@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<string>? Condition { get; set; }
 
         /// <summary>
-        /// Used to specify whether the fallback route is enabled.
+        /// Used to specify whether the fallback route is enabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

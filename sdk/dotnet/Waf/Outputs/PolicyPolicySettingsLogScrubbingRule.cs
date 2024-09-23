@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyPolicySettingsLogScrubbingRule
     {
         /// <summary>
-        /// Describes if the managed rule is in enabled state or disabled state.
+        /// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         public readonly string MatchVariable;

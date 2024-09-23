@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Chaos Studio Target can be imported into Terraform using the `resource id`, e.g.
+ * An existing Chaos Studio Target can be imported into Pulumi using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:chaosstudio/target:Target example /{scope}/providers/Microsoft.Chaos/targets/{targetName}

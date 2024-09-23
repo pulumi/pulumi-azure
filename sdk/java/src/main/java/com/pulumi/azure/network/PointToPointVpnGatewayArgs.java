@@ -25,15 +25,15 @@ public final class PointToPointVpnGatewayArgs extends com.pulumi.resources.Resou
      * A `connection_configuration` block as defined below.
      * 
      */
-    @Import(name="connectionConfiguration", required=true)
-    private Output<PointToPointVpnGatewayConnectionConfigurationArgs> connectionConfiguration;
+    @Import(name="connectionConfigurations", required=true)
+    private Output<List<PointToPointVpnGatewayConnectionConfigurationArgs>> connectionConfigurations;
 
     /**
      * @return A `connection_configuration` block as defined below.
      * 
      */
-    public Output<PointToPointVpnGatewayConnectionConfigurationArgs> connectionConfiguration() {
-        return this.connectionConfiguration;
+    public Output<List<PointToPointVpnGatewayConnectionConfigurationArgs>> connectionConfigurations() {
+        return this.connectionConfigurations;
     }
 
     /**
@@ -174,7 +174,7 @@ public final class PointToPointVpnGatewayArgs extends com.pulumi.resources.Resou
     private PointToPointVpnGatewayArgs() {}
 
     private PointToPointVpnGatewayArgs(PointToPointVpnGatewayArgs $) {
-        this.connectionConfiguration = $.connectionConfiguration;
+        this.connectionConfigurations = $.connectionConfigurations;
         this.dnsServers = $.dnsServers;
         this.location = $.location;
         this.name = $.name;
@@ -205,24 +205,34 @@ public final class PointToPointVpnGatewayArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param connectionConfiguration A `connection_configuration` block as defined below.
+         * @param connectionConfigurations A `connection_configuration` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder connectionConfiguration(Output<PointToPointVpnGatewayConnectionConfigurationArgs> connectionConfiguration) {
-            $.connectionConfiguration = connectionConfiguration;
+        public Builder connectionConfigurations(Output<List<PointToPointVpnGatewayConnectionConfigurationArgs>> connectionConfigurations) {
+            $.connectionConfigurations = connectionConfigurations;
             return this;
         }
 
         /**
-         * @param connectionConfiguration A `connection_configuration` block as defined below.
+         * @param connectionConfigurations A `connection_configuration` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder connectionConfiguration(PointToPointVpnGatewayConnectionConfigurationArgs connectionConfiguration) {
-            return connectionConfiguration(Output.of(connectionConfiguration));
+        public Builder connectionConfigurations(List<PointToPointVpnGatewayConnectionConfigurationArgs> connectionConfigurations) {
+            return connectionConfigurations(Output.of(connectionConfigurations));
+        }
+
+        /**
+         * @param connectionConfigurations A `connection_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionConfigurations(PointToPointVpnGatewayConnectionConfigurationArgs... connectionConfigurations) {
+            return connectionConfigurations(List.of(connectionConfigurations));
         }
 
         /**
@@ -425,8 +435,8 @@ public final class PointToPointVpnGatewayArgs extends com.pulumi.resources.Resou
         }
 
         public PointToPointVpnGatewayArgs build() {
-            if ($.connectionConfiguration == null) {
-                throw new MissingRequiredPropertyException("PointToPointVpnGatewayArgs", "connectionConfiguration");
+            if ($.connectionConfigurations == null) {
+                throw new MissingRequiredPropertyException("PointToPointVpnGatewayArgs", "connectionConfigurations");
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("PointToPointVpnGatewayArgs", "resourceGroupName");

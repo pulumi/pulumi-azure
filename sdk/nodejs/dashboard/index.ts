@@ -10,11 +10,6 @@ export const azurerm_portal_dashboard: typeof import("./azurerm_portal_dashboard
 export const azurerm_portal_dashboardOutput: typeof import("./azurerm_portal_dashboard").azurerm_portal_dashboardOutput = null as any;
 utilities.lazyLoad(exports, ["azurerm_portal_dashboard","azurerm_portal_dashboardOutput"], () => require("./azurerm_portal_dashboard"));
 
-export { DashboardArgs, DashboardState } from "./dashboard";
-export type Dashboard = import("./dashboard").Dashboard;
-export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
-utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
-
 export { GetGrafanaArgs, GetGrafanaResult, GetGrafanaOutputArgs } from "./getGrafana";
 export const getGrafana: typeof import("./getGrafana").getGrafana = null as any;
 export const getGrafanaOutput: typeof import("./getGrafana").getGrafanaOutput = null as any;
@@ -30,8 +25,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure:dashboard/dashboard:Dashboard":
-                return new Dashboard(name, <any>undefined, { urn })
             case "azure:dashboard/grafana:Grafana":
                 return new Grafana(name, <any>undefined, { urn })
             default:
@@ -39,5 +32,4 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure", "dashboard/dashboard", _module)
 pulumi.runtime.registerResourceModule("azure", "dashboard/grafana", _module)

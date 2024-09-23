@@ -177,29 +177,6 @@ public final class EnterpriseDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-     * 
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    @Import(name="resourceGroupName")
-    private @Nullable Output<String> resourceGroupName;
-
-    /**
-     * @return The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-     * 
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    public Optional<Output<String>> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
-    }
-
-    /**
      * The Secondary Access Key for the Redis Enterprise Database Instance.
      * 
      */
@@ -227,7 +204,6 @@ public final class EnterpriseDatabaseState extends com.pulumi.resources.Resource
         this.name = $.name;
         this.port = $.port;
         this.primaryAccessKey = $.primaryAccessKey;
-        this.resourceGroupName = $.resourceGroupName;
         this.secondaryAccessKey = $.secondaryAccessKey;
     }
 
@@ -489,35 +465,6 @@ public final class EnterpriseDatabaseState extends com.pulumi.resources.Resource
          */
         public Builder primaryAccessKey(String primaryAccessKey) {
             return primaryAccessKey(Output.of(primaryAccessKey));
-        }
-
-        /**
-         * @param resourceGroupName The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in the next major version of the Azure Provider
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-        public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @param resourceGroupName The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in the next major version of the Azure Provider
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
         }
 
         /**

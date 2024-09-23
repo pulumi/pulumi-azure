@@ -16,8 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.storage.getTableEntities({
- *     tableName: "example-table-name",
- *     storageAccountName: "example-storage-account-name",
+ *     storageTableId: exampleAzurermStorageTable.id,
  *     filter: "PartitionKey eq 'example'",
  * });
  * ```
@@ -28,9 +27,7 @@ export function getTableEntities(args: GetTableEntitiesArgs, opts?: pulumi.Invok
     return pulumi.runtime.invoke("azure:storage/getTableEntities:getTableEntities", {
         "filter": args.filter,
         "selects": args.selects,
-        "storageAccountName": args.storageAccountName,
         "storageTableId": args.storageTableId,
-        "tableName": args.tableName,
     }, opts);
 }
 
@@ -47,17 +44,9 @@ export interface GetTableEntitiesArgs {
      */
     selects?: string[];
     /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    storageAccountName?: string;
-    /**
      * The Storage Table ID where the entities exist.
      */
-    storageTableId?: string;
-    /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    tableName?: string;
+    storageTableId: string;
 }
 
 /**
@@ -74,15 +63,7 @@ export interface GetTableEntitiesResult {
      */
     readonly items: outputs.storage.GetTableEntitiesItem[];
     readonly selects?: string[];
-    /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    readonly storageAccountName: string;
     readonly storageTableId: string;
-    /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    readonly tableName: string;
 }
 /**
  * Use this data source to access information about an existing Storage Table Entity.
@@ -94,8 +75,7 @@ export interface GetTableEntitiesResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.storage.getTableEntities({
- *     tableName: "example-table-name",
- *     storageAccountName: "example-storage-account-name",
+ *     storageTableId: exampleAzurermStorageTable.id,
  *     filter: "PartitionKey eq 'example'",
  * });
  * ```
@@ -117,15 +97,7 @@ export interface GetTableEntitiesOutputArgs {
      */
     selects?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    storageAccountName?: pulumi.Input<string>;
-    /**
      * The Storage Table ID where the entities exist.
      */
-    storageTableId?: pulumi.Input<string>;
-    /**
-     * @deprecated the `tableName` and `storageAccountName` properties have been superseded by the `storageTableId` property and will be removed in version 4.0 of the AzureRM provider
-     */
-    tableName?: pulumi.Input<string>;
+    storageTableId: pulumi.Input<string>;
 }

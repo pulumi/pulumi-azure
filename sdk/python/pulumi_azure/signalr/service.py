@@ -50,7 +50,6 @@ class ServiceArgs:
         :param pulumi.Input[bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
-        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
@@ -206,9 +205,6 @@ class ServiceArgs:
     @pulumi.getter(name="liveTraceEnabled")
     @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
     def live_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if Live Trace is enabled or not. Defaults to `false`.
-        """
         return pulumi.get(self, "live_trace_enabled")
 
     @live_trace_enabled.setter
@@ -380,7 +376,6 @@ class _ServiceState:
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
-        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
@@ -562,9 +557,6 @@ class _ServiceState:
     @pulumi.getter(name="liveTraceEnabled")
     @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
     def live_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if Live Trace is enabled or not. Defaults to `false`.
-        """
         return pulumi.get(self, "live_trace_enabled")
 
     @live_trace_enabled.setter
@@ -871,7 +863,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']] live_trace: A `live_trace` block as defined below.
-        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
@@ -1069,7 +1060,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
         :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']] live_trace: A `live_trace` block as defined below.
-        :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
@@ -1194,9 +1184,6 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="liveTraceEnabled")
     @_utilities.deprecated("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
     def live_trace_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies if Live Trace is enabled or not. Defaults to `false`.
-        """
         return pulumi.get(self, "live_trace_enabled")
 
     @property

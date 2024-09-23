@@ -3,8 +3,6 @@
 
 package com.pulumi.azure.containerservice.outputs;
 
-import com.pulumi.azure.containerservice.outputs.GroupContainerGpu;
-import com.pulumi.azure.containerservice.outputs.GroupContainerGpuLimit;
 import com.pulumi.azure.containerservice.outputs.GroupContainerLivenessProbe;
 import com.pulumi.azure.containerservice.outputs.GroupContainerPort;
 import com.pulumi.azure.containerservice.outputs.GroupContainerReadinessProbe;
@@ -42,20 +40,6 @@ public final class GroupContainer {
      * 
      */
     private @Nullable Map<String,String> environmentVariables;
-    /**
-     * @deprecated
-     * The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-    private @Nullable GroupContainerGpu gpu;
-    /**
-     * @deprecated
-     * The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-    private @Nullable GroupContainerGpuLimit gpuLimit;
     /**
      * @return The container image name. Changing this forces a new resource to be created.
      * 
@@ -135,24 +119,6 @@ public final class GroupContainer {
      */
     public Map<String,String> environmentVariables() {
         return this.environmentVariables == null ? Map.of() : this.environmentVariables;
-    }
-    /**
-     * @deprecated
-     * The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-    public Optional<GroupContainerGpu> gpu() {
-        return Optional.ofNullable(this.gpu);
-    }
-    /**
-     * @deprecated
-     * The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-    public Optional<GroupContainerGpuLimit> gpuLimit() {
-        return Optional.ofNullable(this.gpuLimit);
     }
     /**
      * @return The container image name. Changing this forces a new resource to be created.
@@ -238,8 +204,6 @@ public final class GroupContainer {
         private Double cpu;
         private @Nullable Double cpuLimit;
         private @Nullable Map<String,String> environmentVariables;
-        private @Nullable GroupContainerGpu gpu;
-        private @Nullable GroupContainerGpuLimit gpuLimit;
         private String image;
         private @Nullable GroupContainerLivenessProbe livenessProbe;
         private Double memory;
@@ -257,8 +221,6 @@ public final class GroupContainer {
     	      this.cpu = defaults.cpu;
     	      this.cpuLimit = defaults.cpuLimit;
     	      this.environmentVariables = defaults.environmentVariables;
-    	      this.gpu = defaults.gpu;
-    	      this.gpuLimit = defaults.gpuLimit;
     	      this.image = defaults.image;
     	      this.livenessProbe = defaults.livenessProbe;
     	      this.memory = defaults.memory;
@@ -298,18 +260,6 @@ public final class GroupContainer {
         public Builder environmentVariables(@Nullable Map<String,String> environmentVariables) {
 
             this.environmentVariables = environmentVariables;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder gpu(@Nullable GroupContainerGpu gpu) {
-
-            this.gpu = gpu;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder gpuLimit(@Nullable GroupContainerGpuLimit gpuLimit) {
-
-            this.gpuLimit = gpuLimit;
             return this;
         }
         @CustomType.Setter
@@ -393,8 +343,6 @@ public final class GroupContainer {
             _resultValue.cpu = cpu;
             _resultValue.cpuLimit = cpuLimit;
             _resultValue.environmentVariables = environmentVariables;
-            _resultValue.gpu = gpu;
-            _resultValue.gpuLimit = gpuLimit;
             _resultValue.image = image;
             _resultValue.livenessProbe = livenessProbe;
             _resultValue.memory = memory;

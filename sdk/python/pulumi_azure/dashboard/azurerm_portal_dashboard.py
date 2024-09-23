@@ -21,7 +21,7 @@ __all__ = [
     'azurerm_portal_dashboard_output',
 ]
 
-warnings.warn("""azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard""", DeprecationWarning)
+warnings.warn("""azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard""", DeprecationWarning)
 
 @pulumi.output_type
 class Azurerm_portal_dashboardResult:
@@ -120,7 +120,7 @@ def azurerm_portal_dashboard(dashboard_properties: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableAzurerm_portal_dashboardResult:
     """
-    Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `portal.Dashboard` resource.
+    Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
 
     ## Example Usage
 
@@ -128,7 +128,7 @@ def azurerm_portal_dashboard(dashboard_properties: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.portal.get_dashboard(name="existing-dashboard",
+    example = azure.portal.azurerm_portal_dashboard(name="existing-dashboard",
         resource_group_name="dashboard-rg")
     pulumi.export("id", example_azurerm_dashboard["id"])
     ```
@@ -139,7 +139,7 @@ def azurerm_portal_dashboard(dashboard_properties: Optional[str] = None,
     :param str name: Specifies the name of the shared Azure Portal Dashboard.
     :param str resource_group_name: Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
     """
-    pulumi.log.warn("""azurerm_portal_dashboard is deprecated: azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard""")
+    pulumi.log.warn("""azurerm_portal_dashboard is deprecated: azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard""")
     __args__ = dict()
     __args__['dashboardProperties'] = dashboard_properties
     __args__['displayName'] = display_name
@@ -165,7 +165,7 @@ def azurerm_portal_dashboard_output(dashboard_properties: Optional[pulumi.Input[
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Azurerm_portal_dashboardResult]:
     """
-    Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `portal.Dashboard` resource.
+    Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
 
     ## Example Usage
 
@@ -173,7 +173,7 @@ def azurerm_portal_dashboard_output(dashboard_properties: Optional[pulumi.Input[
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.portal.get_dashboard(name="existing-dashboard",
+    example = azure.portal.azurerm_portal_dashboard(name="existing-dashboard",
         resource_group_name="dashboard-rg")
     pulumi.export("id", example_azurerm_dashboard["id"])
     ```
@@ -184,5 +184,5 @@ def azurerm_portal_dashboard_output(dashboard_properties: Optional[pulumi.Input[
     :param str name: Specifies the name of the shared Azure Portal Dashboard.
     :param str resource_group_name: Specifies the name of the resource group the shared Azure Portal Dashboard is located in.
     """
-    pulumi.log.warn("""azurerm_portal_dashboard is deprecated: azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard""")
+    pulumi.log.warn("""azurerm_portal_dashboard is deprecated: azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard""")
     ...

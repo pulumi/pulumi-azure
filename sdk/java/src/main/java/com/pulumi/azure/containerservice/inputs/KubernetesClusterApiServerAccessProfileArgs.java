@@ -5,7 +5,6 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -32,62 +31,10 @@ public final class KubernetesClusterApiServerAccessProfileArgs extends com.pulum
         return Optional.ofNullable(this.authorizedIpRanges);
     }
 
-    /**
-     * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-     * 
-     * &gt; **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
-     * 
-     * &gt; **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a &#34;non-critical addon&#34;.
-     * 
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    @Import(name="subnetId")
-    private @Nullable Output<String> subnetId;
-
-    /**
-     * @return The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-     * 
-     * &gt; **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
-     * 
-     * &gt; **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a &#34;non-critical addon&#34;.
-     * 
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    public Optional<Output<String>> subnetId() {
-        return Optional.ofNullable(this.subnetId);
-    }
-
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    @Import(name="vnetIntegrationEnabled")
-    private @Nullable Output<Boolean> vnetIntegrationEnabled;
-
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    public Optional<Output<Boolean>> vnetIntegrationEnabled() {
-        return Optional.ofNullable(this.vnetIntegrationEnabled);
-    }
-
     private KubernetesClusterApiServerAccessProfileArgs() {}
 
     private KubernetesClusterApiServerAccessProfileArgs(KubernetesClusterApiServerAccessProfileArgs $) {
         this.authorizedIpRanges = $.authorizedIpRanges;
-        this.subnetId = $.subnetId;
-        this.vnetIntegrationEnabled = $.vnetIntegrationEnabled;
     }
 
     public static Builder builder() {
@@ -137,68 +84,6 @@ public final class KubernetesClusterApiServerAccessProfileArgs extends com.pulum
          */
         public Builder authorizedIpRanges(String... authorizedIpRanges) {
             return authorizedIpRanges(List.of(authorizedIpRanges));
-        }
-
-        /**
-         * @param subnetId The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-         * 
-         * &gt; **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
-         * 
-         * &gt; **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a &#34;non-critical addon&#34;.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder subnetId(@Nullable Output<String> subnetId) {
-            $.subnetId = subnetId;
-            return this;
-        }
-
-        /**
-         * @param subnetId The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-         * 
-         * &gt; **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
-         * 
-         * &gt; **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a &#34;non-critical addon&#34;.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder subnetId(String subnetId) {
-            return subnetId(Output.of(subnetId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder vnetIntegrationEnabled(@Nullable Output<Boolean> vnetIntegrationEnabled) {
-            $.vnetIntegrationEnabled = vnetIntegrationEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder vnetIntegrationEnabled(Boolean vnetIntegrationEnabled) {
-            return vnetIntegrationEnabled(Output.of(vnetIntegrationEnabled));
         }
 
         public KubernetesClusterApiServerAccessProfileArgs build() {

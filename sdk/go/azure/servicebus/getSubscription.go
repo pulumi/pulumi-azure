@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,20 +54,12 @@ func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts 
 type LookupSubscriptionArgs struct {
 	// Specifies the name of the ServiceBus Subscription.
 	Name string `pulumi:"name"`
-	// The name of the ServiceBus Namespace.
-	//
 	// Deprecated: `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
-	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-	//
 	// Deprecated: `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the ServiceBus Topic where the Service Bus Subscription exists.
 	TopicId *string `pulumi:"topicId"`
-	// The name of the ServiceBus Topic.
-	//
-	// > **Note:** `namespaceName`，`resourceGroupName` and `topicName` has been deprecated and will be removed in version 4.0 of the provider in favour of `topicId`.
-	//
 	// Deprecated: `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	TopicName *string `pulumi:"topicName"`
 }
@@ -123,20 +115,12 @@ func LookupSubscriptionOutput(ctx *pulumi.Context, args LookupSubscriptionOutput
 type LookupSubscriptionOutputArgs struct {
 	// Specifies the name of the ServiceBus Subscription.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the ServiceBus Namespace.
-	//
 	// Deprecated: `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
-	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-	//
 	// Deprecated: `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 	// The ID of the ServiceBus Topic where the Service Bus Subscription exists.
 	TopicId pulumi.StringPtrInput `pulumi:"topicId"`
-	// The name of the ServiceBus Topic.
-	//
-	// > **Note:** `namespaceName`，`resourceGroupName` and `topicName` has been deprecated and will be removed in version 4.0 of the provider in favour of `topicId`.
-	//
 	// Deprecated: `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
 	TopicName pulumi.StringPtrInput `pulumi:"topicName"`
 }

@@ -22,16 +22,12 @@ class LabArgs:
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Lab resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_type: The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-               
-               > **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -39,11 +35,6 @@ class LabArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if storage_type is not None:
-            warnings.warn("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""", DeprecationWarning)
-            pulumi.log.warn("""storage_type is deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
-        if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -84,21 +75,6 @@ class LabArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="storageType")
-    @_utilities.deprecated("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
-    def storage_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-
-        > **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-        """
-        return pulumi.get(self, "storage_type")
-
-    @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_type", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -122,7 +98,6 @@ class _LabState:
                  name: Optional[pulumi.Input[str]] = None,
                  premium_data_disk_storage_account_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unique_identifier: Optional[pulumi.Input[str]] = None):
         """
@@ -135,9 +110,6 @@ class _LabState:
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
         :param pulumi.Input[str] premium_data_disk_storage_account_id: The ID of the Storage Account used for Storage of Premium Data Disk.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_type: The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-               
-               > **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Dev Test Lab.
         """
@@ -157,11 +129,6 @@ class _LabState:
             pulumi.set(__self__, "premium_data_disk_storage_account_id", premium_data_disk_storage_account_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if storage_type is not None:
-            warnings.warn("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""", DeprecationWarning)
-            pulumi.log.warn("""storage_type is deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
-        if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if unique_identifier is not None:
@@ -264,21 +231,6 @@ class _LabState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="storageType")
-    @_utilities.deprecated("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
-    def storage_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-
-        > **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-        """
-        return pulumi.get(self, "storage_type")
-
-    @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_type", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -311,7 +263,6 @@ class Lab(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -348,9 +299,6 @@ class Lab(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_type: The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-               
-               > **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -406,7 +354,6 @@ class Lab(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -422,7 +369,6 @@ class Lab(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["artifacts_storage_account_id"] = None
             __props__.__dict__["default_premium_storage_account_id"] = None
@@ -448,7 +394,6 @@ class Lab(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             premium_data_disk_storage_account_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            storage_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             unique_identifier: Optional[pulumi.Input[str]] = None) -> 'Lab':
         """
@@ -466,9 +411,6 @@ class Lab(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
         :param pulumi.Input[str] premium_data_disk_storage_account_id: The ID of the Storage Account used for Storage of Premium Data Disk.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_type: The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-               
-               > **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Dev Test Lab.
         """
@@ -484,7 +426,6 @@ class Lab(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["premium_data_disk_storage_account_id"] = premium_data_disk_storage_account_id
         __props__.__dict__["resource_group_name"] = resource_group_name
-        __props__.__dict__["storage_type"] = storage_type
         __props__.__dict__["tags"] = tags
         __props__.__dict__["unique_identifier"] = unique_identifier
         return Lab(resource_name, opts=opts, __props__=__props__)
@@ -552,17 +493,6 @@ class Lab(pulumi.CustomResource):
         The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
-
-    @property
-    @pulumi.getter(name="storageType")
-    @_utilities.deprecated("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
-    def storage_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-
-        > **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-        """
-        return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter

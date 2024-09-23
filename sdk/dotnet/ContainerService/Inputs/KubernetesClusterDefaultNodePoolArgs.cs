@@ -13,37 +13,20 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterDefaultNodePoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("capacityReservationGroupId")]
-        public Input<string>? CapacityReservationGroupId { get; set; }
-
-        [Input("customCaTrustEnabled")]
-        public Input<bool>? CustomCaTrustEnabled { get; set; }
-
-        /// <summary>
         /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
         /// 
         /// &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
         /// 
         /// &gt; **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
         /// </summary>
-        [Input("enableAutoScaling")]
-        public Input<bool>? EnableAutoScaling { get; set; }
+        [Input("autoScalingEnabled")]
+        public Input<bool>? AutoScalingEnabled { get; set; }
 
         /// <summary>
-        /// Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
-        /// 
-        /// &gt; **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+        /// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("enableHostEncryption")]
-        public Input<bool>? EnableHostEncryption { get; set; }
-
-        /// <summary>
-        /// Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
-        /// </summary>
-        [Input("enableNodePublicIp")]
-        public Input<bool>? EnableNodePublicIp { get; set; }
+        [Input("capacityReservationGroupId")]
+        public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
         /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
@@ -56,6 +39,14 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("gpuInstance")]
         public Input<string>? GpuInstance { get; set; }
+
+        /// <summary>
+        /// Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
+        /// 
+        /// &gt; **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+        /// </summary>
+        [Input("hostEncryptionEnabled")]
+        public Input<bool>? HostEncryptionEnabled { get; set; }
 
         /// <summary>
         /// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -90,9 +81,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("maxPods")]
         public Input<int>? MaxPods { get; set; }
 
-        [Input("messageOfTheDay")]
-        public Input<string>? MessageOfTheDay { get; set; }
-
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
 
@@ -124,19 +112,16 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs>? NodeNetworkProfile { get; set; }
 
         /// <summary>
-        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        /// Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
+        /// </summary>
+        [Input("nodePublicIpEnabled")]
+        public Input<bool>? NodePublicIpEnabled { get; set; }
+
+        /// <summary>
+        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("nodePublicIpPrefixId")]
         public Input<string>? NodePublicIpPrefixId { get; set; }
-
-        [Input("nodeTaints")]
-        private InputList<string>? _nodeTaints;
-        [Obsolete(@"This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool")]
-        public InputList<string> NodeTaints
-        {
-            get => _nodeTaints ?? (_nodeTaints = new InputList<string>());
-            set => _nodeTaints = value;
-        }
 
         /// <summary>
         /// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
@@ -215,7 +200,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? TemporaryNameForRotation { get; set; }
 
         /// <summary>
-        /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+        /// The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         /// </summary>

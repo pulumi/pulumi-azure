@@ -30,7 +30,6 @@ class ChannelsRegistrationArgs:
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
-                 isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -52,10 +51,7 @@ class ChannelsRegistrationArgs:
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
-        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
-        :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
-               
-               > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[bool] public_network_access_enabled: Is the Bot Channels Registration in an isolated network?
@@ -81,11 +77,6 @@ class ChannelsRegistrationArgs:
             pulumi.set(__self__, "endpoint", endpoint)
         if icon_url is not None:
             pulumi.set(__self__, "icon_url", icon_url)
-        if isolated_network_enabled is not None:
-            warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-        if isolated_network_enabled is not None:
-            pulumi.set(__self__, "isolated_network_enabled", isolated_network_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -225,28 +216,13 @@ class ChannelsRegistrationArgs:
     @pulumi.getter(name="iconUrl")
     def icon_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The icon URL to visually identify the Bot Channels Registration.
+        The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         """
         return pulumi.get(self, "icon_url")
 
     @icon_url.setter
     def icon_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "icon_url", value)
-
-    @property
-    @pulumi.getter(name="isolatedNetworkEnabled")
-    @_utilities.deprecated("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-    def isolated_network_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is the Bot Channels Registration in an isolated network?
-
-        > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-        """
-        return pulumi.get(self, "isolated_network_enabled")
-
-    @isolated_network_enabled.setter
-    def isolated_network_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "isolated_network_enabled", value)
 
     @property
     @pulumi.getter
@@ -320,7 +296,6 @@ class _ChannelsRegistrationState:
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
-                 isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -342,10 +317,7 @@ class _ChannelsRegistrationState:
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
-        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
-        :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
-               
-               > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
@@ -371,11 +343,6 @@ class _ChannelsRegistrationState:
             pulumi.set(__self__, "endpoint", endpoint)
         if icon_url is not None:
             pulumi.set(__self__, "icon_url", icon_url)
-        if isolated_network_enabled is not None:
-            warnings.warn("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""isolated_network_enabled is deprecated: `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-        if isolated_network_enabled is not None:
-            pulumi.set(__self__, "isolated_network_enabled", isolated_network_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if microsoft_app_id is not None:
@@ -485,28 +452,13 @@ class _ChannelsRegistrationState:
     @pulumi.getter(name="iconUrl")
     def icon_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The icon URL to visually identify the Bot Channels Registration.
+        The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         """
         return pulumi.get(self, "icon_url")
 
     @icon_url.setter
     def icon_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "icon_url", value)
-
-    @property
-    @pulumi.getter(name="isolatedNetworkEnabled")
-    @_utilities.deprecated("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-    def isolated_network_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is the Bot Channels Registration in an isolated network?
-
-        > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-        """
-        return pulumi.get(self, "isolated_network_enabled")
-
-    @isolated_network_enabled.setter
-    def isolated_network_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "isolated_network_enabled", value)
 
     @property
     @pulumi.getter
@@ -618,7 +570,6 @@ class ChannelsRegistration(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
-                 isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -672,10 +623,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
-        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
-        :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
-               
-               > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
@@ -745,7 +693,6 @@ class ChannelsRegistration(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
-                 isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -771,7 +718,6 @@ class ChannelsRegistration(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["icon_url"] = icon_url
-            __props__.__dict__["isolated_network_enabled"] = isolated_network_enabled
             __props__.__dict__["location"] = location
             if microsoft_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'microsoft_app_id'")
@@ -806,7 +752,6 @@ class ChannelsRegistration(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             icon_url: Optional[pulumi.Input[str]] = None,
-            isolated_network_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             microsoft_app_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -833,10 +778,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
-        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
-        :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
-               
-               > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+        :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
@@ -858,7 +800,6 @@ class ChannelsRegistration(pulumi.CustomResource):
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["icon_url"] = icon_url
-        __props__.__dict__["isolated_network_enabled"] = isolated_network_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["microsoft_app_id"] = microsoft_app_id
         __props__.__dict__["name"] = name
@@ -931,22 +872,11 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iconUrl")
-    def icon_url(self) -> pulumi.Output[str]:
+    def icon_url(self) -> pulumi.Output[Optional[str]]:
         """
-        The icon URL to visually identify the Bot Channels Registration.
+        The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         """
         return pulumi.get(self, "icon_url")
-
-    @property
-    @pulumi.getter(name="isolatedNetworkEnabled")
-    @_utilities.deprecated("""`isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-    def isolated_network_enabled(self) -> pulumi.Output[bool]:
-        """
-        Is the Bot Channels Registration in an isolated network?
-
-        > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
-        """
-        return pulumi.get(self, "isolated_network_enabled")
 
     @property
     @pulumi.getter
@@ -974,7 +904,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> pulumi.Output[bool]:
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the Bot Channels Registration in an isolated network?
         """

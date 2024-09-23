@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1170,12 +1170,16 @@ type ImageDataDisk struct {
 	BlobUri *string `pulumi:"blobUri"`
 	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
 	Caching *string `pulumi:"caching"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// Specifies the logical unit number of the data disk.
 	Lun *int `pulumi:"lun"`
 	// Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
 	ManagedDiskId *string `pulumi:"managedDiskId"`
 	// Specifies the size of the image to be created. The target size can't be smaller than the source size.
 	SizeGb *int `pulumi:"sizeGb"`
+	// The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+	StorageType string `pulumi:"storageType"`
 }
 
 // ImageDataDiskInput is an input type that accepts ImageDataDiskArgs and ImageDataDiskOutput values.
@@ -1194,12 +1198,16 @@ type ImageDataDiskArgs struct {
 	BlobUri pulumi.StringPtrInput `pulumi:"blobUri"`
 	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
+	// The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// Specifies the logical unit number of the data disk.
 	Lun pulumi.IntPtrInput `pulumi:"lun"`
 	// Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
 	// Specifies the size of the image to be created. The target size can't be smaller than the source size.
 	SizeGb pulumi.IntPtrInput `pulumi:"sizeGb"`
+	// The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
 }
 
 func (ImageDataDiskArgs) ElementType() reflect.Type {
@@ -1263,6 +1271,11 @@ func (o ImageDataDiskOutput) Caching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
+func (o ImageDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the logical unit number of the data disk.
 func (o ImageDataDiskOutput) Lun() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageDataDisk) *int { return v.Lun }).(pulumi.IntPtrOutput)
@@ -1276,6 +1289,11 @@ func (o ImageDataDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
 // Specifies the size of the image to be created. The target size can't be smaller than the source size.
 func (o ImageDataDiskOutput) SizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageDataDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
+}
+
+// The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+func (o ImageDataDiskOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageDataDisk) string { return v.StorageType }).(pulumi.StringOutput)
 }
 
 type ImageDataDiskArrayOutput struct{ *pulumi.OutputState }
@@ -1303,7 +1321,7 @@ type ImageOsDisk struct {
 	BlobUri *string `pulumi:"blobUri"`
 	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 	Caching *string `pulumi:"caching"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
+	// The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// Specifies the ID of the managed disk resource that you want to use to create the image.
 	ManagedDiskId *string `pulumi:"managedDiskId"`
@@ -1313,6 +1331,8 @@ type ImageOsDisk struct {
 	OsType *string `pulumi:"osType"`
 	// Specifies the size of the image to be created. Changing this forces a new resource to be created.
 	SizeGb *int `pulumi:"sizeGb"`
+	// The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+	StorageType string `pulumi:"storageType"`
 }
 
 // ImageOsDiskInput is an input type that accepts ImageOsDiskArgs and ImageOsDiskOutput values.
@@ -1331,7 +1351,7 @@ type ImageOsDiskArgs struct {
 	BlobUri pulumi.StringPtrInput `pulumi:"blobUri"`
 	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
+	// The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// Specifies the ID of the managed disk resource that you want to use to create the image.
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
@@ -1341,6 +1361,8 @@ type ImageOsDiskArgs struct {
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// Specifies the size of the image to be created. Changing this forces a new resource to be created.
 	SizeGb pulumi.IntPtrInput `pulumi:"sizeGb"`
+	// The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
 }
 
 func (ImageOsDiskArgs) ElementType() reflect.Type {
@@ -1430,7 +1452,7 @@ func (o ImageOsDiskOutput) Caching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
+// The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
 func (o ImageOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -1453,6 +1475,11 @@ func (o ImageOsDiskOutput) OsType() pulumi.StringPtrOutput {
 // Specifies the size of the image to be created. Changing this forces a new resource to be created.
 func (o ImageOsDiskOutput) SizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageOsDisk) *int { return v.SizeGb }).(pulumi.IntPtrOutput)
+}
+
+// The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+func (o ImageOsDiskOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageOsDisk) string { return v.StorageType }).(pulumi.StringOutput)
 }
 
 type ImageOsDiskPtrOutput struct{ *pulumi.OutputState }
@@ -1499,7 +1526,7 @@ func (o ImageOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
+// The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
 func (o ImageOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageOsDisk) *string {
 		if v == nil {
@@ -1547,6 +1574,16 @@ func (o ImageOsDiskPtrOutput) SizeGb() pulumi.IntPtrOutput {
 		}
 		return v.SizeGb
 	}).(pulumi.IntPtrOutput)
+}
+
+// The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+func (o ImageOsDiskPtrOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageType
+	}).(pulumi.StringPtrOutput)
 }
 
 type LinuxVirtualMachineAdditionalCapabilities struct {
@@ -4438,13 +4475,14 @@ func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutp
 }
 
 type LinuxVirtualMachineScaleSetGalleryApplication struct {
-	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
-	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	ConfigurationBlobUri *string `pulumi:"configurationBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
 	Order *int `pulumi:"order"`
-	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
-	PackageReferenceId string  `pulumi:"packageReferenceId"`
-	Tag                *string `pulumi:"tag"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+	Tag *string `pulumi:"tag"`
+	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	VersionId string `pulumi:"versionId"`
 }
 
 // LinuxVirtualMachineScaleSetGalleryApplicationInput is an input type that accepts LinuxVirtualMachineScaleSetGalleryApplicationArgs and LinuxVirtualMachineScaleSetGalleryApplicationOutput values.
@@ -4459,13 +4497,14 @@ type LinuxVirtualMachineScaleSetGalleryApplicationInput interface {
 }
 
 type LinuxVirtualMachineScaleSetGalleryApplicationArgs struct {
-	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
-	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	ConfigurationBlobUri pulumi.StringPtrInput `pulumi:"configurationBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
 	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
-	PackageReferenceId pulumi.StringInput    `pulumi:"packageReferenceId"`
-	Tag                pulumi.StringPtrInput `pulumi:"tag"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	VersionId pulumi.StringInput `pulumi:"versionId"`
 }
 
 func (LinuxVirtualMachineScaleSetGalleryApplicationArgs) ElementType() reflect.Type {
@@ -4519,9 +4558,9 @@ func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ToLinuxVirtualMachi
 	return o
 }
 
-// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
-func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationReferenceBlobUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *string { return v.ConfigurationReferenceBlobUri }).(pulumi.StringPtrOutput)
+// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *string { return v.ConfigurationBlobUri }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
@@ -4529,13 +4568,14 @@ func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.IntP
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
-func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) PackageReferenceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) string { return v.PackageReferenceId }).(pulumi.StringOutput)
-}
-
+// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) string { return v.VersionId }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput struct{ *pulumi.OutputState }
@@ -7043,170 +7083,6 @@ func (o LinuxVirtualMachineScaleSetSpotRestorePtrOutput) Timeout() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-type LinuxVirtualMachineScaleSetTerminateNotification struct {
-	// Should the terminate notification be enabled on this Virtual Machine Scale Set?
-	Enabled bool `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-	//
-	// > **Note:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-	Timeout *string `pulumi:"timeout"`
-}
-
-// LinuxVirtualMachineScaleSetTerminateNotificationInput is an input type that accepts LinuxVirtualMachineScaleSetTerminateNotificationArgs and LinuxVirtualMachineScaleSetTerminateNotificationOutput values.
-// You can construct a concrete instance of `LinuxVirtualMachineScaleSetTerminateNotificationInput` via:
-//
-//	LinuxVirtualMachineScaleSetTerminateNotificationArgs{...}
-type LinuxVirtualMachineScaleSetTerminateNotificationInput interface {
-	pulumi.Input
-
-	ToLinuxVirtualMachineScaleSetTerminateNotificationOutput() LinuxVirtualMachineScaleSetTerminateNotificationOutput
-	ToLinuxVirtualMachineScaleSetTerminateNotificationOutputWithContext(context.Context) LinuxVirtualMachineScaleSetTerminateNotificationOutput
-}
-
-type LinuxVirtualMachineScaleSetTerminateNotificationArgs struct {
-	// Should the terminate notification be enabled on this Virtual Machine Scale Set?
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-	//
-	// > **Note:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
-}
-
-func (LinuxVirtualMachineScaleSetTerminateNotificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
-}
-
-func (i LinuxVirtualMachineScaleSetTerminateNotificationArgs) ToLinuxVirtualMachineScaleSetTerminateNotificationOutput() LinuxVirtualMachineScaleSetTerminateNotificationOutput {
-	return i.ToLinuxVirtualMachineScaleSetTerminateNotificationOutputWithContext(context.Background())
-}
-
-func (i LinuxVirtualMachineScaleSetTerminateNotificationArgs) ToLinuxVirtualMachineScaleSetTerminateNotificationOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetTerminateNotificationOutput)
-}
-
-func (i LinuxVirtualMachineScaleSetTerminateNotificationArgs) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return i.ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
-}
-
-func (i LinuxVirtualMachineScaleSetTerminateNotificationArgs) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetTerminateNotificationOutput).ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx)
-}
-
-// LinuxVirtualMachineScaleSetTerminateNotificationPtrInput is an input type that accepts LinuxVirtualMachineScaleSetTerminateNotificationArgs, LinuxVirtualMachineScaleSetTerminateNotificationPtr and LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput values.
-// You can construct a concrete instance of `LinuxVirtualMachineScaleSetTerminateNotificationPtrInput` via:
-//
-//	        LinuxVirtualMachineScaleSetTerminateNotificationArgs{...}
-//
-//	or:
-//
-//	        nil
-type LinuxVirtualMachineScaleSetTerminateNotificationPtrInput interface {
-	pulumi.Input
-
-	ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput
-	ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput
-}
-
-type linuxVirtualMachineScaleSetTerminateNotificationPtrType LinuxVirtualMachineScaleSetTerminateNotificationArgs
-
-func LinuxVirtualMachineScaleSetTerminateNotificationPtr(v *LinuxVirtualMachineScaleSetTerminateNotificationArgs) LinuxVirtualMachineScaleSetTerminateNotificationPtrInput {
-	return (*linuxVirtualMachineScaleSetTerminateNotificationPtrType)(v)
-}
-
-func (*linuxVirtualMachineScaleSetTerminateNotificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinuxVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
-}
-
-func (i *linuxVirtualMachineScaleSetTerminateNotificationPtrType) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return i.ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
-}
-
-func (i *linuxVirtualMachineScaleSetTerminateNotificationPtrType) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput)
-}
-
-type LinuxVirtualMachineScaleSetTerminateNotificationOutput struct{ *pulumi.OutputState }
-
-func (LinuxVirtualMachineScaleSetTerminateNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
-}
-
-func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationOutput() LinuxVirtualMachineScaleSetTerminateNotificationOutput {
-	return o
-}
-
-func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationOutput {
-	return o
-}
-
-func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return o.ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
-}
-
-func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetTerminateNotification) *LinuxVirtualMachineScaleSetTerminateNotification {
-		return &v
-	}).(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput)
-}
-
-// Should the terminate notification be enabled on this Virtual Machine Scale Set?
-func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-//
-// > **Note:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) Timeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
-}
-
-type LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput struct{ *pulumi.OutputState }
-
-func (LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinuxVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
-}
-
-func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutput() LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return o
-}
-
-func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) ToLinuxVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return o
-}
-
-func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Elem() LinuxVirtualMachineScaleSetTerminateNotificationOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminateNotification) LinuxVirtualMachineScaleSetTerminateNotification {
-		if v != nil {
-			return *v
-		}
-		var ret LinuxVirtualMachineScaleSetTerminateNotification
-		return ret
-	}).(LinuxVirtualMachineScaleSetTerminateNotificationOutput)
-}
-
-// Should the terminate notification be enabled on this Virtual Machine Scale Set?
-func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminateNotification) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-//
-// > **Note:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminateNotification) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Timeout
-	}).(pulumi.StringPtrOutput)
-}
-
 type LinuxVirtualMachineScaleSetTerminationNotification struct {
 	// Should the termination notification be enabled on this Virtual Machine Scale Set?
 	Enabled bool `pulumi:"enabled"`
@@ -7940,9 +7816,7 @@ func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Timeout() pulumi.St
 
 type ManagedDiskEncryptionSettings struct {
 	// A `diskEncryptionKey` block as defined above.
-	DiskEncryptionKey *ManagedDiskEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
-	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
-	Enabled *bool `pulumi:"enabled"`
+	DiskEncryptionKey ManagedDiskEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
 	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey *ManagedDiskEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
 }
@@ -7960,9 +7834,7 @@ type ManagedDiskEncryptionSettingsInput interface {
 
 type ManagedDiskEncryptionSettingsArgs struct {
 	// A `diskEncryptionKey` block as defined above.
-	DiskEncryptionKey ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput `pulumi:"diskEncryptionKey"`
-	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	DiskEncryptionKey ManagedDiskEncryptionSettingsDiskEncryptionKeyInput `pulumi:"diskEncryptionKey"`
 	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
 }
@@ -8045,15 +7917,10 @@ func (o ManagedDiskEncryptionSettingsOutput) ToManagedDiskEncryptionSettingsPtrO
 }
 
 // A `diskEncryptionKey` block as defined above.
-func (o ManagedDiskEncryptionSettingsOutput) DiskEncryptionKey() ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *ManagedDiskEncryptionSettingsDiskEncryptionKey {
+func (o ManagedDiskEncryptionSettingsOutput) DiskEncryptionKey() ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput {
+	return o.ApplyT(func(v ManagedDiskEncryptionSettings) ManagedDiskEncryptionSettingsDiskEncryptionKey {
 		return v.DiskEncryptionKey
-	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
-}
-
-// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
-func (o ManagedDiskEncryptionSettingsOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ManagedDiskEncryptionSettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput)
 }
 
 // A `keyEncryptionKey` block as defined below.
@@ -8093,18 +7960,8 @@ func (o ManagedDiskEncryptionSettingsPtrOutput) DiskEncryptionKey() ManagedDiskE
 		if v == nil {
 			return nil
 		}
-		return v.DiskEncryptionKey
+		return &v.DiskEncryptionKey
 	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput)
-}
-
-// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
-func (o ManagedDiskEncryptionSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ManagedDiskEncryptionSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 // A `keyEncryptionKey` block as defined below.
@@ -14605,7 +14462,7 @@ type ScaleSetIdentity struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -14668,7 +14525,7 @@ type ScaleSetIdentityArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -14797,7 +14654,7 @@ func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutputWithContext(ctx conte
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -14885,7 +14742,7 @@ func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -19224,9 +19081,7 @@ func (o SharedImageVersionTargetRegionArrayOutput) Index(i pulumi.IntInput) Shar
 
 type SnapshotEncryptionSettings struct {
 	// A `diskEncryptionKey` block as defined below.
-	DiskEncryptionKey *SnapshotEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
-	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
-	Enabled *bool `pulumi:"enabled"`
+	DiskEncryptionKey SnapshotEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
 	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey *SnapshotEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
 }
@@ -19244,9 +19099,7 @@ type SnapshotEncryptionSettingsInput interface {
 
 type SnapshotEncryptionSettingsArgs struct {
 	// A `diskEncryptionKey` block as defined below.
-	DiskEncryptionKey SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput `pulumi:"diskEncryptionKey"`
-	// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	DiskEncryptionKey SnapshotEncryptionSettingsDiskEncryptionKeyInput `pulumi:"diskEncryptionKey"`
 	// A `keyEncryptionKey` block as defined below.
 	KeyEncryptionKey SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
 }
@@ -19329,15 +19182,10 @@ func (o SnapshotEncryptionSettingsOutput) ToSnapshotEncryptionSettingsPtrOutputW
 }
 
 // A `diskEncryptionKey` block as defined below.
-func (o SnapshotEncryptionSettingsOutput) DiskEncryptionKey() SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput {
-	return o.ApplyT(func(v SnapshotEncryptionSettings) *SnapshotEncryptionSettingsDiskEncryptionKey {
+func (o SnapshotEncryptionSettingsOutput) DiskEncryptionKey() SnapshotEncryptionSettingsDiskEncryptionKeyOutput {
+	return o.ApplyT(func(v SnapshotEncryptionSettings) SnapshotEncryptionSettingsDiskEncryptionKey {
 		return v.DiskEncryptionKey
-	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
-}
-
-// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
-func (o SnapshotEncryptionSettingsOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SnapshotEncryptionSettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	}).(SnapshotEncryptionSettingsDiskEncryptionKeyOutput)
 }
 
 // A `keyEncryptionKey` block as defined below.
@@ -19377,18 +19225,8 @@ func (o SnapshotEncryptionSettingsPtrOutput) DiskEncryptionKey() SnapshotEncrypt
 		if v == nil {
 			return nil
 		}
-		return v.DiskEncryptionKey
+		return &v.DiskEncryptionKey
 	}).(SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput)
-}
-
-// Deprecated: Deprecated, Azure Disk Encryption is now configured directly by `diskEncryptionKey` and `keyEncryptionKey`. To disable Azure Disk Encryption, please remove `encryptionSettings` block. To enabled, specify a `encryptionSettings` block`
-func (o SnapshotEncryptionSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SnapshotEncryptionSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 // A `keyEncryptionKey` block as defined below.
@@ -25349,13 +25187,14 @@ func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOu
 }
 
 type WindowsVirtualMachineScaleSetGalleryApplication struct {
-	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
-	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	ConfigurationBlobUri *string `pulumi:"configurationBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
 	Order *int `pulumi:"order"`
-	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
-	PackageReferenceId string  `pulumi:"packageReferenceId"`
-	Tag                *string `pulumi:"tag"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+	Tag *string `pulumi:"tag"`
+	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	VersionId string `pulumi:"versionId"`
 }
 
 // WindowsVirtualMachineScaleSetGalleryApplicationInput is an input type that accepts WindowsVirtualMachineScaleSetGalleryApplicationArgs and WindowsVirtualMachineScaleSetGalleryApplicationOutput values.
@@ -25370,13 +25209,14 @@ type WindowsVirtualMachineScaleSetGalleryApplicationInput interface {
 }
 
 type WindowsVirtualMachineScaleSetGalleryApplicationArgs struct {
-	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
-	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	ConfigurationBlobUri pulumi.StringPtrInput `pulumi:"configurationBlobUri"`
 	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
 	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
-	PackageReferenceId pulumi.StringInput    `pulumi:"packageReferenceId"`
-	Tag                pulumi.StringPtrInput `pulumi:"tag"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	VersionId pulumi.StringInput `pulumi:"versionId"`
 }
 
 func (WindowsVirtualMachineScaleSetGalleryApplicationArgs) ElementType() reflect.Type {
@@ -25430,11 +25270,9 @@ func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ToWindowsVirtualM
 	return o
 }
 
-// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
-func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationReferenceBlobUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *string {
-		return v.ConfigurationReferenceBlobUri
-	}).(pulumi.StringPtrOutput)
+// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *string { return v.ConfigurationBlobUri }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
@@ -25442,13 +25280,14 @@ func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.In
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
-func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) PackageReferenceId() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) string { return v.PackageReferenceId }).(pulumi.StringOutput)
-}
-
+// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) string { return v.VersionId }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput struct{ *pulumi.OutputState }
@@ -27952,170 +27791,6 @@ func (o WindowsVirtualMachineScaleSetSpotRestorePtrOutput) Enabled() pulumi.Bool
 // The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetSpotRestorePtrOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSpotRestore) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Timeout
-	}).(pulumi.StringPtrOutput)
-}
-
-type WindowsVirtualMachineScaleSetTerminateNotification struct {
-	// Should the terminate notification be enabled on this Virtual Machine Scale Set?
-	Enabled bool `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-	//
-	// > For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-	Timeout *string `pulumi:"timeout"`
-}
-
-// WindowsVirtualMachineScaleSetTerminateNotificationInput is an input type that accepts WindowsVirtualMachineScaleSetTerminateNotificationArgs and WindowsVirtualMachineScaleSetTerminateNotificationOutput values.
-// You can construct a concrete instance of `WindowsVirtualMachineScaleSetTerminateNotificationInput` via:
-//
-//	WindowsVirtualMachineScaleSetTerminateNotificationArgs{...}
-type WindowsVirtualMachineScaleSetTerminateNotificationInput interface {
-	pulumi.Input
-
-	ToWindowsVirtualMachineScaleSetTerminateNotificationOutput() WindowsVirtualMachineScaleSetTerminateNotificationOutput
-	ToWindowsVirtualMachineScaleSetTerminateNotificationOutputWithContext(context.Context) WindowsVirtualMachineScaleSetTerminateNotificationOutput
-}
-
-type WindowsVirtualMachineScaleSetTerminateNotificationArgs struct {
-	// Should the terminate notification be enabled on this Virtual Machine Scale Set?
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-	//
-	// > For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
-}
-
-func (WindowsVirtualMachineScaleSetTerminateNotificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
-}
-
-func (i WindowsVirtualMachineScaleSetTerminateNotificationArgs) ToWindowsVirtualMachineScaleSetTerminateNotificationOutput() WindowsVirtualMachineScaleSetTerminateNotificationOutput {
-	return i.ToWindowsVirtualMachineScaleSetTerminateNotificationOutputWithContext(context.Background())
-}
-
-func (i WindowsVirtualMachineScaleSetTerminateNotificationArgs) ToWindowsVirtualMachineScaleSetTerminateNotificationOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetTerminateNotificationOutput)
-}
-
-func (i WindowsVirtualMachineScaleSetTerminateNotificationArgs) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return i.ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
-}
-
-func (i WindowsVirtualMachineScaleSetTerminateNotificationArgs) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetTerminateNotificationOutput).ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx)
-}
-
-// WindowsVirtualMachineScaleSetTerminateNotificationPtrInput is an input type that accepts WindowsVirtualMachineScaleSetTerminateNotificationArgs, WindowsVirtualMachineScaleSetTerminateNotificationPtr and WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput values.
-// You can construct a concrete instance of `WindowsVirtualMachineScaleSetTerminateNotificationPtrInput` via:
-//
-//	        WindowsVirtualMachineScaleSetTerminateNotificationArgs{...}
-//
-//	or:
-//
-//	        nil
-type WindowsVirtualMachineScaleSetTerminateNotificationPtrInput interface {
-	pulumi.Input
-
-	ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput
-	ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput
-}
-
-type windowsVirtualMachineScaleSetTerminateNotificationPtrType WindowsVirtualMachineScaleSetTerminateNotificationArgs
-
-func WindowsVirtualMachineScaleSetTerminateNotificationPtr(v *WindowsVirtualMachineScaleSetTerminateNotificationArgs) WindowsVirtualMachineScaleSetTerminateNotificationPtrInput {
-	return (*windowsVirtualMachineScaleSetTerminateNotificationPtrType)(v)
-}
-
-func (*windowsVirtualMachineScaleSetTerminateNotificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
-}
-
-func (i *windowsVirtualMachineScaleSetTerminateNotificationPtrType) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return i.ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
-}
-
-func (i *windowsVirtualMachineScaleSetTerminateNotificationPtrType) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput)
-}
-
-type WindowsVirtualMachineScaleSetTerminateNotificationOutput struct{ *pulumi.OutputState }
-
-func (WindowsVirtualMachineScaleSetTerminateNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
-}
-
-func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationOutput() WindowsVirtualMachineScaleSetTerminateNotificationOutput {
-	return o
-}
-
-func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationOutput {
-	return o
-}
-
-func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return o.ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(context.Background())
-}
-
-func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetTerminateNotification) *WindowsVirtualMachineScaleSetTerminateNotification {
-		return &v
-	}).(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput)
-}
-
-// Should the terminate notification be enabled on this Virtual Machine Scale Set?
-func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-//
-// > For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) Timeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
-}
-
-type WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput struct{ *pulumi.OutputState }
-
-func (WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsVirtualMachineScaleSetTerminateNotification)(nil)).Elem()
-}
-
-func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutput() WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return o
-}
-
-func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) ToWindowsVirtualMachineScaleSetTerminateNotificationPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput {
-	return o
-}
-
-func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Elem() WindowsVirtualMachineScaleSetTerminateNotificationOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminateNotification) WindowsVirtualMachineScaleSetTerminateNotification {
-		if v != nil {
-			return *v
-		}
-		var ret WindowsVirtualMachineScaleSetTerminateNotification
-		return ret
-	}).(WindowsVirtualMachineScaleSetTerminateNotificationOutput)
-}
-
-// Should the terminate notification be enabled on this Virtual Machine Scale Set?
-func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminateNotification) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-//
-// > For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminateNotification) *string {
 		if v == nil {
 			return nil
 		}
@@ -33337,8 +33012,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSourceImageReferencePtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSpotRestoreInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSpotRestoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSpotRestorePtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSpotRestoreArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminateNotificationInput)(nil)).Elem(), LinuxVirtualMachineScaleSetTerminateNotificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminateNotificationPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetTerminateNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminationNotificationInput)(nil)).Elem(), LinuxVirtualMachineScaleSetTerminationNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminationNotificationPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetTerminationNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineSecretInput)(nil)).Elem(), LinuxVirtualMachineSecretArgs{})
@@ -33587,8 +33260,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSourceImageReferencePtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSpotRestoreInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSpotRestoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSpotRestorePtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSpotRestoreArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminateNotificationInput)(nil)).Elem(), WindowsVirtualMachineScaleSetTerminateNotificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminateNotificationPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetTerminateNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminationNotificationInput)(nil)).Elem(), WindowsVirtualMachineScaleSetTerminationNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminationNotificationPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetTerminationNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetWinrmListenerInput)(nil)).Elem(), WindowsVirtualMachineScaleSetWinrmListenerArgs{})
@@ -33749,8 +33420,6 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSpotRestoreOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSpotRestorePtrOutput{})
-	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminateNotificationOutput{})
-	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminationNotificationOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineSecretOutput{})
@@ -33999,8 +33668,6 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSpotRestoreOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSpotRestorePtrOutput{})
-	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminateNotificationOutput{})
-	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminationNotificationOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetWinrmListenerOutput{})

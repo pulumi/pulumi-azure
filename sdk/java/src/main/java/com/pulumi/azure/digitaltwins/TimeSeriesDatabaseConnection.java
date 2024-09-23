@@ -287,18 +287,18 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
         return this.kustoDatabaseName;
     }
     /**
-     * Name of the Kusto Table. Changing this forces a new resource to be created.
+     * Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="kustoTableName", refs={String.class}, tree="[0]")
-    private Output<String> kustoTableName;
+    private Output</* @Nullable */ String> kustoTableName;
 
     /**
-     * @return Name of the Kusto Table. Changing this forces a new resource to be created.
+     * @return Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> kustoTableName() {
-        return this.kustoTableName;
+    public Output<Optional<String>> kustoTableName() {
+        return Codegen.optional(this.kustoTableName);
     }
     /**
      * The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.

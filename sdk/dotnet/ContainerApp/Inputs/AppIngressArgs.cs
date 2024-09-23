@@ -18,11 +18,17 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         [Input("allowInsecureConnections")]
         public Input<bool>? AllowInsecureConnections { get; set; }
 
+        [Input("customDomains")]
+        private InputList<Inputs.AppIngressCustomDomainArgs>? _customDomains;
+
         /// <summary>
         /// One or more `custom_domain` block as detailed below.
         /// </summary>
-        [Input("customDomain")]
-        public Input<Inputs.AppIngressCustomDomainArgs>? CustomDomain { get; set; }
+        public InputList<Inputs.AppIngressCustomDomainArgs> CustomDomains
+        {
+            get => _customDomains ?? (_customDomains = new InputList<Inputs.AppIngressCustomDomainArgs>());
+            set => _customDomains = value;
+        }
 
         /// <summary>
         /// The exposed port on the container for the Ingress traffic.

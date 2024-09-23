@@ -63,33 +63,6 @@ public final class ChannelWebChatState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of Web Chat Site names.
-     * 
-     * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
-    @Import(name="siteNames")
-    private @Nullable Output<List<String>> siteNames;
-
-    /**
-     * @return A list of Web Chat Site names.
-     * 
-     * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<List<String>>> siteNames() {
-        return Optional.ofNullable(this.siteNames);
-    }
-
-    /**
      * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      * 
      */
@@ -110,7 +83,6 @@ public final class ChannelWebChatState extends com.pulumi.resources.ResourceArgs
         this.botName = $.botName;
         this.location = $.location;
         this.resourceGroupName = $.resourceGroupName;
-        this.siteNames = $.siteNames;
         this.sites = $.sites;
     }
 
@@ -193,55 +165,6 @@ public final class ChannelWebChatState extends com.pulumi.resources.ResourceArgs
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
-        }
-
-        /**
-         * @param siteNames A list of Web Chat Site names.
-         * 
-         * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
-        public Builder siteNames(@Nullable Output<List<String>> siteNames) {
-            $.siteNames = siteNames;
-            return this;
-        }
-
-        /**
-         * @param siteNames A list of Web Chat Site names.
-         * 
-         * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
-        public Builder siteNames(List<String> siteNames) {
-            return siteNames(Output.of(siteNames));
-        }
-
-        /**
-         * @param siteNames A list of Web Chat Site names.
-         * 
-         * &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider. */
-        public Builder siteNames(String... siteNames) {
-            return siteNames(List.of(siteNames));
         }
 
         /**

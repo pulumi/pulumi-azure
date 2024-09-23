@@ -86,17 +86,11 @@ namespace Pulumi.Azure.Network
     [AzureResourceType("azure:network/vnpGatewayNatRule:VnpGatewayNatRule")]
     public partial class VnpGatewayNatRule : global::Pulumi.CustomResource
     {
-        [Output("externalAddressSpaceMappings")]
-        public Output<ImmutableArray<string>> ExternalAddressSpaceMappings { get; private set; } = null!;
-
         /// <summary>
         /// One of more `external_mapping` blocks as defined below.
         /// </summary>
         [Output("externalMappings")]
         public Output<ImmutableArray<Outputs.VnpGatewayNatRuleExternalMapping>> ExternalMappings { get; private set; } = null!;
-
-        [Output("internalAddressSpaceMappings")]
-        public Output<ImmutableArray<string>> InternalAddressSpaceMappings { get; private set; } = null!;
 
         /// <summary>
         /// One of more `internal_mapping` blocks as defined below.
@@ -121,9 +115,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
@@ -183,15 +174,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class VnpGatewayNatRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("externalAddressSpaceMappings")]
-        private InputList<string>? _externalAddressSpaceMappings;
-        [Obsolete(@"`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.")]
-        public InputList<string> ExternalAddressSpaceMappings
-        {
-            get => _externalAddressSpaceMappings ?? (_externalAddressSpaceMappings = new InputList<string>());
-            set => _externalAddressSpaceMappings = value;
-        }
-
         [Input("externalMappings")]
         private InputList<Inputs.VnpGatewayNatRuleExternalMappingArgs>? _externalMappings;
 
@@ -202,15 +184,6 @@ namespace Pulumi.Azure.Network
         {
             get => _externalMappings ?? (_externalMappings = new InputList<Inputs.VnpGatewayNatRuleExternalMappingArgs>());
             set => _externalMappings = value;
-        }
-
-        [Input("internalAddressSpaceMappings")]
-        private InputList<string>? _internalAddressSpaceMappings;
-        [Obsolete(@"`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.")]
-        public InputList<string> InternalAddressSpaceMappings
-        {
-            get => _internalAddressSpaceMappings ?? (_internalAddressSpaceMappings = new InputList<string>());
-            set => _internalAddressSpaceMappings = value;
         }
 
         [Input("internalMappings")]
@@ -243,9 +216,6 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
         /// <summary>
         /// The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
         /// </summary>
@@ -266,15 +236,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class VnpGatewayNatRuleState : global::Pulumi.ResourceArgs
     {
-        [Input("externalAddressSpaceMappings")]
-        private InputList<string>? _externalAddressSpaceMappings;
-        [Obsolete(@"`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.")]
-        public InputList<string> ExternalAddressSpaceMappings
-        {
-            get => _externalAddressSpaceMappings ?? (_externalAddressSpaceMappings = new InputList<string>());
-            set => _externalAddressSpaceMappings = value;
-        }
-
         [Input("externalMappings")]
         private InputList<Inputs.VnpGatewayNatRuleExternalMappingGetArgs>? _externalMappings;
 
@@ -285,15 +246,6 @@ namespace Pulumi.Azure.Network
         {
             get => _externalMappings ?? (_externalMappings = new InputList<Inputs.VnpGatewayNatRuleExternalMappingGetArgs>());
             set => _externalMappings = value;
-        }
-
-        [Input("internalAddressSpaceMappings")]
-        private InputList<string>? _internalAddressSpaceMappings;
-        [Obsolete(@"`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.")]
-        public InputList<string> InternalAddressSpaceMappings
-        {
-            get => _internalAddressSpaceMappings ?? (_internalAddressSpaceMappings = new InputList<string>());
-            set => _internalAddressSpaceMappings = value;
         }
 
         [Input("internalMappings")]
@@ -325,9 +277,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.

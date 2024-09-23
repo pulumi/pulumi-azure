@@ -147,7 +147,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly analyticalStorage!: pulumi.Output<outputs.cosmosdb.AccountAnalyticalStorage>;
     public readonly analyticalStorageEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly automaticFailoverEnabled!: pulumi.Output<boolean>;
+    public readonly automaticFailoverEnabled!: pulumi.Output<boolean | undefined>;
     public readonly backup!: pulumi.Output<outputs.cosmosdb.AccountBackup>;
     public readonly burstCapacityEnabled!: pulumi.Output<boolean | undefined>;
     public readonly capabilities!: pulumi.Output<outputs.cosmosdb.AccountCapability[]>;
@@ -155,10 +155,6 @@ export class Account extends pulumi.CustomResource {
      * A `capacity` block as defined below.
      */
     public readonly capacity!: pulumi.Output<outputs.cosmosdb.AccountCapacity>;
-    /**
-     * @deprecated This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-     */
-    public /*out*/ readonly connectionStrings!: pulumi.Output<string[]>;
     public readonly consistencyPolicy!: pulumi.Output<outputs.cosmosdb.AccountConsistencyPolicy>;
     public readonly corsRule!: pulumi.Output<outputs.cosmosdb.AccountCorsRule | undefined>;
     /**
@@ -172,25 +168,13 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly defaultIdentityType!: pulumi.Output<string | undefined>;
     /**
-     * @deprecated This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
-     */
-    public readonly enableAutomaticFailover!: pulumi.Output<boolean>;
-    /**
-     * @deprecated This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
-     */
-    public readonly enableFreeTier!: pulumi.Output<boolean>;
-    /**
-     * @deprecated This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
-     */
-    public readonly enableMultipleWriteLocations!: pulumi.Output<boolean>;
-    /**
      * The endpoint used to connect to the CosmosDB account.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
-    public readonly freeTierEnabled!: pulumi.Output<boolean>;
+    public readonly freeTierEnabled!: pulumi.Output<boolean | undefined>;
     public readonly geoLocations!: pulumi.Output<outputs.cosmosdb.AccountGeoLocation[]>;
     public readonly identity!: pulumi.Output<outputs.cosmosdb.AccountIdentity | undefined>;
-    public readonly ipRangeFilter!: pulumi.Output<string | undefined>;
+    public readonly ipRangeFilters!: pulumi.Output<string[] | undefined>;
     public readonly isVirtualNetworkFilterEnabled!: pulumi.Output<boolean | undefined>;
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -202,9 +186,9 @@ export class Account extends pulumi.CustomResource {
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
      */
-    public readonly minimalTlsVersion!: pulumi.Output<string>;
+    public readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
     public readonly mongoServerVersion!: pulumi.Output<string>;
-    public readonly multipleWriteLocationsEnabled!: pulumi.Output<boolean>;
+    public readonly multipleWriteLocationsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
@@ -305,19 +289,15 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["burstCapacityEnabled"] = state ? state.burstCapacityEnabled : undefined;
             resourceInputs["capabilities"] = state ? state.capabilities : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             resourceInputs["consistencyPolicy"] = state ? state.consistencyPolicy : undefined;
             resourceInputs["corsRule"] = state ? state.corsRule : undefined;
             resourceInputs["createMode"] = state ? state.createMode : undefined;
             resourceInputs["defaultIdentityType"] = state ? state.defaultIdentityType : undefined;
-            resourceInputs["enableAutomaticFailover"] = state ? state.enableAutomaticFailover : undefined;
-            resourceInputs["enableFreeTier"] = state ? state.enableFreeTier : undefined;
-            resourceInputs["enableMultipleWriteLocations"] = state ? state.enableMultipleWriteLocations : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["freeTierEnabled"] = state ? state.freeTierEnabled : undefined;
             resourceInputs["geoLocations"] = state ? state.geoLocations : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["ipRangeFilter"] = state ? state.ipRangeFilter : undefined;
+            resourceInputs["ipRangeFilters"] = state ? state.ipRangeFilters : undefined;
             resourceInputs["isVirtualNetworkFilterEnabled"] = state ? state.isVirtualNetworkFilterEnabled : undefined;
             resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
@@ -376,13 +356,10 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["corsRule"] = args ? args.corsRule : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
             resourceInputs["defaultIdentityType"] = args ? args.defaultIdentityType : undefined;
-            resourceInputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
-            resourceInputs["enableFreeTier"] = args ? args.enableFreeTier : undefined;
-            resourceInputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
             resourceInputs["freeTierEnabled"] = args ? args.freeTierEnabled : undefined;
             resourceInputs["geoLocations"] = args ? args.geoLocations : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["ipRangeFilter"] = args ? args.ipRangeFilter : undefined;
+            resourceInputs["ipRangeFilters"] = args ? args.ipRangeFilters : undefined;
             resourceInputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
             resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
@@ -401,7 +378,6 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["restore"] = args ? args.restore : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
-            resourceInputs["connectionStrings"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
             resourceInputs["primaryMongodbConnectionString"] = undefined /*out*/;
@@ -419,7 +395,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["writeEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["connectionStrings", "primaryKey", "primaryMongodbConnectionString", "primaryReadonlyKey", "primaryReadonlyMongodbConnectionString", "primaryReadonlySqlConnectionString", "primarySqlConnectionString", "secondaryKey", "secondaryMongodbConnectionString", "secondaryReadonlyKey", "secondaryReadonlyMongodbConnectionString", "secondaryReadonlySqlConnectionString", "secondarySqlConnectionString"] };
+        const secretOpts = { additionalSecretOutputs: ["primaryKey", "primaryMongodbConnectionString", "primaryReadonlyKey", "primaryReadonlyMongodbConnectionString", "primaryReadonlySqlConnectionString", "primarySqlConnectionString", "secondaryKey", "secondaryMongodbConnectionString", "secondaryReadonlyKey", "secondaryReadonlyMongodbConnectionString", "secondaryReadonlySqlConnectionString", "secondarySqlConnectionString"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
@@ -443,10 +419,6 @@ export interface AccountState {
      * A `capacity` block as defined below.
      */
     capacity?: pulumi.Input<inputs.cosmosdb.AccountCapacity>;
-    /**
-     * @deprecated This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-     */
-    connectionStrings?: pulumi.Input<pulumi.Input<string>[]>;
     consistencyPolicy?: pulumi.Input<inputs.cosmosdb.AccountConsistencyPolicy>;
     corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule>;
     /**
@@ -460,25 +432,13 @@ export interface AccountState {
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**
-     * @deprecated This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
-     */
-    enableAutomaticFailover?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
-     */
-    enableFreeTier?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
-     */
-    enableMultipleWriteLocations?: pulumi.Input<boolean>;
-    /**
      * The endpoint used to connect to the CosmosDB account.
      */
     endpoint?: pulumi.Input<string>;
     freeTierEnabled?: pulumi.Input<boolean>;
     geoLocations?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountGeoLocation>[]>;
     identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity>;
-    ipRangeFilter?: pulumi.Input<string>;
+    ipRangeFilters?: pulumi.Input<pulumi.Input<string>[]>;
     isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
     keyVaultKeyId?: pulumi.Input<string>;
     kind?: pulumi.Input<string>;
@@ -603,22 +563,10 @@ export interface AccountArgs {
      * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
      */
     defaultIdentityType?: pulumi.Input<string>;
-    /**
-     * @deprecated This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
-     */
-    enableAutomaticFailover?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
-     */
-    enableFreeTier?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
-     */
-    enableMultipleWriteLocations?: pulumi.Input<boolean>;
     freeTierEnabled?: pulumi.Input<boolean>;
     geoLocations: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountGeoLocation>[]>;
     identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity>;
-    ipRangeFilter?: pulumi.Input<string>;
+    ipRangeFilters?: pulumi.Input<pulumi.Input<string>[]>;
     isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
     keyVaultKeyId?: pulumi.Input<string>;
     kind?: pulumi.Input<string>;

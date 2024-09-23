@@ -1675,7 +1675,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extensionOperationsEnabled")
-    def extension_operations_enabled(self) -> pulumi.Output[bool]:
+    def extension_operations_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
 

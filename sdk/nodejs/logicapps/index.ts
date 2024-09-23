@@ -75,11 +75,6 @@ export type IntegrationAccountSession = import("./integrationAccountSession").In
 export const IntegrationAccountSession: typeof import("./integrationAccountSession").IntegrationAccountSession = null as any;
 utilities.lazyLoad(exports, ["IntegrationAccountSession"], () => require("./integrationAccountSession"));
 
-export { InterationServiceEnvironmentArgs, InterationServiceEnvironmentState } from "./interationServiceEnvironment";
-export type InterationServiceEnvironment = import("./interationServiceEnvironment").InterationServiceEnvironment;
-export const InterationServiceEnvironment: typeof import("./interationServiceEnvironment").InterationServiceEnvironment = null as any;
-utilities.lazyLoad(exports, ["InterationServiceEnvironment"], () => require("./interationServiceEnvironment"));
-
 export { StandardArgs, StandardState } from "./standard";
 export type Standard = import("./standard").Standard;
 export const Standard: typeof import("./standard").Standard = null as any;
@@ -132,8 +127,6 @@ const _module = {
                 return new IntegrationAccountSchema(name, <any>undefined, { urn })
             case "azure:logicapps/integrationAccountSession:IntegrationAccountSession":
                 return new IntegrationAccountSession(name, <any>undefined, { urn })
-            case "azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment":
-                return new InterationServiceEnvironment(name, <any>undefined, { urn })
             case "azure:logicapps/standard:Standard":
                 return new Standard(name, <any>undefined, { urn })
             case "azure:logicapps/triggerCustom:TriggerCustom":
@@ -160,7 +153,6 @@ pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountMap"
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountPartner", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountSchema", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/integrationAccountSession", _module)
-pulumi.runtime.registerResourceModule("azure", "logicapps/interationServiceEnvironment", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/standard", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/triggerCustom", _module)
 pulumi.runtime.registerResourceModule("azure", "logicapps/triggerHttpRequest", _module)

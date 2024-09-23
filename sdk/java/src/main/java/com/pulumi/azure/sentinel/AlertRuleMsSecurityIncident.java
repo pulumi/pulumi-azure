@@ -152,14 +152,14 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="displayNameFilters", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> displayNameFilters;
+    private Output</* @Nullable */ List<String>> displayNameFilters;
 
     /**
      * @return Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
      * 
      */
-    public Output<List<String>> displayNameFilters() {
-        return this.displayNameFilters;
+    public Output<Optional<List<String>>> displayNameFilters() {
+        return Codegen.optional(this.displayNameFilters);
     }
     /**
      * Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.

@@ -114,21 +114,6 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
         return Optional.ofNullable(this.roleType);
     }
 
-    /**
-     * The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-     * 
-     */
-    @Import(name="vaultBaseUrl")
-    private @Nullable Output<String> vaultBaseUrl;
-
-    /**
-     * @return The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-     * 
-     */
-    public Optional<Output<String>> vaultBaseUrl() {
-        return Optional.ofNullable(this.vaultBaseUrl);
-    }
-
     private ManagedHardwareSecurityModuleRoleDefinitionState() {}
 
     private ManagedHardwareSecurityModuleRoleDefinitionState(ManagedHardwareSecurityModuleRoleDefinitionState $) {
@@ -139,7 +124,6 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
         this.resourceManagerId = $.resourceManagerId;
         this.roleName = $.roleName;
         this.roleType = $.roleType;
-        this.vaultBaseUrl = $.vaultBaseUrl;
     }
 
     public static Builder builder() {
@@ -303,27 +287,6 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
          */
         public Builder roleType(String roleType) {
             return roleType(Output.of(roleType));
-        }
-
-        /**
-         * @param vaultBaseUrl The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder vaultBaseUrl(@Nullable Output<String> vaultBaseUrl) {
-            $.vaultBaseUrl = vaultBaseUrl;
-            return this;
-        }
-
-        /**
-         * @param vaultBaseUrl The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder vaultBaseUrl(String vaultBaseUrl) {
-            return vaultBaseUrl(Output.of(vaultBaseUrl));
         }
 
         public ManagedHardwareSecurityModuleRoleDefinitionState build() {

@@ -181,15 +181,15 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
      * A block to define fine grain resource health settings.
      * 
      */
-    @Import(name="resourceHealths")
-    private @Nullable Output<List<ActivityLogAlertCriteriaResourceHealthArgs>> resourceHealths;
+    @Import(name="resourceHealth")
+    private @Nullable Output<ActivityLogAlertCriteriaResourceHealthArgs> resourceHealth;
 
     /**
      * @return A block to define fine grain resource health settings.
      * 
      */
-    public Optional<Output<List<ActivityLogAlertCriteriaResourceHealthArgs>>> resourceHealths() {
-        return Optional.ofNullable(this.resourceHealths);
+    public Optional<Output<ActivityLogAlertCriteriaResourceHealthArgs>> resourceHealth() {
+        return Optional.ofNullable(this.resourceHealth);
     }
 
     /**
@@ -298,15 +298,15 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
      * A block to define fine grain service health settings.
      * 
      */
-    @Import(name="serviceHealths")
-    private @Nullable Output<List<ActivityLogAlertCriteriaServiceHealthArgs>> serviceHealths;
+    @Import(name="serviceHealth")
+    private @Nullable Output<ActivityLogAlertCriteriaServiceHealthArgs> serviceHealth;
 
     /**
      * @return A block to define fine grain service health settings.
      * 
      */
-    public Optional<Output<List<ActivityLogAlertCriteriaServiceHealthArgs>>> serviceHealths() {
-        return Optional.ofNullable(this.serviceHealths);
+    public Optional<Output<ActivityLogAlertCriteriaServiceHealthArgs>> serviceHealth() {
+        return Optional.ofNullable(this.serviceHealth);
     }
 
     /**
@@ -390,14 +390,14 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         this.recommendationType = $.recommendationType;
         this.resourceGroup = $.resourceGroup;
         this.resourceGroups = $.resourceGroups;
-        this.resourceHealths = $.resourceHealths;
+        this.resourceHealth = $.resourceHealth;
         this.resourceId = $.resourceId;
         this.resourceIds = $.resourceIds;
         this.resourceProvider = $.resourceProvider;
         this.resourceProviders = $.resourceProviders;
         this.resourceType = $.resourceType;
         this.resourceTypes = $.resourceTypes;
-        this.serviceHealths = $.serviceHealths;
+        this.serviceHealth = $.serviceHealth;
         this.status = $.status;
         this.statuses = $.statuses;
         this.subStatus = $.subStatus;
@@ -665,34 +665,24 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceHealths A block to define fine grain resource health settings.
+         * @param resourceHealth A block to define fine grain resource health settings.
          * 
          * @return builder
          * 
          */
-        public Builder resourceHealths(@Nullable Output<List<ActivityLogAlertCriteriaResourceHealthArgs>> resourceHealths) {
-            $.resourceHealths = resourceHealths;
+        public Builder resourceHealth(@Nullable Output<ActivityLogAlertCriteriaResourceHealthArgs> resourceHealth) {
+            $.resourceHealth = resourceHealth;
             return this;
         }
 
         /**
-         * @param resourceHealths A block to define fine grain resource health settings.
+         * @param resourceHealth A block to define fine grain resource health settings.
          * 
          * @return builder
          * 
          */
-        public Builder resourceHealths(List<ActivityLogAlertCriteriaResourceHealthArgs> resourceHealths) {
-            return resourceHealths(Output.of(resourceHealths));
-        }
-
-        /**
-         * @param resourceHealths A block to define fine grain resource health settings.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceHealths(ActivityLogAlertCriteriaResourceHealthArgs... resourceHealths) {
-            return resourceHealths(List.of(resourceHealths));
+        public Builder resourceHealth(ActivityLogAlertCriteriaResourceHealthArgs resourceHealth) {
+            return resourceHealth(Output.of(resourceHealth));
         }
 
         /**
@@ -870,34 +860,24 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serviceHealths A block to define fine grain service health settings.
+         * @param serviceHealth A block to define fine grain service health settings.
          * 
          * @return builder
          * 
          */
-        public Builder serviceHealths(@Nullable Output<List<ActivityLogAlertCriteriaServiceHealthArgs>> serviceHealths) {
-            $.serviceHealths = serviceHealths;
+        public Builder serviceHealth(@Nullable Output<ActivityLogAlertCriteriaServiceHealthArgs> serviceHealth) {
+            $.serviceHealth = serviceHealth;
             return this;
         }
 
         /**
-         * @param serviceHealths A block to define fine grain service health settings.
+         * @param serviceHealth A block to define fine grain service health settings.
          * 
          * @return builder
          * 
          */
-        public Builder serviceHealths(List<ActivityLogAlertCriteriaServiceHealthArgs> serviceHealths) {
-            return serviceHealths(Output.of(serviceHealths));
-        }
-
-        /**
-         * @param serviceHealths A block to define fine grain service health settings.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder serviceHealths(ActivityLogAlertCriteriaServiceHealthArgs... serviceHealths) {
-            return serviceHealths(List.of(serviceHealths));
+        public Builder serviceHealth(ActivityLogAlertCriteriaServiceHealthArgs serviceHealth) {
+            return serviceHealth(Output.of(serviceHealth));
         }
 
         /**

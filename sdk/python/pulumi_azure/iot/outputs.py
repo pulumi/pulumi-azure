@@ -37,8 +37,6 @@ __all__ = [
     'SecurityDeviceGroupRangeRule',
     'SecuritySolutionAdditionalWorkspace',
     'SecuritySolutionRecommendationsEnabled',
-    'TimeSeriesInsightsGen2EnvironmentStorage',
-    'TimeSeriesInsightsReferenceDataSetKeyProperty',
     'GetIotHubIdentityResult',
 ]
 
@@ -455,7 +453,7 @@ class IoTHubFallbackRoute(dict):
                  source: Optional[str] = None):
         """
         :param str condition: The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
-        :param bool enabled: Used to specify whether the fallback route is enabled.
+        :param bool enabled: Used to specify whether the fallback route is enabled. Defaults to `true`.
         :param Sequence[str] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         :param str source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`. Defaults to `DeviceMessages`.
         """
@@ -480,7 +478,7 @@ class IoTHubFallbackRoute(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Used to specify whether the fallback route is enabled.
+        Used to specify whether the fallback route is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -1775,64 +1773,6 @@ class SecuritySolutionRecommendationsEnabled(dict):
         Does TLS cipher suite need to be updated? Defaults to `true`.
         """
         return pulumi.get(self, "vulnerable_tls_cipher_suite")
-
-
-@pulumi.output_type
-class TimeSeriesInsightsGen2EnvironmentStorage(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 name: str):
-        """
-        :param str key: Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-        :param str name: Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class TimeSeriesInsightsReferenceDataSetKeyProperty(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 type: str):
-        """
-        :param str name: The name of the key property. Changing this forces a new resource to be created.
-        :param str type: The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the key property. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

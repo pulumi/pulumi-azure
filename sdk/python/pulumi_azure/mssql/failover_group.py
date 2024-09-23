@@ -442,6 +442,8 @@ class FailoverGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
             __props__.__dict__["tags"] = tags
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:sql/failoverGroup:FailoverGroup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FailoverGroup, __self__).__init__(
             'azure:mssql/failoverGroup:FailoverGroup',
             resource_name,

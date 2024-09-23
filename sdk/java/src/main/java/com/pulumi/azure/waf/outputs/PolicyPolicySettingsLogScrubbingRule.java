@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyPolicySettingsLogScrubbingRule {
     /**
-     * @return Describes if the managed rule is in enabled state or disabled state.
+     * @return Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -28,7 +28,7 @@ public final class PolicyPolicySettingsLogScrubbingRule {
 
     private PolicyPolicySettingsLogScrubbingRule() {}
     /**
-     * @return Describes if the managed rule is in enabled state or disabled state.
+     * @return Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
      * 
      */
     public Optional<Boolean> enabled() {

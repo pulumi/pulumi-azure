@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -341,15 +341,12 @@ type CacheRedisConfiguration struct {
 	//
 	// Example usage:
 	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
-	AuthenticationEnabled       *bool   `pulumi:"authenticationEnabled"`
-	// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
-	DataPersistenceAuthenticationMethod *string `pulumi:"dataPersistenceAuthenticationMethod"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 	//
-	// > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
-	//
-	// Deprecated: `enableAuthentication` will be removed in favour of the property `authenticationEnabled` in version 4.0 of the AzureRM Provider.
-	EnableAuthentication *bool `pulumi:"enableAuthentication"`
+	// > **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
+	AuthenticationEnabled *bool `pulumi:"authenticationEnabled"`
+	// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
+	DataPersistenceAuthenticationMethod *string `pulumi:"dataPersistenceAuthenticationMethod"`
 	// Returns the max number of connected clients at the same time.
 	Maxclients *int `pulumi:"maxclients"`
 	// Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
@@ -402,15 +399,12 @@ type CacheRedisConfigurationArgs struct {
 	//
 	// Example usage:
 	AofStorageConnectionString1 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
-	AuthenticationEnabled       pulumi.BoolPtrInput   `pulumi:"authenticationEnabled"`
-	// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
-	DataPersistenceAuthenticationMethod pulumi.StringPtrInput `pulumi:"dataPersistenceAuthenticationMethod"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 	//
-	// > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
-	//
-	// Deprecated: `enableAuthentication` will be removed in favour of the property `authenticationEnabled` in version 4.0 of the AzureRM Provider.
-	EnableAuthentication pulumi.BoolPtrInput `pulumi:"enableAuthentication"`
+	// > **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
+	AuthenticationEnabled pulumi.BoolPtrInput `pulumi:"authenticationEnabled"`
+	// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
+	DataPersistenceAuthenticationMethod pulumi.StringPtrInput `pulumi:"dataPersistenceAuthenticationMethod"`
 	// Returns the max number of connected clients at the same time.
 	Maxclients pulumi.IntPtrInput `pulumi:"maxclients"`
 	// Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
@@ -540,22 +534,16 @@ func (o CacheRedisConfigurationOutput) AofStorageConnectionString1() pulumi.Stri
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
 }
 
+// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+//
+// > **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
 func (o CacheRedisConfigurationOutput) AuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.AuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
 func (o CacheRedisConfigurationOutput) DataPersistenceAuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.DataPersistenceAuthenticationMethod }).(pulumi.StringPtrOutput)
-}
-
-// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-//
-// > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
-//
-// Deprecated: `enableAuthentication` will be removed in favour of the property `authenticationEnabled` in version 4.0 of the AzureRM Provider.
-func (o CacheRedisConfigurationOutput) EnableAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.EnableAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // Returns the max number of connected clients at the same time.
@@ -685,6 +673,9 @@ func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+//
+// > **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
 func (o CacheRedisConfigurationPtrOutput) AuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
 		if v == nil {
@@ -694,7 +685,7 @@ func (o CacheRedisConfigurationPtrOutput) AuthenticationEnabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
 func (o CacheRedisConfigurationPtrOutput) DataPersistenceAuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {
@@ -702,20 +693,6 @@ func (o CacheRedisConfigurationPtrOutput) DataPersistenceAuthenticationMethod() 
 		}
 		return v.DataPersistenceAuthenticationMethod
 	}).(pulumi.StringPtrOutput)
-}
-
-// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-//
-// > **NOTE:** `enableAuthentication` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `enableAuthentication` set to `true`.
-//
-// Deprecated: `enableAuthentication` will be removed in favour of the property `authenticationEnabled` in version 4.0 of the AzureRM Provider.
-func (o CacheRedisConfigurationPtrOutput) EnableAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableAuthentication
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Returns the max number of connected clients at the same time.
@@ -1067,11 +1044,7 @@ type GetCacheRedisConfiguration struct {
 	AofStorageConnectionString1          string `pulumi:"aofStorageConnectionString1"`
 	AuthenticationEnabled                bool   `pulumi:"authenticationEnabled"`
 	DataPersistenceAuthenticationMethod  string `pulumi:"dataPersistenceAuthenticationMethod"`
-	// Specifies if authentication is enabled
-	//
-	// Deprecated: `enableAuthentication` will be removed in favour of the property `authenticationEnabled` in version 4.0 of the AzureRM Provider.
-	EnableAuthentication *bool `pulumi:"enableAuthentication"`
-	Maxclients           int   `pulumi:"maxclients"`
+	Maxclients                           int    `pulumi:"maxclients"`
 	// Value in megabytes reserved to accommodate for memory fragmentation.
 	MaxfragmentationmemoryReserved int `pulumi:"maxfragmentationmemoryReserved"`
 	// The max-memory delta for this Redis instance.
@@ -1112,11 +1085,7 @@ type GetCacheRedisConfigurationArgs struct {
 	AofStorageConnectionString1          pulumi.StringInput `pulumi:"aofStorageConnectionString1"`
 	AuthenticationEnabled                pulumi.BoolInput   `pulumi:"authenticationEnabled"`
 	DataPersistenceAuthenticationMethod  pulumi.StringInput `pulumi:"dataPersistenceAuthenticationMethod"`
-	// Specifies if authentication is enabled
-	//
-	// Deprecated: `enableAuthentication` will be removed in favour of the property `authenticationEnabled` in version 4.0 of the AzureRM Provider.
-	EnableAuthentication pulumi.BoolPtrInput `pulumi:"enableAuthentication"`
-	Maxclients           pulumi.IntInput     `pulumi:"maxclients"`
+	Maxclients                           pulumi.IntInput    `pulumi:"maxclients"`
 	// Value in megabytes reserved to accommodate for memory fragmentation.
 	MaxfragmentationmemoryReserved pulumi.IntInput `pulumi:"maxfragmentationmemoryReserved"`
 	// The max-memory delta for this Redis instance.
@@ -1212,13 +1181,6 @@ func (o GetCacheRedisConfigurationOutput) AuthenticationEnabled() pulumi.BoolOut
 
 func (o GetCacheRedisConfigurationOutput) DataPersistenceAuthenticationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCacheRedisConfiguration) string { return v.DataPersistenceAuthenticationMethod }).(pulumi.StringOutput)
-}
-
-// Specifies if authentication is enabled
-//
-// Deprecated: `enableAuthentication` will be removed in favour of the property `authenticationEnabled` in version 4.0 of the AzureRM Provider.
-func (o GetCacheRedisConfigurationOutput) EnableAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetCacheRedisConfiguration) *bool { return v.EnableAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetCacheRedisConfigurationOutput) Maxclients() pulumi.IntOutput {

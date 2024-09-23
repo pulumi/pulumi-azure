@@ -41,7 +41,7 @@ namespace Pulumi.Azure.DataProtection
     ///     {
     ///         Name = "example-backup-policy",
     ///         VaultId = exampleBackupVault.Id,
-    ///         RetentionDuration = "P30D",
+    ///         OperationalDefaultRetentionDuration = "P30D",
     ///     });
     /// 
     /// });
@@ -74,15 +74,7 @@ namespace Pulumi.Azure.DataProtection
         /// The duration of operational default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         /// </summary>
         [Output("operationalDefaultRetentionDuration")]
-        public Output<string> OperationalDefaultRetentionDuration { get; private set; } = null!;
-
-        /// <summary>
-        /// Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
-        /// 
-        /// &gt; **Note:** &gt; `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
-        /// </summary>
-        [Output("retentionDuration")]
-        public Output<string> RetentionDuration { get; private set; } = null!;
+        public Output<string?> OperationalDefaultRetentionDuration { get; private set; } = null!;
 
         /// <summary>
         /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
@@ -101,7 +93,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         /// 
-        /// &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration`, `retention_duration` or `vault_default_retention_duration` must be specified.
+        /// &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
         /// </summary>
         [Output("vaultDefaultRetentionDuration")]
         public Output<string?> VaultDefaultRetentionDuration { get; private set; } = null!;
@@ -182,14 +174,6 @@ namespace Pulumi.Azure.DataProtection
         [Input("operationalDefaultRetentionDuration")]
         public Input<string>? OperationalDefaultRetentionDuration { get; set; }
 
-        /// <summary>
-        /// Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
-        /// 
-        /// &gt; **Note:** &gt; `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
-        /// </summary>
-        [Input("retentionDuration")]
-        public Input<string>? RetentionDuration { get; set; }
-
         [Input("retentionRules")]
         private InputList<Inputs.BackupPolicyBlobStorageRetentionRuleArgs>? _retentionRules;
 
@@ -213,7 +197,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         /// 
-        /// &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration`, `retention_duration` or `vault_default_retention_duration` must be specified.
+        /// &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
         /// </summary>
         [Input("vaultDefaultRetentionDuration")]
         public Input<string>? VaultDefaultRetentionDuration { get; set; }
@@ -256,14 +240,6 @@ namespace Pulumi.Azure.DataProtection
         [Input("operationalDefaultRetentionDuration")]
         public Input<string>? OperationalDefaultRetentionDuration { get; set; }
 
-        /// <summary>
-        /// Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
-        /// 
-        /// &gt; **Note:** &gt; `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
-        /// </summary>
-        [Input("retentionDuration")]
-        public Input<string>? RetentionDuration { get; set; }
-
         [Input("retentionRules")]
         private InputList<Inputs.BackupPolicyBlobStorageRetentionRuleGetArgs>? _retentionRules;
 
@@ -287,7 +263,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The duration of vault default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         /// 
-        /// &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration`, `retention_duration` or `vault_default_retention_duration` must be specified.
+        /// &gt; **Note:** Setting `vault_default_retention_duration` also requires setting `backup_repeating_time_intervals`. At least one of `operational_default_retention_duration` or `vault_default_retention_duration` must be specified.
         /// </summary>
         [Input("vaultDefaultRetentionDuration")]
         public Input<string>? VaultDefaultRetentionDuration { get; set; }

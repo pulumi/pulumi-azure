@@ -19,7 +19,7 @@ const exampleNamespace = new azure.eventhub.Namespace("example", {
 // has created the correct alias between `azure.eventhub.Queue` and
 // `azure.servicebus.Queue`
 const serviceBusQueue = new azure.eventhub.Queue("example", {
-    enablePartitioning: true,
+    partitioningEnabled: true,
     name: "servicebus-queue",
     namespaceId: exampleNamespace.id,
 });

@@ -310,6 +310,12 @@ namespace Pulumi.Azure.AppService
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
+        /// Is container image pull over virtual network enabled? Defaults to `false`.
+        /// </summary>
+        [Output("vnetImagePullEnabled")]
+        public Output<bool?> VnetImagePullEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         /// </summary>
         [Output("webdeployPublishBasicAuthenticationEnabled")]
@@ -577,6 +583,12 @@ namespace Pulumi.Azure.AppService
 
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
+        /// Is container image pull over virtual network enabled? Defaults to `false`.
+        /// </summary>
+        [Input("vnetImagePullEnabled")]
+        public Input<bool>? VnetImagePullEnabled { get; set; }
 
         /// <summary>
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
@@ -888,6 +900,12 @@ namespace Pulumi.Azure.AppService
 
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
+        /// Is container image pull over virtual network enabled? Defaults to `false`.
+        /// </summary>
+        [Input("vnetImagePullEnabled")]
+        public Input<bool>? VnetImagePullEnabled { get; set; }
 
         /// <summary>
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.

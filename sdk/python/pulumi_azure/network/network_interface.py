@@ -28,8 +28,6 @@ class NetworkInterfaceArgs:
                  auxiliary_sku: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
-                 enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
                  ip_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -72,16 +70,6 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_accelerated_networking is not None:
-            warnings.warn("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_accelerated_networking is deprecated: The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
-        if enable_ip_forwarding is not None:
-            warnings.warn("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_ip_forwarding is deprecated: The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_ip_forwarding is not None:
-            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
         if internal_dns_name_label is not None:
             pulumi.set(__self__, "internal_dns_name_label", internal_dns_name_label)
         if ip_forwarding_enabled is not None:
@@ -188,26 +176,6 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "edge_zone", value)
 
     @property
-    @pulumi.getter(name="enableAcceleratedNetworking")
-    @_utilities.deprecated("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_accelerated_networking")
-
-    @enable_accelerated_networking.setter
-    def enable_accelerated_networking(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_accelerated_networking", value)
-
-    @property
-    @pulumi.getter(name="enableIpForwarding")
-    @_utilities.deprecated("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_ip_forwarding(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_ip_forwarding")
-
-    @enable_ip_forwarding.setter
-    def enable_ip_forwarding(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_ip_forwarding", value)
-
-    @property
     @pulumi.getter(name="internalDnsNameLabel")
     def internal_dns_name_label(self) -> Optional[pulumi.Input[str]]:
         """
@@ -277,8 +245,6 @@ class _NetworkInterfaceState:
                  auxiliary_sku: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
-                 enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
                  internal_domain_name_suffix: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]] = None,
@@ -334,16 +300,6 @@ class _NetworkInterfaceState:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_accelerated_networking is not None:
-            warnings.warn("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_accelerated_networking is deprecated: The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
-        if enable_ip_forwarding is not None:
-            warnings.warn("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_ip_forwarding is deprecated: The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_ip_forwarding is not None:
-            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
         if internal_dns_name_label is not None:
             pulumi.set(__self__, "internal_dns_name_label", internal_dns_name_label)
         if internal_domain_name_suffix is not None:
@@ -450,26 +406,6 @@ class _NetworkInterfaceState:
     @edge_zone.setter
     def edge_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "edge_zone", value)
-
-    @property
-    @pulumi.getter(name="enableAcceleratedNetworking")
-    @_utilities.deprecated("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_accelerated_networking")
-
-    @enable_accelerated_networking.setter
-    def enable_accelerated_networking(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_accelerated_networking", value)
-
-    @property
-    @pulumi.getter(name="enableIpForwarding")
-    @_utilities.deprecated("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_ip_forwarding(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_ip_forwarding")
-
-    @enable_ip_forwarding.setter
-    def enable_ip_forwarding(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_ip_forwarding", value)
 
     @property
     @pulumi.getter(name="internalDnsNameLabel")
@@ -626,8 +562,6 @@ class NetworkInterface(pulumi.CustomResource):
                  auxiliary_sku: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
-                 enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
                  ip_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
@@ -769,8 +703,6 @@ class NetworkInterface(pulumi.CustomResource):
                  auxiliary_sku: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
-                 enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
                  ip_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
@@ -792,8 +724,6 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["auxiliary_sku"] = auxiliary_sku
             __props__.__dict__["dns_servers"] = dns_servers
             __props__.__dict__["edge_zone"] = edge_zone
-            __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
-            __props__.__dict__["enable_ip_forwarding"] = enable_ip_forwarding
             __props__.__dict__["internal_dns_name_label"] = internal_dns_name_label
             if ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configurations'")
@@ -827,8 +757,6 @@ class NetworkInterface(pulumi.CustomResource):
             auxiliary_sku: Optional[pulumi.Input[str]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
-            enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
-            enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
             internal_dns_name_label: Optional[pulumi.Input[str]] = None,
             internal_domain_name_suffix: Optional[pulumi.Input[str]] = None,
             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
@@ -887,8 +815,6 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["auxiliary_sku"] = auxiliary_sku
         __props__.__dict__["dns_servers"] = dns_servers
         __props__.__dict__["edge_zone"] = edge_zone
-        __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
-        __props__.__dict__["enable_ip_forwarding"] = enable_ip_forwarding
         __props__.__dict__["internal_dns_name_label"] = internal_dns_name_label
         __props__.__dict__["internal_domain_name_suffix"] = internal_domain_name_suffix
         __props__.__dict__["ip_configurations"] = ip_configurations
@@ -905,7 +831,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acceleratedNetworkingEnabled")
-    def accelerated_networking_enabled(self) -> pulumi.Output[bool]:
+    def accelerated_networking_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should Accelerated Networking be enabled? Defaults to `false`.
 
@@ -945,7 +871,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> pulumi.Output[Sequence[str]]:
+    def dns_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
 
@@ -960,18 +886,6 @@ class NetworkInterface(pulumi.CustomResource):
         Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         """
         return pulumi.get(self, "edge_zone")
-
-    @property
-    @pulumi.getter(name="enableAcceleratedNetworking")
-    @_utilities.deprecated("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_accelerated_networking(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "enable_accelerated_networking")
-
-    @property
-    @pulumi.getter(name="enableIpForwarding")
-    @_utilities.deprecated("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_ip_forwarding(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "enable_ip_forwarding")
 
     @property
     @pulumi.getter(name="internalDnsNameLabel")
@@ -999,7 +913,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipForwardingEnabled")
-    def ip_forwarding_enabled(self) -> pulumi.Output[bool]:
+    def ip_forwarding_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should IP Forwarding be enabled? Defaults to `false`.
         """

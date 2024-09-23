@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,10 +25,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AadDiagnosticSetting{}
 	case "azure:monitoring/actionGroup:ActionGroup":
 		r = &ActionGroup{}
-	case "azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup":
-		r = &ActionRuleActionGroup{}
-	case "azure:monitoring/actionRuleSuppression:ActionRuleSuppression":
-		r = &ActionRuleSuppression{}
 	case "azure:monitoring/activityLogAlert:ActivityLogAlert":
 		r = &ActivityLogAlert{}
 	case "azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup":
@@ -47,16 +43,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataCollectionRuleAssociation{}
 	case "azure:monitoring/diagnosticSetting:DiagnosticSetting":
 		r = &DiagnosticSetting{}
-	case "azure:monitoring/logProfile:LogProfile":
-		r = &LogProfile{}
-	case "azure:monitoring/logzMonitor:LogzMonitor":
-		r = &LogzMonitor{}
-	case "azure:monitoring/logzSubAccount:LogzSubAccount":
-		r = &LogzSubAccount{}
-	case "azure:monitoring/logzSubAccountTagRule:LogzSubAccountTagRule":
-		r = &LogzSubAccountTagRule{}
-	case "azure:monitoring/logzTagRule:LogzTagRule":
-		r = &LogzTagRule{}
 	case "azure:monitoring/metricAlert:MetricAlert":
 		r = &MetricAlert{}
 	case "azure:monitoring/privateLinkScope:PrivateLinkScope":
@@ -94,16 +80,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/actionGroup",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"monitoring/actionRuleActionGroup",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"monitoring/actionRuleSuppression",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -149,31 +125,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/diagnosticSetting",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"monitoring/logProfile",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"monitoring/logzMonitor",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"monitoring/logzSubAccount",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"monitoring/logzSubAccountTagRule",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"monitoring/logzTagRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -88,7 +88,7 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
     /**
      * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
      */
-    public readonly displayNameFilters!: pulumi.Output<string[]>;
+    public readonly displayNameFilters!: pulumi.Output<string[] | undefined>;
     /**
      * Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
      */

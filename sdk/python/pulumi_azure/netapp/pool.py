@@ -33,7 +33,7 @@ class PoolArgs:
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+        :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
                > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
                
@@ -41,7 +41,7 @@ class PoolArgs:
         :param pulumi.Input[str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -99,7 +99,7 @@ class PoolArgs:
     @pulumi.getter(name="sizeInTb")
     def size_in_tb(self) -> pulumi.Input[int]:
         """
-        Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+        Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 
         > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 
@@ -151,7 +151,7 @@ class PoolArgs:
     @pulumi.getter(name="qosType")
     def qos_type(self) -> Optional[pulumi.Input[str]]:
         """
-        QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         """
         return pulumi.get(self, "qos_type")
 
@@ -190,10 +190,10 @@ class _PoolState:
         :param pulumi.Input[str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+        :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
                > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
                
@@ -271,7 +271,7 @@ class _PoolState:
     @pulumi.getter(name="qosType")
     def qos_type(self) -> Optional[pulumi.Input[str]]:
         """
-        QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         """
         return pulumi.get(self, "qos_type")
 
@@ -307,7 +307,7 @@ class _PoolState:
     @pulumi.getter(name="sizeInTb")
     def size_in_tb(self) -> Optional[pulumi.Input[int]]:
         """
-        Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+        Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 
         > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 
@@ -386,10 +386,10 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+        :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
                > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
                
@@ -515,10 +515,10 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+        :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
                > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
                
@@ -574,9 +574,9 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="qosType")
-    def qos_type(self) -> pulumi.Output[str]:
+    def qos_type(self) -> pulumi.Output[Optional[str]]:
         """
-        QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         """
         return pulumi.get(self, "qos_type")
 
@@ -600,7 +600,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="sizeInTb")
     def size_in_tb(self) -> pulumi.Output[int]:
         """
-        Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+        Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 
         > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 

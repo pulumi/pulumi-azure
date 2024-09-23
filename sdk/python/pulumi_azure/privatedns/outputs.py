@@ -18,7 +18,7 @@ __all__ = [
     'LinkServiceNatIpConfiguration',
     'MxRecordRecord',
     'ResolverForwardingRuleTargetDnsServer',
-    'ResolverInboundEndpointIpConfiguration',
+    'ResolverInboundEndpointIpConfigurations',
     'SRVRecordRecord',
     'TxtRecordRecord',
     'ZoneSoaRecord',
@@ -195,7 +195,7 @@ class ResolverForwardingRuleTargetDnsServer(dict):
 
 
 @pulumi.output_type
-class ResolverInboundEndpointIpConfiguration(dict):
+class ResolverInboundEndpointIpConfigurations(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -207,14 +207,14 @@ class ResolverInboundEndpointIpConfiguration(dict):
             suggest = "private_ip_allocation_method"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResolverInboundEndpointIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResolverInboundEndpointIpConfigurations. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResolverInboundEndpointIpConfiguration.__key_warning(key)
+        ResolverInboundEndpointIpConfigurations.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResolverInboundEndpointIpConfiguration.__key_warning(key)
+        ResolverInboundEndpointIpConfigurations.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

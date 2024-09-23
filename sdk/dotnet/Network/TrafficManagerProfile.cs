@@ -113,7 +113,7 @@ namespace Pulumi.Azure.Network
         /// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         /// </summary>
         [Output("profileStatus")]
-        public Output<string> ProfileStatus { get; private set; } = null!;
+        public Output<string?> ProfileStatus { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.

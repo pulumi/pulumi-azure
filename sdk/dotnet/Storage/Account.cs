@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Storage
         public Output<Outputs.AccountBlobProperties> BlobProperties { get; private set; } = null!;
 
         /// <summary>
-        /// Should cross Tenant replication be enabled? Defaults to `true`.
+        /// Should cross Tenant replication be enabled? Defaults to `false`.
         /// </summary>
         [Output("crossTenantReplicationEnabled")]
         public Output<bool?> CrossTenantReplicationEnabled { get; private set; } = null!;
@@ -220,14 +220,11 @@ namespace Pulumi.Azure.Storage
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
 
-        [Output("enableHttpsTrafficOnly")]
-        public Output<bool> EnableHttpsTrafficOnly { get; private set; } = null!;
-
         /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         /// </summary>
         [Output("httpsTrafficOnlyEnabled")]
-        public Output<bool> HttpsTrafficOnlyEnabled { get; private set; } = null!;
+        public Output<bool?> HttpsTrafficOnlyEnabled { get; private set; } = null!;
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -805,7 +802,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// 
-        /// &gt; **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+        /// &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
         /// </summary>
         [Output("tableEncryptionKeyType")]
         public Output<string?> TableEncryptionKeyType { get; private set; } = null!;
@@ -926,7 +923,7 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountBlobPropertiesArgs>? BlobProperties { get; set; }
 
         /// <summary>
-        /// Should cross Tenant replication be enabled? Defaults to `true`.
+        /// Should cross Tenant replication be enabled? Defaults to `false`.
         /// </summary>
         [Input("crossTenantReplicationEnabled")]
         public Input<bool>? CrossTenantReplicationEnabled { get; set; }
@@ -964,9 +961,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
-
-        [Input("enableHttpsTrafficOnly")]
-        public Input<bool>? EnableHttpsTrafficOnly { get; set; }
 
         /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
@@ -1118,7 +1112,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// 
-        /// &gt; **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+        /// &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
         /// </summary>
         [Input("tableEncryptionKeyType")]
         public Input<string>? TableEncryptionKeyType { get; set; }
@@ -1198,7 +1192,7 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountBlobPropertiesGetArgs>? BlobProperties { get; set; }
 
         /// <summary>
-        /// Should cross Tenant replication be enabled? Defaults to `true`.
+        /// Should cross Tenant replication be enabled? Defaults to `false`.
         /// </summary>
         [Input("crossTenantReplicationEnabled")]
         public Input<bool>? CrossTenantReplicationEnabled { get; set; }
@@ -1236,9 +1230,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
-
-        [Input("enableHttpsTrafficOnly")]
-        public Input<bool>? EnableHttpsTrafficOnly { get; set; }
 
         /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
@@ -1882,7 +1873,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// 
-        /// &gt; **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+        /// &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
         /// </summary>
         [Input("tableEncryptionKeyType")]
         public Input<string>? TableEncryptionKeyType { get; set; }

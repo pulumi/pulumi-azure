@@ -267,14 +267,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="networkSecurityGroupRulesRequired", refs={String.class}, tree="[0]")
-    private Output<String> networkSecurityGroupRulesRequired;
+    private Output</* @Nullable */ String> networkSecurityGroupRulesRequired;
 
     /**
      * @return Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
      * 
      */
-    public Output<String> networkSecurityGroupRulesRequired() {
-        return this.networkSecurityGroupRulesRequired;
+    public Output<Optional<String>> networkSecurityGroupRulesRequired() {
+        return Codegen.optional(this.networkSecurityGroupRulesRequired);
     }
     /**
      * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.

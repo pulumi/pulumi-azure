@@ -19,33 +19,32 @@ __all__ = ['ShareDirectoryArgs', 'ShareDirectory']
 @pulumi.input_type
 class ShareDirectoryArgs:
     def __init__(__self__, *,
+                 storage_share_id: pulumi.Input[str],
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 share_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_share_id: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ShareDirectory resource.
+        :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
+        pulumi.set(__self__, "storage_share_id", storage_share_id)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if share_name is not None:
-            warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""share_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-        if share_name is not None:
-            pulumi.set(__self__, "share_name", share_name)
-        if storage_account_name is not None:
-            warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""storage_account_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-        if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
-        if storage_share_id is not None:
-            pulumi.set(__self__, "storage_share_id", storage_share_id)
+
+    @property
+    @pulumi.getter(name="storageShareId")
+    def storage_share_id(self) -> pulumi.Input[str]:
+        """
+        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_id")
+
+    @storage_share_id.setter
+    def storage_share_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_share_id", value)
 
     @property
     @pulumi.getter
@@ -71,46 +70,12 @@ class ShareDirectoryArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-    @property
-    @pulumi.getter(name="shareName")
-    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def share_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "share_name")
-
-    @share_name.setter
-    def share_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "share_name", value)
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_name", value)
-
-    @property
-    @pulumi.getter(name="storageShareId")
-    def storage_share_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_share_id")
-
-    @storage_share_id.setter
-    def storage_share_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_share_id", value)
-
 
 @pulumi.input_type
 class _ShareDirectoryState:
     def __init__(__self__, *,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 share_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_share_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ShareDirectory resources.
@@ -122,16 +87,6 @@ class _ShareDirectoryState:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if share_name is not None:
-            warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""share_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-        if share_name is not None:
-            pulumi.set(__self__, "share_name", share_name)
-        if storage_account_name is not None:
-            warnings.warn("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""storage_account_name is deprecated: the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-        if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
         if storage_share_id is not None:
             pulumi.set(__self__, "storage_share_id", storage_share_id)
 
@@ -158,26 +113,6 @@ class _ShareDirectoryState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="shareName")
-    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def share_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "share_name")
-
-    @share_name.setter
-    def share_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "share_name", value)
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_name", value)
 
     @property
     @pulumi.getter(name="storageShareId")
@@ -199,8 +134,6 @@ class ShareDirectory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 share_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_share_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -246,7 +179,7 @@ class ShareDirectory(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ShareDirectoryArgs] = None,
+                 args: ShareDirectoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -298,8 +231,6 @@ class ShareDirectory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 share_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_share_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -312,8 +243,8 @@ class ShareDirectory(pulumi.CustomResource):
 
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
-            __props__.__dict__["share_name"] = share_name
-            __props__.__dict__["storage_account_name"] = storage_account_name
+            if storage_share_id is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_share_id'")
             __props__.__dict__["storage_share_id"] = storage_share_id
         super(ShareDirectory, __self__).__init__(
             'azure:storage/shareDirectory:ShareDirectory',
@@ -327,8 +258,6 @@ class ShareDirectory(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            share_name: Optional[pulumi.Input[str]] = None,
-            storage_account_name: Optional[pulumi.Input[str]] = None,
             storage_share_id: Optional[pulumi.Input[str]] = None) -> 'ShareDirectory':
         """
         Get an existing ShareDirectory resource's state with the given name, id, and optional extra
@@ -347,8 +276,6 @@ class ShareDirectory(pulumi.CustomResource):
 
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
-        __props__.__dict__["share_name"] = share_name
-        __props__.__dict__["storage_account_name"] = storage_account_name
         __props__.__dict__["storage_share_id"] = storage_share_id
         return ShareDirectory(resource_name, opts=opts, __props__=__props__)
 
@@ -367,18 +294,6 @@ class ShareDirectory(pulumi.CustomResource):
         The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="shareName")
-    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def share_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "share_name")
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    @_utilities.deprecated("""the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def storage_account_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "storage_account_name")
 
     @property
     @pulumi.getter(name="storageShareId")

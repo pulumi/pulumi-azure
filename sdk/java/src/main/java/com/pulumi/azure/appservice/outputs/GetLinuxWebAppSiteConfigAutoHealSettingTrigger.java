@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
@@ -28,7 +29,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
      * @return A `slow_request` block as defined above.
      * 
      */
-    private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
+    private @Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
     /**
      * @return A `status_code` block as defined above.
      * 
@@ -55,7 +56,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
      * 
      */
     public List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests() {
-        return this.slowRequests;
+        return this.slowRequests == null ? List.of() : this.slowRequests;
     }
     /**
      * @return A `status_code` block as defined above.
@@ -76,7 +77,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
     public static final class Builder {
         private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest> requests;
         private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
-        private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
+        private @Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
         private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
         public Builder() {}
         public Builder(GetLinuxWebAppSiteConfigAutoHealSettingTrigger defaults) {
@@ -110,10 +111,8 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
             return slowRequestWithPaths(List.of(slowRequestWithPaths));
         }
         @CustomType.Setter
-        public Builder slowRequests(List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
-            if (slowRequests == null) {
-              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTrigger", "slowRequests");
-            }
+        public Builder slowRequests(@Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
+
             this.slowRequests = slowRequests;
             return this;
         }

@@ -86,14 +86,6 @@ namespace Pulumi.Azure.Bot
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Web Chat Site names.
-        /// 
-        /// &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-        /// </summary>
-        [Output("siteNames")]
-        public Output<ImmutableArray<string>> SiteNames { get; private set; } = null!;
-
-        /// <summary>
         /// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         /// </summary>
         [Output("sites")]
@@ -163,21 +155,6 @@ namespace Pulumi.Azure.Bot
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("siteNames")]
-        private InputList<string>? _siteNames;
-
-        /// <summary>
-        /// A list of Web Chat Site names.
-        /// 
-        /// &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-        /// </summary>
-        [Obsolete(@"`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.")]
-        public InputList<string> SiteNames
-        {
-            get => _siteNames ?? (_siteNames = new InputList<string>());
-            set => _siteNames = value;
-        }
-
         [Input("sites")]
         private InputList<Inputs.ChannelWebChatSiteArgs>? _sites;
 
@@ -215,21 +192,6 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
-
-        [Input("siteNames")]
-        private InputList<string>? _siteNames;
-
-        /// <summary>
-        /// A list of Web Chat Site names.
-        /// 
-        /// &gt; **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-        /// </summary>
-        [Obsolete(@"`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.")]
-        public InputList<string> SiteNames
-        {
-            get => _siteNames ?? (_siteNames = new InputList<string>());
-            set => _siteNames = value;
-        }
 
         [Input("sites")]
         private InputList<Inputs.ChannelWebChatSiteGetArgs>? _sites;

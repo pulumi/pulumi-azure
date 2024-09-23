@@ -192,14 +192,14 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
+     * @return The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -563,7 +563,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sku The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
+         * @param sku The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
          * 
          * @return builder
          * 
@@ -574,7 +574,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sku The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
+         * @param sku The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
          * 
          * @return builder
          * 

@@ -102,14 +102,6 @@ namespace Pulumi.Azure.DevTest
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-        /// 
-        /// &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-        /// </summary>
-        [Output("storageType")]
-        public Output<string?> StorageType { get; private set; } = null!;
-
-        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -185,14 +177,6 @@ namespace Pulumi.Azure.DevTest
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-        /// 
-        /// &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-        /// </summary>
-        [Input("storageType")]
-        public Input<string>? StorageType { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -260,14 +244,6 @@ namespace Pulumi.Azure.DevTest
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
-
-        /// <summary>
-        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
-        /// 
-        /// &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
-        /// </summary>
-        [Input("storageType")]
-        public Input<string>? StorageType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

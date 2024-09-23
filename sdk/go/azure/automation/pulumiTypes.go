@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -2370,29 +2370,45 @@ func (i ScheduleMonthlyOccurrenceArgs) ToScheduleMonthlyOccurrenceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleMonthlyOccurrenceOutput)
 }
 
-// ScheduleMonthlyOccurrenceArrayInput is an input type that accepts ScheduleMonthlyOccurrenceArray and ScheduleMonthlyOccurrenceArrayOutput values.
-// You can construct a concrete instance of `ScheduleMonthlyOccurrenceArrayInput` via:
+func (i ScheduleMonthlyOccurrenceArgs) ToScheduleMonthlyOccurrencePtrOutput() ScheduleMonthlyOccurrencePtrOutput {
+	return i.ToScheduleMonthlyOccurrencePtrOutputWithContext(context.Background())
+}
+
+func (i ScheduleMonthlyOccurrenceArgs) ToScheduleMonthlyOccurrencePtrOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleMonthlyOccurrenceOutput).ToScheduleMonthlyOccurrencePtrOutputWithContext(ctx)
+}
+
+// ScheduleMonthlyOccurrencePtrInput is an input type that accepts ScheduleMonthlyOccurrenceArgs, ScheduleMonthlyOccurrencePtr and ScheduleMonthlyOccurrencePtrOutput values.
+// You can construct a concrete instance of `ScheduleMonthlyOccurrencePtrInput` via:
 //
-//	ScheduleMonthlyOccurrenceArray{ ScheduleMonthlyOccurrenceArgs{...} }
-type ScheduleMonthlyOccurrenceArrayInput interface {
+//	        ScheduleMonthlyOccurrenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduleMonthlyOccurrencePtrInput interface {
 	pulumi.Input
 
-	ToScheduleMonthlyOccurrenceArrayOutput() ScheduleMonthlyOccurrenceArrayOutput
-	ToScheduleMonthlyOccurrenceArrayOutputWithContext(context.Context) ScheduleMonthlyOccurrenceArrayOutput
+	ToScheduleMonthlyOccurrencePtrOutput() ScheduleMonthlyOccurrencePtrOutput
+	ToScheduleMonthlyOccurrencePtrOutputWithContext(context.Context) ScheduleMonthlyOccurrencePtrOutput
 }
 
-type ScheduleMonthlyOccurrenceArray []ScheduleMonthlyOccurrenceInput
+type scheduleMonthlyOccurrencePtrType ScheduleMonthlyOccurrenceArgs
 
-func (ScheduleMonthlyOccurrenceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduleMonthlyOccurrence)(nil)).Elem()
+func ScheduleMonthlyOccurrencePtr(v *ScheduleMonthlyOccurrenceArgs) ScheduleMonthlyOccurrencePtrInput {
+	return (*scheduleMonthlyOccurrencePtrType)(v)
 }
 
-func (i ScheduleMonthlyOccurrenceArray) ToScheduleMonthlyOccurrenceArrayOutput() ScheduleMonthlyOccurrenceArrayOutput {
-	return i.ToScheduleMonthlyOccurrenceArrayOutputWithContext(context.Background())
+func (*scheduleMonthlyOccurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduleMonthlyOccurrence)(nil)).Elem()
 }
 
-func (i ScheduleMonthlyOccurrenceArray) ToScheduleMonthlyOccurrenceArrayOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrenceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleMonthlyOccurrenceArrayOutput)
+func (i *scheduleMonthlyOccurrencePtrType) ToScheduleMonthlyOccurrencePtrOutput() ScheduleMonthlyOccurrencePtrOutput {
+	return i.ToScheduleMonthlyOccurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *scheduleMonthlyOccurrencePtrType) ToScheduleMonthlyOccurrencePtrOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleMonthlyOccurrencePtrOutput)
 }
 
 type ScheduleMonthlyOccurrenceOutput struct{ *pulumi.OutputState }
@@ -2409,6 +2425,16 @@ func (o ScheduleMonthlyOccurrenceOutput) ToScheduleMonthlyOccurrenceOutputWithCo
 	return o
 }
 
+func (o ScheduleMonthlyOccurrenceOutput) ToScheduleMonthlyOccurrencePtrOutput() ScheduleMonthlyOccurrencePtrOutput {
+	return o.ToScheduleMonthlyOccurrencePtrOutputWithContext(context.Background())
+}
+
+func (o ScheduleMonthlyOccurrenceOutput) ToScheduleMonthlyOccurrencePtrOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleMonthlyOccurrence) *ScheduleMonthlyOccurrence {
+		return &v
+	}).(ScheduleMonthlyOccurrencePtrOutput)
+}
+
 // Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
 func (o ScheduleMonthlyOccurrenceOutput) Day() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleMonthlyOccurrence) string { return v.Day }).(pulumi.StringOutput)
@@ -2419,29 +2445,51 @@ func (o ScheduleMonthlyOccurrenceOutput) Occurrence() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleMonthlyOccurrence) int { return v.Occurrence }).(pulumi.IntOutput)
 }
 
-type ScheduleMonthlyOccurrenceArrayOutput struct{ *pulumi.OutputState }
+type ScheduleMonthlyOccurrencePtrOutput struct{ *pulumi.OutputState }
 
-func (ScheduleMonthlyOccurrenceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduleMonthlyOccurrence)(nil)).Elem()
+func (ScheduleMonthlyOccurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduleMonthlyOccurrence)(nil)).Elem()
 }
 
-func (o ScheduleMonthlyOccurrenceArrayOutput) ToScheduleMonthlyOccurrenceArrayOutput() ScheduleMonthlyOccurrenceArrayOutput {
+func (o ScheduleMonthlyOccurrencePtrOutput) ToScheduleMonthlyOccurrencePtrOutput() ScheduleMonthlyOccurrencePtrOutput {
 	return o
 }
 
-func (o ScheduleMonthlyOccurrenceArrayOutput) ToScheduleMonthlyOccurrenceArrayOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrenceArrayOutput {
+func (o ScheduleMonthlyOccurrencePtrOutput) ToScheduleMonthlyOccurrencePtrOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrencePtrOutput {
 	return o
 }
 
-func (o ScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) ScheduleMonthlyOccurrenceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleMonthlyOccurrence {
-		return vs[0].([]ScheduleMonthlyOccurrence)[vs[1].(int)]
+func (o ScheduleMonthlyOccurrencePtrOutput) Elem() ScheduleMonthlyOccurrenceOutput {
+	return o.ApplyT(func(v *ScheduleMonthlyOccurrence) ScheduleMonthlyOccurrence {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleMonthlyOccurrence
+		return ret
 	}).(ScheduleMonthlyOccurrenceOutput)
 }
 
+// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+func (o ScheduleMonthlyOccurrencePtrOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleMonthlyOccurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Day
+	}).(pulumi.StringPtrOutput)
+}
+
+// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+func (o ScheduleMonthlyOccurrencePtrOutput) Occurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScheduleMonthlyOccurrence) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Occurrence
+	}).(pulumi.IntPtrOutput)
+}
+
 type SoftwareUpdateConfigurationLinux struct {
-	// Deprecated: this property is deprecated and will be removed in version 4.0 of the provider, please use `classificationsIncluded` instead.
-	ClassificationIncluded *string `pulumi:"classificationIncluded"`
 	// Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
 	//
 	// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
@@ -2466,8 +2514,6 @@ type SoftwareUpdateConfigurationLinuxInput interface {
 }
 
 type SoftwareUpdateConfigurationLinuxArgs struct {
-	// Deprecated: this property is deprecated and will be removed in version 4.0 of the provider, please use `classificationsIncluded` instead.
-	ClassificationIncluded pulumi.StringPtrInput `pulumi:"classificationIncluded"`
 	// Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
 	//
 	// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
@@ -2492,29 +2538,45 @@ func (i SoftwareUpdateConfigurationLinuxArgs) ToSoftwareUpdateConfigurationLinux
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationLinuxOutput)
 }
 
-// SoftwareUpdateConfigurationLinuxArrayInput is an input type that accepts SoftwareUpdateConfigurationLinuxArray and SoftwareUpdateConfigurationLinuxArrayOutput values.
-// You can construct a concrete instance of `SoftwareUpdateConfigurationLinuxArrayInput` via:
+func (i SoftwareUpdateConfigurationLinuxArgs) ToSoftwareUpdateConfigurationLinuxPtrOutput() SoftwareUpdateConfigurationLinuxPtrOutput {
+	return i.ToSoftwareUpdateConfigurationLinuxPtrOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationLinuxArgs) ToSoftwareUpdateConfigurationLinuxPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationLinuxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationLinuxOutput).ToSoftwareUpdateConfigurationLinuxPtrOutputWithContext(ctx)
+}
+
+// SoftwareUpdateConfigurationLinuxPtrInput is an input type that accepts SoftwareUpdateConfigurationLinuxArgs, SoftwareUpdateConfigurationLinuxPtr and SoftwareUpdateConfigurationLinuxPtrOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationLinuxPtrInput` via:
 //
-//	SoftwareUpdateConfigurationLinuxArray{ SoftwareUpdateConfigurationLinuxArgs{...} }
-type SoftwareUpdateConfigurationLinuxArrayInput interface {
+//	        SoftwareUpdateConfigurationLinuxArgs{...}
+//
+//	or:
+//
+//	        nil
+type SoftwareUpdateConfigurationLinuxPtrInput interface {
 	pulumi.Input
 
-	ToSoftwareUpdateConfigurationLinuxArrayOutput() SoftwareUpdateConfigurationLinuxArrayOutput
-	ToSoftwareUpdateConfigurationLinuxArrayOutputWithContext(context.Context) SoftwareUpdateConfigurationLinuxArrayOutput
+	ToSoftwareUpdateConfigurationLinuxPtrOutput() SoftwareUpdateConfigurationLinuxPtrOutput
+	ToSoftwareUpdateConfigurationLinuxPtrOutputWithContext(context.Context) SoftwareUpdateConfigurationLinuxPtrOutput
 }
 
-type SoftwareUpdateConfigurationLinuxArray []SoftwareUpdateConfigurationLinuxInput
+type softwareUpdateConfigurationLinuxPtrType SoftwareUpdateConfigurationLinuxArgs
 
-func (SoftwareUpdateConfigurationLinuxArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationLinux)(nil)).Elem()
+func SoftwareUpdateConfigurationLinuxPtr(v *SoftwareUpdateConfigurationLinuxArgs) SoftwareUpdateConfigurationLinuxPtrInput {
+	return (*softwareUpdateConfigurationLinuxPtrType)(v)
 }
 
-func (i SoftwareUpdateConfigurationLinuxArray) ToSoftwareUpdateConfigurationLinuxArrayOutput() SoftwareUpdateConfigurationLinuxArrayOutput {
-	return i.ToSoftwareUpdateConfigurationLinuxArrayOutputWithContext(context.Background())
+func (*softwareUpdateConfigurationLinuxPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationLinux)(nil)).Elem()
 }
 
-func (i SoftwareUpdateConfigurationLinuxArray) ToSoftwareUpdateConfigurationLinuxArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationLinuxArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationLinuxArrayOutput)
+func (i *softwareUpdateConfigurationLinuxPtrType) ToSoftwareUpdateConfigurationLinuxPtrOutput() SoftwareUpdateConfigurationLinuxPtrOutput {
+	return i.ToSoftwareUpdateConfigurationLinuxPtrOutputWithContext(context.Background())
+}
+
+func (i *softwareUpdateConfigurationLinuxPtrType) ToSoftwareUpdateConfigurationLinuxPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationLinuxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationLinuxPtrOutput)
 }
 
 type SoftwareUpdateConfigurationLinuxOutput struct{ *pulumi.OutputState }
@@ -2531,9 +2593,14 @@ func (o SoftwareUpdateConfigurationLinuxOutput) ToSoftwareUpdateConfigurationLin
 	return o
 }
 
-// Deprecated: this property is deprecated and will be removed in version 4.0 of the provider, please use `classificationsIncluded` instead.
-func (o SoftwareUpdateConfigurationLinuxOutput) ClassificationIncluded() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationLinux) *string { return v.ClassificationIncluded }).(pulumi.StringPtrOutput)
+func (o SoftwareUpdateConfigurationLinuxOutput) ToSoftwareUpdateConfigurationLinuxPtrOutput() SoftwareUpdateConfigurationLinuxPtrOutput {
+	return o.ToSoftwareUpdateConfigurationLinuxPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwareUpdateConfigurationLinuxOutput) ToSoftwareUpdateConfigurationLinuxPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationLinuxPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwareUpdateConfigurationLinux) *SoftwareUpdateConfigurationLinux {
+		return &v
+	}).(SoftwareUpdateConfigurationLinuxPtrOutput)
 }
 
 // Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
@@ -2558,24 +2625,70 @@ func (o SoftwareUpdateConfigurationLinuxOutput) Reboot() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v SoftwareUpdateConfigurationLinux) *string { return v.Reboot }).(pulumi.StringPtrOutput)
 }
 
-type SoftwareUpdateConfigurationLinuxArrayOutput struct{ *pulumi.OutputState }
+type SoftwareUpdateConfigurationLinuxPtrOutput struct{ *pulumi.OutputState }
 
-func (SoftwareUpdateConfigurationLinuxArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationLinux)(nil)).Elem()
+func (SoftwareUpdateConfigurationLinuxPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationLinux)(nil)).Elem()
 }
 
-func (o SoftwareUpdateConfigurationLinuxArrayOutput) ToSoftwareUpdateConfigurationLinuxArrayOutput() SoftwareUpdateConfigurationLinuxArrayOutput {
+func (o SoftwareUpdateConfigurationLinuxPtrOutput) ToSoftwareUpdateConfigurationLinuxPtrOutput() SoftwareUpdateConfigurationLinuxPtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationLinuxArrayOutput) ToSoftwareUpdateConfigurationLinuxArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationLinuxArrayOutput {
+func (o SoftwareUpdateConfigurationLinuxPtrOutput) ToSoftwareUpdateConfigurationLinuxPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationLinuxPtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationLinuxArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationLinuxOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SoftwareUpdateConfigurationLinux {
-		return vs[0].([]SoftwareUpdateConfigurationLinux)[vs[1].(int)]
+func (o SoftwareUpdateConfigurationLinuxPtrOutput) Elem() SoftwareUpdateConfigurationLinuxOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationLinux) SoftwareUpdateConfigurationLinux {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwareUpdateConfigurationLinux
+		return ret
 	}).(SoftwareUpdateConfigurationLinuxOutput)
+}
+
+// Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+//
+// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
+func (o SoftwareUpdateConfigurationLinuxPtrOutput) ClassificationsIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationLinux) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ClassificationsIncludeds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of packages to excluded from the Software Update Configuration.
+func (o SoftwareUpdateConfigurationLinuxPtrOutput) ExcludedPackages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationLinux) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedPackages
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of packages to included from the Software Update Configuration.
+func (o SoftwareUpdateConfigurationLinuxPtrOutput) IncludedPackages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationLinux) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPackages
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
+func (o SoftwareUpdateConfigurationLinuxPtrOutput) Reboot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationLinux) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reboot
+	}).(pulumi.StringPtrOutput)
 }
 
 type SoftwareUpdateConfigurationPostTask struct {
@@ -2615,29 +2728,45 @@ func (i SoftwareUpdateConfigurationPostTaskArgs) ToSoftwareUpdateConfigurationPo
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPostTaskOutput)
 }
 
-// SoftwareUpdateConfigurationPostTaskArrayInput is an input type that accepts SoftwareUpdateConfigurationPostTaskArray and SoftwareUpdateConfigurationPostTaskArrayOutput values.
-// You can construct a concrete instance of `SoftwareUpdateConfigurationPostTaskArrayInput` via:
+func (i SoftwareUpdateConfigurationPostTaskArgs) ToSoftwareUpdateConfigurationPostTaskPtrOutput() SoftwareUpdateConfigurationPostTaskPtrOutput {
+	return i.ToSoftwareUpdateConfigurationPostTaskPtrOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationPostTaskArgs) ToSoftwareUpdateConfigurationPostTaskPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPostTaskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPostTaskOutput).ToSoftwareUpdateConfigurationPostTaskPtrOutputWithContext(ctx)
+}
+
+// SoftwareUpdateConfigurationPostTaskPtrInput is an input type that accepts SoftwareUpdateConfigurationPostTaskArgs, SoftwareUpdateConfigurationPostTaskPtr and SoftwareUpdateConfigurationPostTaskPtrOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationPostTaskPtrInput` via:
 //
-//	SoftwareUpdateConfigurationPostTaskArray{ SoftwareUpdateConfigurationPostTaskArgs{...} }
-type SoftwareUpdateConfigurationPostTaskArrayInput interface {
+//	        SoftwareUpdateConfigurationPostTaskArgs{...}
+//
+//	or:
+//
+//	        nil
+type SoftwareUpdateConfigurationPostTaskPtrInput interface {
 	pulumi.Input
 
-	ToSoftwareUpdateConfigurationPostTaskArrayOutput() SoftwareUpdateConfigurationPostTaskArrayOutput
-	ToSoftwareUpdateConfigurationPostTaskArrayOutputWithContext(context.Context) SoftwareUpdateConfigurationPostTaskArrayOutput
+	ToSoftwareUpdateConfigurationPostTaskPtrOutput() SoftwareUpdateConfigurationPostTaskPtrOutput
+	ToSoftwareUpdateConfigurationPostTaskPtrOutputWithContext(context.Context) SoftwareUpdateConfigurationPostTaskPtrOutput
 }
 
-type SoftwareUpdateConfigurationPostTaskArray []SoftwareUpdateConfigurationPostTaskInput
+type softwareUpdateConfigurationPostTaskPtrType SoftwareUpdateConfigurationPostTaskArgs
 
-func (SoftwareUpdateConfigurationPostTaskArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationPostTask)(nil)).Elem()
+func SoftwareUpdateConfigurationPostTaskPtr(v *SoftwareUpdateConfigurationPostTaskArgs) SoftwareUpdateConfigurationPostTaskPtrInput {
+	return (*softwareUpdateConfigurationPostTaskPtrType)(v)
 }
 
-func (i SoftwareUpdateConfigurationPostTaskArray) ToSoftwareUpdateConfigurationPostTaskArrayOutput() SoftwareUpdateConfigurationPostTaskArrayOutput {
-	return i.ToSoftwareUpdateConfigurationPostTaskArrayOutputWithContext(context.Background())
+func (*softwareUpdateConfigurationPostTaskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationPostTask)(nil)).Elem()
 }
 
-func (i SoftwareUpdateConfigurationPostTaskArray) ToSoftwareUpdateConfigurationPostTaskArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPostTaskArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPostTaskArrayOutput)
+func (i *softwareUpdateConfigurationPostTaskPtrType) ToSoftwareUpdateConfigurationPostTaskPtrOutput() SoftwareUpdateConfigurationPostTaskPtrOutput {
+	return i.ToSoftwareUpdateConfigurationPostTaskPtrOutputWithContext(context.Background())
+}
+
+func (i *softwareUpdateConfigurationPostTaskPtrType) ToSoftwareUpdateConfigurationPostTaskPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPostTaskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPostTaskPtrOutput)
 }
 
 type SoftwareUpdateConfigurationPostTaskOutput struct{ *pulumi.OutputState }
@@ -2654,6 +2783,16 @@ func (o SoftwareUpdateConfigurationPostTaskOutput) ToSoftwareUpdateConfiguration
 	return o
 }
 
+func (o SoftwareUpdateConfigurationPostTaskOutput) ToSoftwareUpdateConfigurationPostTaskPtrOutput() SoftwareUpdateConfigurationPostTaskPtrOutput {
+	return o.ToSoftwareUpdateConfigurationPostTaskPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwareUpdateConfigurationPostTaskOutput) ToSoftwareUpdateConfigurationPostTaskPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPostTaskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwareUpdateConfigurationPostTask) *SoftwareUpdateConfigurationPostTask {
+		return &v
+	}).(SoftwareUpdateConfigurationPostTaskPtrOutput)
+}
+
 // Specifies a map of parameters for the task.
 func (o SoftwareUpdateConfigurationPostTaskOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationPostTask) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
@@ -2664,24 +2803,48 @@ func (o SoftwareUpdateConfigurationPostTaskOutput) Source() pulumi.StringPtrOutp
 	return o.ApplyT(func(v SoftwareUpdateConfigurationPostTask) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-type SoftwareUpdateConfigurationPostTaskArrayOutput struct{ *pulumi.OutputState }
+type SoftwareUpdateConfigurationPostTaskPtrOutput struct{ *pulumi.OutputState }
 
-func (SoftwareUpdateConfigurationPostTaskArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationPostTask)(nil)).Elem()
+func (SoftwareUpdateConfigurationPostTaskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationPostTask)(nil)).Elem()
 }
 
-func (o SoftwareUpdateConfigurationPostTaskArrayOutput) ToSoftwareUpdateConfigurationPostTaskArrayOutput() SoftwareUpdateConfigurationPostTaskArrayOutput {
+func (o SoftwareUpdateConfigurationPostTaskPtrOutput) ToSoftwareUpdateConfigurationPostTaskPtrOutput() SoftwareUpdateConfigurationPostTaskPtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationPostTaskArrayOutput) ToSoftwareUpdateConfigurationPostTaskArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPostTaskArrayOutput {
+func (o SoftwareUpdateConfigurationPostTaskPtrOutput) ToSoftwareUpdateConfigurationPostTaskPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPostTaskPtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationPostTaskArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationPostTaskOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SoftwareUpdateConfigurationPostTask {
-		return vs[0].([]SoftwareUpdateConfigurationPostTask)[vs[1].(int)]
+func (o SoftwareUpdateConfigurationPostTaskPtrOutput) Elem() SoftwareUpdateConfigurationPostTaskOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationPostTask) SoftwareUpdateConfigurationPostTask {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwareUpdateConfigurationPostTask
+		return ret
 	}).(SoftwareUpdateConfigurationPostTaskOutput)
+}
+
+// Specifies a map of parameters for the task.
+func (o SoftwareUpdateConfigurationPostTaskPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationPostTask) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// The name of the runbook for the post task.
+func (o SoftwareUpdateConfigurationPostTaskPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationPostTask) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
 }
 
 type SoftwareUpdateConfigurationPreTask struct {
@@ -2721,29 +2884,45 @@ func (i SoftwareUpdateConfigurationPreTaskArgs) ToSoftwareUpdateConfigurationPre
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPreTaskOutput)
 }
 
-// SoftwareUpdateConfigurationPreTaskArrayInput is an input type that accepts SoftwareUpdateConfigurationPreTaskArray and SoftwareUpdateConfigurationPreTaskArrayOutput values.
-// You can construct a concrete instance of `SoftwareUpdateConfigurationPreTaskArrayInput` via:
+func (i SoftwareUpdateConfigurationPreTaskArgs) ToSoftwareUpdateConfigurationPreTaskPtrOutput() SoftwareUpdateConfigurationPreTaskPtrOutput {
+	return i.ToSoftwareUpdateConfigurationPreTaskPtrOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationPreTaskArgs) ToSoftwareUpdateConfigurationPreTaskPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPreTaskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPreTaskOutput).ToSoftwareUpdateConfigurationPreTaskPtrOutputWithContext(ctx)
+}
+
+// SoftwareUpdateConfigurationPreTaskPtrInput is an input type that accepts SoftwareUpdateConfigurationPreTaskArgs, SoftwareUpdateConfigurationPreTaskPtr and SoftwareUpdateConfigurationPreTaskPtrOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationPreTaskPtrInput` via:
 //
-//	SoftwareUpdateConfigurationPreTaskArray{ SoftwareUpdateConfigurationPreTaskArgs{...} }
-type SoftwareUpdateConfigurationPreTaskArrayInput interface {
+//	        SoftwareUpdateConfigurationPreTaskArgs{...}
+//
+//	or:
+//
+//	        nil
+type SoftwareUpdateConfigurationPreTaskPtrInput interface {
 	pulumi.Input
 
-	ToSoftwareUpdateConfigurationPreTaskArrayOutput() SoftwareUpdateConfigurationPreTaskArrayOutput
-	ToSoftwareUpdateConfigurationPreTaskArrayOutputWithContext(context.Context) SoftwareUpdateConfigurationPreTaskArrayOutput
+	ToSoftwareUpdateConfigurationPreTaskPtrOutput() SoftwareUpdateConfigurationPreTaskPtrOutput
+	ToSoftwareUpdateConfigurationPreTaskPtrOutputWithContext(context.Context) SoftwareUpdateConfigurationPreTaskPtrOutput
 }
 
-type SoftwareUpdateConfigurationPreTaskArray []SoftwareUpdateConfigurationPreTaskInput
+type softwareUpdateConfigurationPreTaskPtrType SoftwareUpdateConfigurationPreTaskArgs
 
-func (SoftwareUpdateConfigurationPreTaskArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationPreTask)(nil)).Elem()
+func SoftwareUpdateConfigurationPreTaskPtr(v *SoftwareUpdateConfigurationPreTaskArgs) SoftwareUpdateConfigurationPreTaskPtrInput {
+	return (*softwareUpdateConfigurationPreTaskPtrType)(v)
 }
 
-func (i SoftwareUpdateConfigurationPreTaskArray) ToSoftwareUpdateConfigurationPreTaskArrayOutput() SoftwareUpdateConfigurationPreTaskArrayOutput {
-	return i.ToSoftwareUpdateConfigurationPreTaskArrayOutputWithContext(context.Background())
+func (*softwareUpdateConfigurationPreTaskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationPreTask)(nil)).Elem()
 }
 
-func (i SoftwareUpdateConfigurationPreTaskArray) ToSoftwareUpdateConfigurationPreTaskArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPreTaskArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPreTaskArrayOutput)
+func (i *softwareUpdateConfigurationPreTaskPtrType) ToSoftwareUpdateConfigurationPreTaskPtrOutput() SoftwareUpdateConfigurationPreTaskPtrOutput {
+	return i.ToSoftwareUpdateConfigurationPreTaskPtrOutputWithContext(context.Background())
+}
+
+func (i *softwareUpdateConfigurationPreTaskPtrType) ToSoftwareUpdateConfigurationPreTaskPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPreTaskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPreTaskPtrOutput)
 }
 
 type SoftwareUpdateConfigurationPreTaskOutput struct{ *pulumi.OutputState }
@@ -2760,6 +2939,16 @@ func (o SoftwareUpdateConfigurationPreTaskOutput) ToSoftwareUpdateConfigurationP
 	return o
 }
 
+func (o SoftwareUpdateConfigurationPreTaskOutput) ToSoftwareUpdateConfigurationPreTaskPtrOutput() SoftwareUpdateConfigurationPreTaskPtrOutput {
+	return o.ToSoftwareUpdateConfigurationPreTaskPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwareUpdateConfigurationPreTaskOutput) ToSoftwareUpdateConfigurationPreTaskPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPreTaskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwareUpdateConfigurationPreTask) *SoftwareUpdateConfigurationPreTask {
+		return &v
+	}).(SoftwareUpdateConfigurationPreTaskPtrOutput)
+}
+
 // Specifies a map of parameters for the task.
 func (o SoftwareUpdateConfigurationPreTaskOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationPreTask) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
@@ -2770,24 +2959,48 @@ func (o SoftwareUpdateConfigurationPreTaskOutput) Source() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v SoftwareUpdateConfigurationPreTask) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-type SoftwareUpdateConfigurationPreTaskArrayOutput struct{ *pulumi.OutputState }
+type SoftwareUpdateConfigurationPreTaskPtrOutput struct{ *pulumi.OutputState }
 
-func (SoftwareUpdateConfigurationPreTaskArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationPreTask)(nil)).Elem()
+func (SoftwareUpdateConfigurationPreTaskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationPreTask)(nil)).Elem()
 }
 
-func (o SoftwareUpdateConfigurationPreTaskArrayOutput) ToSoftwareUpdateConfigurationPreTaskArrayOutput() SoftwareUpdateConfigurationPreTaskArrayOutput {
+func (o SoftwareUpdateConfigurationPreTaskPtrOutput) ToSoftwareUpdateConfigurationPreTaskPtrOutput() SoftwareUpdateConfigurationPreTaskPtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationPreTaskArrayOutput) ToSoftwareUpdateConfigurationPreTaskArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPreTaskArrayOutput {
+func (o SoftwareUpdateConfigurationPreTaskPtrOutput) ToSoftwareUpdateConfigurationPreTaskPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPreTaskPtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationPreTaskArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationPreTaskOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SoftwareUpdateConfigurationPreTask {
-		return vs[0].([]SoftwareUpdateConfigurationPreTask)[vs[1].(int)]
+func (o SoftwareUpdateConfigurationPreTaskPtrOutput) Elem() SoftwareUpdateConfigurationPreTaskOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationPreTask) SoftwareUpdateConfigurationPreTask {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwareUpdateConfigurationPreTask
+		return ret
 	}).(SoftwareUpdateConfigurationPreTaskOutput)
+}
+
+// Specifies a map of parameters for the task.
+func (o SoftwareUpdateConfigurationPreTaskPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationPreTask) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// The name of the runbook for the pre task.
+func (o SoftwareUpdateConfigurationPreTaskPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationPreTask) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
 }
 
 type SoftwareUpdateConfigurationSchedule struct {
@@ -2809,9 +3022,9 @@ type SoftwareUpdateConfigurationSchedule struct {
 	IsEnabled        *bool   `pulumi:"isEnabled"`
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
-	MonthlyOccurrences   []SoftwareUpdateConfigurationScheduleMonthlyOccurrence `pulumi:"monthlyOccurrences"`
-	NextRun              *string                                                `pulumi:"nextRun"`
-	NextRunOffsetMinutes *float64                                               `pulumi:"nextRunOffsetMinutes"`
+	MonthlyOccurrence    *SoftwareUpdateConfigurationScheduleMonthlyOccurrence `pulumi:"monthlyOccurrence"`
+	NextRun              *string                                               `pulumi:"nextRun"`
+	NextRunOffsetMinutes *float64                                              `pulumi:"nextRunOffsetMinutes"`
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 	StartTime              *string  `pulumi:"startTime"`
 	StartTimeOffsetMinutes *float64 `pulumi:"startTimeOffsetMinutes"`
@@ -2849,9 +3062,9 @@ type SoftwareUpdateConfigurationScheduleArgs struct {
 	IsEnabled        pulumi.BoolPtrInput   `pulumi:"isEnabled"`
 	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
 	// List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
-	MonthlyOccurrences   SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayInput `pulumi:"monthlyOccurrences"`
-	NextRun              pulumi.StringPtrInput                                          `pulumi:"nextRun"`
-	NextRunOffsetMinutes pulumi.Float64PtrInput                                         `pulumi:"nextRunOffsetMinutes"`
+	MonthlyOccurrence    SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrInput `pulumi:"monthlyOccurrence"`
+	NextRun              pulumi.StringPtrInput                                        `pulumi:"nextRun"`
+	NextRunOffsetMinutes pulumi.Float64PtrInput                                       `pulumi:"nextRunOffsetMinutes"`
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 	StartTime              pulumi.StringPtrInput  `pulumi:"startTime"`
 	StartTimeOffsetMinutes pulumi.Float64PtrInput `pulumi:"startTimeOffsetMinutes"`
@@ -2871,29 +3084,45 @@ func (i SoftwareUpdateConfigurationScheduleArgs) ToSoftwareUpdateConfigurationSc
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationScheduleOutput)
 }
 
-// SoftwareUpdateConfigurationScheduleArrayInput is an input type that accepts SoftwareUpdateConfigurationScheduleArray and SoftwareUpdateConfigurationScheduleArrayOutput values.
-// You can construct a concrete instance of `SoftwareUpdateConfigurationScheduleArrayInput` via:
+func (i SoftwareUpdateConfigurationScheduleArgs) ToSoftwareUpdateConfigurationSchedulePtrOutput() SoftwareUpdateConfigurationSchedulePtrOutput {
+	return i.ToSoftwareUpdateConfigurationSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationScheduleArgs) ToSoftwareUpdateConfigurationSchedulePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationScheduleOutput).ToSoftwareUpdateConfigurationSchedulePtrOutputWithContext(ctx)
+}
+
+// SoftwareUpdateConfigurationSchedulePtrInput is an input type that accepts SoftwareUpdateConfigurationScheduleArgs, SoftwareUpdateConfigurationSchedulePtr and SoftwareUpdateConfigurationSchedulePtrOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationSchedulePtrInput` via:
 //
-//	SoftwareUpdateConfigurationScheduleArray{ SoftwareUpdateConfigurationScheduleArgs{...} }
-type SoftwareUpdateConfigurationScheduleArrayInput interface {
+//	        SoftwareUpdateConfigurationScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type SoftwareUpdateConfigurationSchedulePtrInput interface {
 	pulumi.Input
 
-	ToSoftwareUpdateConfigurationScheduleArrayOutput() SoftwareUpdateConfigurationScheduleArrayOutput
-	ToSoftwareUpdateConfigurationScheduleArrayOutputWithContext(context.Context) SoftwareUpdateConfigurationScheduleArrayOutput
+	ToSoftwareUpdateConfigurationSchedulePtrOutput() SoftwareUpdateConfigurationSchedulePtrOutput
+	ToSoftwareUpdateConfigurationSchedulePtrOutputWithContext(context.Context) SoftwareUpdateConfigurationSchedulePtrOutput
 }
 
-type SoftwareUpdateConfigurationScheduleArray []SoftwareUpdateConfigurationScheduleInput
+type softwareUpdateConfigurationSchedulePtrType SoftwareUpdateConfigurationScheduleArgs
 
-func (SoftwareUpdateConfigurationScheduleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationSchedule)(nil)).Elem()
+func SoftwareUpdateConfigurationSchedulePtr(v *SoftwareUpdateConfigurationScheduleArgs) SoftwareUpdateConfigurationSchedulePtrInput {
+	return (*softwareUpdateConfigurationSchedulePtrType)(v)
 }
 
-func (i SoftwareUpdateConfigurationScheduleArray) ToSoftwareUpdateConfigurationScheduleArrayOutput() SoftwareUpdateConfigurationScheduleArrayOutput {
-	return i.ToSoftwareUpdateConfigurationScheduleArrayOutputWithContext(context.Background())
+func (*softwareUpdateConfigurationSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationSchedule)(nil)).Elem()
 }
 
-func (i SoftwareUpdateConfigurationScheduleArray) ToSoftwareUpdateConfigurationScheduleArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationScheduleArrayOutput)
+func (i *softwareUpdateConfigurationSchedulePtrType) ToSoftwareUpdateConfigurationSchedulePtrOutput() SoftwareUpdateConfigurationSchedulePtrOutput {
+	return i.ToSoftwareUpdateConfigurationSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *softwareUpdateConfigurationSchedulePtrType) ToSoftwareUpdateConfigurationSchedulePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationSchedulePtrOutput)
 }
 
 type SoftwareUpdateConfigurationScheduleOutput struct{ *pulumi.OutputState }
@@ -2908,6 +3137,16 @@ func (o SoftwareUpdateConfigurationScheduleOutput) ToSoftwareUpdateConfiguration
 
 func (o SoftwareUpdateConfigurationScheduleOutput) ToSoftwareUpdateConfigurationScheduleOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleOutput {
 	return o
+}
+
+func (o SoftwareUpdateConfigurationScheduleOutput) ToSoftwareUpdateConfigurationSchedulePtrOutput() SoftwareUpdateConfigurationSchedulePtrOutput {
+	return o.ToSoftwareUpdateConfigurationSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o SoftwareUpdateConfigurationScheduleOutput) ToSoftwareUpdateConfigurationSchedulePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwareUpdateConfigurationSchedule) *SoftwareUpdateConfigurationSchedule {
+		return &v
+	}).(SoftwareUpdateConfigurationSchedulePtrOutput)
 }
 
 // List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
@@ -2958,10 +3197,10 @@ func (o SoftwareUpdateConfigurationScheduleOutput) LastModifiedTime() pulumi.Str
 }
 
 // List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
-func (o SoftwareUpdateConfigurationScheduleOutput) MonthlyOccurrences() SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) []SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
-		return v.MonthlyOccurrences
-	}).(SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput)
+func (o SoftwareUpdateConfigurationScheduleOutput) MonthlyOccurrence() SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
+		return v.MonthlyOccurrence
+	}).(SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput)
 }
 
 func (o SoftwareUpdateConfigurationScheduleOutput) NextRun() pulumi.StringPtrOutput {
@@ -2986,24 +3225,182 @@ func (o SoftwareUpdateConfigurationScheduleOutput) TimeZone() pulumi.StringPtrOu
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
-type SoftwareUpdateConfigurationScheduleArrayOutput struct{ *pulumi.OutputState }
+type SoftwareUpdateConfigurationSchedulePtrOutput struct{ *pulumi.OutputState }
 
-func (SoftwareUpdateConfigurationScheduleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationSchedule)(nil)).Elem()
+func (SoftwareUpdateConfigurationSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationSchedule)(nil)).Elem()
 }
 
-func (o SoftwareUpdateConfigurationScheduleArrayOutput) ToSoftwareUpdateConfigurationScheduleArrayOutput() SoftwareUpdateConfigurationScheduleArrayOutput {
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) ToSoftwareUpdateConfigurationSchedulePtrOutput() SoftwareUpdateConfigurationSchedulePtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationScheduleArrayOutput) ToSoftwareUpdateConfigurationScheduleArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleArrayOutput {
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) ToSoftwareUpdateConfigurationSchedulePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationSchedulePtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationScheduleArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationScheduleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SoftwareUpdateConfigurationSchedule {
-		return vs[0].([]SoftwareUpdateConfigurationSchedule)[vs[1].(int)]
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) Elem() SoftwareUpdateConfigurationScheduleOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) SoftwareUpdateConfigurationSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwareUpdateConfigurationSchedule
+		return ret
 	}).(SoftwareUpdateConfigurationScheduleOutput)
+}
+
+// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) AdvancedMonthDays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) []int {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedMonthDays
+	}).(pulumi.IntArrayOutput)
+}
+
+// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) AdvancedWeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedWeekDays
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreationTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// A description for this Schedule.
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The end time of the schedule.
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiryTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiryTimeOffsetMinutes
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whether the schedule is enabled. Defaults to `true`.
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) MonthlyOccurrence() SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
+		if v == nil {
+			return nil
+		}
+		return v.MonthlyOccurrence
+	}).(SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput)
+}
+
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) NextRun() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NextRun
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.NextRunOffsetMinutes
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) StartTimeOffsetMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.StartTimeOffsetMinutes
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+func (o SoftwareUpdateConfigurationSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
 }
 
 type SoftwareUpdateConfigurationScheduleMonthlyOccurrence struct {
@@ -3043,29 +3440,45 @@ func (i SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs) ToSoftwareUpda
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput)
 }
 
-// SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayInput is an input type that accepts SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArray and SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput values.
-// You can construct a concrete instance of `SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayInput` via:
+func (i SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput() SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput {
+	return i.ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput).ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutputWithContext(ctx)
+}
+
+// SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrInput is an input type that accepts SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs, SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtr and SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrInput` via:
 //
-//	SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArray{ SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs{...} }
-type SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayInput interface {
+//	        SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrInput interface {
 	pulumi.Input
 
-	ToSoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput() SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput
-	ToSoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutputWithContext(context.Context) SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput
+	ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput() SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput
+	ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutputWithContext(context.Context) SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput
 }
 
-type SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArray []SoftwareUpdateConfigurationScheduleMonthlyOccurrenceInput
+type softwareUpdateConfigurationScheduleMonthlyOccurrencePtrType SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs
 
-func (SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationScheduleMonthlyOccurrence)(nil)).Elem()
+func SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtr(v *SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs) SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrInput {
+	return (*softwareUpdateConfigurationScheduleMonthlyOccurrencePtrType)(v)
 }
 
-func (i SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArray) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput() SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput {
-	return i.ToSoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutputWithContext(context.Background())
+func (*softwareUpdateConfigurationScheduleMonthlyOccurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationScheduleMonthlyOccurrence)(nil)).Elem()
 }
 
-func (i SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArray) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput)
+func (i *softwareUpdateConfigurationScheduleMonthlyOccurrencePtrType) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput() SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput {
+	return i.ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *softwareUpdateConfigurationScheduleMonthlyOccurrencePtrType) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput)
 }
 
 type SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput struct{ *pulumi.OutputState }
@@ -3082,6 +3495,16 @@ func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput) ToSoftwareUp
 	return o
 }
 
+func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput() SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput {
+	return o.ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutputWithContext(context.Background())
+}
+
+func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwareUpdateConfigurationScheduleMonthlyOccurrence) *SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
+		return &v
+	}).(SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput)
+}
+
 // Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
 func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput) Day() pulumi.StringOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationScheduleMonthlyOccurrence) string { return v.Day }).(pulumi.StringOutput)
@@ -3092,24 +3515,48 @@ func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput) Occurrence()
 	return o.ApplyT(func(v SoftwareUpdateConfigurationScheduleMonthlyOccurrence) int { return v.Occurrence }).(pulumi.IntOutput)
 }
 
-type SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput struct{ *pulumi.OutputState }
+type SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput struct{ *pulumi.OutputState }
 
-func (SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationScheduleMonthlyOccurrence)(nil)).Elem()
+func (SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationScheduleMonthlyOccurrence)(nil)).Elem()
 }
 
-func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput() SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput {
+func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput() SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput {
+func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
-		return vs[0].([]SoftwareUpdateConfigurationScheduleMonthlyOccurrence)[vs[1].(int)]
+func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput) Elem() SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationScheduleMonthlyOccurrence) SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwareUpdateConfigurationScheduleMonthlyOccurrence
+		return ret
 	}).(SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput)
+}
+
+// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationScheduleMonthlyOccurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Day
+	}).(pulumi.StringPtrOutput)
+}
+
+// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput) Occurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationScheduleMonthlyOccurrence) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Occurrence
+	}).(pulumi.IntPtrOutput)
 }
 
 type SoftwareUpdateConfigurationTarget struct {
@@ -3611,8 +4058,6 @@ func (o SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput) Index(i pulum
 }
 
 type SoftwareUpdateConfigurationWindows struct {
-	// Deprecated: this property is deprecated and will be removed in version 4.0 of the provider, please use `classificationsIncluded` instead.
-	ClassificationIncluded *string `pulumi:"classificationIncluded"`
 	// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
 	//
 	// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
@@ -3637,8 +4082,6 @@ type SoftwareUpdateConfigurationWindowsInput interface {
 }
 
 type SoftwareUpdateConfigurationWindowsArgs struct {
-	// Deprecated: this property is deprecated and will be removed in version 4.0 of the provider, please use `classificationsIncluded` instead.
-	ClassificationIncluded pulumi.StringPtrInput `pulumi:"classificationIncluded"`
 	// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
 	//
 	// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
@@ -3728,11 +4171,6 @@ func (o SoftwareUpdateConfigurationWindowsOutput) ToSoftwareUpdateConfigurationW
 	}).(SoftwareUpdateConfigurationWindowsPtrOutput)
 }
 
-// Deprecated: this property is deprecated and will be removed in version 4.0 of the provider, please use `classificationsIncluded` instead.
-func (o SoftwareUpdateConfigurationWindowsOutput) ClassificationIncluded() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationWindows) *string { return v.ClassificationIncluded }).(pulumi.StringPtrOutput)
-}
-
 // Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
 //
 // > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
@@ -3777,16 +4215,6 @@ func (o SoftwareUpdateConfigurationWindowsPtrOutput) Elem() SoftwareUpdateConfig
 		var ret SoftwareUpdateConfigurationWindows
 		return ret
 	}).(SoftwareUpdateConfigurationWindowsOutput)
-}
-
-// Deprecated: this property is deprecated and will be removed in version 4.0 of the provider, please use `classificationsIncluded` instead.
-func (o SoftwareUpdateConfigurationWindowsPtrOutput) ClassificationIncluded() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfigurationWindows) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClassificationIncluded
-	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
@@ -5178,17 +5606,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RunBookPublishContentLinkHashInput)(nil)).Elem(), RunBookPublishContentLinkHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RunBookPublishContentLinkHashPtrInput)(nil)).Elem(), RunBookPublishContentLinkHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrenceInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrenceArrayInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrencePtrInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationLinuxInput)(nil)).Elem(), SoftwareUpdateConfigurationLinuxArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationLinuxArrayInput)(nil)).Elem(), SoftwareUpdateConfigurationLinuxArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationLinuxPtrInput)(nil)).Elem(), SoftwareUpdateConfigurationLinuxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationPostTaskInput)(nil)).Elem(), SoftwareUpdateConfigurationPostTaskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationPostTaskArrayInput)(nil)).Elem(), SoftwareUpdateConfigurationPostTaskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationPostTaskPtrInput)(nil)).Elem(), SoftwareUpdateConfigurationPostTaskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationPreTaskInput)(nil)).Elem(), SoftwareUpdateConfigurationPreTaskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationPreTaskArrayInput)(nil)).Elem(), SoftwareUpdateConfigurationPreTaskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationPreTaskPtrInput)(nil)).Elem(), SoftwareUpdateConfigurationPreTaskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationScheduleInput)(nil)).Elem(), SoftwareUpdateConfigurationScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationScheduleArrayInput)(nil)).Elem(), SoftwareUpdateConfigurationScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationSchedulePtrInput)(nil)).Elem(), SoftwareUpdateConfigurationScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationScheduleMonthlyOccurrenceInput)(nil)).Elem(), SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayInput)(nil)).Elem(), SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrInput)(nil)).Elem(), SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationTargetInput)(nil)).Elem(), SoftwareUpdateConfigurationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationTargetPtrInput)(nil)).Elem(), SoftwareUpdateConfigurationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationTargetAzureQueryInput)(nil)).Elem(), SoftwareUpdateConfigurationTargetAzureQueryArgs{})
@@ -5250,17 +5678,17 @@ func init() {
 	pulumi.RegisterOutputType(RunBookPublishContentLinkHashOutput{})
 	pulumi.RegisterOutputType(RunBookPublishContentLinkHashPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleMonthlyOccurrenceOutput{})
-	pulumi.RegisterOutputType(ScheduleMonthlyOccurrenceArrayOutput{})
+	pulumi.RegisterOutputType(ScheduleMonthlyOccurrencePtrOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationLinuxOutput{})
-	pulumi.RegisterOutputType(SoftwareUpdateConfigurationLinuxArrayOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationLinuxPtrOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationPostTaskOutput{})
-	pulumi.RegisterOutputType(SoftwareUpdateConfigurationPostTaskArrayOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationPostTaskPtrOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationPreTaskOutput{})
-	pulumi.RegisterOutputType(SoftwareUpdateConfigurationPreTaskArrayOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationPreTaskPtrOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationScheduleOutput{})
-	pulumi.RegisterOutputType(SoftwareUpdateConfigurationScheduleArrayOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationSchedulePtrOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput{})
-	pulumi.RegisterOutputType(SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTargetOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTargetPtrOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTargetAzureQueryOutput{})

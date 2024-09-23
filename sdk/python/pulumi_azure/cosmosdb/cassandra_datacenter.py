@@ -807,7 +807,7 @@ class CassandraDatacenter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> pulumi.Output[str]:
+    def sku_name(self) -> pulumi.Output[Optional[str]]:
         """
         Determines the selected sku.
 

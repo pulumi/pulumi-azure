@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages as an Azure Container Group instance.
  *
- * > **Note** `networkProfileId` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `azure.containerservice.Group` that rely on `networkProfileId`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnetIds` instead.
- *
  * ## Example Usage
  *
  * This example provisions a Basic Container.

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,14 +56,8 @@ type LookupQueueArgs struct {
 	Name string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace where the Service Bus Queue exists.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// The name of the ServiceBus Namespace.
-	//
 	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
-	// The name of the Resource Group where the Service Bus Queue exists.
-	//
-	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
-	//
 	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
@@ -129,14 +123,8 @@ type LookupQueueOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the ServiceBus Namespace where the Service Bus Queue exists.
 	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
-	// The name of the ServiceBus Namespace.
-	//
 	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
-	// The name of the Resource Group where the Service Bus Queue exists.
-	//
-	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
-	//
 	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }

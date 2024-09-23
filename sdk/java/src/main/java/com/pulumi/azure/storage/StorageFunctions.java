@@ -2793,8 +2793,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .tableName("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageTableId(exampleAzurermStorageTable.id())
      *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
@@ -2837,8 +2836,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .tableName("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageTableId(exampleAzurermStorageTable.id())
      *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
@@ -2881,8 +2879,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .tableName("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageTableId(exampleAzurermStorageTable.id())
      *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
@@ -2925,8 +2922,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .tableName("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageTableId(exampleAzurermStorageTable.id())
      *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
@@ -2969,8 +2965,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .tableName("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageTableId(exampleAzurermStorageTable.id())
      *             .partitionKey("example-partition-key")
      *             .rowKey("example-row-key")
      *             .build());
@@ -3014,8 +3009,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .tableName("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageTableId(exampleAzurermStorageTable.id())
      *             .partitionKey("example-partition-key")
      *             .rowKey("example-row-key")
      *             .build());
@@ -3059,8 +3053,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .tableName("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageTableId(exampleAzurermStorageTable.id())
      *             .partitionKey("example-partition-key")
      *             .rowKey("example-row-key")
      *             .build());
@@ -3104,8 +3097,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .tableName("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageTableId(exampleAzurermStorageTable.id())
      *             .partitionKey("example-partition-key")
      *             .rowKey("example-row-key")
      *             .build());

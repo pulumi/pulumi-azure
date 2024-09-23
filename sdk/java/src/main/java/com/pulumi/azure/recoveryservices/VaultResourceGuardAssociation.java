@@ -67,7 +67,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new VaultResourceGuardAssociation("test", VaultResourceGuardAssociationArgs.builder()
- *             .name("VaultProxy")
  *             .vaultId(testAzurermRecoveryServicesVault.id())
  *             .resourceGuardId(testAzurermDataProtectionResourceGuard.id())
  *             .build());
@@ -89,28 +88,6 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation")
 public class VaultResourceGuardAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-     * 
-     * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * The `name` field will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `name` field will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
-
-    /**
-     * @return Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
-     * 
-     * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
-     * 
-     */
-    public Output<String> name() {
-        return this.name;
-    }
     /**
      * ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
      * 

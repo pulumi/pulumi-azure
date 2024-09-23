@@ -121,8 +121,8 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
      * &gt; **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
      * 
      */
-    @Import(name="evaluationFrequency")
-    private @Nullable Output<String> evaluationFrequency;
+    @Import(name="evaluationFrequency", required=true)
+    private Output<String> evaluationFrequency;
 
     /**
      * @return How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
@@ -132,8 +132,8 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
      * &gt; **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
      * 
      */
-    public Optional<Output<String>> evaluationFrequency() {
-        return Optional.ofNullable(this.evaluationFrequency);
+    public Output<String> evaluationFrequency() {
+        return this.evaluationFrequency;
     }
 
     /**
@@ -528,7 +528,7 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder evaluationFrequency(@Nullable Output<String> evaluationFrequency) {
+        public Builder evaluationFrequency(Output<String> evaluationFrequency) {
             $.evaluationFrequency = evaluationFrequency;
             return this;
         }
@@ -841,6 +841,9 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         public ScheduledQueryRulesAlertV2Args build() {
             if ($.criterias == null) {
                 throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Args", "criterias");
+            }
+            if ($.evaluationFrequency == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Args", "evaluationFrequency");
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Args", "resourceGroupName");

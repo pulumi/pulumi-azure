@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/graph"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/graph"
 //	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -62,7 +62,7 @@ import (
 //
 // ## Import
 //
-// An existing Account can be imported into Terraform using the `resource id`, e.g.
+// An existing Account can be imported into Pulumi using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:graph/servicesAccount:ServicesAccount example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.GraphServices/accounts/account1
@@ -95,6 +95,12 @@ func NewServicesAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:graph/account:Account"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServicesAccount
 	err := ctx.RegisterResource("azure:graph/servicesAccount:ServicesAccount", name, args, &resource, opts...)

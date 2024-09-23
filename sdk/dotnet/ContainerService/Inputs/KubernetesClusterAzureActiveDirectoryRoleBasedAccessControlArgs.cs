@@ -14,41 +14,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
     {
         [Input("adminGroupObjectIds")]
         private InputList<string>? _adminGroupObjectIds;
+
+        /// <summary>
+        /// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        /// </summary>
         public InputList<string> AdminGroupObjectIds
         {
             get => _adminGroupObjectIds ?? (_adminGroupObjectIds = new InputList<string>());
             set => _adminGroupObjectIds = value;
         }
 
+        /// <summary>
+        /// Is Role Based Access Control based on Azure AD enabled?
+        /// </summary>
         [Input("azureRbacEnabled")]
         public Input<bool>? AzureRbacEnabled { get; set; }
-
-        [Input("clientAppId")]
-        public Input<string>? ClientAppId { get; set; }
-
-        /// <summary>
-        /// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
-        /// 
-        /// &gt; **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
-        /// </summary>
-        [Input("managed")]
-        public Input<bool>? Managed { get; set; }
-
-        [Input("serverAppId")]
-        public Input<string>? ServerAppId { get; set; }
-
-        [Input("serverAppSecret")]
-        private Input<string>? _serverAppSecret;
-        [Obsolete(@"Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.")]
-        public Input<string>? ServerAppSecret
-        {
-            get => _serverAppSecret;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _serverAppSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
 
         /// <summary>
         /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.

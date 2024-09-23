@@ -23,27 +23,25 @@ class KubernetesClusterNodePoolArgs:
     def __init__(__self__, *,
                  kubernetes_cluster_id: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
+                 auto_scaling_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-                 custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
-                 enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
-                 enable_host_encryption: Optional[pulumi.Input[bool]] = None,
-                 enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  gpu_instance: Optional[pulumi.Input[str]] = None,
+                 host_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
                  linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
-                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
+                 node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -70,12 +68,8 @@ class KubernetesClusterNodePoolArgs:
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] auto_scaling_enabled: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-               
-               > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
@@ -83,6 +77,9 @@ class KubernetesClusterNodePoolArgs:
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
         :param pulumi.Input[str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] host_encryption_enabled: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+               
+               > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -94,7 +91,8 @@ class KubernetesClusterNodePoolArgs:
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
-        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this forces a new resource to be created.
+        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
@@ -129,25 +127,18 @@ class KubernetesClusterNodePoolArgs:
         """
         pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
         pulumi.set(__self__, "vm_size", vm_size)
+        if auto_scaling_enabled is not None:
+            pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         if capacity_reservation_group_id is not None:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
-        if custom_ca_trust_enabled is not None:
-            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
-            pulumi.log.warn("""custom_ca_trust_enabled is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-        if custom_ca_trust_enabled is not None:
-            pulumi.set(__self__, "custom_ca_trust_enabled", custom_ca_trust_enabled)
-        if enable_auto_scaling is not None:
-            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
-        if enable_host_encryption is not None:
-            pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
-        if enable_node_public_ip is not None:
-            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if eviction_policy is not None:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
         if gpu_instance is not None:
             pulumi.set(__self__, "gpu_instance", gpu_instance)
+        if host_encryption_enabled is not None:
+            pulumi.set(__self__, "host_encryption_enabled", host_encryption_enabled)
         if host_group_id is not None:
             pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
@@ -160,11 +151,6 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
             pulumi.set(__self__, "max_pods", max_pods)
-        if message_of_the_day is not None:
-            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
-            pulumi.log.warn("""message_of_the_day is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-        if message_of_the_day is not None:
-            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
             pulumi.set(__self__, "min_count", min_count)
         if mode is not None:
@@ -177,6 +163,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_network_profile is not None:
             pulumi.set(__self__, "node_network_profile", node_network_profile)
+        if node_public_ip_enabled is not None:
+            pulumi.set(__self__, "node_public_ip_enabled", node_public_ip_enabled)
         if node_public_ip_prefix_id is not None:
             pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
@@ -245,6 +233,18 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "vm_size", value)
 
     @property
+    @pulumi.getter(name="autoScalingEnabled")
+    def auto_scaling_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+        """
+        return pulumi.get(self, "auto_scaling_enabled")
+
+    @auto_scaling_enabled.setter
+    def auto_scaling_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_scaling_enabled", value)
+
+    @property
     @pulumi.getter(name="capacityReservationGroupId")
     def capacity_reservation_group_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -255,54 +255,6 @@ class KubernetesClusterNodePoolArgs:
     @capacity_reservation_group_id.setter
     def capacity_reservation_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
-
-    @property
-    @pulumi.getter(name="customCaTrustEnabled")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def custom_ca_trust_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "custom_ca_trust_enabled")
-
-    @custom_ca_trust_enabled.setter
-    def custom_ca_trust_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "custom_ca_trust_enabled", value)
-
-    @property
-    @pulumi.getter(name="enableAutoScaling")
-    def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        """
-        return pulumi.get(self, "enable_auto_scaling")
-
-    @enable_auto_scaling.setter
-    def enable_auto_scaling(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_auto_scaling", value)
-
-    @property
-    @pulumi.getter(name="enableHostEncryption")
-    def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-
-        > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-        """
-        return pulumi.get(self, "enable_host_encryption")
-
-    @enable_host_encryption.setter
-    def enable_host_encryption(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_host_encryption", value)
-
-    @property
-    @pulumi.getter(name="enableNodePublicIp")
-    def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should each node have a Public IP Address? Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "enable_node_public_ip")
-
-    @enable_node_public_ip.setter
-    def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_node_public_ip", value)
 
     @property
     @pulumi.getter(name="evictionPolicy")
@@ -343,6 +295,20 @@ class KubernetesClusterNodePoolArgs:
     @gpu_instance.setter
     def gpu_instance(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gpu_instance", value)
+
+    @property
+    @pulumi.getter(name="hostEncryptionEnabled")
+    def host_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+
+        > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+        """
+        return pulumi.get(self, "host_encryption_enabled")
+
+    @host_encryption_enabled.setter
+    def host_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "host_encryption_enabled", value)
 
     @property
     @pulumi.getter(name="hostGroupId")
@@ -414,16 +380,6 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "max_pods", value)
 
     @property
-    @pulumi.getter(name="messageOfTheDay")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def message_of_the_day(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "message_of_the_day")
-
-    @message_of_the_day.setter
-    def message_of_the_day(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "message_of_the_day", value)
-
-    @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "min_count")
@@ -492,10 +448,22 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "node_network_profile", value)
 
     @property
+    @pulumi.getter(name="nodePublicIpEnabled")
+    def node_public_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should each node have a Public IP Address? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "node_public_ip_enabled")
+
+    @node_public_ip_enabled.setter
+    def node_public_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "node_public_ip_enabled", value)
+
+    @property
     @pulumi.getter(name="nodePublicIpPrefixId")
     def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_public_ip_prefix_id")
 
@@ -747,14 +715,12 @@ class KubernetesClusterNodePoolArgs:
 @pulumi.input_type
 class _KubernetesClusterNodePoolState:
     def __init__(__self__, *,
+                 auto_scaling_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-                 custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
-                 enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
-                 enable_host_encryption: Optional[pulumi.Input[bool]] = None,
-                 enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  gpu_instance: Optional[pulumi.Input[str]] = None,
+                 host_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
@@ -762,13 +728,13 @@ class _KubernetesClusterNodePoolState:
                  linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
-                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
+                 node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -792,12 +758,8 @@ class _KubernetesClusterNodePoolState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering KubernetesClusterNodePool resources.
+        :param pulumi.Input[bool] auto_scaling_enabled: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-               
-               > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
@@ -805,6 +767,9 @@ class _KubernetesClusterNodePoolState:
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
         :param pulumi.Input[str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] host_encryption_enabled: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+               
+               > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -819,7 +784,8 @@ class _KubernetesClusterNodePoolState:
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
-        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this forces a new resource to be created.
+        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
@@ -853,25 +819,18 @@ class _KubernetesClusterNodePoolState:
                > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
+        if auto_scaling_enabled is not None:
+            pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         if capacity_reservation_group_id is not None:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
-        if custom_ca_trust_enabled is not None:
-            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
-            pulumi.log.warn("""custom_ca_trust_enabled is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-        if custom_ca_trust_enabled is not None:
-            pulumi.set(__self__, "custom_ca_trust_enabled", custom_ca_trust_enabled)
-        if enable_auto_scaling is not None:
-            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
-        if enable_host_encryption is not None:
-            pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
-        if enable_node_public_ip is not None:
-            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if eviction_policy is not None:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
         if gpu_instance is not None:
             pulumi.set(__self__, "gpu_instance", gpu_instance)
+        if host_encryption_enabled is not None:
+            pulumi.set(__self__, "host_encryption_enabled", host_encryption_enabled)
         if host_group_id is not None:
             pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
@@ -886,11 +845,6 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
             pulumi.set(__self__, "max_pods", max_pods)
-        if message_of_the_day is not None:
-            warnings.warn("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""", DeprecationWarning)
-            pulumi.log.warn("""message_of_the_day is deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-        if message_of_the_day is not None:
-            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
             pulumi.set(__self__, "min_count", min_count)
         if mode is not None:
@@ -903,6 +857,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_network_profile is not None:
             pulumi.set(__self__, "node_network_profile", node_network_profile)
+        if node_public_ip_enabled is not None:
+            pulumi.set(__self__, "node_public_ip_enabled", node_public_ip_enabled)
         if node_public_ip_prefix_id is not None:
             pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
@@ -947,6 +903,18 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "zones", zones)
 
     @property
+    @pulumi.getter(name="autoScalingEnabled")
+    def auto_scaling_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+        """
+        return pulumi.get(self, "auto_scaling_enabled")
+
+    @auto_scaling_enabled.setter
+    def auto_scaling_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_scaling_enabled", value)
+
+    @property
     @pulumi.getter(name="capacityReservationGroupId")
     def capacity_reservation_group_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -957,54 +925,6 @@ class _KubernetesClusterNodePoolState:
     @capacity_reservation_group_id.setter
     def capacity_reservation_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "capacity_reservation_group_id", value)
-
-    @property
-    @pulumi.getter(name="customCaTrustEnabled")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def custom_ca_trust_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "custom_ca_trust_enabled")
-
-    @custom_ca_trust_enabled.setter
-    def custom_ca_trust_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "custom_ca_trust_enabled", value)
-
-    @property
-    @pulumi.getter(name="enableAutoScaling")
-    def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        """
-        return pulumi.get(self, "enable_auto_scaling")
-
-    @enable_auto_scaling.setter
-    def enable_auto_scaling(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_auto_scaling", value)
-
-    @property
-    @pulumi.getter(name="enableHostEncryption")
-    def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-
-        > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-        """
-        return pulumi.get(self, "enable_host_encryption")
-
-    @enable_host_encryption.setter
-    def enable_host_encryption(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_host_encryption", value)
-
-    @property
-    @pulumi.getter(name="enableNodePublicIp")
-    def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should each node have a Public IP Address? Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "enable_node_public_ip")
-
-    @enable_node_public_ip.setter
-    def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_node_public_ip", value)
 
     @property
     @pulumi.getter(name="evictionPolicy")
@@ -1045,6 +965,20 @@ class _KubernetesClusterNodePoolState:
     @gpu_instance.setter
     def gpu_instance(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gpu_instance", value)
+
+    @property
+    @pulumi.getter(name="hostEncryptionEnabled")
+    def host_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+
+        > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+        """
+        return pulumi.get(self, "host_encryption_enabled")
+
+    @host_encryption_enabled.setter
+    def host_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "host_encryption_enabled", value)
 
     @property
     @pulumi.getter(name="hostGroupId")
@@ -1130,16 +1064,6 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "max_pods", value)
 
     @property
-    @pulumi.getter(name="messageOfTheDay")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def message_of_the_day(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "message_of_the_day")
-
-    @message_of_the_day.setter
-    def message_of_the_day(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "message_of_the_day", value)
-
-    @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "min_count")
@@ -1208,10 +1132,22 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "node_network_profile", value)
 
     @property
+    @pulumi.getter(name="nodePublicIpEnabled")
+    def node_public_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should each node have a Public IP Address? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "node_public_ip_enabled")
+
+    @node_public_ip_enabled.setter
+    def node_public_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "node_public_ip_enabled", value)
+
+    @property
     @pulumi.getter(name="nodePublicIpPrefixId")
     def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_public_ip_prefix_id")
 
@@ -1477,14 +1413,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_scaling_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-                 custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
-                 enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
-                 enable_host_encryption: Optional[pulumi.Input[bool]] = None,
-                 enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  gpu_instance: Optional[pulumi.Input[str]] = None,
+                 host_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
@@ -1492,13 +1426,13 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  linux_os_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
-                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_network_profile: Optional[pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
+                 node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -1571,12 +1505,8 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_scaling_enabled: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-               
-               > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
@@ -1584,6 +1514,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
         :param pulumi.Input[str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] host_encryption_enabled: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+               
+               > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -1598,7 +1531,8 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']] node_network_profile: A `node_network_profile` block as documented below.
-        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this forces a new resource to be created.
+        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
@@ -1701,14 +1635,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_scaling_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-                 custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
-                 enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
-                 enable_host_encryption: Optional[pulumi.Input[bool]] = None,
-                 enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  gpu_instance: Optional[pulumi.Input[str]] = None,
+                 host_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
@@ -1716,13 +1648,13 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  linux_os_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
-                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_network_profile: Optional[pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
+                 node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -1753,14 +1685,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KubernetesClusterNodePoolArgs.__new__(KubernetesClusterNodePoolArgs)
 
+            __props__.__dict__["auto_scaling_enabled"] = auto_scaling_enabled
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
-            __props__.__dict__["custom_ca_trust_enabled"] = custom_ca_trust_enabled
-            __props__.__dict__["enable_auto_scaling"] = enable_auto_scaling
-            __props__.__dict__["enable_host_encryption"] = enable_host_encryption
-            __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["fips_enabled"] = fips_enabled
             __props__.__dict__["gpu_instance"] = gpu_instance
+            __props__.__dict__["host_encryption_enabled"] = host_encryption_enabled
             __props__.__dict__["host_group_id"] = host_group_id
             __props__.__dict__["kubelet_config"] = kubelet_config
             __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
@@ -1770,13 +1700,13 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["linux_os_config"] = linux_os_config
             __props__.__dict__["max_count"] = max_count
             __props__.__dict__["max_pods"] = max_pods
-            __props__.__dict__["message_of_the_day"] = message_of_the_day
             __props__.__dict__["min_count"] = min_count
             __props__.__dict__["mode"] = mode
             __props__.__dict__["name"] = name
             __props__.__dict__["node_count"] = node_count
             __props__.__dict__["node_labels"] = node_labels
             __props__.__dict__["node_network_profile"] = node_network_profile
+            __props__.__dict__["node_public_ip_enabled"] = node_public_ip_enabled
             __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
             __props__.__dict__["node_taints"] = node_taints
             __props__.__dict__["orchestrator_version"] = orchestrator_version
@@ -1810,14 +1740,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            auto_scaling_enabled: Optional[pulumi.Input[bool]] = None,
             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-            custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
-            enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
-            enable_host_encryption: Optional[pulumi.Input[bool]] = None,
-            enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
             fips_enabled: Optional[pulumi.Input[bool]] = None,
             gpu_instance: Optional[pulumi.Input[str]] = None,
+            host_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             host_group_id: Optional[pulumi.Input[str]] = None,
             kubelet_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
             kubelet_disk_type: Optional[pulumi.Input[str]] = None,
@@ -1825,13 +1753,13 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             linux_os_config: Optional[pulumi.Input[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
             max_count: Optional[pulumi.Input[int]] = None,
             max_pods: Optional[pulumi.Input[int]] = None,
-            message_of_the_day: Optional[pulumi.Input[str]] = None,
             min_count: Optional[pulumi.Input[int]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_count: Optional[pulumi.Input[int]] = None,
             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             node_network_profile: Optional[pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
+            node_public_ip_enabled: Optional[pulumi.Input[bool]] = None,
             node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
             node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -1860,12 +1788,8 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_scaling_enabled: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-               
-               > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
@@ -1873,6 +1797,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
         :param pulumi.Input[str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] host_encryption_enabled: Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+               
+               > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -1887,7 +1814,8 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
         :param pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']] node_network_profile: A `node_network_profile` block as documented below.
-        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this forces a new resource to be created.
+        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
@@ -1925,14 +1853,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         __props__ = _KubernetesClusterNodePoolState.__new__(_KubernetesClusterNodePoolState)
 
+        __props__.__dict__["auto_scaling_enabled"] = auto_scaling_enabled
         __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
-        __props__.__dict__["custom_ca_trust_enabled"] = custom_ca_trust_enabled
-        __props__.__dict__["enable_auto_scaling"] = enable_auto_scaling
-        __props__.__dict__["enable_host_encryption"] = enable_host_encryption
-        __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
         __props__.__dict__["eviction_policy"] = eviction_policy
         __props__.__dict__["fips_enabled"] = fips_enabled
         __props__.__dict__["gpu_instance"] = gpu_instance
+        __props__.__dict__["host_encryption_enabled"] = host_encryption_enabled
         __props__.__dict__["host_group_id"] = host_group_id
         __props__.__dict__["kubelet_config"] = kubelet_config
         __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
@@ -1940,13 +1866,13 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["linux_os_config"] = linux_os_config
         __props__.__dict__["max_count"] = max_count
         __props__.__dict__["max_pods"] = max_pods
-        __props__.__dict__["message_of_the_day"] = message_of_the_day
         __props__.__dict__["min_count"] = min_count
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
         __props__.__dict__["node_count"] = node_count
         __props__.__dict__["node_labels"] = node_labels
         __props__.__dict__["node_network_profile"] = node_network_profile
+        __props__.__dict__["node_public_ip_enabled"] = node_public_ip_enabled
         __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
         __props__.__dict__["node_taints"] = node_taints
         __props__.__dict__["orchestrator_version"] = orchestrator_version
@@ -1971,44 +1897,20 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         return KubernetesClusterNodePool(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="autoScalingEnabled")
+    def auto_scaling_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+        """
+        return pulumi.get(self, "auto_scaling_enabled")
+
+    @property
     @pulumi.getter(name="capacityReservationGroupId")
     def capacity_reservation_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "capacity_reservation_group_id")
-
-    @property
-    @pulumi.getter(name="customCaTrustEnabled")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def custom_ca_trust_enabled(self) -> pulumi.Output[Optional[bool]]:
-        return pulumi.get(self, "custom_ca_trust_enabled")
-
-    @property
-    @pulumi.getter(name="enableAutoScaling")
-    def enable_auto_scaling(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        """
-        return pulumi.get(self, "enable_auto_scaling")
-
-    @property
-    @pulumi.getter(name="enableHostEncryption")
-    def enable_host_encryption(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-
-        > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-        """
-        return pulumi.get(self, "enable_host_encryption")
-
-    @property
-    @pulumi.getter(name="enableNodePublicIp")
-    def enable_node_public_ip(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Should each node have a Public IP Address? Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "enable_node_public_ip")
 
     @property
     @pulumi.getter(name="evictionPolicy")
@@ -2037,6 +1939,16 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gpu_instance")
+
+    @property
+    @pulumi.getter(name="hostEncryptionEnabled")
+    def host_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+
+        > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+        """
+        return pulumi.get(self, "host_encryption_enabled")
 
     @property
     @pulumi.getter(name="hostGroupId")
@@ -2094,12 +2006,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         return pulumi.get(self, "max_pods")
 
     @property
-    @pulumi.getter(name="messageOfTheDay")
-    @_utilities.deprecated("""This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.""")
-    def message_of_the_day(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "message_of_the_day")
-
-    @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "min_count")
@@ -2144,10 +2050,18 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         return pulumi.get(self, "node_network_profile")
 
     @property
+    @pulumi.getter(name="nodePublicIpEnabled")
+    def node_public_ip_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should each node have a Public IP Address? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "node_public_ip_enabled")
+
+    @property
     @pulumi.getter(name="nodePublicIpPrefixId")
     def node_public_ip_prefix_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_public_ip_prefix_id")
 

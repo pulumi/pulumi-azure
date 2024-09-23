@@ -10,13 +10,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLinuxWebAppSiteConfigApplicationStack {
-    private String dockerImage;
     /**
      * @return The docker image, including tag, used by this Linux Web App.
      * 
      */
     private String dockerImageName;
-    private String dockerImageTag;
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
      * 
@@ -75,18 +73,12 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
     private String rubyVersion;
 
     private GetLinuxWebAppSiteConfigApplicationStack() {}
-    public String dockerImage() {
-        return this.dockerImage;
-    }
     /**
      * @return The docker image, including tag, used by this Linux Web App.
      * 
      */
     public String dockerImageName() {
         return this.dockerImageName;
-    }
-    public String dockerImageTag() {
-        return this.dockerImageTag;
     }
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
@@ -178,9 +170,7 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String dockerImage;
         private String dockerImageName;
-        private String dockerImageTag;
         private String dockerRegistryPassword;
         private String dockerRegistryUrl;
         private String dockerRegistryUsername;
@@ -196,9 +186,7 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
         public Builder() {}
         public Builder(GetLinuxWebAppSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.dockerImage = defaults.dockerImage;
     	      this.dockerImageName = defaults.dockerImageName;
-    	      this.dockerImageTag = defaults.dockerImageTag;
     	      this.dockerRegistryPassword = defaults.dockerRegistryPassword;
     	      this.dockerRegistryUrl = defaults.dockerRegistryUrl;
     	      this.dockerRegistryUsername = defaults.dockerRegistryUsername;
@@ -214,27 +202,11 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
         }
 
         @CustomType.Setter
-        public Builder dockerImage(String dockerImage) {
-            if (dockerImage == null) {
-              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "dockerImage");
-            }
-            this.dockerImage = dockerImage;
-            return this;
-        }
-        @CustomType.Setter
         public Builder dockerImageName(String dockerImageName) {
             if (dockerImageName == null) {
               throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "dockerImageName");
             }
             this.dockerImageName = dockerImageName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder dockerImageTag(String dockerImageTag) {
-            if (dockerImageTag == null) {
-              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "dockerImageTag");
-            }
-            this.dockerImageTag = dockerImageTag;
             return this;
         }
         @CustomType.Setter
@@ -335,9 +307,7 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
         }
         public GetLinuxWebAppSiteConfigApplicationStack build() {
             final var _resultValue = new GetLinuxWebAppSiteConfigApplicationStack();
-            _resultValue.dockerImage = dockerImage;
             _resultValue.dockerImageName = dockerImageName;
-            _resultValue.dockerImageTag = dockerImageTag;
             _resultValue.dockerRegistryPassword = dockerRegistryPassword;
             _resultValue.dockerRegistryUrl = dockerRegistryUrl;
             _resultValue.dockerRegistryUsername = dockerRegistryUsername;

@@ -13,7 +13,6 @@ namespace Pulumi.Azure.Automation.Outputs
     [OutputType]
     public sealed class SoftwareUpdateConfigurationWindows
     {
-        public readonly string? ClassificationIncluded;
         /// <summary>
         /// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         /// 
@@ -35,8 +34,6 @@ namespace Pulumi.Azure.Automation.Outputs
 
         [OutputConstructor]
         private SoftwareUpdateConfigurationWindows(
-            string? classificationIncluded,
-
             ImmutableArray<string> classificationsIncludeds,
 
             ImmutableArray<string> excludedKnowledgeBaseNumbers,
@@ -45,7 +42,6 @@ namespace Pulumi.Azure.Automation.Outputs
 
             string? reboot)
         {
-            ClassificationIncluded = classificationIncluded;
             ClassificationsIncludeds = classificationsIncludeds;
             ExcludedKnowledgeBaseNumbers = excludedKnowledgeBaseNumbers;
             IncludedKnowledgeBaseNumbers = includedKnowledgeBaseNumbers;

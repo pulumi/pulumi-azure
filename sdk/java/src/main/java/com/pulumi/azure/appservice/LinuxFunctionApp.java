@@ -677,6 +677,20 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }
     /**
+     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * 
+     */
+    @Export(name="vnetImagePullEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> vnetImagePullEnabled;
+
+    /**
+     * @return Is container image pull over virtual network enabled? Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> vnetImagePullEnabled() {
+        return Codegen.optional(this.vnetImagePullEnabled);
+    }
+    /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.

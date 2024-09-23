@@ -17,7 +17,7 @@ public final class KubernetesClusterWindowsProfile {
      * @return The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
      * 
      */
-    private @Nullable String adminPassword;
+    private String adminPassword;
     /**
      * @return The Admin Username for Windows VMs. Changing this forces a new resource to be created.
      * 
@@ -39,8 +39,8 @@ public final class KubernetesClusterWindowsProfile {
      * @return The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
      * 
      */
-    public Optional<String> adminPassword() {
-        return Optional.ofNullable(this.adminPassword);
+    public String adminPassword() {
+        return this.adminPassword;
     }
     /**
      * @return The Admin Username for Windows VMs. Changing this forces a new resource to be created.
@@ -73,7 +73,7 @@ public final class KubernetesClusterWindowsProfile {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String adminPassword;
+        private String adminPassword;
         private String adminUsername;
         private @Nullable KubernetesClusterWindowsProfileGmsa gmsa;
         private @Nullable String license;
@@ -87,8 +87,10 @@ public final class KubernetesClusterWindowsProfile {
         }
 
         @CustomType.Setter
-        public Builder adminPassword(@Nullable String adminPassword) {
-
+        public Builder adminPassword(String adminPassword) {
+            if (adminPassword == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterWindowsProfile", "adminPassword");
+            }
             this.adminPassword = adminPassword;
             return this;
         }

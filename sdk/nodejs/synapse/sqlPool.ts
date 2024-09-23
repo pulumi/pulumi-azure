@@ -122,7 +122,7 @@ export class SqlPool extends pulumi.CustomResource {
     /**
      * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
      */
-    public readonly storageAccountType!: pulumi.Output<string | undefined>;
+    public readonly storageAccountType!: pulumi.Output<string>;
     /**
      * The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
      */
@@ -160,6 +160,9 @@ export class SqlPool extends pulumi.CustomResource {
             const args = argsOrState as SqlPoolArgs | undefined;
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
+            }
+            if ((!args || args.storageAccountType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'storageAccountType'");
             }
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
@@ -270,7 +273,7 @@ export interface SqlPoolArgs {
     /**
      * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
      */
-    storageAccountType?: pulumi.Input<string>;
+    storageAccountType: pulumi.Input<string>;
     /**
      * The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
      */

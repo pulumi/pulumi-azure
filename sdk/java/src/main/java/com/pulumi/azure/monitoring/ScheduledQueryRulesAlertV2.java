@@ -272,7 +272,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="evaluationFrequency", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> evaluationFrequency;
+    private Output<String> evaluationFrequency;
 
     /**
      * @return How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
@@ -282,8 +282,8 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * &gt; **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
      * 
      */
-    public Output<Optional<String>> evaluationFrequency() {
-        return Codegen.optional(this.evaluationFrequency);
+    public Output<String> evaluationFrequency() {
+        return this.evaluationFrequency;
     }
     /**
      * An `identity` block as defined below.

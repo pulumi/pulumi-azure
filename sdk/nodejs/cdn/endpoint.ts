@@ -78,7 +78,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
      */
-    public readonly contentTypesToCompresses!: pulumi.Output<string[]>;
+    public readonly contentTypesToCompresses!: pulumi.Output<string[] | undefined>;
     /**
      * Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
      */
@@ -126,7 +126,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The path used at for origin requests.
      */
-    public readonly originPath!: pulumi.Output<string>;
+    public readonly originPath!: pulumi.Output<string | undefined>;
     /**
      * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
      */
@@ -136,7 +136,7 @@ export class Endpoint extends pulumi.CustomResource {
      *
      * > **NOTE:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
      */
-    public readonly probePath!: pulumi.Output<string>;
+    public readonly probePath!: pulumi.Output<string | undefined>;
     /**
      * The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
      */

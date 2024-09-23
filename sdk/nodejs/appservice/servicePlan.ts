@@ -65,7 +65,7 @@ export class ServicePlan extends pulumi.CustomResource {
     /**
      * The ID of the App Service Environment to create this Service Plan in.
      *
-     * > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+     * > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurermAppServiceEnvironment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
      */
     public readonly appServiceEnvironmentId!: pulumi.Output<string | undefined>;
     /**
@@ -186,7 +186,7 @@ export interface ServicePlanState {
     /**
      * The ID of the App Service Environment to create this Service Plan in.
      *
-     * > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+     * > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurermAppServiceEnvironment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
      */
     appServiceEnvironmentId?: pulumi.Input<string>;
     /**
@@ -252,7 +252,7 @@ export interface ServicePlanArgs {
     /**
      * The ID of the App Service Environment to create this Service Plan in.
      *
-     * > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+     * > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurermAppServiceEnvironment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
      */
     appServiceEnvironmentId?: pulumi.Input<string>;
     /**

@@ -99,6 +99,8 @@ export class PortalDashboard extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:portal/dashboard:Dashboard" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PortalDashboard.__pulumiType, name, resourceInputs, opts);
     }
 }

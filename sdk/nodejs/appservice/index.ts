@@ -45,11 +45,6 @@ export type CustomHostnameBinding = import("./customHostnameBinding").CustomHost
 export const CustomHostnameBinding: typeof import("./customHostnameBinding").CustomHostnameBinding = null as any;
 utilities.lazyLoad(exports, ["CustomHostnameBinding"], () => require("./customHostnameBinding"));
 
-export { EnvironmentArgs, EnvironmentState } from "./environment";
-export type Environment = import("./environment").Environment;
-export const Environment: typeof import("./environment").Environment = null as any;
-utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
-
 export { EnvironmentV3Args, EnvironmentV3State } from "./environmentV3";
 export type EnvironmentV3 = import("./environmentV3").EnvironmentV3;
 export const EnvironmentV3: typeof import("./environmentV3").EnvironmentV3 = null as any;
@@ -84,11 +79,6 @@ export { GetAppServiceArgs, GetAppServiceResult, GetAppServiceOutputArgs } from 
 export const getAppService: typeof import("./getAppService").getAppService = null as any;
 export const getAppServiceOutput: typeof import("./getAppService").getAppServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getAppService","getAppServiceOutput"], () => require("./getAppService"));
-
-export { GetAppServiceEnvironmentArgs, GetAppServiceEnvironmentResult, GetAppServiceEnvironmentOutputArgs } from "./getAppServiceEnvironment";
-export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment").getAppServiceEnvironment = null as any;
-export const getAppServiceEnvironmentOutput: typeof import("./getAppServiceEnvironment").getAppServiceEnvironmentOutput = null as any;
-utilities.lazyLoad(exports, ["getAppServiceEnvironment","getAppServiceEnvironmentOutput"], () => require("./getAppServiceEnvironment"));
 
 export { GetAppServicePlanArgs, GetAppServicePlanResult, GetAppServicePlanOutputArgs } from "./getAppServicePlan";
 export const getAppServicePlan: typeof import("./getAppServicePlan").getAppServicePlan = null as any;
@@ -321,8 +311,6 @@ const _module = {
                 return new Connection(name, <any>undefined, { urn })
             case "azure:appservice/customHostnameBinding:CustomHostnameBinding":
                 return new CustomHostnameBinding(name, <any>undefined, { urn })
-            case "azure:appservice/environment:Environment":
-                return new Environment(name, <any>undefined, { urn })
             case "azure:appservice/environmentV3:EnvironmentV3":
                 return new EnvironmentV3(name, <any>undefined, { urn })
             case "azure:appservice/functionApp:FunctionApp":
@@ -404,7 +392,6 @@ pulumi.runtime.registerResourceModule("azure", "appservice/certificateBinding", 
 pulumi.runtime.registerResourceModule("azure", "appservice/certificateOrder", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/connection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/customHostnameBinding", _module)
-pulumi.runtime.registerResourceModule("azure", "appservice/environment", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/environmentV3", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/functionApp", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/functionAppActiveSlot", _module)

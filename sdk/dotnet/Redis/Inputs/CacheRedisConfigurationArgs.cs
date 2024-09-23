@@ -60,22 +60,19 @@ namespace Pulumi.Azure.Redis.Inputs
             }
         }
 
+        /// <summary>
+        /// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
+        /// </summary>
         [Input("authenticationEnabled")]
         public Input<bool>? AuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+        /// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
         /// </summary>
         [Input("dataPersistenceAuthenticationMethod")]
         public Input<string>? DataPersistenceAuthenticationMethod { get; set; }
-
-        /// <summary>
-        /// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-        /// 
-        /// &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
-        /// </summary>
-        [Input("enableAuthentication")]
-        public Input<bool>? EnableAuthentication { get; set; }
 
         /// <summary>
         /// Returns the max number of connected clients at the same time.

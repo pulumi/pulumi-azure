@@ -14,25 +14,25 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppIngressCustomDomain
     {
         /// <summary>
-        /// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+        /// The Binding type.
         /// </summary>
         public readonly string? CertificateBindingType;
         /// <summary>
         /// The ID of the Container App Environment Certificate.
         /// </summary>
-        public readonly string CertificateId;
+        public readonly string? CertificateId;
         /// <summary>
-        /// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+        /// The name for this Container App. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
 
         [OutputConstructor]
         private AppIngressCustomDomain(
             string? certificateBindingType,
 
-            string certificateId,
+            string? certificateId,
 
-            string name)
+            string? name)
         {
             CertificateBindingType = certificateBindingType;
             CertificateId = certificateId;

@@ -4,9 +4,9 @@
 package com.pulumi.azure.portal;
 
 import com.pulumi.azure.Utilities;
-import com.pulumi.azure.portal.inputs.GetDashboardArgs;
-import com.pulumi.azure.portal.inputs.GetDashboardPlainArgs;
-import com.pulumi.azure.portal.outputs.GetDashboardResult;
+import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
+import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardPlainArgs;
+import com.pulumi.azure.portal.outputs.Azurerm_portal_dashboardResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class PortalFunctions {
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -28,7 +28,7 @@ public final class PortalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
-     * import com.pulumi.azure.portal.inputs.GetDashboardArgs;
+     * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -42,7 +42,7 @@ public final class PortalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
      *             .name("existing-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
@@ -55,11 +55,11 @@ public final class PortalFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDashboardResult> getDashboard(GetDashboardArgs args) {
-        return getDashboard(args, InvokeOptions.Empty);
+    public static Output<Azurerm_portal_dashboardResult> azurerm_portal_dashboard(Azurerm_portal_dashboardArgs args) {
+        return azurerm_portal_dashboard(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -72,7 +72,7 @@ public final class PortalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
-     * import com.pulumi.azure.portal.inputs.GetDashboardArgs;
+     * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -86,7 +86,7 @@ public final class PortalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
      *             .name("existing-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
@@ -99,11 +99,11 @@ public final class PortalFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetDashboardResult> getDashboardPlain(GetDashboardPlainArgs args) {
-        return getDashboardPlain(args, InvokeOptions.Empty);
+    public static CompletableFuture<Azurerm_portal_dashboardResult> azurerm_portal_dashboardPlain(Azurerm_portal_dashboardPlainArgs args) {
+        return azurerm_portal_dashboardPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -116,7 +116,7 @@ public final class PortalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
-     * import com.pulumi.azure.portal.inputs.GetDashboardArgs;
+     * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -130,7 +130,7 @@ public final class PortalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
      *             .name("existing-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
@@ -143,11 +143,11 @@ public final class PortalFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDashboardResult> getDashboard(GetDashboardArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("azure:portal/getDashboard:getDashboard", TypeShape.of(GetDashboardResult.class), args, Utilities.withVersion(options));
+    public static Output<Azurerm_portal_dashboardResult> azurerm_portal_dashboard(Azurerm_portal_dashboardArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard", TypeShape.of(Azurerm_portal_dashboardResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -160,7 +160,7 @@ public final class PortalFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.portal.PortalFunctions;
-     * import com.pulumi.azure.portal.inputs.GetDashboardArgs;
+     * import com.pulumi.azure.portal.inputs.Azurerm_portal_dashboardArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -174,7 +174,7 @@ public final class PortalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = PortalFunctions.getDashboard(GetDashboardArgs.builder()
+     *         final var example = PortalFunctions.azurerm_portal_dashboard(Azurerm_portal_dashboardArgs.builder()
      *             .name("existing-dashboard")
      *             .resourceGroupName("dashboard-rg")
      *             .build());
@@ -187,7 +187,7 @@ public final class PortalFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetDashboardResult> getDashboardPlain(GetDashboardPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("azure:portal/getDashboard:getDashboard", TypeShape.of(GetDashboardResult.class), args, Utilities.withVersion(options));
+    public static CompletableFuture<Azurerm_portal_dashboardResult> azurerm_portal_dashboardPlain(Azurerm_portal_dashboardPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard", TypeShape.of(Azurerm_portal_dashboardResult.class), args, Utilities.withVersion(options));
     }
 }

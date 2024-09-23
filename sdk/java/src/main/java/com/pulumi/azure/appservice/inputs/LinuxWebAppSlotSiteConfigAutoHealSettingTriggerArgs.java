@@ -35,6 +35,21 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
     }
 
     /**
+     * A `slow_request` block as defined above.
+     * 
+     */
+    @Import(name="slowRequest")
+    private @Nullable Output<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs> slowRequest;
+
+    /**
+     * @return A `slow_request` block as defined above.
+     * 
+     */
+    public Optional<Output<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs>> slowRequest() {
+        return Optional.ofNullable(this.slowRequest);
+    }
+
+    /**
      * One or more `slow_request_with_path` blocks as defined above.
      * 
      */
@@ -47,21 +62,6 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
      */
     public Optional<Output<List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>>> slowRequestWithPaths() {
         return Optional.ofNullable(this.slowRequestWithPaths);
-    }
-
-    /**
-     * A `slow_request` block as defined above.
-     * 
-     */
-    @Import(name="slowRequests")
-    private @Nullable Output<List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs>> slowRequests;
-
-    /**
-     * @return A `slow_request` block as defined above.
-     * 
-     */
-    public Optional<Output<List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs>>> slowRequests() {
-        return Optional.ofNullable(this.slowRequests);
     }
 
     /**
@@ -83,8 +83,8 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
 
     private LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs(LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs $) {
         this.requests = $.requests;
+        this.slowRequest = $.slowRequest;
         this.slowRequestWithPaths = $.slowRequestWithPaths;
-        this.slowRequests = $.slowRequests;
         this.statusCodes = $.statusCodes;
     }
 
@@ -128,6 +128,27 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
         }
 
         /**
+         * @param slowRequest A `slow_request` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slowRequest(@Nullable Output<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs> slowRequest) {
+            $.slowRequest = slowRequest;
+            return this;
+        }
+
+        /**
+         * @param slowRequest A `slow_request` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slowRequest(LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs slowRequest) {
+            return slowRequest(Output.of(slowRequest));
+        }
+
+        /**
          * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
          * 
          * @return builder
@@ -156,37 +177,6 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
          */
         public Builder slowRequestWithPaths(LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs... slowRequestWithPaths) {
             return slowRequestWithPaths(List.of(slowRequestWithPaths));
-        }
-
-        /**
-         * @param slowRequests A `slow_request` block as defined above.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder slowRequests(@Nullable Output<List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs>> slowRequests) {
-            $.slowRequests = slowRequests;
-            return this;
-        }
-
-        /**
-         * @param slowRequests A `slow_request` block as defined above.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder slowRequests(List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs> slowRequests) {
-            return slowRequests(Output.of(slowRequests));
-        }
-
-        /**
-         * @param slowRequests A `slow_request` block as defined above.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder slowRequests(LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs... slowRequests) {
-            return slowRequests(List.of(slowRequests));
         }
 
         /**

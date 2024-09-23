@@ -55,15 +55,10 @@ export interface GetClusterNodePoolArgs {
  * A collection of values returned by getClusterNodePool.
  */
 export interface GetClusterNodePoolResult {
-    readonly autoScalingEnabled: boolean;
     /**
      * Does this Node Pool have Auto-Scaling enabled?
      */
-    readonly enableAutoScaling: boolean;
-    /**
-     * Do nodes in this Node Pool have a Public IP Address?
-     */
-    readonly enableNodePublicIp: boolean;
+    readonly autoScalingEnabled: boolean;
     /**
      * The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
      */
@@ -98,6 +93,9 @@ export interface GetClusterNodePoolResult {
      * A map of Kubernetes Labels applied to each Node in this Node Pool.
      */
     readonly nodeLabels: {[key: string]: string};
+    /**
+     * Do nodes in this Node Pool have a Public IP Address?
+     */
     readonly nodePublicIpEnabled: boolean;
     /**
      * Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.

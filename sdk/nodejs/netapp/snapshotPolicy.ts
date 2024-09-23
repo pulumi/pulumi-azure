@@ -105,7 +105,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     /**
      * Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
      */
-    public readonly dailySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyDailySchedule>;
+    public readonly dailySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyDailySchedule | undefined>;
     /**
      * Defines that the NetApp Snapshot Policy is enabled or not.
      */
@@ -113,7 +113,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     /**
      * Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
      */
-    public readonly hourlySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyHourlySchedule>;
+    public readonly hourlySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyHourlySchedule | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -121,7 +121,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     /**
      * Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
      */
-    public readonly monthlySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyMonthlySchedule>;
+    public readonly monthlySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyMonthlySchedule | undefined>;
     /**
      * The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
      */
@@ -137,7 +137,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     /**
      * Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
      */
-    public readonly weeklySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyWeeklySchedule>;
+    public readonly weeklySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyWeeklySchedule | undefined>;
 
     /**
      * Create a SnapshotPolicy resource with the given unique name, arguments, and options.

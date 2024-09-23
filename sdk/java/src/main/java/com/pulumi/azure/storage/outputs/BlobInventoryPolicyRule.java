@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BlobInventoryPolicyRule {
     /**
-     * @return A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+     * @return A `filter` block as defined above.
      * 
      */
     private @Nullable BlobInventoryPolicyRuleFilter filter;
@@ -52,7 +52,7 @@ public final class BlobInventoryPolicyRule {
 
     private BlobInventoryPolicyRule() {}
     /**
-     * @return A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+     * @return A `filter` block as defined above.
      * 
      */
     public Optional<BlobInventoryPolicyRuleFilter> filter() {

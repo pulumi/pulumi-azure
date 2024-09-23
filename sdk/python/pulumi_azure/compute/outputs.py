@@ -57,7 +57,6 @@ __all__ = [
     'LinuxVirtualMachineScaleSetSecretCertificate',
     'LinuxVirtualMachineScaleSetSourceImageReference',
     'LinuxVirtualMachineScaleSetSpotRestore',
-    'LinuxVirtualMachineScaleSetTerminateNotification',
     'LinuxVirtualMachineScaleSetTerminationNotification',
     'LinuxVirtualMachineSecret',
     'LinuxVirtualMachineSecretCertificate',
@@ -182,7 +181,6 @@ __all__ = [
     'WindowsVirtualMachineScaleSetSecretCertificate',
     'WindowsVirtualMachineScaleSetSourceImageReference',
     'WindowsVirtualMachineScaleSetSpotRestore',
-    'WindowsVirtualMachineScaleSetTerminateNotification',
     'WindowsVirtualMachineScaleSetTerminationNotification',
     'WindowsVirtualMachineScaleSetWinrmListener',
     'WindowsVirtualMachineSecret',
@@ -612,8 +610,12 @@ class ImageDataDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "blobUri":
+        if key == "storageType":
+            suggest = "storage_type"
+        elif key == "blobUri":
             suggest = "blob_uri"
+        elif key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
         elif key == "managedDiskId":
             suggest = "managed_disk_id"
         elif key == "sizeGb":
@@ -631,28 +633,43 @@ class ImageDataDisk(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 storage_type: str,
                  blob_uri: Optional[str] = None,
                  caching: Optional[str] = None,
+                 disk_encryption_set_id: Optional[str] = None,
                  lun: Optional[int] = None,
                  managed_disk_id: Optional[str] = None,
                  size_gb: Optional[int] = None):
         """
+        :param str storage_type: The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         :param str blob_uri: Specifies the URI in Azure storage of the blob that you want to use to create the image.
         :param str caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
+        :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
         :param int lun: Specifies the logical unit number of the data disk.
         :param str managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
         :param int size_gb: Specifies the size of the image to be created. The target size can't be smaller than the source size.
         """
+        pulumi.set(__self__, "storage_type", storage_type)
         if blob_uri is not None:
             pulumi.set(__self__, "blob_uri", blob_uri)
         if caching is not None:
             pulumi.set(__self__, "caching", caching)
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if lun is not None:
             pulumi.set(__self__, "lun", lun)
         if managed_disk_id is not None:
             pulumi.set(__self__, "managed_disk_id", managed_disk_id)
         if size_gb is not None:
             pulumi.set(__self__, "size_gb", size_gb)
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> str:
+        """
+        The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter(name="blobUri")
@@ -669,6 +686,14 @@ class ImageDataDisk(dict):
         Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
         """
         return pulumi.get(self, "caching")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[str]:
+        """
+        The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
 
     @property
     @pulumi.getter
@@ -700,7 +725,9 @@ class ImageOsDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "blobUri":
+        if key == "storageType":
+            suggest = "storage_type"
+        elif key == "blobUri":
             suggest = "blob_uri"
         elif key == "diskEncryptionSetId":
             suggest = "disk_encryption_set_id"
@@ -725,6 +752,7 @@ class ImageOsDisk(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 storage_type: str,
                  blob_uri: Optional[str] = None,
                  caching: Optional[str] = None,
                  disk_encryption_set_id: Optional[str] = None,
@@ -733,14 +761,16 @@ class ImageOsDisk(dict):
                  os_type: Optional[str] = None,
                  size_gb: Optional[int] = None):
         """
+        :param str storage_type: The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         :param str blob_uri: Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
         :param str caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
-        :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
+        :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
         :param str managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image.
         :param str os_state: Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
         :param str os_type: Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
         :param int size_gb: Specifies the size of the image to be created. Changing this forces a new resource to be created.
         """
+        pulumi.set(__self__, "storage_type", storage_type)
         if blob_uri is not None:
             pulumi.set(__self__, "blob_uri", blob_uri)
         if caching is not None:
@@ -755,6 +785,14 @@ class ImageOsDisk(dict):
             pulumi.set(__self__, "os_type", os_type)
         if size_gb is not None:
             pulumi.set(__self__, "size_gb", size_gb)
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> str:
+        """
+        The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter(name="blobUri")
@@ -776,7 +814,7 @@ class ImageOsDisk(dict):
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[str]:
         """
-        The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
+        The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -2034,10 +2072,10 @@ class LinuxVirtualMachineScaleSetGalleryApplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "packageReferenceId":
-            suggest = "package_reference_id"
-        elif key == "configurationReferenceBlobUri":
-            suggest = "configuration_reference_blob_uri"
+        if key == "versionId":
+            suggest = "version_id"
+        elif key == "configurationBlobUri":
+            suggest = "configuration_blob_uri"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetGalleryApplication. Access the value via the '{suggest}' property getter instead.")
@@ -2051,32 +2089,39 @@ class LinuxVirtualMachineScaleSetGalleryApplication(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 package_reference_id: str,
-                 configuration_reference_blob_uri: Optional[str] = None,
+                 version_id: str,
+                 configuration_blob_uri: Optional[str] = None,
                  order: Optional[int] = None,
                  tag: Optional[str] = None):
         """
+        :param str version_id: Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+        :param str configuration_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
         :param int order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        :param str tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "package_reference_id", package_reference_id)
-        if configuration_reference_blob_uri is not None:
-            pulumi.set(__self__, "configuration_reference_blob_uri", configuration_reference_blob_uri)
+        pulumi.set(__self__, "version_id", version_id)
+        if configuration_blob_uri is not None:
+            pulumi.set(__self__, "configuration_blob_uri", configuration_blob_uri)
         if order is not None:
             pulumi.set(__self__, "order", order)
         if tag is not None:
             pulumi.set(__self__, "tag", tag)
 
     @property
-    @pulumi.getter(name="packageReferenceId")
-    @_utilities.deprecated("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
-    def package_reference_id(self) -> str:
-        return pulumi.get(self, "package_reference_id")
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> str:
+        """
+        Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "version_id")
 
     @property
-    @pulumi.getter(name="configurationReferenceBlobUri")
-    @_utilities.deprecated("""`configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0""")
-    def configuration_reference_blob_uri(self) -> Optional[str]:
-        return pulumi.get(self, "configuration_reference_blob_uri")
+    @pulumi.getter(name="configurationBlobUri")
+    def configuration_blob_uri(self) -> Optional[str]:
+        """
+        Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "configuration_blob_uri")
 
     @property
     @pulumi.getter
@@ -2089,6 +2134,9 @@ class LinuxVirtualMachineScaleSetGalleryApplication(dict):
     @property
     @pulumi.getter
     def tag(self) -> Optional[str]:
+        """
+        Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "tag")
 
 
@@ -3135,40 +3183,6 @@ class LinuxVirtualMachineScaleSetSpotRestore(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetTerminateNotification(dict):
-    def __init__(__self__, *,
-                 enabled: bool,
-                 timeout: Optional[str] = None):
-        """
-        :param bool enabled: Should the terminate notification be enabled on this Virtual Machine Scale Set?
-        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-               
-               > **Note:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        Should the terminate notification be enabled on this Virtual Machine Scale Set?
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def timeout(self) -> Optional[str]:
-        """
-        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-
-        > **Note:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-        """
-        return pulumi.get(self, "timeout")
-
-
-@pulumi.output_type
 class LinuxVirtualMachineScaleSetTerminationNotification(dict):
     def __init__(__self__, *,
                  enabled: bool,
@@ -3377,33 +3391,23 @@ class ManagedDiskEncryptionSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 disk_encryption_key: Optional['outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey'] = None,
-                 enabled: Optional[bool] = None,
+                 disk_encryption_key: 'outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey',
                  key_encryption_key: Optional['outputs.ManagedDiskEncryptionSettingsKeyEncryptionKey'] = None):
         """
         :param 'ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs' disk_encryption_key: A `disk_encryption_key` block as defined above.
         :param 'ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs' key_encryption_key: A `key_encryption_key` block as defined below.
         """
-        if disk_encryption_key is not None:
-            pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
 
     @property
     @pulumi.getter(name="diskEncryptionKey")
-    def disk_encryption_key(self) -> Optional['outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey']:
+    def disk_encryption_key(self) -> 'outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey':
         """
         A `disk_encryption_key` block as defined above.
         """
         return pulumi.get(self, "disk_encryption_key")
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`""")
-    def enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -8067,33 +8071,23 @@ class SnapshotEncryptionSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 disk_encryption_key: Optional['outputs.SnapshotEncryptionSettingsDiskEncryptionKey'] = None,
-                 enabled: Optional[bool] = None,
+                 disk_encryption_key: 'outputs.SnapshotEncryptionSettingsDiskEncryptionKey',
                  key_encryption_key: Optional['outputs.SnapshotEncryptionSettingsKeyEncryptionKey'] = None):
         """
         :param 'SnapshotEncryptionSettingsDiskEncryptionKeyArgs' disk_encryption_key: A `disk_encryption_key` block as defined below.
         :param 'SnapshotEncryptionSettingsKeyEncryptionKeyArgs' key_encryption_key: A `key_encryption_key` block as defined below.
         """
-        if disk_encryption_key is not None:
-            pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
 
     @property
     @pulumi.getter(name="diskEncryptionKey")
-    def disk_encryption_key(self) -> Optional['outputs.SnapshotEncryptionSettingsDiskEncryptionKey']:
+    def disk_encryption_key(self) -> 'outputs.SnapshotEncryptionSettingsDiskEncryptionKey':
         """
         A `disk_encryption_key` block as defined below.
         """
         return pulumi.get(self, "disk_encryption_key")
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`""")
-    def enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -10547,10 +10541,10 @@ class WindowsVirtualMachineScaleSetGalleryApplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "packageReferenceId":
-            suggest = "package_reference_id"
-        elif key == "configurationReferenceBlobUri":
-            suggest = "configuration_reference_blob_uri"
+        if key == "versionId":
+            suggest = "version_id"
+        elif key == "configurationBlobUri":
+            suggest = "configuration_blob_uri"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetGalleryApplication. Access the value via the '{suggest}' property getter instead.")
@@ -10564,32 +10558,39 @@ class WindowsVirtualMachineScaleSetGalleryApplication(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 package_reference_id: str,
-                 configuration_reference_blob_uri: Optional[str] = None,
+                 version_id: str,
+                 configuration_blob_uri: Optional[str] = None,
                  order: Optional[int] = None,
                  tag: Optional[str] = None):
         """
+        :param str version_id: Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+        :param str configuration_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
         :param int order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        :param str tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "package_reference_id", package_reference_id)
-        if configuration_reference_blob_uri is not None:
-            pulumi.set(__self__, "configuration_reference_blob_uri", configuration_reference_blob_uri)
+        pulumi.set(__self__, "version_id", version_id)
+        if configuration_blob_uri is not None:
+            pulumi.set(__self__, "configuration_blob_uri", configuration_blob_uri)
         if order is not None:
             pulumi.set(__self__, "order", order)
         if tag is not None:
             pulumi.set(__self__, "tag", tag)
 
     @property
-    @pulumi.getter(name="packageReferenceId")
-    @_utilities.deprecated("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
-    def package_reference_id(self) -> str:
-        return pulumi.get(self, "package_reference_id")
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> str:
+        """
+        Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "version_id")
 
     @property
-    @pulumi.getter(name="configurationReferenceBlobUri")
-    @_utilities.deprecated("""`configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0""")
-    def configuration_reference_blob_uri(self) -> Optional[str]:
-        return pulumi.get(self, "configuration_reference_blob_uri")
+    @pulumi.getter(name="configurationBlobUri")
+    def configuration_blob_uri(self) -> Optional[str]:
+        """
+        Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "configuration_blob_uri")
 
     @property
     @pulumi.getter
@@ -10602,6 +10603,9 @@ class WindowsVirtualMachineScaleSetGalleryApplication(dict):
     @property
     @pulumi.getter
     def tag(self) -> Optional[str]:
+        """
+        Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "tag")
 
 
@@ -11650,40 +11654,6 @@ class WindowsVirtualMachineScaleSetSpotRestore(dict):
     def timeout(self) -> Optional[str]:
         """
         The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "timeout")
-
-
-@pulumi.output_type
-class WindowsVirtualMachineScaleSetTerminateNotification(dict):
-    def __init__(__self__, *,
-                 enabled: bool,
-                 timeout: Optional[str] = None):
-        """
-        :param bool enabled: Should the terminate notification be enabled on this Virtual Machine Scale Set?
-        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-               
-               > For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        Should the terminate notification be enabled on this Virtual Machine Scale Set?
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def timeout(self) -> Optional[str]:
-        """
-        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
-
-        > For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
         """
         return pulumi.get(self, "timeout")
 

@@ -33,6 +33,11 @@ public final class GetKubernetesClusterServiceMeshProfile {
      * 
      */
     private String mode;
+    /**
+     * @return List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. Learn More.
+     * 
+     */
+    private List<String> revisions;
 
     private GetKubernetesClusterServiceMeshProfile() {}
     /**
@@ -63,6 +68,13 @@ public final class GetKubernetesClusterServiceMeshProfile {
     public String mode() {
         return this.mode;
     }
+    /**
+     * @return List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. Learn More.
+     * 
+     */
+    public List<String> revisions() {
+        return this.revisions;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -77,6 +89,7 @@ public final class GetKubernetesClusterServiceMeshProfile {
         private Boolean externalIngressGatewayEnabled;
         private Boolean internalIngressGatewayEnabled;
         private String mode;
+        private List<String> revisions;
         public Builder() {}
         public Builder(GetKubernetesClusterServiceMeshProfile defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,6 +97,7 @@ public final class GetKubernetesClusterServiceMeshProfile {
     	      this.externalIngressGatewayEnabled = defaults.externalIngressGatewayEnabled;
     	      this.internalIngressGatewayEnabled = defaults.internalIngressGatewayEnabled;
     	      this.mode = defaults.mode;
+    	      this.revisions = defaults.revisions;
         }
 
         @CustomType.Setter
@@ -121,12 +135,24 @@ public final class GetKubernetesClusterServiceMeshProfile {
             this.mode = mode;
             return this;
         }
+        @CustomType.Setter
+        public Builder revisions(List<String> revisions) {
+            if (revisions == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterServiceMeshProfile", "revisions");
+            }
+            this.revisions = revisions;
+            return this;
+        }
+        public Builder revisions(String... revisions) {
+            return revisions(List.of(revisions));
+        }
         public GetKubernetesClusterServiceMeshProfile build() {
             final var _resultValue = new GetKubernetesClusterServiceMeshProfile();
             _resultValue.certificateAuthorities = certificateAuthorities;
             _resultValue.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
             _resultValue.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
             _resultValue.mode = mode;
+            _resultValue.revisions = revisions;
             return _resultValue;
         }
     }

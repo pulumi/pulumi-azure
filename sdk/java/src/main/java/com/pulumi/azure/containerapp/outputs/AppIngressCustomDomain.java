@@ -4,7 +4,6 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -13,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppIngressCustomDomain {
     /**
-     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+     * @return The Binding type.
      * 
      */
     private @Nullable String certificateBindingType;
@@ -21,16 +20,16 @@ public final class AppIngressCustomDomain {
      * @return The ID of the Container App Environment Certificate.
      * 
      */
-    private String certificateId;
+    private @Nullable String certificateId;
     /**
-     * @return The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+     * @return The name for this Container App. Changing this forces a new resource to be created.
      * 
      */
-    private String name;
+    private @Nullable String name;
 
     private AppIngressCustomDomain() {}
     /**
-     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+     * @return The Binding type.
      * 
      */
     public Optional<String> certificateBindingType() {
@@ -40,15 +39,15 @@ public final class AppIngressCustomDomain {
      * @return The ID of the Container App Environment Certificate.
      * 
      */
-    public String certificateId() {
-        return this.certificateId;
+    public Optional<String> certificateId() {
+        return Optional.ofNullable(this.certificateId);
     }
     /**
-     * @return The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+     * @return The name for this Container App. Changing this forces a new resource to be created.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -61,8 +60,8 @@ public final class AppIngressCustomDomain {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateBindingType;
-        private String certificateId;
-        private String name;
+        private @Nullable String certificateId;
+        private @Nullable String name;
         public Builder() {}
         public Builder(AppIngressCustomDomain defaults) {
     	      Objects.requireNonNull(defaults);
@@ -78,18 +77,14 @@ public final class AppIngressCustomDomain {
             return this;
         }
         @CustomType.Setter
-        public Builder certificateId(String certificateId) {
-            if (certificateId == null) {
-              throw new MissingRequiredPropertyException("AppIngressCustomDomain", "certificateId");
-            }
+        public Builder certificateId(@Nullable String certificateId) {
+
             this.certificateId = certificateId;
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("AppIngressCustomDomain", "name");
-            }
+        public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

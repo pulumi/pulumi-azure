@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -2427,10 +2427,6 @@ type GroupContainer struct {
 	CpuLimit *float64 `pulumi:"cpuLimit"`
 	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Deprecated: The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-	Gpu *GroupContainerGpu `pulumi:"gpu"`
-	// Deprecated: The `gpuLimit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-	GpuLimit *GroupContainerGpuLimit `pulumi:"gpuLimit"`
 	// The container image name. Changing this forces a new resource to be created.
 	Image string `pulumi:"image"`
 	// The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
@@ -2473,10 +2469,6 @@ type GroupContainerArgs struct {
 	CpuLimit pulumi.Float64PtrInput `pulumi:"cpuLimit"`
 	// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	// Deprecated: The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-	Gpu GroupContainerGpuPtrInput `pulumi:"gpu"`
-	// Deprecated: The `gpuLimit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-	GpuLimit GroupContainerGpuLimitPtrInput `pulumi:"gpuLimit"`
 	// The container image name. Changing this forces a new resource to be created.
 	Image pulumi.StringInput `pulumi:"image"`
 	// The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
@@ -2570,16 +2562,6 @@ func (o GroupContainerOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GroupContainer) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-func (o GroupContainerOutput) Gpu() GroupContainerGpuPtrOutput {
-	return o.ApplyT(func(v GroupContainer) *GroupContainerGpu { return v.Gpu }).(GroupContainerGpuPtrOutput)
-}
-
-// Deprecated: The `gpuLimit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-func (o GroupContainerOutput) GpuLimit() GroupContainerGpuLimitPtrOutput {
-	return o.ApplyT(func(v GroupContainer) *GroupContainerGpuLimit { return v.GpuLimit }).(GroupContainerGpuLimitPtrOutput)
-}
-
 // The container image name. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupContainer) string { return v.Image }).(pulumi.StringOutput)
@@ -2648,310 +2630,6 @@ func (o GroupContainerArrayOutput) Index(i pulumi.IntInput) GroupContainerOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainer {
 		return vs[0].([]GroupContainer)[vs[1].(int)]
 	}).(GroupContainerOutput)
-}
-
-type GroupContainerGpu struct {
-	Count *int `pulumi:"count"`
-	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-	Sku *string `pulumi:"sku"`
-}
-
-// GroupContainerGpuInput is an input type that accepts GroupContainerGpuArgs and GroupContainerGpuOutput values.
-// You can construct a concrete instance of `GroupContainerGpuInput` via:
-//
-//	GroupContainerGpuArgs{...}
-type GroupContainerGpuInput interface {
-	pulumi.Input
-
-	ToGroupContainerGpuOutput() GroupContainerGpuOutput
-	ToGroupContainerGpuOutputWithContext(context.Context) GroupContainerGpuOutput
-}
-
-type GroupContainerGpuArgs struct {
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-}
-
-func (GroupContainerGpuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupContainerGpu)(nil)).Elem()
-}
-
-func (i GroupContainerGpuArgs) ToGroupContainerGpuOutput() GroupContainerGpuOutput {
-	return i.ToGroupContainerGpuOutputWithContext(context.Background())
-}
-
-func (i GroupContainerGpuArgs) ToGroupContainerGpuOutputWithContext(ctx context.Context) GroupContainerGpuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuOutput)
-}
-
-func (i GroupContainerGpuArgs) ToGroupContainerGpuPtrOutput() GroupContainerGpuPtrOutput {
-	return i.ToGroupContainerGpuPtrOutputWithContext(context.Background())
-}
-
-func (i GroupContainerGpuArgs) ToGroupContainerGpuPtrOutputWithContext(ctx context.Context) GroupContainerGpuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuOutput).ToGroupContainerGpuPtrOutputWithContext(ctx)
-}
-
-// GroupContainerGpuPtrInput is an input type that accepts GroupContainerGpuArgs, GroupContainerGpuPtr and GroupContainerGpuPtrOutput values.
-// You can construct a concrete instance of `GroupContainerGpuPtrInput` via:
-//
-//	        GroupContainerGpuArgs{...}
-//
-//	or:
-//
-//	        nil
-type GroupContainerGpuPtrInput interface {
-	pulumi.Input
-
-	ToGroupContainerGpuPtrOutput() GroupContainerGpuPtrOutput
-	ToGroupContainerGpuPtrOutputWithContext(context.Context) GroupContainerGpuPtrOutput
-}
-
-type groupContainerGpuPtrType GroupContainerGpuArgs
-
-func GroupContainerGpuPtr(v *GroupContainerGpuArgs) GroupContainerGpuPtrInput {
-	return (*groupContainerGpuPtrType)(v)
-}
-
-func (*groupContainerGpuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupContainerGpu)(nil)).Elem()
-}
-
-func (i *groupContainerGpuPtrType) ToGroupContainerGpuPtrOutput() GroupContainerGpuPtrOutput {
-	return i.ToGroupContainerGpuPtrOutputWithContext(context.Background())
-}
-
-func (i *groupContainerGpuPtrType) ToGroupContainerGpuPtrOutputWithContext(ctx context.Context) GroupContainerGpuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuPtrOutput)
-}
-
-type GroupContainerGpuOutput struct{ *pulumi.OutputState }
-
-func (GroupContainerGpuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupContainerGpu)(nil)).Elem()
-}
-
-func (o GroupContainerGpuOutput) ToGroupContainerGpuOutput() GroupContainerGpuOutput {
-	return o
-}
-
-func (o GroupContainerGpuOutput) ToGroupContainerGpuOutputWithContext(ctx context.Context) GroupContainerGpuOutput {
-	return o
-}
-
-func (o GroupContainerGpuOutput) ToGroupContainerGpuPtrOutput() GroupContainerGpuPtrOutput {
-	return o.ToGroupContainerGpuPtrOutputWithContext(context.Background())
-}
-
-func (o GroupContainerGpuOutput) ToGroupContainerGpuPtrOutputWithContext(ctx context.Context) GroupContainerGpuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupContainerGpu) *GroupContainerGpu {
-		return &v
-	}).(GroupContainerGpuPtrOutput)
-}
-
-func (o GroupContainerGpuOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GroupContainerGpu) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-func (o GroupContainerGpuOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupContainerGpu) *string { return v.Sku }).(pulumi.StringPtrOutput)
-}
-
-type GroupContainerGpuPtrOutput struct{ *pulumi.OutputState }
-
-func (GroupContainerGpuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupContainerGpu)(nil)).Elem()
-}
-
-func (o GroupContainerGpuPtrOutput) ToGroupContainerGpuPtrOutput() GroupContainerGpuPtrOutput {
-	return o
-}
-
-func (o GroupContainerGpuPtrOutput) ToGroupContainerGpuPtrOutputWithContext(ctx context.Context) GroupContainerGpuPtrOutput {
-	return o
-}
-
-func (o GroupContainerGpuPtrOutput) Elem() GroupContainerGpuOutput {
-	return o.ApplyT(func(v *GroupContainerGpu) GroupContainerGpu {
-		if v != nil {
-			return *v
-		}
-		var ret GroupContainerGpu
-		return ret
-	}).(GroupContainerGpuOutput)
-}
-
-func (o GroupContainerGpuPtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GroupContainerGpu) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Count
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-func (o GroupContainerGpuPtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupContainerGpu) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Sku
-	}).(pulumi.StringPtrOutput)
-}
-
-type GroupContainerGpuLimit struct {
-	Count *int `pulumi:"count"`
-	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-	Sku *string `pulumi:"sku"`
-}
-
-// GroupContainerGpuLimitInput is an input type that accepts GroupContainerGpuLimitArgs and GroupContainerGpuLimitOutput values.
-// You can construct a concrete instance of `GroupContainerGpuLimitInput` via:
-//
-//	GroupContainerGpuLimitArgs{...}
-type GroupContainerGpuLimitInput interface {
-	pulumi.Input
-
-	ToGroupContainerGpuLimitOutput() GroupContainerGpuLimitOutput
-	ToGroupContainerGpuLimitOutputWithContext(context.Context) GroupContainerGpuLimitOutput
-}
-
-type GroupContainerGpuLimitArgs struct {
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-}
-
-func (GroupContainerGpuLimitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupContainerGpuLimit)(nil)).Elem()
-}
-
-func (i GroupContainerGpuLimitArgs) ToGroupContainerGpuLimitOutput() GroupContainerGpuLimitOutput {
-	return i.ToGroupContainerGpuLimitOutputWithContext(context.Background())
-}
-
-func (i GroupContainerGpuLimitArgs) ToGroupContainerGpuLimitOutputWithContext(ctx context.Context) GroupContainerGpuLimitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuLimitOutput)
-}
-
-func (i GroupContainerGpuLimitArgs) ToGroupContainerGpuLimitPtrOutput() GroupContainerGpuLimitPtrOutput {
-	return i.ToGroupContainerGpuLimitPtrOutputWithContext(context.Background())
-}
-
-func (i GroupContainerGpuLimitArgs) ToGroupContainerGpuLimitPtrOutputWithContext(ctx context.Context) GroupContainerGpuLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuLimitOutput).ToGroupContainerGpuLimitPtrOutputWithContext(ctx)
-}
-
-// GroupContainerGpuLimitPtrInput is an input type that accepts GroupContainerGpuLimitArgs, GroupContainerGpuLimitPtr and GroupContainerGpuLimitPtrOutput values.
-// You can construct a concrete instance of `GroupContainerGpuLimitPtrInput` via:
-//
-//	        GroupContainerGpuLimitArgs{...}
-//
-//	or:
-//
-//	        nil
-type GroupContainerGpuLimitPtrInput interface {
-	pulumi.Input
-
-	ToGroupContainerGpuLimitPtrOutput() GroupContainerGpuLimitPtrOutput
-	ToGroupContainerGpuLimitPtrOutputWithContext(context.Context) GroupContainerGpuLimitPtrOutput
-}
-
-type groupContainerGpuLimitPtrType GroupContainerGpuLimitArgs
-
-func GroupContainerGpuLimitPtr(v *GroupContainerGpuLimitArgs) GroupContainerGpuLimitPtrInput {
-	return (*groupContainerGpuLimitPtrType)(v)
-}
-
-func (*groupContainerGpuLimitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupContainerGpuLimit)(nil)).Elem()
-}
-
-func (i *groupContainerGpuLimitPtrType) ToGroupContainerGpuLimitPtrOutput() GroupContainerGpuLimitPtrOutput {
-	return i.ToGroupContainerGpuLimitPtrOutputWithContext(context.Background())
-}
-
-func (i *groupContainerGpuLimitPtrType) ToGroupContainerGpuLimitPtrOutputWithContext(ctx context.Context) GroupContainerGpuLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerGpuLimitPtrOutput)
-}
-
-type GroupContainerGpuLimitOutput struct{ *pulumi.OutputState }
-
-func (GroupContainerGpuLimitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupContainerGpuLimit)(nil)).Elem()
-}
-
-func (o GroupContainerGpuLimitOutput) ToGroupContainerGpuLimitOutput() GroupContainerGpuLimitOutput {
-	return o
-}
-
-func (o GroupContainerGpuLimitOutput) ToGroupContainerGpuLimitOutputWithContext(ctx context.Context) GroupContainerGpuLimitOutput {
-	return o
-}
-
-func (o GroupContainerGpuLimitOutput) ToGroupContainerGpuLimitPtrOutput() GroupContainerGpuLimitPtrOutput {
-	return o.ToGroupContainerGpuLimitPtrOutputWithContext(context.Background())
-}
-
-func (o GroupContainerGpuLimitOutput) ToGroupContainerGpuLimitPtrOutputWithContext(ctx context.Context) GroupContainerGpuLimitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupContainerGpuLimit) *GroupContainerGpuLimit {
-		return &v
-	}).(GroupContainerGpuLimitPtrOutput)
-}
-
-func (o GroupContainerGpuLimitOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GroupContainerGpuLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-func (o GroupContainerGpuLimitOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupContainerGpuLimit) *string { return v.Sku }).(pulumi.StringPtrOutput)
-}
-
-type GroupContainerGpuLimitPtrOutput struct{ *pulumi.OutputState }
-
-func (GroupContainerGpuLimitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupContainerGpuLimit)(nil)).Elem()
-}
-
-func (o GroupContainerGpuLimitPtrOutput) ToGroupContainerGpuLimitPtrOutput() GroupContainerGpuLimitPtrOutput {
-	return o
-}
-
-func (o GroupContainerGpuLimitPtrOutput) ToGroupContainerGpuLimitPtrOutputWithContext(ctx context.Context) GroupContainerGpuLimitPtrOutput {
-	return o
-}
-
-func (o GroupContainerGpuLimitPtrOutput) Elem() GroupContainerGpuLimitOutput {
-	return o.ApplyT(func(v *GroupContainerGpuLimit) GroupContainerGpuLimit {
-		if v != nil {
-			return *v
-		}
-		var ret GroupContainerGpuLimit
-		return ret
-	}).(GroupContainerGpuLimitOutput)
-}
-
-func (o GroupContainerGpuLimitPtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GroupContainerGpuLimit) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Count
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-func (o GroupContainerGpuLimitPtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupContainerGpuLimit) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Sku
-	}).(pulumi.StringPtrOutput)
 }
 
 type GroupContainerLivenessProbe struct {
@@ -5870,7 +5548,7 @@ type KubernetesClusterAciConnectorLinux struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -5923,7 +5601,7 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -6047,7 +5725,7 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -6124,7 +5802,7 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -6279,16 +5957,6 @@ func (o KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput) Index(i 
 type KubernetesClusterApiServerAccessProfile struct {
 	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 	AuthorizedIpRanges []string `pulumi:"authorizedIpRanges"`
-	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-	//
-	// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
-	//
-	// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
-	//
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	SubnetId *string `pulumi:"subnetId"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	VnetIntegrationEnabled *bool `pulumi:"vnetIntegrationEnabled"`
 }
 
 // KubernetesClusterApiServerAccessProfileInput is an input type that accepts KubernetesClusterApiServerAccessProfileArgs and KubernetesClusterApiServerAccessProfileOutput values.
@@ -6305,16 +5973,6 @@ type KubernetesClusterApiServerAccessProfileInput interface {
 type KubernetesClusterApiServerAccessProfileArgs struct {
 	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 	AuthorizedIpRanges pulumi.StringArrayInput `pulumi:"authorizedIpRanges"`
-	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-	//
-	// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
-	//
-	// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
-	//
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	VnetIntegrationEnabled pulumi.BoolPtrInput `pulumi:"vnetIntegrationEnabled"`
 }
 
 func (KubernetesClusterApiServerAccessProfileArgs) ElementType() reflect.Type {
@@ -6399,22 +6057,6 @@ func (o KubernetesClusterApiServerAccessProfileOutput) AuthorizedIpRanges() pulu
 	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) []string { return v.AuthorizedIpRanges }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-//
-// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
-//
-// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
-//
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterApiServerAccessProfileOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterApiServerAccessProfileOutput) VnetIntegrationEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) *bool { return v.VnetIntegrationEnabled }).(pulumi.BoolPtrOutput)
-}
-
 type KubernetesClusterApiServerAccessProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterApiServerAccessProfilePtrOutput) ElementType() reflect.Type {
@@ -6447,32 +6089,6 @@ func (o KubernetesClusterApiServerAccessProfilePtrOutput) AuthorizedIpRanges() p
 		}
 		return v.AuthorizedIpRanges
 	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-//
-// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
-//
-// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
-//
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterApiServerAccessProfilePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterApiServerAccessProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterApiServerAccessProfilePtrOutput) VnetIntegrationEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterApiServerAccessProfile) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.VnetIntegrationEnabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type KubernetesClusterAutoScalerProfile struct {
@@ -6917,20 +6533,10 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithSystemPods() p
 }
 
 type KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl struct {
+	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 	AdminGroupObjectIds []string `pulumi:"adminGroupObjectIds"`
-	AzureRbacEnabled    *bool    `pulumi:"azureRbacEnabled"`
-	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-	ClientAppId *string `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
-	//
-	// > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
-	//
-	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.
-	Managed *bool `pulumi:"managed"`
-	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-	ServerAppId *string `pulumi:"serverAppId"`
-	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-	ServerAppSecret *string `pulumi:"serverAppSecret"`
+	// Is Role Based Access Control based on Azure AD enabled?
+	AzureRbacEnabled *bool `pulumi:"azureRbacEnabled"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId *string `pulumi:"tenantId"`
 }
@@ -6947,20 +6553,10 @@ type KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlInput interface 
 }
 
 type KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs struct {
+	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 	AdminGroupObjectIds pulumi.StringArrayInput `pulumi:"adminGroupObjectIds"`
-	AzureRbacEnabled    pulumi.BoolPtrInput     `pulumi:"azureRbacEnabled"`
-	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-	ClientAppId pulumi.StringPtrInput `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
-	//
-	// > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
-	//
-	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.
-	Managed pulumi.BoolPtrInput `pulumi:"managed"`
-	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-	ServerAppId pulumi.StringPtrInput `pulumi:"serverAppId"`
-	// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-	ServerAppSecret pulumi.StringPtrInput `pulumi:"serverAppSecret"`
+	// Is Role Based Access Control based on Azure AD enabled?
+	AzureRbacEnabled pulumi.BoolPtrInput `pulumi:"azureRbacEnabled"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
@@ -7042,38 +6638,16 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ToKub
 	}).(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput)
 }
 
+// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) []string {
 		return v.AdminGroupObjectIds
 	}).(pulumi.StringArrayOutput)
 }
 
+// Is Role Based Access Control based on Azure AD enabled?
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *bool { return v.AzureRbacEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ClientAppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string { return v.ClientAppId }).(pulumi.StringPtrOutput)
-}
-
-// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
-//
-// > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
-//
-// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.
-func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Managed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *bool { return v.Managed }).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ServerAppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string { return v.ServerAppId }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ServerAppSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string { return v.ServerAppSecret }).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
@@ -7105,6 +6679,7 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) El
 	}).(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput)
 }
 
+// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) []string {
 		if v == nil {
@@ -7114,6 +6689,7 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Ad
 	}).(pulumi.StringArrayOutput)
 }
 
+// Is Role Based Access Control based on Azure AD enabled?
 func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *bool {
 		if v == nil {
@@ -7121,50 +6697,6 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Az
 		}
 		return v.AzureRbacEnabled
 	}).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) ClientAppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientAppId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to `false`.
-//
-// > **Note:** The property `managed` is deprecated and will be defaulted to `true` in v4.0 of the AzureRM provider. Until the property is removed it must be specified with `true` for AKS-managed Entra Integration.
-//
-// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field must be supplied with the value `true` for AKS-managed Entra Integration, but will be removed and defaulted to `true` for the user in v4.0 of the AzureRM Provider.
-func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Managed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Managed
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) ServerAppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerAppId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: Azure AD Integration (legacy) (https://aka.ms/aks/aad-legacy) is deprecated and clusters can no longer be created with the Azure AD integration (legacy) enabled. This field will be removed in v4.0 of the AzureRM Provider.
-func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) ServerAppSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerAppSecret
-	}).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
@@ -7315,26 +6847,22 @@ func (o KubernetesClusterConfidentialComputingPtrOutput) SgxQuoteHelperEnabled()
 }
 
 type KubernetesClusterDefaultNodePool struct {
-	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	//
 	// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
 	//
 	// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
-	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
-	//
-	// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
-	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
-	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
+	AutoScalingEnabled *bool `pulumi:"autoScalingEnabled"`
+	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block. Changing this forces a new resource to be created.
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance *string `pulumi:"gpuInstance"`
+	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
+	//
+	// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+	HostEncryptionEnabled *bool `pulumi:"hostEncryptionEnabled"`
 	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
@@ -7345,10 +6873,8 @@ type KubernetesClusterDefaultNodePool struct {
 	LinuxOsConfig *KubernetesClusterDefaultNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
 	MaxCount      *int                                           `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
-	MaxPods *int `pulumi:"maxPods"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	MessageOfTheDay *string `pulumi:"messageOfTheDay"`
-	MinCount        *int    `pulumi:"minCount"`
+	MaxPods  *int `pulumi:"maxPods"`
+	MinCount *int `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool.
 	Name      string `pulumi:"name"`
 	NodeCount *int   `pulumi:"nodeCount"`
@@ -7356,10 +6882,10 @@ type KubernetesClusterDefaultNodePool struct {
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// A `nodeNetworkProfile` block as documented below.
 	NodeNetworkProfile *KubernetesClusterDefaultNodePoolNodeNetworkProfile `pulumi:"nodeNetworkProfile"`
-	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
+	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
-	// Deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool
-	NodeTaints []string `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporaryNameForRotation` must be specified when changing this property.
 	OnlyCriticalAddonsEnabled *bool `pulumi:"onlyCriticalAddonsEnabled"`
 	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -7386,7 +6912,7 @@ type KubernetesClusterDefaultNodePool struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
 	TemporaryNameForRotation *string `pulumi:"temporaryNameForRotation"`
-	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+	// The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
 	Type *string `pulumi:"type"`
@@ -7420,26 +6946,22 @@ type KubernetesClusterDefaultNodePoolInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolArgs struct {
-	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustEnabled pulumi.BoolPtrInput `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	//
 	// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
 	//
 	// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
-	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
-	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
-	//
-	// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
-	EnableHostEncryption pulumi.BoolPtrInput `pulumi:"enableHostEncryption"`
-	// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
-	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
+	AutoScalingEnabled pulumi.BoolPtrInput `pulumi:"autoScalingEnabled"`
+	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block. Changing this forces a new resource to be created.
 	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrInput `pulumi:"gpuInstance"`
+	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
+	//
+	// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+	HostEncryptionEnabled pulumi.BoolPtrInput `pulumi:"hostEncryptionEnabled"`
 	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
@@ -7450,10 +6972,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	LinuxOsConfig KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput `pulumi:"linuxOsConfig"`
 	MaxCount      pulumi.IntPtrInput                                    `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
-	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	MessageOfTheDay pulumi.StringPtrInput `pulumi:"messageOfTheDay"`
-	MinCount        pulumi.IntPtrInput    `pulumi:"minCount"`
+	MaxPods  pulumi.IntPtrInput `pulumi:"maxPods"`
+	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool.
 	Name      pulumi.StringInput `pulumi:"name"`
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
@@ -7461,10 +6981,10 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
 	// A `nodeNetworkProfile` block as documented below.
 	NodeNetworkProfile KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput `pulumi:"nodeNetworkProfile"`
-	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
+	NodePublicIpEnabled pulumi.BoolPtrInput `pulumi:"nodePublicIpEnabled"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrInput `pulumi:"nodePublicIpPrefixId"`
-	// Deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool
-	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporaryNameForRotation` must be specified when changing this property.
 	OnlyCriticalAddonsEnabled pulumi.BoolPtrInput `pulumi:"onlyCriticalAddonsEnabled"`
 	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -7491,7 +7011,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
 	TemporaryNameForRotation pulumi.StringPtrInput `pulumi:"temporaryNameForRotation"`
-	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+	// The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -7590,35 +7110,18 @@ func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePo
 	}).(KubernetesClusterDefaultNodePoolPtrOutput)
 }
 
-// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterDefaultNodePoolOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.CustomCaTrustEnabled }).(pulumi.BoolPtrOutput)
-}
-
 // Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 //
 // > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
 //
 // > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
-func (o KubernetesClusterDefaultNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
+func (o KubernetesClusterDefaultNodePoolOutput) AutoScalingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.AutoScalingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
-//
-// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
-func (o KubernetesClusterDefaultNodePoolOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableHostEncryption }).(pulumi.BoolPtrOutput)
-}
-
-// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
-func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
+// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
 
 // Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block. Changing this forces a new resource to be created.
@@ -7629,6 +7132,13 @@ func (o KubernetesClusterDefaultNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutp
 // Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) GpuInstance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.GpuInstance }).(pulumi.StringPtrOutput)
+}
+
+// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
+//
+// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+func (o KubernetesClusterDefaultNodePoolOutput) HostEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.HostEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -7664,11 +7174,6 @@ func (o KubernetesClusterDefaultNodePoolOutput) MaxPods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterDefaultNodePoolOutput) MessageOfTheDay() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.MessageOfTheDay }).(pulumi.StringPtrOutput)
-}
-
 func (o KubernetesClusterDefaultNodePoolOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
@@ -7694,14 +7199,14 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodeNetworkProfile() KubernetesC
 	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput)
 }
 
-// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
-func (o KubernetesClusterDefaultNodePoolOutput) NodePublicIpPrefixId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.NodePublicIpPrefixId }).(pulumi.StringPtrOutput)
+// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
+func (o KubernetesClusterDefaultNodePoolOutput) NodePublicIpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.NodePublicIpEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool
-func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) NodePublicIpPrefixId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.NodePublicIpPrefixId }).(pulumi.StringPtrOutput)
 }
 
 // Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporaryNameForRotation` must be specified when changing this property.
@@ -7763,7 +7268,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) TemporaryNameForRotation() pulum
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.TemporaryNameForRotation }).(pulumi.StringPtrOutput)
 }
 
-// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+// The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 //
 // > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
 func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringPtrOutput {
@@ -7830,6 +7335,20 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Elem() KubernetesClusterDefau
 	}).(KubernetesClusterDefaultNodePoolOutput)
 }
 
+// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+//
+// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+//
+// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) AutoScalingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
@@ -7838,52 +7357,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) CapacityReservationGroupId() 
 		}
 		return v.CapacityReservationGroupId
 	}).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterDefaultNodePoolPtrOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.CustomCaTrustEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-//
-// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-//
-// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
-func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableAutoScaling
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
-//
-// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
-func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableHostEncryption
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
-func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableNodePublicIp
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block. Changing this forces a new resource to be created.
@@ -7904,6 +7377,18 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) GpuInstance() pulumi.StringPt
 		}
 		return v.GpuInstance
 	}).(pulumi.StringPtrOutput)
+}
+
+// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
+//
+// > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) HostEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HostEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -7965,16 +7450,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxPods() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterDefaultNodePoolPtrOutput) MessageOfTheDay() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MessageOfTheDay
-	}).(pulumi.StringPtrOutput)
-}
-
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *int {
 		if v == nil {
@@ -8023,7 +7498,17 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeNetworkProfile() Kubernet
 	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput)
 }
 
-// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) NodePublicIpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NodePublicIpEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodePublicIpPrefixId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -8031,16 +7516,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodePublicIpPrefixId() pulumi
 		}
 		return v.NodePublicIpPrefixId
 	}).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool
-func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NodeTaints
-	}).(pulumi.StringArrayOutput)
 }
 
 // Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporaryNameForRotation` must be specified when changing this property.
@@ -8157,7 +7632,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) TemporaryNameForRotation() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+// The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
 //
 // > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Type() pulumi.StringPtrOutput {
@@ -12094,7 +11569,7 @@ func (o KubernetesClusterLinuxProfilePtrOutput) SshKey() KubernetesClusterLinuxP
 }
 
 type KubernetesClusterLinuxProfileSshKey struct {
-	// The Public SSH Key used to access the cluster.
+	// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
 	KeyData string `pulumi:"keyData"`
 }
 
@@ -12110,7 +11585,7 @@ type KubernetesClusterLinuxProfileSshKeyInput interface {
 }
 
 type KubernetesClusterLinuxProfileSshKeyArgs struct {
-	// The Public SSH Key used to access the cluster.
+	// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
 }
 
@@ -12191,7 +11666,7 @@ func (o KubernetesClusterLinuxProfileSshKeyOutput) ToKubernetesClusterLinuxProfi
 	}).(KubernetesClusterLinuxProfileSshKeyPtrOutput)
 }
 
-// The Public SSH Key used to access the cluster.
+// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
 func (o KubernetesClusterLinuxProfileSshKeyOutput) KeyData() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
 }
@@ -12220,7 +11695,7 @@ func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) Elem() KubernetesClusterLi
 	}).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
 
-// The Public SSH Key used to access the cluster.
+// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
 func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) KeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterLinuxProfileSshKey) *string {
 		if v == nil {
@@ -13742,14 +13217,6 @@ func (o KubernetesClusterMonitorMetricsPtrOutput) LabelsAllowed() pulumi.StringP
 type KubernetesClusterNetworkProfile struct {
 	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
-	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-	//
-	// > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
-	// Deprecated: This property has been superseded by the property `networkDataPlane` and will be removed in v4.0 of the AzureRM provider.
-	EbpfDataPlane *string `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	//
 	// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
@@ -13767,8 +13234,6 @@ type KubernetesClusterNetworkProfile struct {
 	// > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 	//
 	// > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 	NetworkDataPlane *string `pulumi:"networkDataPlane"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	//
@@ -13790,14 +13255,6 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-	//
-	// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
-	OutboundIpAddressIds []string `pulumi:"outboundIpAddressIds"`
-	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-	//
-	// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
-	OutboundIpPrefixIds []string `pulumi:"outboundIpPrefixIds"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
@@ -13826,14 +13283,6 @@ type KubernetesClusterNetworkProfileInput interface {
 type KubernetesClusterNetworkProfileArgs struct {
 	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp pulumi.StringPtrInput `pulumi:"dnsServiceIp"`
-	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-	//
-	// > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-	//
-	// Deprecated: `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
-	// Deprecated: This property has been superseded by the property `networkDataPlane` and will be removed in v4.0 of the AzureRM provider.
-	EbpfDataPlane pulumi.StringPtrInput `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	//
 	// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
@@ -13851,8 +13300,6 @@ type KubernetesClusterNetworkProfileArgs struct {
 	// > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 	//
 	// > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 	NetworkDataPlane pulumi.StringPtrInput `pulumi:"networkDataPlane"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	//
@@ -13874,14 +13321,6 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
-	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-	//
-	// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
-	OutboundIpAddressIds pulumi.StringArrayInput `pulumi:"outboundIpAddressIds"`
-	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-	//
-	// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
-	OutboundIpPrefixIds pulumi.StringArrayInput `pulumi:"outboundIpPrefixIds"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
@@ -13978,20 +13417,6 @@ func (o KubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringPtrOu
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
 }
 
-// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-//
-// > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-//
-// Deprecated: `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property has been superseded by the property `networkDataPlane` and will be removed in v4.0 of the AzureRM provider.
-func (o KubernetesClusterNetworkProfileOutput) EbpfDataPlane() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.EbpfDataPlane }).(pulumi.StringPtrOutput)
-}
-
 // Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 //
 // ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
@@ -14025,8 +13450,6 @@ func (o KubernetesClusterNetworkProfileOutput) NatGatewayProfile() KubernetesClu
 // > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 //
 // > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 func (o KubernetesClusterNetworkProfileOutput) NetworkDataPlane() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkDataPlane }).(pulumi.StringPtrOutput)
 }
@@ -14061,20 +13484,6 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.String
 // > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-//
-// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
-func (o KubernetesClusterNetworkProfileOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
-}
-
-// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-//
-// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
-func (o KubernetesClusterNetworkProfileOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
 }
 
 // The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
@@ -14138,30 +13547,6 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DnsServiceIp() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-//
-// > **Note:** `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-//
-// Deprecated: `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DockerBridgeCidr
-	}).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property has been superseded by the property `networkDataPlane` and will be removed in v4.0 of the AzureRM provider.
-func (o KubernetesClusterNetworkProfilePtrOutput) EbpfDataPlane() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EbpfDataPlane
-	}).(pulumi.StringPtrOutput)
-}
-
 // Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 //
 // ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
@@ -14211,8 +13596,6 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NatGatewayProfile() Kubernetes
 // > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
 //
 // > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkDataPlane() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -14272,30 +13655,6 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringP
 		}
 		return v.NetworkPolicy
 	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-//
-// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
-func (o KubernetesClusterNetworkProfilePtrOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
-		if v == nil {
-			return nil
-		}
-		return v.OutboundIpAddressIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-//
-// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
-func (o KubernetesClusterNetworkProfilePtrOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
-		if v == nil {
-			return nil
-		}
-		return v.OutboundIpPrefixIds
-	}).(pulumi.StringArrayOutput)
 }
 
 // The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
@@ -16898,6 +16257,10 @@ type KubernetesClusterServiceMeshProfile struct {
 	InternalIngressGatewayEnabled *bool `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh. Possible value is `Istio`.
 	Mode string `pulumi:"mode"`
+	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+	//
+	// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+	Revisions []string `pulumi:"revisions"`
 }
 
 // KubernetesClusterServiceMeshProfileInput is an input type that accepts KubernetesClusterServiceMeshProfileArgs and KubernetesClusterServiceMeshProfileOutput values.
@@ -16922,6 +16285,10 @@ type KubernetesClusterServiceMeshProfileArgs struct {
 	InternalIngressGatewayEnabled pulumi.BoolPtrInput `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh. Possible value is `Istio`.
 	Mode pulumi.StringInput `pulumi:"mode"`
+	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+	//
+	// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+	Revisions pulumi.StringArrayInput `pulumi:"revisions"`
 }
 
 func (KubernetesClusterServiceMeshProfileArgs) ElementType() reflect.Type {
@@ -17025,6 +16392,13 @@ func (o KubernetesClusterServiceMeshProfileOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) string { return v.Mode }).(pulumi.StringOutput)
 }
 
+// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+//
+// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+func (o KubernetesClusterServiceMeshProfileOutput) Revisions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) []string { return v.Revisions }).(pulumi.StringArrayOutput)
+}
+
 type KubernetesClusterServiceMeshProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterServiceMeshProfilePtrOutput) ElementType() reflect.Type {
@@ -17089,6 +16463,18 @@ func (o KubernetesClusterServiceMeshProfilePtrOutput) Mode() pulumi.StringPtrOut
 		}
 		return &v.Mode
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+//
+// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+func (o KubernetesClusterServiceMeshProfilePtrOutput) Revisions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Revisions
+	}).(pulumi.StringArrayOutput)
 }
 
 type KubernetesClusterServiceMeshProfileCertificateAuthority struct {
@@ -17473,8 +16859,6 @@ type KubernetesClusterStorageProfile struct {
 	BlobDriverEnabled *bool `pulumi:"blobDriverEnabled"`
 	// Is the Disk CSI driver enabled? Defaults to `true`.
 	DiskDriverEnabled *bool `pulumi:"diskDriverEnabled"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	DiskDriverVersion *string `pulumi:"diskDriverVersion"`
 	// Is the File CSI driver enabled? Defaults to `true`.
 	FileDriverEnabled *bool `pulumi:"fileDriverEnabled"`
 	// Is the Snapshot Controller enabled? Defaults to `true`.
@@ -17497,8 +16881,6 @@ type KubernetesClusterStorageProfileArgs struct {
 	BlobDriverEnabled pulumi.BoolPtrInput `pulumi:"blobDriverEnabled"`
 	// Is the Disk CSI driver enabled? Defaults to `true`.
 	DiskDriverEnabled pulumi.BoolPtrInput `pulumi:"diskDriverEnabled"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	DiskDriverVersion pulumi.StringPtrInput `pulumi:"diskDriverVersion"`
 	// Is the File CSI driver enabled? Defaults to `true`.
 	FileDriverEnabled pulumi.BoolPtrInput `pulumi:"fileDriverEnabled"`
 	// Is the Snapshot Controller enabled? Defaults to `true`.
@@ -17592,11 +16974,6 @@ func (o KubernetesClusterStorageProfileOutput) DiskDriverEnabled() pulumi.BoolPt
 	return o.ApplyT(func(v KubernetesClusterStorageProfile) *bool { return v.DiskDriverEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterStorageProfileOutput) DiskDriverVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterStorageProfile) *string { return v.DiskDriverVersion }).(pulumi.StringPtrOutput)
-}
-
 // Is the File CSI driver enabled? Defaults to `true`.
 func (o KubernetesClusterStorageProfileOutput) FileDriverEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterStorageProfile) *bool { return v.FileDriverEnabled }).(pulumi.BoolPtrOutput)
@@ -17651,16 +17028,6 @@ func (o KubernetesClusterStorageProfilePtrOutput) DiskDriverEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterStorageProfilePtrOutput) DiskDriverVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterStorageProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiskDriverVersion
-	}).(pulumi.StringPtrOutput)
-}
-
 // Is the File CSI driver enabled? Defaults to `true`.
 func (o KubernetesClusterStorageProfilePtrOutput) FileDriverEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterStorageProfile) *bool {
@@ -17682,8 +17049,6 @@ func (o KubernetesClusterStorageProfilePtrOutput) SnapshotControllerEnabled() pu
 }
 
 type KubernetesClusterWebAppRouting struct {
-	// Deprecated: `dnsZoneId` has been deprecated in favor of `dnsZoneIds` and will be removed in v4.0 of the AzureRM Provider.
-	DnsZoneId *string `pulumi:"dnsZoneId"`
 	// Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
 	DnsZoneIds []string `pulumi:"dnsZoneIds"`
 	// A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
@@ -17702,8 +17067,6 @@ type KubernetesClusterWebAppRoutingInput interface {
 }
 
 type KubernetesClusterWebAppRoutingArgs struct {
-	// Deprecated: `dnsZoneId` has been deprecated in favor of `dnsZoneIds` and will be removed in v4.0 of the AzureRM Provider.
-	DnsZoneId pulumi.StringPtrInput `pulumi:"dnsZoneId"`
 	// Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
 	DnsZoneIds pulumi.StringArrayInput `pulumi:"dnsZoneIds"`
 	// A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
@@ -17787,11 +17150,6 @@ func (o KubernetesClusterWebAppRoutingOutput) ToKubernetesClusterWebAppRoutingPt
 	}).(KubernetesClusterWebAppRoutingPtrOutput)
 }
 
-// Deprecated: `dnsZoneId` has been deprecated in favor of `dnsZoneIds` and will be removed in v4.0 of the AzureRM Provider.
-func (o KubernetesClusterWebAppRoutingOutput) DnsZoneId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterWebAppRouting) *string { return v.DnsZoneId }).(pulumi.StringPtrOutput)
-}
-
 // Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
 func (o KubernetesClusterWebAppRoutingOutput) DnsZoneIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterWebAppRouting) []string { return v.DnsZoneIds }).(pulumi.StringArrayOutput)
@@ -17826,16 +17184,6 @@ func (o KubernetesClusterWebAppRoutingPtrOutput) Elem() KubernetesClusterWebAppR
 		var ret KubernetesClusterWebAppRouting
 		return ret
 	}).(KubernetesClusterWebAppRoutingOutput)
-}
-
-// Deprecated: `dnsZoneId` has been deprecated in favor of `dnsZoneIds` and will be removed in v4.0 of the AzureRM Provider.
-func (o KubernetesClusterWebAppRoutingPtrOutput) DnsZoneId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterWebAppRouting) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DnsZoneId
-	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
@@ -17975,7 +17323,7 @@ func (o KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrayOutput) Index(i 
 
 type KubernetesClusterWindowsProfile struct {
 	// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
-	AdminPassword *string `pulumi:"adminPassword"`
+	AdminPassword string `pulumi:"adminPassword"`
 	// The Admin Username for Windows VMs. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
 	// A `gmsa` block as defined below.
@@ -17997,7 +17345,7 @@ type KubernetesClusterWindowsProfileInput interface {
 
 type KubernetesClusterWindowsProfileArgs struct {
 	// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
-	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
+	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
 	// The Admin Username for Windows VMs. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 	// A `gmsa` block as defined below.
@@ -18084,8 +17432,8 @@ func (o KubernetesClusterWindowsProfileOutput) ToKubernetesClusterWindowsProfile
 }
 
 // The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
-func (o KubernetesClusterWindowsProfileOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+func (o KubernetesClusterWindowsProfileOutput) AdminPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterWindowsProfile) string { return v.AdminPassword }).(pulumi.StringOutput)
 }
 
 // The Admin Username for Windows VMs. Changing this forces a new resource to be created.
@@ -18133,7 +17481,7 @@ func (o KubernetesClusterWindowsProfilePtrOutput) AdminPassword() pulumi.StringP
 		if v == nil {
 			return nil
 		}
-		return v.AdminPassword
+		return &v.AdminPassword
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -18334,14 +17682,10 @@ func (o KubernetesClusterWindowsProfileGmsaPtrOutput) RootDomain() pulumi.String
 type KubernetesClusterWorkloadAutoscalerProfile struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
 	KedaEnabled *bool `pulumi:"kedaEnabled"`
-	// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-	VerticalPodAutoscalerControlledValues *string `pulumi:"verticalPodAutoscalerControlledValues"`
 	// Specifies whether Vertical Pod Autoscaler should be enabled.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	VerticalPodAutoscalerEnabled *bool `pulumi:"verticalPodAutoscalerEnabled"`
-	// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-	VerticalPodAutoscalerUpdateMode *string `pulumi:"verticalPodAutoscalerUpdateMode"`
 }
 
 // KubernetesClusterWorkloadAutoscalerProfileInput is an input type that accepts KubernetesClusterWorkloadAutoscalerProfileArgs and KubernetesClusterWorkloadAutoscalerProfileOutput values.
@@ -18358,14 +17702,10 @@ type KubernetesClusterWorkloadAutoscalerProfileInput interface {
 type KubernetesClusterWorkloadAutoscalerProfileArgs struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
 	KedaEnabled pulumi.BoolPtrInput `pulumi:"kedaEnabled"`
-	// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-	VerticalPodAutoscalerControlledValues pulumi.StringPtrInput `pulumi:"verticalPodAutoscalerControlledValues"`
 	// Specifies whether Vertical Pod Autoscaler should be enabled.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	VerticalPodAutoscalerEnabled pulumi.BoolPtrInput `pulumi:"verticalPodAutoscalerEnabled"`
-	// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-	VerticalPodAutoscalerUpdateMode pulumi.StringPtrInput `pulumi:"verticalPodAutoscalerUpdateMode"`
 }
 
 func (KubernetesClusterWorkloadAutoscalerProfileArgs) ElementType() reflect.Type {
@@ -18450,23 +17790,11 @@ func (o KubernetesClusterWorkloadAutoscalerProfileOutput) KedaEnabled() pulumi.B
 	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *bool { return v.KedaEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerControlledValues() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *string {
-		return v.VerticalPodAutoscalerControlledValues
-	}).(pulumi.StringPtrOutput)
-}
-
 // Specifies whether Vertical Pod Autoscaler should be enabled.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *bool { return v.VerticalPodAutoscalerEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-func (o KubernetesClusterWorkloadAutoscalerProfileOutput) VerticalPodAutoscalerUpdateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *string { return v.VerticalPodAutoscalerUpdateMode }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterWorkloadAutoscalerProfilePtrOutput struct{ *pulumi.OutputState }
@@ -18503,16 +17831,6 @@ func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) KedaEnabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscalerControlledValues() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VerticalPodAutoscalerControlledValues
-	}).(pulumi.StringPtrOutput)
-}
-
 // Specifies whether Vertical Pod Autoscaler should be enabled.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
@@ -18523,16 +17841,6 @@ func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscal
 		}
 		return v.VerticalPodAutoscalerEnabled
 	}).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated: The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) VerticalPodAutoscalerUpdateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VerticalPodAutoscalerUpdateMode
-	}).(pulumi.StringPtrOutput)
 }
 
 type KubernetesFleetManagerHubProfile struct {
@@ -18699,8 +18007,6 @@ func (o KubernetesFleetManagerHubProfilePtrOutput) KubernetesVersion() pulumi.St
 }
 
 type RegistryEncryption struct {
-	// Deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
-	Enabled *bool `pulumi:"enabled"`
 	// The client ID of the managed identity associated with the encryption key.
 	IdentityClientId string `pulumi:"identityClientId"`
 	// The ID of the Key Vault Key.
@@ -18719,8 +18025,6 @@ type RegistryEncryptionInput interface {
 }
 
 type RegistryEncryptionArgs struct {
-	// Deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The client ID of the managed identity associated with the encryption key.
 	IdentityClientId pulumi.StringInput `pulumi:"identityClientId"`
 	// The ID of the Key Vault Key.
@@ -18804,11 +18108,6 @@ func (o RegistryEncryptionOutput) ToRegistryEncryptionPtrOutputWithContext(ctx c
 	}).(RegistryEncryptionPtrOutput)
 }
 
-// Deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
-func (o RegistryEncryptionOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RegistryEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
 // The client ID of the managed identity associated with the encryption key.
 func (o RegistryEncryptionOutput) IdentityClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryEncryption) string { return v.IdentityClientId }).(pulumi.StringOutput)
@@ -18841,16 +18140,6 @@ func (o RegistryEncryptionPtrOutput) Elem() RegistryEncryptionOutput {
 		var ret RegistryEncryption
 		return ret
 	}).(RegistryEncryptionOutput)
-}
-
-// Deprecated: The property `enabled` is deprecated and will be removed in v4.0 of the AzureRM provider.
-func (o RegistryEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RegistryEncryption) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 // The client ID of the managed identity associated with the encryption key.
@@ -19214,8 +18503,6 @@ type RegistryNetworkRuleSet struct {
 	//
 	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	IpRules []RegistryNetworkRuleSetIpRule `pulumi:"ipRules"`
-	// Deprecated: The property `virtualNetwork` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-	VirtualNetworks []RegistryNetworkRuleSetVirtualNetwork `pulumi:"virtualNetworks"`
 }
 
 // RegistryNetworkRuleSetInput is an input type that accepts RegistryNetworkRuleSetArgs and RegistryNetworkRuleSetOutput values.
@@ -19238,8 +18525,6 @@ type RegistryNetworkRuleSetArgs struct {
 	//
 	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	IpRules RegistryNetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
-	// Deprecated: The property `virtualNetwork` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-	VirtualNetworks RegistryNetworkRuleSetVirtualNetworkArrayInput `pulumi:"virtualNetworks"`
 }
 
 func (RegistryNetworkRuleSetArgs) ElementType() reflect.Type {
@@ -19333,11 +18618,6 @@ func (o RegistryNetworkRuleSetOutput) IpRules() RegistryNetworkRuleSetIpRuleArra
 	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
 
-// Deprecated: The property `virtualNetwork` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-func (o RegistryNetworkRuleSetOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
-	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
-}
-
 type RegistryNetworkRuleSetPtrOutput struct{ *pulumi.OutputState }
 
 func (RegistryNetworkRuleSetPtrOutput) ElementType() reflect.Type {
@@ -19384,16 +18664,6 @@ func (o RegistryNetworkRuleSetPtrOutput) IpRules() RegistryNetworkRuleSetIpRuleA
 		}
 		return v.IpRules
 	}).(RegistryNetworkRuleSetIpRuleArrayOutput)
-}
-
-// Deprecated: The property `virtualNetwork` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-func (o RegistryNetworkRuleSetPtrOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
-	return o.ApplyT(func(v *RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworks
-	}).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
 }
 
 type RegistryNetworkRuleSetIpRule struct {
@@ -19500,265 +18770,6 @@ func (o RegistryNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) Regist
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryNetworkRuleSetIpRule {
 		return vs[0].([]RegistryNetworkRuleSetIpRule)[vs[1].(int)]
 	}).(RegistryNetworkRuleSetIpRuleOutput)
-}
-
-type RegistryNetworkRuleSetVirtualNetwork struct {
-	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-	Action   string `pulumi:"action"`
-	SubnetId string `pulumi:"subnetId"`
-}
-
-// RegistryNetworkRuleSetVirtualNetworkInput is an input type that accepts RegistryNetworkRuleSetVirtualNetworkArgs and RegistryNetworkRuleSetVirtualNetworkOutput values.
-// You can construct a concrete instance of `RegistryNetworkRuleSetVirtualNetworkInput` via:
-//
-//	RegistryNetworkRuleSetVirtualNetworkArgs{...}
-type RegistryNetworkRuleSetVirtualNetworkInput interface {
-	pulumi.Input
-
-	ToRegistryNetworkRuleSetVirtualNetworkOutput() RegistryNetworkRuleSetVirtualNetworkOutput
-	ToRegistryNetworkRuleSetVirtualNetworkOutputWithContext(context.Context) RegistryNetworkRuleSetVirtualNetworkOutput
-}
-
-type RegistryNetworkRuleSetVirtualNetworkArgs struct {
-	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-	Action   pulumi.StringInput `pulumi:"action"`
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
-}
-
-func (RegistryNetworkRuleSetVirtualNetworkArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryNetworkRuleSetVirtualNetwork)(nil)).Elem()
-}
-
-func (i RegistryNetworkRuleSetVirtualNetworkArgs) ToRegistryNetworkRuleSetVirtualNetworkOutput() RegistryNetworkRuleSetVirtualNetworkOutput {
-	return i.ToRegistryNetworkRuleSetVirtualNetworkOutputWithContext(context.Background())
-}
-
-func (i RegistryNetworkRuleSetVirtualNetworkArgs) ToRegistryNetworkRuleSetVirtualNetworkOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworkOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetVirtualNetworkOutput)
-}
-
-// RegistryNetworkRuleSetVirtualNetworkArrayInput is an input type that accepts RegistryNetworkRuleSetVirtualNetworkArray and RegistryNetworkRuleSetVirtualNetworkArrayOutput values.
-// You can construct a concrete instance of `RegistryNetworkRuleSetVirtualNetworkArrayInput` via:
-//
-//	RegistryNetworkRuleSetVirtualNetworkArray{ RegistryNetworkRuleSetVirtualNetworkArgs{...} }
-type RegistryNetworkRuleSetVirtualNetworkArrayInput interface {
-	pulumi.Input
-
-	ToRegistryNetworkRuleSetVirtualNetworkArrayOutput() RegistryNetworkRuleSetVirtualNetworkArrayOutput
-	ToRegistryNetworkRuleSetVirtualNetworkArrayOutputWithContext(context.Context) RegistryNetworkRuleSetVirtualNetworkArrayOutput
-}
-
-type RegistryNetworkRuleSetVirtualNetworkArray []RegistryNetworkRuleSetVirtualNetworkInput
-
-func (RegistryNetworkRuleSetVirtualNetworkArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryNetworkRuleSetVirtualNetwork)(nil)).Elem()
-}
-
-func (i RegistryNetworkRuleSetVirtualNetworkArray) ToRegistryNetworkRuleSetVirtualNetworkArrayOutput() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
-	return i.ToRegistryNetworkRuleSetVirtualNetworkArrayOutputWithContext(context.Background())
-}
-
-func (i RegistryNetworkRuleSetVirtualNetworkArray) ToRegistryNetworkRuleSetVirtualNetworkArrayOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworkArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
-}
-
-type RegistryNetworkRuleSetVirtualNetworkOutput struct{ *pulumi.OutputState }
-
-func (RegistryNetworkRuleSetVirtualNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryNetworkRuleSetVirtualNetwork)(nil)).Elem()
-}
-
-func (o RegistryNetworkRuleSetVirtualNetworkOutput) ToRegistryNetworkRuleSetVirtualNetworkOutput() RegistryNetworkRuleSetVirtualNetworkOutput {
-	return o
-}
-
-func (o RegistryNetworkRuleSetVirtualNetworkOutput) ToRegistryNetworkRuleSetVirtualNetworkOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworkOutput {
-	return o
-}
-
-// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-func (o RegistryNetworkRuleSetVirtualNetworkOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryNetworkRuleSetVirtualNetwork) string { return v.Action }).(pulumi.StringOutput)
-}
-
-func (o RegistryNetworkRuleSetVirtualNetworkOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryNetworkRuleSetVirtualNetwork) string { return v.SubnetId }).(pulumi.StringOutput)
-}
-
-type RegistryNetworkRuleSetVirtualNetworkArrayOutput struct{ *pulumi.OutputState }
-
-func (RegistryNetworkRuleSetVirtualNetworkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryNetworkRuleSetVirtualNetwork)(nil)).Elem()
-}
-
-func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) ToRegistryNetworkRuleSetVirtualNetworkArrayOutput() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
-	return o
-}
-
-func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) ToRegistryNetworkRuleSetVirtualNetworkArrayOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworkArrayOutput {
-	return o
-}
-
-func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) Index(i pulumi.IntInput) RegistryNetworkRuleSetVirtualNetworkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryNetworkRuleSetVirtualNetwork {
-		return vs[0].([]RegistryNetworkRuleSetVirtualNetwork)[vs[1].(int)]
-	}).(RegistryNetworkRuleSetVirtualNetworkOutput)
-}
-
-type RegistryRetentionPolicy struct {
-	// The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
-	Days *int `pulumi:"days"`
-	// Boolean value that indicates whether the policy is enabled.
-	Enabled *bool `pulumi:"enabled"`
-}
-
-// RegistryRetentionPolicyInput is an input type that accepts RegistryRetentionPolicyArgs and RegistryRetentionPolicyOutput values.
-// You can construct a concrete instance of `RegistryRetentionPolicyInput` via:
-//
-//	RegistryRetentionPolicyArgs{...}
-type RegistryRetentionPolicyInput interface {
-	pulumi.Input
-
-	ToRegistryRetentionPolicyOutput() RegistryRetentionPolicyOutput
-	ToRegistryRetentionPolicyOutputWithContext(context.Context) RegistryRetentionPolicyOutput
-}
-
-type RegistryRetentionPolicyArgs struct {
-	// The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Boolean value that indicates whether the policy is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (RegistryRetentionPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryRetentionPolicy)(nil)).Elem()
-}
-
-func (i RegistryRetentionPolicyArgs) ToRegistryRetentionPolicyOutput() RegistryRetentionPolicyOutput {
-	return i.ToRegistryRetentionPolicyOutputWithContext(context.Background())
-}
-
-func (i RegistryRetentionPolicyArgs) ToRegistryRetentionPolicyOutputWithContext(ctx context.Context) RegistryRetentionPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryRetentionPolicyOutput)
-}
-
-func (i RegistryRetentionPolicyArgs) ToRegistryRetentionPolicyPtrOutput() RegistryRetentionPolicyPtrOutput {
-	return i.ToRegistryRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i RegistryRetentionPolicyArgs) ToRegistryRetentionPolicyPtrOutputWithContext(ctx context.Context) RegistryRetentionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryRetentionPolicyOutput).ToRegistryRetentionPolicyPtrOutputWithContext(ctx)
-}
-
-// RegistryRetentionPolicyPtrInput is an input type that accepts RegistryRetentionPolicyArgs, RegistryRetentionPolicyPtr and RegistryRetentionPolicyPtrOutput values.
-// You can construct a concrete instance of `RegistryRetentionPolicyPtrInput` via:
-//
-//	        RegistryRetentionPolicyArgs{...}
-//
-//	or:
-//
-//	        nil
-type RegistryRetentionPolicyPtrInput interface {
-	pulumi.Input
-
-	ToRegistryRetentionPolicyPtrOutput() RegistryRetentionPolicyPtrOutput
-	ToRegistryRetentionPolicyPtrOutputWithContext(context.Context) RegistryRetentionPolicyPtrOutput
-}
-
-type registryRetentionPolicyPtrType RegistryRetentionPolicyArgs
-
-func RegistryRetentionPolicyPtr(v *RegistryRetentionPolicyArgs) RegistryRetentionPolicyPtrInput {
-	return (*registryRetentionPolicyPtrType)(v)
-}
-
-func (*registryRetentionPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryRetentionPolicy)(nil)).Elem()
-}
-
-func (i *registryRetentionPolicyPtrType) ToRegistryRetentionPolicyPtrOutput() RegistryRetentionPolicyPtrOutput {
-	return i.ToRegistryRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *registryRetentionPolicyPtrType) ToRegistryRetentionPolicyPtrOutputWithContext(ctx context.Context) RegistryRetentionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryRetentionPolicyPtrOutput)
-}
-
-type RegistryRetentionPolicyOutput struct{ *pulumi.OutputState }
-
-func (RegistryRetentionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryRetentionPolicy)(nil)).Elem()
-}
-
-func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyOutput() RegistryRetentionPolicyOutput {
-	return o
-}
-
-func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyOutputWithContext(ctx context.Context) RegistryRetentionPolicyOutput {
-	return o
-}
-
-func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyPtrOutput() RegistryRetentionPolicyPtrOutput {
-	return o.ToRegistryRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyPtrOutputWithContext(ctx context.Context) RegistryRetentionPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRetentionPolicy) *RegistryRetentionPolicy {
-		return &v
-	}).(RegistryRetentionPolicyPtrOutput)
-}
-
-// The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
-func (o RegistryRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RegistryRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
-}
-
-// Boolean value that indicates whether the policy is enabled.
-func (o RegistryRetentionPolicyOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RegistryRetentionPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type RegistryRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (RegistryRetentionPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryRetentionPolicy)(nil)).Elem()
-}
-
-func (o RegistryRetentionPolicyPtrOutput) ToRegistryRetentionPolicyPtrOutput() RegistryRetentionPolicyPtrOutput {
-	return o
-}
-
-func (o RegistryRetentionPolicyPtrOutput) ToRegistryRetentionPolicyPtrOutputWithContext(ctx context.Context) RegistryRetentionPolicyPtrOutput {
-	return o
-}
-
-func (o RegistryRetentionPolicyPtrOutput) Elem() RegistryRetentionPolicyOutput {
-	return o.ApplyT(func(v *RegistryRetentionPolicy) RegistryRetentionPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret RegistryRetentionPolicy
-		return ret
-	}).(RegistryRetentionPolicyOutput)
-}
-
-// The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
-func (o RegistryRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RegistryRetentionPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Days
-	}).(pulumi.IntPtrOutput)
-}
-
-// Boolean value that indicates whether the policy is enabled.
-func (o RegistryRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RegistryRetentionPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type RegistryTaskAgentSetting struct {
@@ -22137,143 +21148,6 @@ func (o RegistryTaskTimerTriggerArrayOutput) Index(i pulumi.IntInput) RegistryTa
 	}).(RegistryTaskTimerTriggerOutput)
 }
 
-type RegistryTrustPolicy struct {
-	// Boolean value that indicates whether the policy is enabled.
-	Enabled *bool `pulumi:"enabled"`
-}
-
-// RegistryTrustPolicyInput is an input type that accepts RegistryTrustPolicyArgs and RegistryTrustPolicyOutput values.
-// You can construct a concrete instance of `RegistryTrustPolicyInput` via:
-//
-//	RegistryTrustPolicyArgs{...}
-type RegistryTrustPolicyInput interface {
-	pulumi.Input
-
-	ToRegistryTrustPolicyOutput() RegistryTrustPolicyOutput
-	ToRegistryTrustPolicyOutputWithContext(context.Context) RegistryTrustPolicyOutput
-}
-
-type RegistryTrustPolicyArgs struct {
-	// Boolean value that indicates whether the policy is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (RegistryTrustPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryTrustPolicy)(nil)).Elem()
-}
-
-func (i RegistryTrustPolicyArgs) ToRegistryTrustPolicyOutput() RegistryTrustPolicyOutput {
-	return i.ToRegistryTrustPolicyOutputWithContext(context.Background())
-}
-
-func (i RegistryTrustPolicyArgs) ToRegistryTrustPolicyOutputWithContext(ctx context.Context) RegistryTrustPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryTrustPolicyOutput)
-}
-
-func (i RegistryTrustPolicyArgs) ToRegistryTrustPolicyPtrOutput() RegistryTrustPolicyPtrOutput {
-	return i.ToRegistryTrustPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i RegistryTrustPolicyArgs) ToRegistryTrustPolicyPtrOutputWithContext(ctx context.Context) RegistryTrustPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryTrustPolicyOutput).ToRegistryTrustPolicyPtrOutputWithContext(ctx)
-}
-
-// RegistryTrustPolicyPtrInput is an input type that accepts RegistryTrustPolicyArgs, RegistryTrustPolicyPtr and RegistryTrustPolicyPtrOutput values.
-// You can construct a concrete instance of `RegistryTrustPolicyPtrInput` via:
-//
-//	        RegistryTrustPolicyArgs{...}
-//
-//	or:
-//
-//	        nil
-type RegistryTrustPolicyPtrInput interface {
-	pulumi.Input
-
-	ToRegistryTrustPolicyPtrOutput() RegistryTrustPolicyPtrOutput
-	ToRegistryTrustPolicyPtrOutputWithContext(context.Context) RegistryTrustPolicyPtrOutput
-}
-
-type registryTrustPolicyPtrType RegistryTrustPolicyArgs
-
-func RegistryTrustPolicyPtr(v *RegistryTrustPolicyArgs) RegistryTrustPolicyPtrInput {
-	return (*registryTrustPolicyPtrType)(v)
-}
-
-func (*registryTrustPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryTrustPolicy)(nil)).Elem()
-}
-
-func (i *registryTrustPolicyPtrType) ToRegistryTrustPolicyPtrOutput() RegistryTrustPolicyPtrOutput {
-	return i.ToRegistryTrustPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *registryTrustPolicyPtrType) ToRegistryTrustPolicyPtrOutputWithContext(ctx context.Context) RegistryTrustPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryTrustPolicyPtrOutput)
-}
-
-type RegistryTrustPolicyOutput struct{ *pulumi.OutputState }
-
-func (RegistryTrustPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryTrustPolicy)(nil)).Elem()
-}
-
-func (o RegistryTrustPolicyOutput) ToRegistryTrustPolicyOutput() RegistryTrustPolicyOutput {
-	return o
-}
-
-func (o RegistryTrustPolicyOutput) ToRegistryTrustPolicyOutputWithContext(ctx context.Context) RegistryTrustPolicyOutput {
-	return o
-}
-
-func (o RegistryTrustPolicyOutput) ToRegistryTrustPolicyPtrOutput() RegistryTrustPolicyPtrOutput {
-	return o.ToRegistryTrustPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o RegistryTrustPolicyOutput) ToRegistryTrustPolicyPtrOutputWithContext(ctx context.Context) RegistryTrustPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTrustPolicy) *RegistryTrustPolicy {
-		return &v
-	}).(RegistryTrustPolicyPtrOutput)
-}
-
-// Boolean value that indicates whether the policy is enabled.
-func (o RegistryTrustPolicyOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RegistryTrustPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type RegistryTrustPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (RegistryTrustPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryTrustPolicy)(nil)).Elem()
-}
-
-func (o RegistryTrustPolicyPtrOutput) ToRegistryTrustPolicyPtrOutput() RegistryTrustPolicyPtrOutput {
-	return o
-}
-
-func (o RegistryTrustPolicyPtrOutput) ToRegistryTrustPolicyPtrOutputWithContext(ctx context.Context) RegistryTrustPolicyPtrOutput {
-	return o
-}
-
-func (o RegistryTrustPolicyPtrOutput) Elem() RegistryTrustPolicyOutput {
-	return o.ApplyT(func(v *RegistryTrustPolicy) RegistryTrustPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret RegistryTrustPolicy
-		return ret
-	}).(RegistryTrustPolicyOutput)
-}
-
-// Boolean value that indicates whether the policy is enabled.
-func (o RegistryTrustPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RegistryTrustPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
 type TokenPasswordPassword1 struct {
 	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry *string `pulumi:"expiry"`
@@ -22923,17 +21797,10 @@ func (o GetKubernetesClusterAciConnectorLinuxArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetKubernetesClusterAgentPoolProfile struct {
+	// If the auto-scaler is enabled.
 	AutoScalingEnabled bool `pulumi:"autoScalingEnabled"`
 	// The number of Agents (VMs) in the Pool.
 	Count int `pulumi:"count"`
-	// If the auto-scaler is enabled.
-	//
-	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `autoScalingEnabled` property.
-	EnableAutoScaling bool `pulumi:"enableAutoScaling"`
-	// If the Public IPs for the nodes in this Agent Pool are enabled.
-	//
-	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `nodePublicIpEnabled` property.
-	EnableNodePublicIp bool `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount int `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent.
@@ -22941,9 +21808,10 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	// Minimum number of nodes for auto-scaling
 	MinCount int `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
-	Name                string            `pulumi:"name"`
-	NodeLabels          map[string]string `pulumi:"nodeLabels"`
-	NodePublicIpEnabled bool              `pulumi:"nodePublicIpEnabled"`
+	Name       string            `pulumi:"name"`
+	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// If the Public IPs for the nodes in this Agent Pool are enabled.
+	NodePublicIpEnabled bool `pulumi:"nodePublicIpEnabled"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
 	NodePublicIpPrefixId string   `pulumi:"nodePublicIpPrefixId"`
 	NodeTaints           []string `pulumi:"nodeTaints"`
@@ -22979,17 +21847,10 @@ type GetKubernetesClusterAgentPoolProfileInput interface {
 }
 
 type GetKubernetesClusterAgentPoolProfileArgs struct {
+	// If the auto-scaler is enabled.
 	AutoScalingEnabled pulumi.BoolInput `pulumi:"autoScalingEnabled"`
 	// The number of Agents (VMs) in the Pool.
 	Count pulumi.IntInput `pulumi:"count"`
-	// If the auto-scaler is enabled.
-	//
-	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `autoScalingEnabled` property.
-	EnableAutoScaling pulumi.BoolInput `pulumi:"enableAutoScaling"`
-	// If the Public IPs for the nodes in this Agent Pool are enabled.
-	//
-	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `nodePublicIpEnabled` property.
-	EnableNodePublicIp pulumi.BoolInput `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntInput `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent.
@@ -22997,9 +21858,10 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	// Minimum number of nodes for auto-scaling
 	MinCount pulumi.IntInput `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
-	Name                pulumi.StringInput    `pulumi:"name"`
-	NodeLabels          pulumi.StringMapInput `pulumi:"nodeLabels"`
-	NodePublicIpEnabled pulumi.BoolInput      `pulumi:"nodePublicIpEnabled"`
+	Name       pulumi.StringInput    `pulumi:"name"`
+	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
+	// If the Public IPs for the nodes in this Agent Pool are enabled.
+	NodePublicIpEnabled pulumi.BoolInput `pulumi:"nodePublicIpEnabled"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
 	NodePublicIpPrefixId pulumi.StringInput      `pulumi:"nodePublicIpPrefixId"`
 	NodeTaints           pulumi.StringArrayInput `pulumi:"nodeTaints"`
@@ -23074,6 +21936,7 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) ToGetKubernetesClusterAgentP
 	return o
 }
 
+// If the auto-scaler is enabled.
 func (o GetKubernetesClusterAgentPoolProfileOutput) AutoScalingEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.AutoScalingEnabled }).(pulumi.BoolOutput)
 }
@@ -23081,20 +21944,6 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) AutoScalingEnabled() pulumi.
 // The number of Agents (VMs) in the Pool.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.Count }).(pulumi.IntOutput)
-}
-
-// If the auto-scaler is enabled.
-//
-// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `autoScalingEnabled` property.
-func (o GetKubernetesClusterAgentPoolProfileOutput) EnableAutoScaling() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableAutoScaling }).(pulumi.BoolOutput)
-}
-
-// If the Public IPs for the nodes in this Agent Pool are enabled.
-//
-// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `nodePublicIpEnabled` property.
-func (o GetKubernetesClusterAgentPoolProfileOutput) EnableNodePublicIp() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableNodePublicIp }).(pulumi.BoolOutput)
 }
 
 // Maximum number of nodes for auto-scaling
@@ -23121,6 +21970,7 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) NodeLabels() pulumi.StringMa
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
+// If the Public IPs for the nodes in this Agent Pool are enabled.
 func (o GetKubernetesClusterAgentPoolProfileOutput) NodePublicIpEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.NodePublicIpEnabled }).(pulumi.BoolOutput)
 }
@@ -23321,18 +22171,6 @@ type GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl struct {
 	AdminGroupObjectIds []string `pulumi:"adminGroupObjectIds"`
 	// Is Role Based Access Control based on Azure AD enabled?
 	AzureRbacEnabled bool `pulumi:"azureRbacEnabled"`
-	// The Client ID of an Azure Active Directory Application.
-	//
-	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-	ClientAppId string `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
-	//
-	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-	Managed bool `pulumi:"managed"`
-	// The Server ID of an Azure Active Directory Application.
-	//
-	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-	ServerAppId string `pulumi:"serverAppId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 	TenantId string `pulumi:"tenantId"`
 }
@@ -23353,18 +22191,6 @@ type GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs struct {
 	AdminGroupObjectIds pulumi.StringArrayInput `pulumi:"adminGroupObjectIds"`
 	// Is Role Based Access Control based on Azure AD enabled?
 	AzureRbacEnabled pulumi.BoolInput `pulumi:"azureRbacEnabled"`
-	// The Client ID of an Azure Active Directory Application.
-	//
-	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
-	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
-	//
-	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-	Managed pulumi.BoolInput `pulumi:"managed"`
-	// The Server ID of an Azure Active Directory Application.
-	//
-	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
@@ -23430,27 +22256,6 @@ func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Ad
 // Is Role Based Access Control based on Azure AD enabled?
 func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) AzureRbacEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) bool { return v.AzureRbacEnabled }).(pulumi.BoolOutput)
-}
-
-// The Client ID of an Azure Active Directory Application.
-//
-// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ClientAppId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) string { return v.ClientAppId }).(pulumi.StringOutput)
-}
-
-// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
-//
-// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Managed() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) bool { return v.Managed }).(pulumi.BoolOutput)
-}
-
-// The Server ID of an Azure Active Directory Application.
-//
-// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
-func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ServerAppId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
 // The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
@@ -25292,6 +24097,8 @@ type GetKubernetesClusterServiceMeshProfile struct {
 	InternalIngressGatewayEnabled bool `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh.
 	Mode string `pulumi:"mode"`
+	// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. Learn More.
+	Revisions []string `pulumi:"revisions"`
 }
 
 // GetKubernetesClusterServiceMeshProfileInput is an input type that accepts GetKubernetesClusterServiceMeshProfileArgs and GetKubernetesClusterServiceMeshProfileOutput values.
@@ -25314,6 +24121,8 @@ type GetKubernetesClusterServiceMeshProfileArgs struct {
 	InternalIngressGatewayEnabled pulumi.BoolInput `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh.
 	Mode pulumi.StringInput `pulumi:"mode"`
+	// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. Learn More.
+	Revisions pulumi.StringArrayInput `pulumi:"revisions"`
 }
 
 func (GetKubernetesClusterServiceMeshProfileArgs) ElementType() reflect.Type {
@@ -25387,6 +24196,11 @@ func (o GetKubernetesClusterServiceMeshProfileOutput) InternalIngressGatewayEnab
 // The mode of the service mesh.
 func (o GetKubernetesClusterServiceMeshProfileOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfile) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. Learn More.
+func (o GetKubernetesClusterServiceMeshProfileOutput) Revisions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfile) []string { return v.Revisions }).(pulumi.StringArrayOutput)
 }
 
 type GetKubernetesClusterServiceMeshProfileArrayOutput struct{ *pulumi.OutputState }
@@ -25646,8 +24460,6 @@ type GetKubernetesClusterStorageProfile struct {
 	BlobDriverEnabled bool `pulumi:"blobDriverEnabled"`
 	// Is the Disk CSI driver enabled?
 	DiskDriverEnabled bool `pulumi:"diskDriverEnabled"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	DiskDriverVersion string `pulumi:"diskDriverVersion"`
 	// Is the File CSI driver enabled?
 	FileDriverEnabled bool `pulumi:"fileDriverEnabled"`
 	// Is the Snapshot Controller enabled?
@@ -25670,8 +24482,6 @@ type GetKubernetesClusterStorageProfileArgs struct {
 	BlobDriverEnabled pulumi.BoolInput `pulumi:"blobDriverEnabled"`
 	// Is the Disk CSI driver enabled?
 	DiskDriverEnabled pulumi.BoolInput `pulumi:"diskDriverEnabled"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	DiskDriverVersion pulumi.StringInput `pulumi:"diskDriverVersion"`
 	// Is the File CSI driver enabled?
 	FileDriverEnabled pulumi.BoolInput `pulumi:"fileDriverEnabled"`
 	// Is the Snapshot Controller enabled?
@@ -25737,11 +24547,6 @@ func (o GetKubernetesClusterStorageProfileOutput) BlobDriverEnabled() pulumi.Boo
 // Is the Disk CSI driver enabled?
 func (o GetKubernetesClusterStorageProfileOutput) DiskDriverEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) bool { return v.DiskDriverEnabled }).(pulumi.BoolOutput)
-}
-
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o GetKubernetesClusterStorageProfileOutput) DiskDriverVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) string { return v.DiskDriverVersion }).(pulumi.StringOutput)
 }
 
 // Is the File CSI driver enabled?
@@ -25902,10 +24707,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationKustomizationArrayInput)(nil)).Elem(), FluxConfigurationKustomizationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerInput)(nil)).Elem(), GroupContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerArrayInput)(nil)).Elem(), GroupContainerArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerGpuInput)(nil)).Elem(), GroupContainerGpuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerGpuPtrInput)(nil)).Elem(), GroupContainerGpuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerGpuLimitInput)(nil)).Elem(), GroupContainerGpuLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerGpuLimitPtrInput)(nil)).Elem(), GroupContainerGpuLimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerLivenessProbeInput)(nil)).Elem(), GroupContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerLivenessProbePtrInput)(nil)).Elem(), GroupContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerLivenessProbeHttpGetInput)(nil)).Elem(), GroupContainerLivenessProbeHttpGetArgs{})
@@ -26068,10 +24869,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryNetworkRuleSetPtrInput)(nil)).Elem(), RegistryNetworkRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryNetworkRuleSetIpRuleInput)(nil)).Elem(), RegistryNetworkRuleSetIpRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryNetworkRuleSetIpRuleArrayInput)(nil)).Elem(), RegistryNetworkRuleSetIpRuleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryNetworkRuleSetVirtualNetworkInput)(nil)).Elem(), RegistryNetworkRuleSetVirtualNetworkArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryNetworkRuleSetVirtualNetworkArrayInput)(nil)).Elem(), RegistryNetworkRuleSetVirtualNetworkArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRetentionPolicyInput)(nil)).Elem(), RegistryRetentionPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRetentionPolicyPtrInput)(nil)).Elem(), RegistryRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskAgentSettingInput)(nil)).Elem(), RegistryTaskAgentSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskAgentSettingPtrInput)(nil)).Elem(), RegistryTaskAgentSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskBaseImageTriggerInput)(nil)).Elem(), RegistryTaskBaseImageTriggerArgs{})
@@ -26098,8 +24895,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskSourceTriggerAuthenticationPtrInput)(nil)).Elem(), RegistryTaskSourceTriggerAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskTimerTriggerInput)(nil)).Elem(), RegistryTaskTimerTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskTimerTriggerArrayInput)(nil)).Elem(), RegistryTaskTimerTriggerArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTrustPolicyInput)(nil)).Elem(), RegistryTrustPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTrustPolicyPtrInput)(nil)).Elem(), RegistryTrustPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordPassword1Input)(nil)).Elem(), TokenPasswordPassword1Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordPassword1PtrInput)(nil)).Elem(), TokenPasswordPassword1Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordPassword2Input)(nil)).Elem(), TokenPasswordPassword2Args{})
@@ -26186,10 +24981,6 @@ func init() {
 	pulumi.RegisterOutputType(FluxConfigurationKustomizationArrayOutput{})
 	pulumi.RegisterOutputType(GroupContainerOutput{})
 	pulumi.RegisterOutputType(GroupContainerArrayOutput{})
-	pulumi.RegisterOutputType(GroupContainerGpuOutput{})
-	pulumi.RegisterOutputType(GroupContainerGpuPtrOutput{})
-	pulumi.RegisterOutputType(GroupContainerGpuLimitOutput{})
-	pulumi.RegisterOutputType(GroupContainerGpuLimitPtrOutput{})
 	pulumi.RegisterOutputType(GroupContainerLivenessProbeOutput{})
 	pulumi.RegisterOutputType(GroupContainerLivenessProbePtrOutput{})
 	pulumi.RegisterOutputType(GroupContainerLivenessProbeHttpGetOutput{})
@@ -26352,10 +25143,6 @@ func init() {
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetIpRuleOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetIpRuleArrayOutput{})
-	pulumi.RegisterOutputType(RegistryNetworkRuleSetVirtualNetworkOutput{})
-	pulumi.RegisterOutputType(RegistryNetworkRuleSetVirtualNetworkArrayOutput{})
-	pulumi.RegisterOutputType(RegistryRetentionPolicyOutput{})
-	pulumi.RegisterOutputType(RegistryRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RegistryTaskAgentSettingOutput{})
 	pulumi.RegisterOutputType(RegistryTaskAgentSettingPtrOutput{})
 	pulumi.RegisterOutputType(RegistryTaskBaseImageTriggerOutput{})
@@ -26382,8 +25169,6 @@ func init() {
 	pulumi.RegisterOutputType(RegistryTaskSourceTriggerAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryTaskTimerTriggerOutput{})
 	pulumi.RegisterOutputType(RegistryTaskTimerTriggerArrayOutput{})
-	pulumi.RegisterOutputType(RegistryTrustPolicyOutput{})
-	pulumi.RegisterOutputType(RegistryTrustPolicyPtrOutput{})
 	pulumi.RegisterOutputType(TokenPasswordPassword1Output{})
 	pulumi.RegisterOutputType(TokenPasswordPassword1PtrOutput{})
 	pulumi.RegisterOutputType(TokenPasswordPassword2Output{})

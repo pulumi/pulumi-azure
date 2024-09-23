@@ -114,11 +114,11 @@ export class Rule extends pulumi.CustomResource {
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
      */
-    public readonly idleTimeoutInMinutes!: pulumi.Output<number>;
+    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
      * Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
      */
-    public readonly loadDistribution!: pulumi.Output<string>;
+    public readonly loadDistribution!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
      */

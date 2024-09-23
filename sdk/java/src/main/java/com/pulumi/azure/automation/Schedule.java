@@ -178,15 +178,15 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
      * 
      */
-    @Export(name="monthlyOccurrences", refs={List.class,ScheduleMonthlyOccurrence.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ScheduleMonthlyOccurrence>> monthlyOccurrences;
+    @Export(name="monthlyOccurrence", refs={ScheduleMonthlyOccurrence.class}, tree="[0]")
+    private Output</* @Nullable */ ScheduleMonthlyOccurrence> monthlyOccurrence;
 
     /**
      * @return One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
      * 
      */
-    public Output<Optional<List<ScheduleMonthlyOccurrence>>> monthlyOccurrences() {
-        return Codegen.optional(this.monthlyOccurrences);
+    public Output<Optional<ScheduleMonthlyOccurrence>> monthlyOccurrence() {
+        return Codegen.optional(this.monthlyOccurrence);
     }
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.

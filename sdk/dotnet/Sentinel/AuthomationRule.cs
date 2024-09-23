@@ -90,15 +90,7 @@ namespace Pulumi.Azure.Sentinel
         /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         /// </summary>
         [Output("conditionJson")]
-        public Output<string> ConditionJson { get; private set; } = null!;
-
-        /// <summary>
-        /// One or more `condition` blocks as defined below.
-        /// 
-        /// &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-        /// </summary>
-        [Output("conditions")]
-        public Output<ImmutableArray<Outputs.AuthomationRuleCondition>> Conditions { get; private set; } = null!;
+        public Output<string?> ConditionJson { get; private set; } = null!;
 
         /// <summary>
         /// The display name which should be used for this Sentinel Automation Rule.
@@ -226,21 +218,6 @@ namespace Pulumi.Azure.Sentinel
         [Input("conditionJson")]
         public Input<string>? ConditionJson { get; set; }
 
-        [Input("conditions")]
-        private InputList<Inputs.AuthomationRuleConditionArgs>? _conditions;
-
-        /// <summary>
-        /// One or more `condition` blocks as defined below.
-        /// 
-        /// &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-        /// </summary>
-        [Obsolete(@"This is deprecated in favor of `condition_json`")]
-        public InputList<Inputs.AuthomationRuleConditionArgs> Conditions
-        {
-            get => _conditions ?? (_conditions = new InputList<Inputs.AuthomationRuleConditionArgs>());
-            set => _conditions = value;
-        }
-
         /// <summary>
         /// The display name which should be used for this Sentinel Automation Rule.
         /// </summary>
@@ -328,21 +305,6 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("conditionJson")]
         public Input<string>? ConditionJson { get; set; }
-
-        [Input("conditions")]
-        private InputList<Inputs.AuthomationRuleConditionGetArgs>? _conditions;
-
-        /// <summary>
-        /// One or more `condition` blocks as defined below.
-        /// 
-        /// &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-        /// </summary>
-        [Obsolete(@"This is deprecated in favor of `condition_json`")]
-        public InputList<Inputs.AuthomationRuleConditionGetArgs> Conditions
-        {
-            get => _conditions ?? (_conditions = new InputList<Inputs.AuthomationRuleConditionGetArgs>());
-            set => _conditions = value;
-        }
 
         /// <summary>
         /// The display name which should be used for this Sentinel Automation Rule.

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,32 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator":
-		r = &ActiveDirectoryAdministrator{}
-	case "azure:mysql/configuration:Configuration":
-		r = &Configuration{}
-	case "azure:mysql/database:Database":
-		r = &Database{}
-	case "azure:mysql/firewallRule:FirewallRule":
-		r = &FirewallRule{}
 	case "azure:mysql/flexibleDatabase:FlexibleDatabase":
 		r = &FlexibleDatabase{}
 	case "azure:mysql/flexibleServer:FlexibleServer":
 		r = &FlexibleServer{}
-	case "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator":
-		r = &FlexibleServerActiveDirectoryAdministrator{}
 	case "azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory":
 		r = &FlexibleServerActiveDirectoryAdministratory{}
 	case "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration":
 		r = &FlexibleServerConfiguration{}
 	case "azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule":
 		r = &FlexibleServerFirewallRule{}
-	case "azure:mysql/server:Server":
-		r = &Server{}
-	case "azure:mysql/serverKey:ServerKey":
-		r = &ServerKey{}
-	case "azure:mysql/virtualNetworkRule:VirtualNetworkRule":
-		r = &VirtualNetworkRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -62,37 +46,12 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"azure",
-		"mysql/activeDirectoryAdministrator",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"mysql/configuration",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"mysql/database",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"mysql/firewallRule",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
 		"mysql/flexibleDatabase",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mysql/flexibleServer",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"mysql/flexibleServerActiveDirectoryAdministrator",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -108,21 +67,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mysql/flexibleServerFirewallRule",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"mysql/server",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"mysql/serverKey",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"mysql/virtualNetworkRule",
 		&module{version},
 	)
 }

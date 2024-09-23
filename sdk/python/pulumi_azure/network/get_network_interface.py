@@ -27,7 +27,7 @@ class GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
-    def __init__(__self__, accelerated_networking_enabled=None, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, id=None, internal_dns_name_label=None, ip_configurations=None, ip_forwarding_enabled=None, location=None, mac_address=None, name=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None):
+    def __init__(__self__, accelerated_networking_enabled=None, applied_dns_servers=None, dns_servers=None, id=None, internal_dns_name_label=None, ip_configurations=None, ip_forwarding_enabled=None, location=None, mac_address=None, name=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None):
         if accelerated_networking_enabled and not isinstance(accelerated_networking_enabled, bool):
             raise TypeError("Expected argument 'accelerated_networking_enabled' to be a bool")
         pulumi.set(__self__, "accelerated_networking_enabled", accelerated_networking_enabled)
@@ -37,12 +37,6 @@ class GetNetworkInterfaceResult:
         if dns_servers and not isinstance(dns_servers, list):
             raise TypeError("Expected argument 'dns_servers' to be a list")
         pulumi.set(__self__, "dns_servers", dns_servers)
-        if enable_accelerated_networking and not isinstance(enable_accelerated_networking, bool):
-            raise TypeError("Expected argument 'enable_accelerated_networking' to be a bool")
-        pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
-        if enable_ip_forwarding and not isinstance(enable_ip_forwarding, bool):
-            raise TypeError("Expected argument 'enable_ip_forwarding' to be a bool")
-        pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -106,18 +100,6 @@ class GetNetworkInterfaceResult:
         The list of DNS servers used by the specified Network Interface.
         """
         return pulumi.get(self, "dns_servers")
-
-    @property
-    @pulumi.getter(name="enableAcceleratedNetworking")
-    @_utilities.deprecated("""The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_accelerated_networking(self) -> bool:
-        return pulumi.get(self, "enable_accelerated_networking")
-
-    @property
-    @pulumi.getter(name="enableIpForwarding")
-    @_utilities.deprecated("""The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_ip_forwarding(self) -> bool:
-        return pulumi.get(self, "enable_ip_forwarding")
 
     @property
     @pulumi.getter
@@ -230,8 +212,6 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             accelerated_networking_enabled=self.accelerated_networking_enabled,
             applied_dns_servers=self.applied_dns_servers,
             dns_servers=self.dns_servers,
-            enable_accelerated_networking=self.enable_accelerated_networking,
-            enable_ip_forwarding=self.enable_ip_forwarding,
             id=self.id,
             internal_dns_name_label=self.internal_dns_name_label,
             ip_configurations=self.ip_configurations,
@@ -278,8 +258,6 @@ def get_network_interface(name: Optional[str] = None,
         accelerated_networking_enabled=pulumi.get(__ret__, 'accelerated_networking_enabled'),
         applied_dns_servers=pulumi.get(__ret__, 'applied_dns_servers'),
         dns_servers=pulumi.get(__ret__, 'dns_servers'),
-        enable_accelerated_networking=pulumi.get(__ret__, 'enable_accelerated_networking'),
-        enable_ip_forwarding=pulumi.get(__ret__, 'enable_ip_forwarding'),
         id=pulumi.get(__ret__, 'id'),
         internal_dns_name_label=pulumi.get(__ret__, 'internal_dns_name_label'),
         ip_configurations=pulumi.get(__ret__, 'ip_configurations'),

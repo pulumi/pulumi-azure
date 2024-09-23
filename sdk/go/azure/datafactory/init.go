@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,8 +57,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Factory{}
 	case "azure:datafactory/flowletDataFlow:FlowletDataFlow":
 		r = &FlowletDataFlow{}
-	case "azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged":
-		r = &IntegrationRuntimeManaged{}
 	case "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule":
 		r = &IntegrationRuntimeRule{}
 	case "azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted":
@@ -222,11 +220,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/flowletDataFlow",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"datafactory/integrationRuntimeManaged",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

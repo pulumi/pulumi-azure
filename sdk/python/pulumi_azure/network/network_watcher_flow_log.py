@@ -44,7 +44,7 @@ class NetworkWatcherFlowLogArgs:
         :param pulumi.Input[str] name: The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Watcher Flow Log.
         :param pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs'] traffic_analytics: A `traffic_analytics` block as documented below.
-        :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`.
+        :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "network_security_group_id", network_security_group_id)
@@ -187,7 +187,7 @@ class NetworkWatcherFlowLogArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
         """
-        The version (revision) of the flow log. Possible values are `1` and `2`.
+        The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         """
         return pulumi.get(self, "version")
 
@@ -222,7 +222,7 @@ class _NetworkWatcherFlowLogState:
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where flow logs are stored.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Watcher Flow Log.
         :param pulumi.Input['NetworkWatcherFlowLogTrafficAnalyticsArgs'] traffic_analytics: A `traffic_analytics` block as documented below.
-        :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`.
+        :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -371,7 +371,7 @@ class _NetworkWatcherFlowLogState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
         """
-        The version (revision) of the flow log. Possible values are `1` and `2`.
+        The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         """
         return pulumi.get(self, "version")
 
@@ -402,56 +402,6 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
         > **Note** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test = azure.network.NetworkSecurityGroup("test",
-            name="acctestnsg",
-            location=example.location,
-            resource_group_name=example.name)
-        test_network_watcher = azure.network.NetworkWatcher("test",
-            name="acctestnw",
-            location=example.location,
-            resource_group_name=example.name)
-        test_account = azure.storage.Account("test",
-            name="acctestsa",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS",
-            enable_https_traffic_only=True)
-        test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("test",
-            name="acctestlaw",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="PerGB2018")
-        test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("test",
-            network_watcher_name=test_network_watcher.name,
-            resource_group_name=example.name,
-            name="example-log",
-            network_security_group_id=test.id,
-            storage_account_id=test_account.id,
-            enabled=True,
-            retention_policy={
-                "enabled": True,
-                "days": 7,
-            },
-            traffic_analytics={
-                "enabled": True,
-                "workspace_id": test_analytics_workspace.workspace_id,
-                "workspace_region": test_analytics_workspace.location,
-                "workspace_resource_id": test_analytics_workspace.id,
-                "interval_in_minutes": 10,
-            })
-        ```
-
         ## Import
 
         Network Watcher Flow Logs can be imported using the `resource id`, e.g.
@@ -472,7 +422,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where flow logs are stored.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Watcher Flow Log.
         :param pulumi.Input[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict']] traffic_analytics: A `traffic_analytics` block as documented below.
-        :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`.
+        :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         """
         ...
     @overload
@@ -484,56 +434,6 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         Manages a Network Watcher Flow Log.
 
         > **Note** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        test = azure.network.NetworkSecurityGroup("test",
-            name="acctestnsg",
-            location=example.location,
-            resource_group_name=example.name)
-        test_network_watcher = azure.network.NetworkWatcher("test",
-            name="acctestnw",
-            location=example.location,
-            resource_group_name=example.name)
-        test_account = azure.storage.Account("test",
-            name="acctestsa",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_kind="StorageV2",
-            account_replication_type="LRS",
-            enable_https_traffic_only=True)
-        test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("test",
-            name="acctestlaw",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="PerGB2018")
-        test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("test",
-            network_watcher_name=test_network_watcher.name,
-            resource_group_name=example.name,
-            name="example-log",
-            network_security_group_id=test.id,
-            storage_account_id=test_account.id,
-            enabled=True,
-            retention_policy={
-                "enabled": True,
-                "days": 7,
-            },
-            traffic_analytics={
-                "enabled": True,
-                "workspace_id": test_analytics_workspace.workspace_id,
-                "workspace_region": test_analytics_workspace.location,
-                "workspace_resource_id": test_analytics_workspace.id,
-                "interval_in_minutes": 10,
-            })
-        ```
 
         ## Import
 
@@ -639,7 +539,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where flow logs are stored.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Watcher Flow Log.
         :param pulumi.Input[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict']] traffic_analytics: A `traffic_analytics` block as documented below.
-        :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`.
+        :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -740,9 +640,9 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
-        The version (revision) of the flow log. Possible values are `1` and `2`.
+        The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         """
         return pulumi.get(self, "version")
 

@@ -66,9 +66,9 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
     }
 
     /**
-     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
      */
-    public readonly cleanupEnabled!: pulumi.Output<boolean>;
+    public readonly cleanupEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */
@@ -149,7 +149,7 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
  */
 export interface IntegrationRuntimeRuleState {
     /**
-     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
      */
     cleanupEnabled?: pulumi.Input<boolean>;
     /**
@@ -191,7 +191,7 @@ export interface IntegrationRuntimeRuleState {
  */
 export interface IntegrationRuntimeRuleArgs {
     /**
-     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
      */
     cleanupEnabled?: pulumi.Input<boolean>;
     /**

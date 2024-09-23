@@ -168,6 +168,8 @@ export class AlertProcessingRuleSuppression extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:monitoring/actionRuleSuppression:ActionRuleSuppression" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertProcessingRuleSuppression.__pulumiType, name, resourceInputs, opts);
     }
 }

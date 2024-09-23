@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,12 +21,12 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -331,12 +331,6 @@ type ReplicationRecoveryPlan struct {
 	FailoverRecoveryGroup ReplicationRecoveryPlanFailoverRecoveryGroupOutput `pulumi:"failoverRecoveryGroup"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Three or more `recoveryGroup` block defined as below.
-	//
-	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
-	//
-	// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
-	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayOutput `pulumi:"recoveryGroups"`
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringOutput `pulumi:"recoveryVaultId"`
 	// One `shutdownRecoveryGroup` block as defined below.
@@ -356,8 +350,17 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.BootRecoveryGroups == nil {
+		return nil, errors.New("invalid value for required argument 'BootRecoveryGroups'")
+	}
+	if args.FailoverRecoveryGroup == nil {
+		return nil, errors.New("invalid value for required argument 'FailoverRecoveryGroup'")
+	}
 	if args.RecoveryVaultId == nil {
 		return nil, errors.New("invalid value for required argument 'RecoveryVaultId'")
+	}
+	if args.ShutdownRecoveryGroup == nil {
+		return nil, errors.New("invalid value for required argument 'ShutdownRecoveryGroup'")
 	}
 	if args.SourceRecoveryFabricId == nil {
 		return nil, errors.New("invalid value for required argument 'SourceRecoveryFabricId'")
@@ -400,12 +403,6 @@ type replicationRecoveryPlanState struct {
 	FailoverRecoveryGroup *ReplicationRecoveryPlanFailoverRecoveryGroup `pulumi:"failoverRecoveryGroup"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Three or more `recoveryGroup` block defined as below.
-	//
-	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
-	//
-	// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
-	RecoveryGroups []ReplicationRecoveryPlanRecoveryGroup `pulumi:"recoveryGroups"`
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId *string `pulumi:"recoveryVaultId"`
 	// One `shutdownRecoveryGroup` block as defined below.
@@ -431,12 +428,6 @@ type ReplicationRecoveryPlanState struct {
 	FailoverRecoveryGroup ReplicationRecoveryPlanFailoverRecoveryGroupPtrInput
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Three or more `recoveryGroup` block defined as below.
-	//
-	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
-	//
-	// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
-	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayInput
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringPtrInput
 	// One `shutdownRecoveryGroup` block as defined below.
@@ -463,21 +454,15 @@ type replicationRecoveryPlanArgs struct {
 	// One `failoverRecoveryGroup` block as defined below.
 	//
 	// > **NOTE:** `failoverRecoveryGroup` will be required in the next major version of the AzureRM Provider.
-	FailoverRecoveryGroup *ReplicationRecoveryPlanFailoverRecoveryGroup `pulumi:"failoverRecoveryGroup"`
+	FailoverRecoveryGroup ReplicationRecoveryPlanFailoverRecoveryGroup `pulumi:"failoverRecoveryGroup"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Three or more `recoveryGroup` block defined as below.
-	//
-	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
-	//
-	// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
-	RecoveryGroups []ReplicationRecoveryPlanRecoveryGroup `pulumi:"recoveryGroups"`
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId string `pulumi:"recoveryVaultId"`
 	// One `shutdownRecoveryGroup` block as defined below.
 	//
 	// > **NOTE:** `shutdownRecoveryGroup` will be required in the next major version of the AzureRM Provider.
-	ShutdownRecoveryGroup *ReplicationRecoveryPlanShutdownRecoveryGroup `pulumi:"shutdownRecoveryGroup"`
+	ShutdownRecoveryGroup ReplicationRecoveryPlanShutdownRecoveryGroup `pulumi:"shutdownRecoveryGroup"`
 	// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
 	SourceRecoveryFabricId string `pulumi:"sourceRecoveryFabricId"`
 	// ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
@@ -495,21 +480,15 @@ type ReplicationRecoveryPlanArgs struct {
 	// One `failoverRecoveryGroup` block as defined below.
 	//
 	// > **NOTE:** `failoverRecoveryGroup` will be required in the next major version of the AzureRM Provider.
-	FailoverRecoveryGroup ReplicationRecoveryPlanFailoverRecoveryGroupPtrInput
+	FailoverRecoveryGroup ReplicationRecoveryPlanFailoverRecoveryGroupInput
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Three or more `recoveryGroup` block defined as below.
-	//
-	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
-	//
-	// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
-	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayInput
 	// The ID of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultId pulumi.StringInput
 	// One `shutdownRecoveryGroup` block as defined below.
 	//
 	// > **NOTE:** `shutdownRecoveryGroup` will be required in the next major version of the AzureRM Provider.
-	ShutdownRecoveryGroup ReplicationRecoveryPlanShutdownRecoveryGroupPtrInput
+	ShutdownRecoveryGroup ReplicationRecoveryPlanShutdownRecoveryGroupInput
 	// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
 	SourceRecoveryFabricId pulumi.StringInput
 	// ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
@@ -631,17 +610,6 @@ func (o ReplicationRecoveryPlanOutput) FailoverRecoveryGroup() ReplicationRecove
 // The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 func (o ReplicationRecoveryPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationRecoveryPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// Three or more `recoveryGroup` block defined as below.
-//
-// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
-//
-// Deprecated: the `recoveryGroup` block has been deprecated in favour of the `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup` and will be removed in version 4.0 of the provider.
-func (o ReplicationRecoveryPlanOutput) RecoveryGroups() ReplicationRecoveryPlanRecoveryGroupArrayOutput {
-	return o.ApplyT(func(v *ReplicationRecoveryPlan) ReplicationRecoveryPlanRecoveryGroupArrayOutput {
-		return v.RecoveryGroups
-	}).(ReplicationRecoveryPlanRecoveryGroupArrayOutput)
 }
 
 // The ID of the vault that should be updated. Changing this forces a new resource to be created.

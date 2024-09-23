@@ -36,12 +36,9 @@ class AccountArgs:
                  cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  default_identity_type: Optional[pulumi.Input[str]] = None,
-                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
-                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
-                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  free_tier_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 ip_range_filter: Optional[pulumi.Input[str]] = None,
+                 ip_range_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -99,27 +96,12 @@ class AccountArgs:
             pulumi.set(__self__, "create_mode", create_mode)
         if default_identity_type is not None:
             pulumi.set(__self__, "default_identity_type", default_identity_type)
-        if enable_automatic_failover is not None:
-            warnings.warn("""This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_automatic_failover is deprecated: This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-        if enable_automatic_failover is not None:
-            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
-        if enable_free_tier is not None:
-            warnings.warn("""This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_free_tier is deprecated: This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-        if enable_free_tier is not None:
-            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
-        if enable_multiple_write_locations is not None:
-            warnings.warn("""This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_multiple_write_locations is deprecated: This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-        if enable_multiple_write_locations is not None:
-            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
         if free_tier_enabled is not None:
             pulumi.set(__self__, "free_tier_enabled", free_tier_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if ip_range_filter is not None:
-            pulumi.set(__self__, "ip_range_filter", ip_range_filter)
+        if ip_range_filters is not None:
+            pulumi.set(__self__, "ip_range_filters", ip_range_filters)
         if is_virtual_network_filter_enabled is not None:
             pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
         if key_vault_key_id is not None:
@@ -309,36 +291,6 @@ class AccountArgs:
         pulumi.set(self, "default_identity_type", value)
 
     @property
-    @pulumi.getter(name="enableAutomaticFailover")
-    @_utilities.deprecated("""This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-    def enable_automatic_failover(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_automatic_failover")
-
-    @enable_automatic_failover.setter
-    def enable_automatic_failover(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_automatic_failover", value)
-
-    @property
-    @pulumi.getter(name="enableFreeTier")
-    @_utilities.deprecated("""This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-    def enable_free_tier(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_free_tier")
-
-    @enable_free_tier.setter
-    def enable_free_tier(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_free_tier", value)
-
-    @property
-    @pulumi.getter(name="enableMultipleWriteLocations")
-    @_utilities.deprecated("""This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-    def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_multiple_write_locations")
-
-    @enable_multiple_write_locations.setter
-    def enable_multiple_write_locations(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_multiple_write_locations", value)
-
-    @property
     @pulumi.getter(name="freeTierEnabled")
     def free_tier_enabled(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "free_tier_enabled")
@@ -357,13 +309,13 @@ class AccountArgs:
         pulumi.set(self, "identity", value)
 
     @property
-    @pulumi.getter(name="ipRangeFilter")
-    def ip_range_filter(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "ip_range_filter")
+    @pulumi.getter(name="ipRangeFilters")
+    def ip_range_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "ip_range_filters")
 
-    @ip_range_filter.setter
-    def ip_range_filter(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ip_range_filter", value)
+    @ip_range_filters.setter
+    def ip_range_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_range_filters", value)
 
     @property
     @pulumi.getter(name="isVirtualNetworkFilterEnabled")
@@ -533,19 +485,15 @@ class _AccountState:
                  burst_capacity_enabled: Optional[pulumi.Input[bool]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
                  capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  consistency_policy: Optional[pulumi.Input['AccountConsistencyPolicyArgs']] = None,
                  cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  default_identity_type: Optional[pulumi.Input[str]] = None,
-                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
-                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
-                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  free_tier_enabled: Optional[pulumi.Input[bool]] = None,
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 ip_range_filter: Optional[pulumi.Input[str]] = None,
+                 ip_range_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -624,11 +572,6 @@ class _AccountState:
             pulumi.set(__self__, "capabilities", capabilities)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
-        if connection_strings is not None:
-            warnings.warn("""This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""connection_strings is deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""")
-        if connection_strings is not None:
-            pulumi.set(__self__, "connection_strings", connection_strings)
         if consistency_policy is not None:
             pulumi.set(__self__, "consistency_policy", consistency_policy)
         if cors_rule is not None:
@@ -637,21 +580,6 @@ class _AccountState:
             pulumi.set(__self__, "create_mode", create_mode)
         if default_identity_type is not None:
             pulumi.set(__self__, "default_identity_type", default_identity_type)
-        if enable_automatic_failover is not None:
-            warnings.warn("""This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_automatic_failover is deprecated: This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-        if enable_automatic_failover is not None:
-            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
-        if enable_free_tier is not None:
-            warnings.warn("""This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_free_tier is deprecated: This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-        if enable_free_tier is not None:
-            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
-        if enable_multiple_write_locations is not None:
-            warnings.warn("""This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_multiple_write_locations is deprecated: This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-        if enable_multiple_write_locations is not None:
-            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if free_tier_enabled is not None:
@@ -660,8 +588,8 @@ class _AccountState:
             pulumi.set(__self__, "geo_locations", geo_locations)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if ip_range_filter is not None:
-            pulumi.set(__self__, "ip_range_filter", ip_range_filter)
+        if ip_range_filters is not None:
+            pulumi.set(__self__, "ip_range_filters", ip_range_filters)
         if is_virtual_network_filter_enabled is not None:
             pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
         if key_vault_key_id is not None:
@@ -806,16 +734,6 @@ class _AccountState:
         pulumi.set(self, "capacity", value)
 
     @property
-    @pulumi.getter(name="connectionStrings")
-    @_utilities.deprecated("""This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "connection_strings")
-
-    @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "connection_strings", value)
-
-    @property
     @pulumi.getter(name="consistencyPolicy")
     def consistency_policy(self) -> Optional[pulumi.Input['AccountConsistencyPolicyArgs']]:
         return pulumi.get(self, "consistency_policy")
@@ -860,36 +778,6 @@ class _AccountState:
         pulumi.set(self, "default_identity_type", value)
 
     @property
-    @pulumi.getter(name="enableAutomaticFailover")
-    @_utilities.deprecated("""This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-    def enable_automatic_failover(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_automatic_failover")
-
-    @enable_automatic_failover.setter
-    def enable_automatic_failover(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_automatic_failover", value)
-
-    @property
-    @pulumi.getter(name="enableFreeTier")
-    @_utilities.deprecated("""This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-    def enable_free_tier(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_free_tier")
-
-    @enable_free_tier.setter
-    def enable_free_tier(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_free_tier", value)
-
-    @property
-    @pulumi.getter(name="enableMultipleWriteLocations")
-    @_utilities.deprecated("""This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-    def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_multiple_write_locations")
-
-    @enable_multiple_write_locations.setter
-    def enable_multiple_write_locations(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_multiple_write_locations", value)
-
-    @property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -929,13 +817,13 @@ class _AccountState:
         pulumi.set(self, "identity", value)
 
     @property
-    @pulumi.getter(name="ipRangeFilter")
-    def ip_range_filter(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "ip_range_filter")
+    @pulumi.getter(name="ipRangeFilters")
+    def ip_range_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "ip_range_filters")
 
-    @ip_range_filter.setter
-    def ip_range_filter(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ip_range_filter", value)
+    @ip_range_filters.setter
+    def ip_range_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_range_filters", value)
 
     @property
     @pulumi.getter(name="isVirtualNetworkFilterEnabled")
@@ -1303,13 +1191,10 @@ class Account(pulumi.CustomResource):
                  cors_rule: Optional[pulumi.Input[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  default_identity_type: Optional[pulumi.Input[str]] = None,
-                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
-                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
-                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  free_tier_enabled: Optional[pulumi.Input[bool]] = None,
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
                  identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 ip_range_filter: Optional[pulumi.Input[str]] = None,
+                 ip_range_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -1577,13 +1462,10 @@ class Account(pulumi.CustomResource):
                  cors_rule: Optional[pulumi.Input[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  default_identity_type: Optional[pulumi.Input[str]] = None,
-                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
-                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
-                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  free_tier_enabled: Optional[pulumi.Input[bool]] = None,
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
                  identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 ip_range_filter: Optional[pulumi.Input[str]] = None,
+                 ip_range_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -1625,15 +1507,12 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["cors_rule"] = cors_rule
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["default_identity_type"] = default_identity_type
-            __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
-            __props__.__dict__["enable_free_tier"] = enable_free_tier
-            __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
             __props__.__dict__["free_tier_enabled"] = free_tier_enabled
             if geo_locations is None and not opts.urn:
                 raise TypeError("Missing required property 'geo_locations'")
             __props__.__dict__["geo_locations"] = geo_locations
             __props__.__dict__["identity"] = identity
-            __props__.__dict__["ip_range_filter"] = ip_range_filter
+            __props__.__dict__["ip_range_filters"] = ip_range_filters
             __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["kind"] = kind
@@ -1656,7 +1535,6 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["restore"] = restore
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_rules"] = virtual_network_rules
-            __props__.__dict__["connection_strings"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["primary_key"] = None
             __props__.__dict__["primary_mongodb_connection_string"] = None
@@ -1672,7 +1550,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["secondary_readonly_sql_connection_string"] = None
             __props__.__dict__["secondary_sql_connection_string"] = None
             __props__.__dict__["write_endpoints"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionStrings", "primaryKey", "primaryMongodbConnectionString", "primaryReadonlyKey", "primaryReadonlyMongodbConnectionString", "primaryReadonlySqlConnectionString", "primarySqlConnectionString", "secondaryKey", "secondaryMongodbConnectionString", "secondaryReadonlyKey", "secondaryReadonlyMongodbConnectionString", "secondaryReadonlySqlConnectionString", "secondarySqlConnectionString"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryKey", "primaryMongodbConnectionString", "primaryReadonlyKey", "primaryReadonlyMongodbConnectionString", "primaryReadonlySqlConnectionString", "primarySqlConnectionString", "secondaryKey", "secondaryMongodbConnectionString", "secondaryReadonlyKey", "secondaryReadonlyMongodbConnectionString", "secondaryReadonlySqlConnectionString", "secondarySqlConnectionString"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Account, __self__).__init__(
             'azure:cosmosdb/account:Account',
@@ -1692,19 +1570,15 @@ class Account(pulumi.CustomResource):
             burst_capacity_enabled: Optional[pulumi.Input[bool]] = None,
             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
             capacity: Optional[pulumi.Input[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             consistency_policy: Optional[pulumi.Input[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
             cors_rule: Optional[pulumi.Input[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
             create_mode: Optional[pulumi.Input[str]] = None,
             default_identity_type: Optional[pulumi.Input[str]] = None,
-            enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
-            enable_free_tier: Optional[pulumi.Input[bool]] = None,
-            enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             free_tier_enabled: Optional[pulumi.Input[bool]] = None,
             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
             identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-            ip_range_filter: Optional[pulumi.Input[str]] = None,
+            ip_range_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
@@ -1784,19 +1658,15 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["burst_capacity_enabled"] = burst_capacity_enabled
         __props__.__dict__["capabilities"] = capabilities
         __props__.__dict__["capacity"] = capacity
-        __props__.__dict__["connection_strings"] = connection_strings
         __props__.__dict__["consistency_policy"] = consistency_policy
         __props__.__dict__["cors_rule"] = cors_rule
         __props__.__dict__["create_mode"] = create_mode
         __props__.__dict__["default_identity_type"] = default_identity_type
-        __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
-        __props__.__dict__["enable_free_tier"] = enable_free_tier
-        __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["free_tier_enabled"] = free_tier_enabled
         __props__.__dict__["geo_locations"] = geo_locations
         __props__.__dict__["identity"] = identity
-        __props__.__dict__["ip_range_filter"] = ip_range_filter
+        __props__.__dict__["ip_range_filters"] = ip_range_filters
         __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["kind"] = kind
@@ -1851,7 +1721,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automaticFailoverEnabled")
-    def automatic_failover_enabled(self) -> pulumi.Output[bool]:
+    def automatic_failover_enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "automatic_failover_enabled")
 
     @property
@@ -1876,12 +1746,6 @@ class Account(pulumi.CustomResource):
         A `capacity` block as defined below.
         """
         return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter(name="connectionStrings")
-    @_utilities.deprecated("""This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider""")
-    def connection_strings(self) -> pulumi.Output[Sequence[str]]:
-        return pulumi.get(self, "connection_strings")
 
     @property
     @pulumi.getter(name="consistencyPolicy")
@@ -1912,24 +1776,6 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "default_identity_type")
 
     @property
-    @pulumi.getter(name="enableAutomaticFailover")
-    @_utilities.deprecated("""This property has been superseded by `automatic_failover_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-    def enable_automatic_failover(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "enable_automatic_failover")
-
-    @property
-    @pulumi.getter(name="enableFreeTier")
-    @_utilities.deprecated("""This property has been superseded by `free_tier_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-    def enable_free_tier(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "enable_free_tier")
-
-    @property
-    @pulumi.getter(name="enableMultipleWriteLocations")
-    @_utilities.deprecated("""This property has been superseded by `multiple_write_locations_enabled` and will be removed in v4.0 of the AzureRM Provider""")
-    def enable_multiple_write_locations(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "enable_multiple_write_locations")
-
-    @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
         """
@@ -1939,7 +1785,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="freeTierEnabled")
-    def free_tier_enabled(self) -> pulumi.Output[bool]:
+    def free_tier_enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "free_tier_enabled")
 
     @property
@@ -1953,9 +1799,9 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
-    @pulumi.getter(name="ipRangeFilter")
-    def ip_range_filter(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "ip_range_filter")
+    @pulumi.getter(name="ipRangeFilters")
+    def ip_range_filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "ip_range_filters")
 
     @property
     @pulumi.getter(name="isVirtualNetworkFilterEnabled")
@@ -1987,7 +1833,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> pulumi.Output[str]:
+    def minimal_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         """
@@ -2000,7 +1846,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="multipleWriteLocationsEnabled")
-    def multiple_write_locations_enabled(self) -> pulumi.Output[bool]:
+    def multiple_write_locations_enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "multiple_write_locations_enabled")
 
     @property

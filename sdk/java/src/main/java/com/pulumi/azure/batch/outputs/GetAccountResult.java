@@ -23,7 +23,7 @@ public final class GetAccountResult {
      * @return The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
      * 
      */
-    private GetAccountEncryption encryption;
+    private List<GetAccountEncryption> encryptions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -83,8 +83,8 @@ public final class GetAccountResult {
      * @return The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
      * 
      */
-    public GetAccountEncryption encryption() {
-        return this.encryption;
+    public List<GetAccountEncryption> encryptions() {
+        return this.encryptions;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -163,7 +163,7 @@ public final class GetAccountResult {
     @CustomType.Builder
     public static final class Builder {
         private String accountEndpoint;
-        private GetAccountEncryption encryption;
+        private List<GetAccountEncryption> encryptions;
         private String id;
         private List<GetAccountKeyVaultReference> keyVaultReferences;
         private String location;
@@ -178,7 +178,7 @@ public final class GetAccountResult {
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountEndpoint = defaults.accountEndpoint;
-    	      this.encryption = defaults.encryption;
+    	      this.encryptions = defaults.encryptions;
     	      this.id = defaults.id;
     	      this.keyVaultReferences = defaults.keyVaultReferences;
     	      this.location = defaults.location;
@@ -200,12 +200,15 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
-        public Builder encryption(GetAccountEncryption encryption) {
-            if (encryption == null) {
-              throw new MissingRequiredPropertyException("GetAccountResult", "encryption");
+        public Builder encryptions(List<GetAccountEncryption> encryptions) {
+            if (encryptions == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "encryptions");
             }
-            this.encryption = encryption;
+            this.encryptions = encryptions;
             return this;
+        }
+        public Builder encryptions(GetAccountEncryption... encryptions) {
+            return encryptions(List.of(encryptions));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -293,7 +296,7 @@ public final class GetAccountResult {
         public GetAccountResult build() {
             final var _resultValue = new GetAccountResult();
             _resultValue.accountEndpoint = accountEndpoint;
-            _resultValue.encryption = encryption;
+            _resultValue.encryptions = encryptions;
             _resultValue.id = id;
             _resultValue.keyVaultReferences = keyVaultReferences;
             _resultValue.location = location;

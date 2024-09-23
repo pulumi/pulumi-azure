@@ -103,7 +103,7 @@ namespace Pulumi.Azure.NetApp
         /// Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
         /// </summary>
         [Output("dailySchedule")]
-        public Output<Outputs.SnapshotPolicyDailySchedule> DailySchedule { get; private set; } = null!;
+        public Output<Outputs.SnapshotPolicyDailySchedule?> DailySchedule { get; private set; } = null!;
 
         /// <summary>
         /// Defines that the NetApp Snapshot Policy is enabled or not.
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.NetApp
         /// Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
         /// </summary>
         [Output("hourlySchedule")]
-        public Output<Outputs.SnapshotPolicyHourlySchedule> HourlySchedule { get; private set; } = null!;
+        public Output<Outputs.SnapshotPolicyHourlySchedule?> HourlySchedule { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.NetApp
         /// Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
         /// </summary>
         [Output("monthlySchedule")]
-        public Output<Outputs.SnapshotPolicyMonthlySchedule> MonthlySchedule { get; private set; } = null!;
+        public Output<Outputs.SnapshotPolicyMonthlySchedule?> MonthlySchedule { get; private set; } = null!;
 
         /// <summary>
         /// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.NetApp
         /// Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
         /// </summary>
         [Output("weeklySchedule")]
-        public Output<Outputs.SnapshotPolicyWeeklySchedule> WeeklySchedule { get; private set; } = null!;
+        public Output<Outputs.SnapshotPolicyWeeklySchedule?> WeeklySchedule { get; private set; } = null!;
 
 
         /// <summary>

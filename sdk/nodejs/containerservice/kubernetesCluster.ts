@@ -85,11 +85,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * An `apiServerAccessProfile` block as defined below.
      */
-    public readonly apiServerAccessProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterApiServerAccessProfile>;
-    /**
-     * @deprecated This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
-     */
-    public readonly apiServerAuthorizedIpRanges!: pulumi.Output<string[]>;
+    public readonly apiServerAccessProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterApiServerAccessProfile | undefined>;
     /**
      * A `autoScalerProfile` block as defined below.
      */
@@ -101,7 +97,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      *
      * > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      */
-    public readonly automaticChannelUpgrade!: pulumi.Output<string | undefined>;
+    public readonly automaticUpgradeChannel!: pulumi.Output<string | undefined>;
     /**
      * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      */
@@ -122,10 +118,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The current version running on the Azure Kubernetes Managed Cluster.
      */
     public /*out*/ readonly currentKubernetesVersion!: pulumi.Output<string>;
-    /**
-     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     */
-    public readonly customCaTrustCertificatesBase64s!: pulumi.Output<string[] | undefined>;
     /**
      * A `defaultNodePool` block as defined below.
      */
@@ -150,10 +142,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
-    /**
-     * @deprecated The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-     */
-    public readonly enablePodSecurityPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
      */
@@ -183,7 +171,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly imageCleanerEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+     * Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
      */
     public readonly imageCleanerIntervalHours!: pulumi.Output<number | undefined>;
     /**
@@ -273,11 +261,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly networkProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNetworkProfile>;
     /**
-     * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      *
-     * > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
+     * > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
      */
-    public readonly nodeOsChannelUpgrade!: pulumi.Output<string | undefined>;
+    public readonly nodeOsUpgradeChannel!: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
@@ -361,10 +349,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
     /**
-     * @deprecated `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-     */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
-    /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -440,21 +424,18 @@ export class KubernetesCluster extends pulumi.CustomResource {
             const state = argsOrState as KubernetesClusterState | undefined;
             resourceInputs["aciConnectorLinux"] = state ? state.aciConnectorLinux : undefined;
             resourceInputs["apiServerAccessProfile"] = state ? state.apiServerAccessProfile : undefined;
-            resourceInputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
             resourceInputs["autoScalerProfile"] = state ? state.autoScalerProfile : undefined;
-            resourceInputs["automaticChannelUpgrade"] = state ? state.automaticChannelUpgrade : undefined;
+            resourceInputs["automaticUpgradeChannel"] = state ? state.automaticUpgradeChannel : undefined;
             resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = state ? state.azureActiveDirectoryRoleBasedAccessControl : undefined;
             resourceInputs["azurePolicyEnabled"] = state ? state.azurePolicyEnabled : undefined;
             resourceInputs["confidentialComputing"] = state ? state.confidentialComputing : undefined;
             resourceInputs["costAnalysisEnabled"] = state ? state.costAnalysisEnabled : undefined;
             resourceInputs["currentKubernetesVersion"] = state ? state.currentKubernetesVersion : undefined;
-            resourceInputs["customCaTrustCertificatesBase64s"] = state ? state.customCaTrustCertificatesBase64s : undefined;
             resourceInputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
             resourceInputs["dnsPrefixPrivateCluster"] = state ? state.dnsPrefixPrivateCluster : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["enablePodSecurityPolicy"] = state ? state.enablePodSecurityPolicy : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["httpApplicationRoutingEnabled"] = state ? state.httpApplicationRoutingEnabled : undefined;
             resourceInputs["httpApplicationRoutingZoneName"] = state ? state.httpApplicationRoutingZoneName : undefined;
@@ -481,7 +462,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["monitorMetrics"] = state ? state.monitorMetrics : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
-            resourceInputs["nodeOsChannelUpgrade"] = state ? state.nodeOsChannelUpgrade : undefined;
+            resourceInputs["nodeOsUpgradeChannel"] = state ? state.nodeOsUpgradeChannel : undefined;
             resourceInputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
             resourceInputs["nodeResourceGroupId"] = state ? state.nodeResourceGroupId : undefined;
             resourceInputs["oidcIssuerEnabled"] = state ? state.oidcIssuerEnabled : undefined;
@@ -493,7 +474,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["privateClusterPublicFqdnEnabled"] = state ? state.privateClusterPublicFqdnEnabled : undefined;
             resourceInputs["privateDnsZoneId"] = state ? state.privateDnsZoneId : undefined;
             resourceInputs["privateFqdn"] = state ? state.privateFqdn : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["roleBasedAccessControlEnabled"] = state ? state.roleBasedAccessControlEnabled : undefined;
             resourceInputs["runCommandEnabled"] = state ? state.runCommandEnabled : undefined;
@@ -517,20 +497,17 @@ export class KubernetesCluster extends pulumi.CustomResource {
             }
             resourceInputs["aciConnectorLinux"] = args ? args.aciConnectorLinux : undefined;
             resourceInputs["apiServerAccessProfile"] = args ? args.apiServerAccessProfile : undefined;
-            resourceInputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
             resourceInputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
-            resourceInputs["automaticChannelUpgrade"] = args ? args.automaticChannelUpgrade : undefined;
+            resourceInputs["automaticUpgradeChannel"] = args ? args.automaticUpgradeChannel : undefined;
             resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = args ? args.azureActiveDirectoryRoleBasedAccessControl : undefined;
             resourceInputs["azurePolicyEnabled"] = args ? args.azurePolicyEnabled : undefined;
             resourceInputs["confidentialComputing"] = args ? args.confidentialComputing : undefined;
             resourceInputs["costAnalysisEnabled"] = args ? args.costAnalysisEnabled : undefined;
-            resourceInputs["customCaTrustCertificatesBase64s"] = args ? args.customCaTrustCertificatesBase64s : undefined;
             resourceInputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             resourceInputs["dnsPrefixPrivateCluster"] = args ? args.dnsPrefixPrivateCluster : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
             resourceInputs["httpApplicationRoutingEnabled"] = args ? args.httpApplicationRoutingEnabled : undefined;
             resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -551,7 +528,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["monitorMetrics"] = args ? args.monitorMetrics : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["nodeOsChannelUpgrade"] = args ? args.nodeOsChannelUpgrade : undefined;
+            resourceInputs["nodeOsUpgradeChannel"] = args ? args.nodeOsUpgradeChannel : undefined;
             resourceInputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
             resourceInputs["oidcIssuerEnabled"] = args ? args.oidcIssuerEnabled : undefined;
             resourceInputs["omsAgent"] = args ? args.omsAgent : undefined;
@@ -559,7 +536,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["privateClusterEnabled"] = args ? args.privateClusterEnabled : undefined;
             resourceInputs["privateClusterPublicFqdnEnabled"] = args ? args.privateClusterPublicFqdnEnabled : undefined;
             resourceInputs["privateDnsZoneId"] = args ? args.privateDnsZoneId : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roleBasedAccessControlEnabled"] = args ? args.roleBasedAccessControlEnabled : undefined;
             resourceInputs["runCommandEnabled"] = args ? args.runCommandEnabled : undefined;
@@ -605,10 +581,6 @@ export interface KubernetesClusterState {
      */
     apiServerAccessProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterApiServerAccessProfile>;
     /**
-     * @deprecated This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
-     */
-    apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * A `autoScalerProfile` block as defined below.
      */
     autoScalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAutoScalerProfile>;
@@ -619,7 +591,7 @@ export interface KubernetesClusterState {
      *
      * > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      */
-    automaticChannelUpgrade?: pulumi.Input<string>;
+    automaticUpgradeChannel?: pulumi.Input<string>;
     /**
      * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      */
@@ -640,10 +612,6 @@ export interface KubernetesClusterState {
      * The current version running on the Azure Kubernetes Managed Cluster.
      */
     currentKubernetesVersion?: pulumi.Input<string>;
-    /**
-     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     */
-    customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `defaultNodePool` block as defined below.
      */
@@ -668,10 +636,6 @@ export interface KubernetesClusterState {
      * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     edgeZone?: pulumi.Input<string>;
-    /**
-     * @deprecated The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-     */
-    enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
      */
@@ -701,7 +665,7 @@ export interface KubernetesClusterState {
      */
     imageCleanerEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+     * Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
      */
     imageCleanerIntervalHours?: pulumi.Input<number>;
     /**
@@ -791,11 +755,11 @@ export interface KubernetesClusterState {
      */
     networkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfile>;
     /**
-     * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      *
-     * > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
+     * > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
      */
-    nodeOsChannelUpgrade?: pulumi.Input<string>;
+    nodeOsUpgradeChannel?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
@@ -879,10 +843,6 @@ export interface KubernetesClusterState {
      */
     privateFqdn?: pulumi.Input<string>;
     /**
-     * @deprecated `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-     */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
-    /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -957,10 +917,6 @@ export interface KubernetesClusterArgs {
      */
     apiServerAccessProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterApiServerAccessProfile>;
     /**
-     * @deprecated This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
-     */
-    apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * A `autoScalerProfile` block as defined below.
      */
     autoScalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAutoScalerProfile>;
@@ -971,7 +927,7 @@ export interface KubernetesClusterArgs {
      *
      * > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      */
-    automaticChannelUpgrade?: pulumi.Input<string>;
+    automaticUpgradeChannel?: pulumi.Input<string>;
     /**
      * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      */
@@ -988,10 +944,6 @@ export interface KubernetesClusterArgs {
      * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
      */
     costAnalysisEnabled?: pulumi.Input<boolean>;
-    /**
-     * @deprecated This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     */
-    customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `defaultNodePool` block as defined below.
      */
@@ -1017,10 +969,6 @@ export interface KubernetesClusterArgs {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * @deprecated The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-     */
-    enablePodSecurityPolicy?: pulumi.Input<boolean>;
-    /**
      * Should HTTP Application Routing be enabled?
      *
      * > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
@@ -1041,7 +989,7 @@ export interface KubernetesClusterArgs {
      */
     imageCleanerEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+     * Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
      */
     imageCleanerIntervalHours?: pulumi.Input<number>;
     /**
@@ -1115,11 +1063,11 @@ export interface KubernetesClusterArgs {
      */
     networkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfile>;
     /**
-     * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      *
-     * > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
+     * > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
      */
-    nodeOsChannelUpgrade?: pulumi.Input<string>;
+    nodeOsUpgradeChannel?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
@@ -1186,10 +1134,6 @@ export interface KubernetesClusterArgs {
      * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
      */
     privateDnsZoneId?: pulumi.Input<string>;
-    /**
-     * @deprecated `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-     */
-    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */

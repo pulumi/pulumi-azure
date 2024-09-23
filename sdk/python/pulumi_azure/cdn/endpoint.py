@@ -912,7 +912,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentTypesToCompresses")
-    def content_types_to_compresses(self) -> pulumi.Output[Sequence[str]]:
+    def content_types_to_compresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
         """
@@ -1008,7 +1008,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originPath")
-    def origin_path(self) -> pulumi.Output[str]:
+    def origin_path(self) -> pulumi.Output[Optional[str]]:
         """
         The path used at for origin requests.
         """
@@ -1024,7 +1024,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="probePath")
-    def probe_path(self) -> pulumi.Output[str]:
+    def probe_path(self) -> pulumi.Output[Optional[str]]:
         """
         the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
 

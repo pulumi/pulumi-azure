@@ -78,9 +78,9 @@ export class ApiConnection extends pulumi.CustomResource {
     }
 
     /**
-     * A display name for this API Connection. Changing this forces a new API Connection to be created.
+     * A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
      */
@@ -143,7 +143,7 @@ export class ApiConnection extends pulumi.CustomResource {
  */
 export interface ApiConnectionState {
     /**
-     * A display name for this API Connection. Changing this forces a new API Connection to be created.
+     * A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -170,7 +170,7 @@ export interface ApiConnectionState {
  */
 export interface ApiConnectionArgs {
     /**
-     * A display name for this API Connection. Changing this forces a new API Connection to be created.
+     * A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
      */
     displayName?: pulumi.Input<string>;
     /**

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -13024,8 +13024,6 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringP
 }
 
 type InteractiveQueryClusterRolesWorkerNodeAutoscale struct {
-	// Deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
-	Capacity *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity `pulumi:"capacity"`
 	// A `recurrence` block as defined below.
 	Recurrence *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence `pulumi:"recurrence"`
 }
@@ -13042,8 +13040,6 @@ type InteractiveQueryClusterRolesWorkerNodeAutoscaleInput interface {
 }
 
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs struct {
-	// Deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
-	Capacity InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput `pulumi:"capacity"`
 	// A `recurrence` block as defined below.
 	Recurrence InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput `pulumi:"recurrence"`
 }
@@ -13125,13 +13121,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ToInteractiveQuer
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
-// Deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) Capacity() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
-		return v.Capacity
-	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
-}
-
 // A `recurrence` block as defined below.
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) Recurrence() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
@@ -13163,16 +13152,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Elem() Interac
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput)
 }
 
-// Deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Capacity() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
-}
-
 // A `recurrence` block as defined below.
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
@@ -13181,154 +13160,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() I
 		}
 		return v.Recurrence
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
-}
-
-type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity struct {
-	MaxInstanceCount int `pulumi:"maxInstanceCount"`
-	MinInstanceCount int `pulumi:"minInstanceCount"`
-}
-
-// InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs and InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput values.
-// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput` via:
-//
-//	InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
-type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput interface {
-	pulumi.Input
-
-	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput
-	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput
-}
-
-type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs struct {
-	MaxInstanceCount pulumi.IntInput `pulumi:"maxInstanceCount"`
-	MinInstanceCount pulumi.IntInput `pulumi:"minInstanceCount"`
-}
-
-func (InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
-}
-
-func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
-	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(context.Background())
-}
-
-func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput)
-}
-
-func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
-}
-
-func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput).ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx)
-}
-
-// InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs, InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtr and InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput values.
-// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput` via:
-//
-//	        InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
-//
-//	or:
-//
-//	        nil
-type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput interface {
-	pulumi.Input
-
-	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput
-	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput
-}
-
-type interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs
-
-func InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtr(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput {
-	return (*interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType)(v)
-}
-
-func (*interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
-}
-
-func (i *interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
-}
-
-func (i *interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
-}
-
-type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput struct{ *pulumi.OutputState }
-
-func (InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return o.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
-		return &v
-	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) MaxInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MaxInstanceCount }).(pulumi.IntOutput)
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) MinInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MinInstanceCount }).(pulumi.IntOutput)
-}
-
-type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput struct{ *pulumi.OutputState }
-
-func (InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
-		if v != nil {
-			return *v
-		}
-		var ret InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity
-		return ret
-	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput)
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) MaxInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MinInstanceCount
-	}).(pulumi.IntPtrOutput)
 }
 
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence struct {
@@ -17664,9 +17495,7 @@ type KafkaClusterRolesKafkaManagementNode struct {
 	// The Username of the local administrator for the Kafka Management Nodes.
 	//
 	// > **NOTE:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
-	//
-	// Deprecated: `username` will become Computed only in version 4.0 of the AzureRM Provider as the service auto-generates a value for this property
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 	// The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 	// The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -17700,9 +17529,7 @@ type KafkaClusterRolesKafkaManagementNodeArgs struct {
 	// The Username of the local administrator for the Kafka Management Nodes.
 	//
 	// > **NOTE:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
-	//
-	// Deprecated: `username` will become Computed only in version 4.0 of the AzureRM Provider as the service auto-generates a value for this property
-	Username pulumi.StringInput `pulumi:"username"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
 	// The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
 	// The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
@@ -17815,10 +17642,8 @@ func (o KafkaClusterRolesKafkaManagementNodeOutput) SubnetId() pulumi.StringPtrO
 // The Username of the local administrator for the Kafka Management Nodes.
 //
 // > **NOTE:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
-//
-// Deprecated: `username` will become Computed only in version 4.0 of the AzureRM Provider as the service auto-generates a value for this property
-func (o KafkaClusterRolesKafkaManagementNodeOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) string { return v.Username }).(pulumi.StringOutput)
+func (o KafkaClusterRolesKafkaManagementNodeOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -17902,14 +17727,12 @@ func (o KafkaClusterRolesKafkaManagementNodePtrOutput) SubnetId() pulumi.StringP
 // The Username of the local administrator for the Kafka Management Nodes.
 //
 // > **NOTE:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
-//
-// Deprecated: `username` will become Computed only in version 4.0 of the AzureRM Provider as the service auto-generates a value for this property
 func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Username
+		return v.Username
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -24468,8 +24291,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodePtrInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{})
@@ -24744,8 +24565,6 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput{})
-	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput{})
-	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})

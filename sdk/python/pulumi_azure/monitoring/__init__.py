@@ -7,8 +7,6 @@ import typing
 # Export this package's modules as members:
 from .aad_diagnostic_setting import *
 from .action_group import *
-from .action_rule_action_group import *
-from .action_rule_suppression import *
 from .activity_log_alert import *
 from .alert_processing_rule_action_group import *
 from .alert_processing_rule_suppression import *
@@ -22,15 +20,9 @@ from .get_action_group import *
 from .get_data_collection_endpoint import *
 from .get_data_collection_rule import *
 from .get_diagnostic_categories import *
-from .get_log_profile import *
 from .get_scheduled_query_rules_alert import *
 from .get_scheduled_query_rules_log import *
 from .get_workspace import *
-from .log_profile import *
-from .logz_monitor import *
-from .logz_sub_account import *
-from .logz_sub_account_tag_rule import *
-from .logz_tag_rule import *
 from .metric_alert import *
 from .private_link_scope import *
 from .private_link_scoped_service import *

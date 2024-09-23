@@ -8,8 +8,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest {
@@ -23,15 +21,6 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest 
      * 
      */
     private String interval;
-    /**
-     * @return The path for which this slow request rule applies.
-     * 
-     * @deprecated
-     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
-    private @Nullable String path;
     /**
      * @return The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
      * 
@@ -54,17 +43,6 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest 
         return this.interval;
     }
     /**
-     * @return The path for which this slow request rule applies.
-     * 
-     * @deprecated
-     * `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `path` will be removed in `slow_request` and please use `slow_request_with_path` to set the path in version 4.0 of the AzureRM Provider. */
-    public Optional<String> path() {
-        return Optional.ofNullable(this.path);
-    }
-    /**
      * @return The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
      * 
      */
@@ -83,14 +61,12 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest 
     public static final class Builder {
         private Integer count;
         private String interval;
-        private @Nullable String path;
         private String timeTaken;
         public Builder() {}
         public Builder(WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
     	      this.interval = defaults.interval;
-    	      this.path = defaults.path;
     	      this.timeTaken = defaults.timeTaken;
         }
 
@@ -111,12 +87,6 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest 
             return this;
         }
         @CustomType.Setter
-        public Builder path(@Nullable String path) {
-
-            this.path = path;
-            return this;
-        }
-        @CustomType.Setter
         public Builder timeTaken(String timeTaken) {
             if (timeTaken == null) {
               throw new MissingRequiredPropertyException("WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest", "timeTaken");
@@ -128,7 +98,6 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest 
             final var _resultValue = new WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest();
             _resultValue.count = count;
             _resultValue.interval = interval;
-            _resultValue.path = path;
             _resultValue.timeTaken = timeTaken;
             return _resultValue;
         }

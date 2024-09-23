@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,18 +61,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecuritySolution{}
 	case "azure:iot/sharedAccessPolicy:SharedAccessPolicy":
 		r = &SharedAccessPolicy{}
-	case "azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy":
-		r = &TimeSeriesInsightsAccessPolicy{}
-	case "azure:iot/timeSeriesInsightsEventSourceEventhub:TimeSeriesInsightsEventSourceEventhub":
-		r = &TimeSeriesInsightsEventSourceEventhub{}
-	case "azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub":
-		r = &TimeSeriesInsightsEventSourceIothub{}
-	case "azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment":
-		r = &TimeSeriesInsightsGen2Environment{}
-	case "azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet":
-		r = &TimeSeriesInsightsReferenceDataSet{}
-	case "azure:iot/timeSeriesInsightsStandardEnvironment:TimeSeriesInsightsStandardEnvironment":
-		r = &TimeSeriesInsightsStandardEnvironment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -184,36 +172,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"iot/sharedAccessPolicy",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"iot/timeSeriesInsightsAccessPolicy",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"iot/timeSeriesInsightsEventSourceEventhub",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"iot/timeSeriesInsightsEventSourceIothub",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"iot/timeSeriesInsightsGen2Environment",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"iot/timeSeriesInsightsReferenceDataSet",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"iot/timeSeriesInsightsStandardEnvironment",
 		&module{version},
 	)
 }

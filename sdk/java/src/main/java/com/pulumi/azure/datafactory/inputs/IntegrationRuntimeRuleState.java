@@ -18,14 +18,14 @@ public final class IntegrationRuntimeRuleState extends com.pulumi.resources.Reso
     public static final IntegrationRuntimeRuleState Empty = new IntegrationRuntimeRuleState();
 
     /**
-     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
      * 
      */
     @Import(name="cleanupEnabled")
     private @Nullable Output<Boolean> cleanupEnabled;
 
     /**
-     * @return Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+     * @return Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> cleanupEnabled() {
@@ -185,7 +185,7 @@ public final class IntegrationRuntimeRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param cleanupEnabled Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+         * @param cleanupEnabled Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class IntegrationRuntimeRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param cleanupEnabled Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+         * @param cleanupEnabled Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
          * 
          * @return builder
          * 

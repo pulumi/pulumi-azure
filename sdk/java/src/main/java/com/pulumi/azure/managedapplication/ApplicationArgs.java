@@ -109,33 +109,6 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of name and value pairs to pass to the managed application as parameters.
-     * 
-     * &gt; **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-     * 
-     * @deprecated
-     * This property has been deprecated in favour of `parameter_values`
-     * 
-     */
-    @Deprecated /* This property has been deprecated in favour of `parameter_values` */
-    @Import(name="parameters")
-    private @Nullable Output<Map<String,String>> parameters;
-
-    /**
-     * @return A mapping of name and value pairs to pass to the managed application as parameters.
-     * 
-     * &gt; **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-     * 
-     * @deprecated
-     * This property has been deprecated in favour of `parameter_values`
-     * 
-     */
-    @Deprecated /* This property has been deprecated in favour of `parameter_values` */
-    public Optional<Output<Map<String,String>>> parameters() {
-        return Optional.ofNullable(this.parameters);
-    }
-
-    /**
      * One `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
@@ -189,7 +162,6 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         this.managedResourceGroupName = $.managedResourceGroupName;
         this.name = $.name;
         this.parameterValues = $.parameterValues;
-        this.parameters = $.parameters;
         this.plan = $.plan;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
@@ -337,39 +309,6 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder parameterValues(String parameterValues) {
             return parameterValues(Output.of(parameterValues));
-        }
-
-        /**
-         * @param parameters A mapping of name and value pairs to pass to the managed application as parameters.
-         * 
-         * &gt; **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated in favour of `parameter_values`
-         * 
-         */
-        @Deprecated /* This property has been deprecated in favour of `parameter_values` */
-        public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
-            $.parameters = parameters;
-            return this;
-        }
-
-        /**
-         * @param parameters A mapping of name and value pairs to pass to the managed application as parameters.
-         * 
-         * &gt; **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated in favour of `parameter_values`
-         * 
-         */
-        @Deprecated /* This property has been deprecated in favour of `parameter_values` */
-        public Builder parameters(Map<String,String> parameters) {
-            return parameters(Output.of(parameters));
         }
 
         /**

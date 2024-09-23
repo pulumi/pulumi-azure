@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> ReverseFqdn { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         /// </summary>
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ReverseFqdn { get; set; }
 
         /// <summary>
-        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         /// </summary>
@@ -477,7 +477,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ReverseFqdn { get; set; }
 
         /// <summary>
-        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+        /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         /// </summary>

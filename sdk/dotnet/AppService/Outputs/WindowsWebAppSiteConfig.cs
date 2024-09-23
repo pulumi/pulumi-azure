@@ -36,10 +36,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.WindowsWebAppSiteConfigApplicationStack? ApplicationStack;
         /// <summary>
-        /// Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-        /// </summary>
-        public readonly bool? AutoHealEnabled;
-        /// <summary>
         /// A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         /// </summary>
         public readonly Outputs.WindowsWebAppSiteConfigAutoHealSetting? AutoHealSetting;
@@ -161,8 +157,6 @@ namespace Pulumi.Azure.AppService.Outputs
 
             Outputs.WindowsWebAppSiteConfigApplicationStack? applicationStack,
 
-            bool? autoHealEnabled,
-
             Outputs.WindowsWebAppSiteConfigAutoHealSetting? autoHealSetting,
 
             string? containerRegistryManagedIdentityClientId,
@@ -230,7 +224,6 @@ namespace Pulumi.Azure.AppService.Outputs
             ApiManagementApiId = apiManagementApiId;
             AppCommandLine = appCommandLine;
             ApplicationStack = applicationStack;
-            AutoHealEnabled = autoHealEnabled;
             AutoHealSetting = autoHealSetting;
             ContainerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
             ContainerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;

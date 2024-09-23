@@ -41,14 +41,10 @@ export interface GetSubscriptionArgs {
      */
     name: string;
     /**
-     * The name of the ServiceBus Namespace.
-     *
      * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
-     * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-     *
      * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
@@ -57,10 +53,6 @@ export interface GetSubscriptionArgs {
      */
     topicId?: string;
     /**
-     * The name of the ServiceBus Topic.
-     *
-     * > **Note:** `namespaceName`，`resourceGroupName` and `topicName` has been deprecated and will be removed in version 4.0 of the provider in favour of `topicId`.
-     *
      * @deprecated `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     topicName?: string;
@@ -158,14 +150,10 @@ export interface GetSubscriptionOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Namespace.
-     *
      * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-     *
      * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -174,10 +162,6 @@ export interface GetSubscriptionOutputArgs {
      */
     topicId?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Topic.
-     *
-     * > **Note:** `namespaceName`，`resourceGroupName` and `topicName` has been deprecated and will be removed in version 4.0 of the provider in favour of `topicId`.
-     *
      * @deprecated `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
      */
     topicName?: pulumi.Input<string>;

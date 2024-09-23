@@ -47,7 +47,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+     * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
      * 
      * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
      * 
@@ -58,7 +58,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     private @Nullable Output<Boolean> noPublicIp;
 
     /**
-     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+     * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
      * 
      * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
      * 
@@ -286,7 +286,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+         * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
          * 
          * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
          * 
@@ -301,7 +301,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+         * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
          * 
          * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
          * 

@@ -55,60 +55,6 @@ namespace Pulumi.Azure.ContainerService
     /// });
     /// ```
     /// 
-    /// ### Encryption)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Name = "registry-uai",
-    ///     });
-    /// 
-    ///     var example = Azure.KeyVault.GetKey.Invoke(new()
-    ///     {
-    ///         Name = "super-secret",
-    ///         KeyVaultId = existing.Id,
-    ///     });
-    /// 
-    ///     var acr = new Azure.ContainerService.Registry("acr", new()
-    ///     {
-    ///         Name = "containerRegistry1",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = "Premium",
-    ///         Identity = new Azure.ContainerService.Inputs.RegistryIdentityArgs
-    ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
-    ///             {
-    ///                 exampleUserAssignedIdentity.Id,
-    ///             },
-    ///         },
-    ///         Encryption = new Azure.ContainerService.Inputs.RegistryEncryptionArgs
-    ///         {
-    ///             Enabled = true,
-    ///             KeyVaultKeyId = example.Apply(getKeyResult =&gt; getKeyResult.Id),
-    ///             IdentityClientId = exampleUserAssignedIdentity.ClientId,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### Attaching A Container Registry To A Kubernetes Cluster)
     /// 
     /// ```csharp
@@ -216,7 +162,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
         /// 
-        /// &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        /// &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Output("exportPolicyEnabled")]
         public Output<bool?> ExportPolicyEnabled { get; private set; } = null!;
@@ -288,10 +234,10 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `retention_policy` block as documented below.
+        /// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
         /// </summary>
-        [Output("retentionPolicy")]
-        public Output<Outputs.RegistryRetentionPolicy> RetentionPolicy { get; private set; } = null!;
+        [Output("retentionPolicyInDays")]
+        public Output<int?> RetentionPolicyInDays { get; private set; } = null!;
 
         /// <summary>
         /// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
@@ -306,10 +252,10 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `trust_policy` block as documented below.
+        /// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         /// </summary>
-        [Output("trustPolicy")]
-        public Output<Outputs.RegistryTrustPolicy> TrustPolicy { get; private set; } = null!;
+        [Output("trustPolicyEnabled")]
+        public Output<bool?> TrustPolicyEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
@@ -394,7 +340,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
         /// 
-        /// &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        /// &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("exportPolicyEnabled")]
         public Input<bool>? ExportPolicyEnabled { get; set; }
@@ -466,10 +412,10 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `retention_policy` block as documented below.
+        /// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
         /// </summary>
-        [Input("retentionPolicy")]
-        public Input<Inputs.RegistryRetentionPolicyArgs>? RetentionPolicy { get; set; }
+        [Input("retentionPolicyInDays")]
+        public Input<int>? RetentionPolicyInDays { get; set; }
 
         /// <summary>
         /// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
@@ -490,10 +436,10 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `trust_policy` block as documented below.
+        /// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         /// </summary>
-        [Input("trustPolicy")]
-        public Input<Inputs.RegistryTrustPolicyArgs>? TrustPolicy { get; set; }
+        [Input("trustPolicyEnabled")]
+        public Input<bool>? TrustPolicyEnabled { get; set; }
 
         /// <summary>
         /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
@@ -558,7 +504,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
         /// 
-        /// &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        /// &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("exportPolicyEnabled")]
         public Input<bool>? ExportPolicyEnabled { get; set; }
@@ -636,10 +582,10 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `retention_policy` block as documented below.
+        /// The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
         /// </summary>
-        [Input("retentionPolicy")]
-        public Input<Inputs.RegistryRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
+        [Input("retentionPolicyInDays")]
+        public Input<int>? RetentionPolicyInDays { get; set; }
 
         /// <summary>
         /// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
@@ -660,10 +606,10 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `trust_policy` block as documented below.
+        /// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         /// </summary>
-        [Input("trustPolicy")]
-        public Input<Inputs.RegistryTrustPolicyGetArgs>? TrustPolicy { get; set; }
+        [Input("trustPolicyEnabled")]
+        public Input<bool>? TrustPolicyEnabled { get; set; }
 
         /// <summary>
         /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.

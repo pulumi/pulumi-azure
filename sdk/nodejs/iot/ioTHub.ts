@@ -189,13 +189,13 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly eventHubOperationsPath!: pulumi.Output<string>;
     /**
-     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
      */
-    public readonly eventHubPartitionCount!: pulumi.Output<number>;
+    public readonly eventHubPartitionCount!: pulumi.Output<number | undefined>;
     /**
-     * The event hub retention to use in days. Must be between `1` and `7`.
+     * The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
      */
-    public readonly eventHubRetentionInDays!: pulumi.Output<number>;
+    public readonly eventHubRetentionInDays!: pulumi.Output<number | undefined>;
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      *
@@ -358,11 +358,11 @@ export interface IoTHubState {
      */
     eventHubOperationsPath?: pulumi.Input<string>;
     /**
-     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
      */
     eventHubPartitionCount?: pulumi.Input<number>;
     /**
-     * The event hub retention to use in days. Must be between `1` and `7`.
+     * The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
      */
     eventHubRetentionInDays?: pulumi.Input<number>;
     /**
@@ -429,11 +429,11 @@ export interface IoTHubArgs {
     endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
     enrichments?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEnrichment>[]>;
     /**
-     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
      */
     eventHubPartitionCount?: pulumi.Input<number>;
     /**
-     * The event hub retention to use in days. Must be between `1` and `7`.
+     * The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
      */
     eventHubRetentionInDays?: pulumi.Input<number>;
     /**

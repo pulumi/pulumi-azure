@@ -6,7 +6,7 @@ resources:
   exampleResourceGroup:
     type: azure:core:ResourceGroup
     properties:
-      location: East US
+      location: West US
 
   random:
     type: random:RandomString

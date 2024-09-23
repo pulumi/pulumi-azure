@@ -44,7 +44,6 @@ class LinuxVirtualMachineScaleSetArgs:
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -61,7 +60,6 @@ class LinuxVirtualMachineScaleSetArgs:
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  scale_in: Optional[pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs']] = None,
-                 scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -69,7 +67,6 @@ class LinuxVirtualMachineScaleSetArgs:
                  source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
                  spot_restore: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSpotRestoreArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminate_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']] = None,
                  termination_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
@@ -123,7 +120,7 @@ class LinuxVirtualMachineScaleSetArgs:
                > **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_application: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -158,9 +155,6 @@ class LinuxVirtualMachineScaleSetArgs:
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input['LinuxVirtualMachineScaleSetSpotRestoreArgs'] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
-        :param pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
-               
-               > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -210,11 +204,6 @@ class LinuxVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
-        if gallery_application is not None:
-            pulumi.set(__self__, "gallery_application", gallery_application)
-        if gallery_applications is not None:
-            warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
-            pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
         if gallery_applications is not None:
             pulumi.set(__self__, "gallery_applications", gallery_applications)
         if health_probe_id is not None:
@@ -247,11 +236,6 @@ class LinuxVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
         if scale_in is not None:
             pulumi.set(__self__, "scale_in", scale_in)
-        if scale_in_policy is not None:
-            warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-        if scale_in_policy is not None:
-            pulumi.set(__self__, "scale_in_policy", scale_in_policy)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if secure_boot_enabled is not None:
@@ -266,11 +250,6 @@ class LinuxVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "spot_restore", spot_restore)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if terminate_notification is not None:
-            warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
-            pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-        if terminate_notification is not None:
-            pulumi.set(__self__, "terminate_notification", terminate_notification)
         if termination_notification is not None:
             pulumi.set(__self__, "termination_notification", termination_notification)
         if upgrade_mode is not None:
@@ -583,21 +562,11 @@ class LinuxVirtualMachineScaleSetArgs:
         pulumi.set(self, "extensions_time_budget", value)
 
     @property
-    @pulumi.getter(name="galleryApplication")
-    def gallery_application(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
-        return pulumi.get(self, "gallery_application")
-
-    @gallery_application.setter
-    def gallery_application(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]):
-        pulumi.set(self, "gallery_application", value)
-
-    @property
-    @pulumi.getter(name="galleryApplications")
-    @_utilities.deprecated("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
@@ -793,16 +762,6 @@ class LinuxVirtualMachineScaleSetArgs:
         pulumi.set(self, "scale_in", value)
 
     @property
-    @pulumi.getter(name="scaleInPolicy")
-    @_utilities.deprecated("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-    def scale_in_policy(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scale_in_policy")
-
-    @scale_in_policy.setter
-    def scale_in_policy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scale_in_policy", value)
-
-    @property
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]]:
         """
@@ -889,21 +848,6 @@ class LinuxVirtualMachineScaleSetArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="terminateNotification")
-    @_utilities.deprecated("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-    def terminate_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]:
-        """
-        A `terminate_notification` block as defined below.
-
-        > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "terminate_notification")
-
-    @terminate_notification.setter
-    def terminate_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]):
-        pulumi.set(self, "terminate_notification", value)
 
     @property
     @pulumi.getter(name="terminationNotification")
@@ -999,7 +943,6 @@ class _LinuxVirtualMachineScaleSetState:
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -1019,7 +962,6 @@ class _LinuxVirtualMachineScaleSetState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  scale_in: Optional[pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs']] = None,
-                 scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -1028,7 +970,6 @@ class _LinuxVirtualMachineScaleSetState:
                  source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
                  spot_restore: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSpotRestoreArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminate_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']] = None,
                  termination_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs']] = None,
                  unique_id: Optional[pulumi.Input[str]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
@@ -1079,7 +1020,7 @@ class _LinuxVirtualMachineScaleSetState:
                > **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_application: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -1118,9 +1059,6 @@ class _LinuxVirtualMachineScaleSetState:
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input['LinuxVirtualMachineScaleSetSpotRestoreArgs'] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
-        :param pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
-               
-               > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input['LinuxVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] unique_id: The Unique ID for this Linux Virtual Machine Scale Set.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
@@ -1168,11 +1106,6 @@ class _LinuxVirtualMachineScaleSetState:
             pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
-        if gallery_application is not None:
-            pulumi.set(__self__, "gallery_application", gallery_application)
-        if gallery_applications is not None:
-            warnings.warn("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""", DeprecationWarning)
-            pulumi.log.warn("""gallery_applications is deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
         if gallery_applications is not None:
             pulumi.set(__self__, "gallery_applications", gallery_applications)
         if health_probe_id is not None:
@@ -1211,11 +1144,6 @@ class _LinuxVirtualMachineScaleSetState:
             pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
         if scale_in is not None:
             pulumi.set(__self__, "scale_in", scale_in)
-        if scale_in_policy is not None:
-            warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-        if scale_in_policy is not None:
-            pulumi.set(__self__, "scale_in_policy", scale_in_policy)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if secure_boot_enabled is not None:
@@ -1232,11 +1160,6 @@ class _LinuxVirtualMachineScaleSetState:
             pulumi.set(__self__, "spot_restore", spot_restore)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if terminate_notification is not None:
-            warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
-            pulumi.log.warn("""terminate_notification is deprecated: `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-        if terminate_notification is not None:
-            pulumi.set(__self__, "terminate_notification", terminate_notification)
         if termination_notification is not None:
             pulumi.set(__self__, "termination_notification", termination_notification)
         if unique_id is not None:
@@ -1503,21 +1426,11 @@ class _LinuxVirtualMachineScaleSetState:
         pulumi.set(self, "extensions_time_budget", value)
 
     @property
-    @pulumi.getter(name="galleryApplication")
-    def gallery_application(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
-        return pulumi.get(self, "gallery_application")
-
-    @gallery_application.setter
-    def gallery_application(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]):
-        pulumi.set(self, "gallery_application", value)
-
-    @property
-    @pulumi.getter(name="galleryApplications")
-    @_utilities.deprecated("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetGalleryApplicationArgs']]]]:
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
@@ -1749,16 +1662,6 @@ class _LinuxVirtualMachineScaleSetState:
         pulumi.set(self, "scale_in", value)
 
     @property
-    @pulumi.getter(name="scaleInPolicy")
-    @_utilities.deprecated("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-    def scale_in_policy(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "scale_in_policy")
-
-    @scale_in_policy.setter
-    def scale_in_policy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scale_in_policy", value)
-
-    @property
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]]:
         """
@@ -1857,21 +1760,6 @@ class _LinuxVirtualMachineScaleSetState:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="terminateNotification")
-    @_utilities.deprecated("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-    def terminate_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]:
-        """
-        A `terminate_notification` block as defined below.
-
-        > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "terminate_notification")
-
-    @terminate_notification.setter
-    def terminate_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]):
-        pulumi.set(self, "terminate_notification", value)
 
     @property
     @pulumi.getter(name="terminationNotification")
@@ -1981,7 +1869,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetExtensionArgs', 'LinuxVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -2001,7 +1888,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
                  scale_in: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
-                 scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -2010,7 +1896,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  source_image_reference: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSourceImageReferenceArgs', 'LinuxVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
                  spot_restore: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminate_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminateNotificationArgs', 'LinuxVirtualMachineScaleSetTerminateNotificationArgsDict']]] = None,
                  termination_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
@@ -2131,7 +2016,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetExtensionArgs', 'LinuxVirtualMachineScaleSetExtensionArgsDict']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]] gallery_application: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetIdentityArgs', 'LinuxVirtualMachineScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -2170,9 +2055,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
-        :param pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminateNotificationArgs', 'LinuxVirtualMachineScaleSetTerminateNotificationArgsDict']] terminate_notification: A `terminate_notification` block as defined below.
-               
-               > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -2291,7 +2173,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetExtensionArgs', 'LinuxVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
                  gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
@@ -2311,7 +2192,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
                  scale_in: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
-                 scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -2320,7 +2200,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  source_image_reference: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSourceImageReferenceArgs', 'LinuxVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
                  spot_restore: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 terminate_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminateNotificationArgs', 'LinuxVirtualMachineScaleSetTerminateNotificationArgsDict']]] = None,
                  termination_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
@@ -2357,7 +2236,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
             __props__.__dict__["extensions"] = extensions
             __props__.__dict__["extensions_time_budget"] = extensions_time_budget
-            __props__.__dict__["gallery_application"] = gallery_application
             __props__.__dict__["gallery_applications"] = gallery_applications
             __props__.__dict__["health_probe_id"] = health_probe_id
             __props__.__dict__["host_group_id"] = host_group_id
@@ -2383,7 +2261,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
             __props__.__dict__["scale_in"] = scale_in
-            __props__.__dict__["scale_in_policy"] = scale_in_policy
             __props__.__dict__["secrets"] = secrets
             __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
             __props__.__dict__["single_placement_group"] = single_placement_group
@@ -2394,7 +2271,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["spot_restore"] = spot_restore
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["terminate_notification"] = terminate_notification
             __props__.__dict__["termination_notification"] = termination_notification
             __props__.__dict__["upgrade_mode"] = upgrade_mode
             __props__.__dict__["user_data"] = user_data
@@ -2433,7 +2309,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
             extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetExtensionArgs', 'LinuxVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
             extensions_time_budget: Optional[pulumi.Input[str]] = None,
-            gallery_application: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
             gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]]] = None,
             health_probe_id: Optional[pulumi.Input[str]] = None,
             host_group_id: Optional[pulumi.Input[str]] = None,
@@ -2453,7 +2328,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rolling_upgrade_policy: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
             scale_in: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']]] = None,
-            scale_in_policy: Optional[pulumi.Input[str]] = None,
             secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]]] = None,
             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
             single_placement_group: Optional[pulumi.Input[bool]] = None,
@@ -2462,7 +2336,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             source_image_reference: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSourceImageReferenceArgs', 'LinuxVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
             spot_restore: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            terminate_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminateNotificationArgs', 'LinuxVirtualMachineScaleSetTerminateNotificationArgsDict']]] = None,
             termination_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
             unique_id: Optional[pulumi.Input[str]] = None,
             upgrade_mode: Optional[pulumi.Input[str]] = None,
@@ -2518,7 +2391,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetExtensionArgs', 'LinuxVirtualMachineScaleSetExtensionArgsDict']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]] gallery_application: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetGalleryApplicationArgs', 'LinuxVirtualMachineScaleSetGalleryApplicationArgsDict']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetIdentityArgs', 'LinuxVirtualMachineScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -2557,9 +2430,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetSpotRestoreArgs', 'LinuxVirtualMachineScaleSetSpotRestoreArgsDict']] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
-        :param pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminateNotificationArgs', 'LinuxVirtualMachineScaleSetTerminateNotificationArgsDict']] terminate_notification: A `terminate_notification` block as defined below.
-               
-               > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetTerminationNotificationArgs', 'LinuxVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] unique_id: The Unique ID for this Linux Virtual Machine Scale Set.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
@@ -2592,7 +2462,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
         __props__.__dict__["extensions"] = extensions
         __props__.__dict__["extensions_time_budget"] = extensions_time_budget
-        __props__.__dict__["gallery_application"] = gallery_application
         __props__.__dict__["gallery_applications"] = gallery_applications
         __props__.__dict__["health_probe_id"] = health_probe_id
         __props__.__dict__["host_group_id"] = host_group_id
@@ -2612,7 +2481,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
         __props__.__dict__["scale_in"] = scale_in
-        __props__.__dict__["scale_in_policy"] = scale_in_policy
         __props__.__dict__["secrets"] = secrets
         __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
         __props__.__dict__["single_placement_group"] = single_placement_group
@@ -2621,7 +2489,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["source_image_reference"] = source_image_reference
         __props__.__dict__["spot_restore"] = spot_restore
         __props__.__dict__["tags"] = tags
-        __props__.__dict__["terminate_notification"] = terminate_notification
         __props__.__dict__["termination_notification"] = termination_notification
         __props__.__dict__["unique_id"] = unique_id
         __props__.__dict__["upgrade_mode"] = upgrade_mode
@@ -2781,7 +2648,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extensionOperationsEnabled")
-    def extension_operations_enabled(self) -> pulumi.Output[bool]:
+    def extension_operations_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
 
@@ -2806,17 +2673,11 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "extensions_time_budget")
 
     @property
-    @pulumi.getter(name="galleryApplication")
-    def gallery_application(self) -> pulumi.Output[Sequence['outputs.LinuxVirtualMachineScaleSetGalleryApplication']]:
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> pulumi.Output[Optional[Sequence['outputs.LinuxVirtualMachineScaleSetGalleryApplication']]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
-        return pulumi.get(self, "gallery_application")
-
-    @property
-    @pulumi.getter(name="galleryApplications")
-    @_utilities.deprecated("""`gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0""")
-    def gallery_applications(self) -> pulumi.Output[Sequence['outputs.LinuxVirtualMachineScaleSetGalleryApplication']]:
         return pulumi.get(self, "gallery_applications")
 
     @property
@@ -2965,17 +2826,11 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleIn")
-    def scale_in(self) -> pulumi.Output['outputs.LinuxVirtualMachineScaleSetScaleIn']:
+    def scale_in(self) -> pulumi.Output[Optional['outputs.LinuxVirtualMachineScaleSetScaleIn']]:
         """
         A `scale_in` block as defined below.
         """
         return pulumi.get(self, "scale_in")
-
-    @property
-    @pulumi.getter(name="scaleInPolicy")
-    @_utilities.deprecated("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
-    def scale_in_policy(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "scale_in_policy")
 
     @property
     @pulumi.getter
@@ -3044,17 +2899,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="terminateNotification")
-    @_utilities.deprecated("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""")
-    def terminate_notification(self) -> pulumi.Output['outputs.LinuxVirtualMachineScaleSetTerminateNotification']:
-        """
-        A `terminate_notification` block as defined below.
-
-        > **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "terminate_notification")
 
     @property
     @pulumi.getter(name="terminationNotification")

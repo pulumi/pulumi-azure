@@ -260,7 +260,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
      * 
@@ -269,7 +269,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+     * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
      * 
@@ -705,7 +705,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+         * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
          * 
@@ -718,7 +718,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+         * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
          * 

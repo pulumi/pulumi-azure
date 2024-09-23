@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
- *
  * Manages a Kubernetes Fleet Manager.
  *
  * ## Example Usage
@@ -28,22 +26,9 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Blocks Reference
- *
- * ### `hubProfile` Block
- *
- * The `hubProfile` block supports the following arguments:
- *
- * * `dnsPrefix` - (Required)
- *
- * In addition to the arguments defined above, the `hubProfile` block exports the following attributes:
- *
- * * `fqdn` -
- * * `kubernetesVersion` -
- *
  * ## Import
  *
- * An existing Kubernetes Fleet Manager can be imported into Terraform using the `resource id`, e.g.
+ * An existing Kubernetes Fleet Manager can be imported into Pulumi using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:containerservice/kubernetesFleetManager:KubernetesFleetManager example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}

@@ -19,12 +19,6 @@ __all__ = [
     'BudgetManagementGroupFilterArgsDict',
     'BudgetManagementGroupFilterDimensionArgs',
     'BudgetManagementGroupFilterDimensionArgsDict',
-    'BudgetManagementGroupFilterNotArgs',
-    'BudgetManagementGroupFilterNotArgsDict',
-    'BudgetManagementGroupFilterNotDimensionArgs',
-    'BudgetManagementGroupFilterNotDimensionArgsDict',
-    'BudgetManagementGroupFilterNotTagArgs',
-    'BudgetManagementGroupFilterNotTagArgsDict',
     'BudgetManagementGroupFilterTagArgs',
     'BudgetManagementGroupFilterTagArgsDict',
     'BudgetManagementGroupNotificationArgs',
@@ -35,12 +29,6 @@ __all__ = [
     'BudgetResourceGroupFilterArgsDict',
     'BudgetResourceGroupFilterDimensionArgs',
     'BudgetResourceGroupFilterDimensionArgsDict',
-    'BudgetResourceGroupFilterNotArgs',
-    'BudgetResourceGroupFilterNotArgsDict',
-    'BudgetResourceGroupFilterNotDimensionArgs',
-    'BudgetResourceGroupFilterNotDimensionArgsDict',
-    'BudgetResourceGroupFilterNotTagArgs',
-    'BudgetResourceGroupFilterNotTagArgsDict',
     'BudgetResourceGroupFilterTagArgs',
     'BudgetResourceGroupFilterTagArgsDict',
     'BudgetResourceGroupNotificationArgs',
@@ -51,12 +39,6 @@ __all__ = [
     'BudgetSubscriptionFilterArgsDict',
     'BudgetSubscriptionFilterDimensionArgs',
     'BudgetSubscriptionFilterDimensionArgsDict',
-    'BudgetSubscriptionFilterNotArgs',
-    'BudgetSubscriptionFilterNotArgsDict',
-    'BudgetSubscriptionFilterNotDimensionArgs',
-    'BudgetSubscriptionFilterNotDimensionArgsDict',
-    'BudgetSubscriptionFilterNotTagArgs',
-    'BudgetSubscriptionFilterNotTagArgsDict',
     'BudgetSubscriptionFilterTagArgs',
     'BudgetSubscriptionFilterTagArgsDict',
     'BudgetSubscriptionNotificationArgs',
@@ -73,10 +55,6 @@ if not MYPY:
         """
         One or more `dimension` blocks as defined below to filter the budget on.
         """
-        not_: NotRequired[pulumi.Input['BudgetManagementGroupFilterNotArgsDict']]
-        """
-        A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgsDict']]]]
         """
         One or more `tag` blocks as defined below to filter the budget on.
@@ -88,20 +66,13 @@ elif False:
 class BudgetManagementGroupFilterArgs:
     def __init__(__self__, *,
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]] = None,
-                 not_: Optional[pulumi.Input['BudgetManagementGroupFilterNotArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param pulumi.Input['BudgetManagementGroupFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
-        if not_ is not None:
-            warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
-        if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -116,19 +87,6 @@ class BudgetManagementGroupFilterArgs:
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
-
-    @property
-    @pulumi.getter(name="not")
-    @_utilities.deprecated("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
-    def not_(self) -> Optional[pulumi.Input['BudgetManagementGroupFilterNotArgs']]:
-        """
-        A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "not_")
-
-    @not_.setter
-    def not_(self, value: Optional[pulumi.Input['BudgetManagementGroupFilterNotArgs']]):
-        pulumi.set(self, "not_", value)
 
     @property
     @pulumi.getter
@@ -193,198 +151,6 @@ class BudgetManagementGroupFilterDimensionArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies a list of values for the column.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[str]]:
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "operator", value)
-
-
-if not MYPY:
-    class BudgetManagementGroupFilterNotArgsDict(TypedDict):
-        dimension: NotRequired[pulumi.Input['BudgetManagementGroupFilterNotDimensionArgsDict']]
-        """
-        One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        """
-        tag: NotRequired[pulumi.Input['BudgetManagementGroupFilterNotTagArgsDict']]
-        """
-        One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-        """
-elif False:
-    BudgetManagementGroupFilterNotArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class BudgetManagementGroupFilterNotArgs:
-    def __init__(__self__, *,
-                 dimension: Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs']] = None,
-                 tag: Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArgs']] = None):
-        """
-        :param pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        :param pulumi.Input['BudgetManagementGroupFilterNotTagArgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-        """
-        if dimension is not None:
-            pulumi.set(__self__, "dimension", dimension)
-        if tag is not None:
-            pulumi.set(__self__, "tag", tag)
-
-    @property
-    @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs']]:
-        """
-        One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        """
-        return pulumi.get(self, "dimension")
-
-    @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs']]):
-        pulumi.set(self, "dimension", value)
-
-    @property
-    @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArgs']]:
-        """
-        One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-        """
-        return pulumi.get(self, "tag")
-
-    @tag.setter
-    def tag(self, value: Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArgs']]):
-        pulumi.set(self, "tag", value)
-
-
-if not MYPY:
-    class BudgetManagementGroupFilterNotDimensionArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        Specifies a list of values for the column.
-        """
-        operator: NotRequired[pulumi.Input[str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetManagementGroupFilterNotDimensionArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class BudgetManagementGroupFilterNotDimensionArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 operator: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the column.
-        :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Specifies a list of values for the column.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[str]]:
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "operator", value)
-
-
-if not MYPY:
-    class BudgetManagementGroupFilterNotTagArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The name of the tag to use for the filter.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        Specifies a list of values for the tag.
-        """
-        operator: NotRequired[pulumi.Input[str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetManagementGroupFilterNotTagArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class BudgetManagementGroupFilterNotTagArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 operator: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the tag to use for the filter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the tag.
-        :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the tag to use for the filter.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Specifies a list of values for the tag.
         """
         return pulumi.get(self, "values")
 
@@ -641,10 +407,6 @@ if not MYPY:
         """
         One or more `dimension` blocks as defined below to filter the budget on.
         """
-        not_: NotRequired[pulumi.Input['BudgetResourceGroupFilterNotArgsDict']]
-        """
-        A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgsDict']]]]
         """
         One or more `tag` blocks as defined below to filter the budget on.
@@ -656,20 +418,13 @@ elif False:
 class BudgetResourceGroupFilterArgs:
     def __init__(__self__, *,
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]] = None,
-                 not_: Optional[pulumi.Input['BudgetResourceGroupFilterNotArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param pulumi.Input['BudgetResourceGroupFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
-        if not_ is not None:
-            warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
-        if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -684,19 +439,6 @@ class BudgetResourceGroupFilterArgs:
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
-
-    @property
-    @pulumi.getter(name="not")
-    @_utilities.deprecated("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
-    def not_(self) -> Optional[pulumi.Input['BudgetResourceGroupFilterNotArgs']]:
-        """
-        A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "not_")
-
-    @not_.setter
-    def not_(self, value: Optional[pulumi.Input['BudgetResourceGroupFilterNotArgs']]):
-        pulumi.set(self, "not_", value)
 
     @property
     @pulumi.getter
@@ -761,198 +503,6 @@ class BudgetResourceGroupFilterDimensionArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies a list of values for the column.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[str]]:
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "operator", value)
-
-
-if not MYPY:
-    class BudgetResourceGroupFilterNotArgsDict(TypedDict):
-        dimension: NotRequired[pulumi.Input['BudgetResourceGroupFilterNotDimensionArgsDict']]
-        """
-        One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        """
-        tag: NotRequired[pulumi.Input['BudgetResourceGroupFilterNotTagArgsDict']]
-        """
-        One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-        """
-elif False:
-    BudgetResourceGroupFilterNotArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class BudgetResourceGroupFilterNotArgs:
-    def __init__(__self__, *,
-                 dimension: Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs']] = None,
-                 tag: Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArgs']] = None):
-        """
-        :param pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        :param pulumi.Input['BudgetResourceGroupFilterNotTagArgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-        """
-        if dimension is not None:
-            pulumi.set(__self__, "dimension", dimension)
-        if tag is not None:
-            pulumi.set(__self__, "tag", tag)
-
-    @property
-    @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs']]:
-        """
-        One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        """
-        return pulumi.get(self, "dimension")
-
-    @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs']]):
-        pulumi.set(self, "dimension", value)
-
-    @property
-    @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArgs']]:
-        """
-        One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-        """
-        return pulumi.get(self, "tag")
-
-    @tag.setter
-    def tag(self, value: Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArgs']]):
-        pulumi.set(self, "tag", value)
-
-
-if not MYPY:
-    class BudgetResourceGroupFilterNotDimensionArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        Specifies a list of values for the column.
-        """
-        operator: NotRequired[pulumi.Input[str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetResourceGroupFilterNotDimensionArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class BudgetResourceGroupFilterNotDimensionArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 operator: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the column.
-        :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Specifies a list of values for the column.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[str]]:
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "operator", value)
-
-
-if not MYPY:
-    class BudgetResourceGroupFilterNotTagArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The name of the tag to use for the filter.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        Specifies a list of values for the tag.
-        """
-        operator: NotRequired[pulumi.Input[str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetResourceGroupFilterNotTagArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class BudgetResourceGroupFilterNotTagArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 operator: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the tag to use for the filter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the tag.
-        :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the tag to use for the filter.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Specifies a list of values for the tag.
         """
         return pulumi.get(self, "values")
 
@@ -1256,10 +806,6 @@ if not MYPY:
         """
         One or more `dimension` blocks as defined below to filter the budget on.
         """
-        not_: NotRequired[pulumi.Input['BudgetSubscriptionFilterNotArgsDict']]
-        """
-        A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgsDict']]]]
         """
         One or more `tag` blocks as defined below to filter the budget on.
@@ -1271,20 +817,13 @@ elif False:
 class BudgetSubscriptionFilterArgs:
     def __init__(__self__, *,
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]] = None,
-                 not_: Optional[pulumi.Input['BudgetSubscriptionFilterNotArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param pulumi.Input['BudgetSubscriptionFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
-        if not_ is not None:
-            warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
-        if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -1299,19 +838,6 @@ class BudgetSubscriptionFilterArgs:
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]]):
         pulumi.set(self, "dimensions", value)
-
-    @property
-    @pulumi.getter(name="not")
-    @_utilities.deprecated("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
-    def not_(self) -> Optional[pulumi.Input['BudgetSubscriptionFilterNotArgs']]:
-        """
-        A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        """
-        return pulumi.get(self, "not_")
-
-    @not_.setter
-    def not_(self, value: Optional[pulumi.Input['BudgetSubscriptionFilterNotArgs']]):
-        pulumi.set(self, "not_", value)
 
     @property
     @pulumi.getter
@@ -1376,198 +902,6 @@ class BudgetSubscriptionFilterDimensionArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies a list of values for the column.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[str]]:
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "operator", value)
-
-
-if not MYPY:
-    class BudgetSubscriptionFilterNotArgsDict(TypedDict):
-        dimension: NotRequired[pulumi.Input['BudgetSubscriptionFilterNotDimensionArgsDict']]
-        """
-        One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        """
-        tag: NotRequired[pulumi.Input['BudgetSubscriptionFilterNotTagArgsDict']]
-        """
-        One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-        """
-elif False:
-    BudgetSubscriptionFilterNotArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class BudgetSubscriptionFilterNotArgs:
-    def __init__(__self__, *,
-                 dimension: Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs']] = None,
-                 tag: Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArgs']] = None):
-        """
-        :param pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        :param pulumi.Input['BudgetSubscriptionFilterNotTagArgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-        """
-        if dimension is not None:
-            pulumi.set(__self__, "dimension", dimension)
-        if tag is not None:
-            pulumi.set(__self__, "tag", tag)
-
-    @property
-    @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs']]:
-        """
-        One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        """
-        return pulumi.get(self, "dimension")
-
-    @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs']]):
-        pulumi.set(self, "dimension", value)
-
-    @property
-    @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArgs']]:
-        """
-        One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
-        """
-        return pulumi.get(self, "tag")
-
-    @tag.setter
-    def tag(self, value: Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArgs']]):
-        pulumi.set(self, "tag", value)
-
-
-if not MYPY:
-    class BudgetSubscriptionFilterNotDimensionArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        Specifies a list of values for the column.
-        """
-        operator: NotRequired[pulumi.Input[str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetSubscriptionFilterNotDimensionArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class BudgetSubscriptionFilterNotDimensionArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 operator: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the column.
-        :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Specifies a list of values for the column.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[str]]:
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "operator", value)
-
-
-if not MYPY:
-    class BudgetSubscriptionFilterNotTagArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The name of the tag to use for the filter.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        Specifies a list of values for the tag.
-        """
-        operator: NotRequired[pulumi.Input[str]]
-        """
-        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-elif False:
-    BudgetSubscriptionFilterNotTagArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class BudgetSubscriptionFilterNotTagArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 operator: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the tag to use for the filter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values for the tag.
-        :param pulumi.Input[str] operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the tag to use for the filter.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Specifies a list of values for the tag.
         """
         return pulumi.get(self, "values")
 

@@ -86,8 +86,8 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
      * &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
      * 
      */
-    @Import(name="protocol")
-    private @Nullable Output<String> protocol;
+    @Import(name="protocol", required=true)
+    private Output<String> protocol;
 
     /**
      * @return Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
@@ -95,8 +95,8 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
      * &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
      * 
      */
-    public Optional<Output<String>> protocol() {
-        return Optional.ofNullable(this.protocol);
+    public Output<String> protocol() {
+        return this.protocol;
     }
 
     /**
@@ -303,7 +303,7 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder protocol(@Nullable Output<String> protocol) {
+        public Builder protocol(Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
@@ -415,6 +415,9 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
         }
 
         public SpringCloudGatewayRouteConfigArgs build() {
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("SpringCloudGatewayRouteConfigArgs", "protocol");
+            }
             if ($.springCloudGatewayId == null) {
                 throw new MissingRequiredPropertyException("SpringCloudGatewayRouteConfigArgs", "springCloudGatewayId");
             }

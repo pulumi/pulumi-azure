@@ -223,9 +223,6 @@ namespace Pulumi.Azure.Synapse
     [AzureResourceType("azure:synapse/workspace:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
-        [Output("aadAdmin")]
-        public Output<Outputs.WorkspaceAadAdmin> AadAdmin { get; private set; } = null!;
-
         /// <summary>
         /// An `azure_devops_repo` block as defined below.
         /// </summary>
@@ -322,17 +319,14 @@ namespace Pulumi.Azure.Synapse
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        [Output("sqlAadAdmin")]
-        public Output<Outputs.WorkspaceSqlAadAdmin> SqlAadAdmin { get; private set; } = null!;
-
         /// <summary>
-        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
         /// </summary>
         [Output("sqlAdministratorLogin")]
         public Output<string?> SqlAdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
         /// </summary>
         [Output("sqlAdministratorLoginPassword")]
         public Output<string?> SqlAdministratorLoginPassword { get; private set; } = null!;
@@ -405,9 +399,6 @@ namespace Pulumi.Azure.Synapse
 
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aadAdmin")]
-        public Input<Inputs.WorkspaceAadAdminArgs>? AadAdmin { get; set; }
-
         /// <summary>
         /// An `azure_devops_repo` block as defined below.
         /// </summary>
@@ -504,11 +495,8 @@ namespace Pulumi.Azure.Synapse
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("sqlAadAdmin")]
-        public Input<Inputs.WorkspaceSqlAadAdminArgs>? SqlAadAdmin { get; set; }
-
         /// <summary>
-        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
         /// </summary>
         [Input("sqlAdministratorLogin")]
         public Input<string>? SqlAdministratorLogin { get; set; }
@@ -517,7 +505,7 @@ namespace Pulumi.Azure.Synapse
         private Input<string>? _sqlAdministratorLoginPassword;
 
         /// <summary>
-        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
         /// </summary>
         public Input<string>? SqlAdministratorLoginPassword
         {
@@ -561,9 +549,6 @@ namespace Pulumi.Azure.Synapse
 
     public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
-        [Input("aadAdmin")]
-        public Input<Inputs.WorkspaceAadAdminGetArgs>? AadAdmin { get; set; }
-
         /// <summary>
         /// An `azure_devops_repo` block as defined below.
         /// </summary>
@@ -672,11 +657,8 @@ namespace Pulumi.Azure.Synapse
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        [Input("sqlAadAdmin")]
-        public Input<Inputs.WorkspaceSqlAadAdminGetArgs>? SqlAadAdmin { get; set; }
-
         /// <summary>
-        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
         /// </summary>
         [Input("sqlAdministratorLogin")]
         public Input<string>? SqlAdministratorLogin { get; set; }
@@ -685,7 +667,7 @@ namespace Pulumi.Azure.Synapse
         private Input<string>? _sqlAdministratorLoginPassword;
 
         /// <summary>
-        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
         /// </summary>
         public Input<string>? SqlAdministratorLoginPassword
         {

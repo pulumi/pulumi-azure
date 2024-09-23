@@ -14,12 +14,13 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
+ * const exampleSqlServer = new azurerm.index.SqlServer("example", {
  *     name: "mysqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,

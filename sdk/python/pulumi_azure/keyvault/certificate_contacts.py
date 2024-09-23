@@ -21,29 +21,17 @@ __all__ = ['CertificateContactsArgs', 'CertificateContacts']
 @pulumi.input_type
 class CertificateContactsArgs:
     def __init__(__self__, *,
-                 contacts: pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]],
-                 key_vault_id: pulumi.Input[str]):
+                 key_vault_id: pulumi.Input[str],
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]] = None):
         """
         The set of arguments for constructing a CertificateContacts resource.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]] contacts: One or more `contact` blocks as defined below.
                -->
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "contacts", contacts)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
-
-    @property
-    @pulumi.getter
-    def contacts(self) -> pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]:
-        """
-        One or more `contact` blocks as defined below.
-        -->
-        """
-        return pulumi.get(self, "contacts")
-
-    @contacts.setter
-    def contacts(self, value: pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]):
-        pulumi.set(self, "contacts", value)
+        if contacts is not None:
+            pulumi.set(__self__, "contacts", contacts)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -56,6 +44,19 @@ class CertificateContactsArgs:
     @key_vault_id.setter
     def key_vault_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter
+    def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]]:
+        """
+        One or more `contact` blocks as defined below.
+        -->
+        """
+        return pulumi.get(self, "contacts")
+
+    @contacts.setter
+    def contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]]):
+        pulumi.set(self, "contacts", value)
 
 
 @pulumi.input_type
@@ -254,8 +255,6 @@ class CertificateContacts(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateContactsArgs.__new__(CertificateContactsArgs)
 
-            if contacts is None and not opts.urn:
-                raise TypeError("Missing required property 'contacts'")
             __props__.__dict__["contacts"] = contacts
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
@@ -293,7 +292,7 @@ class CertificateContacts(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def contacts(self) -> pulumi.Output[Sequence['outputs.CertificateContactsContact']]:
+    def contacts(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateContactsContact']]]:
         """
         One or more `contact` blocks as defined below.
         -->

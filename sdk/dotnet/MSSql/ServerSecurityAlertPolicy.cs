@@ -21,6 +21,7 @@ namespace Pulumi.Azure.MSSql
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -30,7 +31,7 @@ namespace Pulumi.Azure.MSSql
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("example", new()
+    ///     var exampleSqlServer = new Azurerm.Index.SqlServer("example", new()
     ///     {
     ///         Name = "mysqlserver",
     ///         ResourceGroupName = example.Name,

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,10 +23,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/logicapps"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,10 +93,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/logicapps"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -218,7 +218,7 @@ type Standard struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle pulumi.BoolPtrOutput `pulumi:"useExtensionBundle"`
-	// The runtime version associated with the Logic App. Defaults to `~3`.
+	// The runtime version associated with the Logic App. Defaults to `~4`.
 	//
 	// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 	Version                pulumi.StringPtrOutput `pulumi:"version"`
@@ -323,7 +323,7 @@ type standardState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle *bool `pulumi:"useExtensionBundle"`
-	// The runtime version associated with the Logic App. Defaults to `~3`.
+	// The runtime version associated with the Logic App. Defaults to `~4`.
 	//
 	// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 	Version                *string `pulumi:"version"`
@@ -380,7 +380,7 @@ type StandardState struct {
 	Tags pulumi.StringMapInput
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle pulumi.BoolPtrInput
-	// The runtime version associated with the Logic App. Defaults to `~3`.
+	// The runtime version associated with the Logic App. Defaults to `~4`.
 	//
 	// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 	Version                pulumi.StringPtrInput
@@ -429,7 +429,7 @@ type standardArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle *bool `pulumi:"useExtensionBundle"`
-	// The runtime version associated with the Logic App. Defaults to `~3`.
+	// The runtime version associated with the Logic App. Defaults to `~4`.
 	//
 	// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 	Version                *string `pulumi:"version"`
@@ -475,7 +475,7 @@ type StandardArgs struct {
 	Tags pulumi.StringMapInput
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle pulumi.BoolPtrInput
-	// The runtime version associated with the Logic App. Defaults to `~3`.
+	// The runtime version associated with the Logic App. Defaults to `~4`.
 	//
 	// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 	Version                pulumi.StringPtrInput
@@ -690,7 +690,7 @@ func (o StandardOutput) UseExtensionBundle() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Standard) pulumi.BoolPtrOutput { return v.UseExtensionBundle }).(pulumi.BoolPtrOutput)
 }
 
-// The runtime version associated with the Logic App. Defaults to `~3`.
+// The runtime version associated with the Logic App. Defaults to `~4`.
 //
 // > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 func (o StandardOutput) Version() pulumi.StringPtrOutput {

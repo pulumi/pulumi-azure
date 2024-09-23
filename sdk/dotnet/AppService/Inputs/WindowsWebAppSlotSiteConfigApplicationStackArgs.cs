@@ -21,21 +21,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? CurrentStack { get; set; }
 
         /// <summary>
-        /// The name of the container to be used. This value is required with `docker_container_tag`.
-        /// </summary>
-        [Input("dockerContainerName")]
-        public Input<string>? DockerContainerName { get; set; }
-
-        [Input("dockerContainerRegistry")]
-        public Input<string>? DockerContainerRegistry { get; set; }
-
-        /// <summary>
-        /// The tag of the container to be used. This value is required with `docker_container_name`.
-        /// </summary>
-        [Input("dockerContainerTag")]
-        public Input<string>? DockerContainerTag { get; set; }
-
-        /// <summary>
         /// The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
         /// </summary>
         [Input("dockerImageName")]
@@ -124,9 +109,6 @@ namespace Pulumi.Azure.AppService.Inputs
         /// </summary>
         [Input("python")]
         public Input<bool>? Python { get; set; }
-
-        [Input("pythonVersion")]
-        public Input<string>? PythonVersion { get; set; }
 
         /// <summary>
         /// The version of Tomcat the Java App should use.

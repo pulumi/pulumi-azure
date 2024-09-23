@@ -68,6 +68,12 @@ namespace Pulumi.Azure.NotificationHub
         public Output<Outputs.HubApnsCredential?> ApnsCredential { get; private set; } = null!;
 
         /// <summary>
+        /// A `browser_credential` block as defined below.
+        /// </summary>
+        [Output("browserCredential")]
+        public Output<Outputs.HubBrowserCredential?> BrowserCredential { get; private set; } = null!;
+
+        /// <summary>
         /// A `gcm_credential` block as defined below.
         /// 
         /// &gt; **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
@@ -160,6 +166,12 @@ namespace Pulumi.Azure.NotificationHub
         public Input<Inputs.HubApnsCredentialArgs>? ApnsCredential { get; set; }
 
         /// <summary>
+        /// A `browser_credential` block as defined below.
+        /// </summary>
+        [Input("browserCredential")]
+        public Input<Inputs.HubBrowserCredentialArgs>? BrowserCredential { get; set; }
+
+        /// <summary>
         /// A `gcm_credential` block as defined below.
         /// 
         /// &gt; **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
@@ -218,6 +230,12 @@ namespace Pulumi.Azure.NotificationHub
         /// </summary>
         [Input("apnsCredential")]
         public Input<Inputs.HubApnsCredentialGetArgs>? ApnsCredential { get; set; }
+
+        /// <summary>
+        /// A `browser_credential` block as defined below.
+        /// </summary>
+        [Input("browserCredential")]
+        public Input<Inputs.HubBrowserCredentialGetArgs>? BrowserCredential { get; set; }
 
         /// <summary>
         /// A `gcm_credential` block as defined below.

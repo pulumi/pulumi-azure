@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -220,7 +220,7 @@ type WorkspaceCustomParameters struct {
 	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
 	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
 	NatGatewayName *string `pulumi:"natGatewayName"`
-	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
 	//
 	// > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
 	//
@@ -264,7 +264,7 @@ type WorkspaceCustomParametersArgs struct {
 	MachineLearningWorkspaceId pulumi.StringPtrInput `pulumi:"machineLearningWorkspaceId"`
 	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
 	NatGatewayName pulumi.StringPtrInput `pulumi:"natGatewayName"`
-	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+	// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
 	//
 	// > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
 	//
@@ -379,7 +379,7 @@ func (o WorkspaceCustomParametersOutput) NatGatewayName() pulumi.StringPtrOutput
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.NatGatewayName }).(pulumi.StringPtrOutput)
 }
 
-// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
 //
 // > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
 //
@@ -479,7 +479,7 @@ func (o WorkspaceCustomParametersPtrOutput) NatGatewayName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
 //
 // > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
 //

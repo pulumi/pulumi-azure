@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -378,9 +378,7 @@ type AppIngress struct {
 	// Should this ingress allow insecure connections?
 	AllowInsecureConnections *bool `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
-	//
-	// Deprecated: This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.
-	CustomDomain *AppIngressCustomDomain `pulumi:"customDomain"`
+	CustomDomains []AppIngressCustomDomain `pulumi:"customDomains"`
 	// The exposed port on the container for the Ingress traffic.
 	//
 	// > **Note:** `exposedPort` can only be specified when `transport` is set to `tcp`.
@@ -414,9 +412,7 @@ type AppIngressArgs struct {
 	// Should this ingress allow insecure connections?
 	AllowInsecureConnections pulumi.BoolPtrInput `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
-	//
-	// Deprecated: This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.
-	CustomDomain AppIngressCustomDomainPtrInput `pulumi:"customDomain"`
+	CustomDomains AppIngressCustomDomainArrayInput `pulumi:"customDomains"`
 	// The exposed port on the container for the Ingress traffic.
 	//
 	// > **Note:** `exposedPort` can only be specified when `transport` is set to `tcp`.
@@ -518,10 +514,8 @@ func (o AppIngressOutput) AllowInsecureConnections() pulumi.BoolPtrOutput {
 }
 
 // One or more `customDomain` block as detailed below.
-//
-// Deprecated: This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.
-func (o AppIngressOutput) CustomDomain() AppIngressCustomDomainPtrOutput {
-	return o.ApplyT(func(v AppIngress) *AppIngressCustomDomain { return v.CustomDomain }).(AppIngressCustomDomainPtrOutput)
+func (o AppIngressOutput) CustomDomains() AppIngressCustomDomainArrayOutput {
+	return o.ApplyT(func(v AppIngress) []AppIngressCustomDomain { return v.CustomDomains }).(AppIngressCustomDomainArrayOutput)
 }
 
 // The exposed port on the container for the Ingress traffic.
@@ -596,15 +590,13 @@ func (o AppIngressPtrOutput) AllowInsecureConnections() pulumi.BoolPtrOutput {
 }
 
 // One or more `customDomain` block as detailed below.
-//
-// Deprecated: This property is deprecated in favour of the new `containerapp.CustomDomain` resource and will become computed only in a future release.
-func (o AppIngressPtrOutput) CustomDomain() AppIngressCustomDomainPtrOutput {
-	return o.ApplyT(func(v *AppIngress) *AppIngressCustomDomain {
+func (o AppIngressPtrOutput) CustomDomains() AppIngressCustomDomainArrayOutput {
+	return o.ApplyT(func(v *AppIngress) []AppIngressCustomDomain {
 		if v == nil {
 			return nil
 		}
-		return v.CustomDomain
-	}).(AppIngressCustomDomainPtrOutput)
+		return v.CustomDomains
+	}).(AppIngressCustomDomainArrayOutput)
 }
 
 // The exposed port on the container for the Ingress traffic.
@@ -680,12 +672,12 @@ func (o AppIngressPtrOutput) Transport() pulumi.StringPtrOutput {
 }
 
 type AppIngressCustomDomain struct {
-	// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+	// The Binding type.
 	CertificateBindingType *string `pulumi:"certificateBindingType"`
 	// The ID of the Container App Environment Certificate.
-	CertificateId string `pulumi:"certificateId"`
-	// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
-	Name string `pulumi:"name"`
+	CertificateId *string `pulumi:"certificateId"`
+	// The name for this Container App. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
 }
 
 // AppIngressCustomDomainInput is an input type that accepts AppIngressCustomDomainArgs and AppIngressCustomDomainOutput values.
@@ -700,12 +692,12 @@ type AppIngressCustomDomainInput interface {
 }
 
 type AppIngressCustomDomainArgs struct {
-	// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+	// The Binding type.
 	CertificateBindingType pulumi.StringPtrInput `pulumi:"certificateBindingType"`
 	// The ID of the Container App Environment Certificate.
-	CertificateId pulumi.StringInput `pulumi:"certificateId"`
-	// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
-	Name pulumi.StringInput `pulumi:"name"`
+	CertificateId pulumi.StringPtrInput `pulumi:"certificateId"`
+	// The name for this Container App. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (AppIngressCustomDomainArgs) ElementType() reflect.Type {
@@ -720,45 +712,29 @@ func (i AppIngressCustomDomainArgs) ToAppIngressCustomDomainOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AppIngressCustomDomainOutput)
 }
 
-func (i AppIngressCustomDomainArgs) ToAppIngressCustomDomainPtrOutput() AppIngressCustomDomainPtrOutput {
-	return i.ToAppIngressCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (i AppIngressCustomDomainArgs) ToAppIngressCustomDomainPtrOutputWithContext(ctx context.Context) AppIngressCustomDomainPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppIngressCustomDomainOutput).ToAppIngressCustomDomainPtrOutputWithContext(ctx)
-}
-
-// AppIngressCustomDomainPtrInput is an input type that accepts AppIngressCustomDomainArgs, AppIngressCustomDomainPtr and AppIngressCustomDomainPtrOutput values.
-// You can construct a concrete instance of `AppIngressCustomDomainPtrInput` via:
+// AppIngressCustomDomainArrayInput is an input type that accepts AppIngressCustomDomainArray and AppIngressCustomDomainArrayOutput values.
+// You can construct a concrete instance of `AppIngressCustomDomainArrayInput` via:
 //
-//	        AppIngressCustomDomainArgs{...}
-//
-//	or:
-//
-//	        nil
-type AppIngressCustomDomainPtrInput interface {
+//	AppIngressCustomDomainArray{ AppIngressCustomDomainArgs{...} }
+type AppIngressCustomDomainArrayInput interface {
 	pulumi.Input
 
-	ToAppIngressCustomDomainPtrOutput() AppIngressCustomDomainPtrOutput
-	ToAppIngressCustomDomainPtrOutputWithContext(context.Context) AppIngressCustomDomainPtrOutput
+	ToAppIngressCustomDomainArrayOutput() AppIngressCustomDomainArrayOutput
+	ToAppIngressCustomDomainArrayOutputWithContext(context.Context) AppIngressCustomDomainArrayOutput
 }
 
-type appIngressCustomDomainPtrType AppIngressCustomDomainArgs
+type AppIngressCustomDomainArray []AppIngressCustomDomainInput
 
-func AppIngressCustomDomainPtr(v *AppIngressCustomDomainArgs) AppIngressCustomDomainPtrInput {
-	return (*appIngressCustomDomainPtrType)(v)
+func (AppIngressCustomDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppIngressCustomDomain)(nil)).Elem()
 }
 
-func (*appIngressCustomDomainPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppIngressCustomDomain)(nil)).Elem()
+func (i AppIngressCustomDomainArray) ToAppIngressCustomDomainArrayOutput() AppIngressCustomDomainArrayOutput {
+	return i.ToAppIngressCustomDomainArrayOutputWithContext(context.Background())
 }
 
-func (i *appIngressCustomDomainPtrType) ToAppIngressCustomDomainPtrOutput() AppIngressCustomDomainPtrOutput {
-	return i.ToAppIngressCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (i *appIngressCustomDomainPtrType) ToAppIngressCustomDomainPtrOutputWithContext(ctx context.Context) AppIngressCustomDomainPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppIngressCustomDomainPtrOutput)
+func (i AppIngressCustomDomainArray) ToAppIngressCustomDomainArrayOutputWithContext(ctx context.Context) AppIngressCustomDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppIngressCustomDomainArrayOutput)
 }
 
 type AppIngressCustomDomainOutput struct{ *pulumi.OutputState }
@@ -775,83 +751,39 @@ func (o AppIngressCustomDomainOutput) ToAppIngressCustomDomainOutputWithContext(
 	return o
 }
 
-func (o AppIngressCustomDomainOutput) ToAppIngressCustomDomainPtrOutput() AppIngressCustomDomainPtrOutput {
-	return o.ToAppIngressCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (o AppIngressCustomDomainOutput) ToAppIngressCustomDomainPtrOutputWithContext(ctx context.Context) AppIngressCustomDomainPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppIngressCustomDomain) *AppIngressCustomDomain {
-		return &v
-	}).(AppIngressCustomDomainPtrOutput)
-}
-
-// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+// The Binding type.
 func (o AppIngressCustomDomainOutput) CertificateBindingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIngressCustomDomain) *string { return v.CertificateBindingType }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Container App Environment Certificate.
-func (o AppIngressCustomDomainOutput) CertificateId() pulumi.StringOutput {
-	return o.ApplyT(func(v AppIngressCustomDomain) string { return v.CertificateId }).(pulumi.StringOutput)
+func (o AppIngressCustomDomainOutput) CertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppIngressCustomDomain) *string { return v.CertificateId }).(pulumi.StringPtrOutput)
 }
 
-// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
-func (o AppIngressCustomDomainOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppIngressCustomDomain) string { return v.Name }).(pulumi.StringOutput)
+// The name for this Container App. Changing this forces a new resource to be created.
+func (o AppIngressCustomDomainOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppIngressCustomDomain) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type AppIngressCustomDomainPtrOutput struct{ *pulumi.OutputState }
+type AppIngressCustomDomainArrayOutput struct{ *pulumi.OutputState }
 
-func (AppIngressCustomDomainPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppIngressCustomDomain)(nil)).Elem()
+func (AppIngressCustomDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppIngressCustomDomain)(nil)).Elem()
 }
 
-func (o AppIngressCustomDomainPtrOutput) ToAppIngressCustomDomainPtrOutput() AppIngressCustomDomainPtrOutput {
+func (o AppIngressCustomDomainArrayOutput) ToAppIngressCustomDomainArrayOutput() AppIngressCustomDomainArrayOutput {
 	return o
 }
 
-func (o AppIngressCustomDomainPtrOutput) ToAppIngressCustomDomainPtrOutputWithContext(ctx context.Context) AppIngressCustomDomainPtrOutput {
+func (o AppIngressCustomDomainArrayOutput) ToAppIngressCustomDomainArrayOutputWithContext(ctx context.Context) AppIngressCustomDomainArrayOutput {
 	return o
 }
 
-func (o AppIngressCustomDomainPtrOutput) Elem() AppIngressCustomDomainOutput {
-	return o.ApplyT(func(v *AppIngressCustomDomain) AppIngressCustomDomain {
-		if v != nil {
-			return *v
-		}
-		var ret AppIngressCustomDomain
-		return ret
+func (o AppIngressCustomDomainArrayOutput) Index(i pulumi.IntInput) AppIngressCustomDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppIngressCustomDomain {
+		return vs[0].([]AppIngressCustomDomain)[vs[1].(int)]
 	}).(AppIngressCustomDomainOutput)
-}
-
-// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
-func (o AppIngressCustomDomainPtrOutput) CertificateBindingType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppIngressCustomDomain) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertificateBindingType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Container App Environment Certificate.
-func (o AppIngressCustomDomainPtrOutput) CertificateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppIngressCustomDomain) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CertificateId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
-func (o AppIngressCustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppIngressCustomDomain) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type AppIngressIpSecurityRestriction struct {
@@ -5966,13 +5898,19 @@ func (o JobScheduleTriggerConfigPtrOutput) ReplicaCompletionCount() pulumi.IntPt
 }
 
 type JobSecret struct {
-	// A `identity` block as defined below.
+	// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+	//
+	// !> **Note:** `identity` must be used together with `keyVaultSecretId`
 	Identity *string `pulumi:"identity"`
-	// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+	// The ID of a Key Vault secret. This can be a versioned or version-less ID.
+	//
+	// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
-	// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+	// The secret name.
 	Name string `pulumi:"name"`
 	// The value for this secret.
+	//
+	// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
 	Value *string `pulumi:"value"`
 }
 
@@ -5988,13 +5926,19 @@ type JobSecretInput interface {
 }
 
 type JobSecretArgs struct {
-	// A `identity` block as defined below.
+	// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+	//
+	// !> **Note:** `identity` must be used together with `keyVaultSecretId`
 	Identity pulumi.StringPtrInput `pulumi:"identity"`
-	// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+	// The ID of a Key Vault secret. This can be a versioned or version-less ID.
+	//
+	// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
 	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
-	// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+	// The secret name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value for this secret.
+	//
+	// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -6049,22 +5993,28 @@ func (o JobSecretOutput) ToJobSecretOutputWithContext(ctx context.Context) JobSe
 	return o
 }
 
-// A `identity` block as defined below.
+// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+//
+// !> **Note:** `identity` must be used together with `keyVaultSecretId`
 func (o JobSecretOutput) Identity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecret) *string { return v.Identity }).(pulumi.StringPtrOutput)
 }
 
-// The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
+// The ID of a Key Vault secret. This can be a versioned or version-less ID.
+//
+// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
 func (o JobSecretOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecret) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+// The secret name.
 func (o JobSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The value for this secret.
+//
+// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
 func (o JobSecretOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecret) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -11875,7 +11825,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressInput)(nil)).Elem(), AppIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressPtrInput)(nil)).Elem(), AppIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressCustomDomainInput)(nil)).Elem(), AppIngressCustomDomainArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressCustomDomainPtrInput)(nil)).Elem(), AppIngressCustomDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressCustomDomainArrayInput)(nil)).Elem(), AppIngressCustomDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressIpSecurityRestrictionInput)(nil)).Elem(), AppIngressIpSecurityRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressIpSecurityRestrictionArrayInput)(nil)).Elem(), AppIngressIpSecurityRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressTrafficWeightInput)(nil)).Elem(), AppIngressTrafficWeightArgs{})
@@ -12047,7 +11997,7 @@ func init() {
 	pulumi.RegisterOutputType(AppIngressOutput{})
 	pulumi.RegisterOutputType(AppIngressPtrOutput{})
 	pulumi.RegisterOutputType(AppIngressCustomDomainOutput{})
-	pulumi.RegisterOutputType(AppIngressCustomDomainPtrOutput{})
+	pulumi.RegisterOutputType(AppIngressCustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(AppIngressIpSecurityRestrictionOutput{})
 	pulumi.RegisterOutputType(AppIngressIpSecurityRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(AppIngressTrafficWeightOutput{})

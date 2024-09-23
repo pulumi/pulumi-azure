@@ -13,19 +13,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class GetKubernetesClusterAgentPoolProfileResult
     {
+        /// <summary>
+        /// If the auto-scaler is enabled.
+        /// </summary>
         public readonly bool AutoScalingEnabled;
         /// <summary>
         /// The number of Agents (VMs) in the Pool.
         /// </summary>
         public readonly int Count;
-        /// <summary>
-        /// If the auto-scaler is enabled.
-        /// </summary>
-        public readonly bool EnableAutoScaling;
-        /// <summary>
-        /// If the Public IPs for the nodes in this Agent Pool are enabled.
-        /// </summary>
-        public readonly bool EnableNodePublicIp;
         /// <summary>
         /// Maximum number of nodes for auto-scaling
         /// </summary>
@@ -43,6 +38,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Name;
         public readonly ImmutableDictionary<string, string> NodeLabels;
+        /// <summary>
+        /// If the Public IPs for the nodes in this Agent Pool are enabled.
+        /// </summary>
         public readonly bool NodePublicIpEnabled;
         /// <summary>
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
@@ -92,10 +90,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             int count,
 
-            bool enableAutoScaling,
-
-            bool enableNodePublicIp,
-
             int maxCount,
 
             int maxPods,
@@ -132,8 +126,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         {
             AutoScalingEnabled = autoScalingEnabled;
             Count = count;
-            EnableAutoScaling = enableAutoScaling;
-            EnableNodePublicIp = enableNodePublicIp;
             MaxCount = maxCount;
             MaxPods = maxPods;
             MinCount = minCount;

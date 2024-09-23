@@ -12,7 +12,7 @@ const exampleNamespace = new azure.servicebus.Namespace("example", {
     },
 });
 const serviceBusQueue = new azure.servicebus.Queue("example", {
-    enablePartitioning: true,
+    partitioningEnabled: true,
     name: "servicebus-queue",
     namespaceId: exampleNamespace.id,
 });

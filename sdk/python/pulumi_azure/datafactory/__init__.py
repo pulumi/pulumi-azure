@@ -26,7 +26,6 @@ from .flowlet_data_flow import *
 from .get_factory import *
 from .get_trigger_schedule import *
 from .get_trigger_schedules import *
-from .integration_runtime_managed import *
 from .integration_runtime_rule import *
 from .integration_runtime_self_hosted import *
 from .integration_runtime_ssis import *

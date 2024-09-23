@@ -190,7 +190,7 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
     /**
      * A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
      */
-    public readonly outputWorkspaceResourceIds!: pulumi.Output<string[]>;
+    public readonly outputWorkspaceResourceIds!: pulumi.Output<string[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Connection Monitor.
      */

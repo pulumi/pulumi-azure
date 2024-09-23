@@ -78,33 +78,16 @@ namespace Pulumi.Azure.ContainerService
     public partial class KubernetesClusterNodePool : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+        /// </summary>
+        [Output("autoScalingEnabled")]
+        public Output<bool?> AutoScalingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("capacityReservationGroupId")]
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
-
-        [Output("customCaTrustEnabled")]
-        public Output<bool?> CustomCaTrustEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        /// </summary>
-        [Output("enableAutoScaling")]
-        public Output<bool?> EnableAutoScaling { get; private set; } = null!;
-
-        /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-        /// </summary>
-        [Output("enableHostEncryption")]
-        public Output<bool?> EnableHostEncryption { get; private set; } = null!;
-
-        /// <summary>
-        /// Should each node have a Public IP Address? Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("enableNodePublicIp")]
-        public Output<bool?> EnableNodePublicIp { get; private set; } = null!;
 
         /// <summary>
         /// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -127,6 +110,14 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("gpuInstance")]
         public Output<string?> GpuInstance { get; private set; } = null!;
+
+        /// <summary>
+        /// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+        /// </summary>
+        [Output("hostEncryptionEnabled")]
+        public Output<bool?> HostEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
@@ -169,9 +160,6 @@ namespace Pulumi.Azure.ContainerService
         [Output("maxPods")]
         public Output<int> MaxPods { get; private set; } = null!;
 
-        [Output("messageOfTheDay")]
-        public Output<string?> MessageOfTheDay { get; private set; } = null!;
-
         [Output("minCount")]
         public Output<int?> MinCount { get; private set; } = null!;
 
@@ -205,7 +193,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterNodePoolNodeNetworkProfile?> NodeNetworkProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        /// Should each node have a Public IP Address? Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("nodePublicIpEnabled")]
+        public Output<bool?> NodePublicIpEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("nodePublicIpPrefixId")]
         public Output<string?> NodePublicIpPrefixId { get; private set; } = null!;
@@ -389,33 +383,16 @@ namespace Pulumi.Azure.ContainerService
     public sealed class KubernetesClusterNodePoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+        /// </summary>
+        [Input("autoScalingEnabled")]
+        public Input<bool>? AutoScalingEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
-
-        [Input("customCaTrustEnabled")]
-        public Input<bool>? CustomCaTrustEnabled { get; set; }
-
-        /// <summary>
-        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        /// </summary>
-        [Input("enableAutoScaling")]
-        public Input<bool>? EnableAutoScaling { get; set; }
-
-        /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-        /// </summary>
-        [Input("enableHostEncryption")]
-        public Input<bool>? EnableHostEncryption { get; set; }
-
-        /// <summary>
-        /// Should each node have a Public IP Address? Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("enableNodePublicIp")]
-        public Input<bool>? EnableNodePublicIp { get; set; }
 
         /// <summary>
         /// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -438,6 +415,14 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("gpuInstance")]
         public Input<string>? GpuInstance { get; set; }
+
+        /// <summary>
+        /// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+        /// </summary>
+        [Input("hostEncryptionEnabled")]
+        public Input<bool>? HostEncryptionEnabled { get; set; }
 
         /// <summary>
         /// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
@@ -480,9 +465,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("maxPods")]
         public Input<int>? MaxPods { get; set; }
 
-        [Input("messageOfTheDay")]
-        public Input<string>? MessageOfTheDay { get; set; }
-
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
 
@@ -522,7 +504,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNodePoolNodeNetworkProfileArgs>? NodeNetworkProfile { get; set; }
 
         /// <summary>
-        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        /// Should each node have a Public IP Address? Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("nodePublicIpEnabled")]
+        public Input<bool>? NodePublicIpEnabled { get; set; }
+
+        /// <summary>
+        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("nodePublicIpPrefixId")]
         public Input<string>? NodePublicIpPrefixId { get; set; }
@@ -686,33 +674,16 @@ namespace Pulumi.Azure.ContainerService
     public sealed class KubernetesClusterNodePoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+        /// </summary>
+        [Input("autoScalingEnabled")]
+        public Input<bool>? AutoScalingEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
-
-        [Input("customCaTrustEnabled")]
-        public Input<bool>? CustomCaTrustEnabled { get; set; }
-
-        /// <summary>
-        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-        /// </summary>
-        [Input("enableAutoScaling")]
-        public Input<bool>? EnableAutoScaling { get; set; }
-
-        /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-        /// </summary>
-        [Input("enableHostEncryption")]
-        public Input<bool>? EnableHostEncryption { get; set; }
-
-        /// <summary>
-        /// Should each node have a Public IP Address? Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("enableNodePublicIp")]
-        public Input<bool>? EnableNodePublicIp { get; set; }
 
         /// <summary>
         /// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -735,6 +706,14 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("gpuInstance")]
         public Input<string>? GpuInstance { get; set; }
+
+        /// <summary>
+        /// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+        /// </summary>
+        [Input("hostEncryptionEnabled")]
+        public Input<bool>? HostEncryptionEnabled { get; set; }
 
         /// <summary>
         /// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
@@ -777,9 +756,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("maxPods")]
         public Input<int>? MaxPods { get; set; }
 
-        [Input("messageOfTheDay")]
-        public Input<string>? MessageOfTheDay { get; set; }
-
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
 
@@ -819,7 +795,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNodePoolNodeNetworkProfileGetArgs>? NodeNetworkProfile { get; set; }
 
         /// <summary>
-        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        /// Should each node have a Public IP Address? Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("nodePublicIpEnabled")]
+        public Input<bool>? NodePublicIpEnabled { get; set; }
+
+        /// <summary>
+        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("nodePublicIpPrefixId")]
         public Input<string>? NodePublicIpPrefixId { get; set; }

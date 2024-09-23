@@ -97,12 +97,6 @@ export interface GetServiceBusNamespaceResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * Whether or not this ServiceBus Namespace is zone redundant.
-     *
-     * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
-     */
-    readonly zoneRedundant: boolean;
 }
 /**
  * Use this data source to access information about an existing ServiceBus Namespace.

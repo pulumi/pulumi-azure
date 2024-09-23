@@ -113,18 +113,6 @@ public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.reso
     public Output<String> scope() {
         return this.scope;
     }
-    /**
-     * @deprecated
-     * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
-     * 
-     */
-    @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
-    @Export(name="vaultBaseUrl", refs={String.class}, tree="[0]")
-    private Output<String> vaultBaseUrl;
-
-    public Output<String> vaultBaseUrl() {
-        return this.vaultBaseUrl;
-    }
 
     /**
      *

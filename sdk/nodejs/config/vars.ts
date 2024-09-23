@@ -225,6 +225,29 @@ Object.defineProperty(exports, "partnerId", {
 });
 
 /**
+ * The set of Resource Providers which should be automatically registered for the subscription.
+ */
+export declare const resourceProviderRegistrations: string | undefined;
+Object.defineProperty(exports, "resourceProviderRegistrations", {
+    get() {
+        return __config.get("resourceProviderRegistrations");
+    },
+    enumerable: true,
+});
+
+/**
+ * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+ * `resourceProviderRegistrations` property.
+ */
+export declare const resourceProvidersToRegisters: string[] | undefined;
+Object.defineProperty(exports, "resourceProvidersToRegisters", {
+    get() {
+        return __config.getObject<string[]>("resourceProvidersToRegisters");
+    },
+    enumerable: true,
+});
+
+/**
  * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
  * registered?
  */

@@ -213,8 +213,6 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// An `identity` block as defined below.
-        /// 
-        /// &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ConfigurationStoreIdentity?> Identity { get; private set; } = null!;
@@ -252,7 +250,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+        /// &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
@@ -291,6 +289,8 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+        /// 
+        /// &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -363,8 +363,6 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// An `identity` block as defined below.
-        /// 
-        /// &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ConfigurationStoreIdentityArgs>? Identity { get; set; }
@@ -390,7 +388,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+        /// &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
@@ -423,6 +421,8 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+        /// 
+        /// &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -469,8 +469,6 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// An `identity` block as defined below.
-        /// 
-        /// &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ConfigurationStoreIdentityGetArgs>? Identity { get; set; }
@@ -520,7 +518,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+        /// &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
@@ -577,6 +575,8 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+        /// 
+        /// &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

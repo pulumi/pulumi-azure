@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,18 +86,10 @@ import (
 type KubernetesClusterNodePool struct {
 	pulumi.CustomResourceState
 
+	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+	AutoScalingEnabled pulumi.BoolPtrOutput `pulumi:"autoScalingEnabled"`
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustEnabled pulumi.BoolPtrOutput `pulumi:"customCaTrustEnabled"`
-	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-	EnableHostEncryption pulumi.BoolPtrOutput `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
-	EnableNodePublicIp pulumi.BoolPtrOutput `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
@@ -108,6 +100,10 @@ type KubernetesClusterNodePool struct {
 	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrOutput `pulumi:"gpuInstance"`
+	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+	HostEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"hostEncryptionEnabled"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrOutput `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
@@ -122,10 +118,8 @@ type KubernetesClusterNodePool struct {
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrOutput `pulumi:"linuxOsConfig"`
 	MaxCount      pulumi.IntPtrOutput                             `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-	MaxPods pulumi.IntOutput `pulumi:"maxPods"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	MessageOfTheDay pulumi.StringPtrOutput `pulumi:"messageOfTheDay"`
-	MinCount        pulumi.IntPtrOutput    `pulumi:"minCount"`
+	MaxPods  pulumi.IntOutput    `pulumi:"maxPods"`
+	MinCount pulumi.IntPtrOutput `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -137,7 +131,9 @@ type KubernetesClusterNodePool struct {
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
 	// A `nodeNetworkProfile` block as documented below.
 	NodeNetworkProfile KubernetesClusterNodePoolNodeNetworkProfilePtrOutput `pulumi:"nodeNetworkProfile"`
-	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
+	NodePublicIpEnabled pulumi.BoolPtrOutput `pulumi:"nodePublicIpEnabled"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrOutput `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints pulumi.StringArrayOutput `pulumi:"nodeTaints"`
@@ -229,18 +225,10 @@ func GetKubernetesClusterNodePool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KubernetesClusterNodePool resources.
 type kubernetesClusterNodePoolState struct {
+	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+	AutoScalingEnabled *bool `pulumi:"autoScalingEnabled"`
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
-	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
-	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
@@ -251,6 +239,10 @@ type kubernetesClusterNodePoolState struct {
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance *string `pulumi:"gpuInstance"`
+	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+	HostEncryptionEnabled *bool `pulumi:"hostEncryptionEnabled"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
@@ -265,10 +257,8 @@ type kubernetesClusterNodePoolState struct {
 	LinuxOsConfig *KubernetesClusterNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
 	MaxCount      *int                                    `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-	MaxPods *int `pulumi:"maxPods"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	MessageOfTheDay *string `pulumi:"messageOfTheDay"`
-	MinCount        *int    `pulumi:"minCount"`
+	MaxPods  *int `pulumi:"maxPods"`
+	MinCount *int `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode *string `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -280,7 +270,9 @@ type kubernetesClusterNodePoolState struct {
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// A `nodeNetworkProfile` block as documented below.
 	NodeNetworkProfile *KubernetesClusterNodePoolNodeNetworkProfile `pulumi:"nodeNetworkProfile"`
-	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
+	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints []string `pulumi:"nodeTaints"`
@@ -337,18 +329,10 @@ type kubernetesClusterNodePoolState struct {
 }
 
 type KubernetesClusterNodePoolState struct {
+	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+	AutoScalingEnabled pulumi.BoolPtrInput
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustEnabled pulumi.BoolPtrInput
-	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-	EnableAutoScaling pulumi.BoolPtrInput
-	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-	EnableHostEncryption pulumi.BoolPtrInput
-	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
-	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
@@ -359,6 +343,10 @@ type KubernetesClusterNodePoolState struct {
 	FipsEnabled pulumi.BoolPtrInput
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrInput
+	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+	HostEncryptionEnabled pulumi.BoolPtrInput
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput
 	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
@@ -373,10 +361,8 @@ type KubernetesClusterNodePoolState struct {
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrInput
 	MaxCount      pulumi.IntPtrInput
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-	MaxPods pulumi.IntPtrInput
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	MessageOfTheDay pulumi.StringPtrInput
-	MinCount        pulumi.IntPtrInput
+	MaxPods  pulumi.IntPtrInput
+	MinCount pulumi.IntPtrInput
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode pulumi.StringPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -388,7 +374,9 @@ type KubernetesClusterNodePoolState struct {
 	NodeLabels pulumi.StringMapInput
 	// A `nodeNetworkProfile` block as documented below.
 	NodeNetworkProfile KubernetesClusterNodePoolNodeNetworkProfilePtrInput
-	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
+	NodePublicIpEnabled pulumi.BoolPtrInput
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrInput
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints pulumi.StringArrayInput
@@ -449,18 +437,10 @@ func (KubernetesClusterNodePoolState) ElementType() reflect.Type {
 }
 
 type kubernetesClusterNodePoolArgs struct {
+	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+	AutoScalingEnabled *bool `pulumi:"autoScalingEnabled"`
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
-	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
-	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
@@ -471,6 +451,10 @@ type kubernetesClusterNodePoolArgs struct {
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance *string `pulumi:"gpuInstance"`
+	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+	HostEncryptionEnabled *bool `pulumi:"hostEncryptionEnabled"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
@@ -485,10 +469,8 @@ type kubernetesClusterNodePoolArgs struct {
 	LinuxOsConfig *KubernetesClusterNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
 	MaxCount      *int                                    `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-	MaxPods *int `pulumi:"maxPods"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	MessageOfTheDay *string `pulumi:"messageOfTheDay"`
-	MinCount        *int    `pulumi:"minCount"`
+	MaxPods  *int `pulumi:"maxPods"`
+	MinCount *int `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode *string `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -500,7 +482,9 @@ type kubernetesClusterNodePoolArgs struct {
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// A `nodeNetworkProfile` block as documented below.
 	NodeNetworkProfile *KubernetesClusterNodePoolNodeNetworkProfile `pulumi:"nodeNetworkProfile"`
-	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
+	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints []string `pulumi:"nodeTaints"`
@@ -558,18 +542,10 @@ type kubernetesClusterNodePoolArgs struct {
 
 // The set of arguments for constructing a KubernetesClusterNodePool resource.
 type KubernetesClusterNodePoolArgs struct {
+	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+	AutoScalingEnabled pulumi.BoolPtrInput
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustEnabled pulumi.BoolPtrInput
-	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-	EnableAutoScaling pulumi.BoolPtrInput
-	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-	EnableHostEncryption pulumi.BoolPtrInput
-	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
-	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
@@ -580,6 +556,10 @@ type KubernetesClusterNodePoolArgs struct {
 	FipsEnabled pulumi.BoolPtrInput
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrInput
+	// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+	HostEncryptionEnabled pulumi.BoolPtrInput
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput
 	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
@@ -594,10 +574,8 @@ type KubernetesClusterNodePoolArgs struct {
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrInput
 	MaxCount      pulumi.IntPtrInput
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-	MaxPods pulumi.IntPtrInput
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	MessageOfTheDay pulumi.StringPtrInput
-	MinCount        pulumi.IntPtrInput
+	MaxPods  pulumi.IntPtrInput
+	MinCount pulumi.IntPtrInput
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode pulumi.StringPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -609,7 +587,9 @@ type KubernetesClusterNodePoolArgs struct {
 	NodeLabels pulumi.StringMapInput
 	// A `nodeNetworkProfile` block as documented below.
 	NodeNetworkProfile KubernetesClusterNodePoolNodeNetworkProfilePtrInput
-	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address? Changing this forces a new resource to be created.
+	NodePublicIpEnabled pulumi.BoolPtrInput
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrInput
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
 	NodeTaints pulumi.StringArrayInput
@@ -752,31 +732,14 @@ func (o KubernetesClusterNodePoolOutput) ToKubernetesClusterNodePoolOutputWithCo
 	return o
 }
 
+// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+func (o KubernetesClusterNodePoolOutput) AutoScalingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.AutoScalingEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterNodePoolOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.CustomCaTrustEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
-func (o KubernetesClusterNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
-}
-
-// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
-//
-// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
-func (o KubernetesClusterNodePoolOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableHostEncryption }).(pulumi.BoolPtrOutput)
-}
-
-// Should each node have a Public IP Address? Changing this forces a new resource to be created.
-func (o KubernetesClusterNodePoolOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
 
 // The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -796,6 +759,13 @@ func (o KubernetesClusterNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
 // Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) GpuInstance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.GpuInstance }).(pulumi.StringPtrOutput)
+}
+
+// Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+//
+// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+func (o KubernetesClusterNodePoolOutput) HostEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.HostEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
@@ -838,11 +808,6 @@ func (o KubernetesClusterNodePoolOutput) MaxPods() pulumi.IntOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.IntOutput { return v.MaxPods }).(pulumi.IntOutput)
 }
 
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterNodePoolOutput) MessageOfTheDay() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.MessageOfTheDay }).(pulumi.StringPtrOutput)
-}
-
 func (o KubernetesClusterNodePoolOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.IntPtrOutput { return v.MinCount }).(pulumi.IntPtrOutput)
 }
@@ -875,7 +840,12 @@ func (o KubernetesClusterNodePoolOutput) NodeNetworkProfile() KubernetesClusterN
 	}).(KubernetesClusterNodePoolNodeNetworkProfilePtrOutput)
 }
 
-// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+// Should each node have a Public IP Address? Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolOutput) NodePublicIpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.NodePublicIpEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) NodePublicIpPrefixId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.NodePublicIpPrefixId }).(pulumi.StringPtrOutput)
 }

@@ -37,14 +37,14 @@ public final class ExpressRoutePortArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
      * 
      */
     @Import(name="billingType")
     private @Nullable Output<String> billingType;
 
     /**
-     * @return The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+     * @return The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
      * 
      */
     public Optional<Output<String>> billingType() {
@@ -242,7 +242,7 @@ public final class ExpressRoutePortArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param billingType The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+         * @param billingType The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ExpressRoutePortArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param billingType The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`.
+         * @param billingType The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
          * 
          * @return builder
          * 

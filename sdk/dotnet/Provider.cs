@@ -116,6 +116,12 @@ namespace Pulumi.Azure
         public Output<string?> PartnerId { get; private set; } = null!;
 
         /// <summary>
+        /// The set of Resource Providers which should be automatically registered for the subscription.
+        /// </summary>
+        [Output("resourceProviderRegistrations")]
+        public Output<string?> ResourceProviderRegistrations { get; private set; } = null!;
+
+        /// <summary>
         /// The Subscription ID which should be used.
         /// </summary>
         [Output("subscriptionId")]
@@ -390,6 +396,25 @@ namespace Pulumi.Azure
         /// </summary>
         [Input("partnerId")]
         public Input<string>? PartnerId { get; set; }
+
+        /// <summary>
+        /// The set of Resource Providers which should be automatically registered for the subscription.
+        /// </summary>
+        [Input("resourceProviderRegistrations")]
+        public Input<string>? ResourceProviderRegistrations { get; set; }
+
+        [Input("resourceProvidersToRegisters", json: true)]
+        private InputList<string>? _resourceProvidersToRegisters;
+
+        /// <summary>
+        /// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+        /// `resource_provider_registrations` property.
+        /// </summary>
+        public InputList<string> ResourceProvidersToRegisters
+        {
+            get => _resourceProvidersToRegisters ?? (_resourceProvidersToRegisters = new InputList<string>());
+            set => _resourceProvidersToRegisters = value;
+        }
 
         /// <summary>
         /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already

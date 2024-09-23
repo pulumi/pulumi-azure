@@ -176,7 +176,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<bool?> AnalyticalStorageEnabled { get; private set; } = null!;
 
         [Output("automaticFailoverEnabled")]
-        public Output<bool> AutomaticFailoverEnabled { get; private set; } = null!;
+        public Output<bool?> AutomaticFailoverEnabled { get; private set; } = null!;
 
         [Output("backup")]
         public Output<Outputs.AccountBackup> Backup { get; private set; } = null!;
@@ -192,9 +192,6 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("capacity")]
         public Output<Outputs.AccountCapacity> Capacity { get; private set; } = null!;
-
-        [Output("connectionStrings")]
-        public Output<ImmutableArray<string>> ConnectionStrings { get; private set; } = null!;
 
         [Output("consistencyPolicy")]
         public Output<Outputs.AccountConsistencyPolicy> ConsistencyPolicy { get; private set; } = null!;
@@ -216,15 +213,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("defaultIdentityType")]
         public Output<string?> DefaultIdentityType { get; private set; } = null!;
 
-        [Output("enableAutomaticFailover")]
-        public Output<bool> EnableAutomaticFailover { get; private set; } = null!;
-
-        [Output("enableFreeTier")]
-        public Output<bool> EnableFreeTier { get; private set; } = null!;
-
-        [Output("enableMultipleWriteLocations")]
-        public Output<bool> EnableMultipleWriteLocations { get; private set; } = null!;
-
         /// <summary>
         /// The endpoint used to connect to the CosmosDB account.
         /// </summary>
@@ -232,7 +220,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Endpoint { get; private set; } = null!;
 
         [Output("freeTierEnabled")]
-        public Output<bool> FreeTierEnabled { get; private set; } = null!;
+        public Output<bool?> FreeTierEnabled { get; private set; } = null!;
 
         [Output("geoLocations")]
         public Output<ImmutableArray<Outputs.AccountGeoLocation>> GeoLocations { get; private set; } = null!;
@@ -240,8 +228,8 @@ namespace Pulumi.Azure.CosmosDB
         [Output("identity")]
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
-        [Output("ipRangeFilter")]
-        public Output<string?> IpRangeFilter { get; private set; } = null!;
+        [Output("ipRangeFilters")]
+        public Output<ImmutableArray<string>> IpRangeFilters { get; private set; } = null!;
 
         [Output("isVirtualNetworkFilterEnabled")]
         public Output<bool?> IsVirtualNetworkFilterEnabled { get; private set; } = null!;
@@ -265,13 +253,13 @@ namespace Pulumi.Azure.CosmosDB
         /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         /// </summary>
         [Output("minimalTlsVersion")]
-        public Output<string> MinimalTlsVersion { get; private set; } = null!;
+        public Output<string?> MinimalTlsVersion { get; private set; } = null!;
 
         [Output("mongoServerVersion")]
         public Output<string> MongoServerVersion { get; private set; } = null!;
 
         [Output("multipleWriteLocationsEnabled")]
-        public Output<bool> MultipleWriteLocationsEnabled { get; private set; } = null!;
+        public Output<bool?> MultipleWriteLocationsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -424,7 +412,6 @@ namespace Pulumi.Azure.CosmosDB
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
-                    "connectionStrings",
                     "primaryKey",
                     "primaryMongodbConnectionString",
                     "primaryReadonlyKey",
@@ -516,15 +503,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("defaultIdentityType")]
         public Input<string>? DefaultIdentityType { get; set; }
 
-        [Input("enableAutomaticFailover")]
-        public Input<bool>? EnableAutomaticFailover { get; set; }
-
-        [Input("enableFreeTier")]
-        public Input<bool>? EnableFreeTier { get; set; }
-
-        [Input("enableMultipleWriteLocations")]
-        public Input<bool>? EnableMultipleWriteLocations { get; set; }
-
         [Input("freeTierEnabled")]
         public Input<bool>? FreeTierEnabled { get; set; }
 
@@ -539,8 +517,13 @@ namespace Pulumi.Azure.CosmosDB
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
-        [Input("ipRangeFilter")]
-        public Input<string>? IpRangeFilter { get; set; }
+        [Input("ipRangeFilters")]
+        private InputList<string>? _ipRangeFilters;
+        public InputList<string> IpRangeFilters
+        {
+            get => _ipRangeFilters ?? (_ipRangeFilters = new InputList<string>());
+            set => _ipRangeFilters = value;
+        }
 
         [Input("isVirtualNetworkFilterEnabled")]
         public Input<bool>? IsVirtualNetworkFilterEnabled { get; set; }
@@ -673,19 +656,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("capacity")]
         public Input<Inputs.AccountCapacityGetArgs>? Capacity { get; set; }
 
-        [Input("connectionStrings")]
-        private InputList<string>? _connectionStrings;
-        [Obsolete(@"This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider")]
-        public InputList<string> ConnectionStrings
-        {
-            get => _connectionStrings ?? (_connectionStrings = new InputList<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableArray.Create<string>());
-                _connectionStrings = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
-        }
-
         [Input("consistencyPolicy")]
         public Input<Inputs.AccountConsistencyPolicyGetArgs>? ConsistencyPolicy { get; set; }
 
@@ -705,15 +675,6 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("defaultIdentityType")]
         public Input<string>? DefaultIdentityType { get; set; }
-
-        [Input("enableAutomaticFailover")]
-        public Input<bool>? EnableAutomaticFailover { get; set; }
-
-        [Input("enableFreeTier")]
-        public Input<bool>? EnableFreeTier { get; set; }
-
-        [Input("enableMultipleWriteLocations")]
-        public Input<bool>? EnableMultipleWriteLocations { get; set; }
 
         /// <summary>
         /// The endpoint used to connect to the CosmosDB account.
@@ -735,8 +696,13 @@ namespace Pulumi.Azure.CosmosDB
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
-        [Input("ipRangeFilter")]
-        public Input<string>? IpRangeFilter { get; set; }
+        [Input("ipRangeFilters")]
+        private InputList<string>? _ipRangeFilters;
+        public InputList<string> IpRangeFilters
+        {
+            get => _ipRangeFilters ?? (_ipRangeFilters = new InputList<string>());
+            set => _ipRangeFilters = value;
+        }
 
         [Input("isVirtualNetworkFilterEnabled")]
         public Input<bool>? IsVirtualNetworkFilterEnabled { get; set; }

@@ -95,6 +95,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly partnerId!: pulumi.Output<string | undefined>;
     /**
+     * The set of Resource Providers which should be automatically registered for the subscription.
+     */
+    public readonly resourceProviderRegistrations!: pulumi.Output<string | undefined>;
+    /**
      * The Subscription ID which should be used.
      */
     public readonly subscriptionId!: pulumi.Output<string | undefined>;
@@ -133,6 +137,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["oidcToken"] = args?.oidcToken ? pulumi.secret(args.oidcToken) : undefined;
             resourceInputs["oidcTokenFilePath"] = args?.oidcTokenFilePath ? pulumi.secret(args.oidcTokenFilePath) : undefined;
             resourceInputs["partnerId"] = args ? args.partnerId : undefined;
+            resourceInputs["resourceProviderRegistrations"] = args ? args.resourceProviderRegistrations : undefined;
+            resourceInputs["resourceProvidersToRegisters"] = pulumi.output(args ? args.resourceProvidersToRegisters : undefined).apply(JSON.stringify);
             resourceInputs["skipProviderRegistration"] = pulumi.output((args ? args.skipProviderRegistration : undefined) ?? (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false)).apply(JSON.stringify);
             resourceInputs["storageUseAzuread"] = pulumi.output((args ? args.storageUseAzuread : undefined) ?? (utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
             resourceInputs["subscriptionId"] = (args?.subscriptionId ? pulumi.secret(args.subscriptionId) : undefined) ?? (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
@@ -228,8 +234,19 @@ export interface ProviderArgs {
      */
     partnerId?: pulumi.Input<string>;
     /**
+     * The set of Resource Providers which should be automatically registered for the subscription.
+     */
+    resourceProviderRegistrations?: pulumi.Input<string>;
+    /**
+     * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+     * `resourceProviderRegistrations` property.
+     */
+    resourceProvidersToRegisters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
      * registered?
+     *
+     * @deprecated This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
      */
     skipProviderRegistration?: pulumi.Input<boolean>;
     /**

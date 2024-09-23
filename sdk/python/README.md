@@ -3,7 +3,7 @@
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Fazure.svg)](https://npmjs.com/package/@pulumi/azure)
 [![Python version](https://badge.fury.io/py/pulumi-azure.svg)](https://pypi.org/project/pulumi-azure)
 [![NuGet version](https://badge.fury.io/nu/pulumi.azure.svg)](https://badge.fury.io/nu/pulumi.azure)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-azure/sdk/v5/go)](https://pkg.go.dev/github.com/pulumi/pulumi-azure/sdk/v5/go)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-azure/sdk/v6/go)](https://pkg.go.dev/github.com/pulumi/pulumi-azure/sdk/v6/go)
 [![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-azure/blob/master/LICENSE)
 
 # Microsoft Azure Resource Provider
@@ -29,29 +29,29 @@ This package is available in many languages in the standard packaging formats.
 
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
-    $ npm install @pulumi/azure
+    npm install @pulumi/azure
 
 or `yarn`:
 
-    $ yarn add @pulumi/azure
+    yarn add @pulumi/azure
 
 ### Python
 
 To use from Python, install using `pip`:
 
-    $ pip install pulumi_azure
+    pip install pulumi_azure
 
 ### Go
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-azure/sdk/v5
+    go get github.com/pulumi/pulumi-azure/sdk/v6
 
-### .NET 
+### .NET
 
 To use from .NET, install using `dotnet add package`:
 
-    $ dotnet add package Pulumi.Azure
+    dotnet add package Pulumi.Azure
 
 ## Concepts
 

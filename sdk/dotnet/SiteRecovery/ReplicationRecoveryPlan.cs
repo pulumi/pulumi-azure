@@ -334,14 +334,6 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Three or more `recovery_group` block defined as below.
-        /// 
-        /// &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-        /// </summary>
-        [Output("recoveryGroups")]
-        public Output<ImmutableArray<Outputs.ReplicationRecoveryPlanRecoveryGroup>> RecoveryGroups { get; private set; } = null!;
-
-        /// <summary>
         /// The ID of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryVaultId")]
@@ -419,7 +411,7 @@ namespace Pulumi.Azure.SiteRecovery
         [Input("azureToAzureSettings")]
         public Input<Inputs.ReplicationRecoveryPlanAzureToAzureSettingsArgs>? AzureToAzureSettings { get; set; }
 
-        [Input("bootRecoveryGroups")]
+        [Input("bootRecoveryGroups", required: true)]
         private InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs>? _bootRecoveryGroups;
 
         /// <summary>
@@ -438,29 +430,14 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
         /// </summary>
-        [Input("failoverRecoveryGroup")]
-        public Input<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupArgs>? FailoverRecoveryGroup { get; set; }
+        [Input("failoverRecoveryGroup", required: true)]
+        public Input<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupArgs> FailoverRecoveryGroup { get; set; } = null!;
 
         /// <summary>
         /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("recoveryGroups")]
-        private InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupArgs>? _recoveryGroups;
-
-        /// <summary>
-        /// Three or more `recovery_group` block defined as below.
-        /// 
-        /// &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-        /// </summary>
-        [Obsolete(@"the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.")]
-        public InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupArgs> RecoveryGroups
-        {
-            get => _recoveryGroups ?? (_recoveryGroups = new InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupArgs>());
-            set => _recoveryGroups = value;
-        }
 
         /// <summary>
         /// The ID of the vault that should be updated. Changing this forces a new resource to be created.
@@ -473,8 +450,8 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         /// </summary>
-        [Input("shutdownRecoveryGroup")]
-        public Input<Inputs.ReplicationRecoveryPlanShutdownRecoveryGroupArgs>? ShutdownRecoveryGroup { get; set; }
+        [Input("shutdownRecoveryGroup", required: true)]
+        public Input<Inputs.ReplicationRecoveryPlanShutdownRecoveryGroupArgs> ShutdownRecoveryGroup { get; set; } = null!;
 
         /// <summary>
         /// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
@@ -529,21 +506,6 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("recoveryGroups")]
-        private InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupGetArgs>? _recoveryGroups;
-
-        /// <summary>
-        /// Three or more `recovery_group` block defined as below.
-        /// 
-        /// &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-        /// </summary>
-        [Obsolete(@"the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.")]
-        public InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupGetArgs> RecoveryGroups
-        {
-            get => _recoveryGroups ?? (_recoveryGroups = new InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupGetArgs>());
-            set => _recoveryGroups = value;
-        }
 
         /// <summary>
         /// The ID of the vault that should be updated. Changing this forces a new resource to be created.

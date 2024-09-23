@@ -29,8 +29,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
-        public readonly Outputs.GroupContainerGpu? Gpu;
-        public readonly Outputs.GroupContainerGpuLimit? GpuLimit;
         /// <summary>
         /// The container image name. Changing this forces a new resource to be created.
         /// </summary>
@@ -82,10 +80,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableDictionary<string, string>? environmentVariables,
 
-            Outputs.GroupContainerGpu? gpu,
-
-            Outputs.GroupContainerGpuLimit? gpuLimit,
-
             string image,
 
             Outputs.GroupContainerLivenessProbe? livenessProbe,
@@ -110,8 +104,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
             Cpu = cpu;
             CpuLimit = cpuLimit;
             EnvironmentVariables = environmentVariables;
-            Gpu = gpu;
-            GpuLimit = gpuLimit;
             Image = image;
             LivenessProbe = livenessProbe;
             Memory = memory;

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,13 +79,13 @@ type Pool struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// QoS Type of the pool. Valid values include `Auto` or `Manual`.
-	QosType pulumi.StringOutput `pulumi:"qosType"`
+	// QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
+	QosType pulumi.StringPtrOutput `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
-	// Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
 	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	//
@@ -145,13 +145,13 @@ type poolState struct {
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+	// QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
 	QosType *string `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel *string `pulumi:"serviceLevel"`
-	// Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
 	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	//
@@ -170,13 +170,13 @@ type PoolState struct {
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+	// QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
 	QosType pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringPtrInput
-	// Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
 	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	//
@@ -199,13 +199,13 @@ type poolArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+	// QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
 	QosType *string `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel string `pulumi:"serviceLevel"`
-	// Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
 	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	//
@@ -225,13 +225,13 @@ type PoolArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+	// QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
 	QosType pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringInput
-	// Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
 	// > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 	//
@@ -348,9 +348,9 @@ func (o PoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// QoS Type of the pool. Valid values include `Auto` or `Manual`.
-func (o PoolOutput) QosType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.QosType }).(pulumi.StringOutput)
+// QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
+func (o PoolOutput) QosType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.QosType }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -363,7 +363,7 @@ func (o PoolOutput) ServiceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ServiceLevel }).(pulumi.StringOutput)
 }
 
-// Provisioned size of the pool in TB. Value must be between `2` and `2048`.
+// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 //
 // > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 //

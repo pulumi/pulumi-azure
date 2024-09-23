@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,10 +68,6 @@ type LookupSubnetResult struct {
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// Is the default outbound access enabled for the subnet.
 	DefaultOutboundAccessEnabled bool `pulumi:"defaultOutboundAccessEnabled"`
-	// Deprecated: This property has been superseded by `privateEndpointNetworkPolicies` and will be removed in v4.0 of the AzureRM Provider.
-	EnforcePrivateLinkEndpointNetworkPolicies bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Deprecated: This property has been superseded by `privateLinkServiceNetworkPoliciesEnabled` and will be removed in v4.0 of the AzureRM Provider.
-	EnforcePrivateLinkServiceNetworkPolicies bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -79,8 +75,6 @@ type LookupSubnetResult struct {
 	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
 	// Enable or Disable network policies for the private endpoint on the subnet.
 	PrivateEndpointNetworkPolicies string `pulumi:"privateEndpointNetworkPolicies"`
-	// Deprecated: This property has been superseded by `privateEndpointNetworkPolicies` and will be removed in v4.0 of the AzureRM Provider.
-	PrivateEndpointNetworkPoliciesEnabled bool `pulumi:"privateEndpointNetworkPoliciesEnabled"`
 	// Enable or Disable network policies for the private link service on the subnet.
 	PrivateLinkServiceNetworkPoliciesEnabled bool   `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
 	ResourceGroupName                        string `pulumi:"resourceGroupName"`
@@ -147,16 +141,6 @@ func (o LookupSubnetResultOutput) DefaultOutboundAccessEnabled() pulumi.BoolOutp
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.DefaultOutboundAccessEnabled }).(pulumi.BoolOutput)
 }
 
-// Deprecated: This property has been superseded by `privateEndpointNetworkPolicies` and will be removed in v4.0 of the AzureRM Provider.
-func (o LookupSubnetResultOutput) EnforcePrivateLinkEndpointNetworkPolicies() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnforcePrivateLinkEndpointNetworkPolicies }).(pulumi.BoolOutput)
-}
-
-// Deprecated: This property has been superseded by `privateLinkServiceNetworkPoliciesEnabled` and will be removed in v4.0 of the AzureRM Provider.
-func (o LookupSubnetResultOutput) EnforcePrivateLinkServiceNetworkPolicies() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnforcePrivateLinkServiceNetworkPolicies }).(pulumi.BoolOutput)
-}
-
 // The provider-assigned unique ID for this managed resource.
 func (o LookupSubnetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetResult) string { return v.Id }).(pulumi.StringOutput)
@@ -174,11 +158,6 @@ func (o LookupSubnetResultOutput) NetworkSecurityGroupId() pulumi.StringOutput {
 // Enable or Disable network policies for the private endpoint on the subnet.
 func (o LookupSubnetResultOutput) PrivateEndpointNetworkPolicies() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetResult) string { return v.PrivateEndpointNetworkPolicies }).(pulumi.StringOutput)
-}
-
-// Deprecated: This property has been superseded by `privateEndpointNetworkPolicies` and will be removed in v4.0 of the AzureRM Provider.
-func (o LookupSubnetResultOutput) PrivateEndpointNetworkPoliciesEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupSubnetResult) bool { return v.PrivateEndpointNetworkPoliciesEnabled }).(pulumi.BoolOutput)
 }
 
 // Enable or Disable network policies for the private link service on the subnet.

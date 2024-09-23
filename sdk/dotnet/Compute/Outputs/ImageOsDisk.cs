@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? Caching;
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
+        /// The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
@@ -41,6 +41,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// Specifies the size of the image to be created. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int? SizeGb;
+        /// <summary>
+        /// The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string StorageType;
 
         [OutputConstructor]
         private ImageOsDisk(
@@ -56,7 +60,9 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string? osType,
 
-            int? sizeGb)
+            int? sizeGb,
+
+            string storageType)
         {
             BlobUri = blobUri;
             Caching = caching;
@@ -65,6 +71,7 @@ namespace Pulumi.Azure.Compute.Outputs
             OsState = osState;
             OsType = osType;
             SizeGb = sizeGb;
+            StorageType = storageType;
         }
     }
 }

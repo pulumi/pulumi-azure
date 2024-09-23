@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iotcentral"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/iotcentral"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,8 +87,8 @@ type Application struct {
 	SubDomain pulumi.StringOutput `pulumi:"subDomain"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
-	Template pulumi.StringOutput `pulumi:"template"`
+	// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
+	Template pulumi.StringPtrOutput `pulumi:"template"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -147,7 +147,7 @@ type applicationState struct {
 	SubDomain *string `pulumi:"subDomain"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+	// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
 	Template *string `pulumi:"template"`
 }
 
@@ -172,7 +172,7 @@ type ApplicationState struct {
 	SubDomain pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+	// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
 	Template pulumi.StringPtrInput
 }
 
@@ -201,7 +201,7 @@ type applicationArgs struct {
 	SubDomain string `pulumi:"subDomain"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+	// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
 	Template *string `pulumi:"template"`
 }
 
@@ -227,7 +227,7 @@ type ApplicationArgs struct {
 	SubDomain pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+	// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
 	Template pulumi.StringPtrInput
 }
 
@@ -365,9 +365,9 @@ func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
-func (o ApplicationOutput) Template() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Template }).(pulumi.StringOutput)
+// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
+func (o ApplicationOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Template }).(pulumi.StringPtrOutput)
 }
 
 type ApplicationArrayOutput struct{ *pulumi.OutputState }

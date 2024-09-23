@@ -125,7 +125,7 @@ namespace Pulumi.Azure.DataBricks
         /// Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
         /// </summary>
         [Output("networkSecurityGroupRulesRequired")]
-        public Output<string> NetworkSecurityGroupRulesRequired { get; private set; } = null!;
+        public Output<string?> NetworkSecurityGroupRulesRequired { get; private set; } = null!;
 
         /// <summary>
         /// Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.

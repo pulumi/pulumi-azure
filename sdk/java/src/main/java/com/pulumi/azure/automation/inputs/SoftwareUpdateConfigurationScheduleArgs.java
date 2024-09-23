@@ -151,15 +151,15 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
      * List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
      * 
      */
-    @Import(name="monthlyOccurrences")
-    private @Nullable Output<List<SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs>> monthlyOccurrences;
+    @Import(name="monthlyOccurrence")
+    private @Nullable Output<SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs> monthlyOccurrence;
 
     /**
      * @return List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
      * 
      */
-    public Optional<Output<List<SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs>>> monthlyOccurrences() {
-        return Optional.ofNullable(this.monthlyOccurrences);
+    public Optional<Output<SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs>> monthlyOccurrence() {
+        return Optional.ofNullable(this.monthlyOccurrence);
     }
 
     @Import(name="nextRun")
@@ -226,7 +226,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         this.interval = $.interval;
         this.isEnabled = $.isEnabled;
         this.lastModifiedTime = $.lastModifiedTime;
-        this.monthlyOccurrences = $.monthlyOccurrences;
+        this.monthlyOccurrence = $.monthlyOccurrence;
         this.nextRun = $.nextRun;
         this.nextRunOffsetMinutes = $.nextRunOffsetMinutes;
         this.startTime = $.startTime;
@@ -447,34 +447,24 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param monthlyOccurrences List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+         * @param monthlyOccurrence List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder monthlyOccurrences(@Nullable Output<List<SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs>> monthlyOccurrences) {
-            $.monthlyOccurrences = monthlyOccurrences;
+        public Builder monthlyOccurrence(@Nullable Output<SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs> monthlyOccurrence) {
+            $.monthlyOccurrence = monthlyOccurrence;
             return this;
         }
 
         /**
-         * @param monthlyOccurrences List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+         * @param monthlyOccurrence List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder monthlyOccurrences(List<SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs> monthlyOccurrences) {
-            return monthlyOccurrences(Output.of(monthlyOccurrences));
-        }
-
-        /**
-         * @param monthlyOccurrences List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder monthlyOccurrences(SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs... monthlyOccurrences) {
-            return monthlyOccurrences(List.of(monthlyOccurrences));
+        public Builder monthlyOccurrence(SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs monthlyOccurrence) {
+            return monthlyOccurrence(Output.of(monthlyOccurrence));
         }
 
         public Builder nextRun(@Nullable Output<String> nextRun) {

@@ -26,7 +26,7 @@ class GetDiagnosticCategoriesResult:
     """
     A collection of values returned by getDiagnosticCategories.
     """
-    def __init__(__self__, id=None, log_category_groups=None, log_category_types=None, logs=None, metrics=None, resource_id=None):
+    def __init__(__self__, id=None, log_category_groups=None, log_category_types=None, metrics=None, resource_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -36,9 +36,6 @@ class GetDiagnosticCategoriesResult:
         if log_category_types and not isinstance(log_category_types, list):
             raise TypeError("Expected argument 'log_category_types' to be a list")
         pulumi.set(__self__, "log_category_types", log_category_types)
-        if logs and not isinstance(logs, list):
-            raise TypeError("Expected argument 'logs' to be a list")
-        pulumi.set(__self__, "logs", logs)
         if metrics and not isinstance(metrics, list):
             raise TypeError("Expected argument 'metrics' to be a list")
         pulumi.set(__self__, "metrics", metrics)
@@ -72,15 +69,6 @@ class GetDiagnosticCategoriesResult:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""`logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.""")
-    def logs(self) -> Sequence[str]:
-        """
-        A list of the Log Categories supported for this Resource.
-        """
-        return pulumi.get(self, "logs")
-
-    @property
-    @pulumi.getter
     def metrics(self) -> Sequence[str]:
         """
         A list of the Metric Categories supported for this Resource.
@@ -102,7 +90,6 @@ class AwaitableGetDiagnosticCategoriesResult(GetDiagnosticCategoriesResult):
             id=self.id,
             log_category_groups=self.log_category_groups,
             log_category_types=self.log_category_types,
-            logs=self.logs,
             metrics=self.metrics,
             resource_id=self.resource_id)
 
@@ -135,7 +122,6 @@ def get_diagnostic_categories(resource_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         log_category_groups=pulumi.get(__ret__, 'log_category_groups'),
         log_category_types=pulumi.get(__ret__, 'log_category_types'),
-        logs=pulumi.get(__ret__, 'logs'),
         metrics=pulumi.get(__ret__, 'metrics'),
         resource_id=pulumi.get(__ret__, 'resource_id'))
 

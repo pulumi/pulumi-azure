@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     sku: "S0",
  *     adminUsers: ["myuser@domain.tld"],
- *     enablePowerBiService: true,
+ *     powerBiServiceEnabled: true,
  *     ipv4FirewallRules: [{
  *         name: "myRule1",
  *         rangeStart: "210.117.252.0",
@@ -84,12 +84,6 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly backupBlobContainerUri!: pulumi.Output<string | undefined>;
     /**
-     * Indicates if the Power BI service is allowed to access or not.
-     *
-     * @deprecated The property `enablePowerBiService` has been superseded by `powerBiServiceEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    public readonly enablePowerBiService!: pulumi.Output<boolean>;
-    /**
      * One or more `ipv4FirewallRule` block(s) as defined below.
      */
     public readonly ipv4FirewallRules!: pulumi.Output<outputs.analysisservices.ServerIpv4FirewallRule[] | undefined>;
@@ -101,11 +95,14 @@ export class Server extends pulumi.CustomResource {
      * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly powerBiServiceEnabled!: pulumi.Output<boolean>;
     /**
-     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+     * Indicates if the Power BI service is allowed to access or not.
      */
-    public readonly querypoolConnectionMode!: pulumi.Output<string>;
+    public readonly powerBiServiceEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
+     */
+    public readonly querypoolConnectionMode!: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
      */
@@ -138,7 +135,6 @@ export class Server extends pulumi.CustomResource {
             const state = argsOrState as ServerState | undefined;
             resourceInputs["adminUsers"] = state ? state.adminUsers : undefined;
             resourceInputs["backupBlobContainerUri"] = state ? state.backupBlobContainerUri : undefined;
-            resourceInputs["enablePowerBiService"] = state ? state.enablePowerBiService : undefined;
             resourceInputs["ipv4FirewallRules"] = state ? state.ipv4FirewallRules : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -158,7 +154,6 @@ export class Server extends pulumi.CustomResource {
             }
             resourceInputs["adminUsers"] = args ? args.adminUsers : undefined;
             resourceInputs["backupBlobContainerUri"] = args?.backupBlobContainerUri ? pulumi.secret(args.backupBlobContainerUri) : undefined;
-            resourceInputs["enablePowerBiService"] = args ? args.enablePowerBiService : undefined;
             resourceInputs["ipv4FirewallRules"] = args ? args.ipv4FirewallRules : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -189,12 +184,6 @@ export interface ServerState {
      */
     backupBlobContainerUri?: pulumi.Input<string>;
     /**
-     * Indicates if the Power BI service is allowed to access or not.
-     *
-     * @deprecated The property `enablePowerBiService` has been superseded by `powerBiServiceEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    enablePowerBiService?: pulumi.Input<boolean>;
-    /**
      * One or more `ipv4FirewallRule` block(s) as defined below.
      */
     ipv4FirewallRules?: pulumi.Input<pulumi.Input<inputs.analysisservices.ServerIpv4FirewallRule>[]>;
@@ -206,9 +195,12 @@ export interface ServerState {
      * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Indicates if the Power BI service is allowed to access or not.
+     */
     powerBiServiceEnabled?: pulumi.Input<boolean>;
     /**
-     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
      */
     querypoolConnectionMode?: pulumi.Input<string>;
     /**
@@ -242,12 +234,6 @@ export interface ServerArgs {
      */
     backupBlobContainerUri?: pulumi.Input<string>;
     /**
-     * Indicates if the Power BI service is allowed to access or not.
-     *
-     * @deprecated The property `enablePowerBiService` has been superseded by `powerBiServiceEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    enablePowerBiService?: pulumi.Input<boolean>;
-    /**
      * One or more `ipv4FirewallRule` block(s) as defined below.
      */
     ipv4FirewallRules?: pulumi.Input<pulumi.Input<inputs.analysisservices.ServerIpv4FirewallRule>[]>;
@@ -259,9 +245,12 @@ export interface ServerArgs {
      * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Indicates if the Power BI service is allowed to access or not.
+     */
     powerBiServiceEnabled?: pulumi.Input<boolean>;
     /**
-     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
      */
     querypoolConnectionMode?: pulumi.Input<string>;
     /**

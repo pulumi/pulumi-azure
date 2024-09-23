@@ -40,9 +40,9 @@ class TrafficManagerAzureEndpointArgs:
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the Azure Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
         pulumi.set(__self__, "profile_id", profile_id)
         pulumi.set(__self__, "target_resource_id", target_resource_id)
@@ -151,7 +151,7 @@ class TrafficManagerAzureEndpointArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+        Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
         """
         return pulumi.get(self, "priority")
 
@@ -175,7 +175,7 @@ class TrafficManagerAzureEndpointArgs:
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+        Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
         return pulumi.get(self, "weight")
 
@@ -204,11 +204,11 @@ class _TrafficManagerAzureEndpointState:
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the Azure Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which should be used as a target.
-        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
         if always_serve_enabled is not None:
             pulumi.set(__self__, "always_serve_enabled", always_serve_enabled)
@@ -295,7 +295,7 @@ class _TrafficManagerAzureEndpointState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+        Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
         """
         return pulumi.get(self, "priority")
 
@@ -343,7 +343,7 @@ class _TrafficManagerAzureEndpointState:
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+        Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
         return pulumi.get(self, "weight")
 
@@ -428,11 +428,11 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the Azure Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which should be used as a target.
-        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
         ...
     @overload
@@ -573,11 +573,11 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[str] name: The name of the Azure Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which should be used as a target.
-        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -637,9 +637,9 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[int]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+        Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
         """
         return pulumi.get(self, "priority")
 
@@ -669,9 +669,9 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def weight(self) -> pulumi.Output[int]:
+    def weight(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+        Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
         return pulumi.get(self, "weight")
 

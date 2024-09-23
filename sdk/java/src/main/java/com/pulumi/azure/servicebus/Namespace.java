@@ -223,18 +223,18 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      * 
      */
     @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
-    private Output<String> minimumTlsVersion;
+    private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
-     * @return The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * @return The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      * 
      */
-    public Output<String> minimumTlsVersion() {
-        return this.minimumTlsVersion;
+    public Output<Optional<String>> minimumTlsVersion() {
+        return Codegen.optional(this.minimumTlsVersion);
     }
     /**
      * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
@@ -339,28 +339,6 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
-    }
-    /**
-     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
-     * 
-     * @deprecated
-     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
-     * 
-     */
-    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
-    @Export(name="zoneRedundant", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> zoneRedundant;
-
-    /**
-     * @return Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
-     * 
-     */
-    public Output<Boolean> zoneRedundant() {
-        return this.zoneRedundant;
     }
 
     /**

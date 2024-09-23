@@ -127,6 +127,8 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
             resourceInputs["outputContent"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:core/templateDeployment:TemplateDeployment" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ResourceGroupTemplateDeployment.__pulumiType, name, resourceInputs, opts);
     }
 }

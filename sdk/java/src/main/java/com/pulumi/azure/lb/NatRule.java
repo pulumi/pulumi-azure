@@ -168,14 +168,14 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="idleTimeoutInMinutes", refs={Integer.class}, tree="[0]")
-    private Output<Integer> idleTimeoutInMinutes;
+    private Output</* @Nullable */ Integer> idleTimeoutInMinutes;
 
     /**
      * @return Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      * 
      */
-    public Output<Integer> idleTimeoutInMinutes() {
-        return this.idleTimeoutInMinutes;
+    public Output<Optional<Integer>> idleTimeoutInMinutes() {
+        return Codegen.optional(this.idleTimeoutInMinutes);
     }
     /**
      * The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.

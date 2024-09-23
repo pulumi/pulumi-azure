@@ -3,12 +3,10 @@
 
 package com.pulumi.azure.attestation;
 
-import com.pulumi.azure.attestation.inputs.ProviderPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,25 +60,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> openEnclavePolicyBase64() {
         return Optional.ofNullable(this.openEnclavePolicyBase64);
-    }
-
-    /**
-     * @deprecated
-     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
-    @Import(name="policies")
-    private @Nullable Output<List<ProviderPolicyArgs>> policies;
-
-    /**
-     * @deprecated
-     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
-    public Optional<Output<List<ProviderPolicyArgs>>> policies() {
-        return Optional.ofNullable(this.policies);
     }
 
     /**
@@ -187,7 +166,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.name = $.name;
         this.openEnclavePolicyBase64 = $.openEnclavePolicyBase64;
-        this.policies = $.policies;
         this.policySigningCertificateData = $.policySigningCertificateData;
         this.resourceGroupName = $.resourceGroupName;
         this.sevSnpPolicyBase64 = $.sevSnpPolicyBase64;
@@ -275,43 +253,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder openEnclavePolicyBase64(String openEnclavePolicyBase64) {
             return openEnclavePolicyBase64(Output.of(openEnclavePolicyBase64));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
-        public Builder policies(@Nullable Output<List<ProviderPolicyArgs>> policies) {
-            $.policies = policies;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
-        public Builder policies(List<ProviderPolicyArgs> policies) {
-            return policies(Output.of(policies));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead. */
-        public Builder policies(ProviderPolicyArgs... policies) {
-            return policies(List.of(policies));
         }
 
         /**

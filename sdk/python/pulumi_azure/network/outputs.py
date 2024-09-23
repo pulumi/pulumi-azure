@@ -107,8 +107,6 @@ __all__ = [
     'NetworkManagerConnectivityConfigurationHub',
     'NetworkManagerCrossTenantScope',
     'NetworkManagerScope',
-    'NetworkPacketCaptureFilter',
-    'NetworkPacketCaptureStorageLocation',
     'NetworkSecurityGroupSecurityRule',
     'NetworkWatcherFlowLogRetentionPolicy',
     'NetworkWatcherFlowLogTrafficAnalytics',
@@ -162,6 +160,8 @@ __all__ = [
     'VirtualNetworkGatewayVpnClientConfigurationRootCertificate',
     'VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection',
     'VirtualNetworkSubnet',
+    'VirtualNetworkSubnetDelegation',
+    'VirtualNetworkSubnetDelegationServiceDelegation',
     'VnpGatewayNatRuleExternalMapping',
     'VnpGatewayNatRuleInternalMapping',
     'VpnGatewayBgpSettings',
@@ -7756,163 +7756,6 @@ class NetworkManagerScope(dict):
 
 
 @pulumi.output_type
-class NetworkPacketCaptureFilter(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "localIpAddress":
-            suggest = "local_ip_address"
-        elif key == "localPort":
-            suggest = "local_port"
-        elif key == "remoteIpAddress":
-            suggest = "remote_ip_address"
-        elif key == "remotePort":
-            suggest = "remote_port"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NetworkPacketCaptureFilter. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NetworkPacketCaptureFilter.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NetworkPacketCaptureFilter.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 protocol: str,
-                 local_ip_address: Optional[str] = None,
-                 local_port: Optional[str] = None,
-                 remote_ip_address: Optional[str] = None,
-                 remote_port: Optional[str] = None):
-        """
-        :param str protocol: The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-        :param str local_ip_address: The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        :param str local_port: The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        :param str remote_ip_address: The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-        :param str remote_port: The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "protocol", protocol)
-        if local_ip_address is not None:
-            pulumi.set(__self__, "local_ip_address", local_ip_address)
-        if local_port is not None:
-            pulumi.set(__self__, "local_port", local_port)
-        if remote_ip_address is not None:
-            pulumi.set(__self__, "remote_ip_address", remote_ip_address)
-        if remote_port is not None:
-            pulumi.set(__self__, "remote_port", remote_port)
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> str:
-        """
-        The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "protocol")
-
-    @property
-    @pulumi.getter(name="localIpAddress")
-    def local_ip_address(self) -> Optional[str]:
-        """
-        The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "local_ip_address")
-
-    @property
-    @pulumi.getter(name="localPort")
-    def local_port(self) -> Optional[str]:
-        """
-        The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "local_port")
-
-    @property
-    @pulumi.getter(name="remoteIpAddress")
-    def remote_ip_address(self) -> Optional[str]:
-        """
-        The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "remote_ip_address")
-
-    @property
-    @pulumi.getter(name="remotePort")
-    def remote_port(self) -> Optional[str]:
-        """
-        The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "remote_port")
-
-
-@pulumi.output_type
-class NetworkPacketCaptureStorageLocation(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "filePath":
-            suggest = "file_path"
-        elif key == "storageAccountId":
-            suggest = "storage_account_id"
-        elif key == "storagePath":
-            suggest = "storage_path"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NetworkPacketCaptureStorageLocation. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NetworkPacketCaptureStorageLocation.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NetworkPacketCaptureStorageLocation.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 file_path: Optional[str] = None,
-                 storage_account_id: Optional[str] = None,
-                 storage_path: Optional[str] = None):
-        """
-        :param str file_path: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
-        :param str storage_account_id: The ID of the storage account to save the packet capture session
-               
-               > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
-        :param str storage_path: The URI of the storage path to save the packet capture.
-        """
-        if file_path is not None:
-            pulumi.set(__self__, "file_path", file_path)
-        if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
-        if storage_path is not None:
-            pulumi.set(__self__, "storage_path", storage_path)
-
-    @property
-    @pulumi.getter(name="filePath")
-    def file_path(self) -> Optional[str]:
-        """
-        A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
-        """
-        return pulumi.get(self, "file_path")
-
-    @property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[str]:
-        """
-        The ID of the storage account to save the packet capture session
-
-        > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
-        """
-        return pulumi.get(self, "storage_account_id")
-
-    @property
-    @pulumi.getter(name="storagePath")
-    def storage_path(self) -> Optional[str]:
-        """
-        The URI of the storage path to save the packet capture.
-        """
-        return pulumi.get(self, "storage_path")
-
-
-@pulumi.output_type
 class NetworkSecurityGroupSecurityRule(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11167,10 +11010,22 @@ class VirtualNetworkSubnet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "addressPrefix":
-            suggest = "address_prefix"
+        if key == "addressPrefixes":
+            suggest = "address_prefixes"
+        elif key == "defaultOutboundAccessEnabled":
+            suggest = "default_outbound_access_enabled"
+        elif key == "privateEndpointNetworkPolicies":
+            suggest = "private_endpoint_network_policies"
+        elif key == "privateLinkServiceNetworkPoliciesEnabled":
+            suggest = "private_link_service_network_policies_enabled"
+        elif key == "routeTableId":
+            suggest = "route_table_id"
         elif key == "securityGroup":
             suggest = "security_group"
+        elif key == "serviceEndpointPolicyIds":
+            suggest = "service_endpoint_policy_ids"
+        elif key == "serviceEndpoints":
+            suggest = "service_endpoints"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkSubnet. Access the value via the '{suggest}' property getter instead.")
@@ -11184,30 +11039,66 @@ class VirtualNetworkSubnet(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 address_prefix: str,
+                 address_prefixes: Sequence[str],
                  name: str,
+                 default_outbound_access_enabled: Optional[bool] = None,
+                 delegation: Optional['outputs.VirtualNetworkSubnetDelegation'] = None,
                  id: Optional[str] = None,
-                 security_group: Optional[str] = None):
+                 private_endpoint_network_policies: Optional[str] = None,
+                 private_link_service_network_policies_enabled: Optional[bool] = None,
+                 route_table_id: Optional[str] = None,
+                 security_group: Optional[str] = None,
+                 service_endpoint_policy_ids: Optional[Sequence[str]] = None,
+                 service_endpoints: Optional[Sequence[str]] = None):
         """
-        :param str address_prefix: The address prefix to use for the subnet.
+        :param Sequence[str] address_prefixes: The address prefixes to use for the subnet.
         :param str name: The name of the subnet.
+        :param bool default_outbound_access_enabled: Enable default outbound access to the internet for the subnet. Defaults to `true`.
+        :param 'VirtualNetworkSubnetDelegationArgs' delegation: One or more `delegation` blocks as defined below.
         :param str id: The ID of this subnet.
+        :param str private_endpoint_network_policies: Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
+               
+               > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+               
+               > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+               
+               > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+        :param bool private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
+               
+               > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+        :param str route_table_id: The ID of the Route Table that should be associated with this subnet.
         :param str security_group: The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+        :param Sequence[str] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
+        :param Sequence[str] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
         """
-        pulumi.set(__self__, "address_prefix", address_prefix)
+        pulumi.set(__self__, "address_prefixes", address_prefixes)
         pulumi.set(__self__, "name", name)
+        if default_outbound_access_enabled is not None:
+            pulumi.set(__self__, "default_outbound_access_enabled", default_outbound_access_enabled)
+        if delegation is not None:
+            pulumi.set(__self__, "delegation", delegation)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if private_endpoint_network_policies is not None:
+            pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
+        if private_link_service_network_policies_enabled is not None:
+            pulumi.set(__self__, "private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
+        if route_table_id is not None:
+            pulumi.set(__self__, "route_table_id", route_table_id)
         if security_group is not None:
             pulumi.set(__self__, "security_group", security_group)
+        if service_endpoint_policy_ids is not None:
+            pulumi.set(__self__, "service_endpoint_policy_ids", service_endpoint_policy_ids)
+        if service_endpoints is not None:
+            pulumi.set(__self__, "service_endpoints", service_endpoints)
 
     @property
-    @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> str:
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Sequence[str]:
         """
-        The address prefix to use for the subnet.
+        The address prefixes to use for the subnet.
         """
-        return pulumi.get(self, "address_prefix")
+        return pulumi.get(self, "address_prefixes")
 
     @property
     @pulumi.getter
@@ -11218,6 +11109,22 @@ class VirtualNetworkSubnet(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="defaultOutboundAccessEnabled")
+    def default_outbound_access_enabled(self) -> Optional[bool]:
+        """
+        Enable default outbound access to the internet for the subnet. Defaults to `true`.
+        """
+        return pulumi.get(self, "default_outbound_access_enabled")
+
+    @property
+    @pulumi.getter
+    def delegation(self) -> Optional['outputs.VirtualNetworkSubnetDelegation']:
+        """
+        One or more `delegation` blocks as defined below.
+        """
+        return pulumi.get(self, "delegation")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
@@ -11226,12 +11133,140 @@ class VirtualNetworkSubnet(dict):
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="privateEndpointNetworkPolicies")
+    def private_endpoint_network_policies(self) -> Optional[str]:
+        """
+        Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
+
+        > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+
+        > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+
+        > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+        """
+        return pulumi.get(self, "private_endpoint_network_policies")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceNetworkPoliciesEnabled")
+    def private_link_service_network_policies_enabled(self) -> Optional[bool]:
+        """
+        Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
+
+        > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+        """
+        return pulumi.get(self, "private_link_service_network_policies_enabled")
+
+    @property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> Optional[str]:
+        """
+        The ID of the Route Table that should be associated with this subnet.
+        """
+        return pulumi.get(self, "route_table_id")
+
+    @property
     @pulumi.getter(name="securityGroup")
     def security_group(self) -> Optional[str]:
         """
         The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         """
         return pulumi.get(self, "security_group")
+
+    @property
+    @pulumi.getter(name="serviceEndpointPolicyIds")
+    def service_endpoint_policy_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of IDs of Service Endpoint Policies to associate with the subnet.
+        """
+        return pulumi.get(self, "service_endpoint_policy_ids")
+
+    @property
+    @pulumi.getter(name="serviceEndpoints")
+    def service_endpoints(self) -> Optional[Sequence[str]]:
+        """
+        The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+        """
+        return pulumi.get(self, "service_endpoints")
+
+
+@pulumi.output_type
+class VirtualNetworkSubnetDelegation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceDelegation":
+            suggest = "service_delegation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkSubnetDelegation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkSubnetDelegation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkSubnetDelegation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 service_delegation: 'outputs.VirtualNetworkSubnetDelegationServiceDelegation'):
+        """
+        :param str name: A name for this delegation.
+        :param 'VirtualNetworkSubnetDelegationServiceDelegationArgs' service_delegation: A `service_delegation` block as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_delegation", service_delegation)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A name for this delegation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceDelegation")
+    def service_delegation(self) -> 'outputs.VirtualNetworkSubnetDelegationServiceDelegation':
+        """
+        A `service_delegation` block as defined below.
+        """
+        return pulumi.get(self, "service_delegation")
+
+
+@pulumi.output_type
+class VirtualNetworkSubnetDelegationServiceDelegation(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 actions: Optional[Sequence[str]] = None):
+        """
+        :param str name: The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+        :param Sequence[str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+               
+               > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+        """
+        pulumi.set(__self__, "name", name)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence[str]]:
+        """
+        A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+
+        > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+        """
+        return pulumi.get(self, "actions")
 
 
 @pulumi.output_type

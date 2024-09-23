@@ -622,7 +622,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailySchedule")
-    def daily_schedule(self) -> pulumi.Output['outputs.SnapshotPolicyDailySchedule']:
+    def daily_schedule(self) -> pulumi.Output[Optional['outputs.SnapshotPolicyDailySchedule']]:
         """
         Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
         """
@@ -638,7 +638,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hourlySchedule")
-    def hourly_schedule(self) -> pulumi.Output['outputs.SnapshotPolicyHourlySchedule']:
+    def hourly_schedule(self) -> pulumi.Output[Optional['outputs.SnapshotPolicyHourlySchedule']]:
         """
         Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
         """
@@ -654,7 +654,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monthlySchedule")
-    def monthly_schedule(self) -> pulumi.Output['outputs.SnapshotPolicyMonthlySchedule']:
+    def monthly_schedule(self) -> pulumi.Output[Optional['outputs.SnapshotPolicyMonthlySchedule']]:
         """
         Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
         """
@@ -686,7 +686,7 @@ class SnapshotPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklySchedule")
-    def weekly_schedule(self) -> pulumi.Output['outputs.SnapshotPolicyWeeklySchedule']:
+    def weekly_schedule(self) -> pulumi.Output[Optional['outputs.SnapshotPolicyWeeklySchedule']]:
         """
         Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
         """

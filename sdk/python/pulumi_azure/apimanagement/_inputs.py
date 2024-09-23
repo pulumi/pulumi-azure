@@ -183,8 +183,6 @@ __all__ = [
     'ServiceHostnameConfigurationScmArgsDict',
     'ServiceIdentityArgs',
     'ServiceIdentityArgsDict',
-    'ServicePolicyArgs',
-    'ServicePolicyArgsDict',
     'ServiceProtocolsArgs',
     'ServiceProtocolsArgsDict',
     'ServiceSecurityArgs',
@@ -8575,42 +8573,6 @@ class ServiceIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
-
-
-if not MYPY:
-    class ServicePolicyArgsDict(TypedDict):
-        xml_content: NotRequired[pulumi.Input[str]]
-        xml_link: NotRequired[pulumi.Input[str]]
-elif False:
-    ServicePolicyArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ServicePolicyArgs:
-    def __init__(__self__, *,
-                 xml_content: Optional[pulumi.Input[str]] = None,
-                 xml_link: Optional[pulumi.Input[str]] = None):
-        if xml_content is not None:
-            pulumi.set(__self__, "xml_content", xml_content)
-        if xml_link is not None:
-            pulumi.set(__self__, "xml_link", xml_link)
-
-    @property
-    @pulumi.getter(name="xmlContent")
-    def xml_content(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "xml_content")
-
-    @xml_content.setter
-    def xml_content(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "xml_content", value)
-
-    @property
-    @pulumi.getter(name="xmlLink")
-    def xml_link(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "xml_link")
-
-    @xml_link.setter
-    def xml_link(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "xml_link", value)
 
 
 if not MYPY:

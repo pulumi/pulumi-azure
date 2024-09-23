@@ -56,6 +56,10 @@ public final class ReplicationRecoveryPlanShutdownRecoveryGroupPostAction {
      * 
      */
     private @Nullable String scriptPath;
+    /**
+     * @return Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+     * 
+     */
     private String type;
 
     private ReplicationRecoveryPlanShutdownRecoveryGroupPostAction() {}
@@ -116,6 +120,10 @@ public final class ReplicationRecoveryPlanShutdownRecoveryGroupPostAction {
     public Optional<String> scriptPath() {
         return Optional.ofNullable(this.scriptPath);
     }
+    /**
+     * @return Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+     * 
+     */
     public String type() {
         return this.type;
     }

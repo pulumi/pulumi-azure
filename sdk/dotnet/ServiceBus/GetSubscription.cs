@@ -79,15 +79,9 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the ServiceBus Namespace.
-        /// </summary>
         [Input("namespaceName")]
         public string? NamespaceName { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-        /// </summary>
         [Input("resourceGroupName")]
         public string? ResourceGroupName { get; set; }
 
@@ -97,11 +91,6 @@ namespace Pulumi.Azure.ServiceBus
         [Input("topicId")]
         public string? TopicId { get; set; }
 
-        /// <summary>
-        /// The name of the ServiceBus Topic.
-        /// 
-        /// &gt; **Note:** `namespace_name`，`resource_group_name` and `topic_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `topic_id`.
-        /// </summary>
         [Input("topicName")]
         public string? TopicName { get; set; }
 
@@ -119,15 +108,9 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the ServiceBus Namespace.
-        /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
@@ -137,11 +120,6 @@ namespace Pulumi.Azure.ServiceBus
         [Input("topicId")]
         public Input<string>? TopicId { get; set; }
 
-        /// <summary>
-        /// The name of the ServiceBus Topic.
-        /// 
-        /// &gt; **Note:** `namespace_name`，`resource_group_name` and `topic_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `topic_id`.
-        /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }
 

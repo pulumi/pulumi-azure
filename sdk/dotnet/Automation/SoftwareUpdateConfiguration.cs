@@ -59,32 +59,25 @@ namespace Pulumi.Azure.Automation
     ///     {
     ///         Name = "example",
     ///         AutomationAccountId = exampleAccount.Id,
-    ///         OperatingSystem = "Linux",
-    ///         Linuxes = new[]
+    ///         Linux = new Azure.Automation.Inputs.SoftwareUpdateConfigurationLinuxArgs
     ///         {
-    ///             new Azure.Automation.Inputs.SoftwareUpdateConfigurationLinuxArgs
+    ///             ClassificationsIncludeds = "Security",
+    ///             ExcludedPackages = new[]
     ///             {
-    ///                 ClassificationIncluded = "Security",
-    ///                 ExcludedPackages = new[]
-    ///                 {
-    ///                     "apt",
-    ///                 },
-    ///                 IncludedPackages = new[]
-    ///                 {
-    ///                     "vim",
-    ///                 },
-    ///                 Reboot = "IfRequired",
+    ///                 "apt",
     ///             },
-    ///         },
-    ///         PreTasks = new[]
-    ///         {
-    ///             new Azure.Automation.Inputs.SoftwareUpdateConfigurationPreTaskArgs
+    ///             IncludedPackages = new[]
     ///             {
-    ///                 Source = exampleRunBook.Name,
-    ///                 Parameters = 
-    ///                 {
-    ///                     { "COMPUTER_NAME", "Foo" },
-    ///                 },
+    ///                 "vim",
+    ///             },
+    ///             Reboot = "IfRequired",
+    ///         },
+    ///         PreTask = new Azure.Automation.Inputs.SoftwareUpdateConfigurationPreTaskArgs
+    ///         {
+    ///             Source = exampleRunBook.Name,
+    ///             Parameters = 
+    ///             {
+    ///                 { "COMPUTER_NAME", "Foo" },
     ///             },
     ///         },
     ///         Duration = "PT2H2M2S",
@@ -125,17 +118,14 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The Error message indicating why the operation failed.
         /// </summary>
-        [Output("errorMeesage")]
-        public Output<string> ErrorMeesage { get; private set; } = null!;
-
         [Output("errorMessage")]
         public Output<string> ErrorMessage { get; private set; } = null!;
 
         /// <summary>
         /// A `linux` block as defined below.
         /// </summary>
-        [Output("linuxes")]
-        public Output<ImmutableArray<Outputs.SoftwareUpdateConfigurationLinux>> Linuxes { get; private set; } = null!;
+        [Output("linux")]
+        public Output<Outputs.SoftwareUpdateConfigurationLinux?> Linux { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Automation. Changing this forces a new Automation to be created.
@@ -149,26 +139,23 @@ namespace Pulumi.Azure.Automation
         [Output("nonAzureComputerNames")]
         public Output<ImmutableArray<string>> NonAzureComputerNames { get; private set; } = null!;
 
-        [Output("operatingSystem")]
-        public Output<string> OperatingSystem { get; private set; } = null!;
-
         /// <summary>
         /// A `post_task` blocks as defined below.
         /// </summary>
-        [Output("postTasks")]
-        public Output<ImmutableArray<Outputs.SoftwareUpdateConfigurationPostTask>> PostTasks { get; private set; } = null!;
+        [Output("postTask")]
+        public Output<Outputs.SoftwareUpdateConfigurationPostTask?> PostTask { get; private set; } = null!;
 
         /// <summary>
         /// A `pre_task` blocks as defined below.
         /// </summary>
-        [Output("preTasks")]
-        public Output<ImmutableArray<Outputs.SoftwareUpdateConfigurationPreTask>> PreTasks { get; private set; } = null!;
+        [Output("preTask")]
+        public Output<Outputs.SoftwareUpdateConfigurationPreTask?> PreTask { get; private set; } = null!;
 
         /// <summary>
         /// A `schedule` blocks as defined below.
         /// </summary>
-        [Output("schedules")]
-        public Output<ImmutableArray<Outputs.SoftwareUpdateConfigurationSchedule>> Schedules { get; private set; } = null!;
+        [Output("schedule")]
+        public Output<Outputs.SoftwareUpdateConfigurationSchedule> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// A `target` blocks as defined below.
@@ -248,17 +235,11 @@ namespace Pulumi.Azure.Automation
         [Input("duration")]
         public Input<string>? Duration { get; set; }
 
-        [Input("linuxes")]
-        private InputList<Inputs.SoftwareUpdateConfigurationLinuxArgs>? _linuxes;
-
         /// <summary>
         /// A `linux` block as defined below.
         /// </summary>
-        public InputList<Inputs.SoftwareUpdateConfigurationLinuxArgs> Linuxes
-        {
-            get => _linuxes ?? (_linuxes = new InputList<Inputs.SoftwareUpdateConfigurationLinuxArgs>());
-            set => _linuxes = value;
-        }
+        [Input("linux")]
+        public Input<Inputs.SoftwareUpdateConfigurationLinuxArgs>? Linux { get; set; }
 
         /// <summary>
         /// The name which should be used for this Automation. Changing this forces a new Automation to be created.
@@ -278,44 +259,23 @@ namespace Pulumi.Azure.Automation
             set => _nonAzureComputerNames = value;
         }
 
-        [Input("operatingSystem")]
-        public Input<string>? OperatingSystem { get; set; }
-
-        [Input("postTasks")]
-        private InputList<Inputs.SoftwareUpdateConfigurationPostTaskArgs>? _postTasks;
-
         /// <summary>
         /// A `post_task` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.SoftwareUpdateConfigurationPostTaskArgs> PostTasks
-        {
-            get => _postTasks ?? (_postTasks = new InputList<Inputs.SoftwareUpdateConfigurationPostTaskArgs>());
-            set => _postTasks = value;
-        }
-
-        [Input("preTasks")]
-        private InputList<Inputs.SoftwareUpdateConfigurationPreTaskArgs>? _preTasks;
+        [Input("postTask")]
+        public Input<Inputs.SoftwareUpdateConfigurationPostTaskArgs>? PostTask { get; set; }
 
         /// <summary>
         /// A `pre_task` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.SoftwareUpdateConfigurationPreTaskArgs> PreTasks
-        {
-            get => _preTasks ?? (_preTasks = new InputList<Inputs.SoftwareUpdateConfigurationPreTaskArgs>());
-            set => _preTasks = value;
-        }
-
-        [Input("schedules", required: true)]
-        private InputList<Inputs.SoftwareUpdateConfigurationScheduleArgs>? _schedules;
+        [Input("preTask")]
+        public Input<Inputs.SoftwareUpdateConfigurationPreTaskArgs>? PreTask { get; set; }
 
         /// <summary>
         /// A `schedule` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.SoftwareUpdateConfigurationScheduleArgs> Schedules
-        {
-            get => _schedules ?? (_schedules = new InputList<Inputs.SoftwareUpdateConfigurationScheduleArgs>());
-            set => _schedules = value;
-        }
+        [Input("schedule", required: true)]
+        public Input<Inputs.SoftwareUpdateConfigurationScheduleArgs> Schedule { get; set; } = null!;
 
         /// <summary>
         /// A `target` blocks as defined below.
@@ -372,23 +332,14 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The Error message indicating why the operation failed.
         /// </summary>
-        [Input("errorMeesage")]
-        public Input<string>? ErrorMeesage { get; set; }
-
         [Input("errorMessage")]
         public Input<string>? ErrorMessage { get; set; }
-
-        [Input("linuxes")]
-        private InputList<Inputs.SoftwareUpdateConfigurationLinuxGetArgs>? _linuxes;
 
         /// <summary>
         /// A `linux` block as defined below.
         /// </summary>
-        public InputList<Inputs.SoftwareUpdateConfigurationLinuxGetArgs> Linuxes
-        {
-            get => _linuxes ?? (_linuxes = new InputList<Inputs.SoftwareUpdateConfigurationLinuxGetArgs>());
-            set => _linuxes = value;
-        }
+        [Input("linux")]
+        public Input<Inputs.SoftwareUpdateConfigurationLinuxGetArgs>? Linux { get; set; }
 
         /// <summary>
         /// The name which should be used for this Automation. Changing this forces a new Automation to be created.
@@ -408,44 +359,23 @@ namespace Pulumi.Azure.Automation
             set => _nonAzureComputerNames = value;
         }
 
-        [Input("operatingSystem")]
-        public Input<string>? OperatingSystem { get; set; }
-
-        [Input("postTasks")]
-        private InputList<Inputs.SoftwareUpdateConfigurationPostTaskGetArgs>? _postTasks;
-
         /// <summary>
         /// A `post_task` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.SoftwareUpdateConfigurationPostTaskGetArgs> PostTasks
-        {
-            get => _postTasks ?? (_postTasks = new InputList<Inputs.SoftwareUpdateConfigurationPostTaskGetArgs>());
-            set => _postTasks = value;
-        }
-
-        [Input("preTasks")]
-        private InputList<Inputs.SoftwareUpdateConfigurationPreTaskGetArgs>? _preTasks;
+        [Input("postTask")]
+        public Input<Inputs.SoftwareUpdateConfigurationPostTaskGetArgs>? PostTask { get; set; }
 
         /// <summary>
         /// A `pre_task` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.SoftwareUpdateConfigurationPreTaskGetArgs> PreTasks
-        {
-            get => _preTasks ?? (_preTasks = new InputList<Inputs.SoftwareUpdateConfigurationPreTaskGetArgs>());
-            set => _preTasks = value;
-        }
-
-        [Input("schedules")]
-        private InputList<Inputs.SoftwareUpdateConfigurationScheduleGetArgs>? _schedules;
+        [Input("preTask")]
+        public Input<Inputs.SoftwareUpdateConfigurationPreTaskGetArgs>? PreTask { get; set; }
 
         /// <summary>
         /// A `schedule` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.SoftwareUpdateConfigurationScheduleGetArgs> Schedules
-        {
-            get => _schedules ?? (_schedules = new InputList<Inputs.SoftwareUpdateConfigurationScheduleGetArgs>());
-            set => _schedules = value;
-        }
+        [Input("schedule")]
+        public Input<Inputs.SoftwareUpdateConfigurationScheduleGetArgs>? Schedule { get; set; }
 
         /// <summary>
         /// A `target` blocks as defined below.

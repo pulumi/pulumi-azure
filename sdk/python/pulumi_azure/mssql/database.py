@@ -1726,6 +1726,8 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["transparent_data_encryption_key_automatic_rotation_enabled"] = transparent_data_encryption_key_automatic_rotation_enabled
             __props__.__dict__["transparent_data_encryption_key_vault_key_id"] = transparent_data_encryption_key_vault_key_id
             __props__.__dict__["zone_redundant"] = zone_redundant
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:sql/database:Database")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure:mssql/database:Database',
             resource_name,

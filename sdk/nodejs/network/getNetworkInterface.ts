@@ -62,14 +62,6 @@ export interface GetNetworkInterfaceResult {
      */
     readonly dnsServers: string[];
     /**
-     * @deprecated The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    readonly enableAcceleratedNetworking: boolean;
-    /**
-     * @deprecated The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
-     */
-    readonly enableIpForwarding: boolean;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

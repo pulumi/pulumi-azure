@@ -260,16 +260,12 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
     /**
      * An `identity` block as defined below.
      * 
-     * &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
-     * 
      */
     @Export(name="identity", refs={ConfigurationStoreIdentity.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationStoreIdentity> identity;
 
     /**
      * @return An `identity` block as defined below.
-     * 
-     * &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
      * 
      */
     public Output<Optional<ConfigurationStoreIdentity>> identity() {
@@ -348,7 +344,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      * 
      */
     @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
@@ -357,7 +353,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
     /**
      * @return The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      * 
      */
     public Output<Optional<String>> publicNetworkAccess() {
@@ -440,12 +436,16 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
     /**
      * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
      * 
+     * &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
+     * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
      * @return The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+     * 
+     * &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
      * 
      */
     public Output<Optional<String>> sku() {

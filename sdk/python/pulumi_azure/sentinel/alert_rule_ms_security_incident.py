@@ -603,7 +603,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayNameFilters")
-    def display_name_filters(self) -> pulumi.Output[Sequence[str]]:
+    def display_name_filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
         """

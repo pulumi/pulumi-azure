@@ -315,6 +315,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:sql/virtualNetworkRule:VirtualNetworkRule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkRule, __self__).__init__(
             'azure:mssql/virtualNetworkRule:VirtualNetworkRule',
             resource_name,

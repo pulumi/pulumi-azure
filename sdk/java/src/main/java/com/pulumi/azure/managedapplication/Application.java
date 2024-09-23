@@ -221,28 +221,6 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.parameterValues;
     }
     /**
-     * A mapping of name and value pairs to pass to the managed application as parameters.
-     * 
-     * &gt; **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-     * 
-     * @deprecated
-     * This property has been deprecated in favour of `parameter_values`
-     * 
-     */
-    @Deprecated /* This property has been deprecated in favour of `parameter_values` */
-    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> parameters;
-
-    /**
-     * @return A mapping of name and value pairs to pass to the managed application as parameters.
-     * 
-     * &gt; **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-     * 
-     */
-    public Output<Map<String,String>> parameters() {
-        return this.parameters;
-    }
-    /**
      * One `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */

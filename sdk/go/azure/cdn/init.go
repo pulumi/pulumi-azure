@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,8 +41,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FrontdoorProfile{}
 	case "azure:cdn/frontdoorRoute:FrontdoorRoute":
 		r = &FrontdoorRoute{}
-	case "azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain":
-		r = &FrontdoorRouteDisableLinkToDefaultDomain{}
 	case "azure:cdn/frontdoorRule:FrontdoorRule":
 		r = &FrontdoorRule{}
 	case "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet":
@@ -114,11 +112,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cdn/frontdoorRoute",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"cdn/frontdoorRouteDisableLinkToDefaultDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

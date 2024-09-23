@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,9 +81,7 @@ type KubernetesCluster struct {
 	// A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrOutput `pulumi:"aciConnectorLinux"`
 	// An `apiServerAccessProfile` block as defined below.
-	ApiServerAccessProfile KubernetesClusterApiServerAccessProfileOutput `pulumi:"apiServerAccessProfile"`
-	// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
-	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
+	ApiServerAccessProfile KubernetesClusterApiServerAccessProfilePtrOutput `pulumi:"apiServerAccessProfile"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfileOutput `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -91,7 +89,7 @@ type KubernetesCluster struct {
 	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 	//
 	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
-	AutomaticChannelUpgrade pulumi.StringPtrOutput `pulumi:"automaticChannelUpgrade"`
+	AutomaticUpgradeChannel pulumi.StringPtrOutput `pulumi:"automaticUpgradeChannel"`
 	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 	AzureActiveDirectoryRoleBasedAccessControl KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput `pulumi:"azureActiveDirectoryRoleBasedAccessControl"`
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
@@ -102,8 +100,6 @@ type KubernetesCluster struct {
 	CostAnalysisEnabled pulumi.BoolPtrOutput `pulumi:"costAnalysisEnabled"`
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion pulumi.StringOutput `pulumi:"currentKubernetesVersion"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustCertificatesBase64s pulumi.StringArrayOutput `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -118,8 +114,6 @@ type KubernetesCluster struct {
 	DnsPrefixPrivateCluster pulumi.StringPtrOutput `pulumi:"dnsPrefixPrivateCluster"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
-	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-	EnablePodSecurityPolicy pulumi.BoolPtrOutput `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// Should HTTP Application Routing be enabled?
@@ -136,7 +130,7 @@ type KubernetesCluster struct {
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrOutput `pulumi:"imageCleanerEnabled"`
-	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+	// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
 	ImageCleanerIntervalHours pulumi.IntPtrOutput `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	//
@@ -186,10 +180,10 @@ type KubernetesCluster struct {
 	//
 	// > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile KubernetesClusterNetworkProfileOutput `pulumi:"networkProfile"`
-	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
 	//
-	// > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-	NodeOsChannelUpgrade pulumi.StringPtrOutput `pulumi:"nodeOsChannelUpgrade"`
+	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
+	NodeOsUpgradeChannel pulumi.StringPtrOutput `pulumi:"nodeOsUpgradeChannel"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -216,10 +210,10 @@ type KubernetesCluster struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -277,8 +271,6 @@ type KubernetesCluster struct {
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn pulumi.StringOutput `pulumi:"privateFqdn"`
-	// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
@@ -362,8 +354,6 @@ type kubernetesClusterState struct {
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile *KubernetesClusterApiServerAccessProfile `pulumi:"apiServerAccessProfile"`
-	// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
-	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -371,7 +361,7 @@ type kubernetesClusterState struct {
 	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 	//
 	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
-	AutomaticChannelUpgrade *string `pulumi:"automaticChannelUpgrade"`
+	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
 	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 	AzureActiveDirectoryRoleBasedAccessControl *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl `pulumi:"azureActiveDirectoryRoleBasedAccessControl"`
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
@@ -382,8 +372,6 @@ type kubernetesClusterState struct {
 	CostAnalysisEnabled *bool `pulumi:"costAnalysisEnabled"`
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion *string `pulumi:"currentKubernetesVersion"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -398,8 +386,6 @@ type kubernetesClusterState struct {
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn *string `pulumi:"fqdn"`
 	// Should HTTP Application Routing be enabled?
@@ -416,7 +402,7 @@ type kubernetesClusterState struct {
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
-	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+	// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	//
@@ -466,10 +452,10 @@ type kubernetesClusterState struct {
 	//
 	// > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
-	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
 	//
-	// > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-	NodeOsChannelUpgrade *string `pulumi:"nodeOsChannelUpgrade"`
+	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
+	NodeOsUpgradeChannel *string `pulumi:"nodeOsUpgradeChannel"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -496,10 +482,10 @@ type kubernetesClusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -557,8 +543,6 @@ type kubernetesClusterState struct {
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn *string `pulumi:"privateFqdn"`
-	// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
@@ -600,8 +584,6 @@ type KubernetesClusterState struct {
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile KubernetesClusterApiServerAccessProfilePtrInput
-	// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
-	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -609,7 +591,7 @@ type KubernetesClusterState struct {
 	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 	//
 	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
-	AutomaticChannelUpgrade pulumi.StringPtrInput
+	AutomaticUpgradeChannel pulumi.StringPtrInput
 	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 	AzureActiveDirectoryRoleBasedAccessControl KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrInput
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
@@ -620,8 +602,6 @@ type KubernetesClusterState struct {
 	CostAnalysisEnabled pulumi.BoolPtrInput
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion pulumi.StringPtrInput
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustCertificatesBase64s pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -636,8 +616,6 @@ type KubernetesClusterState struct {
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringPtrInput
 	// Should HTTP Application Routing be enabled?
@@ -654,7 +632,7 @@ type KubernetesClusterState struct {
 	Identity KubernetesClusterIdentityPtrInput
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrInput
-	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+	// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	//
@@ -704,10 +682,10 @@ type KubernetesClusterState struct {
 	//
 	// > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
-	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
 	//
-	// > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-	NodeOsChannelUpgrade pulumi.StringPtrInput
+	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
+	NodeOsUpgradeChannel pulumi.StringPtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -734,10 +712,10 @@ type KubernetesClusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -795,8 +773,6 @@ type KubernetesClusterState struct {
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn pulumi.StringPtrInput
-	// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
@@ -842,8 +818,6 @@ type kubernetesClusterArgs struct {
 	AciConnectorLinux *KubernetesClusterAciConnectorLinux `pulumi:"aciConnectorLinux"`
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile *KubernetesClusterApiServerAccessProfile `pulumi:"apiServerAccessProfile"`
-	// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
-	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -851,7 +825,7 @@ type kubernetesClusterArgs struct {
 	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 	//
 	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
-	AutomaticChannelUpgrade *string `pulumi:"automaticChannelUpgrade"`
+	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
 	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 	AzureActiveDirectoryRoleBasedAccessControl *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl `pulumi:"azureActiveDirectoryRoleBasedAccessControl"`
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
@@ -860,8 +834,6 @@ type kubernetesClusterArgs struct {
 	ConfidentialComputing *KubernetesClusterConfidentialComputing `pulumi:"confidentialComputing"`
 	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
 	CostAnalysisEnabled *bool `pulumi:"costAnalysisEnabled"`
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -876,8 +848,6 @@ type kubernetesClusterArgs struct {
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
 	// Should HTTP Application Routing be enabled?
 	//
 	// > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
@@ -890,7 +860,7 @@ type kubernetesClusterArgs struct {
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
-	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+	// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	//
@@ -932,10 +902,10 @@ type kubernetesClusterArgs struct {
 	//
 	// > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile *KubernetesClusterNetworkProfile `pulumi:"networkProfile"`
-	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
 	//
-	// > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-	NodeOsChannelUpgrade *string `pulumi:"nodeOsChannelUpgrade"`
+	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
+	NodeOsUpgradeChannel *string `pulumi:"nodeOsUpgradeChannel"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -956,10 +926,10 @@ type kubernetesClusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -1015,8 +985,6 @@ type kubernetesClusterArgs struct {
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
-	// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
@@ -1059,8 +1027,6 @@ type KubernetesClusterArgs struct {
 	AciConnectorLinux KubernetesClusterAciConnectorLinuxPtrInput
 	// An `apiServerAccessProfile` block as defined below.
 	ApiServerAccessProfile KubernetesClusterApiServerAccessProfilePtrInput
-	// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
-	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `autoScalerProfile` block as defined below.
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -1068,7 +1034,7 @@ type KubernetesClusterArgs struct {
 	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 	//
 	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
-	AutomaticChannelUpgrade pulumi.StringPtrInput
+	AutomaticUpgradeChannel pulumi.StringPtrInput
 	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 	AzureActiveDirectoryRoleBasedAccessControl KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrInput
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
@@ -1077,8 +1043,6 @@ type KubernetesClusterArgs struct {
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrInput
 	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
 	CostAnalysisEnabled pulumi.BoolPtrInput
-	// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-	CustomCaTrustCertificatesBase64s pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -1093,8 +1057,6 @@ type KubernetesClusterArgs struct {
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// Should HTTP Application Routing be enabled?
 	//
 	// > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
@@ -1107,7 +1069,7 @@ type KubernetesClusterArgs struct {
 	Identity KubernetesClusterIdentityPtrInput
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrInput
-	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+	// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	//
@@ -1149,10 +1111,10 @@ type KubernetesClusterArgs struct {
 	//
 	// > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile KubernetesClusterNetworkProfilePtrInput
-	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
 	//
-	// > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-	NodeOsChannelUpgrade pulumi.StringPtrInput
+	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
+	NodeOsUpgradeChannel pulumi.StringPtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
@@ -1173,10 +1135,10 @@ type KubernetesClusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -1232,8 +1194,6 @@ type KubernetesClusterArgs struct {
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
-	// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
@@ -1363,15 +1323,10 @@ func (o KubernetesClusterOutput) AciConnectorLinux() KubernetesClusterAciConnect
 }
 
 // An `apiServerAccessProfile` block as defined below.
-func (o KubernetesClusterOutput) ApiServerAccessProfile() KubernetesClusterApiServerAccessProfileOutput {
-	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterApiServerAccessProfileOutput {
+func (o KubernetesClusterOutput) ApiServerAccessProfile() KubernetesClusterApiServerAccessProfilePtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterApiServerAccessProfilePtrOutput {
 		return v.ApiServerAccessProfile
-	}).(KubernetesClusterApiServerAccessProfileOutput)
-}
-
-// Deprecated: This property has been renamed to `authorizedIpRanges` within the `apiServerAccessProfile` block and will be removed in v4.0 of the provider
-func (o KubernetesClusterOutput) ApiServerAuthorizedIpRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringArrayOutput { return v.ApiServerAuthorizedIpRanges }).(pulumi.StringArrayOutput)
+	}).(KubernetesClusterApiServerAccessProfilePtrOutput)
 }
 
 // A `autoScalerProfile` block as defined below.
@@ -1384,8 +1339,8 @@ func (o KubernetesClusterOutput) AutoScalerProfile() KubernetesClusterAutoScaler
 // !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 //
 // > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
-func (o KubernetesClusterOutput) AutomaticChannelUpgrade() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.AutomaticChannelUpgrade }).(pulumi.StringPtrOutput)
+func (o KubernetesClusterOutput) AutomaticUpgradeChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.AutomaticUpgradeChannel }).(pulumi.StringPtrOutput)
 }
 
 // A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
@@ -1417,11 +1372,6 @@ func (o KubernetesClusterOutput) CurrentKubernetesVersion() pulumi.StringOutput 
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.CurrentKubernetesVersion }).(pulumi.StringOutput)
 }
 
-// Deprecated: This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-func (o KubernetesClusterOutput) CustomCaTrustCertificatesBase64s() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringArrayOutput { return v.CustomCaTrustCertificatesBase64s }).(pulumi.StringArrayOutput)
-}
-
 // A `defaultNodePool` block as defined below.
 func (o KubernetesClusterOutput) DefaultNodePool() KubernetesClusterDefaultNodePoolOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterDefaultNodePoolOutput { return v.DefaultNodePool }).(KubernetesClusterDefaultNodePoolOutput)
@@ -1449,11 +1399,6 @@ func (o KubernetesClusterOutput) DnsPrefixPrivateCluster() pulumi.StringPtrOutpu
 // Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 func (o KubernetesClusterOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-func (o KubernetesClusterOutput) EnablePodSecurityPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.EnablePodSecurityPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // The FQDN of the Azure Kubernetes Managed Cluster.
@@ -1490,7 +1435,7 @@ func (o KubernetesClusterOutput) ImageCleanerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.ImageCleanerEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
 func (o KubernetesClusterOutput) ImageCleanerIntervalHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.IntPtrOutput { return v.ImageCleanerIntervalHours }).(pulumi.IntPtrOutput)
 }
@@ -1610,11 +1555,11 @@ func (o KubernetesClusterOutput) NetworkProfile() KubernetesClusterNetworkProfil
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterNetworkProfileOutput { return v.NetworkProfile }).(KubernetesClusterNetworkProfileOutput)
 }
 
-// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
 //
-// > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-func (o KubernetesClusterOutput) NodeOsChannelUpgrade() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.NodeOsChannelUpgrade }).(pulumi.StringPtrOutput)
+// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
+func (o KubernetesClusterOutput) NodeOsUpgradeChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.NodeOsUpgradeChannel }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -1668,10 +1613,10 @@ func (o KubernetesClusterOutput) PrivateClusterEnabled() pulumi.BoolPtrOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -1738,11 +1683,6 @@ func (o KubernetesClusterOutput) PrivateDnsZoneId() pulumi.StringOutput {
 // The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 func (o KubernetesClusterOutput) PrivateFqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.PrivateFqdn }).(pulumi.StringOutput)
-}
-
-// Deprecated: `publicNetworkAccessEnabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-func (o KubernetesClusterOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.

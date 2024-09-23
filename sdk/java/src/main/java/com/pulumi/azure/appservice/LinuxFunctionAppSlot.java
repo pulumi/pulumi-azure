@@ -655,6 +655,20 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }
     /**
+     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * 
+     */
+    @Export(name="vnetImagePullEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> vnetImagePullEnabled;
+
+    /**
+     * @return Is container image pull over virtual network enabled? Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> vnetImagePullEnabled() {
+        return Codegen.optional(this.vnetImagePullEnabled);
+    }
+    /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      */

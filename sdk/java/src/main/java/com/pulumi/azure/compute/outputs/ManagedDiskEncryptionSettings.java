@@ -6,7 +6,7 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.azure.compute.outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey;
 import com.pulumi.azure.compute.outputs.ManagedDiskEncryptionSettingsKeyEncryptionKey;
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Boolean;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,14 +17,7 @@ public final class ManagedDiskEncryptionSettings {
      * @return A `disk_encryption_key` block as defined above.
      * 
      */
-    private @Nullable ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
-    /**
-     * @deprecated
-     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
-     * 
-     */
-    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
-    private @Nullable Boolean enabled;
+    private ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
     /**
      * @return A `key_encryption_key` block as defined below.
      * 
@@ -36,17 +29,8 @@ public final class ManagedDiskEncryptionSettings {
      * @return A `disk_encryption_key` block as defined above.
      * 
      */
-    public Optional<ManagedDiskEncryptionSettingsDiskEncryptionKey> diskEncryptionKey() {
-        return Optional.ofNullable(this.diskEncryptionKey);
-    }
-    /**
-     * @deprecated
-     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
-     * 
-     */
-    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
-    public Optional<Boolean> enabled() {
-        return Optional.ofNullable(this.enabled);
+    public ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey() {
+        return this.diskEncryptionKey;
     }
     /**
      * @return A `key_encryption_key` block as defined below.
@@ -65,27 +49,21 @@ public final class ManagedDiskEncryptionSettings {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
-        private @Nullable Boolean enabled;
+        private ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
         private @Nullable ManagedDiskEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
         public Builder() {}
         public Builder(ManagedDiskEncryptionSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskEncryptionKey = defaults.diskEncryptionKey;
-    	      this.enabled = defaults.enabled;
     	      this.keyEncryptionKey = defaults.keyEncryptionKey;
         }
 
         @CustomType.Setter
-        public Builder diskEncryptionKey(@Nullable ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey) {
-
+        public Builder diskEncryptionKey(ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey) {
+            if (diskEncryptionKey == null) {
+              throw new MissingRequiredPropertyException("ManagedDiskEncryptionSettings", "diskEncryptionKey");
+            }
             this.diskEncryptionKey = diskEncryptionKey;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enabled(@Nullable Boolean enabled) {
-
-            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
@@ -97,7 +75,6 @@ public final class ManagedDiskEncryptionSettings {
         public ManagedDiskEncryptionSettings build() {
             final var _resultValue = new ManagedDiskEncryptionSettings();
             _resultValue.diskEncryptionKey = diskEncryptionKey;
-            _resultValue.enabled = enabled;
             _resultValue.keyEncryptionKey = keyEncryptionKey;
             return _resultValue;
         }

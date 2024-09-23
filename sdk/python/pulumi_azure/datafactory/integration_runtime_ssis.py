@@ -831,6 +831,8 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
             __props__.__dict__["pipeline_external_compute_scale"] = pipeline_external_compute_scale
             __props__.__dict__["proxy"] = proxy
             __props__.__dict__["vnet_integration"] = vnet_integration
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationRuntimeSsis, __self__).__init__(
             'azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis',
             resource_name,

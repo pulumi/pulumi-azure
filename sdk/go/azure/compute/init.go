@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,14 +41,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DiskAccess{}
 	case "azure:compute/diskEncryptionSet:DiskEncryptionSet":
 		r = &DiskEncryptionSet{}
-	case "azure:compute/diskPool:DiskPool":
-		r = &DiskPool{}
-	case "azure:compute/diskPoolIscsiTarget:DiskPoolIscsiTarget":
-		r = &DiskPoolIscsiTarget{}
-	case "azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun":
-		r = &DiskPoolIscsiTargetLun{}
-	case "azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment":
-		r = &DiskPoolManagedDiskAttachment{}
 	case "azure:compute/extension:Extension":
 		r = &Extension{}
 	case "azure:compute/galleryApplication:GalleryApplication":
@@ -95,8 +87,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SshPublicKey{}
 	case "azure:compute/virtualMachine:VirtualMachine":
 		r = &VirtualMachine{}
-	case "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection":
-		r = &VirtualMachineRestorePointCollection{}
 	case "azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension":
 		r = &VirtualMachineScaleSetExtension{}
 	case "azure:compute/windowsVirtualMachine:WindowsVirtualMachine":
@@ -164,26 +154,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/diskEncryptionSet",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"compute/diskPool",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"compute/diskPoolIscsiTarget",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"compute/diskPoolIscsiTargetLun",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"compute/diskPoolManagedDiskAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -299,11 +269,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/virtualMachine",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"compute/virtualMachineRestorePointCollection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

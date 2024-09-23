@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The ID of the App Service Environment to create this Service Plan in.
         /// 
-        /// &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+        /// &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
         /// </summary>
         [Output("appServiceEnvironmentId")]
         public Output<string?> AppServiceEnvironmentId { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The ID of the App Service Environment to create this Service Plan in.
         /// 
-        /// &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+        /// &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
         /// </summary>
         [Input("appServiceEnvironmentId")]
         public Input<string>? AppServiceEnvironmentId { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The ID of the App Service Environment to create this Service Plan in.
         /// 
-        /// &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
+        /// &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
         /// </summary>
         [Input("appServiceEnvironmentId")]
         public Input<string>? AppServiceEnvironmentId { get; set; }

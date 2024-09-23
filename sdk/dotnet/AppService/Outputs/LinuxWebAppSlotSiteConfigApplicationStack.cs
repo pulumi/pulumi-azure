@@ -13,12 +13,10 @@ namespace Pulumi.Azure.AppService.Outputs
     [OutputType]
     public sealed class LinuxWebAppSlotSiteConfigApplicationStack
     {
-        public readonly string? DockerImage;
         /// <summary>
         /// The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
         /// </summary>
         public readonly string? DockerImageName;
-        public readonly string? DockerImageTag;
         /// <summary>
         /// The User Name to use for authentication against the registry to pull the image.
         /// 
@@ -80,11 +78,7 @@ namespace Pulumi.Azure.AppService.Outputs
 
         [OutputConstructor]
         private LinuxWebAppSlotSiteConfigApplicationStack(
-            string? dockerImage,
-
             string? dockerImageName,
-
-            string? dockerImageTag,
 
             string? dockerRegistryPassword,
 
@@ -110,9 +104,7 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? rubyVersion)
         {
-            DockerImage = dockerImage;
             DockerImageName = dockerImageName;
-            DockerImageTag = dockerImageTag;
             DockerRegistryPassword = dockerRegistryPassword;
             DockerRegistryUrl = dockerRegistryUrl;
             DockerRegistryUsername = dockerRegistryUsername;

@@ -24,20 +24,6 @@ public final class GetSubnetResult {
      */
     private Boolean defaultOutboundAccessEnabled;
     /**
-     * @deprecated
-     * This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider. */
-    private Boolean enforcePrivateLinkEndpointNetworkPolicies;
-    /**
-     * @deprecated
-     * This property has been superseded by `private_link_service_network_policies_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property has been superseded by `private_link_service_network_policies_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    private Boolean enforcePrivateLinkServiceNetworkPolicies;
-    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -53,13 +39,6 @@ public final class GetSubnetResult {
      * 
      */
     private String privateEndpointNetworkPolicies;
-    /**
-     * @deprecated
-     * This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider. */
-    private Boolean privateEndpointNetworkPoliciesEnabled;
     /**
      * @return Enable or Disable network policies for the private link service on the subnet.
      * 
@@ -97,24 +76,6 @@ public final class GetSubnetResult {
         return this.defaultOutboundAccessEnabled;
     }
     /**
-     * @deprecated
-     * This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider. */
-    public Boolean enforcePrivateLinkEndpointNetworkPolicies() {
-        return this.enforcePrivateLinkEndpointNetworkPolicies;
-    }
-    /**
-     * @deprecated
-     * This property has been superseded by `private_link_service_network_policies_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property has been superseded by `private_link_service_network_policies_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    public Boolean enforcePrivateLinkServiceNetworkPolicies() {
-        return this.enforcePrivateLinkServiceNetworkPolicies;
-    }
-    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -137,15 +98,6 @@ public final class GetSubnetResult {
      */
     public String privateEndpointNetworkPolicies() {
         return this.privateEndpointNetworkPolicies;
-    }
-    /**
-     * @deprecated
-     * This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider. */
-    public Boolean privateEndpointNetworkPoliciesEnabled() {
-        return this.privateEndpointNetworkPoliciesEnabled;
     }
     /**
      * @return Enable or Disable network policies for the private link service on the subnet.
@@ -187,13 +139,10 @@ public final class GetSubnetResult {
         private String addressPrefix;
         private List<String> addressPrefixes;
         private Boolean defaultOutboundAccessEnabled;
-        private Boolean enforcePrivateLinkEndpointNetworkPolicies;
-        private Boolean enforcePrivateLinkServiceNetworkPolicies;
         private String id;
         private String name;
         private String networkSecurityGroupId;
         private String privateEndpointNetworkPolicies;
-        private Boolean privateEndpointNetworkPoliciesEnabled;
         private Boolean privateLinkServiceNetworkPoliciesEnabled;
         private String resourceGroupName;
         private String routeTableId;
@@ -205,13 +154,10 @@ public final class GetSubnetResult {
     	      this.addressPrefix = defaults.addressPrefix;
     	      this.addressPrefixes = defaults.addressPrefixes;
     	      this.defaultOutboundAccessEnabled = defaults.defaultOutboundAccessEnabled;
-    	      this.enforcePrivateLinkEndpointNetworkPolicies = defaults.enforcePrivateLinkEndpointNetworkPolicies;
-    	      this.enforcePrivateLinkServiceNetworkPolicies = defaults.enforcePrivateLinkServiceNetworkPolicies;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.networkSecurityGroupId = defaults.networkSecurityGroupId;
     	      this.privateEndpointNetworkPolicies = defaults.privateEndpointNetworkPolicies;
-    	      this.privateEndpointNetworkPoliciesEnabled = defaults.privateEndpointNetworkPoliciesEnabled;
     	      this.privateLinkServiceNetworkPoliciesEnabled = defaults.privateLinkServiceNetworkPoliciesEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.routeTableId = defaults.routeTableId;
@@ -247,22 +193,6 @@ public final class GetSubnetResult {
             return this;
         }
         @CustomType.Setter
-        public Builder enforcePrivateLinkEndpointNetworkPolicies(Boolean enforcePrivateLinkEndpointNetworkPolicies) {
-            if (enforcePrivateLinkEndpointNetworkPolicies == null) {
-              throw new MissingRequiredPropertyException("GetSubnetResult", "enforcePrivateLinkEndpointNetworkPolicies");
-            }
-            this.enforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enforcePrivateLinkServiceNetworkPolicies(Boolean enforcePrivateLinkServiceNetworkPolicies) {
-            if (enforcePrivateLinkServiceNetworkPolicies == null) {
-              throw new MissingRequiredPropertyException("GetSubnetResult", "enforcePrivateLinkServiceNetworkPolicies");
-            }
-            this.enforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
-            return this;
-        }
-        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetSubnetResult", "id");
@@ -292,14 +222,6 @@ public final class GetSubnetResult {
               throw new MissingRequiredPropertyException("GetSubnetResult", "privateEndpointNetworkPolicies");
             }
             this.privateEndpointNetworkPolicies = privateEndpointNetworkPolicies;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder privateEndpointNetworkPoliciesEnabled(Boolean privateEndpointNetworkPoliciesEnabled) {
-            if (privateEndpointNetworkPoliciesEnabled == null) {
-              throw new MissingRequiredPropertyException("GetSubnetResult", "privateEndpointNetworkPoliciesEnabled");
-            }
-            this.privateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
             return this;
         }
         @CustomType.Setter
@@ -350,13 +272,10 @@ public final class GetSubnetResult {
             _resultValue.addressPrefix = addressPrefix;
             _resultValue.addressPrefixes = addressPrefixes;
             _resultValue.defaultOutboundAccessEnabled = defaultOutboundAccessEnabled;
-            _resultValue.enforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
-            _resultValue.enforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.networkSecurityGroupId = networkSecurityGroupId;
             _resultValue.privateEndpointNetworkPolicies = privateEndpointNetworkPolicies;
-            _resultValue.privateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
             _resultValue.privateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.routeTableId = routeTableId;

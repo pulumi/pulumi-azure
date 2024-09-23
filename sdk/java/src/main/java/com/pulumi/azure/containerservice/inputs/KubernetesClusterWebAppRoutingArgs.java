@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -18,37 +19,18 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
     public static final KubernetesClusterWebAppRoutingArgs Empty = new KubernetesClusterWebAppRoutingArgs();
 
     /**
-     * @deprecated
-     * `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="dnsZoneId")
-    private @Nullable Output<String> dnsZoneId;
-
-    /**
-     * @deprecated
-     * `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<String>> dnsZoneId() {
-        return Optional.ofNullable(this.dnsZoneId);
-    }
-
-    /**
      * Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
      * 
      */
-    @Import(name="dnsZoneIds")
-    private @Nullable Output<List<String>> dnsZoneIds;
+    @Import(name="dnsZoneIds", required=true)
+    private Output<List<String>> dnsZoneIds;
 
     /**
      * @return Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
      * 
      */
-    public Optional<Output<List<String>>> dnsZoneIds() {
-        return Optional.ofNullable(this.dnsZoneIds);
+    public Output<List<String>> dnsZoneIds() {
+        return this.dnsZoneIds;
     }
 
     /**
@@ -69,7 +51,6 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
     private KubernetesClusterWebAppRoutingArgs() {}
 
     private KubernetesClusterWebAppRoutingArgs(KubernetesClusterWebAppRoutingArgs $) {
-        this.dnsZoneId = $.dnsZoneId;
         this.dnsZoneIds = $.dnsZoneIds;
         this.webAppRoutingIdentities = $.webAppRoutingIdentities;
     }
@@ -93,37 +74,12 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder dnsZoneId(@Nullable Output<String> dnsZoneId) {
-            $.dnsZoneId = dnsZoneId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `dns_zone_id` has been deprecated in favor of `dns_zone_ids` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder dnsZoneId(String dnsZoneId) {
-            return dnsZoneId(Output.of(dnsZoneId));
-        }
-
-        /**
          * @param dnsZoneIds Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
          * 
          * @return builder
          * 
          */
-        public Builder dnsZoneIds(@Nullable Output<List<String>> dnsZoneIds) {
+        public Builder dnsZoneIds(Output<List<String>> dnsZoneIds) {
             $.dnsZoneIds = dnsZoneIds;
             return this;
         }
@@ -180,6 +136,9 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
         }
 
         public KubernetesClusterWebAppRoutingArgs build() {
+            if ($.dnsZoneIds == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterWebAppRoutingArgs", "dnsZoneIds");
+            }
             return $;
         }
     }

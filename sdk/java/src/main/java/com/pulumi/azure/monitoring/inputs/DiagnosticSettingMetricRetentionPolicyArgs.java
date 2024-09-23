@@ -17,34 +17,22 @@ public final class DiagnosticSettingMetricRetentionPolicyArgs extends com.pulumi
 
     public static final DiagnosticSettingMetricRetentionPolicyArgs Empty = new DiagnosticSettingMetricRetentionPolicyArgs();
 
-    /**
-     * The number of days for which this Retention Policy should apply.
-     * 
-     * &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
-     * 
-     */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
-    /**
-     * @return The number of days for which this Retention Policy should apply.
-     * 
-     * &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
-     * 
-     */
     public Optional<Output<Integer>> days() {
         return Optional.ofNullable(this.days);
     }
 
     /**
-     * Is this Retention Policy enabled?
+     * Is this Diagnostic Metric enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Is this Retention Policy enabled?
+     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
      * 
      */
     public Output<Boolean> enabled() {
@@ -76,33 +64,17 @@ public final class DiagnosticSettingMetricRetentionPolicyArgs extends com.pulumi
             $ = new DiagnosticSettingMetricRetentionPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param days The number of days for which this Retention Policy should apply.
-         * 
-         * &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(@Nullable Output<Integer> days) {
             $.days = days;
             return this;
         }
 
-        /**
-         * @param days The number of days for which this Retention Policy should apply.
-         * 
-         * &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(Integer days) {
             return days(Output.of(days));
         }
 
         /**
-         * @param enabled Is this Retention Policy enabled?
+         * @param enabled Is this Diagnostic Metric enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -113,7 +85,7 @@ public final class DiagnosticSettingMetricRetentionPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param enabled Is this Retention Policy enabled?
+         * @param enabled Is this Diagnostic Metric enabled? Defaults to `true`.
          * 
          * @return builder
          * 

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,7 +104,7 @@ type PublicIp struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn pulumi.StringPtrOutput `pulumi:"reverseFqdn"`
-	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	//
 	// > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
@@ -194,7 +194,7 @@ type publicIpState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn *string `pulumi:"reverseFqdn"`
-	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	//
 	// > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 	Sku *string `pulumi:"sku"`
@@ -249,7 +249,7 @@ type PublicIpState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn pulumi.StringPtrInput
-	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	//
 	// > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 	Sku pulumi.StringPtrInput
@@ -304,7 +304,7 @@ type publicIpArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn *string `pulumi:"reverseFqdn"`
-	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	//
 	// > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 	Sku *string `pulumi:"sku"`
@@ -356,7 +356,7 @@ type PublicIpArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn pulumi.StringPtrInput
-	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	//
 	// > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 	Sku pulumi.StringPtrInput
@@ -542,7 +542,7 @@ func (o PublicIpOutput) ReverseFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.ReverseFqdn }).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 //
 // > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 func (o PublicIpOutput) Sku() pulumi.StringPtrOutput {

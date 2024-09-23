@@ -230,6 +230,20 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
         return this.galleryName;
     }
     /**
+     * Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="hibernationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> hibernationEnabled;
+
+    /**
+     * @return Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> hibernationEnabled() {
+        return Codegen.optional(this.hibernationEnabled);
+    }
+    /**
      * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      * 
      */

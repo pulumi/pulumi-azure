@@ -26,8 +26,7 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var example = Azure.Storage.GetTableEntities.Invoke(new()
         ///     {
-        ///         TableName = "example-table-name",
-        ///         StorageAccountName = "example-storage-account-name",
+        ///         StorageTableId = exampleAzurermStorageTable.Id,
         ///         Filter = "PartitionKey eq 'example'",
         ///     });
         /// 
@@ -52,8 +51,7 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var example = Azure.Storage.GetTableEntities.Invoke(new()
         ///     {
-        ///         TableName = "example-table-name",
-        ///         StorageAccountName = "example-storage-account-name",
+        ///         StorageTableId = exampleAzurermStorageTable.Id,
         ///         Filter = "PartitionKey eq 'example'",
         ///     });
         /// 
@@ -85,17 +83,11 @@ namespace Pulumi.Azure.Storage
             set => _selects = value;
         }
 
-        [Input("storageAccountName")]
-        public string? StorageAccountName { get; set; }
-
         /// <summary>
         /// The Storage Table ID where the entities exist.
         /// </summary>
-        [Input("storageTableId")]
-        public string? StorageTableId { get; set; }
-
-        [Input("tableName")]
-        public string? TableName { get; set; }
+        [Input("storageTableId", required: true)]
+        public string StorageTableId { get; set; } = null!;
 
         public GetTableEntitiesArgs()
         {
@@ -123,17 +115,11 @@ namespace Pulumi.Azure.Storage
             set => _selects = value;
         }
 
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
-
         /// <summary>
         /// The Storage Table ID where the entities exist.
         /// </summary>
-        [Input("storageTableId")]
-        public Input<string>? StorageTableId { get; set; }
-
-        [Input("tableName")]
-        public Input<string>? TableName { get; set; }
+        [Input("storageTableId", required: true)]
+        public Input<string> StorageTableId { get; set; } = null!;
 
         public GetTableEntitiesInvokeArgs()
         {
@@ -155,9 +141,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTableEntitiesItemResult> Items;
         public readonly ImmutableArray<string> Selects;
-        public readonly string StorageAccountName;
         public readonly string StorageTableId;
-        public readonly string TableName;
 
         [OutputConstructor]
         private GetTableEntitiesResult(
@@ -169,19 +153,13 @@ namespace Pulumi.Azure.Storage
 
             ImmutableArray<string> selects,
 
-            string storageAccountName,
-
-            string storageTableId,
-
-            string tableName)
+            string storageTableId)
         {
             Filter = filter;
             Id = id;
             Items = items;
             Selects = selects;
-            StorageAccountName = storageAccountName;
             StorageTableId = storageTableId;
-            TableName = tableName;
         }
     }
 }

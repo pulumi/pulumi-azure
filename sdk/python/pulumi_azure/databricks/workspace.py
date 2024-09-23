@@ -1130,7 +1130,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkSecurityGroupRulesRequired")
-    def network_security_group_rules_required(self) -> pulumi.Output[str]:
+    def network_security_group_rules_required(self) -> pulumi.Output[Optional[str]]:
         """
         Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`.
         """

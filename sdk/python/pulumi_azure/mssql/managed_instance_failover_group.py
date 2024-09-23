@@ -512,6 +512,8 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             __props__.__dict__["readonly_endpoint_failover_policy_enabled"] = readonly_endpoint_failover_policy_enabled
             __props__.__dict__["partner_regions"] = None
             __props__.__dict__["role"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstanceFailoverGroup, __self__).__init__(
             'azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup',
             resource_name,

@@ -27,7 +27,6 @@ class AuthomationRuleArgs:
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
                  condition_json: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -43,9 +42,6 @@ class AuthomationRuleArgs:
                
                > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
-        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]] conditions: One or more `condition` blocks as defined below.
-               
-               > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
         :param pulumi.Input[str] expiration: The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
         :param pulumi.Input[str] name: The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
@@ -61,11 +57,6 @@ class AuthomationRuleArgs:
             pulumi.set(__self__, "action_playbooks", action_playbooks)
         if condition_json is not None:
             pulumi.set(__self__, "condition_json", condition_json)
-        if conditions is not None:
-            warnings.warn("""This is deprecated in favor of `condition_json`""", DeprecationWarning)
-            pulumi.log.warn("""conditions is deprecated: This is deprecated in favor of `condition_json`""")
-        if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if expiration is not None:
@@ -153,21 +144,6 @@ class AuthomationRuleArgs:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""This is deprecated in favor of `condition_json`""")
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]]:
-        """
-        One or more `condition` blocks as defined below.
-
-        > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-        """
-        return pulumi.get(self, "conditions")
-
-    @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]]):
-        pulumi.set(self, "conditions", value)
-
-    @property
-    @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
@@ -233,7 +209,6 @@ class _AuthomationRuleState:
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
                  condition_json: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
@@ -249,9 +224,6 @@ class _AuthomationRuleState:
                
                > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
-        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]] conditions: One or more `condition` blocks as defined below.
-               
-               > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
         :param pulumi.Input[str] expiration: The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
@@ -267,11 +239,6 @@ class _AuthomationRuleState:
             pulumi.set(__self__, "action_playbooks", action_playbooks)
         if condition_json is not None:
             pulumi.set(__self__, "condition_json", condition_json)
-        if conditions is not None:
-            warnings.warn("""This is deprecated in favor of `condition_json`""", DeprecationWarning)
-            pulumi.log.warn("""conditions is deprecated: This is deprecated in favor of `condition_json`""")
-        if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if enabled is not None:
@@ -326,21 +293,6 @@ class _AuthomationRuleState:
     @condition_json.setter
     def condition_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "condition_json", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""This is deprecated in favor of `condition_json`""")
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]]:
-        """
-        One or more `condition` blocks as defined below.
-
-        > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-        """
-        return pulumi.get(self, "conditions")
-
-    @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]]):
-        pulumi.set(self, "conditions", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -452,7 +404,6 @@ class AuthomationRule(pulumi.CustomResource):
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentArgs', 'AuthomationRuleActionIncidentArgsDict']]]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionPlaybookArgs', 'AuthomationRuleActionPlaybookArgsDict']]]]] = None,
                  condition_json: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleConditionArgs', 'AuthomationRuleConditionArgsDict']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
@@ -506,9 +457,6 @@ class AuthomationRule(pulumi.CustomResource):
                
                > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleConditionArgs', 'AuthomationRuleConditionArgsDict']]]] conditions: One or more `condition` blocks as defined below.
-               
-               > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
         :param pulumi.Input[str] expiration: The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
@@ -579,7 +527,6 @@ class AuthomationRule(pulumi.CustomResource):
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentArgs', 'AuthomationRuleActionIncidentArgsDict']]]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionPlaybookArgs', 'AuthomationRuleActionPlaybookArgsDict']]]]] = None,
                  condition_json: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleConditionArgs', 'AuthomationRuleConditionArgsDict']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
@@ -601,7 +548,6 @@ class AuthomationRule(pulumi.CustomResource):
             __props__.__dict__["action_incidents"] = action_incidents
             __props__.__dict__["action_playbooks"] = action_playbooks
             __props__.__dict__["condition_json"] = condition_json
-            __props__.__dict__["conditions"] = conditions
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
@@ -629,7 +575,6 @@ class AuthomationRule(pulumi.CustomResource):
             action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionIncidentArgs', 'AuthomationRuleActionIncidentArgsDict']]]]] = None,
             action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleActionPlaybookArgs', 'AuthomationRuleActionPlaybookArgsDict']]]]] = None,
             condition_json: Optional[pulumi.Input[str]] = None,
-            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleConditionArgs', 'AuthomationRuleConditionArgsDict']]]]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             expiration: Optional[pulumi.Input[str]] = None,
@@ -650,9 +595,6 @@ class AuthomationRule(pulumi.CustomResource):
                
                > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthomationRuleConditionArgs', 'AuthomationRuleConditionArgsDict']]]] conditions: One or more `condition` blocks as defined below.
-               
-               > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
         :param pulumi.Input[str] expiration: The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
@@ -669,7 +611,6 @@ class AuthomationRule(pulumi.CustomResource):
         __props__.__dict__["action_incidents"] = action_incidents
         __props__.__dict__["action_playbooks"] = action_playbooks
         __props__.__dict__["condition_json"] = condition_json
-        __props__.__dict__["conditions"] = conditions
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["expiration"] = expiration
@@ -700,22 +641,11 @@ class AuthomationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="conditionJson")
-    def condition_json(self) -> pulumi.Output[str]:
+    def condition_json(self) -> pulumi.Output[Optional[str]]:
         """
         A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         """
         return pulumi.get(self, "condition_json")
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""This is deprecated in favor of `condition_json`""")
-    def conditions(self) -> pulumi.Output[Sequence['outputs.AuthomationRuleCondition']]:
-        """
-        One or more `condition` blocks as defined below.
-
-        > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
-        """
-        return pulumi.get(self, "conditions")
 
     @property
     @pulumi.getter(name="displayName")

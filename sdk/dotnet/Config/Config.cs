@@ -227,6 +227,27 @@ namespace Pulumi.Azure
             set => _partnerId.Set(value);
         }
 
+        private static readonly __Value<string?> _resourceProviderRegistrations = new __Value<string?>(() => __config.Get("resourceProviderRegistrations"));
+        /// <summary>
+        /// The set of Resource Providers which should be automatically registered for the subscription.
+        /// </summary>
+        public static string? ResourceProviderRegistrations
+        {
+            get => _resourceProviderRegistrations.Get();
+            set => _resourceProviderRegistrations.Set(value);
+        }
+
+        private static readonly __Value<ImmutableArray<string>> _resourceProvidersToRegisters = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("resourceProvidersToRegisters"));
+        /// <summary>
+        /// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+        /// `resource_provider_registrations` property.
+        /// </summary>
+        public static ImmutableArray<string> ResourceProvidersToRegisters
+        {
+            get => _resourceProvidersToRegisters.Get();
+            set => _resourceProvidersToRegisters.Set(value);
+        }
+
         private static readonly __Value<bool?> _skipProviderRegistration = new __Value<bool?>(() => __config.GetBoolean("skipProviderRegistration") ?? Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false);
         /// <summary>
         /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already

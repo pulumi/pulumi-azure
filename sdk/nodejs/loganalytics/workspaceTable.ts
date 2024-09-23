@@ -73,11 +73,11 @@ export class WorkspaceTable extends pulumi.CustomResource {
      */
     public readonly plan!: pulumi.Output<string | undefined>;
     /**
-     * The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+     * The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
     /**
-     * The table's total retention in days. Possible values range between 30 and 4383.
+     * The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      *
      * > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
      *
@@ -138,11 +138,11 @@ export interface WorkspaceTableState {
      */
     plan?: pulumi.Input<string>;
     /**
-     * The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+     * The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
      */
     retentionInDays?: pulumi.Input<number>;
     /**
-     * The table's total retention in days. Possible values range between 30 and 4383.
+     * The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      *
      * > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
      *
@@ -170,11 +170,11 @@ export interface WorkspaceTableArgs {
      */
     plan?: pulumi.Input<string>;
     /**
-     * The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+     * The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
      */
     retentionInDays?: pulumi.Input<number>;
     /**
-     * The table's total retention in days. Possible values range between 30 and 4383.
+     * The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      *
      * > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
      *

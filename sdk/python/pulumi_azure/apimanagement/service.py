@@ -36,7 +36,6 @@ class ServiceArgs:
                  min_api_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input['ServicePolicyArgs']] = None,
                  protocols: Optional[pulumi.Input['ServiceProtocolsArgs']] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -115,11 +114,6 @@ class ServiceArgs:
             pulumi.set(__self__, "name", name)
         if notification_sender_email is not None:
             pulumi.set(__self__, "notification_sender_email", notification_sender_email)
-        if policy is not None:
-            warnings.warn("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""policy is deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
-        if policy is not None:
-            pulumi.set(__self__, "policy", policy)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
         if public_ip_address_id is not None:
@@ -329,16 +323,6 @@ class ServiceArgs:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
-    def policy(self) -> Optional[pulumi.Input['ServicePolicyArgs']]:
-        return pulumi.get(self, "policy")
-
-    @policy.setter
-    def policy(self, value: Optional[pulumi.Input['ServicePolicyArgs']]):
-        pulumi.set(self, "policy", value)
-
-    @property
-    @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input['ServiceProtocolsArgs']]:
         """
         A `protocols` block as defined below.
@@ -496,7 +480,6 @@ class _ServiceState:
                  min_api_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input['ServicePolicyArgs']] = None,
                  portal_url: Optional[pulumi.Input[str]] = None,
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  protocols: Optional[pulumi.Input['ServiceProtocolsArgs']] = None,
@@ -595,11 +578,6 @@ class _ServiceState:
             pulumi.set(__self__, "name", name)
         if notification_sender_email is not None:
             pulumi.set(__self__, "notification_sender_email", notification_sender_email)
-        if policy is not None:
-            warnings.warn("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""policy is deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
-        if policy is not None:
-            pulumi.set(__self__, "policy", policy)
         if portal_url is not None:
             pulumi.set(__self__, "portal_url", portal_url)
         if private_ip_addresses is not None:
@@ -818,16 +796,6 @@ class _ServiceState:
     @notification_sender_email.setter
     def notification_sender_email(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "notification_sender_email", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
-    def policy(self) -> Optional[pulumi.Input['ServicePolicyArgs']]:
-        return pulumi.get(self, "policy")
-
-    @policy.setter
-    def policy(self, value: Optional[pulumi.Input['ServicePolicyArgs']]):
-        pulumi.set(self, "policy", value)
 
     @property
     @pulumi.getter(name="portalUrl")
@@ -1086,7 +1054,6 @@ class Service(pulumi.CustomResource):
                  min_api_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[Union['ServicePolicyArgs', 'ServicePolicyArgsDict']]] = None,
                  protocols: Optional[pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1230,7 +1197,6 @@ class Service(pulumi.CustomResource):
                  min_api_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[Union['ServicePolicyArgs', 'ServicePolicyArgsDict']]] = None,
                  protocols: Optional[pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1266,7 +1232,6 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["min_api_version"] = min_api_version
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_sender_email"] = notification_sender_email
-            __props__.__dict__["policy"] = policy
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["public_ip_address_id"] = public_ip_address_id
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -1323,7 +1288,6 @@ class Service(pulumi.CustomResource):
             min_api_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notification_sender_email: Optional[pulumi.Input[str]] = None,
-            policy: Optional[pulumi.Input[Union['ServicePolicyArgs', 'ServicePolicyArgsDict']]] = None,
             portal_url: Optional[pulumi.Input[str]] = None,
             private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             protocols: Optional[pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
@@ -1416,7 +1380,6 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["min_api_version"] = min_api_version
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_sender_email"] = notification_sender_email
-        __props__.__dict__["policy"] = policy
         __props__.__dict__["portal_url"] = portal_url
         __props__.__dict__["private_ip_addresses"] = private_ip_addresses
         __props__.__dict__["protocols"] = protocols
@@ -1557,12 +1520,6 @@ class Service(pulumi.CustomResource):
         Email address from which the notification will be sent.
         """
         return pulumi.get(self, "notification_sender_email")
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
-    def policy(self) -> pulumi.Output['outputs.ServicePolicy']:
-        return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="portalUrl")

@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Network
     ///         Name = "example-pip",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         AllocationMethod = "Dynamic",
+    ///         AllocationMethod = "Static",
     ///     });
     /// 
     ///     var backendAddressPoolName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-beap");

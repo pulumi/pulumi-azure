@@ -124,10 +124,6 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly notificationSenderEmail!: pulumi.Output<string>;
     /**
-     * @deprecated The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-     */
-    public readonly policy!: pulumi.Output<outputs.apimanagement.ServicePolicy>;
-    /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
@@ -244,7 +240,6 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["minApiVersion"] = state ? state.minApiVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notificationSenderEmail"] = state ? state.notificationSenderEmail : undefined;
-            resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["portalUrl"] = state ? state.portalUrl : undefined;
             resourceInputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
             resourceInputs["protocols"] = state ? state.protocols : undefined;
@@ -289,7 +284,6 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["minApiVersion"] = args ? args.minApiVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
             resourceInputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
@@ -383,10 +377,6 @@ export interface ServiceState {
      * Email address from which the notification will be sent.
      */
     notificationSenderEmail?: pulumi.Input<string>;
-    /**
-     * @deprecated The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-     */
-    policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
     /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
@@ -525,10 +515,6 @@ export interface ServiceArgs {
      * Email address from which the notification will be sent.
      */
     notificationSenderEmail?: pulumi.Input<string>;
-    /**
-     * @deprecated The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
-     */
-    policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
     /**
      * A `protocols` block as defined below.
      */

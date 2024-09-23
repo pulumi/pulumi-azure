@@ -184,7 +184,7 @@ namespace Pulumi.Azure.CosmosDB
         /// &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         /// </summary>
         [Output("skuName")]
-        public Output<string> SkuName { get; private set; } = null!;
+        public Output<string?> SkuName { get; private set; } = null!;
 
 
         /// <summary>

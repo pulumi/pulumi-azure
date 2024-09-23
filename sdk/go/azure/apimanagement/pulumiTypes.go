@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -13049,154 +13049,6 @@ func (o ServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ServicePolicy struct {
-	XmlContent *string `pulumi:"xmlContent"`
-	XmlLink    *string `pulumi:"xmlLink"`
-}
-
-// ServicePolicyInput is an input type that accepts ServicePolicyArgs and ServicePolicyOutput values.
-// You can construct a concrete instance of `ServicePolicyInput` via:
-//
-//	ServicePolicyArgs{...}
-type ServicePolicyInput interface {
-	pulumi.Input
-
-	ToServicePolicyOutput() ServicePolicyOutput
-	ToServicePolicyOutputWithContext(context.Context) ServicePolicyOutput
-}
-
-type ServicePolicyArgs struct {
-	XmlContent pulumi.StringPtrInput `pulumi:"xmlContent"`
-	XmlLink    pulumi.StringPtrInput `pulumi:"xmlLink"`
-}
-
-func (ServicePolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePolicy)(nil)).Elem()
-}
-
-func (i ServicePolicyArgs) ToServicePolicyOutput() ServicePolicyOutput {
-	return i.ToServicePolicyOutputWithContext(context.Background())
-}
-
-func (i ServicePolicyArgs) ToServicePolicyOutputWithContext(ctx context.Context) ServicePolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePolicyOutput)
-}
-
-func (i ServicePolicyArgs) ToServicePolicyPtrOutput() ServicePolicyPtrOutput {
-	return i.ToServicePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ServicePolicyArgs) ToServicePolicyPtrOutputWithContext(ctx context.Context) ServicePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePolicyOutput).ToServicePolicyPtrOutputWithContext(ctx)
-}
-
-// ServicePolicyPtrInput is an input type that accepts ServicePolicyArgs, ServicePolicyPtr and ServicePolicyPtrOutput values.
-// You can construct a concrete instance of `ServicePolicyPtrInput` via:
-//
-//	        ServicePolicyArgs{...}
-//
-//	or:
-//
-//	        nil
-type ServicePolicyPtrInput interface {
-	pulumi.Input
-
-	ToServicePolicyPtrOutput() ServicePolicyPtrOutput
-	ToServicePolicyPtrOutputWithContext(context.Context) ServicePolicyPtrOutput
-}
-
-type servicePolicyPtrType ServicePolicyArgs
-
-func ServicePolicyPtr(v *ServicePolicyArgs) ServicePolicyPtrInput {
-	return (*servicePolicyPtrType)(v)
-}
-
-func (*servicePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServicePolicy)(nil)).Elem()
-}
-
-func (i *servicePolicyPtrType) ToServicePolicyPtrOutput() ServicePolicyPtrOutput {
-	return i.ToServicePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *servicePolicyPtrType) ToServicePolicyPtrOutputWithContext(ctx context.Context) ServicePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePolicyPtrOutput)
-}
-
-type ServicePolicyOutput struct{ *pulumi.OutputState }
-
-func (ServicePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePolicy)(nil)).Elem()
-}
-
-func (o ServicePolicyOutput) ToServicePolicyOutput() ServicePolicyOutput {
-	return o
-}
-
-func (o ServicePolicyOutput) ToServicePolicyOutputWithContext(ctx context.Context) ServicePolicyOutput {
-	return o
-}
-
-func (o ServicePolicyOutput) ToServicePolicyPtrOutput() ServicePolicyPtrOutput {
-	return o.ToServicePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ServicePolicyOutput) ToServicePolicyPtrOutputWithContext(ctx context.Context) ServicePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePolicy) *ServicePolicy {
-		return &v
-	}).(ServicePolicyPtrOutput)
-}
-
-func (o ServicePolicyOutput) XmlContent() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServicePolicy) *string { return v.XmlContent }).(pulumi.StringPtrOutput)
-}
-
-func (o ServicePolicyOutput) XmlLink() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServicePolicy) *string { return v.XmlLink }).(pulumi.StringPtrOutput)
-}
-
-type ServicePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ServicePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServicePolicy)(nil)).Elem()
-}
-
-func (o ServicePolicyPtrOutput) ToServicePolicyPtrOutput() ServicePolicyPtrOutput {
-	return o
-}
-
-func (o ServicePolicyPtrOutput) ToServicePolicyPtrOutputWithContext(ctx context.Context) ServicePolicyPtrOutput {
-	return o
-}
-
-func (o ServicePolicyPtrOutput) Elem() ServicePolicyOutput {
-	return o.ApplyT(func(v *ServicePolicy) ServicePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ServicePolicy
-		return ret
-	}).(ServicePolicyOutput)
-}
-
-func (o ServicePolicyPtrOutput) XmlContent() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServicePolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.XmlContent
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServicePolicyPtrOutput) XmlLink() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServicePolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.XmlLink
-	}).(pulumi.StringPtrOutput)
-}
-
 type ServiceProtocols struct {
 	// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
@@ -16226,8 +16078,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHostnameConfigurationScmArrayInput)(nil)).Elem(), ServiceHostnameConfigurationScmArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIdentityInput)(nil)).Elem(), ServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIdentityPtrInput)(nil)).Elem(), ServiceIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServicePolicyInput)(nil)).Elem(), ServicePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServicePolicyPtrInput)(nil)).Elem(), ServicePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProtocolsInput)(nil)).Elem(), ServiceProtocolsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProtocolsPtrInput)(nil)).Elem(), ServiceProtocolsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSecurityInput)(nil)).Elem(), ServiceSecurityArgs{})
@@ -16432,8 +16282,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceHostnameConfigurationScmArrayOutput{})
 	pulumi.RegisterOutputType(ServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ServiceIdentityPtrOutput{})
-	pulumi.RegisterOutputType(ServicePolicyOutput{})
-	pulumi.RegisterOutputType(ServicePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ServiceProtocolsOutput{})
 	pulumi.RegisterOutputType(ServiceProtocolsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSecurityOutput{})

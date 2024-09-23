@@ -91,14 +91,17 @@ namespace Pulumi.Azure.Network
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
     ///         ScaleUnit = 1,
-    ///         ConnectionConfiguration = new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationArgs
+    ///         ConnectionConfigurations = new[]
     ///         {
-    ///             Name = "example-gateway-config",
-    ///             VpnClientAddressPool = new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs
+    ///             new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationArgs
     ///             {
-    ///                 AddressPrefixes = new[]
+    ///                 Name = "example-gateway-config",
+    ///                 VpnClientAddressPool = new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs
     ///                 {
-    ///                     "10.0.2.0/24",
+    ///                     AddressPrefixes = new[]
+    ///                     {
+    ///                         "10.0.2.0/24",
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -121,8 +124,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `connection_configuration` block as defined below.
         /// </summary>
-        [Output("connectionConfiguration")]
-        public Output<Outputs.PointToPointVpnGatewayConnectionConfiguration> ConnectionConfiguration { get; private set; } = null!;
+        [Output("connectionConfigurations")]
+        public Output<ImmutableArray<Outputs.PointToPointVpnGatewayConnectionConfiguration>> ConnectionConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
@@ -224,11 +227,17 @@ namespace Pulumi.Azure.Network
 
     public sealed class PointToPointVpnGatewayArgs : global::Pulumi.ResourceArgs
     {
+        [Input("connectionConfigurations", required: true)]
+        private InputList<Inputs.PointToPointVpnGatewayConnectionConfigurationArgs>? _connectionConfigurations;
+
         /// <summary>
         /// A `connection_configuration` block as defined below.
         /// </summary>
-        [Input("connectionConfiguration", required: true)]
-        public Input<Inputs.PointToPointVpnGatewayConnectionConfigurationArgs> ConnectionConfiguration { get; set; } = null!;
+        public InputList<Inputs.PointToPointVpnGatewayConnectionConfigurationArgs> ConnectionConfigurations
+        {
+            get => _connectionConfigurations ?? (_connectionConfigurations = new InputList<Inputs.PointToPointVpnGatewayConnectionConfigurationArgs>());
+            set => _connectionConfigurations = value;
+        }
 
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
@@ -304,11 +313,17 @@ namespace Pulumi.Azure.Network
 
     public sealed class PointToPointVpnGatewayState : global::Pulumi.ResourceArgs
     {
+        [Input("connectionConfigurations")]
+        private InputList<Inputs.PointToPointVpnGatewayConnectionConfigurationGetArgs>? _connectionConfigurations;
+
         /// <summary>
         /// A `connection_configuration` block as defined below.
         /// </summary>
-        [Input("connectionConfiguration")]
-        public Input<Inputs.PointToPointVpnGatewayConnectionConfigurationGetArgs>? ConnectionConfiguration { get; set; }
+        public InputList<Inputs.PointToPointVpnGatewayConnectionConfigurationGetArgs> ConnectionConfigurations
+        {
+            get => _connectionConfigurations ?? (_connectionConfigurations = new InputList<Inputs.PointToPointVpnGatewayConnectionConfigurationGetArgs>());
+            set => _connectionConfigurations = value;
+        }
 
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;

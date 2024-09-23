@@ -44,8 +44,8 @@ class IoTHubArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input['IoTHubSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]] endpoints: An `endpoint` block as defined below.
-        :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
-        :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
+        :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
+        :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
                > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
@@ -149,7 +149,7 @@ class IoTHubArgs:
     @pulumi.getter(name="eventHubPartitionCount")
     def event_hub_partition_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         """
         return pulumi.get(self, "event_hub_partition_count")
 
@@ -161,7 +161,7 @@ class IoTHubArgs:
     @pulumi.getter(name="eventHubRetentionInDays")
     def event_hub_retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The event hub retention to use in days. Must be between `1` and `7`.
+        The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         """
         return pulumi.get(self, "event_hub_retention_in_days")
 
@@ -329,8 +329,8 @@ class _IoTHubState:
         :param pulumi.Input[str] event_hub_events_path: The EventHub compatible path for events data
         :param pulumi.Input[str] event_hub_operations_endpoint: The EventHub compatible endpoint for operational data
         :param pulumi.Input[str] event_hub_operations_path: The EventHub compatible path for operational data
-        :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
-        :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
+        :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
+        :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
                > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
@@ -492,7 +492,7 @@ class _IoTHubState:
     @pulumi.getter(name="eventHubPartitionCount")
     def event_hub_partition_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         """
         return pulumi.get(self, "event_hub_partition_count")
 
@@ -504,7 +504,7 @@ class _IoTHubState:
     @pulumi.getter(name="eventHubRetentionInDays")
     def event_hub_retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The event hub retention to use in days. Must be between `1` and `7`.
+        The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         """
         return pulumi.get(self, "event_hub_retention_in_days")
 
@@ -840,8 +840,8 @@ class IoTHub(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]] endpoints: An `endpoint` block as defined below.
-        :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
-        :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
+        :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
+        :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
                > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
@@ -1102,8 +1102,8 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[str] event_hub_events_path: The EventHub compatible path for events data
         :param pulumi.Input[str] event_hub_operations_endpoint: The EventHub compatible endpoint for operational data
         :param pulumi.Input[str] event_hub_operations_path: The EventHub compatible path for operational data
-        :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
-        :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
+        :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
+        :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
                > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
@@ -1210,17 +1210,17 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubPartitionCount")
-    def event_hub_partition_count(self) -> pulumi.Output[int]:
+    def event_hub_partition_count(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         """
         return pulumi.get(self, "event_hub_partition_count")
 
     @property
     @pulumi.getter(name="eventHubRetentionInDays")
-    def event_hub_retention_in_days(self) -> pulumi.Output[int]:
+    def event_hub_retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        The event hub retention to use in days. Must be between `1` and `7`.
+        The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         """
         return pulumi.get(self, "event_hub_retention_in_days")
 

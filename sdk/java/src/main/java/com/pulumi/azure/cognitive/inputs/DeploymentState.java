@@ -4,7 +4,7 @@
 package com.pulumi.azure.cognitive.inputs;
 
 import com.pulumi.azure.cognitive.inputs.DeploymentModelArgs;
-import com.pulumi.azure.cognitive.inputs.DeploymentScaleArgs;
+import com.pulumi.azure.cognitive.inputs.DeploymentSkuArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -77,19 +77,11 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.raiPolicyName);
     }
 
-    /**
-     * A `scale` block as defined below.
-     * 
-     */
-    @Import(name="scale")
-    private @Nullable Output<DeploymentScaleArgs> scale;
+    @Import(name="sku")
+    private @Nullable Output<DeploymentSkuArgs> sku;
 
-    /**
-     * @return A `scale` block as defined below.
-     * 
-     */
-    public Optional<Output<DeploymentScaleArgs>> scale() {
-        return Optional.ofNullable(this.scale);
+    public Optional<Output<DeploymentSkuArgs>> sku() {
+        return Optional.ofNullable(this.sku);
     }
 
     /**
@@ -114,7 +106,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         this.model = $.model;
         this.name = $.name;
         this.raiPolicyName = $.raiPolicyName;
-        this.scale = $.scale;
+        this.sku = $.sku;
         this.versionUpgradeOption = $.versionUpgradeOption;
     }
 
@@ -220,25 +212,13 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
             return raiPolicyName(Output.of(raiPolicyName));
         }
 
-        /**
-         * @param scale A `scale` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder scale(@Nullable Output<DeploymentScaleArgs> scale) {
-            $.scale = scale;
+        public Builder sku(@Nullable Output<DeploymentSkuArgs> sku) {
+            $.sku = sku;
             return this;
         }
 
-        /**
-         * @param scale A `scale` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder scale(DeploymentScaleArgs scale) {
-            return scale(Output.of(scale));
+        public Builder sku(DeploymentSkuArgs sku) {
+            return sku(Output.of(sku));
         }
 
         /**

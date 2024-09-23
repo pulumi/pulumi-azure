@@ -17,19 +17,15 @@ import java.util.Objects;
 @CustomType
 public final class GetCacheResult {
     /**
+     * @return Specifies if access key authentication is enabled.
+     * 
+     */
+    private Boolean accessKeysAuthenticationEnabled;
+    /**
      * @return The size of the Redis Cache deployed.
      * 
      */
     private Integer capacity;
-    /**
-     * @return Whether the SSL port is enabled.
-     * 
-     * @deprecated
-     * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
-    private Boolean enableNonSslPort;
     /**
      * @return The SKU family/pricing group used. Possible values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      * 
@@ -119,22 +115,18 @@ public final class GetCacheResult {
 
     private GetCacheResult() {}
     /**
+     * @return Specifies if access key authentication is enabled.
+     * 
+     */
+    public Boolean accessKeysAuthenticationEnabled() {
+        return this.accessKeysAuthenticationEnabled;
+    }
+    /**
      * @return The size of the Redis Cache deployed.
      * 
      */
     public Integer capacity() {
         return this.capacity;
-    }
-    /**
-     * @return Whether the SSL port is enabled.
-     * 
-     * @deprecated
-     * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
-    public Boolean enableNonSslPort() {
-        return this.enableNonSslPort;
     }
     /**
      * @return The SKU family/pricing group used. Possible values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
@@ -276,8 +268,8 @@ public final class GetCacheResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean accessKeysAuthenticationEnabled;
         private Integer capacity;
-        private Boolean enableNonSslPort;
         private String family;
         private String hostname;
         private String id;
@@ -303,8 +295,8 @@ public final class GetCacheResult {
         public Builder() {}
         public Builder(GetCacheResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accessKeysAuthenticationEnabled = defaults.accessKeysAuthenticationEnabled;
     	      this.capacity = defaults.capacity;
-    	      this.enableNonSslPort = defaults.enableNonSslPort;
     	      this.family = defaults.family;
     	      this.hostname = defaults.hostname;
     	      this.id = defaults.id;
@@ -330,19 +322,19 @@ public final class GetCacheResult {
         }
 
         @CustomType.Setter
+        public Builder accessKeysAuthenticationEnabled(Boolean accessKeysAuthenticationEnabled) {
+            if (accessKeysAuthenticationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "accessKeysAuthenticationEnabled");
+            }
+            this.accessKeysAuthenticationEnabled = accessKeysAuthenticationEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             if (capacity == null) {
               throw new MissingRequiredPropertyException("GetCacheResult", "capacity");
             }
             this.capacity = capacity;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableNonSslPort(Boolean enableNonSslPort) {
-            if (enableNonSslPort == null) {
-              throw new MissingRequiredPropertyException("GetCacheResult", "enableNonSslPort");
-            }
-            this.enableNonSslPort = enableNonSslPort;
             return this;
         }
         @CustomType.Setter
@@ -532,8 +524,8 @@ public final class GetCacheResult {
         }
         public GetCacheResult build() {
             final var _resultValue = new GetCacheResult();
+            _resultValue.accessKeysAuthenticationEnabled = accessKeysAuthenticationEnabled;
             _resultValue.capacity = capacity;
-            _resultValue.enableNonSslPort = enableNonSslPort;
             _resultValue.family = family;
             _resultValue.hostname = hostname;
             _resultValue.id = id;

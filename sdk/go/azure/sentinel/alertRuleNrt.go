@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/sentinel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -131,6 +131,9 @@ func NewAlertRuleNrt(ctx *pulumi.Context,
 
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.EventGrouping == nil {
+		return nil, errors.New("invalid value for required argument 'EventGrouping'")
 	}
 	if args.LogAnalyticsWorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'LogAnalyticsWorkspaceId'")
@@ -277,7 +280,7 @@ type alertRuleNrtArgs struct {
 	// A `eventGrouping` block as defined below.
 	//
 	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
-	EventGrouping *AlertRuleNrtEventGrouping `pulumi:"eventGrouping"`
+	EventGrouping AlertRuleNrtEventGrouping `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident *AlertRuleNrtIncident `pulumi:"incident"`
 	// The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
@@ -323,7 +326,7 @@ type AlertRuleNrtArgs struct {
 	// A `eventGrouping` block as defined below.
 	//
 	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
-	EventGrouping AlertRuleNrtEventGroupingPtrInput
+	EventGrouping AlertRuleNrtEventGroupingInput
 	// A `incident` block as defined below.
 	Incident AlertRuleNrtIncidentPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.

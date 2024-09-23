@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/synapse"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,10 +86,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/synapse"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -243,8 +243,6 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-	AadAdmin WorkspaceAadAdminTypeOutput `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrOutput `pulumi:"azureDevopsRepo"`
 	// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
@@ -277,11 +275,9 @@ type Workspace struct {
 	PurviewId pulumi.StringPtrOutput `pulumi:"purviewId"`
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-	SqlAadAdmin WorkspaceSqlAadAdminTypeOutput `pulumi:"sqlAadAdmin"`
-	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
 	SqlAdministratorLogin pulumi.StringPtrOutput `pulumi:"sqlAdministratorLogin"`
-	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
 	SqlAdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"sqlAdministratorLoginPassword"`
 	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
 	SqlIdentityControlEnabled pulumi.BoolPtrOutput `pulumi:"sqlIdentityControlEnabled"`
@@ -334,8 +330,6 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-	AadAdmin *WorkspaceAadAdminType `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
 	// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
@@ -368,11 +362,9 @@ type workspaceState struct {
 	PurviewId *string `pulumi:"purviewId"`
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-	SqlAadAdmin *WorkspaceSqlAadAdminType `pulumi:"sqlAadAdmin"`
-	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
-	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
 	SqlAdministratorLoginPassword *string `pulumi:"sqlAdministratorLoginPassword"`
 	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
 	SqlIdentityControlEnabled *bool `pulumi:"sqlIdentityControlEnabled"`
@@ -383,8 +375,6 @@ type workspaceState struct {
 }
 
 type WorkspaceState struct {
-	// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-	AadAdmin WorkspaceAadAdminTypePtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
 	// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
@@ -417,11 +407,9 @@ type WorkspaceState struct {
 	PurviewId pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-	SqlAadAdmin WorkspaceSqlAadAdminTypePtrInput
-	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
 	SqlAdministratorLogin pulumi.StringPtrInput
-	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
 	SqlAdministratorLoginPassword pulumi.StringPtrInput
 	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
 	SqlIdentityControlEnabled pulumi.BoolPtrInput
@@ -436,8 +424,6 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-	AadAdmin *WorkspaceAadAdminType `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
 	// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
@@ -468,11 +454,9 @@ type workspaceArgs struct {
 	PurviewId *string `pulumi:"purviewId"`
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-	SqlAadAdmin *WorkspaceSqlAadAdminType `pulumi:"sqlAadAdmin"`
-	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
-	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
 	SqlAdministratorLoginPassword *string `pulumi:"sqlAdministratorLoginPassword"`
 	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
 	SqlIdentityControlEnabled *bool `pulumi:"sqlIdentityControlEnabled"`
@@ -484,8 +468,6 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-	AadAdmin WorkspaceAadAdminTypePtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
 	// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
@@ -516,11 +498,9 @@ type WorkspaceArgs struct {
 	PurviewId pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-	SqlAadAdmin WorkspaceSqlAadAdminTypePtrInput
-	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
 	SqlAdministratorLogin pulumi.StringPtrInput
-	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
 	SqlAdministratorLoginPassword pulumi.StringPtrInput
 	// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
 	SqlIdentityControlEnabled pulumi.BoolPtrInput
@@ -617,11 +597,6 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
-// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-func (o WorkspaceOutput) AadAdmin() WorkspaceAadAdminTypeOutput {
-	return o.ApplyT(func(v *Workspace) WorkspaceAadAdminTypeOutput { return v.AadAdmin }).(WorkspaceAadAdminTypeOutput)
-}
-
 // An `azureDevopsRepo` block as defined below.
 func (o WorkspaceOutput) AzureDevopsRepo() WorkspaceAzureDevopsRepoPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceAzureDevopsRepoPtrOutput { return v.AzureDevopsRepo }).(WorkspaceAzureDevopsRepoPtrOutput)
@@ -702,17 +677,12 @@ func (o WorkspaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-func (o WorkspaceOutput) SqlAadAdmin() WorkspaceSqlAadAdminTypeOutput {
-	return o.ApplyT(func(v *Workspace) WorkspaceSqlAadAdminTypeOutput { return v.SqlAadAdmin }).(WorkspaceSqlAadAdminTypeOutput)
-}
-
-// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
 func (o WorkspaceOutput) SqlAdministratorLogin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.SqlAdministratorLogin }).(pulumi.StringPtrOutput)
 }
 
-// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
+// The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
 func (o WorkspaceOutput) SqlAdministratorLoginPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.SqlAdministratorLoginPassword }).(pulumi.StringPtrOutput)
 }

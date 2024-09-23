@@ -15,30 +15,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKubernetesClusterAgentPoolProfile {
+    /**
+     * @return If the auto-scaler is enabled.
+     * 
+     */
     private Boolean autoScalingEnabled;
     /**
      * @return The number of Agents (VMs) in the Pool.
      * 
      */
     private Integer count;
-    /**
-     * @return If the auto-scaler is enabled.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `auto_scaling_enabled` property.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `auto_scaling_enabled` property. */
-    private Boolean enableAutoScaling;
-    /**
-     * @return If the Public IPs for the nodes in this Agent Pool are enabled.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `node_public_ip_enabled` property.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `node_public_ip_enabled` property. */
-    private Boolean enableNodePublicIp;
     /**
      * @return Maximum number of nodes for auto-scaling
      * 
@@ -60,6 +46,10 @@ public final class GetKubernetesClusterAgentPoolProfile {
      */
     private String name;
     private Map<String,String> nodeLabels;
+    /**
+     * @return If the Public IPs for the nodes in this Agent Pool are enabled.
+     * 
+     */
     private Boolean nodePublicIpEnabled;
     /**
      * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
@@ -114,6 +104,10 @@ public final class GetKubernetesClusterAgentPoolProfile {
     private List<String> zones;
 
     private GetKubernetesClusterAgentPoolProfile() {}
+    /**
+     * @return If the auto-scaler is enabled.
+     * 
+     */
     public Boolean autoScalingEnabled() {
         return this.autoScalingEnabled;
     }
@@ -123,28 +117,6 @@ public final class GetKubernetesClusterAgentPoolProfile {
      */
     public Integer count() {
         return this.count;
-    }
-    /**
-     * @return If the auto-scaler is enabled.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `auto_scaling_enabled` property.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `auto_scaling_enabled` property. */
-    public Boolean enableAutoScaling() {
-        return this.enableAutoScaling;
-    }
-    /**
-     * @return If the Public IPs for the nodes in this Agent Pool are enabled.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `node_public_ip_enabled` property.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `node_public_ip_enabled` property. */
-    public Boolean enableNodePublicIp() {
-        return this.enableNodePublicIp;
     }
     /**
      * @return Maximum number of nodes for auto-scaling
@@ -177,6 +149,10 @@ public final class GetKubernetesClusterAgentPoolProfile {
     public Map<String,String> nodeLabels() {
         return this.nodeLabels;
     }
+    /**
+     * @return If the Public IPs for the nodes in this Agent Pool are enabled.
+     * 
+     */
     public Boolean nodePublicIpEnabled() {
         return this.nodePublicIpEnabled;
     }
@@ -265,8 +241,6 @@ public final class GetKubernetesClusterAgentPoolProfile {
     public static final class Builder {
         private Boolean autoScalingEnabled;
         private Integer count;
-        private Boolean enableAutoScaling;
-        private Boolean enableNodePublicIp;
         private Integer maxCount;
         private Integer maxPods;
         private Integer minCount;
@@ -289,8 +263,6 @@ public final class GetKubernetesClusterAgentPoolProfile {
     	      Objects.requireNonNull(defaults);
     	      this.autoScalingEnabled = defaults.autoScalingEnabled;
     	      this.count = defaults.count;
-    	      this.enableAutoScaling = defaults.enableAutoScaling;
-    	      this.enableNodePublicIp = defaults.enableNodePublicIp;
     	      this.maxCount = defaults.maxCount;
     	      this.maxPods = defaults.maxPods;
     	      this.minCount = defaults.minCount;
@@ -324,22 +296,6 @@ public final class GetKubernetesClusterAgentPoolProfile {
               throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "count");
             }
             this.count = count;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableAutoScaling(Boolean enableAutoScaling) {
-            if (enableAutoScaling == null) {
-              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "enableAutoScaling");
-            }
-            this.enableAutoScaling = enableAutoScaling;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableNodePublicIp(Boolean enableNodePublicIp) {
-            if (enableNodePublicIp == null) {
-              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "enableNodePublicIp");
-            }
-            this.enableNodePublicIp = enableNodePublicIp;
             return this;
         }
         @CustomType.Setter
@@ -491,8 +447,6 @@ public final class GetKubernetesClusterAgentPoolProfile {
             final var _resultValue = new GetKubernetesClusterAgentPoolProfile();
             _resultValue.autoScalingEnabled = autoScalingEnabled;
             _resultValue.count = count;
-            _resultValue.enableAutoScaling = enableAutoScaling;
-            _resultValue.enableNodePublicIp = enableNodePublicIp;
             _resultValue.maxCount = maxCount;
             _resultValue.maxPods = maxPods;
             _resultValue.minCount = minCount;

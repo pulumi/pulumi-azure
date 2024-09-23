@@ -98,14 +98,6 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly delegations!: pulumi.Output<outputs.network.SubnetDelegation[] | undefined>;
     /**
-     * @deprecated `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-     */
-    public readonly enforcePrivateLinkEndpointNetworkPolicies!: pulumi.Output<boolean>;
-    /**
-     * @deprecated `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
-     */
-    public readonly enforcePrivateLinkServiceNetworkPolicies!: pulumi.Output<boolean>;
-    /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -118,17 +110,13 @@ export class Subnet extends pulumi.CustomResource {
      *
      * > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
      */
-    public readonly privateEndpointNetworkPolicies!: pulumi.Output<string>;
-    /**
-     * @deprecated `privateEndpointNetworkPoliciesEnabled` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-     */
-    public readonly privateEndpointNetworkPoliciesEnabled!: pulumi.Output<boolean>;
+    public readonly privateEndpointNetworkPolicies!: pulumi.Output<string | undefined>;
     /**
      * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
      *
      * > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
      */
-    public readonly privateLinkServiceNetworkPoliciesEnabled!: pulumi.Output<boolean>;
+    public readonly privateLinkServiceNetworkPoliciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
      */
@@ -164,11 +152,8 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["addressPrefixes"] = state ? state.addressPrefixes : undefined;
             resourceInputs["defaultOutboundAccessEnabled"] = state ? state.defaultOutboundAccessEnabled : undefined;
             resourceInputs["delegations"] = state ? state.delegations : undefined;
-            resourceInputs["enforcePrivateLinkEndpointNetworkPolicies"] = state ? state.enforcePrivateLinkEndpointNetworkPolicies : undefined;
-            resourceInputs["enforcePrivateLinkServiceNetworkPolicies"] = state ? state.enforcePrivateLinkServiceNetworkPolicies : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["privateEndpointNetworkPolicies"] = state ? state.privateEndpointNetworkPolicies : undefined;
-            resourceInputs["privateEndpointNetworkPoliciesEnabled"] = state ? state.privateEndpointNetworkPoliciesEnabled : undefined;
             resourceInputs["privateLinkServiceNetworkPoliciesEnabled"] = state ? state.privateLinkServiceNetworkPoliciesEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["serviceEndpointPolicyIds"] = state ? state.serviceEndpointPolicyIds : undefined;
@@ -188,11 +173,8 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
             resourceInputs["defaultOutboundAccessEnabled"] = args ? args.defaultOutboundAccessEnabled : undefined;
             resourceInputs["delegations"] = args ? args.delegations : undefined;
-            resourceInputs["enforcePrivateLinkEndpointNetworkPolicies"] = args ? args.enforcePrivateLinkEndpointNetworkPolicies : undefined;
-            resourceInputs["enforcePrivateLinkServiceNetworkPolicies"] = args ? args.enforcePrivateLinkServiceNetworkPolicies : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateEndpointNetworkPolicies"] = args ? args.privateEndpointNetworkPolicies : undefined;
-            resourceInputs["privateEndpointNetworkPoliciesEnabled"] = args ? args.privateEndpointNetworkPoliciesEnabled : undefined;
             resourceInputs["privateLinkServiceNetworkPoliciesEnabled"] = args ? args.privateLinkServiceNetworkPoliciesEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceEndpointPolicyIds"] = args ? args.serviceEndpointPolicyIds : undefined;
@@ -223,14 +205,6 @@ export interface SubnetState {
      */
     delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
     /**
-     * @deprecated `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-     */
-    enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
-    /**
-     * @deprecated `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
-     */
-    enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
-    /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
@@ -244,10 +218,6 @@ export interface SubnetState {
      * > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
      */
     privateEndpointNetworkPolicies?: pulumi.Input<string>;
-    /**
-     * @deprecated `privateEndpointNetworkPoliciesEnabled` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-     */
-    privateEndpointNetworkPoliciesEnabled?: pulumi.Input<boolean>;
     /**
      * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
      *
@@ -293,14 +263,6 @@ export interface SubnetArgs {
      */
     delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
     /**
-     * @deprecated `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-     */
-    enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
-    /**
-     * @deprecated `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
-     */
-    enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
-    /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
@@ -314,10 +276,6 @@ export interface SubnetArgs {
      * > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
      */
     privateEndpointNetworkPolicies?: pulumi.Input<string>;
-    /**
-     * @deprecated `privateEndpointNetworkPoliciesEnabled` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-     */
-    privateEndpointNetworkPoliciesEnabled?: pulumi.Input<boolean>;
     /**
      * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
      *

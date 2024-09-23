@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/synapse"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -138,7 +138,7 @@ type SparkPool struct {
 	SparkConfig                 SparkPoolSparkConfigPtrOutput `pulumi:"sparkConfig"`
 	SparkEventsFolder           pulumi.StringPtrOutput        `pulumi:"sparkEventsFolder"`
 	SparkLogFolder              pulumi.StringPtrOutput        `pulumi:"sparkLogFolder"`
-	SparkVersion                pulumi.StringPtrOutput        `pulumi:"sparkVersion"`
+	SparkVersion                pulumi.StringOutput           `pulumi:"sparkVersion"`
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId pulumi.StringOutput    `pulumi:"synapseWorkspaceId"`
 	Tags               pulumi.StringMapOutput `pulumi:"tags"`
@@ -156,6 +156,9 @@ func NewSparkPool(ctx *pulumi.Context,
 	}
 	if args.NodeSizeFamily == nil {
 		return nil, errors.New("invalid value for required argument 'NodeSizeFamily'")
+	}
+	if args.SparkVersion == nil {
+		return nil, errors.New("invalid value for required argument 'SparkVersion'")
 	}
 	if args.SynapseWorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'SynapseWorkspaceId'")
@@ -273,7 +276,7 @@ type sparkPoolArgs struct {
 	SparkConfig                 *SparkPoolSparkConfig `pulumi:"sparkConfig"`
 	SparkEventsFolder           *string               `pulumi:"sparkEventsFolder"`
 	SparkLogFolder              *string               `pulumi:"sparkLogFolder"`
-	SparkVersion                *string               `pulumi:"sparkVersion"`
+	SparkVersion                string                `pulumi:"sparkVersion"`
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId string            `pulumi:"synapseWorkspaceId"`
 	Tags               map[string]string `pulumi:"tags"`
@@ -305,7 +308,7 @@ type SparkPoolArgs struct {
 	SparkConfig                 SparkPoolSparkConfigPtrInput
 	SparkEventsFolder           pulumi.StringPtrInput
 	SparkLogFolder              pulumi.StringPtrInput
-	SparkVersion                pulumi.StringPtrInput
+	SparkVersion                pulumi.StringInput
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId pulumi.StringInput
 	Tags               pulumi.StringMapInput
@@ -470,8 +473,8 @@ func (o SparkPoolOutput) SparkLogFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringPtrOutput { return v.SparkLogFolder }).(pulumi.StringPtrOutput)
 }
 
-func (o SparkPoolOutput) SparkVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkPool) pulumi.StringPtrOutput { return v.SparkVersion }).(pulumi.StringPtrOutput)
+func (o SparkPoolOutput) SparkVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *SparkPool) pulumi.StringOutput { return v.SparkVersion }).(pulumi.StringOutput)
 }
 
 // The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.

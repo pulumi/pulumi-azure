@@ -6,7 +6,6 @@ package com.pulumi.azure.siterecovery;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanAzureToAzureSettingsArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanFailoverRecoveryGroupArgs;
-import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanRecoveryGroupArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanShutdownRecoveryGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -43,8 +42,8 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
      * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
      * 
      */
-    @Import(name="bootRecoveryGroups")
-    private @Nullable Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>> bootRecoveryGroups;
+    @Import(name="bootRecoveryGroups", required=true)
+    private Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>> bootRecoveryGroups;
 
     /**
      * @return One or more `boot_recovery_group` blocks as defined below.
@@ -52,8 +51,8 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
      * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
      * 
      */
-    public Optional<Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>>> bootRecoveryGroups() {
-        return Optional.ofNullable(this.bootRecoveryGroups);
+    public Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>> bootRecoveryGroups() {
+        return this.bootRecoveryGroups;
     }
 
     /**
@@ -62,8 +61,8 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
      * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
      * 
      */
-    @Import(name="failoverRecoveryGroup")
-    private @Nullable Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs> failoverRecoveryGroup;
+    @Import(name="failoverRecoveryGroup", required=true)
+    private Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs> failoverRecoveryGroup;
 
     /**
      * @return One `failover_recovery_group` block as defined below.
@@ -71,8 +70,8 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
      * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
      * 
      */
-    public Optional<Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs>> failoverRecoveryGroup() {
-        return Optional.ofNullable(this.failoverRecoveryGroup);
+    public Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs> failoverRecoveryGroup() {
+        return this.failoverRecoveryGroup;
     }
 
     /**
@@ -88,33 +87,6 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
-    }
-
-    /**
-     * Three or more `recovery_group` block defined as below.
-     * 
-     * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-     * 
-     * @deprecated
-     * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-    @Import(name="recoveryGroups")
-    private @Nullable Output<List<ReplicationRecoveryPlanRecoveryGroupArgs>> recoveryGroups;
-
-    /**
-     * @return Three or more `recovery_group` block defined as below.
-     * 
-     * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-     * 
-     * @deprecated
-     * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-    public Optional<Output<List<ReplicationRecoveryPlanRecoveryGroupArgs>>> recoveryGroups() {
-        return Optional.ofNullable(this.recoveryGroups);
     }
 
     /**
@@ -138,8 +110,8 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
      * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
      * 
      */
-    @Import(name="shutdownRecoveryGroup")
-    private @Nullable Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs> shutdownRecoveryGroup;
+    @Import(name="shutdownRecoveryGroup", required=true)
+    private Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs> shutdownRecoveryGroup;
 
     /**
      * @return One `shutdown_recovery_group` block as defined below.
@@ -147,8 +119,8 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
      * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
      * 
      */
-    public Optional<Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs>> shutdownRecoveryGroup() {
-        return Optional.ofNullable(this.shutdownRecoveryGroup);
+    public Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs> shutdownRecoveryGroup() {
+        return this.shutdownRecoveryGroup;
     }
 
     /**
@@ -188,7 +160,6 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         this.bootRecoveryGroups = $.bootRecoveryGroups;
         this.failoverRecoveryGroup = $.failoverRecoveryGroup;
         this.name = $.name;
-        this.recoveryGroups = $.recoveryGroups;
         this.recoveryVaultId = $.recoveryVaultId;
         this.shutdownRecoveryGroup = $.shutdownRecoveryGroup;
         this.sourceRecoveryFabricId = $.sourceRecoveryFabricId;
@@ -242,7 +213,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder bootRecoveryGroups(@Nullable Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>> bootRecoveryGroups) {
+        public Builder bootRecoveryGroups(Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>> bootRecoveryGroups) {
             $.bootRecoveryGroups = bootRecoveryGroups;
             return this;
         }
@@ -279,7 +250,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder failoverRecoveryGroup(@Nullable Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs> failoverRecoveryGroup) {
+        public Builder failoverRecoveryGroup(Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs> failoverRecoveryGroup) {
             $.failoverRecoveryGroup = failoverRecoveryGroup;
             return this;
         }
@@ -318,55 +289,6 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param recoveryGroups Three or more `recovery_group` block defined as below.
-         * 
-         * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-        public Builder recoveryGroups(@Nullable Output<List<ReplicationRecoveryPlanRecoveryGroupArgs>> recoveryGroups) {
-            $.recoveryGroups = recoveryGroups;
-            return this;
-        }
-
-        /**
-         * @param recoveryGroups Three or more `recovery_group` block defined as below.
-         * 
-         * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-        public Builder recoveryGroups(List<ReplicationRecoveryPlanRecoveryGroupArgs> recoveryGroups) {
-            return recoveryGroups(Output.of(recoveryGroups));
-        }
-
-        /**
-         * @param recoveryGroups Three or more `recovery_group` block defined as below.
-         * 
-         * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-        public Builder recoveryGroups(ReplicationRecoveryPlanRecoveryGroupArgs... recoveryGroups) {
-            return recoveryGroups(List.of(recoveryGroups));
-        }
-
-        /**
          * @param recoveryVaultId The ID of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -395,7 +317,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder shutdownRecoveryGroup(@Nullable Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs> shutdownRecoveryGroup) {
+        public Builder shutdownRecoveryGroup(Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs> shutdownRecoveryGroup) {
             $.shutdownRecoveryGroup = shutdownRecoveryGroup;
             return this;
         }
@@ -455,8 +377,17 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         }
 
         public ReplicationRecoveryPlanArgs build() {
+            if ($.bootRecoveryGroups == null) {
+                throw new MissingRequiredPropertyException("ReplicationRecoveryPlanArgs", "bootRecoveryGroups");
+            }
+            if ($.failoverRecoveryGroup == null) {
+                throw new MissingRequiredPropertyException("ReplicationRecoveryPlanArgs", "failoverRecoveryGroup");
+            }
             if ($.recoveryVaultId == null) {
                 throw new MissingRequiredPropertyException("ReplicationRecoveryPlanArgs", "recoveryVaultId");
+            }
+            if ($.shutdownRecoveryGroup == null) {
+                throw new MissingRequiredPropertyException("ReplicationRecoveryPlanArgs", "shutdownRecoveryGroup");
             }
             if ($.sourceRecoveryFabricId == null) {
                 throw new MissingRequiredPropertyException("ReplicationRecoveryPlanArgs", "sourceRecoveryFabricId");

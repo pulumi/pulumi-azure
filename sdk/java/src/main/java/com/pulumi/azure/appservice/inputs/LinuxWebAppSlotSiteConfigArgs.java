@@ -99,21 +99,6 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-     * 
-     */
-    @Import(name="autoHealEnabled")
-    private @Nullable Output<Boolean> autoHealEnabled;
-
-    /**
-     * @return Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-     * 
-     */
-    public Optional<Output<Boolean>> autoHealEnabled() {
-        return Optional.ofNullable(this.autoHealEnabled);
-    }
-
-    /**
      * A `auto_heal_setting` block as defined above. Required with `auto_heal`.
      * 
      */
@@ -528,7 +513,6 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         this.apiManagementApiId = $.apiManagementApiId;
         this.appCommandLine = $.appCommandLine;
         this.applicationStack = $.applicationStack;
-        this.autoHealEnabled = $.autoHealEnabled;
         this.autoHealSetting = $.autoHealSetting;
         this.autoSwapSlotName = $.autoSwapSlotName;
         this.containerRegistryManagedIdentityClientId = $.containerRegistryManagedIdentityClientId;
@@ -681,27 +665,6 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
          */
         public Builder applicationStack(LinuxWebAppSlotSiteConfigApplicationStackArgs applicationStack) {
             return applicationStack(Output.of(applicationStack));
-        }
-
-        /**
-         * @param autoHealEnabled Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder autoHealEnabled(@Nullable Output<Boolean> autoHealEnabled) {
-            $.autoHealEnabled = autoHealEnabled;
-            return this;
-        }
-
-        /**
-         * @param autoHealEnabled Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder autoHealEnabled(Boolean autoHealEnabled) {
-            return autoHealEnabled(Output.of(autoHealEnabled));
         }
 
         /**

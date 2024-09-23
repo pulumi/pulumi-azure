@@ -78,9 +78,6 @@ namespace Pulumi.Azure.Attestation
         [Output("openEnclavePolicyBase64")]
         public Output<string?> OpenEnclavePolicyBase64 { get; private set; } = null!;
 
-        [Output("policies")]
-        public Output<ImmutableArray<Outputs.ProviderPolicy>> Policies { get; private set; } = null!;
-
         /// <summary>
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         /// 
@@ -191,15 +188,6 @@ namespace Pulumi.Azure.Attestation
         [Input("openEnclavePolicyBase64")]
         public Input<string>? OpenEnclavePolicyBase64 { get; set; }
 
-        [Input("policies")]
-        private InputList<Inputs.ProviderPolicyArgs>? _policies;
-        [Obsolete(@"This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.")]
-        public InputList<Inputs.ProviderPolicyArgs> Policies
-        {
-            get => _policies ?? (_policies = new InputList<Inputs.ProviderPolicyArgs>());
-            set => _policies = value;
-        }
-
         /// <summary>
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         /// 
@@ -277,15 +265,6 @@ namespace Pulumi.Azure.Attestation
         /// </summary>
         [Input("openEnclavePolicyBase64")]
         public Input<string>? OpenEnclavePolicyBase64 { get; set; }
-
-        [Input("policies")]
-        private InputList<Inputs.ProviderPolicyGetArgs>? _policies;
-        [Obsolete(@"This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.")]
-        public InputList<Inputs.ProviderPolicyGetArgs> Policies
-        {
-            get => _policies ?? (_policies = new InputList<Inputs.ProviderPolicyGetArgs>());
-            set => _policies = value;
-        }
 
         /// <summary>
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/redis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //				Capacity:           pulumi.Int(2),
 //				Family:             pulumi.String("C"),
 //				SkuName:            pulumi.String("Standard"),
-//				EnableNonSslPort:   pulumi.Bool(false),
+//				NonSslPortEnabled:  pulumi.Bool(false),
 //				MinimumTlsVersion:  pulumi.String("1.2"),
 //				RedisConfiguration: nil,
 //			})
@@ -76,12 +76,10 @@ import (
 type Cache struct {
 	pulumi.CustomResourceState
 
+	// Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
+	AccessKeysAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"accessKeysAuthenticationEnabled"`
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
-	// Enable the non-SSL port (6379) - disabled by default.
-	//
-	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-	EnableNonSslPort pulumi.BoolPtrOutput `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family pulumi.StringOutput `pulumi:"family"`
 	// The Hostname of the Redis Instance
@@ -93,8 +91,9 @@ type Cache struct {
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
-	Name              pulumi.StringOutput `pulumi:"name"`
-	NonSslPortEnabled pulumi.BoolOutput   `pulumi:"nonSslPortEnabled"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Enable the non-SSL port (6379) - disabled by default.
+	NonSslPortEnabled pulumi.BoolPtrOutput `pulumi:"nonSslPortEnabled"`
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayOutput `pulumi:"patchSchedules"`
 	// The non-SSL Port of the Redis Instance
@@ -109,8 +108,8 @@ type Cache struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationOutput `pulumi:"redisConfiguration"`
-	// Redis version. Only major version needed. Valid values: `4`, `6`.
-	RedisVersion pulumi.StringOutput `pulumi:"redisVersion"`
+	// Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
+	RedisVersion pulumi.StringPtrOutput `pulumi:"redisVersion"`
 	// Amount of replicas to create per master for this Redis Cache.
 	//
 	// > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
@@ -192,12 +191,10 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
+	// Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
+	AccessKeysAuthenticationEnabled *bool `pulumi:"accessKeysAuthenticationEnabled"`
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity *int `pulumi:"capacity"`
-	// Enable the non-SSL port (6379) - disabled by default.
-	//
-	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family *string `pulumi:"family"`
 	// The Hostname of the Redis Instance
@@ -209,8 +206,9 @@ type cacheState struct {
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
-	Name              *string `pulumi:"name"`
-	NonSslPortEnabled *bool   `pulumi:"nonSslPortEnabled"`
+	Name *string `pulumi:"name"`
+	// Enable the non-SSL port (6379) - disabled by default.
+	NonSslPortEnabled *bool `pulumi:"nonSslPortEnabled"`
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules []CachePatchSchedule `pulumi:"patchSchedules"`
 	// The non-SSL Port of the Redis Instance
@@ -225,7 +223,7 @@ type cacheState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration *CacheRedisConfiguration `pulumi:"redisConfiguration"`
-	// Redis version. Only major version needed. Valid values: `4`, `6`.
+	// Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
 	RedisVersion *string `pulumi:"redisVersion"`
 	// Amount of replicas to create per master for this Redis Cache.
 	//
@@ -260,12 +258,10 @@ type cacheState struct {
 }
 
 type CacheState struct {
+	// Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
+	AccessKeysAuthenticationEnabled pulumi.BoolPtrInput
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity pulumi.IntPtrInput
-	// Enable the non-SSL port (6379) - disabled by default.
-	//
-	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-	EnableNonSslPort pulumi.BoolPtrInput
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family pulumi.StringPtrInput
 	// The Hostname of the Redis Instance
@@ -277,7 +273,8 @@ type CacheState struct {
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis instance. Changing this forces a new resource to be created.
-	Name              pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Enable the non-SSL port (6379) - disabled by default.
 	NonSslPortEnabled pulumi.BoolPtrInput
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayInput
@@ -293,7 +290,7 @@ type CacheState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationPtrInput
-	// Redis version. Only major version needed. Valid values: `4`, `6`.
+	// Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
 	RedisVersion pulumi.StringPtrInput
 	// Amount of replicas to create per master for this Redis Cache.
 	//
@@ -332,12 +329,10 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
+	// Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
+	AccessKeysAuthenticationEnabled *bool `pulumi:"accessKeysAuthenticationEnabled"`
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity int `pulumi:"capacity"`
-	// Enable the non-SSL port (6379) - disabled by default.
-	//
-	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family string `pulumi:"family"`
 	// An `identity` block as defined below.
@@ -347,8 +342,9 @@ type cacheArgs struct {
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
-	Name              *string `pulumi:"name"`
-	NonSslPortEnabled *bool   `pulumi:"nonSslPortEnabled"`
+	Name *string `pulumi:"name"`
+	// Enable the non-SSL port (6379) - disabled by default.
+	NonSslPortEnabled *bool `pulumi:"nonSslPortEnabled"`
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules []CachePatchSchedule `pulumi:"patchSchedules"`
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
@@ -357,7 +353,7 @@ type cacheArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration *CacheRedisConfiguration `pulumi:"redisConfiguration"`
-	// Redis version. Only major version needed. Valid values: `4`, `6`.
+	// Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
 	RedisVersion *string `pulumi:"redisVersion"`
 	// Amount of replicas to create per master for this Redis Cache.
 	//
@@ -387,12 +383,10 @@ type cacheArgs struct {
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
+	// Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
+	AccessKeysAuthenticationEnabled pulumi.BoolPtrInput
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity pulumi.IntInput
-	// Enable the non-SSL port (6379) - disabled by default.
-	//
-	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-	EnableNonSslPort pulumi.BoolPtrInput
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family pulumi.StringInput
 	// An `identity` block as defined below.
@@ -402,7 +396,8 @@ type CacheArgs struct {
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis instance. Changing this forces a new resource to be created.
-	Name              pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Enable the non-SSL port (6379) - disabled by default.
 	NonSslPortEnabled pulumi.BoolPtrInput
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayInput
@@ -412,7 +407,7 @@ type CacheArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationPtrInput
-	// Redis version. Only major version needed. Valid values: `4`, `6`.
+	// Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
 	RedisVersion pulumi.StringPtrInput
 	// Amount of replicas to create per master for this Redis Cache.
 	//
@@ -527,16 +522,14 @@ func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return o
 }
 
+// Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
+func (o CacheOutput) AccessKeysAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.BoolPtrOutput { return v.AccessKeysAuthenticationEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 func (o CacheOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cache) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
-}
-
-// Enable the non-SSL port (6379) - disabled by default.
-//
-// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-func (o CacheOutput) EnableNonSslPort() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Cache) pulumi.BoolPtrOutput { return v.EnableNonSslPort }).(pulumi.BoolPtrOutput)
 }
 
 // The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
@@ -569,8 +562,9 @@ func (o CacheOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o CacheOutput) NonSslPortEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Cache) pulumi.BoolOutput { return v.NonSslPortEnabled }).(pulumi.BoolOutput)
+// Enable the non-SSL port (6379) - disabled by default.
+func (o CacheOutput) NonSslPortEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.BoolPtrOutput { return v.NonSslPortEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A list of `patchSchedule` blocks as defined below.
@@ -608,9 +602,9 @@ func (o CacheOutput) RedisConfiguration() CacheRedisConfigurationOutput {
 	return o.ApplyT(func(v *Cache) CacheRedisConfigurationOutput { return v.RedisConfiguration }).(CacheRedisConfigurationOutput)
 }
 
-// Redis version. Only major version needed. Valid values: `4`, `6`.
-func (o CacheOutput) RedisVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.RedisVersion }).(pulumi.StringOutput)
+// Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
+func (o CacheOutput) RedisVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.RedisVersion }).(pulumi.StringPtrOutput)
 }
 
 // Amount of replicas to create per master for this Redis Cache.

@@ -16,6 +16,7 @@ from .. import _utilities
 
 __all__ = [
     'HubApnsCredential',
+    'HubBrowserCredential',
     'HubGcmCredential',
     'GetHubApnsCredentialResult',
     'GetHubGcmCredentialResult',
@@ -105,6 +106,65 @@ class HubApnsCredential(dict):
         The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
         """
         return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class HubBrowserCredential(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vapidPrivateKey":
+            suggest = "vapid_private_key"
+        elif key == "vapidPublicKey":
+            suggest = "vapid_public_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubBrowserCredential. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubBrowserCredential.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubBrowserCredential.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subject: str,
+                 vapid_private_key: str,
+                 vapid_public_key: str):
+        """
+        :param str subject: The subject name of web push.
+        :param str vapid_private_key: The Voluntary Application Server Identification (VAPID) private key.
+        :param str vapid_public_key: The Voluntary Application Server Identification (VAPID) public key.
+        """
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "vapid_private_key", vapid_private_key)
+        pulumi.set(__self__, "vapid_public_key", vapid_public_key)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> str:
+        """
+        The subject name of web push.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter(name="vapidPrivateKey")
+    def vapid_private_key(self) -> str:
+        """
+        The Voluntary Application Server Identification (VAPID) private key.
+        """
+        return pulumi.get(self, "vapid_private_key")
+
+    @property
+    @pulumi.getter(name="vapidPublicKey")
+    def vapid_public_key(self) -> str:
+        """
+        The Voluntary Application Server Identification (VAPID) public key.
+        """
+        return pulumi.get(self, "vapid_public_key")
 
 
 @pulumi.output_type

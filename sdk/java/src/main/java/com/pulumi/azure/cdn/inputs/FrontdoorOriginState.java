@@ -51,8 +51,6 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
     /**
      * Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
      * 
-     * &gt; **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
-     * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
@@ -60,30 +58,9 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
     /**
      * @return Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
      * 
-     * &gt; **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
-     * 
      */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
-    }
-
-    /**
-     * @deprecated
-     * `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider. */
-    @Import(name="healthProbesEnabled")
-    private @Nullable Output<Boolean> healthProbesEnabled;
-
-    /**
-     * @deprecated
-     * `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> healthProbesEnabled() {
-        return Optional.ofNullable(this.healthProbesEnabled);
     }
 
     /**
@@ -224,7 +201,6 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         this.cdnFrontdoorOriginGroupId = $.cdnFrontdoorOriginGroupId;
         this.certificateNameCheckEnabled = $.certificateNameCheckEnabled;
         this.enabled = $.enabled;
-        this.healthProbesEnabled = $.healthProbesEnabled;
         this.hostName = $.hostName;
         this.httpPort = $.httpPort;
         this.httpsPort = $.httpsPort;
@@ -298,8 +274,6 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         /**
          * @param enabled Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
          * 
-         * &gt; **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
-         * 
          * @return builder
          * 
          */
@@ -311,38 +285,11 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         /**
          * @param enabled Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
          * 
-         * &gt; **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
-         * 
          * @return builder
          * 
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider. */
-        public Builder healthProbesEnabled(@Nullable Output<Boolean> healthProbesEnabled) {
-            $.healthProbesEnabled = healthProbesEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider. */
-        public Builder healthProbesEnabled(Boolean healthProbesEnabled) {
-            return healthProbesEnabled(Output.of(healthProbesEnabled));
         }
 
         /**

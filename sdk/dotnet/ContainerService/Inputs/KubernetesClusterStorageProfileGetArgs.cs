@@ -24,9 +24,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("diskDriverEnabled")]
         public Input<bool>? DiskDriverEnabled { get; set; }
 
-        [Input("diskDriverVersion")]
-        public Input<string>? DiskDriverVersion { get; set; }
-
         /// <summary>
         /// Is the File CSI driver enabled? Defaults to `true`.
         /// </summary>

@@ -13,7 +13,6 @@ from .certificate_binding import *
 from .certificate_order import *
 from .connection import *
 from .custom_hostname_binding import *
-from .environment import *
 from .environment_v3 import *
 from .function_app import *
 from .function_app_active_slot import *
@@ -21,7 +20,6 @@ from .function_app_function import *
 from .function_app_hybrid_connection import *
 from .function_app_slot import *
 from .get_app_service import *
-from .get_app_service_environment import *
 from .get_app_service_plan import *
 from .get_certificate import *
 from .get_certificate_order import *

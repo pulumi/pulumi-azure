@@ -30,9 +30,6 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         [Input("failoverTestSubnetName")]
         public Input<string>? FailoverTestSubnetName { get; set; }
 
-        [Input("isPrimary")]
-        public Input<bool>? IsPrimary { get; set; }
-
         /// <summary>
         /// Id of the public IP object to use when a failover is done.
         /// </summary>

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string? Condition;
         /// <summary>
-        /// Used to specify whether the fallback route is enabled.
+        /// Used to specify whether the fallback route is enabled. Defaults to `true`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

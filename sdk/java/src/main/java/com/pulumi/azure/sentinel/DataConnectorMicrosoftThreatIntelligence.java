@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -88,28 +87,6 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence")
 public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resources.CustomResource {
     /**
-     * The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
-     * 
-     * &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This field is deprecated and will be removed in version 4.0 of the AzureRM Provider. */
-    @Export(name="bingSafetyPhishingUrlLookbackDate", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> bingSafetyPhishingUrlLookbackDate;
-
-    /**
-     * @return The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
-     * 
-     * &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    public Output<Optional<String>> bingSafetyPhishingUrlLookbackDate() {
-        return Codegen.optional(this.bingSafetyPhishingUrlLookbackDate);
-    }
-    /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
      * 
      */
@@ -132,7 +109,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * 
      */
     @Export(name="microsoftEmergingThreatFeedLookbackDate", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> microsoftEmergingThreatFeedLookbackDate;
+    private Output<String> microsoftEmergingThreatFeedLookbackDate;
 
     /**
      * @return The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
@@ -142,8 +119,8 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
      * 
      */
-    public Output<Optional<String>> microsoftEmergingThreatFeedLookbackDate() {
-        return Codegen.optional(this.microsoftEmergingThreatFeedLookbackDate);
+    public Output<String> microsoftEmergingThreatFeedLookbackDate() {
+        return this.microsoftEmergingThreatFeedLookbackDate;
     }
     /**
      * The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.

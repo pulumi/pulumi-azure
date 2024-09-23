@@ -501,18 +501,12 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> PrimaryUserAssignedIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("publicAccessBehindVirtualNetworkEnabled")]
-        public Output<bool?> PublicAccessBehindVirtualNetworkEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind VNet.
+        /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
         /// 
         /// &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
-        public Output<bool> PublicNetworkAccessEnabled { get; private set; } = null!;
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -697,13 +691,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? PrimaryUserAssignedIdentity { get; set; }
 
         /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publicAccessBehindVirtualNetworkEnabled")]
-        public Input<bool>? PublicAccessBehindVirtualNetworkEnabled { get; set; }
-
-        /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind VNet.
+        /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
         /// 
         /// &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         /// </summary>
@@ -861,13 +849,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? PrimaryUserAssignedIdentity { get; set; }
 
         /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publicAccessBehindVirtualNetworkEnabled")]
-        public Input<bool>? PublicAccessBehindVirtualNetworkEnabled { get; set; }
-
-        /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind VNet.
+        /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
         /// 
         /// &gt; **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         /// </summary>

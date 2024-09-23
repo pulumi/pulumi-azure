@@ -108,14 +108,6 @@ namespace Pulumi.Azure.Management
         public Output<string> PolicyAssignmentId { get; private set; } = null!;
 
         /// <summary>
-        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-        /// 
-        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-        /// </summary>
-        [Output("policyDefinitionId")]
-        public Output<string?> PolicyDefinitionId { get; private set; } = null!;
-
-        /// <summary>
         /// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         /// </summary>
         [Output("policyDefinitionReferenceId")]
@@ -126,14 +118,6 @@ namespace Pulumi.Azure.Management
         /// </summary>
         [Output("resourceCount")]
         public Output<int?> ResourceCount { get; private set; } = null!;
-
-        /// <summary>
-        /// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-        /// 
-        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-        /// </summary>
-        [Output("resourceDiscoveryMode")]
-        public Output<string?> ResourceDiscoveryMode { get; private set; } = null!;
 
 
         /// <summary>
@@ -224,14 +208,6 @@ namespace Pulumi.Azure.Management
         public Input<string> PolicyAssignmentId { get; set; } = null!;
 
         /// <summary>
-        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-        /// 
-        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-        /// </summary>
-        [Input("policyDefinitionId")]
-        public Input<string>? PolicyDefinitionId { get; set; }
-
-        /// <summary>
         /// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         /// </summary>
         [Input("policyDefinitionReferenceId")]
@@ -242,14 +218,6 @@ namespace Pulumi.Azure.Management
         /// </summary>
         [Input("resourceCount")]
         public Input<int>? ResourceCount { get; set; }
-
-        /// <summary>
-        /// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-        /// 
-        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-        /// </summary>
-        [Input("resourceDiscoveryMode")]
-        public Input<string>? ResourceDiscoveryMode { get; set; }
 
         public GroupPolicyRemediationArgs()
         {
@@ -302,14 +270,6 @@ namespace Pulumi.Azure.Management
         public Input<string>? PolicyAssignmentId { get; set; }
 
         /// <summary>
-        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-        /// 
-        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-        /// </summary>
-        [Input("policyDefinitionId")]
-        public Input<string>? PolicyDefinitionId { get; set; }
-
-        /// <summary>
         /// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         /// </summary>
         [Input("policyDefinitionReferenceId")]
@@ -320,14 +280,6 @@ namespace Pulumi.Azure.Management
         /// </summary>
         [Input("resourceCount")]
         public Input<int>? ResourceCount { get; set; }
-
-        /// <summary>
-        /// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-        /// 
-        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider as evaluating compliance before remediation is only supported at subscription scope and below.
-        /// </summary>
-        [Input("resourceDiscoveryMode")]
-        public Input<string>? ResourceDiscoveryMode { get; set; }
 
         public GroupPolicyRemediationState()
         {

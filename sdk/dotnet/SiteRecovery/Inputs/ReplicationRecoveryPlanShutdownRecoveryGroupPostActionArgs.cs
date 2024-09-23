@@ -74,6 +74,9 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         [Input("scriptPath")]
         public Input<string>? ScriptPath { get; set; }
 
+        /// <summary>
+        /// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

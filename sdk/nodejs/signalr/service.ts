@@ -115,8 +115,6 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly liveTrace!: pulumi.Output<outputs.signalr.ServiceLiveTrace | undefined>;
     /**
-     * Specifies if Live Trace is enabled or not. Defaults to `false`.
-     *
      * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      */
     public readonly liveTraceEnabled!: pulumi.Output<boolean | undefined>;
@@ -317,8 +315,6 @@ export interface ServiceState {
      */
     liveTrace?: pulumi.Input<inputs.signalr.ServiceLiveTrace>;
     /**
-     * Specifies if Live Trace is enabled or not. Defaults to `false`.
-     *
      * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      */
     liveTraceEnabled?: pulumi.Input<boolean>;
@@ -429,8 +425,6 @@ export interface ServiceArgs {
      */
     liveTrace?: pulumi.Input<inputs.signalr.ServiceLiveTrace>;
     /**
-     * Specifies if Live Trace is enabled or not. Defaults to `false`.
-     *
      * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      */
     liveTraceEnabled?: pulumi.Input<boolean>;

@@ -22,9 +22,7 @@ class TableEntityArgs:
                  entity: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  partition_key: pulumi.Input[str],
                  row_key: pulumi.Input[str],
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_table_id: Optional[pulumi.Input[str]] = None,
-                 table_name: Optional[pulumi.Input[str]] = None):
+                 storage_table_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a TableEntity resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
@@ -35,18 +33,7 @@ class TableEntityArgs:
         pulumi.set(__self__, "entity", entity)
         pulumi.set(__self__, "partition_key", partition_key)
         pulumi.set(__self__, "row_key", row_key)
-        if storage_account_name is not None:
-            warnings.warn("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""storage_account_name is deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-        if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
-        if storage_table_id is not None:
-            pulumi.set(__self__, "storage_table_id", storage_table_id)
-        if table_name is not None:
-            warnings.warn("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""table_name is deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-        if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+        pulumi.set(__self__, "storage_table_id", storage_table_id)
 
     @property
     @pulumi.getter
@@ -85,36 +72,16 @@ class TableEntityArgs:
         pulumi.set(self, "row_key", value)
 
     @property
-    @pulumi.getter(name="storageAccountName")
-    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_name", value)
-
-    @property
     @pulumi.getter(name="storageTableId")
-    def storage_table_id(self) -> Optional[pulumi.Input[str]]:
+    def storage_table_id(self) -> pulumi.Input[str]:
         """
         The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_table_id")
 
     @storage_table_id.setter
-    def storage_table_id(self, value: Optional[pulumi.Input[str]]):
+    def storage_table_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "storage_table_id", value)
-
-    @property
-    @pulumi.getter(name="tableName")
-    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def table_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "table_name")
-
-    @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "table_name", value)
 
 
 @pulumi.input_type
@@ -123,9 +90,7 @@ class _TableEntityState:
                  entity: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  row_key: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_table_id: Optional[pulumi.Input[str]] = None,
-                 table_name: Optional[pulumi.Input[str]] = None):
+                 storage_table_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TableEntity resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
@@ -139,18 +104,8 @@ class _TableEntityState:
             pulumi.set(__self__, "partition_key", partition_key)
         if row_key is not None:
             pulumi.set(__self__, "row_key", row_key)
-        if storage_account_name is not None:
-            warnings.warn("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""storage_account_name is deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-        if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
         if storage_table_id is not None:
             pulumi.set(__self__, "storage_table_id", storage_table_id)
-        if table_name is not None:
-            warnings.warn("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""table_name is deprecated: the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-        if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter
@@ -189,16 +144,6 @@ class _TableEntityState:
         pulumi.set(self, "row_key", value)
 
     @property
-    @pulumi.getter(name="storageAccountName")
-    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_name", value)
-
-    @property
     @pulumi.getter(name="storageTableId")
     def storage_table_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -210,16 +155,6 @@ class _TableEntityState:
     def storage_table_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_table_id", value)
 
-    @property
-    @pulumi.getter(name="tableName")
-    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def table_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "table_name")
-
-    @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "table_name", value)
-
 
 class TableEntity(pulumi.CustomResource):
     @overload
@@ -229,9 +164,7 @@ class TableEntity(pulumi.CustomResource):
                  entity: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  row_key: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_table_id: Optional[pulumi.Input[str]] = None,
-                 table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages an Entity within a Table in an Azure Storage Account.
@@ -340,9 +273,7 @@ class TableEntity(pulumi.CustomResource):
                  entity: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  row_key: Optional[pulumi.Input[str]] = None,
-                 storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_table_id: Optional[pulumi.Input[str]] = None,
-                 table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,9 +292,9 @@ class TableEntity(pulumi.CustomResource):
             if row_key is None and not opts.urn:
                 raise TypeError("Missing required property 'row_key'")
             __props__.__dict__["row_key"] = row_key
-            __props__.__dict__["storage_account_name"] = storage_account_name
+            if storage_table_id is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_table_id'")
             __props__.__dict__["storage_table_id"] = storage_table_id
-            __props__.__dict__["table_name"] = table_name
         super(TableEntity, __self__).__init__(
             'azure:storage/tableEntity:TableEntity',
             resource_name,
@@ -377,9 +308,7 @@ class TableEntity(pulumi.CustomResource):
             entity: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             partition_key: Optional[pulumi.Input[str]] = None,
             row_key: Optional[pulumi.Input[str]] = None,
-            storage_account_name: Optional[pulumi.Input[str]] = None,
-            storage_table_id: Optional[pulumi.Input[str]] = None,
-            table_name: Optional[pulumi.Input[str]] = None) -> 'TableEntity':
+            storage_table_id: Optional[pulumi.Input[str]] = None) -> 'TableEntity':
         """
         Get an existing TableEntity resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -399,9 +328,7 @@ class TableEntity(pulumi.CustomResource):
         __props__.__dict__["entity"] = entity
         __props__.__dict__["partition_key"] = partition_key
         __props__.__dict__["row_key"] = row_key
-        __props__.__dict__["storage_account_name"] = storage_account_name
         __props__.__dict__["storage_table_id"] = storage_table_id
-        __props__.__dict__["table_name"] = table_name
         return TableEntity(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -429,22 +356,10 @@ class TableEntity(pulumi.CustomResource):
         return pulumi.get(self, "row_key")
 
     @property
-    @pulumi.getter(name="storageAccountName")
-    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def storage_account_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "storage_account_name")
-
-    @property
     @pulumi.getter(name="storageTableId")
     def storage_table_id(self) -> pulumi.Output[str]:
         """
         The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_table_id")
-
-    @property
-    @pulumi.getter(name="tableName")
-    @_utilities.deprecated("""the `table_name` and `storage_account_name` properties have been superseded by the `storage_table_id` property and will be removed in version 4.0 of the AzureRM provider""")
-    def table_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "table_name")
 

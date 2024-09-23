@@ -13,7 +13,7 @@ resources:
     properties:
       resourceGroupName: ${exampleResourceGroup.name}
       location: ${exampleResourceGroup.location}
-      accountTier: Standard
+      accountTier: standard
       accountReplicationType: LRS
       tags:
         environment: staging
@@ -31,4 +31,4 @@ resources:
       storageContainerName: ${exampleContainer.name}
       type: Block
       source:
-        fn::fileAsset: Pulumi.yaml
+        fn::stringAsset: foo

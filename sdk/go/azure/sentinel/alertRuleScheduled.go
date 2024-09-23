@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/sentinel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,8 +98,6 @@ type AlertRuleScheduled struct {
 	EventGrouping AlertRuleScheduledEventGroupingPtrOutput `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident AlertRuleScheduledIncidentOutput `pulumi:"incident"`
-	// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-	IncidentConfiguration AlertRuleScheduledIncidentConfigurationOutput `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -196,8 +194,6 @@ type alertRuleScheduledState struct {
 	EventGrouping *AlertRuleScheduledEventGrouping `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident *AlertRuleScheduledIncident `pulumi:"incident"`
-	// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-	IncidentConfiguration *AlertRuleScheduledIncidentConfiguration `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -253,8 +249,6 @@ type AlertRuleScheduledState struct {
 	EventGrouping AlertRuleScheduledEventGroupingPtrInput
 	// A `incident` block as defined below.
 	Incident AlertRuleScheduledIncidentPtrInput
-	// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-	IncidentConfiguration AlertRuleScheduledIncidentConfigurationPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -314,8 +308,6 @@ type alertRuleScheduledArgs struct {
 	EventGrouping *AlertRuleScheduledEventGrouping `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident *AlertRuleScheduledIncident `pulumi:"incident"`
-	// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-	IncidentConfiguration *AlertRuleScheduledIncidentConfiguration `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	// The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -372,8 +364,6 @@ type AlertRuleScheduledArgs struct {
 	EventGrouping AlertRuleScheduledEventGroupingPtrInput
 	// A `incident` block as defined below.
 	Incident AlertRuleScheduledIncidentPtrInput
-	// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-	IncidentConfiguration AlertRuleScheduledIncidentConfigurationPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
 	// The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
@@ -545,13 +535,6 @@ func (o AlertRuleScheduledOutput) EventGrouping() AlertRuleScheduledEventGroupin
 // A `incident` block as defined below.
 func (o AlertRuleScheduledOutput) Incident() AlertRuleScheduledIncidentOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) AlertRuleScheduledIncidentOutput { return v.Incident }).(AlertRuleScheduledIncidentOutput)
-}
-
-// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-func (o AlertRuleScheduledOutput) IncidentConfiguration() AlertRuleScheduledIncidentConfigurationOutput {
-	return o.ApplyT(func(v *AlertRuleScheduled) AlertRuleScheduledIncidentConfigurationOutput {
-		return v.IncidentConfiguration
-	}).(AlertRuleScheduledIncidentConfigurationOutput)
 }
 
 // The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.

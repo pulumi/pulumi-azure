@@ -85,11 +85,6 @@ export type MongoUserDefinition = import("./mongoUserDefinition").MongoUserDefin
 export const MongoUserDefinition: typeof import("./mongoUserDefinition").MongoUserDefinition = null as any;
 utilities.lazyLoad(exports, ["MongoUserDefinition"], () => require("./mongoUserDefinition"));
 
-export { NotebookWorkspaceArgs, NotebookWorkspaceState } from "./notebookWorkspace";
-export type NotebookWorkspace = import("./notebookWorkspace").NotebookWorkspace;
-export const NotebookWorkspace: typeof import("./notebookWorkspace").NotebookWorkspace = null as any;
-utilities.lazyLoad(exports, ["NotebookWorkspace"], () => require("./notebookWorkspace"));
-
 export { PostgresqlClusterArgs, PostgresqlClusterState } from "./postgresqlCluster";
 export type PostgresqlCluster = import("./postgresqlCluster").PostgresqlCluster;
 export const PostgresqlCluster: typeof import("./postgresqlCluster").PostgresqlCluster = null as any;
@@ -188,8 +183,6 @@ const _module = {
                 return new MongoRoleDefinition(name, <any>undefined, { urn })
             case "azure:cosmosdb/mongoUserDefinition:MongoUserDefinition":
                 return new MongoUserDefinition(name, <any>undefined, { urn })
-            case "azure:cosmosdb/notebookWorkspace:NotebookWorkspace":
-                return new NotebookWorkspace(name, <any>undefined, { urn })
             case "azure:cosmosdb/postgresqlCluster:PostgresqlCluster":
                 return new PostgresqlCluster(name, <any>undefined, { urn })
             case "azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration":
@@ -234,7 +227,6 @@ pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoCollection", _modu
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoRoleDefinition", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoUserDefinition", _module)
-pulumi.runtime.registerResourceModule("azure", "cosmosdb/notebookWorkspace", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/postgresqlCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/postgresqlCoordinatorConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/postgresqlFirewallRule", _module)

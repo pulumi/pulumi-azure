@@ -424,6 +424,8 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
             __props__.__dict__["template_content"] = template_content
             __props__.__dict__["template_spec_version_id"] = template_spec_version_id
             __props__.__dict__["output_content"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:core/templateDeployment:TemplateDeployment")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourceGroupTemplateDeployment, __self__).__init__(
             'azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment',
             resource_name,

@@ -27,68 +27,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
- * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
- * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
- * import com.pulumi.azure.sentinel.ThreatIntelligenceIndicator;
- * import com.pulumi.azure.sentinel.ThreatIntelligenceIndicatorArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-rg")
- *             .location("east us")
- *             .build());
- * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
- *             .name("example-law")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .sku("PerGB2018")
- *             .retentionInDays(30)
- *             .build());
- * 
- *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()
- *             .resourceGroupName(example.name())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .build());
- * 
- *         var exampleThreatIntelligenceIndicator = new ThreatIntelligenceIndicator("exampleThreatIntelligenceIndicator", ThreatIntelligenceIndicatorArgs.builder()
- *             .workspaceId(exampleAnalyticsWorkspace.id())
- *             .patternType("domain-name")
- *             .pattern("http://example.com")
- *             .source("Microsoft Sentinel")
- *             .validateFromUtc("2022-12-14T16:00:00Z")
- *             .displayName("example-indicator")
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(test)
- *                 .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -110,11 +110,6 @@ export const getTriggerSchedules: typeof import("./getTriggerSchedules").getTrig
 export const getTriggerSchedulesOutput: typeof import("./getTriggerSchedules").getTriggerSchedulesOutput = null as any;
 utilities.lazyLoad(exports, ["getTriggerSchedules","getTriggerSchedulesOutput"], () => require("./getTriggerSchedules"));
 
-export { IntegrationRuntimeManagedArgs, IntegrationRuntimeManagedState } from "./integrationRuntimeManaged";
-export type IntegrationRuntimeManaged = import("./integrationRuntimeManaged").IntegrationRuntimeManaged;
-export const IntegrationRuntimeManaged: typeof import("./integrationRuntimeManaged").IntegrationRuntimeManaged = null as any;
-utilities.lazyLoad(exports, ["IntegrationRuntimeManaged"], () => require("./integrationRuntimeManaged"));
-
 export { IntegrationRuntimeRuleArgs, IntegrationRuntimeRuleState } from "./integrationRuntimeRule";
 export type IntegrationRuntimeRule = import("./integrationRuntimeRule").IntegrationRuntimeRule;
 export const IntegrationRuntimeRule: typeof import("./integrationRuntimeRule").IntegrationRuntimeRule = null as any;
@@ -311,8 +306,6 @@ const _module = {
                 return new Factory(name, <any>undefined, { urn })
             case "azure:datafactory/flowletDataFlow:FlowletDataFlow":
                 return new FlowletDataFlow(name, <any>undefined, { urn })
-            case "azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged":
-                return new IntegrationRuntimeManaged(name, <any>undefined, { urn })
             case "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule":
                 return new IntegrationRuntimeRule(name, <any>undefined, { urn })
             case "azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted":
@@ -398,7 +391,6 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/datasetSnowflake", _
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetSqlServerTable", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/factory", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/flowletDataFlow", _module)
-pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeManaged", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeRule", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeSelfHosted", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeSsis", _module)

@@ -183,18 +183,18 @@ public class TrafficManagerAzureEndpoint extends com.pulumi.resources.CustomReso
         return this.name;
     }
     /**
-     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
-    private Output<Integer> priority;
+    private Output</* @Nullable */ Integer> priority;
 
     /**
-     * @return Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+     * @return Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
      * 
      */
-    public Output<Integer> priority() {
-        return this.priority;
+    public Output<Optional<Integer>> priority() {
+        return Codegen.optional(this.priority);
     }
     /**
      * The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
@@ -239,18 +239,18 @@ public class TrafficManagerAzureEndpoint extends com.pulumi.resources.CustomReso
         return this.targetResourceId;
     }
     /**
-     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      * 
      */
     @Export(name="weight", refs={Integer.class}, tree="[0]")
-    private Output<Integer> weight;
+    private Output</* @Nullable */ Integer> weight;
 
     /**
-     * @return Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+     * @return Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      * 
      */
-    public Output<Integer> weight() {
-        return this.weight;
+    public Output<Optional<Integer>> weight() {
+        return Codegen.optional(this.weight);
     }
 
     /**

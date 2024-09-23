@@ -8,6 +8,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,15 +23,15 @@ public final class SubnetServiceEndpointStoragePolicyArgs extends com.pulumi.res
      * A `definition` block as defined below
      * 
      */
-    @Import(name="definition")
-    private @Nullable Output<SubnetServiceEndpointStoragePolicyDefinitionArgs> definition;
+    @Import(name="definitions")
+    private @Nullable Output<List<SubnetServiceEndpointStoragePolicyDefinitionArgs>> definitions;
 
     /**
      * @return A `definition` block as defined below
      * 
      */
-    public Optional<Output<SubnetServiceEndpointStoragePolicyDefinitionArgs>> definition() {
-        return Optional.ofNullable(this.definition);
+    public Optional<Output<List<SubnetServiceEndpointStoragePolicyDefinitionArgs>>> definitions() {
+        return Optional.ofNullable(this.definitions);
     }
 
     /**
@@ -96,7 +97,7 @@ public final class SubnetServiceEndpointStoragePolicyArgs extends com.pulumi.res
     private SubnetServiceEndpointStoragePolicyArgs() {}
 
     private SubnetServiceEndpointStoragePolicyArgs(SubnetServiceEndpointStoragePolicyArgs $) {
-        this.definition = $.definition;
+        this.definitions = $.definitions;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -122,24 +123,34 @@ public final class SubnetServiceEndpointStoragePolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param definition A `definition` block as defined below
+         * @param definitions A `definition` block as defined below
          * 
          * @return builder
          * 
          */
-        public Builder definition(@Nullable Output<SubnetServiceEndpointStoragePolicyDefinitionArgs> definition) {
-            $.definition = definition;
+        public Builder definitions(@Nullable Output<List<SubnetServiceEndpointStoragePolicyDefinitionArgs>> definitions) {
+            $.definitions = definitions;
             return this;
         }
 
         /**
-         * @param definition A `definition` block as defined below
+         * @param definitions A `definition` block as defined below
          * 
          * @return builder
          * 
          */
-        public Builder definition(SubnetServiceEndpointStoragePolicyDefinitionArgs definition) {
-            return definition(Output.of(definition));
+        public Builder definitions(List<SubnetServiceEndpointStoragePolicyDefinitionArgs> definitions) {
+            return definitions(Output.of(definitions));
+        }
+
+        /**
+         * @param definitions A `definition` block as defined below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder definitions(SubnetServiceEndpointStoragePolicyDefinitionArgs... definitions) {
+            return definitions(List.of(definitions));
         }
 
         /**

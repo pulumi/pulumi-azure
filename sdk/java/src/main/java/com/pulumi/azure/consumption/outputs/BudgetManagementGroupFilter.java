@@ -4,12 +4,10 @@
 package com.pulumi.azure.consumption.outputs;
 
 import com.pulumi.azure.consumption.outputs.BudgetManagementGroupFilterDimension;
-import com.pulumi.azure.consumption.outputs.BudgetManagementGroupFilterNot;
 import com.pulumi.azure.consumption.outputs.BudgetManagementGroupFilterTag;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -19,15 +17,6 @@ public final class BudgetManagementGroupFilter {
      * 
      */
     private @Nullable List<BudgetManagementGroupFilterDimension> dimensions;
-    /**
-     * @return A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-    private @Nullable BudgetManagementGroupFilterNot not;
     /**
      * @return One or more `tag` blocks as defined below to filter the budget on.
      * 
@@ -41,17 +30,6 @@ public final class BudgetManagementGroupFilter {
      */
     public List<BudgetManagementGroupFilterDimension> dimensions() {
         return this.dimensions == null ? List.of() : this.dimensions;
-    }
-    /**
-     * @return A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-    public Optional<BudgetManagementGroupFilterNot> not() {
-        return Optional.ofNullable(this.not);
     }
     /**
      * @return One or more `tag` blocks as defined below to filter the budget on.
@@ -71,13 +49,11 @@ public final class BudgetManagementGroupFilter {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<BudgetManagementGroupFilterDimension> dimensions;
-        private @Nullable BudgetManagementGroupFilterNot not;
         private @Nullable List<BudgetManagementGroupFilterTag> tags;
         public Builder() {}
         public Builder(BudgetManagementGroupFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
-    	      this.not = defaults.not;
     	      this.tags = defaults.tags;
         }
 
@@ -91,12 +67,6 @@ public final class BudgetManagementGroupFilter {
             return dimensions(List.of(dimensions));
         }
         @CustomType.Setter
-        public Builder not(@Nullable BudgetManagementGroupFilterNot not) {
-
-            this.not = not;
-            return this;
-        }
-        @CustomType.Setter
         public Builder tags(@Nullable List<BudgetManagementGroupFilterTag> tags) {
 
             this.tags = tags;
@@ -108,7 +78,6 @@ public final class BudgetManagementGroupFilter {
         public BudgetManagementGroupFilter build() {
             final var _resultValue = new BudgetManagementGroupFilter();
             _resultValue.dimensions = dimensions;
-            _resultValue.not = not;
             _resultValue.tags = tags;
             return _resultValue;
         }

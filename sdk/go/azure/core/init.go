@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,8 +65,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SubscriptionPolicyRemediation{}
 	case "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
 		r = &SubscriptionTemplateDeployment{}
-	case "azure:core/templateDeployment:TemplateDeployment":
-		r = &TemplateDeployment{}
 	case "azure:core/tenantTemplateDeployment:TenantTemplateDeployment":
 		r = &TenantTemplateDeployment{}
 	default:
@@ -190,11 +188,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"core/subscriptionTemplateDeployment",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"core/templateDeployment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -84,7 +84,7 @@ export class NatRule extends pulumi.CustomResource {
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      */
-    public readonly idleTimeoutInMinutes!: pulumi.Output<number>;
+    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
      * The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      */

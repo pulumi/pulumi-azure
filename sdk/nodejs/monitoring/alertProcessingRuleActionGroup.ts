@@ -183,6 +183,8 @@ export class AlertProcessingRuleActionGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertProcessingRuleActionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

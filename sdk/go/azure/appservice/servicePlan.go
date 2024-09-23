@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,7 +64,7 @@ type ServicePlan struct {
 
 	// The ID of the App Service Environment to create this Service Plan in.
 	//
-	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurermAppServiceEnvironment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
 	AppServiceEnvironmentId pulumi.StringPtrOutput `pulumi:"appServiceEnvironmentId"`
 	// A string representing the Kind of Service Plan.
 	Kind pulumi.StringOutput `pulumi:"kind"`
@@ -139,7 +139,7 @@ func GetServicePlan(ctx *pulumi.Context,
 type servicePlanState struct {
 	// The ID of the App Service Environment to create this Service Plan in.
 	//
-	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurermAppServiceEnvironment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
 	AppServiceEnvironmentId *string `pulumi:"appServiceEnvironmentId"`
 	// A string representing the Kind of Service Plan.
 	Kind *string `pulumi:"kind"`
@@ -176,7 +176,7 @@ type servicePlanState struct {
 type ServicePlanState struct {
 	// The ID of the App Service Environment to create this Service Plan in.
 	//
-	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurermAppServiceEnvironment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
 	AppServiceEnvironmentId pulumi.StringPtrInput
 	// A string representing the Kind of Service Plan.
 	Kind pulumi.StringPtrInput
@@ -217,7 +217,7 @@ func (ServicePlanState) ElementType() reflect.Type {
 type servicePlanArgs struct {
 	// The ID of the App Service Environment to create this Service Plan in.
 	//
-	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurermAppServiceEnvironment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
 	AppServiceEnvironmentId *string `pulumi:"appServiceEnvironmentId"`
 	// The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	Location *string `pulumi:"location"`
@@ -251,7 +251,7 @@ type servicePlanArgs struct {
 type ServicePlanArgs struct {
 	// The ID of the App Service Environment to create this Service Plan in.
 	//
-	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+	// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurermAppServiceEnvironment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
 	AppServiceEnvironmentId pulumi.StringPtrInput
 	// The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
 	Location pulumi.StringPtrInput
@@ -370,7 +370,7 @@ func (o ServicePlanOutput) ToServicePlanOutputWithContext(ctx context.Context) S
 
 // The ID of the App Service Environment to create this Service Plan in.
 //
-// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+// > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurermAppServiceEnvironment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
 func (o ServicePlanOutput) AppServiceEnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.StringPtrOutput { return v.AppServiceEnvironmentId }).(pulumi.StringPtrOutput)
 }

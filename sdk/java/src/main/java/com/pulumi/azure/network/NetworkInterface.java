@@ -109,7 +109,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="acceleratedNetworkingEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> acceleratedNetworkingEnabled;
+    private Output</* @Nullable */ Boolean> acceleratedNetworkingEnabled;
 
     /**
      * @return Should Accelerated Networking be enabled? Defaults to `false`.
@@ -119,8 +119,8 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
      * 
      */
-    public Output<Boolean> acceleratedNetworkingEnabled() {
-        return this.acceleratedNetworkingEnabled;
+    public Output<Optional<Boolean>> acceleratedNetworkingEnabled() {
+        return Codegen.optional(this.acceleratedNetworkingEnabled);
     }
     /**
      * If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
@@ -179,7 +179,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dnsServers", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> dnsServers;
+    private Output</* @Nullable */ List<String>> dnsServers;
 
     /**
      * @return A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
@@ -187,8 +187,8 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
      * 
      */
-    public Output<List<String>> dnsServers() {
-        return this.dnsServers;
+    public Output<Optional<List<String>>> dnsServers() {
+        return Codegen.optional(this.dnsServers);
     }
     /**
      * Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
@@ -203,30 +203,6 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> edgeZone() {
         return Codegen.optional(this.edgeZone);
-    }
-    /**
-     * @deprecated
-     * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="enableAcceleratedNetworking", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableAcceleratedNetworking;
-
-    public Output<Boolean> enableAcceleratedNetworking() {
-        return this.enableAcceleratedNetworking;
-    }
-    /**
-     * @deprecated
-     * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="enableIpForwarding", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableIpForwarding;
-
-    public Output<Boolean> enableIpForwarding() {
-        return this.enableIpForwarding;
     }
     /**
      * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
@@ -275,14 +251,14 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ipForwardingEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> ipForwardingEnabled;
+    private Output</* @Nullable */ Boolean> ipForwardingEnabled;
 
     /**
      * @return Should IP Forwarding be enabled? Defaults to `false`.
      * 
      */
-    public Output<Boolean> ipForwardingEnabled() {
-        return this.ipForwardingEnabled;
+    public Output<Optional<Boolean>> ipForwardingEnabled() {
+        return Codegen.optional(this.ipForwardingEnabled);
     }
     /**
      * The location where the Network Interface should exist. Changing this forces a new resource to be created.

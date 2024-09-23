@@ -112,9 +112,9 @@ export class TrafficManagerAzureEndpoint extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
      */
-    public readonly priority!: pulumi.Output<number>;
+    public readonly priority!: pulumi.Output<number | undefined>;
     /**
      * The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
      */
@@ -128,9 +128,9 @@ export class TrafficManagerAzureEndpoint extends pulumi.CustomResource {
      */
     public readonly targetResourceId!: pulumi.Output<string>;
     /**
-     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      */
-    public readonly weight!: pulumi.Output<number>;
+    public readonly weight!: pulumi.Output<number | undefined>;
 
     /**
      * Create a TrafficManagerAzureEndpoint resource with the given unique name, arguments, and options.
@@ -204,7 +204,7 @@ export interface TrafficManagerAzureEndpointState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
      */
     priority?: pulumi.Input<number>;
     /**
@@ -220,7 +220,7 @@ export interface TrafficManagerAzureEndpointState {
      */
     targetResourceId?: pulumi.Input<string>;
     /**
-     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      */
     weight?: pulumi.Input<number>;
 }
@@ -250,7 +250,7 @@ export interface TrafficManagerAzureEndpointArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
      */
     priority?: pulumi.Input<number>;
     /**
@@ -266,7 +266,7 @@ export interface TrafficManagerAzureEndpointArgs {
      */
     targetResourceId: pulumi.Input<string>;
     /**
-     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
+     * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      */
     weight?: pulumi.Input<number>;
 }

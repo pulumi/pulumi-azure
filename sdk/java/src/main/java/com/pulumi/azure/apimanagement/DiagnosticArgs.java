@@ -173,14 +173,14 @@ public final class DiagnosticArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
      * 
      */
     @Import(name="operationNameFormat")
     private @Nullable Output<String> operationNameFormat;
 
     /**
-     * @return The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     * @return The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
      * 
      */
     public Optional<Output<String>> operationNameFormat() {
@@ -480,7 +480,7 @@ public final class DiagnosticArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operationNameFormat The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+         * @param operationNameFormat The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class DiagnosticArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operationNameFormat The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+         * @param operationNameFormat The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
          * 
          * @return builder
          * 

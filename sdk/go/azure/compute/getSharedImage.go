@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,12 +62,20 @@ type LookupSharedImageArgs struct {
 
 // A collection of values returned by getSharedImage.
 type LookupSharedImageResult struct {
-	Architecture string `pulumi:"architecture"`
+	// Specifies if the Shared Image supports Accelerated Network.
+	AcceleratedNetworkSupportEnabled bool   `pulumi:"acceleratedNetworkSupportEnabled"`
+	Architecture                     string `pulumi:"architecture"`
+	// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines.
+	ConfidentialVmEnabled bool `pulumi:"confidentialVmEnabled"`
+	// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image.
+	ConfidentialVmSupported bool `pulumi:"confidentialVmSupported"`
 	// The description of this Shared Image.
 	Description string `pulumi:"description"`
 	// The End User Licence Agreement for the Shared Image.
 	Eula        string `pulumi:"eula"`
 	GalleryName string `pulumi:"galleryName"`
+	// Specifies if the Shared Image supports hibernation.
+	HibernationEnabled bool `pulumi:"hibernationEnabled"`
 	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
 	HyperVGeneration string `pulumi:"hyperVGeneration"`
 	// The provider-assigned unique ID for this managed resource.
@@ -91,6 +99,10 @@ type LookupSharedImageResult struct {
 	Specialized bool `pulumi:"specialized"`
 	// A mapping of tags assigned to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image.
+	TrustedLaunchEnabled bool `pulumi:"trustedLaunchEnabled"`
+	// Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image.
+	TrustedLaunchSupported bool `pulumi:"trustedLaunchSupported"`
 }
 
 func LookupSharedImageOutput(ctx *pulumi.Context, args LookupSharedImageOutputArgs, opts ...pulumi.InvokeOption) LookupSharedImageResultOutput {
@@ -135,8 +147,23 @@ func (o LookupSharedImageResultOutput) ToLookupSharedImageResultOutputWithContex
 	return o
 }
 
+// Specifies if the Shared Image supports Accelerated Network.
+func (o LookupSharedImageResultOutput) AcceleratedNetworkSupportEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) bool { return v.AcceleratedNetworkSupportEnabled }).(pulumi.BoolOutput)
+}
+
 func (o LookupSharedImageResultOutput) Architecture() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSharedImageResult) string { return v.Architecture }).(pulumi.StringOutput)
+}
+
+// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines.
+func (o LookupSharedImageResultOutput) ConfidentialVmEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) bool { return v.ConfidentialVmEnabled }).(pulumi.BoolOutput)
+}
+
+// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image.
+func (o LookupSharedImageResultOutput) ConfidentialVmSupported() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) bool { return v.ConfidentialVmSupported }).(pulumi.BoolOutput)
 }
 
 // The description of this Shared Image.
@@ -151,6 +178,11 @@ func (o LookupSharedImageResultOutput) Eula() pulumi.StringOutput {
 
 func (o LookupSharedImageResultOutput) GalleryName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSharedImageResult) string { return v.GalleryName }).(pulumi.StringOutput)
+}
+
+// Specifies if the Shared Image supports hibernation.
+func (o LookupSharedImageResultOutput) HibernationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) bool { return v.HibernationEnabled }).(pulumi.BoolOutput)
 }
 
 // The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
@@ -210,6 +242,16 @@ func (o LookupSharedImageResultOutput) Specialized() pulumi.BoolOutput {
 // A mapping of tags assigned to the Shared Image.
 func (o LookupSharedImageResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSharedImageResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image.
+func (o LookupSharedImageResultOutput) TrustedLaunchEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) bool { return v.TrustedLaunchEnabled }).(pulumi.BoolOutput)
+}
+
+// Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image.
+func (o LookupSharedImageResultOutput) TrustedLaunchSupported() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) bool { return v.TrustedLaunchSupported }).(pulumi.BoolOutput)
 }
 
 func init() {

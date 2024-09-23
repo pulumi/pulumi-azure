@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *     name: "example-pip",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     allocationMethod: "Dynamic",
+ *     allocationMethod: "Static",
  * });
  * const exampleVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("example", {
  *     name: "example-vnetgateway",

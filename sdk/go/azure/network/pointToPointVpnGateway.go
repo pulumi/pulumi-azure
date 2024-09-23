@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,11 +100,13 @@ import (
 //				VirtualHubId:             exampleVirtualHub.ID(),
 //				VpnServerConfigurationId: exampleVpnServerConfiguration.ID(),
 //				ScaleUnit:                pulumi.Int(1),
-//				ConnectionConfiguration: &network.PointToPointVpnGatewayConnectionConfigurationArgs{
-//					Name: pulumi.String("example-gateway-config"),
-//					VpnClientAddressPool: &network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{
-//						AddressPrefixes: pulumi.StringArray{
-//							pulumi.String("10.0.2.0/24"),
+//				ConnectionConfigurations: network.PointToPointVpnGatewayConnectionConfigurationArray{
+//					&network.PointToPointVpnGatewayConnectionConfigurationArgs{
+//						Name: pulumi.String("example-gateway-config"),
+//						VpnClientAddressPool: &network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{
+//							AddressPrefixes: pulumi.StringArray{
+//								pulumi.String("10.0.2.0/24"),
+//							},
 //						},
 //					},
 //				},
@@ -129,7 +131,7 @@ type PointToPointVpnGateway struct {
 	pulumi.CustomResourceState
 
 	// A `connectionConfiguration` block as defined below.
-	ConnectionConfiguration PointToPointVpnGatewayConnectionConfigurationOutput `pulumi:"connectionConfiguration"`
+	ConnectionConfigurations PointToPointVpnGatewayConnectionConfigurationArrayOutput `pulumi:"connectionConfigurations"`
 	// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -157,8 +159,8 @@ func NewPointToPointVpnGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionConfiguration == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionConfiguration'")
+	if args.ConnectionConfigurations == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionConfigurations'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -196,7 +198,7 @@ func GetPointToPointVpnGateway(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PointToPointVpnGateway resources.
 type pointToPointVpnGatewayState struct {
 	// A `connectionConfiguration` block as defined below.
-	ConnectionConfiguration *PointToPointVpnGatewayConnectionConfiguration `pulumi:"connectionConfiguration"`
+	ConnectionConfigurations []PointToPointVpnGatewayConnectionConfiguration `pulumi:"connectionConfigurations"`
 	// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
 	DnsServers []string `pulumi:"dnsServers"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -219,7 +221,7 @@ type pointToPointVpnGatewayState struct {
 
 type PointToPointVpnGatewayState struct {
 	// A `connectionConfiguration` block as defined below.
-	ConnectionConfiguration PointToPointVpnGatewayConnectionConfigurationPtrInput
+	ConnectionConfigurations PointToPointVpnGatewayConnectionConfigurationArrayInput
 	// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
 	DnsServers pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -246,7 +248,7 @@ func (PointToPointVpnGatewayState) ElementType() reflect.Type {
 
 type pointToPointVpnGatewayArgs struct {
 	// A `connectionConfiguration` block as defined below.
-	ConnectionConfiguration PointToPointVpnGatewayConnectionConfiguration `pulumi:"connectionConfiguration"`
+	ConnectionConfigurations []PointToPointVpnGatewayConnectionConfiguration `pulumi:"connectionConfigurations"`
 	// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
 	DnsServers []string `pulumi:"dnsServers"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -270,7 +272,7 @@ type pointToPointVpnGatewayArgs struct {
 // The set of arguments for constructing a PointToPointVpnGateway resource.
 type PointToPointVpnGatewayArgs struct {
 	// A `connectionConfiguration` block as defined below.
-	ConnectionConfiguration PointToPointVpnGatewayConnectionConfigurationInput
+	ConnectionConfigurations PointToPointVpnGatewayConnectionConfigurationArrayInput
 	// A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
 	DnsServers pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -379,10 +381,10 @@ func (o PointToPointVpnGatewayOutput) ToPointToPointVpnGatewayOutputWithContext(
 }
 
 // A `connectionConfiguration` block as defined below.
-func (o PointToPointVpnGatewayOutput) ConnectionConfiguration() PointToPointVpnGatewayConnectionConfigurationOutput {
-	return o.ApplyT(func(v *PointToPointVpnGateway) PointToPointVpnGatewayConnectionConfigurationOutput {
-		return v.ConnectionConfiguration
-	}).(PointToPointVpnGatewayConnectionConfigurationOutput)
+func (o PointToPointVpnGatewayOutput) ConnectionConfigurations() PointToPointVpnGatewayConnectionConfigurationArrayOutput {
+	return o.ApplyT(func(v *PointToPointVpnGateway) PointToPointVpnGatewayConnectionConfigurationArrayOutput {
+		return v.ConnectionConfigurations
+	}).(PointToPointVpnGatewayConnectionConfigurationArrayOutput)
 }
 
 // A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.

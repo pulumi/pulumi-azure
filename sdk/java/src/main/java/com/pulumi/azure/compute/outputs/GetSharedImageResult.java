@@ -15,7 +15,22 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSharedImageResult {
+    /**
+     * @return Specifies if the Shared Image supports Accelerated Network.
+     * 
+     */
+    private Boolean acceleratedNetworkSupportEnabled;
     private String architecture;
+    /**
+     * @return Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines.
+     * 
+     */
+    private Boolean confidentialVmEnabled;
+    /**
+     * @return Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image.
+     * 
+     */
+    private Boolean confidentialVmSupported;
     /**
      * @return The description of this Shared Image.
      * 
@@ -27,6 +42,11 @@ public final class GetSharedImageResult {
      */
     private String eula;
     private String galleryName;
+    /**
+     * @return Specifies if the Shared Image supports hibernation.
+     * 
+     */
+    private Boolean hibernationEnabled;
     /**
      * @return The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
      * 
@@ -83,10 +103,41 @@ public final class GetSharedImageResult {
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image.
+     * 
+     */
+    private Boolean trustedLaunchEnabled;
+    /**
+     * @return Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image.
+     * 
+     */
+    private Boolean trustedLaunchSupported;
 
     private GetSharedImageResult() {}
+    /**
+     * @return Specifies if the Shared Image supports Accelerated Network.
+     * 
+     */
+    public Boolean acceleratedNetworkSupportEnabled() {
+        return this.acceleratedNetworkSupportEnabled;
+    }
     public String architecture() {
         return this.architecture;
+    }
+    /**
+     * @return Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines.
+     * 
+     */
+    public Boolean confidentialVmEnabled() {
+        return this.confidentialVmEnabled;
+    }
+    /**
+     * @return Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image.
+     * 
+     */
+    public Boolean confidentialVmSupported() {
+        return this.confidentialVmSupported;
     }
     /**
      * @return The description of this Shared Image.
@@ -104,6 +155,13 @@ public final class GetSharedImageResult {
     }
     public String galleryName() {
         return this.galleryName;
+    }
+    /**
+     * @return Specifies if the Shared Image supports hibernation.
+     * 
+     */
+    public Boolean hibernationEnabled() {
+        return this.hibernationEnabled;
     }
     /**
      * @return The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
@@ -185,6 +243,20 @@ public final class GetSharedImageResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image.
+     * 
+     */
+    public Boolean trustedLaunchEnabled() {
+        return this.trustedLaunchEnabled;
+    }
+    /**
+     * @return Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image.
+     * 
+     */
+    public Boolean trustedLaunchSupported() {
+        return this.trustedLaunchSupported;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -195,10 +267,14 @@ public final class GetSharedImageResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean acceleratedNetworkSupportEnabled;
         private String architecture;
+        private Boolean confidentialVmEnabled;
+        private Boolean confidentialVmSupported;
         private String description;
         private String eula;
         private String galleryName;
+        private Boolean hibernationEnabled;
         private String hyperVGeneration;
         private String id;
         private List<GetSharedImageIdentifier> identifiers;
@@ -211,13 +287,19 @@ public final class GetSharedImageResult {
         private String resourceGroupName;
         private Boolean specialized;
         private Map<String,String> tags;
+        private Boolean trustedLaunchEnabled;
+        private Boolean trustedLaunchSupported;
         public Builder() {}
         public Builder(GetSharedImageResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.acceleratedNetworkSupportEnabled = defaults.acceleratedNetworkSupportEnabled;
     	      this.architecture = defaults.architecture;
+    	      this.confidentialVmEnabled = defaults.confidentialVmEnabled;
+    	      this.confidentialVmSupported = defaults.confidentialVmSupported;
     	      this.description = defaults.description;
     	      this.eula = defaults.eula;
     	      this.galleryName = defaults.galleryName;
+    	      this.hibernationEnabled = defaults.hibernationEnabled;
     	      this.hyperVGeneration = defaults.hyperVGeneration;
     	      this.id = defaults.id;
     	      this.identifiers = defaults.identifiers;
@@ -230,14 +312,40 @@ public final class GetSharedImageResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.specialized = defaults.specialized;
     	      this.tags = defaults.tags;
+    	      this.trustedLaunchEnabled = defaults.trustedLaunchEnabled;
+    	      this.trustedLaunchSupported = defaults.trustedLaunchSupported;
         }
 
+        @CustomType.Setter
+        public Builder acceleratedNetworkSupportEnabled(Boolean acceleratedNetworkSupportEnabled) {
+            if (acceleratedNetworkSupportEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "acceleratedNetworkSupportEnabled");
+            }
+            this.acceleratedNetworkSupportEnabled = acceleratedNetworkSupportEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder architecture(String architecture) {
             if (architecture == null) {
               throw new MissingRequiredPropertyException("GetSharedImageResult", "architecture");
             }
             this.architecture = architecture;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder confidentialVmEnabled(Boolean confidentialVmEnabled) {
+            if (confidentialVmEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "confidentialVmEnabled");
+            }
+            this.confidentialVmEnabled = confidentialVmEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder confidentialVmSupported(Boolean confidentialVmSupported) {
+            if (confidentialVmSupported == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "confidentialVmSupported");
+            }
+            this.confidentialVmSupported = confidentialVmSupported;
             return this;
         }
         @CustomType.Setter
@@ -262,6 +370,14 @@ public final class GetSharedImageResult {
               throw new MissingRequiredPropertyException("GetSharedImageResult", "galleryName");
             }
             this.galleryName = galleryName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hibernationEnabled(Boolean hibernationEnabled) {
+            if (hibernationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "hibernationEnabled");
+            }
+            this.hibernationEnabled = hibernationEnabled;
             return this;
         }
         @CustomType.Setter
@@ -366,12 +482,32 @@ public final class GetSharedImageResult {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
+        public Builder trustedLaunchEnabled(Boolean trustedLaunchEnabled) {
+            if (trustedLaunchEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "trustedLaunchEnabled");
+            }
+            this.trustedLaunchEnabled = trustedLaunchEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder trustedLaunchSupported(Boolean trustedLaunchSupported) {
+            if (trustedLaunchSupported == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "trustedLaunchSupported");
+            }
+            this.trustedLaunchSupported = trustedLaunchSupported;
+            return this;
+        }
         public GetSharedImageResult build() {
             final var _resultValue = new GetSharedImageResult();
+            _resultValue.acceleratedNetworkSupportEnabled = acceleratedNetworkSupportEnabled;
             _resultValue.architecture = architecture;
+            _resultValue.confidentialVmEnabled = confidentialVmEnabled;
+            _resultValue.confidentialVmSupported = confidentialVmSupported;
             _resultValue.description = description;
             _resultValue.eula = eula;
             _resultValue.galleryName = galleryName;
+            _resultValue.hibernationEnabled = hibernationEnabled;
             _resultValue.hyperVGeneration = hyperVGeneration;
             _resultValue.id = id;
             _resultValue.identifiers = identifiers;
@@ -384,6 +520,8 @@ public final class GetSharedImageResult {
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.specialized = specialized;
             _resultValue.tags = tags;
+            _resultValue.trustedLaunchEnabled = trustedLaunchEnabled;
+            _resultValue.trustedLaunchSupported = trustedLaunchSupported;
             return _resultValue;
         }
     }

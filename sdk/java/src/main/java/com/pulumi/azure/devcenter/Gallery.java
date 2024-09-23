@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Dev Center Gallery can be imported into Terraform using the `resource id`, e.g.
+ * An existing Dev Center Gallery can be imported into Pulumi using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:devcenter/gallery:Gallery example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}/galleries/{galleryName}

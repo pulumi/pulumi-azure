@@ -13,12 +13,10 @@ namespace Pulumi.Azure.AppService.Outputs
     [OutputType]
     public sealed class GetLinuxWebAppSiteConfigApplicationStackResult
     {
-        public readonly string DockerImage;
         /// <summary>
         /// The docker image, including tag, used by this Linux Web App.
         /// </summary>
         public readonly string DockerImageName;
-        public readonly string DockerImageTag;
         /// <summary>
         /// The User Name to use for authentication against the registry to pull the image.
         /// </summary>
@@ -67,11 +65,7 @@ namespace Pulumi.Azure.AppService.Outputs
 
         [OutputConstructor]
         private GetLinuxWebAppSiteConfigApplicationStackResult(
-            string dockerImage,
-
             string dockerImageName,
-
-            string dockerImageTag,
 
             string dockerRegistryPassword,
 
@@ -97,9 +91,7 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string rubyVersion)
         {
-            DockerImage = dockerImage;
             DockerImageName = dockerImageName;
-            DockerImageTag = dockerImageTag;
             DockerRegistryPassword = dockerRegistryPassword;
             DockerRegistryUrl = dockerRegistryUrl;
             DockerRegistryUsername = dockerRegistryUsername;

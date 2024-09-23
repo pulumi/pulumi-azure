@@ -12,17 +12,11 @@ namespace Pulumi.Azure.AppService.Inputs
 
     public sealed class LinuxWebAppSiteConfigApplicationStackGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dockerImage")]
-        public Input<string>? DockerImage { get; set; }
-
         /// <summary>
         /// The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
         /// </summary>
         [Input("dockerImageName")]
         public Input<string>? DockerImageName { get; set; }
-
-        [Input("dockerImageTag")]
-        public Input<string>? DockerImageTag { get; set; }
 
         [Input("dockerRegistryPassword")]
         private Input<string>? _dockerRegistryPassword;

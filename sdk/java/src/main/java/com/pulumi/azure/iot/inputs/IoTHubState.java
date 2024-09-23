@@ -134,14 +134,14 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
      * 
      */
     @Import(name="eventHubPartitionCount")
     private @Nullable Output<Integer> eventHubPartitionCount;
 
     /**
-     * @return The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+     * @return The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
      * 
      */
     public Optional<Output<Integer>> eventHubPartitionCount() {
@@ -149,14 +149,14 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The event hub retention to use in days. Must be between `1` and `7`.
+     * The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
      * 
      */
     @Import(name="eventHubRetentionInDays")
     private @Nullable Output<Integer> eventHubRetentionInDays;
 
     /**
-     * @return The event hub retention to use in days. Must be between `1` and `7`.
+     * @return The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> eventHubRetentionInDays() {
@@ -575,7 +575,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventHubPartitionCount The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+         * @param eventHubPartitionCount The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventHubPartitionCount The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+         * @param eventHubPartitionCount The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventHubRetentionInDays The event hub retention to use in days. Must be between `1` and `7`.
+         * @param eventHubRetentionInDays The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -607,7 +607,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventHubRetentionInDays The event hub retention to use in days. Must be between `1` and `7`.
+         * @param eventHubRetentionInDays The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
          * 
          * @return builder
          * 

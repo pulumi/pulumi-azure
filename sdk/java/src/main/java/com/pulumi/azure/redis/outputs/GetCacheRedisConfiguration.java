@@ -9,8 +9,6 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCacheRedisConfiguration {
@@ -24,15 +22,6 @@ public final class GetCacheRedisConfiguration {
     private String aofStorageConnectionString1;
     private Boolean authenticationEnabled;
     private String dataPersistenceAuthenticationMethod;
-    /**
-     * @return Specifies if authentication is enabled
-     * 
-     * @deprecated
-     * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
-    private @Nullable Boolean enableAuthentication;
     private Integer maxclients;
     /**
      * @return Value in megabytes reserved to accommodate for memory fragmentation.
@@ -103,17 +92,6 @@ public final class GetCacheRedisConfiguration {
     }
     public String dataPersistenceAuthenticationMethod() {
         return this.dataPersistenceAuthenticationMethod;
-    }
-    /**
-     * @return Specifies if authentication is enabled
-     * 
-     * @deprecated
-     * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
-    public Optional<Boolean> enableAuthentication() {
-        return Optional.ofNullable(this.enableAuthentication);
     }
     public Integer maxclients() {
         return this.maxclients;
@@ -200,7 +178,6 @@ public final class GetCacheRedisConfiguration {
         private String aofStorageConnectionString1;
         private Boolean authenticationEnabled;
         private String dataPersistenceAuthenticationMethod;
-        private @Nullable Boolean enableAuthentication;
         private Integer maxclients;
         private Integer maxfragmentationmemoryReserved;
         private Integer maxmemoryDelta;
@@ -221,7 +198,6 @@ public final class GetCacheRedisConfiguration {
     	      this.aofStorageConnectionString1 = defaults.aofStorageConnectionString1;
     	      this.authenticationEnabled = defaults.authenticationEnabled;
     	      this.dataPersistenceAuthenticationMethod = defaults.dataPersistenceAuthenticationMethod;
-    	      this.enableAuthentication = defaults.enableAuthentication;
     	      this.maxclients = defaults.maxclients;
     	      this.maxfragmentationmemoryReserved = defaults.maxfragmentationmemoryReserved;
     	      this.maxmemoryDelta = defaults.maxmemoryDelta;
@@ -281,12 +257,6 @@ public final class GetCacheRedisConfiguration {
               throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "dataPersistenceAuthenticationMethod");
             }
             this.dataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableAuthentication(@Nullable Boolean enableAuthentication) {
-
-            this.enableAuthentication = enableAuthentication;
             return this;
         }
         @CustomType.Setter
@@ -385,7 +355,6 @@ public final class GetCacheRedisConfiguration {
             _resultValue.aofStorageConnectionString1 = aofStorageConnectionString1;
             _resultValue.authenticationEnabled = authenticationEnabled;
             _resultValue.dataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
-            _resultValue.enableAuthentication = enableAuthentication;
             _resultValue.maxclients = maxclients;
             _resultValue.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
             _resultValue.maxmemoryDelta = maxmemoryDelta;

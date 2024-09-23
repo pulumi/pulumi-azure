@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *             .name("example-pip")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .allocationMethod("Dynamic")
+ *             .allocationMethod("Static")
  *             .build());
  * 
  *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()

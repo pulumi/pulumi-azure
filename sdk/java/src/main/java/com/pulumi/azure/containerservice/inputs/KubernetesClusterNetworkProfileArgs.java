@@ -35,52 +35,6 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-    @Import(name="dockerBridgeCidr")
-    private @Nullable Output<String> dockerBridgeCidr;
-
-    /**
-     * @return IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-    public Optional<Output<String>> dockerBridgeCidr() {
-        return Optional.ofNullable(this.dockerBridgeCidr);
-    }
-
-    /**
-     * @deprecated
-     * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
-    @Import(name="ebpfDataPlane")
-    private @Nullable Output<String> ebpfDataPlane;
-
-    /**
-     * @deprecated
-     * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
-    public Optional<Output<String>> ebpfDataPlane() {
-        return Optional.ofNullable(this.ebpfDataPlane);
-    }
-
-    /**
      * Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
      * 
      * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
@@ -155,8 +109,6 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * 
      * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
-     * 
      */
     @Import(name="networkDataPlane")
     private @Nullable Output<String> networkDataPlane;
@@ -167,8 +119,6 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
      * 
      * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
      * 
      */
     public Optional<Output<String>> networkDataPlane() {
@@ -260,44 +210,6 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-     * 
-     * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-     * 
-     */
-    @Import(name="outboundIpAddressIds")
-    private @Nullable Output<List<String>> outboundIpAddressIds;
-
-    /**
-     * @return The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-     * 
-     * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-     * 
-     */
-    public Optional<Output<List<String>>> outboundIpAddressIds() {
-        return Optional.ofNullable(this.outboundIpAddressIds);
-    }
-
-    /**
-     * The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-     * 
-     * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
-     * 
-     */
-    @Import(name="outboundIpPrefixIds")
-    private @Nullable Output<List<String>> outboundIpPrefixIds;
-
-    /**
-     * @return The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-     * 
-     * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
-     * 
-     */
-    public Optional<Output<List<String>>> outboundIpPrefixIds() {
-        return Optional.ofNullable(this.outboundIpPrefixIds);
-    }
-
-    /**
      * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
      * 
      */
@@ -380,8 +292,6 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
 
     private KubernetesClusterNetworkProfileArgs(KubernetesClusterNetworkProfileArgs $) {
         this.dnsServiceIp = $.dnsServiceIp;
-        this.dockerBridgeCidr = $.dockerBridgeCidr;
-        this.ebpfDataPlane = $.ebpfDataPlane;
         this.ipVersions = $.ipVersions;
         this.loadBalancerProfile = $.loadBalancerProfile;
         this.loadBalancerSku = $.loadBalancerSku;
@@ -391,8 +301,6 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         this.networkPlugin = $.networkPlugin;
         this.networkPluginMode = $.networkPluginMode;
         this.networkPolicy = $.networkPolicy;
-        this.outboundIpAddressIds = $.outboundIpAddressIds;
-        this.outboundIpPrefixIds = $.outboundIpPrefixIds;
         this.outboundType = $.outboundType;
         this.podCidr = $.podCidr;
         this.podCidrs = $.podCidrs;
@@ -437,64 +345,6 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          */
         public Builder dnsServiceIp(String dnsServiceIp) {
             return dnsServiceIp(Output.of(dnsServiceIp));
-        }
-
-        /**
-         * @param dockerBridgeCidr IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-        public Builder dockerBridgeCidr(@Nullable Output<String> dockerBridgeCidr) {
-            $.dockerBridgeCidr = dockerBridgeCidr;
-            return this;
-        }
-
-        /**
-         * @param dockerBridgeCidr IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-        public Builder dockerBridgeCidr(String dockerBridgeCidr) {
-            return dockerBridgeCidr(Output.of(dockerBridgeCidr));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
-        public Builder ebpfDataPlane(@Nullable Output<String> ebpfDataPlane) {
-            $.ebpfDataPlane = ebpfDataPlane;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
-        public Builder ebpfDataPlane(String ebpfDataPlane) {
-            return ebpfDataPlane(Output.of(ebpfDataPlane));
         }
 
         /**
@@ -610,8 +460,6 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * 
          * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
          * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
-         * 
          * @return builder
          * 
          */
@@ -626,8 +474,6 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
          * 
          * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
-         * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
          * 
          * @return builder
          * 
@@ -742,80 +588,6 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          */
         public Builder networkPolicy(String networkPolicy) {
             return networkPolicy(Output.of(networkPolicy));
-        }
-
-        /**
-         * @param outboundIpAddressIds The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-         * 
-         * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder outboundIpAddressIds(@Nullable Output<List<String>> outboundIpAddressIds) {
-            $.outboundIpAddressIds = outboundIpAddressIds;
-            return this;
-        }
-
-        /**
-         * @param outboundIpAddressIds The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-         * 
-         * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder outboundIpAddressIds(List<String> outboundIpAddressIds) {
-            return outboundIpAddressIds(Output.of(outboundIpAddressIds));
-        }
-
-        /**
-         * @param outboundIpAddressIds The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-         * 
-         * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder outboundIpAddressIds(String... outboundIpAddressIds) {
-            return outboundIpAddressIds(List.of(outboundIpAddressIds));
-        }
-
-        /**
-         * @param outboundIpPrefixIds The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-         * 
-         * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder outboundIpPrefixIds(@Nullable Output<List<String>> outboundIpPrefixIds) {
-            $.outboundIpPrefixIds = outboundIpPrefixIds;
-            return this;
-        }
-
-        /**
-         * @param outboundIpPrefixIds The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-         * 
-         * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder outboundIpPrefixIds(List<String> outboundIpPrefixIds) {
-            return outboundIpPrefixIds(Output.of(outboundIpPrefixIds));
-        }
-
-        /**
-         * @param outboundIpPrefixIds The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-         * 
-         * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder outboundIpPrefixIds(String... outboundIpPrefixIds) {
-            return outboundIpPrefixIds(List.of(outboundIpPrefixIds));
         }
 
         /**

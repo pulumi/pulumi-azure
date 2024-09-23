@@ -17,9 +17,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The Current Stack value of the Windows Web App.
         /// </summary>
         public readonly string CurrentStack;
-        public readonly string DockerContainerName;
-        public readonly string DockerContainerRegistry;
-        public readonly string DockerContainerTag;
         /// <summary>
         /// The docker image, including tag, used by this Windows Web App.
         /// </summary>
@@ -73,12 +70,6 @@ namespace Pulumi.Azure.AppService.Outputs
         private GetWindowsWebAppSiteConfigApplicationStackResult(
             string currentStack,
 
-            string dockerContainerName,
-
-            string dockerContainerRegistry,
-
-            string dockerContainerTag,
-
             string dockerImageName,
 
             string dockerRegistryPassword,
@@ -110,9 +101,6 @@ namespace Pulumi.Azure.AppService.Outputs
             string tomcatVersion)
         {
             CurrentStack = currentStack;
-            DockerContainerName = dockerContainerName;
-            DockerContainerRegistry = dockerContainerRegistry;
-            DockerContainerTag = dockerContainerTag;
             DockerImageName = dockerImageName;
             DockerRegistryPassword = dockerRegistryPassword;
             DockerRegistryUrl = dockerRegistryUrl;

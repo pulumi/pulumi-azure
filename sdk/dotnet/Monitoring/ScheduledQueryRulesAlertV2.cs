@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Monitoring
         /// &gt; **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         /// </summary>
         [Output("evaluationFrequency")]
-        public Output<string?> EvaluationFrequency { get; private set; } = null!;
+        public Output<string> EvaluationFrequency { get; private set; } = null!;
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -392,8 +392,8 @@ namespace Pulumi.Azure.Monitoring
         /// 
         /// &gt; **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
         /// </summary>
-        [Input("evaluationFrequency")]
-        public Input<string>? EvaluationFrequency { get; set; }
+        [Input("evaluationFrequency", required: true)]
+        public Input<string> EvaluationFrequency { get; set; } = null!;
 
         /// <summary>
         /// An `identity` block as defined below.

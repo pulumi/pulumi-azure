@@ -23,6 +23,7 @@ class SparkPoolArgs:
     def __init__(__self__, *,
                  node_size: pulumi.Input[str],
                  node_size_family: pulumi.Input[str],
+                 spark_version: pulumi.Input[str],
                  synapse_workspace_id: pulumi.Input[str],
                  auto_pause: Optional[pulumi.Input['SparkPoolAutoPauseArgs']] = None,
                  auto_scale: Optional[pulumi.Input['SparkPoolAutoScaleArgs']] = None,
@@ -38,7 +39,6 @@ class SparkPoolArgs:
                  spark_config: Optional[pulumi.Input['SparkPoolSparkConfigArgs']] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_log_folder: Optional[pulumi.Input[str]] = None,
-                 spark_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SparkPool resource.
@@ -54,6 +54,7 @@ class SparkPoolArgs:
         """
         pulumi.set(__self__, "node_size", node_size)
         pulumi.set(__self__, "node_size_family", node_size_family)
+        pulumi.set(__self__, "spark_version", spark_version)
         pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
         if auto_pause is not None:
             pulumi.set(__self__, "auto_pause", auto_pause)
@@ -83,8 +84,6 @@ class SparkPoolArgs:
             pulumi.set(__self__, "spark_events_folder", spark_events_folder)
         if spark_log_folder is not None:
             pulumi.set(__self__, "spark_log_folder", spark_log_folder)
-        if spark_version is not None:
-            pulumi.set(__self__, "spark_version", spark_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -111,6 +110,15 @@ class SparkPoolArgs:
     @node_size_family.setter
     def node_size_family(self, value: pulumi.Input[str]):
         pulumi.set(self, "node_size_family", value)
+
+    @property
+    @pulumi.getter(name="sparkVersion")
+    def spark_version(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "spark_version")
+
+    @spark_version.setter
+    def spark_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "spark_version", value)
 
     @property
     @pulumi.getter(name="synapseWorkspaceId")
@@ -267,15 +275,6 @@ class SparkPoolArgs:
     @spark_log_folder.setter
     def spark_log_folder(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "spark_log_folder", value)
-
-    @property
-    @pulumi.getter(name="sparkVersion")
-    def spark_version(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "spark_version")
-
-    @spark_version.setter
-    def spark_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "spark_version", value)
 
     @property
     @pulumi.getter
@@ -803,6 +802,8 @@ class SparkPool(pulumi.CustomResource):
             __props__.__dict__["spark_config"] = spark_config
             __props__.__dict__["spark_events_folder"] = spark_events_folder
             __props__.__dict__["spark_log_folder"] = spark_log_folder
+            if spark_version is None and not opts.urn:
+                raise TypeError("Missing required property 'spark_version'")
             __props__.__dict__["spark_version"] = spark_version
             if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
@@ -985,7 +986,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sparkVersion")
-    def spark_version(self) -> pulumi.Output[Optional[str]]:
+    def spark_version(self) -> pulumi.Output[str]:
         return pulumi.get(self, "spark_version")
 
     @property

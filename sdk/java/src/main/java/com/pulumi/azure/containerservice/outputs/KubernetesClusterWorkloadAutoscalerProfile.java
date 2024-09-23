@@ -5,7 +5,6 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
-import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -18,26 +17,12 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
      */
     private @Nullable Boolean kedaEnabled;
     /**
-     * @deprecated
-     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
-    private @Nullable String verticalPodAutoscalerControlledValues;
-    /**
      * @return Specifies whether Vertical Pod Autoscaler should be enabled.
      * 
      * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
      * 
      */
     private @Nullable Boolean verticalPodAutoscalerEnabled;
-    /**
-     * @deprecated
-     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
-    private @Nullable String verticalPodAutoscalerUpdateMode;
 
     private KubernetesClusterWorkloadAutoscalerProfile() {}
     /**
@@ -48,15 +33,6 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
         return Optional.ofNullable(this.kedaEnabled);
     }
     /**
-     * @deprecated
-     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
-    public Optional<String> verticalPodAutoscalerControlledValues() {
-        return Optional.ofNullable(this.verticalPodAutoscalerControlledValues);
-    }
-    /**
      * @return Specifies whether Vertical Pod Autoscaler should be enabled.
      * 
      * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
@@ -64,15 +40,6 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
      */
     public Optional<Boolean> verticalPodAutoscalerEnabled() {
         return Optional.ofNullable(this.verticalPodAutoscalerEnabled);
-    }
-    /**
-     * @deprecated
-     * The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The AKS API has removed support for this field on 2023-07-02-preview and is no longer possible to export this value. This property will be removed in v4.0 of the AzureRM provider. */
-    public Optional<String> verticalPodAutoscalerUpdateMode() {
-        return Optional.ofNullable(this.verticalPodAutoscalerUpdateMode);
     }
 
     public static Builder builder() {
@@ -85,16 +52,12 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean kedaEnabled;
-        private @Nullable String verticalPodAutoscalerControlledValues;
         private @Nullable Boolean verticalPodAutoscalerEnabled;
-        private @Nullable String verticalPodAutoscalerUpdateMode;
         public Builder() {}
         public Builder(KubernetesClusterWorkloadAutoscalerProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kedaEnabled = defaults.kedaEnabled;
-    	      this.verticalPodAutoscalerControlledValues = defaults.verticalPodAutoscalerControlledValues;
     	      this.verticalPodAutoscalerEnabled = defaults.verticalPodAutoscalerEnabled;
-    	      this.verticalPodAutoscalerUpdateMode = defaults.verticalPodAutoscalerUpdateMode;
         }
 
         @CustomType.Setter
@@ -104,29 +67,15 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
             return this;
         }
         @CustomType.Setter
-        public Builder verticalPodAutoscalerControlledValues(@Nullable String verticalPodAutoscalerControlledValues) {
-
-            this.verticalPodAutoscalerControlledValues = verticalPodAutoscalerControlledValues;
-            return this;
-        }
-        @CustomType.Setter
         public Builder verticalPodAutoscalerEnabled(@Nullable Boolean verticalPodAutoscalerEnabled) {
 
             this.verticalPodAutoscalerEnabled = verticalPodAutoscalerEnabled;
             return this;
         }
-        @CustomType.Setter
-        public Builder verticalPodAutoscalerUpdateMode(@Nullable String verticalPodAutoscalerUpdateMode) {
-
-            this.verticalPodAutoscalerUpdateMode = verticalPodAutoscalerUpdateMode;
-            return this;
-        }
         public KubernetesClusterWorkloadAutoscalerProfile build() {
             final var _resultValue = new KubernetesClusterWorkloadAutoscalerProfile();
             _resultValue.kedaEnabled = kedaEnabled;
-            _resultValue.verticalPodAutoscalerControlledValues = verticalPodAutoscalerControlledValues;
             _resultValue.verticalPodAutoscalerEnabled = verticalPodAutoscalerEnabled;
-            _resultValue.verticalPodAutoscalerUpdateMode = verticalPodAutoscalerUpdateMode;
             return _resultValue;
         }
     }

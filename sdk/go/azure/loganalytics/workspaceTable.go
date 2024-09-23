@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/loganalytics"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,9 +72,9 @@ type WorkspaceTable struct {
 	//
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
 	Plan pulumi.StringPtrOutput `pulumi:"plan"`
-	// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
-	// The table's total retention in days. Possible values range between 30 and 4383.
+	// The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 	//
 	// > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 	//
@@ -123,9 +123,9 @@ type workspaceTableState struct {
 	//
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
 	Plan *string `pulumi:"plan"`
-	// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
-	// The table's total retention in days. Possible values range between 30 and 4383.
+	// The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 	//
 	// > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 	//
@@ -142,9 +142,9 @@ type WorkspaceTableState struct {
 	//
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
 	Plan pulumi.StringPtrInput
-	// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
 	RetentionInDays pulumi.IntPtrInput
-	// The table's total retention in days. Possible values range between 30 and 4383.
+	// The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 	//
 	// > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 	//
@@ -165,9 +165,9 @@ type workspaceTableArgs struct {
 	//
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
 	Plan *string `pulumi:"plan"`
-	// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
-	// The table's total retention in days. Possible values range between 30 and 4383.
+	// The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 	//
 	// > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 	//
@@ -185,9 +185,9 @@ type WorkspaceTableArgs struct {
 	//
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
 	Plan pulumi.StringPtrInput
-	// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
 	RetentionInDays pulumi.IntPtrInput
-	// The table's total retention in days. Possible values range between 30 and 4383.
+	// The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 	//
 	// > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 	//
@@ -296,12 +296,12 @@ func (o WorkspaceTableOutput) Plan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceTable) pulumi.StringPtrOutput { return v.Plan }).(pulumi.StringPtrOutput)
 }
 
-// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
 func (o WorkspaceTableOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspaceTable) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// The table's total retention in days. Possible values range between 30 and 4383.
+// The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
 //
 // > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 //

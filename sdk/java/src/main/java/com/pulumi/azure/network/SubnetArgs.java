@@ -69,44 +69,6 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider */
-    @Import(name="enforcePrivateLinkEndpointNetworkPolicies")
-    private @Nullable Output<Boolean> enforcePrivateLinkEndpointNetworkPolicies;
-
-    /**
-     * @deprecated
-     * `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> enforcePrivateLinkEndpointNetworkPolicies() {
-        return Optional.ofNullable(this.enforcePrivateLinkEndpointNetworkPolicies);
-    }
-
-    /**
-     * @deprecated
-     * `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider */
-    @Import(name="enforcePrivateLinkServiceNetworkPolicies")
-    private @Nullable Output<Boolean> enforcePrivateLinkServiceNetworkPolicies;
-
-    /**
-     * @deprecated
-     * `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> enforcePrivateLinkServiceNetworkPolicies() {
-        return Optional.ofNullable(this.enforcePrivateLinkServiceNetworkPolicies);
-    }
-
-    /**
      * The name of the subnet. Changing this forces a new resource to be created.
      * 
      */
@@ -146,25 +108,6 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> privateEndpointNetworkPolicies() {
         return Optional.ofNullable(this.privateEndpointNetworkPolicies);
-    }
-
-    /**
-     * @deprecated
-     * `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider */
-    @Import(name="privateEndpointNetworkPoliciesEnabled")
-    private @Nullable Output<Boolean> privateEndpointNetworkPoliciesEnabled;
-
-    /**
-     * @deprecated
-     * `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> privateEndpointNetworkPoliciesEnabled() {
-        return Optional.ofNullable(this.privateEndpointNetworkPoliciesEnabled);
     }
 
     /**
@@ -256,11 +199,8 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         this.addressPrefixes = $.addressPrefixes;
         this.defaultOutboundAccessEnabled = $.defaultOutboundAccessEnabled;
         this.delegations = $.delegations;
-        this.enforcePrivateLinkEndpointNetworkPolicies = $.enforcePrivateLinkEndpointNetworkPolicies;
-        this.enforcePrivateLinkServiceNetworkPolicies = $.enforcePrivateLinkServiceNetworkPolicies;
         this.name = $.name;
         this.privateEndpointNetworkPolicies = $.privateEndpointNetworkPolicies;
-        this.privateEndpointNetworkPoliciesEnabled = $.privateEndpointNetworkPoliciesEnabled;
         this.privateLinkServiceNetworkPoliciesEnabled = $.privateLinkServiceNetworkPoliciesEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.serviceEndpointPolicyIds = $.serviceEndpointPolicyIds;
@@ -376,56 +316,6 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider */
-        public Builder enforcePrivateLinkEndpointNetworkPolicies(@Nullable Output<Boolean> enforcePrivateLinkEndpointNetworkPolicies) {
-            $.enforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider */
-        public Builder enforcePrivateLinkEndpointNetworkPolicies(Boolean enforcePrivateLinkEndpointNetworkPolicies) {
-            return enforcePrivateLinkEndpointNetworkPolicies(Output.of(enforcePrivateLinkEndpointNetworkPolicies));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider */
-        public Builder enforcePrivateLinkServiceNetworkPolicies(@Nullable Output<Boolean> enforcePrivateLinkServiceNetworkPolicies) {
-            $.enforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider */
-        public Builder enforcePrivateLinkServiceNetworkPolicies(Boolean enforcePrivateLinkServiceNetworkPolicies) {
-            return enforcePrivateLinkServiceNetworkPolicies(Output.of(enforcePrivateLinkServiceNetworkPolicies));
-        }
-
-        /**
          * @param name The name of the subnet. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -477,31 +367,6 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder privateEndpointNetworkPolicies(String privateEndpointNetworkPolicies) {
             return privateEndpointNetworkPolicies(Output.of(privateEndpointNetworkPolicies));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider */
-        public Builder privateEndpointNetworkPoliciesEnabled(@Nullable Output<Boolean> privateEndpointNetworkPoliciesEnabled) {
-            $.privateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider */
-        public Builder privateEndpointNetworkPoliciesEnabled(Boolean privateEndpointNetworkPoliciesEnabled) {
-            return privateEndpointNetworkPoliciesEnabled(Output.of(privateEndpointNetworkPoliciesEnabled));
         }
 
         /**

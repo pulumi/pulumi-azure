@@ -871,8 +871,6 @@ class Group(pulumi.CustomResource):
         """
         Manages as an Azure Container Group instance.
 
-        > **Note** `network_profile_id` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `containerservice.Group` that rely on `network_profile_id`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnet_ids` instead.
-
         ## Example Usage
 
         This example provisions a Basic Container.
@@ -965,8 +963,6 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages as an Azure Container Group instance.
-
-        > **Note** `network_profile_id` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `containerservice.Group` that rely on `network_profile_id`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnet_ids` instead.
 
         ## Example Usage
 

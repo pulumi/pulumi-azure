@@ -78,25 +78,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * @deprecated
-     * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
-     * 
-     */
-    @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
-    @Import(name="apiServerAuthorizedIpRanges")
-    private @Nullable Output<List<String>> apiServerAuthorizedIpRanges;
-
-    /**
-     * @deprecated
-     * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
-     * 
-     */
-    @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
-    public Optional<Output<List<String>>> apiServerAuthorizedIpRanges() {
-        return Optional.ofNullable(this.apiServerAuthorizedIpRanges);
-    }
-
-    /**
      * A `auto_scaler_profile` block as defined below.
      * 
      */
@@ -119,8 +100,8 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      * &gt; **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      * 
      */
-    @Import(name="automaticChannelUpgrade")
-    private @Nullable Output<String> automaticChannelUpgrade;
+    @Import(name="automaticUpgradeChannel")
+    private @Nullable Output<String> automaticUpgradeChannel;
 
     /**
      * @return The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -130,8 +111,8 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      * &gt; **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      * 
      */
-    public Optional<Output<String>> automaticChannelUpgrade() {
-        return Optional.ofNullable(this.automaticChannelUpgrade);
+    public Optional<Output<String>> automaticUpgradeChannel() {
+        return Optional.ofNullable(this.automaticUpgradeChannel);
     }
 
     /**
@@ -207,25 +188,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<String>> currentKubernetesVersion() {
         return Optional.ofNullable(this.currentKubernetesVersion);
-    }
-
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    @Import(name="customCaTrustCertificatesBase64s")
-    private @Nullable Output<List<String>> customCaTrustCertificatesBase64s;
-
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    public Optional<Output<List<String>>> customCaTrustCertificatesBase64s() {
-        return Optional.ofNullable(this.customCaTrustCertificatesBase64s);
     }
 
     /**
@@ -309,25 +271,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<String>> edgeZone() {
         return Optional.ofNullable(this.edgeZone);
-    }
-
-    /**
-     * @deprecated
-     * The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider. */
-    @Import(name="enablePodSecurityPolicy")
-    private @Nullable Output<Boolean> enablePodSecurityPolicy;
-
-    /**
-     * @deprecated
-     * The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider. */
-    public Optional<Output<Boolean>> enablePodSecurityPolicy() {
-        return Optional.ofNullable(this.enablePodSecurityPolicy);
     }
 
     /**
@@ -429,14 +372,14 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+     * Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
      * 
      */
     @Import(name="imageCleanerIntervalHours")
     private @Nullable Output<Integer> imageCleanerIntervalHours;
 
     /**
-     * @return Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+     * @return Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> imageCleanerIntervalHours() {
@@ -749,22 +692,22 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     * The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      * 
-     * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+     * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
      * 
      */
-    @Import(name="nodeOsChannelUpgrade")
-    private @Nullable Output<String> nodeOsChannelUpgrade;
+    @Import(name="nodeOsUpgradeChannel")
+    private @Nullable Output<String> nodeOsUpgradeChannel;
 
     /**
-     * @return The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     * @return The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      * 
-     * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+     * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
      * 
      */
-    public Optional<Output<String>> nodeOsChannelUpgrade() {
-        return Optional.ofNullable(this.nodeOsChannelUpgrade);
+    public Optional<Output<String>> nodeOsUpgradeChannel() {
+        return Optional.ofNullable(this.nodeOsUpgradeChannel);
     }
 
     /**
@@ -1083,25 +1026,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * @deprecated
-     * `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider. */
-    @Import(name="publicNetworkAccessEnabled")
-    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
-
-    /**
-     * @deprecated
-     * `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider. */
-    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
-        return Optional.ofNullable(this.publicNetworkAccessEnabled);
-    }
-
-    /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -1317,21 +1241,18 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     private KubernetesClusterState(KubernetesClusterState $) {
         this.aciConnectorLinux = $.aciConnectorLinux;
         this.apiServerAccessProfile = $.apiServerAccessProfile;
-        this.apiServerAuthorizedIpRanges = $.apiServerAuthorizedIpRanges;
         this.autoScalerProfile = $.autoScalerProfile;
-        this.automaticChannelUpgrade = $.automaticChannelUpgrade;
+        this.automaticUpgradeChannel = $.automaticUpgradeChannel;
         this.azureActiveDirectoryRoleBasedAccessControl = $.azureActiveDirectoryRoleBasedAccessControl;
         this.azurePolicyEnabled = $.azurePolicyEnabled;
         this.confidentialComputing = $.confidentialComputing;
         this.costAnalysisEnabled = $.costAnalysisEnabled;
         this.currentKubernetesVersion = $.currentKubernetesVersion;
-        this.customCaTrustCertificatesBase64s = $.customCaTrustCertificatesBase64s;
         this.defaultNodePool = $.defaultNodePool;
         this.diskEncryptionSetId = $.diskEncryptionSetId;
         this.dnsPrefix = $.dnsPrefix;
         this.dnsPrefixPrivateCluster = $.dnsPrefixPrivateCluster;
         this.edgeZone = $.edgeZone;
-        this.enablePodSecurityPolicy = $.enablePodSecurityPolicy;
         this.fqdn = $.fqdn;
         this.httpApplicationRoutingEnabled = $.httpApplicationRoutingEnabled;
         this.httpApplicationRoutingZoneName = $.httpApplicationRoutingZoneName;
@@ -1358,7 +1279,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.monitorMetrics = $.monitorMetrics;
         this.name = $.name;
         this.networkProfile = $.networkProfile;
-        this.nodeOsChannelUpgrade = $.nodeOsChannelUpgrade;
+        this.nodeOsUpgradeChannel = $.nodeOsUpgradeChannel;
         this.nodeResourceGroup = $.nodeResourceGroup;
         this.nodeResourceGroupId = $.nodeResourceGroupId;
         this.oidcIssuerEnabled = $.oidcIssuerEnabled;
@@ -1370,7 +1291,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.privateClusterPublicFqdnEnabled = $.privateClusterPublicFqdnEnabled;
         this.privateDnsZoneId = $.privateDnsZoneId;
         this.privateFqdn = $.privateFqdn;
-        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.roleBasedAccessControlEnabled = $.roleBasedAccessControlEnabled;
         this.runCommandEnabled = $.runCommandEnabled;
@@ -1447,43 +1367,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
-         * 
-         */
-        @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
-        public Builder apiServerAuthorizedIpRanges(@Nullable Output<List<String>> apiServerAuthorizedIpRanges) {
-            $.apiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
-         * 
-         */
-        @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
-        public Builder apiServerAuthorizedIpRanges(List<String> apiServerAuthorizedIpRanges) {
-            return apiServerAuthorizedIpRanges(Output.of(apiServerAuthorizedIpRanges));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
-         * 
-         */
-        @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
-        public Builder apiServerAuthorizedIpRanges(String... apiServerAuthorizedIpRanges) {
-            return apiServerAuthorizedIpRanges(List.of(apiServerAuthorizedIpRanges));
-        }
-
-        /**
          * @param autoScalerProfile A `auto_scaler_profile` block as defined below.
          * 
          * @return builder
@@ -1505,7 +1388,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param automaticChannelUpgrade The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+         * @param automaticUpgradeChannel The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
          * 
          * !&gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
          * 
@@ -1514,13 +1397,13 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder automaticChannelUpgrade(@Nullable Output<String> automaticChannelUpgrade) {
-            $.automaticChannelUpgrade = automaticChannelUpgrade;
+        public Builder automaticUpgradeChannel(@Nullable Output<String> automaticUpgradeChannel) {
+            $.automaticUpgradeChannel = automaticUpgradeChannel;
             return this;
         }
 
         /**
-         * @param automaticChannelUpgrade The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+         * @param automaticUpgradeChannel The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
          * 
          * !&gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
          * 
@@ -1529,8 +1412,8 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder automaticChannelUpgrade(String automaticChannelUpgrade) {
-            return automaticChannelUpgrade(Output.of(automaticChannelUpgrade));
+        public Builder automaticUpgradeChannel(String automaticUpgradeChannel) {
+            return automaticUpgradeChannel(Output.of(automaticUpgradeChannel));
         }
 
         /**
@@ -1636,43 +1519,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder currentKubernetesVersion(String currentKubernetesVersion) {
             return currentKubernetesVersion(Output.of(currentKubernetesVersion));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder customCaTrustCertificatesBase64s(@Nullable Output<List<String>> customCaTrustCertificatesBase64s) {
-            $.customCaTrustCertificatesBase64s = customCaTrustCertificatesBase64s;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder customCaTrustCertificatesBase64s(List<String> customCaTrustCertificatesBase64s) {
-            return customCaTrustCertificatesBase64s(Output.of(customCaTrustCertificatesBase64s));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-         * 
-         */
-        @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-        public Builder customCaTrustCertificatesBase64s(String... customCaTrustCertificatesBase64s) {
-            return customCaTrustCertificatesBase64s(List.of(customCaTrustCertificatesBase64s));
         }
 
         /**
@@ -1786,31 +1632,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder edgeZone(String edgeZone) {
             return edgeZone(Output.of(edgeZone));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider. */
-        public Builder enablePodSecurityPolicy(@Nullable Output<Boolean> enablePodSecurityPolicy) {
-            $.enablePodSecurityPolicy = enablePodSecurityPolicy;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider. */
-        public Builder enablePodSecurityPolicy(Boolean enablePodSecurityPolicy) {
-            return enablePodSecurityPolicy(Output.of(enablePodSecurityPolicy));
         }
 
         /**
@@ -1948,7 +1769,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -1959,7 +1780,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -2408,28 +2229,28 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param nodeOsChannelUpgrade The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+         * @param nodeOsUpgradeChannel The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
          * 
-         * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+         * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
          * 
          * @return builder
          * 
          */
-        public Builder nodeOsChannelUpgrade(@Nullable Output<String> nodeOsChannelUpgrade) {
-            $.nodeOsChannelUpgrade = nodeOsChannelUpgrade;
+        public Builder nodeOsUpgradeChannel(@Nullable Output<String> nodeOsUpgradeChannel) {
+            $.nodeOsUpgradeChannel = nodeOsUpgradeChannel;
             return this;
         }
 
         /**
-         * @param nodeOsChannelUpgrade The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+         * @param nodeOsUpgradeChannel The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
          * 
-         * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+         * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
          * 
          * @return builder
          * 
          */
-        public Builder nodeOsChannelUpgrade(String nodeOsChannelUpgrade) {
-            return nodeOsChannelUpgrade(Output.of(nodeOsChannelUpgrade));
+        public Builder nodeOsUpgradeChannel(String nodeOsUpgradeChannel) {
+            return nodeOsUpgradeChannel(Output.of(nodeOsUpgradeChannel));
         }
 
         /**
@@ -2811,31 +2632,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder privateFqdn(String privateFqdn) {
             return privateFqdn(Output.of(privateFqdn));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider. */
-        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
-            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider. */
-        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

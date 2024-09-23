@@ -78,13 +78,10 @@ namespace Pulumi.Azure.PrivateDns
     ///         Name = "example-drie",
     ///         PrivateDnsResolverId = exampleResolver.Id,
     ///         Location = exampleResolver.Location,
-    ///         IpConfigurations = new[]
+    ///         IpConfigurations = new Azure.PrivateDns.Inputs.ResolverInboundEndpointIpConfigurationsArgs
     ///         {
-    ///             new Azure.PrivateDns.Inputs.ResolverInboundEndpointIpConfigurationArgs
-    ///             {
-    ///                 PrivateIpAllocationMethod = "Dynamic",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///             },
+    ///             PrivateIpAllocationMethod = "Dynamic",
+    ///             SubnetId = exampleSubnet.Id,
     ///         },
     ///         Tags = 
     ///         {
@@ -107,10 +104,10 @@ namespace Pulumi.Azure.PrivateDns
     public partial class ResolverInboundEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+        /// One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.ResolverInboundEndpointIpConfiguration>> IpConfigurations { get; private set; } = null!;
+        public Output<Outputs.ResolverInboundEndpointIpConfigurations> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
@@ -182,17 +179,11 @@ namespace Pulumi.Azure.PrivateDns
 
     public sealed class ResolverInboundEndpointArgs : global::Pulumi.ResourceArgs
     {
-        [Input("ipConfigurations", required: true)]
-        private InputList<Inputs.ResolverInboundEndpointIpConfigurationArgs>? _ipConfigurations;
-
         /// <summary>
-        /// Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+        /// One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         /// </summary>
-        public InputList<Inputs.ResolverInboundEndpointIpConfigurationArgs> IpConfigurations
-        {
-            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.ResolverInboundEndpointIpConfigurationArgs>());
-            set => _ipConfigurations = value;
-        }
+        [Input("ipConfigurations", required: true)]
+        public Input<Inputs.ResolverInboundEndpointIpConfigurationsArgs> IpConfigurations { get; set; } = null!;
 
         /// <summary>
         /// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
@@ -232,17 +223,11 @@ namespace Pulumi.Azure.PrivateDns
 
     public sealed class ResolverInboundEndpointState : global::Pulumi.ResourceArgs
     {
-        [Input("ipConfigurations")]
-        private InputList<Inputs.ResolverInboundEndpointIpConfigurationGetArgs>? _ipConfigurations;
-
         /// <summary>
-        /// Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+        /// One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         /// </summary>
-        public InputList<Inputs.ResolverInboundEndpointIpConfigurationGetArgs> IpConfigurations
-        {
-            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.ResolverInboundEndpointIpConfigurationGetArgs>());
-            set => _ipConfigurations = value;
-        }
+        [Input("ipConfigurations")]
+        public Input<Inputs.ResolverInboundEndpointIpConfigurationsGetArgs>? IpConfigurations { get; set; }
 
         /// <summary>
         /// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.

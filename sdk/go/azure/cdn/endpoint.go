@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,13 +103,13 @@ type Endpoint struct {
 	// The host header CDN provider will send along with content requests to origins.
 	OriginHostHeader pulumi.StringPtrOutput `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
-	OriginPath pulumi.StringOutput `pulumi:"originPath"`
+	OriginPath pulumi.StringPtrOutput `pulumi:"originPath"`
 	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
 	Origins EndpointOriginArrayOutput `pulumi:"origins"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	//
 	// > **NOTE:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
-	ProbePath pulumi.StringOutput `pulumi:"probePath"`
+	ProbePath pulumi.StringPtrOutput `pulumi:"probePath"`
 	// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
 	ProfileName pulumi.StringOutput `pulumi:"profileName"`
 	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
@@ -479,8 +479,8 @@ func (o EndpointOutput) OriginHostHeader() pulumi.StringPtrOutput {
 }
 
 // The path used at for origin requests.
-func (o EndpointOutput) OriginPath() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.OriginPath }).(pulumi.StringOutput)
+func (o EndpointOutput) OriginPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.OriginPath }).(pulumi.StringPtrOutput)
 }
 
 // The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
@@ -491,8 +491,8 @@ func (o EndpointOutput) Origins() EndpointOriginArrayOutput {
 // the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 //
 // > **NOTE:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
-func (o EndpointOutput) ProbePath() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ProbePath }).(pulumi.StringOutput)
+func (o EndpointOutput) ProbePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ProbePath }).(pulumi.StringPtrOutput)
 }
 
 // The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.

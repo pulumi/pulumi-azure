@@ -24,12 +24,6 @@ namespace Pulumi.Azure.Consumption.Inputs
             set => _dimensions = value;
         }
 
-        /// <summary>
-        /// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        /// </summary>
-        [Input("not")]
-        public Input<Inputs.BudgetSubscriptionFilterNotArgs>? Not { get; set; }
-
         [Input("tags")]
         private InputList<Inputs.BudgetSubscriptionFilterTagArgs>? _tags;
 

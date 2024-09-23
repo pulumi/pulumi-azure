@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -638,7 +638,7 @@ func (o IoTHubEnrichmentArrayOutput) Index(i pulumi.IntInput) IoTHubEnrichmentOu
 type IoTHubFallbackRoute struct {
 	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 	Condition *string `pulumi:"condition"`
-	// Used to specify whether the fallback route is enabled.
+	// Used to specify whether the fallback route is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
 	EndpointNames []string `pulumi:"endpointNames"`
@@ -660,7 +660,7 @@ type IoTHubFallbackRouteInput interface {
 type IoTHubFallbackRouteArgs struct {
 	// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 	Condition pulumi.StringPtrInput `pulumi:"condition"`
-	// Used to specify whether the fallback route is enabled.
+	// Used to specify whether the fallback route is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
@@ -750,7 +750,7 @@ func (o IoTHubFallbackRouteOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
-// Used to specify whether the fallback route is enabled.
+// Used to specify whether the fallback route is enabled. Defaults to `true`.
 func (o IoTHubFallbackRouteOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -799,7 +799,7 @@ func (o IoTHubFallbackRoutePtrOutput) Condition() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used to specify whether the fallback route is enabled.
+// Used to specify whether the fallback route is enabled. Defaults to `true`.
 func (o IoTHubFallbackRoutePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IoTHubFallbackRoute) *bool {
 		if v == nil {
@@ -3612,268 +3612,6 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) VulnerableTlsCipherSuit
 	}).(pulumi.BoolPtrOutput)
 }
 
-type TimeSeriesInsightsGen2EnvironmentStorage struct {
-	// Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-	Key string `pulumi:"key"`
-	// Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-}
-
-// TimeSeriesInsightsGen2EnvironmentStorageInput is an input type that accepts TimeSeriesInsightsGen2EnvironmentStorageArgs and TimeSeriesInsightsGen2EnvironmentStorageOutput values.
-// You can construct a concrete instance of `TimeSeriesInsightsGen2EnvironmentStorageInput` via:
-//
-//	TimeSeriesInsightsGen2EnvironmentStorageArgs{...}
-type TimeSeriesInsightsGen2EnvironmentStorageInput interface {
-	pulumi.Input
-
-	ToTimeSeriesInsightsGen2EnvironmentStorageOutput() TimeSeriesInsightsGen2EnvironmentStorageOutput
-	ToTimeSeriesInsightsGen2EnvironmentStorageOutputWithContext(context.Context) TimeSeriesInsightsGen2EnvironmentStorageOutput
-}
-
-type TimeSeriesInsightsGen2EnvironmentStorageArgs struct {
-	// Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-	Key pulumi.StringInput `pulumi:"key"`
-	// Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (TimeSeriesInsightsGen2EnvironmentStorageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentStorage)(nil)).Elem()
-}
-
-func (i TimeSeriesInsightsGen2EnvironmentStorageArgs) ToTimeSeriesInsightsGen2EnvironmentStorageOutput() TimeSeriesInsightsGen2EnvironmentStorageOutput {
-	return i.ToTimeSeriesInsightsGen2EnvironmentStorageOutputWithContext(context.Background())
-}
-
-func (i TimeSeriesInsightsGen2EnvironmentStorageArgs) ToTimeSeriesInsightsGen2EnvironmentStorageOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStorageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentStorageOutput)
-}
-
-func (i TimeSeriesInsightsGen2EnvironmentStorageArgs) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutput() TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return i.ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(context.Background())
-}
-
-func (i TimeSeriesInsightsGen2EnvironmentStorageArgs) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentStorageOutput).ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx)
-}
-
-// TimeSeriesInsightsGen2EnvironmentStoragePtrInput is an input type that accepts TimeSeriesInsightsGen2EnvironmentStorageArgs, TimeSeriesInsightsGen2EnvironmentStoragePtr and TimeSeriesInsightsGen2EnvironmentStoragePtrOutput values.
-// You can construct a concrete instance of `TimeSeriesInsightsGen2EnvironmentStoragePtrInput` via:
-//
-//	        TimeSeriesInsightsGen2EnvironmentStorageArgs{...}
-//
-//	or:
-//
-//	        nil
-type TimeSeriesInsightsGen2EnvironmentStoragePtrInput interface {
-	pulumi.Input
-
-	ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutput() TimeSeriesInsightsGen2EnvironmentStoragePtrOutput
-	ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput
-}
-
-type timeSeriesInsightsGen2EnvironmentStoragePtrType TimeSeriesInsightsGen2EnvironmentStorageArgs
-
-func TimeSeriesInsightsGen2EnvironmentStoragePtr(v *TimeSeriesInsightsGen2EnvironmentStorageArgs) TimeSeriesInsightsGen2EnvironmentStoragePtrInput {
-	return (*timeSeriesInsightsGen2EnvironmentStoragePtrType)(v)
-}
-
-func (*timeSeriesInsightsGen2EnvironmentStoragePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeSeriesInsightsGen2EnvironmentStorage)(nil)).Elem()
-}
-
-func (i *timeSeriesInsightsGen2EnvironmentStoragePtrType) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutput() TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return i.ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *timeSeriesInsightsGen2EnvironmentStoragePtrType) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentStoragePtrOutput)
-}
-
-type TimeSeriesInsightsGen2EnvironmentStorageOutput struct{ *pulumi.OutputState }
-
-func (TimeSeriesInsightsGen2EnvironmentStorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentStorage)(nil)).Elem()
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) ToTimeSeriesInsightsGen2EnvironmentStorageOutput() TimeSeriesInsightsGen2EnvironmentStorageOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) ToTimeSeriesInsightsGen2EnvironmentStorageOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStorageOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutput() TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return o.ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(context.Background())
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeSeriesInsightsGen2EnvironmentStorage) *TimeSeriesInsightsGen2EnvironmentStorage {
-		return &v
-	}).(TimeSeriesInsightsGen2EnvironmentStoragePtrOutput)
-}
-
-// Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v TimeSeriesInsightsGen2EnvironmentStorage) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
-func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TimeSeriesInsightsGen2EnvironmentStorage) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type TimeSeriesInsightsGen2EnvironmentStoragePtrOutput struct{ *pulumi.OutputState }
-
-func (TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeSeriesInsightsGen2EnvironmentStorage)(nil)).Elem()
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutput() TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) Elem() TimeSeriesInsightsGen2EnvironmentStorageOutput {
-	return o.ApplyT(func(v *TimeSeriesInsightsGen2EnvironmentStorage) TimeSeriesInsightsGen2EnvironmentStorage {
-		if v != nil {
-			return *v
-		}
-		var ret TimeSeriesInsightsGen2EnvironmentStorage
-		return ret
-	}).(TimeSeriesInsightsGen2EnvironmentStorageOutput)
-}
-
-// Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TimeSeriesInsightsGen2EnvironmentStorage) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Key
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
-func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TimeSeriesInsightsGen2EnvironmentStorage) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-type TimeSeriesInsightsReferenceDataSetKeyProperty struct {
-	// The name of the key property. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	// The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
-	Type string `pulumi:"type"`
-}
-
-// TimeSeriesInsightsReferenceDataSetKeyPropertyInput is an input type that accepts TimeSeriesInsightsReferenceDataSetKeyPropertyArgs and TimeSeriesInsightsReferenceDataSetKeyPropertyOutput values.
-// You can construct a concrete instance of `TimeSeriesInsightsReferenceDataSetKeyPropertyInput` via:
-//
-//	TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{...}
-type TimeSeriesInsightsReferenceDataSetKeyPropertyInput interface {
-	pulumi.Input
-
-	ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyOutput
-	ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutputWithContext(context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyOutput
-}
-
-type TimeSeriesInsightsReferenceDataSetKeyPropertyArgs struct {
-	// The name of the key property. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TimeSeriesInsightsReferenceDataSetKeyPropertyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyProperty)(nil)).Elem()
-}
-
-func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArgs) ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
-	return i.ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutputWithContext(context.Background())
-}
-
-func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArgs) ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsReferenceDataSetKeyPropertyOutput)
-}
-
-// TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput is an input type that accepts TimeSeriesInsightsReferenceDataSetKeyPropertyArray and TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput values.
-// You can construct a concrete instance of `TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput` via:
-//
-//	TimeSeriesInsightsReferenceDataSetKeyPropertyArray{ TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{...} }
-type TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput interface {
-	pulumi.Input
-
-	ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput
-	ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutputWithContext(context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput
-}
-
-type TimeSeriesInsightsReferenceDataSetKeyPropertyArray []TimeSeriesInsightsReferenceDataSetKeyPropertyInput
-
-func (TimeSeriesInsightsReferenceDataSetKeyPropertyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TimeSeriesInsightsReferenceDataSetKeyProperty)(nil)).Elem()
-}
-
-func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArray) ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput {
-	return i.ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutputWithContext(context.Background())
-}
-
-func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArray) ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput)
-}
-
-type TimeSeriesInsightsReferenceDataSetKeyPropertyOutput struct{ *pulumi.OutputState }
-
-func (TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyProperty)(nil)).Elem()
-}
-
-func (o TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
-	return o
-}
-
-// The name of the key property. Changing this forces a new resource to be created.
-func (o TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TimeSeriesInsightsReferenceDataSetKeyProperty) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
-func (o TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TimeSeriesInsightsReferenceDataSetKeyProperty) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput struct{ *pulumi.OutputState }
-
-func (TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TimeSeriesInsightsReferenceDataSetKeyProperty)(nil)).Elem()
-}
-
-func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) Index(i pulumi.IntInput) TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeSeriesInsightsReferenceDataSetKeyProperty {
-		return vs[0].([]TimeSeriesInsightsReferenceDataSetKeyProperty)[vs[1].(int)]
-	}).(TimeSeriesInsightsReferenceDataSetKeyPropertyOutput)
-}
-
 type GetIotHubIdentity struct {
 	// The list of User Managed Identity IDs which are assigned to the Virtual Machine.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -4041,10 +3779,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionAdditionalWorkspaceArrayInput)(nil)).Elem(), SecuritySolutionAdditionalWorkspaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionRecommendationsEnabledInput)(nil)).Elem(), SecuritySolutionRecommendationsEnabledArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionRecommendationsEnabledPtrInput)(nil)).Elem(), SecuritySolutionRecommendationsEnabledArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentStorageInput)(nil)).Elem(), TimeSeriesInsightsGen2EnvironmentStorageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentStoragePtrInput)(nil)).Elem(), TimeSeriesInsightsGen2EnvironmentStorageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyPropertyInput)(nil)).Elem(), TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput)(nil)).Elem(), TimeSeriesInsightsReferenceDataSetKeyPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIotHubIdentityInput)(nil)).Elem(), GetIotHubIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIotHubIdentityArrayInput)(nil)).Elem(), GetIotHubIdentityArray{})
 	pulumi.RegisterOutputType(IoTHubCloudToDeviceOutput{})
@@ -4089,10 +3823,6 @@ func init() {
 	pulumi.RegisterOutputType(SecuritySolutionAdditionalWorkspaceArrayOutput{})
 	pulumi.RegisterOutputType(SecuritySolutionRecommendationsEnabledOutput{})
 	pulumi.RegisterOutputType(SecuritySolutionRecommendationsEnabledPtrOutput{})
-	pulumi.RegisterOutputType(TimeSeriesInsightsGen2EnvironmentStorageOutput{})
-	pulumi.RegisterOutputType(TimeSeriesInsightsGen2EnvironmentStoragePtrOutput{})
-	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetKeyPropertyOutput{})
-	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetIotHubIdentityOutput{})
 	pulumi.RegisterOutputType(GetIotHubIdentityArrayOutput{})
 }

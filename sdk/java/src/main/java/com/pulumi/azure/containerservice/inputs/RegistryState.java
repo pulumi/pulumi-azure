@@ -7,11 +7,10 @@ import com.pulumi.azure.containerservice.inputs.RegistryEncryptionArgs;
 import com.pulumi.azure.containerservice.inputs.RegistryGeoreplicationArgs;
 import com.pulumi.azure.containerservice.inputs.RegistryIdentityArgs;
 import com.pulumi.azure.containerservice.inputs.RegistryNetworkRuleSetArgs;
-import com.pulumi.azure.containerservice.inputs.RegistryRetentionPolicyArgs;
-import com.pulumi.azure.containerservice.inputs.RegistryTrustPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -117,7 +116,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
      * 
-     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     @Import(name="exportPolicyEnabled")
@@ -126,7 +125,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
      * 
-     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     public Optional<Output<Boolean>> exportPolicyEnabled() {
@@ -296,18 +295,18 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `retention_policy` block as documented below.
+     * The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
      * 
      */
-    @Import(name="retentionPolicy")
-    private @Nullable Output<RegistryRetentionPolicyArgs> retentionPolicy;
+    @Import(name="retentionPolicyInDays")
+    private @Nullable Output<Integer> retentionPolicyInDays;
 
     /**
-     * @return A `retention_policy` block as documented below.
+     * @return The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
      * 
      */
-    public Optional<Output<RegistryRetentionPolicyArgs>> retentionPolicy() {
-        return Optional.ofNullable(this.retentionPolicy);
+    public Optional<Output<Integer>> retentionPolicyInDays() {
+        return Optional.ofNullable(this.retentionPolicyInDays);
     }
 
     /**
@@ -341,18 +340,18 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `trust_policy` block as documented below.
+     * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
      * 
      */
-    @Import(name="trustPolicy")
-    private @Nullable Output<RegistryTrustPolicyArgs> trustPolicy;
+    @Import(name="trustPolicyEnabled")
+    private @Nullable Output<Boolean> trustPolicyEnabled;
 
     /**
-     * @return A `trust_policy` block as documented below.
+     * @return Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
      * 
      */
-    public Optional<Output<RegistryTrustPolicyArgs>> trustPolicy() {
-        return Optional.ofNullable(this.trustPolicy);
+    public Optional<Output<Boolean>> trustPolicyEnabled() {
+        return Optional.ofNullable(this.trustPolicyEnabled);
     }
 
     /**
@@ -390,10 +389,10 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.quarantinePolicyEnabled = $.quarantinePolicyEnabled;
         this.resourceGroupName = $.resourceGroupName;
-        this.retentionPolicy = $.retentionPolicy;
+        this.retentionPolicyInDays = $.retentionPolicyInDays;
         this.sku = $.sku;
         this.tags = $.tags;
-        this.trustPolicy = $.trustPolicy;
+        this.trustPolicyEnabled = $.trustPolicyEnabled;
         this.zoneRedundancyEnabled = $.zoneRedundancyEnabled;
     }
 
@@ -544,7 +543,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param exportPolicyEnabled Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
          * 
-         * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+         * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
          * 
          * @return builder
          * 
@@ -557,7 +556,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param exportPolicyEnabled Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
          * 
-         * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+         * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
          * 
          * @return builder
          * 
@@ -805,24 +804,24 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as documented below.
+         * @param retentionPolicyInDays The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
          * 
          * @return builder
          * 
          */
-        public Builder retentionPolicy(@Nullable Output<RegistryRetentionPolicyArgs> retentionPolicy) {
-            $.retentionPolicy = retentionPolicy;
+        public Builder retentionPolicyInDays(@Nullable Output<Integer> retentionPolicyInDays) {
+            $.retentionPolicyInDays = retentionPolicyInDays;
             return this;
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as documented below.
+         * @param retentionPolicyInDays The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
          * 
          * @return builder
          * 
          */
-        public Builder retentionPolicy(RegistryRetentionPolicyArgs retentionPolicy) {
-            return retentionPolicy(Output.of(retentionPolicy));
+        public Builder retentionPolicyInDays(Integer retentionPolicyInDays) {
+            return retentionPolicyInDays(Output.of(retentionPolicyInDays));
         }
 
         /**
@@ -868,24 +867,24 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustPolicy A `trust_policy` block as documented below.
+         * @param trustPolicyEnabled Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
          * 
          * @return builder
          * 
          */
-        public Builder trustPolicy(@Nullable Output<RegistryTrustPolicyArgs> trustPolicy) {
-            $.trustPolicy = trustPolicy;
+        public Builder trustPolicyEnabled(@Nullable Output<Boolean> trustPolicyEnabled) {
+            $.trustPolicyEnabled = trustPolicyEnabled;
             return this;
         }
 
         /**
-         * @param trustPolicy A `trust_policy` block as documented below.
+         * @param trustPolicyEnabled Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
          * 
          * @return builder
          * 
          */
-        public Builder trustPolicy(RegistryTrustPolicyArgs trustPolicy) {
-            return trustPolicy(Output.of(trustPolicy));
+        public Builder trustPolicyEnabled(Boolean trustPolicyEnabled) {
+            return trustPolicyEnabled(Output.of(trustPolicyEnabled));
         }
 
         /**

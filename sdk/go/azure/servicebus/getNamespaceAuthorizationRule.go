@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,14 +56,8 @@ type LookupNamespaceAuthorizationRuleArgs struct {
 	Name string `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// Specifies the name of the ServiceBus Namespace.
-	//
 	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
-	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-	//
-	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
-	//
 	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
@@ -111,14 +105,8 @@ type LookupNamespaceAuthorizationRuleOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
 	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
-	// Specifies the name of the ServiceBus Namespace.
-	//
 	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
-	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-	//
-	// > **Note:** `namespaceName` and `resourceGroupName` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespaceId`.
-	//
 	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
 //	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -76,7 +76,7 @@ import (
 //
 // ## Import
 //
-// An existing Private Link Association can be imported into Terraform using the `resource id`, e.g.
+// An existing Private Link Association can be imported into Pulumi using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:management/privateLinkAssociation:PrivateLinkAssociation example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/privateLinkAssociations/00000000-0000-0000-0000-000000000000
@@ -94,7 +94,7 @@ type PrivateLinkAssociation struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -170,7 +170,7 @@ type privateLinkAssociationState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -208,7 +208,7 @@ type PrivateLinkAssociationState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -250,7 +250,7 @@ type privateLinkAssociationArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -287,7 +287,7 @@ type PrivateLinkAssociationArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -413,7 +413,7 @@ func (o PrivateLinkAssociationOutput) ManagementGroupId() pulumi.StringOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

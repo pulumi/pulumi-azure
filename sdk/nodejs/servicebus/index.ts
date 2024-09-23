@@ -60,11 +60,6 @@ export type NamespaceDisasterRecoveryConfig = import("./namespaceDisasterRecover
 export const NamespaceDisasterRecoveryConfig: typeof import("./namespaceDisasterRecoveryConfig").NamespaceDisasterRecoveryConfig = null as any;
 utilities.lazyLoad(exports, ["NamespaceDisasterRecoveryConfig"], () => require("./namespaceDisasterRecoveryConfig"));
 
-export { NamespaceNetworkRuleSetArgs, NamespaceNetworkRuleSetState } from "./namespaceNetworkRuleSet";
-export type NamespaceNetworkRuleSet = import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet;
-export const NamespaceNetworkRuleSet: typeof import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet = null as any;
-utilities.lazyLoad(exports, ["NamespaceNetworkRuleSet"], () => require("./namespaceNetworkRuleSet"));
-
 export { QueueArgs, QueueState } from "./queue";
 export type Queue = import("./queue").Queue;
 export const Queue: typeof import("./queue").Queue = null as any;
@@ -107,8 +102,6 @@ const _module = {
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
             case "azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig":
                 return new NamespaceDisasterRecoveryConfig(name, <any>undefined, { urn })
-            case "azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet":
-                return new NamespaceNetworkRuleSet(name, <any>undefined, { urn })
             case "azure:servicebus/queue:Queue":
                 return new Queue(name, <any>undefined, { urn })
             case "azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule":
@@ -129,7 +122,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "servicebus/namespace", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/namespaceAuthorizationRule", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/namespaceDisasterRecoveryConfig", _module)
-pulumi.runtime.registerResourceModule("azure", "servicebus/namespaceNetworkRuleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/queue", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/queueAuthorizationRule", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/subscription", _module)

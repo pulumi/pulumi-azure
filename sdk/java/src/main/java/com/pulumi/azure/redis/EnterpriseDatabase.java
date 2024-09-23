@@ -70,7 +70,6 @@ import javax.annotation.Nullable;
  * 
  *         var exampleEnterpriseDatabase = new EnterpriseDatabase("exampleEnterpriseDatabase", EnterpriseDatabaseArgs.builder()
  *             .name("default")
- *             .resourceGroupName(example.name())
  *             .clusterId(exampleEnterpriseCluster.id())
  *             .clientProtocol("Encrypted")
  *             .clusteringPolicy("EnterpriseCluster")
@@ -246,24 +245,6 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      */
     public Output<String> primaryAccessKey() {
         return this.primaryAccessKey;
-    }
-    /**
-     * The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-     * 
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
-    private Output<String> resourceGroupName;
-
-    /**
-     * @return The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
-     * 
-     */
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
     }
     /**
      * The Secondary Access Key for the Redis Enterprise Database Instance.

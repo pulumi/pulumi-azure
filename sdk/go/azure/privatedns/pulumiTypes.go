@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -364,7 +364,7 @@ func (o ResolverForwardingRuleTargetDnsServerArrayOutput) Index(i pulumi.IntInpu
 	}).(ResolverForwardingRuleTargetDnsServerOutput)
 }
 
-type ResolverInboundEndpointIpConfiguration struct {
+type ResolverInboundEndpointIpConfigurations struct {
 	// Private IP address of the IP configuration.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
@@ -373,18 +373,18 @@ type ResolverInboundEndpointIpConfiguration struct {
 	SubnetId string `pulumi:"subnetId"`
 }
 
-// ResolverInboundEndpointIpConfigurationInput is an input type that accepts ResolverInboundEndpointIpConfigurationArgs and ResolverInboundEndpointIpConfigurationOutput values.
-// You can construct a concrete instance of `ResolverInboundEndpointIpConfigurationInput` via:
+// ResolverInboundEndpointIpConfigurationsInput is an input type that accepts ResolverInboundEndpointIpConfigurationsArgs and ResolverInboundEndpointIpConfigurationsOutput values.
+// You can construct a concrete instance of `ResolverInboundEndpointIpConfigurationsInput` via:
 //
-//	ResolverInboundEndpointIpConfigurationArgs{...}
-type ResolverInboundEndpointIpConfigurationInput interface {
+//	ResolverInboundEndpointIpConfigurationsArgs{...}
+type ResolverInboundEndpointIpConfigurationsInput interface {
 	pulumi.Input
 
-	ToResolverInboundEndpointIpConfigurationOutput() ResolverInboundEndpointIpConfigurationOutput
-	ToResolverInboundEndpointIpConfigurationOutputWithContext(context.Context) ResolverInboundEndpointIpConfigurationOutput
+	ToResolverInboundEndpointIpConfigurationsOutput() ResolverInboundEndpointIpConfigurationsOutput
+	ToResolverInboundEndpointIpConfigurationsOutputWithContext(context.Context) ResolverInboundEndpointIpConfigurationsOutput
 }
 
-type ResolverInboundEndpointIpConfigurationArgs struct {
+type ResolverInboundEndpointIpConfigurationsArgs struct {
 	// Private IP address of the IP configuration.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
@@ -393,90 +393,150 @@ type ResolverInboundEndpointIpConfigurationArgs struct {
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
-func (ResolverInboundEndpointIpConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverInboundEndpointIpConfiguration)(nil)).Elem()
+func (ResolverInboundEndpointIpConfigurationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverInboundEndpointIpConfigurations)(nil)).Elem()
 }
 
-func (i ResolverInboundEndpointIpConfigurationArgs) ToResolverInboundEndpointIpConfigurationOutput() ResolverInboundEndpointIpConfigurationOutput {
-	return i.ToResolverInboundEndpointIpConfigurationOutputWithContext(context.Background())
+func (i ResolverInboundEndpointIpConfigurationsArgs) ToResolverInboundEndpointIpConfigurationsOutput() ResolverInboundEndpointIpConfigurationsOutput {
+	return i.ToResolverInboundEndpointIpConfigurationsOutputWithContext(context.Background())
 }
 
-func (i ResolverInboundEndpointIpConfigurationArgs) ToResolverInboundEndpointIpConfigurationOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverInboundEndpointIpConfigurationOutput)
+func (i ResolverInboundEndpointIpConfigurationsArgs) ToResolverInboundEndpointIpConfigurationsOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverInboundEndpointIpConfigurationsOutput)
 }
 
-// ResolverInboundEndpointIpConfigurationArrayInput is an input type that accepts ResolverInboundEndpointIpConfigurationArray and ResolverInboundEndpointIpConfigurationArrayOutput values.
-// You can construct a concrete instance of `ResolverInboundEndpointIpConfigurationArrayInput` via:
+func (i ResolverInboundEndpointIpConfigurationsArgs) ToResolverInboundEndpointIpConfigurationsPtrOutput() ResolverInboundEndpointIpConfigurationsPtrOutput {
+	return i.ToResolverInboundEndpointIpConfigurationsPtrOutputWithContext(context.Background())
+}
+
+func (i ResolverInboundEndpointIpConfigurationsArgs) ToResolverInboundEndpointIpConfigurationsPtrOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverInboundEndpointIpConfigurationsOutput).ToResolverInboundEndpointIpConfigurationsPtrOutputWithContext(ctx)
+}
+
+// ResolverInboundEndpointIpConfigurationsPtrInput is an input type that accepts ResolverInboundEndpointIpConfigurationsArgs, ResolverInboundEndpointIpConfigurationsPtr and ResolverInboundEndpointIpConfigurationsPtrOutput values.
+// You can construct a concrete instance of `ResolverInboundEndpointIpConfigurationsPtrInput` via:
 //
-//	ResolverInboundEndpointIpConfigurationArray{ ResolverInboundEndpointIpConfigurationArgs{...} }
-type ResolverInboundEndpointIpConfigurationArrayInput interface {
+//	        ResolverInboundEndpointIpConfigurationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResolverInboundEndpointIpConfigurationsPtrInput interface {
 	pulumi.Input
 
-	ToResolverInboundEndpointIpConfigurationArrayOutput() ResolverInboundEndpointIpConfigurationArrayOutput
-	ToResolverInboundEndpointIpConfigurationArrayOutputWithContext(context.Context) ResolverInboundEndpointIpConfigurationArrayOutput
+	ToResolverInboundEndpointIpConfigurationsPtrOutput() ResolverInboundEndpointIpConfigurationsPtrOutput
+	ToResolverInboundEndpointIpConfigurationsPtrOutputWithContext(context.Context) ResolverInboundEndpointIpConfigurationsPtrOutput
 }
 
-type ResolverInboundEndpointIpConfigurationArray []ResolverInboundEndpointIpConfigurationInput
+type resolverInboundEndpointIpConfigurationsPtrType ResolverInboundEndpointIpConfigurationsArgs
 
-func (ResolverInboundEndpointIpConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResolverInboundEndpointIpConfiguration)(nil)).Elem()
+func ResolverInboundEndpointIpConfigurationsPtr(v *ResolverInboundEndpointIpConfigurationsArgs) ResolverInboundEndpointIpConfigurationsPtrInput {
+	return (*resolverInboundEndpointIpConfigurationsPtrType)(v)
 }
 
-func (i ResolverInboundEndpointIpConfigurationArray) ToResolverInboundEndpointIpConfigurationArrayOutput() ResolverInboundEndpointIpConfigurationArrayOutput {
-	return i.ToResolverInboundEndpointIpConfigurationArrayOutputWithContext(context.Background())
+func (*resolverInboundEndpointIpConfigurationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverInboundEndpointIpConfigurations)(nil)).Elem()
 }
 
-func (i ResolverInboundEndpointIpConfigurationArray) ToResolverInboundEndpointIpConfigurationArrayOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverInboundEndpointIpConfigurationArrayOutput)
+func (i *resolverInboundEndpointIpConfigurationsPtrType) ToResolverInboundEndpointIpConfigurationsPtrOutput() ResolverInboundEndpointIpConfigurationsPtrOutput {
+	return i.ToResolverInboundEndpointIpConfigurationsPtrOutputWithContext(context.Background())
 }
 
-type ResolverInboundEndpointIpConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ResolverInboundEndpointIpConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverInboundEndpointIpConfiguration)(nil)).Elem()
+func (i *resolverInboundEndpointIpConfigurationsPtrType) ToResolverInboundEndpointIpConfigurationsPtrOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverInboundEndpointIpConfigurationsPtrOutput)
 }
 
-func (o ResolverInboundEndpointIpConfigurationOutput) ToResolverInboundEndpointIpConfigurationOutput() ResolverInboundEndpointIpConfigurationOutput {
+type ResolverInboundEndpointIpConfigurationsOutput struct{ *pulumi.OutputState }
+
+func (ResolverInboundEndpointIpConfigurationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverInboundEndpointIpConfigurations)(nil)).Elem()
+}
+
+func (o ResolverInboundEndpointIpConfigurationsOutput) ToResolverInboundEndpointIpConfigurationsOutput() ResolverInboundEndpointIpConfigurationsOutput {
 	return o
 }
 
-func (o ResolverInboundEndpointIpConfigurationOutput) ToResolverInboundEndpointIpConfigurationOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationOutput {
+func (o ResolverInboundEndpointIpConfigurationsOutput) ToResolverInboundEndpointIpConfigurationsOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationsOutput {
 	return o
+}
+
+func (o ResolverInboundEndpointIpConfigurationsOutput) ToResolverInboundEndpointIpConfigurationsPtrOutput() ResolverInboundEndpointIpConfigurationsPtrOutput {
+	return o.ToResolverInboundEndpointIpConfigurationsPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverInboundEndpointIpConfigurationsOutput) ToResolverInboundEndpointIpConfigurationsPtrOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverInboundEndpointIpConfigurations) *ResolverInboundEndpointIpConfigurations {
+		return &v
+	}).(ResolverInboundEndpointIpConfigurationsPtrOutput)
 }
 
 // Private IP address of the IP configuration.
-func (o ResolverInboundEndpointIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResolverInboundEndpointIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+func (o ResolverInboundEndpointIpConfigurationsOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverInboundEndpointIpConfigurations) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
-func (o ResolverInboundEndpointIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResolverInboundEndpointIpConfiguration) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
+func (o ResolverInboundEndpointIpConfigurationsOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverInboundEndpointIpConfigurations) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
 }
 
 // The subnet ID of the IP configuration.
-func (o ResolverInboundEndpointIpConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v ResolverInboundEndpointIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o ResolverInboundEndpointIpConfigurationsOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverInboundEndpointIpConfigurations) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-type ResolverInboundEndpointIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+type ResolverInboundEndpointIpConfigurationsPtrOutput struct{ *pulumi.OutputState }
 
-func (ResolverInboundEndpointIpConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResolverInboundEndpointIpConfiguration)(nil)).Elem()
+func (ResolverInboundEndpointIpConfigurationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverInboundEndpointIpConfigurations)(nil)).Elem()
 }
 
-func (o ResolverInboundEndpointIpConfigurationArrayOutput) ToResolverInboundEndpointIpConfigurationArrayOutput() ResolverInboundEndpointIpConfigurationArrayOutput {
+func (o ResolverInboundEndpointIpConfigurationsPtrOutput) ToResolverInboundEndpointIpConfigurationsPtrOutput() ResolverInboundEndpointIpConfigurationsPtrOutput {
 	return o
 }
 
-func (o ResolverInboundEndpointIpConfigurationArrayOutput) ToResolverInboundEndpointIpConfigurationArrayOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationArrayOutput {
+func (o ResolverInboundEndpointIpConfigurationsPtrOutput) ToResolverInboundEndpointIpConfigurationsPtrOutputWithContext(ctx context.Context) ResolverInboundEndpointIpConfigurationsPtrOutput {
 	return o
 }
 
-func (o ResolverInboundEndpointIpConfigurationArrayOutput) Index(i pulumi.IntInput) ResolverInboundEndpointIpConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverInboundEndpointIpConfiguration {
-		return vs[0].([]ResolverInboundEndpointIpConfiguration)[vs[1].(int)]
-	}).(ResolverInboundEndpointIpConfigurationOutput)
+func (o ResolverInboundEndpointIpConfigurationsPtrOutput) Elem() ResolverInboundEndpointIpConfigurationsOutput {
+	return o.ApplyT(func(v *ResolverInboundEndpointIpConfigurations) ResolverInboundEndpointIpConfigurations {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverInboundEndpointIpConfigurations
+		return ret
+	}).(ResolverInboundEndpointIpConfigurationsOutput)
+}
+
+// Private IP address of the IP configuration.
+func (o ResolverInboundEndpointIpConfigurationsPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverInboundEndpointIpConfigurations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+func (o ResolverInboundEndpointIpConfigurationsPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverInboundEndpointIpConfigurations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subnet ID of the IP configuration.
+func (o ResolverInboundEndpointIpConfigurationsPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverInboundEndpointIpConfigurations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
 }
 
 type SRVRecordRecord struct {
@@ -1563,8 +1623,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MxRecordRecordArrayInput)(nil)).Elem(), MxRecordRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverForwardingRuleTargetDnsServerInput)(nil)).Elem(), ResolverForwardingRuleTargetDnsServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverForwardingRuleTargetDnsServerArrayInput)(nil)).Elem(), ResolverForwardingRuleTargetDnsServerArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverInboundEndpointIpConfigurationInput)(nil)).Elem(), ResolverInboundEndpointIpConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverInboundEndpointIpConfigurationArrayInput)(nil)).Elem(), ResolverInboundEndpointIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverInboundEndpointIpConfigurationsInput)(nil)).Elem(), ResolverInboundEndpointIpConfigurationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverInboundEndpointIpConfigurationsPtrInput)(nil)).Elem(), ResolverInboundEndpointIpConfigurationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SRVRecordRecordInput)(nil)).Elem(), SRVRecordRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SRVRecordRecordArrayInput)(nil)).Elem(), SRVRecordRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TxtRecordRecordInput)(nil)).Elem(), TxtRecordRecordArgs{})
@@ -1587,8 +1647,8 @@ func init() {
 	pulumi.RegisterOutputType(MxRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(ResolverForwardingRuleTargetDnsServerOutput{})
 	pulumi.RegisterOutputType(ResolverForwardingRuleTargetDnsServerArrayOutput{})
-	pulumi.RegisterOutputType(ResolverInboundEndpointIpConfigurationOutput{})
-	pulumi.RegisterOutputType(ResolverInboundEndpointIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ResolverInboundEndpointIpConfigurationsOutput{})
+	pulumi.RegisterOutputType(ResolverInboundEndpointIpConfigurationsPtrOutput{})
 	pulumi.RegisterOutputType(SRVRecordRecordOutput{})
 	pulumi.RegisterOutputType(SRVRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(TxtRecordRecordOutput{})

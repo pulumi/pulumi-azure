@@ -18,6 +18,12 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("requests")]
         public Input<Inputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs>? Requests { get; set; }
 
+        /// <summary>
+        /// A `slow_request` block as defined above.
+        /// </summary>
+        [Input("slowRequest")]
+        public Input<Inputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs>? SlowRequest { get; set; }
+
         [Input("slowRequestWithPaths")]
         private InputList<Inputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>? _slowRequestWithPaths;
 
@@ -28,18 +34,6 @@ namespace Pulumi.Azure.AppService.Inputs
         {
             get => _slowRequestWithPaths ?? (_slowRequestWithPaths = new InputList<Inputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>());
             set => _slowRequestWithPaths = value;
-        }
-
-        [Input("slowRequests")]
-        private InputList<Inputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs>? _slowRequests;
-
-        /// <summary>
-        /// A `slow_request` block as defined above.
-        /// </summary>
-        public InputList<Inputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs> SlowRequests
-        {
-            get => _slowRequests ?? (_slowRequests = new InputList<Inputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs>());
-            set => _slowRequests = value;
         }
 
         [Input("statusCodes")]

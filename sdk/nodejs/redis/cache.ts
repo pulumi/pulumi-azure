@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     capacity: 2,
  *     family: "C",
  *     skuName: "Standard",
- *     enableNonSslPort: false,
+ *     nonSslPortEnabled: false,
  *     minimumTlsVersion: "1.2",
  *     redisConfiguration: {},
  * });
@@ -79,15 +79,13 @@ export class Cache extends pulumi.CustomResource {
     }
 
     /**
+     * Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
+     */
+    public readonly accessKeysAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      */
     public readonly capacity!: pulumi.Output<number>;
-    /**
-     * Enable the non-SSL port (6379) - disabled by default.
-     *
-     * @deprecated `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-     */
-    public readonly enableNonSslPort!: pulumi.Output<boolean | undefined>;
     /**
      * The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      */
@@ -112,7 +110,10 @@ export class Cache extends pulumi.CustomResource {
      * The name of the Redis instance. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly nonSslPortEnabled!: pulumi.Output<boolean>;
+    /**
+     * Enable the non-SSL port (6379) - disabled by default.
+     */
+    public readonly nonSslPortEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A list of `patchSchedule` blocks as defined below.
      */
@@ -142,9 +143,9 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly redisConfiguration!: pulumi.Output<outputs.redis.CacheRedisConfiguration>;
     /**
-     * Redis version. Only major version needed. Valid values: `4`, `6`.
+     * Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
      */
-    public readonly redisVersion!: pulumi.Output<string>;
+    public readonly redisVersion!: pulumi.Output<string | undefined>;
     /**
      * Amount of replicas to create per master for this Redis Cache.
      *
@@ -213,8 +214,8 @@ export class Cache extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheState | undefined;
+            resourceInputs["accessKeysAuthenticationEnabled"] = state ? state.accessKeysAuthenticationEnabled : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["enableNonSslPort"] = state ? state.enableNonSslPort : undefined;
             resourceInputs["family"] = state ? state.family : undefined;
             resourceInputs["hostname"] = state ? state.hostname : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -256,8 +257,8 @@ export class Cache extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
+            resourceInputs["accessKeysAuthenticationEnabled"] = args ? args.accessKeysAuthenticationEnabled : undefined;
             resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["enableNonSslPort"] = args ? args.enableNonSslPort : undefined;
             resourceInputs["family"] = args ? args.family : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -298,15 +299,13 @@ export class Cache extends pulumi.CustomResource {
  */
 export interface CacheState {
     /**
+     * Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
+     */
+    accessKeysAuthenticationEnabled?: pulumi.Input<boolean>;
+    /**
      * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      */
     capacity?: pulumi.Input<number>;
-    /**
-     * Enable the non-SSL port (6379) - disabled by default.
-     *
-     * @deprecated `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-     */
-    enableNonSslPort?: pulumi.Input<boolean>;
     /**
      * The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      */
@@ -331,6 +330,9 @@ export interface CacheState {
      * The name of the Redis instance. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Enable the non-SSL port (6379) - disabled by default.
+     */
     nonSslPortEnabled?: pulumi.Input<boolean>;
     /**
      * A list of `patchSchedule` blocks as defined below.
@@ -361,7 +363,7 @@ export interface CacheState {
      */
     redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration>;
     /**
-     * Redis version. Only major version needed. Valid values: `4`, `6`.
+     * Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
      */
     redisVersion?: pulumi.Input<string>;
     /**
@@ -425,15 +427,13 @@ export interface CacheState {
  */
 export interface CacheArgs {
     /**
+     * Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
+     */
+    accessKeysAuthenticationEnabled?: pulumi.Input<boolean>;
+    /**
      * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      */
     capacity: pulumi.Input<number>;
-    /**
-     * Enable the non-SSL port (6379) - disabled by default.
-     *
-     * @deprecated `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
-     */
-    enableNonSslPort?: pulumi.Input<boolean>;
     /**
      * The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      */
@@ -454,6 +454,9 @@ export interface CacheArgs {
      * The name of the Redis instance. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Enable the non-SSL port (6379) - disabled by default.
+     */
     nonSslPortEnabled?: pulumi.Input<boolean>;
     /**
      * A list of `patchSchedule` blocks as defined below.
@@ -472,7 +475,7 @@ export interface CacheArgs {
      */
     redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration>;
     /**
-     * Redis version. Only major version needed. Valid values: `4`, `6`.
+     * Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
      */
     redisVersion?: pulumi.Input<string>;
     /**

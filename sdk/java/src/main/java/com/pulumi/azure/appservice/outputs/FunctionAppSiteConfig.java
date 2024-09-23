@@ -45,7 +45,7 @@ public final class FunctionAppSiteConfig {
      */
     private @Nullable String dotnetFrameworkVersion;
     /**
-     * @return The number of minimum instances for this function app. Only affects apps on the Premium plan.
+     * @return The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
      * 
      */
     private @Nullable Integer elasticInstanceMinimum;
@@ -170,7 +170,7 @@ public final class FunctionAppSiteConfig {
         return Optional.ofNullable(this.dotnetFrameworkVersion);
     }
     /**
-     * @return The number of minimum instances for this function app. Only affects apps on the Premium plan.
+     * @return The number of minimum instances for this function app. Only affects apps on the Premium plan. Possible values are between `1` and `20`.
      * 
      */
     public Optional<Integer> elasticInstanceMinimum() {

@@ -21,16 +21,16 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
      * *
      * 
      */
-    @Import(name="managedHsmId")
-    private @Nullable Output<String> managedHsmId;
+    @Import(name="managedHsmId", required=true)
+    private Output<String> managedHsmId;
 
     /**
      * @return The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
      * *
      * 
      */
-    public Optional<Output<String>> managedHsmId() {
-        return Optional.ofNullable(this.managedHsmId);
+    public Output<String> managedHsmId() {
+        return this.managedHsmId;
     }
 
     /**
@@ -93,25 +93,6 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
         return this.scope;
     }
 
-    /**
-     * @deprecated
-     * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
-     * 
-     */
-    @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
-    @Import(name="vaultBaseUrl")
-    private @Nullable Output<String> vaultBaseUrl;
-
-    /**
-     * @deprecated
-     * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
-     * 
-     */
-    @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
-    public Optional<Output<String>> vaultBaseUrl() {
-        return Optional.ofNullable(this.vaultBaseUrl);
-    }
-
     private ManagedHardwareSecurityModuleRoleAssignmentArgs() {}
 
     private ManagedHardwareSecurityModuleRoleAssignmentArgs(ManagedHardwareSecurityModuleRoleAssignmentArgs $) {
@@ -120,7 +101,6 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
         this.principalId = $.principalId;
         this.roleDefinitionId = $.roleDefinitionId;
         this.scope = $.scope;
-        this.vaultBaseUrl = $.vaultBaseUrl;
     }
 
     public static Builder builder() {
@@ -148,7 +128,7 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
          * @return builder
          * 
          */
-        public Builder managedHsmId(@Nullable Output<String> managedHsmId) {
+        public Builder managedHsmId(Output<String> managedHsmId) {
             $.managedHsmId = managedHsmId;
             return this;
         }
@@ -248,32 +228,10 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
             return scope(Output.of(scope));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
-         * 
-         */
-        @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
-        public Builder vaultBaseUrl(@Nullable Output<String> vaultBaseUrl) {
-            $.vaultBaseUrl = vaultBaseUrl;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider
-         * 
-         */
-        @Deprecated /* The field `vault_base_url` has been deprecated in favour of `managed_hsm_id` and will be removed in 4.0 of the Azure Provider */
-        public Builder vaultBaseUrl(String vaultBaseUrl) {
-            return vaultBaseUrl(Output.of(vaultBaseUrl));
-        }
-
         public ManagedHardwareSecurityModuleRoleAssignmentArgs build() {
+            if ($.managedHsmId == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleRoleAssignmentArgs", "managedHsmId");
+            }
             if ($.principalId == null) {
                 throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleRoleAssignmentArgs", "principalId");
             }

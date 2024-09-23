@@ -130,44 +130,6 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * @deprecated
-     * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="enableAcceleratedNetworking")
-    private @Nullable Output<Boolean> enableAcceleratedNetworking;
-
-    /**
-     * @deprecated
-     * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> enableAcceleratedNetworking() {
-        return Optional.ofNullable(this.enableAcceleratedNetworking);
-    }
-
-    /**
-     * @deprecated
-     * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="enableIpForwarding")
-    private @Nullable Output<Boolean> enableIpForwarding;
-
-    /**
-     * @deprecated
-     * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> enableIpForwarding() {
-        return Optional.ofNullable(this.enableIpForwarding);
-    }
-
-    /**
      * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
      * 
      */
@@ -356,8 +318,6 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         this.auxiliarySku = $.auxiliarySku;
         this.dnsServers = $.dnsServers;
         this.edgeZone = $.edgeZone;
-        this.enableAcceleratedNetworking = $.enableAcceleratedNetworking;
-        this.enableIpForwarding = $.enableIpForwarding;
         this.internalDnsNameLabel = $.internalDnsNameLabel;
         this.internalDomainNameSuffix = $.internalDomainNameSuffix;
         this.ipConfigurations = $.ipConfigurations;
@@ -556,56 +516,6 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
          */
         public Builder edgeZone(String edgeZone) {
             return edgeZone(Output.of(edgeZone));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enableAcceleratedNetworking(@Nullable Output<Boolean> enableAcceleratedNetworking) {
-            $.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enableAcceleratedNetworking(Boolean enableAcceleratedNetworking) {
-            return enableAcceleratedNetworking(Output.of(enableAcceleratedNetworking));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enableIpForwarding(@Nullable Output<Boolean> enableIpForwarding) {
-            $.enableIpForwarding = enableIpForwarding;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder enableIpForwarding(Boolean enableIpForwarding) {
-            return enableIpForwarding(Output.of(enableIpForwarding));
         }
 
         /**

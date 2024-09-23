@@ -20,7 +20,6 @@ import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetScaleInArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetSecretArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetSourceImageReferenceArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetSpotRestoreArgs;
-import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetTerminateNotificationArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetTerminationNotificationArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetWinrmListenerArgs;
 import com.pulumi.core.Output;
@@ -353,32 +352,13 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
      * One or more `gallery_application` blocks as defined below.
      * 
      */
-    @Import(name="galleryApplication")
-    private @Nullable Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplication;
+    @Import(name="galleryApplications")
+    private @Nullable Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplications;
 
     /**
      * @return One or more `gallery_application` blocks as defined below.
      * 
      */
-    public Optional<Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>>> galleryApplication() {
-        return Optional.ofNullable(this.galleryApplication);
-    }
-
-    /**
-     * @deprecated
-     * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
-     * 
-     */
-    @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
-    @Import(name="galleryApplications")
-    private @Nullable Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplications;
-
-    /**
-     * @deprecated
-     * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
-     * 
-     */
-    @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
     public Optional<Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>>> galleryApplications() {
         return Optional.ofNullable(this.galleryApplications);
     }
@@ -685,25 +665,6 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     }
 
     /**
-     * @deprecated
-     * `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
-    @Import(name="scaleInPolicy")
-    private @Nullable Output<String> scaleInPolicy;
-
-    /**
-     * @deprecated
-     * `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<String>> scaleInPolicy() {
-        return Optional.ofNullable(this.scaleInPolicy);
-    }
-
-    /**
      * One or more `secret` blocks as defined below.
      * 
      */
@@ -829,33 +790,6 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
-    }
-
-    /**
-     * A `terminate_notification` block as defined below.
-     * 
-     * &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
-     * 
-     */
-    @Deprecated /* `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0. */
-    @Import(name="terminateNotification")
-    private @Nullable Output<WindowsVirtualMachineScaleSetTerminateNotificationArgs> terminateNotification;
-
-    /**
-     * @return A `terminate_notification` block as defined below.
-     * 
-     * &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
-     * 
-     */
-    @Deprecated /* `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0. */
-    public Optional<Output<WindowsVirtualMachineScaleSetTerminateNotificationArgs>> terminateNotification() {
-        return Optional.ofNullable(this.terminateNotification);
     }
 
     /**
@@ -1011,7 +945,6 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         this.extensionOperationsEnabled = $.extensionOperationsEnabled;
         this.extensions = $.extensions;
         this.extensionsTimeBudget = $.extensionsTimeBudget;
-        this.galleryApplication = $.galleryApplication;
         this.galleryApplications = $.galleryApplications;
         this.healthProbeId = $.healthProbeId;
         this.hostGroupId = $.hostGroupId;
@@ -1032,7 +965,6 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         this.resourceGroupName = $.resourceGroupName;
         this.rollingUpgradePolicy = $.rollingUpgradePolicy;
         this.scaleIn = $.scaleIn;
-        this.scaleInPolicy = $.scaleInPolicy;
         this.secrets = $.secrets;
         this.secureBootEnabled = $.secureBootEnabled;
         this.singlePlacementGroup = $.singlePlacementGroup;
@@ -1041,7 +973,6 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         this.sourceImageReference = $.sourceImageReference;
         this.spotRestore = $.spotRestore;
         this.tags = $.tags;
-        this.terminateNotification = $.terminateNotification;
         this.terminationNotification = $.terminationNotification;
         this.timezone = $.timezone;
         this.uniqueId = $.uniqueId;
@@ -1525,69 +1456,32 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param galleryApplication One or more `gallery_application` blocks as defined below.
+         * @param galleryApplications One or more `gallery_application` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder galleryApplication(@Nullable Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplication) {
-            $.galleryApplication = galleryApplication;
-            return this;
-        }
-
-        /**
-         * @param galleryApplication One or more `gallery_application` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder galleryApplication(List<WindowsVirtualMachineScaleSetGalleryApplicationArgs> galleryApplication) {
-            return galleryApplication(Output.of(galleryApplication));
-        }
-
-        /**
-         * @param galleryApplication One or more `gallery_application` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder galleryApplication(WindowsVirtualMachineScaleSetGalleryApplicationArgs... galleryApplication) {
-            return galleryApplication(List.of(galleryApplication));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
-         * 
-         */
-        @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
         public Builder galleryApplications(@Nullable Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplications) {
             $.galleryApplications = galleryApplications;
             return this;
         }
 
         /**
+         * @param galleryApplications One or more `gallery_application` blocks as defined below.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
-         * 
          */
-        @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
         public Builder galleryApplications(List<WindowsVirtualMachineScaleSetGalleryApplicationArgs> galleryApplications) {
             return galleryApplications(Output.of(galleryApplications));
         }
 
         /**
+         * @param galleryApplications One or more `gallery_application` blocks as defined below.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
-         * 
          */
-        @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
         public Builder galleryApplications(WindowsVirtualMachineScaleSetGalleryApplicationArgs... galleryApplications) {
             return galleryApplications(List.of(galleryApplications));
         }
@@ -2018,31 +1912,6 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
-        public Builder scaleInPolicy(@Nullable Output<String> scaleInPolicy) {
-            $.scaleInPolicy = scaleInPolicy;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
-        public Builder scaleInPolicy(String scaleInPolicy) {
-            return scaleInPolicy(Output.of(scaleInPolicy));
-        }
-
-        /**
          * @param secrets One or more `secret` blocks as defined below.
          * 
          * @return builder
@@ -2226,39 +2095,6 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param terminateNotification A `terminate_notification` block as defined below.
-         * 
-         * &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
-         * 
-         */
-        @Deprecated /* `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0. */
-        public Builder terminateNotification(@Nullable Output<WindowsVirtualMachineScaleSetTerminateNotificationArgs> terminateNotification) {
-            $.terminateNotification = terminateNotification;
-            return this;
-        }
-
-        /**
-         * @param terminateNotification A `terminate_notification` block as defined below.
-         * 
-         * &gt; **Note:** This property has been deprecated in favour of the `termination_notification` property and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.
-         * 
-         */
-        @Deprecated /* `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0. */
-        public Builder terminateNotification(WindowsVirtualMachineScaleSetTerminateNotificationArgs terminateNotification) {
-            return terminateNotification(Output.of(terminateNotification));
         }
 
         /**

@@ -185,7 +185,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<bool> LogClientIp { get; private set; } = null!;
 
         /// <summary>
-        /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         /// </summary>
         [Output("operationNameFormat")]
         public Output<string?> OperationNameFormat { get; private set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? LogClientIp { get; set; }
 
         /// <summary>
-        /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         /// </summary>
         [Input("operationNameFormat")]
         public Input<string>? OperationNameFormat { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? LogClientIp { get; set; }
 
         /// <summary>
-        /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+        /// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
         /// </summary>
         [Input("operationNameFormat")]
         public Input<string>? OperationNameFormat { get; set; }

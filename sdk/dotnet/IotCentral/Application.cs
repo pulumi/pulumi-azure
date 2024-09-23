@@ -114,10 +114,10 @@ namespace Pulumi.Azure.IotCentral
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+        /// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("template")]
-        public Output<string> Template { get; private set; } = null!;
+        public Output<string?> Template { get; private set; } = null!;
 
 
         /// <summary>
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.IotCentral
         }
 
         /// <summary>
-        /// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+        /// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.IotCentral
         }
 
         /// <summary>
-        /// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+        /// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }

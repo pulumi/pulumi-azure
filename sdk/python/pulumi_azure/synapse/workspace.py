@@ -23,7 +23,6 @@ class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  storage_data_lake_gen2_filesystem_id: pulumi.Input[str],
-                 aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
                  azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -38,7 +37,6 @@ class WorkspaceArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
-                 sql_aad_admin: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -61,18 +59,13 @@ class WorkspaceArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
-        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
-        :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+        :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_data_lake_gen2_filesystem_id", storage_data_lake_gen2_filesystem_id)
-        if aad_admin is not None:
-            warnings.warn("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""aad_admin is deprecated: The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-        if aad_admin is not None:
-            pulumi.set(__self__, "aad_admin", aad_admin)
         if azure_devops_repo is not None:
             pulumi.set(__self__, "azure_devops_repo", azure_devops_repo)
         if azuread_authentication_only is not None:
@@ -101,11 +94,6 @@ class WorkspaceArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purview_id is not None:
             pulumi.set(__self__, "purview_id", purview_id)
-        if sql_aad_admin is not None:
-            warnings.warn("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""sql_aad_admin is deprecated: The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-        if sql_aad_admin is not None:
-            pulumi.set(__self__, "sql_aad_admin", sql_aad_admin)
         if sql_administrator_login is not None:
             pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
         if sql_administrator_login_password is not None:
@@ -138,16 +126,6 @@ class WorkspaceArgs:
     @storage_data_lake_gen2_filesystem_id.setter
     def storage_data_lake_gen2_filesystem_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "storage_data_lake_gen2_filesystem_id", value)
-
-    @property
-    @pulumi.getter(name="aadAdmin")
-    @_utilities.deprecated("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-    def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArgs']]:
-        return pulumi.get(self, "aad_admin")
-
-    @aad_admin.setter
-    def aad_admin(self, value: Optional[pulumi.Input['WorkspaceAadAdminArgs']]):
-        pulumi.set(self, "aad_admin", value)
 
     @property
     @pulumi.getter(name="azureDevopsRepo")
@@ -318,20 +296,10 @@ class WorkspaceArgs:
         pulumi.set(self, "purview_id", value)
 
     @property
-    @pulumi.getter(name="sqlAadAdmin")
-    @_utilities.deprecated("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-    def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]:
-        return pulumi.get(self, "sql_aad_admin")
-
-    @sql_aad_admin.setter
-    def sql_aad_admin(self, value: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]):
-        pulumi.set(self, "sql_aad_admin", value)
-
-    @property
     @pulumi.getter(name="sqlAdministratorLogin")
     def sql_administrator_login(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
         """
         return pulumi.get(self, "sql_administrator_login")
 
@@ -343,7 +311,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="sqlAdministratorLoginPassword")
     def sql_administrator_login_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
         """
         return pulumi.get(self, "sql_administrator_login_password")
 
@@ -379,7 +347,6 @@ class WorkspaceArgs:
 @pulumi.input_type
 class _WorkspaceState:
     def __init__(__self__, *,
-                 aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
                  azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -396,7 +363,6 @@ class _WorkspaceState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sql_aad_admin: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -420,17 +386,12 @@ class _WorkspaceState:
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
-        :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+        :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
         """
-        if aad_admin is not None:
-            warnings.warn("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""aad_admin is deprecated: The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-        if aad_admin is not None:
-            pulumi.set(__self__, "aad_admin", aad_admin)
         if azure_devops_repo is not None:
             pulumi.set(__self__, "azure_devops_repo", azure_devops_repo)
         if azuread_authentication_only is not None:
@@ -463,11 +424,6 @@ class _WorkspaceState:
             pulumi.set(__self__, "purview_id", purview_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if sql_aad_admin is not None:
-            warnings.warn("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""sql_aad_admin is deprecated: The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-        if sql_aad_admin is not None:
-            pulumi.set(__self__, "sql_aad_admin", sql_aad_admin)
         if sql_administrator_login is not None:
             pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
         if sql_administrator_login_password is not None:
@@ -478,16 +434,6 @@ class _WorkspaceState:
             pulumi.set(__self__, "storage_data_lake_gen2_filesystem_id", storage_data_lake_gen2_filesystem_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="aadAdmin")
-    @_utilities.deprecated("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-    def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArgs']]:
-        return pulumi.get(self, "aad_admin")
-
-    @aad_admin.setter
-    def aad_admin(self, value: Optional[pulumi.Input['WorkspaceAadAdminArgs']]):
-        pulumi.set(self, "aad_admin", value)
 
     @property
     @pulumi.getter(name="azureDevopsRepo")
@@ -682,20 +628,10 @@ class _WorkspaceState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="sqlAadAdmin")
-    @_utilities.deprecated("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-    def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]:
-        return pulumi.get(self, "sql_aad_admin")
-
-    @sql_aad_admin.setter
-    def sql_aad_admin(self, value: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]):
-        pulumi.set(self, "sql_aad_admin", value)
-
-    @property
     @pulumi.getter(name="sqlAdministratorLogin")
     def sql_administrator_login(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
         """
         return pulumi.get(self, "sql_administrator_login")
 
@@ -707,7 +643,7 @@ class _WorkspaceState:
     @pulumi.getter(name="sqlAdministratorLoginPassword")
     def sql_administrator_login_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
         """
         return pulumi.get(self, "sql_administrator_login_password")
 
@@ -757,7 +693,6 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_admin: Optional[pulumi.Input[Union['WorkspaceAadAdminArgs', 'WorkspaceAadAdminArgsDict']]] = None,
                  azure_devops_repo: Optional[pulumi.Input[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict']]] = None,
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -773,7 +708,6 @@ class Workspace(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sql_aad_admin: Optional[pulumi.Input[Union['WorkspaceSqlAadAdminArgs', 'WorkspaceSqlAadAdminArgsDict']]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -932,8 +866,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
-        :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+        :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
@@ -1094,7 +1028,6 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_admin: Optional[pulumi.Input[Union['WorkspaceAadAdminArgs', 'WorkspaceAadAdminArgsDict']]] = None,
                  azure_devops_repo: Optional[pulumi.Input[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict']]] = None,
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -1110,7 +1043,6 @@ class Workspace(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sql_aad_admin: Optional[pulumi.Input[Union['WorkspaceSqlAadAdminArgs', 'WorkspaceSqlAadAdminArgsDict']]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1125,7 +1057,6 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-            __props__.__dict__["aad_admin"] = aad_admin
             __props__.__dict__["azure_devops_repo"] = azure_devops_repo
             __props__.__dict__["azuread_authentication_only"] = azuread_authentication_only
             __props__.__dict__["compute_subnet_id"] = compute_subnet_id
@@ -1143,7 +1074,6 @@ class Workspace(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["sql_aad_admin"] = sql_aad_admin
             __props__.__dict__["sql_administrator_login"] = sql_administrator_login
             __props__.__dict__["sql_administrator_login_password"] = None if sql_administrator_login_password is None else pulumi.Output.secret(sql_administrator_login_password)
             __props__.__dict__["sql_identity_control_enabled"] = sql_identity_control_enabled
@@ -1164,7 +1094,6 @@ class Workspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aad_admin: Optional[pulumi.Input[Union['WorkspaceAadAdminArgs', 'WorkspaceAadAdminArgsDict']]] = None,
             azure_devops_repo: Optional[pulumi.Input[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict']]] = None,
             azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
             compute_subnet_id: Optional[pulumi.Input[str]] = None,
@@ -1181,7 +1110,6 @@ class Workspace(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             purview_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            sql_aad_admin: Optional[pulumi.Input[Union['WorkspaceSqlAadAdminArgs', 'WorkspaceSqlAadAdminArgsDict']]] = None,
             sql_administrator_login: Optional[pulumi.Input[str]] = None,
             sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
             sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1210,8 +1138,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
-        :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+        :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
@@ -1220,7 +1148,6 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = _WorkspaceState.__new__(_WorkspaceState)
 
-        __props__.__dict__["aad_admin"] = aad_admin
         __props__.__dict__["azure_devops_repo"] = azure_devops_repo
         __props__.__dict__["azuread_authentication_only"] = azuread_authentication_only
         __props__.__dict__["compute_subnet_id"] = compute_subnet_id
@@ -1237,19 +1164,12 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["purview_id"] = purview_id
         __props__.__dict__["resource_group_name"] = resource_group_name
-        __props__.__dict__["sql_aad_admin"] = sql_aad_admin
         __props__.__dict__["sql_administrator_login"] = sql_administrator_login
         __props__.__dict__["sql_administrator_login_password"] = sql_administrator_login_password
         __props__.__dict__["sql_identity_control_enabled"] = sql_identity_control_enabled
         __props__.__dict__["storage_data_lake_gen2_filesystem_id"] = storage_data_lake_gen2_filesystem_id
         __props__.__dict__["tags"] = tags
         return Workspace(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="aadAdmin")
-    @_utilities.deprecated("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-    def aad_admin(self) -> pulumi.Output['outputs.WorkspaceAadAdmin']:
-        return pulumi.get(self, "aad_admin")
 
     @property
     @pulumi.getter(name="azureDevopsRepo")
@@ -1380,16 +1300,10 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "resource_group_name")
 
     @property
-    @pulumi.getter(name="sqlAadAdmin")
-    @_utilities.deprecated("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
-    def sql_aad_admin(self) -> pulumi.Output['outputs.WorkspaceSqlAadAdmin']:
-        return pulumi.get(self, "sql_aad_admin")
-
-    @property
     @pulumi.getter(name="sqlAdministratorLogin")
     def sql_administrator_login(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
         """
         return pulumi.get(self, "sql_administrator_login")
 
@@ -1397,7 +1311,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="sqlAdministratorLoginPassword")
     def sql_administrator_login_password(self) -> pulumi.Output[Optional[str]]:
         """
-        The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+        The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
         """
         return pulumi.get(self, "sql_administrator_login_password")
 

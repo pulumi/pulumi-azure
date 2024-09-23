@@ -25,7 +25,6 @@ class ServerArgs:
                  sku: pulumi.Input[str],
                  admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
-                 enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
                  ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -38,11 +37,11 @@ class ServerArgs:
         :param pulumi.Input[str] sku: SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_users: List of email addresses of admin users.
         :param pulumi.Input[str] backup_blob_container_uri: URI and SAS token for a blob container to store backups.
-        :param pulumi.Input[bool] enable_power_bi_service: Indicates if the Power BI service is allowed to access or not.
         :param pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
         :param pulumi.Input[str] location: The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        :param pulumi.Input[bool] power_bi_service_enabled: Indicates if the Power BI service is allowed to access or not.
+        :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -51,11 +50,6 @@ class ServerArgs:
             pulumi.set(__self__, "admin_users", admin_users)
         if backup_blob_container_uri is not None:
             pulumi.set(__self__, "backup_blob_container_uri", backup_blob_container_uri)
-        if enable_power_bi_service is not None:
-            warnings.warn("""The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_power_bi_service is deprecated: The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_power_bi_service is not None:
-            pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
         if ipv4_firewall_rules is not None:
             pulumi.set(__self__, "ipv4_firewall_rules", ipv4_firewall_rules)
         if location is not None:
@@ -118,19 +112,6 @@ class ServerArgs:
         pulumi.set(self, "backup_blob_container_uri", value)
 
     @property
-    @pulumi.getter(name="enablePowerBiService")
-    @_utilities.deprecated("""The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_power_bi_service(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates if the Power BI service is allowed to access or not.
-        """
-        return pulumi.get(self, "enable_power_bi_service")
-
-    @enable_power_bi_service.setter
-    def enable_power_bi_service(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_power_bi_service", value)
-
-    @property
     @pulumi.getter(name="ipv4FirewallRules")
     def ipv4_firewall_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]:
         """
@@ -169,6 +150,9 @@ class ServerArgs:
     @property
     @pulumi.getter(name="powerBiServiceEnabled")
     def power_bi_service_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the Power BI service is allowed to access or not.
+        """
         return pulumi.get(self, "power_bi_service_enabled")
 
     @power_bi_service_enabled.setter
@@ -179,7 +163,7 @@ class ServerArgs:
     @pulumi.getter(name="querypoolConnectionMode")
     def querypool_connection_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         """
         return pulumi.get(self, "querypool_connection_mode")
 
@@ -205,7 +189,6 @@ class _ServerState:
     def __init__(__self__, *,
                  admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
-                 enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
                  ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -219,11 +202,11 @@ class _ServerState:
         Input properties used for looking up and filtering Server resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_users: List of email addresses of admin users.
         :param pulumi.Input[str] backup_blob_container_uri: URI and SAS token for a blob container to store backups.
-        :param pulumi.Input[bool] enable_power_bi_service: Indicates if the Power BI service is allowed to access or not.
         :param pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
         :param pulumi.Input[str] location: The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        :param pulumi.Input[bool] power_bi_service_enabled: Indicates if the Power BI service is allowed to access or not.
+        :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_full_name: The full name of the Analysis Services Server.
         :param pulumi.Input[str] sku: SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
@@ -233,11 +216,6 @@ class _ServerState:
             pulumi.set(__self__, "admin_users", admin_users)
         if backup_blob_container_uri is not None:
             pulumi.set(__self__, "backup_blob_container_uri", backup_blob_container_uri)
-        if enable_power_bi_service is not None:
-            warnings.warn("""The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_power_bi_service is deprecated: The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-        if enable_power_bi_service is not None:
-            pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
         if ipv4_firewall_rules is not None:
             pulumi.set(__self__, "ipv4_firewall_rules", ipv4_firewall_rules)
         if location is not None:
@@ -282,19 +260,6 @@ class _ServerState:
         pulumi.set(self, "backup_blob_container_uri", value)
 
     @property
-    @pulumi.getter(name="enablePowerBiService")
-    @_utilities.deprecated("""The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_power_bi_service(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates if the Power BI service is allowed to access or not.
-        """
-        return pulumi.get(self, "enable_power_bi_service")
-
-    @enable_power_bi_service.setter
-    def enable_power_bi_service(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_power_bi_service", value)
-
-    @property
     @pulumi.getter(name="ipv4FirewallRules")
     def ipv4_firewall_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]:
         """
@@ -333,6 +298,9 @@ class _ServerState:
     @property
     @pulumi.getter(name="powerBiServiceEnabled")
     def power_bi_service_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the Power BI service is allowed to access or not.
+        """
         return pulumi.get(self, "power_bi_service_enabled")
 
     @power_bi_service_enabled.setter
@@ -343,7 +311,7 @@ class _ServerState:
     @pulumi.getter(name="querypoolConnectionMode")
     def querypool_connection_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         """
         return pulumi.get(self, "querypool_connection_mode")
 
@@ -407,7 +375,6 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
-                 enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
                  ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -435,7 +402,7 @@ class Server(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="S0",
             admin_users=["myuser@domain.tld"],
-            enable_power_bi_service=True,
+            power_bi_service_enabled=True,
             ipv4_firewall_rules=[{
                 "name": "myRule1",
                 "range_start": "210.117.252.0",
@@ -460,11 +427,11 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_users: List of email addresses of admin users.
         :param pulumi.Input[str] backup_blob_container_uri: URI and SAS token for a blob container to store backups.
-        :param pulumi.Input[bool] enable_power_bi_service: Indicates if the Power BI service is allowed to access or not.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
         :param pulumi.Input[str] location: The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        :param pulumi.Input[bool] power_bi_service_enabled: Indicates if the Power BI service is allowed to access or not.
+        :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -493,7 +460,7 @@ class Server(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="S0",
             admin_users=["myuser@domain.tld"],
-            enable_power_bi_service=True,
+            power_bi_service_enabled=True,
             ipv4_firewall_rules=[{
                 "name": "myRule1",
                 "range_start": "210.117.252.0",
@@ -531,7 +498,6 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
-                 enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
                  ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -551,7 +517,6 @@ class Server(pulumi.CustomResource):
 
             __props__.__dict__["admin_users"] = admin_users
             __props__.__dict__["backup_blob_container_uri"] = None if backup_blob_container_uri is None else pulumi.Output.secret(backup_blob_container_uri)
-            __props__.__dict__["enable_power_bi_service"] = enable_power_bi_service
             __props__.__dict__["ipv4_firewall_rules"] = ipv4_firewall_rules
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -579,7 +544,6 @@ class Server(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
-            enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
             ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -598,11 +562,11 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_users: List of email addresses of admin users.
         :param pulumi.Input[str] backup_blob_container_uri: URI and SAS token for a blob container to store backups.
-        :param pulumi.Input[bool] enable_power_bi_service: Indicates if the Power BI service is allowed to access or not.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
         :param pulumi.Input[str] location: The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        :param pulumi.Input[bool] power_bi_service_enabled: Indicates if the Power BI service is allowed to access or not.
+        :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_full_name: The full name of the Analysis Services Server.
         :param pulumi.Input[str] sku: SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
@@ -614,7 +578,6 @@ class Server(pulumi.CustomResource):
 
         __props__.__dict__["admin_users"] = admin_users
         __props__.__dict__["backup_blob_container_uri"] = backup_blob_container_uri
-        __props__.__dict__["enable_power_bi_service"] = enable_power_bi_service
         __props__.__dict__["ipv4_firewall_rules"] = ipv4_firewall_rules
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -643,15 +606,6 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "backup_blob_container_uri")
 
     @property
-    @pulumi.getter(name="enablePowerBiService")
-    @_utilities.deprecated("""The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_power_bi_service(self) -> pulumi.Output[bool]:
-        """
-        Indicates if the Power BI service is allowed to access or not.
-        """
-        return pulumi.get(self, "enable_power_bi_service")
-
-    @property
     @pulumi.getter(name="ipv4FirewallRules")
     def ipv4_firewall_rules(self) -> pulumi.Output[Optional[Sequence['outputs.ServerIpv4FirewallRule']]]:
         """
@@ -677,14 +631,17 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="powerBiServiceEnabled")
-    def power_bi_service_enabled(self) -> pulumi.Output[bool]:
+    def power_bi_service_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates if the Power BI service is allowed to access or not.
+        """
         return pulumi.get(self, "power_bi_service_enabled")
 
     @property
     @pulumi.getter(name="querypoolConnectionMode")
-    def querypool_connection_mode(self) -> pulumi.Output[str]:
+    def querypool_connection_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         """
         return pulumi.get(self, "querypool_connection_mode")
 

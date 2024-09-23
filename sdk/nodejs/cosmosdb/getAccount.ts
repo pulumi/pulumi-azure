@@ -57,23 +57,7 @@ export interface GetAccountResult {
      * Capabilities enabled on this Cosmos DB account.
      */
     readonly capabilities: outputs.cosmosdb.GetAccountCapability[];
-    /**
-     * @deprecated This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-     */
-    readonly connectionStrings: string[];
     readonly consistencyPolicies: outputs.cosmosdb.GetAccountConsistencyPolicy[];
-    /**
-     * @deprecated This property has been renamed to `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM provider
-     */
-    readonly enableAutomaticFailover: boolean;
-    /**
-     * @deprecated This property has been renamed to `freeTierEnabled` and will be removed in v4.0 of the AzureRM provider
-     */
-    readonly enableFreeTier: boolean;
-    /**
-     * @deprecated This property has been renamed to `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM provider
-     */
-    readonly enableMultipleWriteLocations: boolean;
     /**
      * The endpoint used to connect to the CosmosDB account.
      */

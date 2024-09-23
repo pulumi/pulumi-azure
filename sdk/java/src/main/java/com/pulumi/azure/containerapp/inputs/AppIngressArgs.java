@@ -40,24 +40,16 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * One or more `custom_domain` block as detailed below.
      * 
-     * @deprecated
-     * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
-     * 
      */
-    @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
-    @Import(name="customDomain")
-    private @Nullable Output<AppIngressCustomDomainArgs> customDomain;
+    @Import(name="customDomains")
+    private @Nullable Output<List<AppIngressCustomDomainArgs>> customDomains;
 
     /**
      * @return One or more `custom_domain` block as detailed below.
      * 
-     * @deprecated
-     * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
-     * 
      */
-    @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
-    public Optional<Output<AppIngressCustomDomainArgs>> customDomain() {
-        return Optional.ofNullable(this.customDomain);
+    public Optional<Output<List<AppIngressCustomDomainArgs>>> customDomains() {
+        return Optional.ofNullable(this.customDomains);
     }
 
     /**
@@ -173,7 +165,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
 
     private AppIngressArgs(AppIngressArgs $) {
         this.allowInsecureConnections = $.allowInsecureConnections;
-        this.customDomain = $.customDomain;
+        this.customDomains = $.customDomains;
         this.exposedPort = $.exposedPort;
         this.externalEnabled = $.externalEnabled;
         this.fqdn = $.fqdn;
@@ -223,32 +215,34 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomain One or more `custom_domain` block as detailed below.
+         * @param customDomains One or more `custom_domain` block as detailed below.
          * 
          * @return builder
          * 
-         * @deprecated
-         * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
-         * 
          */
-        @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
-        public Builder customDomain(@Nullable Output<AppIngressCustomDomainArgs> customDomain) {
-            $.customDomain = customDomain;
+        public Builder customDomains(@Nullable Output<List<AppIngressCustomDomainArgs>> customDomains) {
+            $.customDomains = customDomains;
             return this;
         }
 
         /**
-         * @param customDomain One or more `custom_domain` block as detailed below.
+         * @param customDomains One or more `custom_domain` block as detailed below.
          * 
          * @return builder
          * 
-         * @deprecated
-         * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
+         */
+        public Builder customDomains(List<AppIngressCustomDomainArgs> customDomains) {
+            return customDomains(Output.of(customDomains));
+        }
+
+        /**
+         * @param customDomains One or more `custom_domain` block as detailed below.
+         * 
+         * @return builder
          * 
          */
-        @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
-        public Builder customDomain(AppIngressCustomDomainArgs customDomain) {
-            return customDomain(Output.of(customDomain));
+        public Builder customDomains(AppIngressCustomDomainArgs... customDomains) {
+            return customDomains(List.of(customDomains));
         }
 
         /**

@@ -13,31 +13,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DiagnosticSettingEnabledLogRetentionPolicy {
-    /**
-     * @return The number of days for which this Retention Policy should apply.
-     * 
-     * &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
-     * 
-     */
     private @Nullable Integer days;
     /**
-     * @return Is this Retention Policy enabled?
+     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
      * 
      */
     private Boolean enabled;
 
     private DiagnosticSettingEnabledLogRetentionPolicy() {}
-    /**
-     * @return The number of days for which this Retention Policy should apply.
-     * 
-     * &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
-     * 
-     */
     public Optional<Integer> days() {
         return Optional.ofNullable(this.days);
     }
     /**
-     * @return Is this Retention Policy enabled?
+     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
      * 
      */
     public Boolean enabled() {

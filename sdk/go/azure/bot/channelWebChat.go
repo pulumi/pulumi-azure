@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/bot"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,12 +85,6 @@ type ChannelWebChat struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A list of Web Chat Site names.
-	//
-	// > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-	SiteNames pulumi.StringArrayOutput `pulumi:"siteNames"`
 	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelWebChatSiteArrayOutput `pulumi:"sites"`
 }
@@ -137,12 +131,6 @@ type channelWebChatState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A list of Web Chat Site names.
-	//
-	// > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-	SiteNames []string `pulumi:"siteNames"`
 	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites []ChannelWebChatSite `pulumi:"sites"`
 }
@@ -154,12 +142,6 @@ type ChannelWebChatState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A list of Web Chat Site names.
-	//
-	// > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-	SiteNames pulumi.StringArrayInput
 	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelWebChatSiteArrayInput
 }
@@ -175,12 +157,6 @@ type channelWebChatArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A list of Web Chat Site names.
-	//
-	// > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-	SiteNames []string `pulumi:"siteNames"`
 	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites []ChannelWebChatSite `pulumi:"sites"`
 }
@@ -193,12 +169,6 @@ type ChannelWebChatArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A list of Web Chat Site names.
-	//
-	// > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-	//
-	// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-	SiteNames pulumi.StringArrayInput
 	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelWebChatSiteArrayInput
 }
@@ -303,15 +273,6 @@ func (o ChannelWebChatOutput) Location() pulumi.StringOutput {
 // The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
 func (o ChannelWebChatOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelWebChat) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
-}
-
-// A list of Web Chat Site names.
-//
-// > **NOTE:** `siteNames` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-//
-// Deprecated: `siteNames` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-func (o ChannelWebChatOutput) SiteNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ChannelWebChat) pulumi.StringArrayOutput { return v.SiteNames }).(pulumi.StringArrayOutput)
 }
 
 // A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.

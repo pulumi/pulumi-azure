@@ -7,7 +7,6 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.monitoring.DiagnosticSettingArgs;
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingState;
 import com.pulumi.azure.monitoring.outputs.DiagnosticSettingEnabledLog;
-import com.pulumi.azure.monitoring.outputs.DiagnosticSettingLog;
 import com.pulumi.azure.monitoring.outputs.DiagnosticSettingMetric;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -41,9 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.DiagnosticSetting;
  * import com.pulumi.azure.monitoring.DiagnosticSettingArgs;
  * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledLogArgs;
- * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledLogRetentionPolicyArgs;
  * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricArgs;
- * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricRetentionPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -88,15 +85,9 @@ import javax.annotation.Nullable;
  *             .storageAccountId(exampleAccount.id())
  *             .enabledLogs(DiagnosticSettingEnabledLogArgs.builder()
  *                 .category("AuditEvent")
- *                 .retentionPolicy(DiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
- *                     .enabled(false)
- *                     .build())
  *                 .build())
  *             .metrics(DiagnosticSettingMetricArgs.builder()
  *                 .category("AllMetrics")
- *                 .retentionPolicy(DiagnosticSettingMetricRetentionPolicyArgs.builder()
- *                     .enabled(false)
- *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -120,20 +111,20 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * One or more `enabled_log` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
      * 
      */
     @Export(name="enabledLogs", refs={List.class,DiagnosticSettingEnabledLog.class}, tree="[0,1]")
-    private Output<List<DiagnosticSettingEnabledLog>> enabledLogs;
+    private Output</* @Nullable */ List<DiagnosticSettingEnabledLog>> enabledLogs;
 
     /**
      * @return One or more `enabled_log` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
      * 
      */
-    public Output<List<DiagnosticSettingEnabledLog>> enabledLogs() {
-        return this.enabledLogs;
+    public Output<Optional<List<DiagnosticSettingEnabledLog>>> enabledLogs() {
+        return Codegen.optional(this.enabledLogs);
     }
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
@@ -212,31 +203,9 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logAnalyticsWorkspaceId);
     }
     /**
-     * One or more `log` blocks as defined below.
-     * 
-     * &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
-    @Export(name="logs", refs={List.class,DiagnosticSettingLog.class}, tree="[0,1]")
-    private Output<List<DiagnosticSettingLog>> logs;
-
-    /**
-     * @return One or more `log` blocks as defined below.
-     * 
-     * &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    public Output<List<DiagnosticSettingLog>> logs() {
-        return this.logs;
-    }
-    /**
      * One or more `metric` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified.
+     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
      * 
      */
     @Export(name="metrics", refs={List.class,DiagnosticSettingMetric.class}, tree="[0,1]")
@@ -245,7 +214,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more `metric` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified.
+     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
      * 
      */
     public Output<Optional<List<DiagnosticSettingMetric>>> metrics() {

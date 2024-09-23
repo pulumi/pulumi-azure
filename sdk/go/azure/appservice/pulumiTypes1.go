@@ -7,623 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
-
-type GetLinuxWebAppSiteConfig struct {
-	// Is this Linux Web App is Always On enabled.
-	AlwaysOn bool `pulumi:"alwaysOn"`
-	// The ID of the APIM configuration for this Linux Web App.
-	ApiDefinitionUrl string `pulumi:"apiDefinitionUrl"`
-	// The ID of the API Management API for this Linux Web App.
-	ApiManagementApiId string `pulumi:"apiManagementApiId"`
-	// The command line used to launch this app.
-	AppCommandLine string `pulumi:"appCommandLine"`
-	// A `applicationStack` block as defined above.
-	ApplicationStacks []GetLinuxWebAppSiteConfigApplicationStack `pulumi:"applicationStacks"`
-	// Are Auto heal rules be enabled.
-	AutoHealEnabled bool `pulumi:"autoHealEnabled"`
-	// A `autoHealSetting` block as defined above.
-	AutoHealSettings []GetLinuxWebAppSiteConfigAutoHealSetting `pulumi:"autoHealSettings"`
-	// The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
-	ContainerRegistryManagedIdentityClientId string `pulumi:"containerRegistryManagedIdentityClientId"`
-	// Do connections for Azure Container Registry use Managed Identity.
-	ContainerRegistryUseManagedIdentity bool `pulumi:"containerRegistryUseManagedIdentity"`
-	// A `cors` block as defined above.
-	Cors []GetLinuxWebAppSiteConfigCor `pulumi:"cors"`
-	// The list of Default Documents for the Linux Web App.
-	DefaultDocuments []string `pulumi:"defaultDocuments"`
-	// Is Detailed Error Logging enabled.
-	DetailedErrorLoggingEnabled bool `pulumi:"detailedErrorLoggingEnabled"`
-	// The State of FTP / FTPS service.
-	FtpsState string `pulumi:"ftpsState"`
-	// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
-	HealthCheckEvictionTimeInMin int `pulumi:"healthCheckEvictionTimeInMin"`
-	// The path to the Health Check endpoint.
-	HealthCheckPath string `pulumi:"healthCheckPath"`
-	// Is HTTP2.0 enabled.
-	Http2Enabled bool `pulumi:"http2Enabled"`
-	// The Default action for traffic that does not match any `ipRestriction` rule.
-	IpRestrictionDefaultAction string `pulumi:"ipRestrictionDefaultAction"`
-	// A `ipRestriction` block as defined above.
-	IpRestrictions []GetLinuxWebAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
-	// The `LinuxFXVersion` string.
-	LinuxFxVersion string `pulumi:"linuxFxVersion"`
-	// The site Load Balancing Mode.
-	LoadBalancingMode string `pulumi:"loadBalancingMode"`
-	// Is the Local MySQL enabled.
-	LocalMysqlEnabled bool `pulumi:"localMysqlEnabled"`
-	// The Managed Pipeline Mode.
-	ManagedPipelineMode string `pulumi:"managedPipelineMode"`
-	// The Minimum version of TLS for requests.
-	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
-	// Is Remote Debugging enabled.
-	RemoteDebuggingEnabled bool `pulumi:"remoteDebuggingEnabled"`
-	// The Remote Debugging Version.
-	RemoteDebuggingVersion string `pulumi:"remoteDebuggingVersion"`
-	// The Default action for traffic that does not match any `scmIpRestriction` rule.
-	ScmIpRestrictionDefaultAction string `pulumi:"scmIpRestrictionDefaultAction"`
-	// A `scmIpRestriction` block as defined above.
-	ScmIpRestrictions []GetLinuxWebAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
-	// The Minimum version of TLS for requests to SCM.
-	ScmMinimumTlsVersion string `pulumi:"scmMinimumTlsVersion"`
-	// The Source Control Management Type in use.
-	ScmType string `pulumi:"scmType"`
-	// Is the Linux Web App `ipRestriction` configuration used for the SCM also.
-	ScmUseMainIpRestriction bool `pulumi:"scmUseMainIpRestriction"`
-	// Does the Linux Web App use a 32-bit worker.
-	Use32BitWorker bool `pulumi:"use32BitWorker"`
-	// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
-	VnetRouteAllEnabled bool `pulumi:"vnetRouteAllEnabled"`
-	// Are Web Sockets enabled?
-	WebsocketsEnabled bool `pulumi:"websocketsEnabled"`
-	// The number of Workers for this Linux App Service.
-	WorkerCount int `pulumi:"workerCount"`
-}
-
-// GetLinuxWebAppSiteConfigInput is an input type that accepts GetLinuxWebAppSiteConfigArgs and GetLinuxWebAppSiteConfigOutput values.
-// You can construct a concrete instance of `GetLinuxWebAppSiteConfigInput` via:
-//
-//	GetLinuxWebAppSiteConfigArgs{...}
-type GetLinuxWebAppSiteConfigInput interface {
-	pulumi.Input
-
-	ToGetLinuxWebAppSiteConfigOutput() GetLinuxWebAppSiteConfigOutput
-	ToGetLinuxWebAppSiteConfigOutputWithContext(context.Context) GetLinuxWebAppSiteConfigOutput
-}
-
-type GetLinuxWebAppSiteConfigArgs struct {
-	// Is this Linux Web App is Always On enabled.
-	AlwaysOn pulumi.BoolInput `pulumi:"alwaysOn"`
-	// The ID of the APIM configuration for this Linux Web App.
-	ApiDefinitionUrl pulumi.StringInput `pulumi:"apiDefinitionUrl"`
-	// The ID of the API Management API for this Linux Web App.
-	ApiManagementApiId pulumi.StringInput `pulumi:"apiManagementApiId"`
-	// The command line used to launch this app.
-	AppCommandLine pulumi.StringInput `pulumi:"appCommandLine"`
-	// A `applicationStack` block as defined above.
-	ApplicationStacks GetLinuxWebAppSiteConfigApplicationStackArrayInput `pulumi:"applicationStacks"`
-	// Are Auto heal rules be enabled.
-	AutoHealEnabled pulumi.BoolInput `pulumi:"autoHealEnabled"`
-	// A `autoHealSetting` block as defined above.
-	AutoHealSettings GetLinuxWebAppSiteConfigAutoHealSettingArrayInput `pulumi:"autoHealSettings"`
-	// The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
-	ContainerRegistryManagedIdentityClientId pulumi.StringInput `pulumi:"containerRegistryManagedIdentityClientId"`
-	// Do connections for Azure Container Registry use Managed Identity.
-	ContainerRegistryUseManagedIdentity pulumi.BoolInput `pulumi:"containerRegistryUseManagedIdentity"`
-	// A `cors` block as defined above.
-	Cors GetLinuxWebAppSiteConfigCorArrayInput `pulumi:"cors"`
-	// The list of Default Documents for the Linux Web App.
-	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
-	// Is Detailed Error Logging enabled.
-	DetailedErrorLoggingEnabled pulumi.BoolInput `pulumi:"detailedErrorLoggingEnabled"`
-	// The State of FTP / FTPS service.
-	FtpsState pulumi.StringInput `pulumi:"ftpsState"`
-	// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
-	HealthCheckEvictionTimeInMin pulumi.IntInput `pulumi:"healthCheckEvictionTimeInMin"`
-	// The path to the Health Check endpoint.
-	HealthCheckPath pulumi.StringInput `pulumi:"healthCheckPath"`
-	// Is HTTP2.0 enabled.
-	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
-	// The Default action for traffic that does not match any `ipRestriction` rule.
-	IpRestrictionDefaultAction pulumi.StringInput `pulumi:"ipRestrictionDefaultAction"`
-	// A `ipRestriction` block as defined above.
-	IpRestrictions GetLinuxWebAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
-	// The `LinuxFXVersion` string.
-	LinuxFxVersion pulumi.StringInput `pulumi:"linuxFxVersion"`
-	// The site Load Balancing Mode.
-	LoadBalancingMode pulumi.StringInput `pulumi:"loadBalancingMode"`
-	// Is the Local MySQL enabled.
-	LocalMysqlEnabled pulumi.BoolInput `pulumi:"localMysqlEnabled"`
-	// The Managed Pipeline Mode.
-	ManagedPipelineMode pulumi.StringInput `pulumi:"managedPipelineMode"`
-	// The Minimum version of TLS for requests.
-	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
-	// Is Remote Debugging enabled.
-	RemoteDebuggingEnabled pulumi.BoolInput `pulumi:"remoteDebuggingEnabled"`
-	// The Remote Debugging Version.
-	RemoteDebuggingVersion pulumi.StringInput `pulumi:"remoteDebuggingVersion"`
-	// The Default action for traffic that does not match any `scmIpRestriction` rule.
-	ScmIpRestrictionDefaultAction pulumi.StringInput `pulumi:"scmIpRestrictionDefaultAction"`
-	// A `scmIpRestriction` block as defined above.
-	ScmIpRestrictions GetLinuxWebAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
-	// The Minimum version of TLS for requests to SCM.
-	ScmMinimumTlsVersion pulumi.StringInput `pulumi:"scmMinimumTlsVersion"`
-	// The Source Control Management Type in use.
-	ScmType pulumi.StringInput `pulumi:"scmType"`
-	// Is the Linux Web App `ipRestriction` configuration used for the SCM also.
-	ScmUseMainIpRestriction pulumi.BoolInput `pulumi:"scmUseMainIpRestriction"`
-	// Does the Linux Web App use a 32-bit worker.
-	Use32BitWorker pulumi.BoolInput `pulumi:"use32BitWorker"`
-	// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
-	VnetRouteAllEnabled pulumi.BoolInput `pulumi:"vnetRouteAllEnabled"`
-	// Are Web Sockets enabled?
-	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
-	// The number of Workers for this Linux App Service.
-	WorkerCount pulumi.IntInput `pulumi:"workerCount"`
-}
-
-func (GetLinuxWebAppSiteConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLinuxWebAppSiteConfig)(nil)).Elem()
-}
-
-func (i GetLinuxWebAppSiteConfigArgs) ToGetLinuxWebAppSiteConfigOutput() GetLinuxWebAppSiteConfigOutput {
-	return i.ToGetLinuxWebAppSiteConfigOutputWithContext(context.Background())
-}
-
-func (i GetLinuxWebAppSiteConfigArgs) ToGetLinuxWebAppSiteConfigOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigOutput)
-}
-
-// GetLinuxWebAppSiteConfigArrayInput is an input type that accepts GetLinuxWebAppSiteConfigArray and GetLinuxWebAppSiteConfigArrayOutput values.
-// You can construct a concrete instance of `GetLinuxWebAppSiteConfigArrayInput` via:
-//
-//	GetLinuxWebAppSiteConfigArray{ GetLinuxWebAppSiteConfigArgs{...} }
-type GetLinuxWebAppSiteConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetLinuxWebAppSiteConfigArrayOutput() GetLinuxWebAppSiteConfigArrayOutput
-	ToGetLinuxWebAppSiteConfigArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigArrayOutput
-}
-
-type GetLinuxWebAppSiteConfigArray []GetLinuxWebAppSiteConfigInput
-
-func (GetLinuxWebAppSiteConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfig)(nil)).Elem()
-}
-
-func (i GetLinuxWebAppSiteConfigArray) ToGetLinuxWebAppSiteConfigArrayOutput() GetLinuxWebAppSiteConfigArrayOutput {
-	return i.ToGetLinuxWebAppSiteConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetLinuxWebAppSiteConfigArray) ToGetLinuxWebAppSiteConfigArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigArrayOutput)
-}
-
-type GetLinuxWebAppSiteConfigOutput struct{ *pulumi.OutputState }
-
-func (GetLinuxWebAppSiteConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLinuxWebAppSiteConfig)(nil)).Elem()
-}
-
-func (o GetLinuxWebAppSiteConfigOutput) ToGetLinuxWebAppSiteConfigOutput() GetLinuxWebAppSiteConfigOutput {
-	return o
-}
-
-func (o GetLinuxWebAppSiteConfigOutput) ToGetLinuxWebAppSiteConfigOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigOutput {
-	return o
-}
-
-// Is this Linux Web App is Always On enabled.
-func (o GetLinuxWebAppSiteConfigOutput) AlwaysOn() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.AlwaysOn }).(pulumi.BoolOutput)
-}
-
-// The ID of the APIM configuration for this Linux Web App.
-func (o GetLinuxWebAppSiteConfigOutput) ApiDefinitionUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ApiDefinitionUrl }).(pulumi.StringOutput)
-}
-
-// The ID of the API Management API for this Linux Web App.
-func (o GetLinuxWebAppSiteConfigOutput) ApiManagementApiId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ApiManagementApiId }).(pulumi.StringOutput)
-}
-
-// The command line used to launch this app.
-func (o GetLinuxWebAppSiteConfigOutput) AppCommandLine() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.AppCommandLine }).(pulumi.StringOutput)
-}
-
-// A `applicationStack` block as defined above.
-func (o GetLinuxWebAppSiteConfigOutput) ApplicationStacks() GetLinuxWebAppSiteConfigApplicationStackArrayOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []GetLinuxWebAppSiteConfigApplicationStack {
-		return v.ApplicationStacks
-	}).(GetLinuxWebAppSiteConfigApplicationStackArrayOutput)
-}
-
-// Are Auto heal rules be enabled.
-func (o GetLinuxWebAppSiteConfigOutput) AutoHealEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.AutoHealEnabled }).(pulumi.BoolOutput)
-}
-
-// A `autoHealSetting` block as defined above.
-func (o GetLinuxWebAppSiteConfigOutput) AutoHealSettings() GetLinuxWebAppSiteConfigAutoHealSettingArrayOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []GetLinuxWebAppSiteConfigAutoHealSetting { return v.AutoHealSettings }).(GetLinuxWebAppSiteConfigAutoHealSettingArrayOutput)
-}
-
-// The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
-func (o GetLinuxWebAppSiteConfigOutput) ContainerRegistryManagedIdentityClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ContainerRegistryManagedIdentityClientId }).(pulumi.StringOutput)
-}
-
-// Do connections for Azure Container Registry use Managed Identity.
-func (o GetLinuxWebAppSiteConfigOutput) ContainerRegistryUseManagedIdentity() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.ContainerRegistryUseManagedIdentity }).(pulumi.BoolOutput)
-}
-
-// A `cors` block as defined above.
-func (o GetLinuxWebAppSiteConfigOutput) Cors() GetLinuxWebAppSiteConfigCorArrayOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []GetLinuxWebAppSiteConfigCor { return v.Cors }).(GetLinuxWebAppSiteConfigCorArrayOutput)
-}
-
-// The list of Default Documents for the Linux Web App.
-func (o GetLinuxWebAppSiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
-}
-
-// Is Detailed Error Logging enabled.
-func (o GetLinuxWebAppSiteConfigOutput) DetailedErrorLoggingEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolOutput)
-}
-
-// The State of FTP / FTPS service.
-func (o GetLinuxWebAppSiteConfigOutput) FtpsState() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.FtpsState }).(pulumi.StringOutput)
-}
-
-// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
-func (o GetLinuxWebAppSiteConfigOutput) HealthCheckEvictionTimeInMin() pulumi.IntOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) int { return v.HealthCheckEvictionTimeInMin }).(pulumi.IntOutput)
-}
-
-// The path to the Health Check endpoint.
-func (o GetLinuxWebAppSiteConfigOutput) HealthCheckPath() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.HealthCheckPath }).(pulumi.StringOutput)
-}
-
-// Is HTTP2.0 enabled.
-func (o GetLinuxWebAppSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.Http2Enabled }).(pulumi.BoolOutput)
-}
-
-// The Default action for traffic that does not match any `ipRestriction` rule.
-func (o GetLinuxWebAppSiteConfigOutput) IpRestrictionDefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.IpRestrictionDefaultAction }).(pulumi.StringOutput)
-}
-
-// A `ipRestriction` block as defined above.
-func (o GetLinuxWebAppSiteConfigOutput) IpRestrictions() GetLinuxWebAppSiteConfigIpRestrictionArrayOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []GetLinuxWebAppSiteConfigIpRestriction { return v.IpRestrictions }).(GetLinuxWebAppSiteConfigIpRestrictionArrayOutput)
-}
-
-// The `LinuxFXVersion` string.
-func (o GetLinuxWebAppSiteConfigOutput) LinuxFxVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.LinuxFxVersion }).(pulumi.StringOutput)
-}
-
-// The site Load Balancing Mode.
-func (o GetLinuxWebAppSiteConfigOutput) LoadBalancingMode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.LoadBalancingMode }).(pulumi.StringOutput)
-}
-
-// Is the Local MySQL enabled.
-func (o GetLinuxWebAppSiteConfigOutput) LocalMysqlEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.LocalMysqlEnabled }).(pulumi.BoolOutput)
-}
-
-// The Managed Pipeline Mode.
-func (o GetLinuxWebAppSiteConfigOutput) ManagedPipelineMode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ManagedPipelineMode }).(pulumi.StringOutput)
-}
-
-// The Minimum version of TLS for requests.
-func (o GetLinuxWebAppSiteConfigOutput) MinimumTlsVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.MinimumTlsVersion }).(pulumi.StringOutput)
-}
-
-// Is Remote Debugging enabled.
-func (o GetLinuxWebAppSiteConfigOutput) RemoteDebuggingEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolOutput)
-}
-
-// The Remote Debugging Version.
-func (o GetLinuxWebAppSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.RemoteDebuggingVersion }).(pulumi.StringOutput)
-}
-
-// The Default action for traffic that does not match any `scmIpRestriction` rule.
-func (o GetLinuxWebAppSiteConfigOutput) ScmIpRestrictionDefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ScmIpRestrictionDefaultAction }).(pulumi.StringOutput)
-}
-
-// A `scmIpRestriction` block as defined above.
-func (o GetLinuxWebAppSiteConfigOutput) ScmIpRestrictions() GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []GetLinuxWebAppSiteConfigScmIpRestriction {
-		return v.ScmIpRestrictions
-	}).(GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput)
-}
-
-// The Minimum version of TLS for requests to SCM.
-func (o GetLinuxWebAppSiteConfigOutput) ScmMinimumTlsVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ScmMinimumTlsVersion }).(pulumi.StringOutput)
-}
-
-// The Source Control Management Type in use.
-func (o GetLinuxWebAppSiteConfigOutput) ScmType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ScmType }).(pulumi.StringOutput)
-}
-
-// Is the Linux Web App `ipRestriction` configuration used for the SCM also.
-func (o GetLinuxWebAppSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolOutput)
-}
-
-// Does the Linux Web App use a 32-bit worker.
-func (o GetLinuxWebAppSiteConfigOutput) Use32BitWorker() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.Use32BitWorker }).(pulumi.BoolOutput)
-}
-
-// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
-func (o GetLinuxWebAppSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.VnetRouteAllEnabled }).(pulumi.BoolOutput)
-}
-
-// Are Web Sockets enabled?
-func (o GetLinuxWebAppSiteConfigOutput) WebsocketsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.WebsocketsEnabled }).(pulumi.BoolOutput)
-}
-
-// The number of Workers for this Linux App Service.
-func (o GetLinuxWebAppSiteConfigOutput) WorkerCount() pulumi.IntOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) int { return v.WorkerCount }).(pulumi.IntOutput)
-}
-
-type GetLinuxWebAppSiteConfigArrayOutput struct{ *pulumi.OutputState }
-
-func (GetLinuxWebAppSiteConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfig)(nil)).Elem()
-}
-
-func (o GetLinuxWebAppSiteConfigArrayOutput) ToGetLinuxWebAppSiteConfigArrayOutput() GetLinuxWebAppSiteConfigArrayOutput {
-	return o
-}
-
-func (o GetLinuxWebAppSiteConfigArrayOutput) ToGetLinuxWebAppSiteConfigArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigArrayOutput {
-	return o
-}
-
-func (o GetLinuxWebAppSiteConfigArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfig {
-		return vs[0].([]GetLinuxWebAppSiteConfig)[vs[1].(int)]
-	}).(GetLinuxWebAppSiteConfigOutput)
-}
-
-type GetLinuxWebAppSiteConfigApplicationStack struct {
-	DockerImage string `pulumi:"dockerImage"`
-	// The docker image, including tag, used by this Linux Web App.
-	DockerImageName string `pulumi:"dockerImageName"`
-	DockerImageTag  string `pulumi:"dockerImageTag"`
-	// The User Name to use for authentication against the registry to pull the image.
-	DockerRegistryPassword string `pulumi:"dockerRegistryPassword"`
-	// The URL of the container registry where the `dockerImageName` is located.
-	DockerRegistryUrl string `pulumi:"dockerRegistryUrl"`
-	// The User Name to use for authentication against the registry to pull the image.
-	DockerRegistryUsername string `pulumi:"dockerRegistryUsername"`
-	// The version of .NET in use.
-	DotnetVersion string `pulumi:"dotnetVersion"`
-	GoVersion     string `pulumi:"goVersion"`
-	// The Java server type.
-	JavaServer string `pulumi:"javaServer"`
-	// The Version of the `javaServer` in use.
-	JavaServerVersion string `pulumi:"javaServerVersion"`
-	// The Version of Java in use.
-	JavaVersion string `pulumi:"javaVersion"`
-	// The version of Node in use.
-	NodeVersion string `pulumi:"nodeVersion"`
-	// The version of PHP in use.
-	PhpVersion string `pulumi:"phpVersion"`
-	// The version of Python in use.
-	PythonVersion string `pulumi:"pythonVersion"`
-	// The version of Ruby in use.
-	RubyVersion string `pulumi:"rubyVersion"`
-}
-
-// GetLinuxWebAppSiteConfigApplicationStackInput is an input type that accepts GetLinuxWebAppSiteConfigApplicationStackArgs and GetLinuxWebAppSiteConfigApplicationStackOutput values.
-// You can construct a concrete instance of `GetLinuxWebAppSiteConfigApplicationStackInput` via:
-//
-//	GetLinuxWebAppSiteConfigApplicationStackArgs{...}
-type GetLinuxWebAppSiteConfigApplicationStackInput interface {
-	pulumi.Input
-
-	ToGetLinuxWebAppSiteConfigApplicationStackOutput() GetLinuxWebAppSiteConfigApplicationStackOutput
-	ToGetLinuxWebAppSiteConfigApplicationStackOutputWithContext(context.Context) GetLinuxWebAppSiteConfigApplicationStackOutput
-}
-
-type GetLinuxWebAppSiteConfigApplicationStackArgs struct {
-	DockerImage pulumi.StringInput `pulumi:"dockerImage"`
-	// The docker image, including tag, used by this Linux Web App.
-	DockerImageName pulumi.StringInput `pulumi:"dockerImageName"`
-	DockerImageTag  pulumi.StringInput `pulumi:"dockerImageTag"`
-	// The User Name to use for authentication against the registry to pull the image.
-	DockerRegistryPassword pulumi.StringInput `pulumi:"dockerRegistryPassword"`
-	// The URL of the container registry where the `dockerImageName` is located.
-	DockerRegistryUrl pulumi.StringInput `pulumi:"dockerRegistryUrl"`
-	// The User Name to use for authentication against the registry to pull the image.
-	DockerRegistryUsername pulumi.StringInput `pulumi:"dockerRegistryUsername"`
-	// The version of .NET in use.
-	DotnetVersion pulumi.StringInput `pulumi:"dotnetVersion"`
-	GoVersion     pulumi.StringInput `pulumi:"goVersion"`
-	// The Java server type.
-	JavaServer pulumi.StringInput `pulumi:"javaServer"`
-	// The Version of the `javaServer` in use.
-	JavaServerVersion pulumi.StringInput `pulumi:"javaServerVersion"`
-	// The Version of Java in use.
-	JavaVersion pulumi.StringInput `pulumi:"javaVersion"`
-	// The version of Node in use.
-	NodeVersion pulumi.StringInput `pulumi:"nodeVersion"`
-	// The version of PHP in use.
-	PhpVersion pulumi.StringInput `pulumi:"phpVersion"`
-	// The version of Python in use.
-	PythonVersion pulumi.StringInput `pulumi:"pythonVersion"`
-	// The version of Ruby in use.
-	RubyVersion pulumi.StringInput `pulumi:"rubyVersion"`
-}
-
-func (GetLinuxWebAppSiteConfigApplicationStackArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLinuxWebAppSiteConfigApplicationStack)(nil)).Elem()
-}
-
-func (i GetLinuxWebAppSiteConfigApplicationStackArgs) ToGetLinuxWebAppSiteConfigApplicationStackOutput() GetLinuxWebAppSiteConfigApplicationStackOutput {
-	return i.ToGetLinuxWebAppSiteConfigApplicationStackOutputWithContext(context.Background())
-}
-
-func (i GetLinuxWebAppSiteConfigApplicationStackArgs) ToGetLinuxWebAppSiteConfigApplicationStackOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigApplicationStackOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigApplicationStackOutput)
-}
-
-// GetLinuxWebAppSiteConfigApplicationStackArrayInput is an input type that accepts GetLinuxWebAppSiteConfigApplicationStackArray and GetLinuxWebAppSiteConfigApplicationStackArrayOutput values.
-// You can construct a concrete instance of `GetLinuxWebAppSiteConfigApplicationStackArrayInput` via:
-//
-//	GetLinuxWebAppSiteConfigApplicationStackArray{ GetLinuxWebAppSiteConfigApplicationStackArgs{...} }
-type GetLinuxWebAppSiteConfigApplicationStackArrayInput interface {
-	pulumi.Input
-
-	ToGetLinuxWebAppSiteConfigApplicationStackArrayOutput() GetLinuxWebAppSiteConfigApplicationStackArrayOutput
-	ToGetLinuxWebAppSiteConfigApplicationStackArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigApplicationStackArrayOutput
-}
-
-type GetLinuxWebAppSiteConfigApplicationStackArray []GetLinuxWebAppSiteConfigApplicationStackInput
-
-func (GetLinuxWebAppSiteConfigApplicationStackArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigApplicationStack)(nil)).Elem()
-}
-
-func (i GetLinuxWebAppSiteConfigApplicationStackArray) ToGetLinuxWebAppSiteConfigApplicationStackArrayOutput() GetLinuxWebAppSiteConfigApplicationStackArrayOutput {
-	return i.ToGetLinuxWebAppSiteConfigApplicationStackArrayOutputWithContext(context.Background())
-}
-
-func (i GetLinuxWebAppSiteConfigApplicationStackArray) ToGetLinuxWebAppSiteConfigApplicationStackArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigApplicationStackArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigApplicationStackArrayOutput)
-}
-
-type GetLinuxWebAppSiteConfigApplicationStackOutput struct{ *pulumi.OutputState }
-
-func (GetLinuxWebAppSiteConfigApplicationStackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLinuxWebAppSiteConfigApplicationStack)(nil)).Elem()
-}
-
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) ToGetLinuxWebAppSiteConfigApplicationStackOutput() GetLinuxWebAppSiteConfigApplicationStackOutput {
-	return o
-}
-
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) ToGetLinuxWebAppSiteConfigApplicationStackOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigApplicationStackOutput {
-	return o
-}
-
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DockerImage() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DockerImage }).(pulumi.StringOutput)
-}
-
-// The docker image, including tag, used by this Linux Web App.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DockerImageName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DockerImageName }).(pulumi.StringOutput)
-}
-
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DockerImageTag() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DockerImageTag }).(pulumi.StringOutput)
-}
-
-// The User Name to use for authentication against the registry to pull the image.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DockerRegistryPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DockerRegistryPassword }).(pulumi.StringOutput)
-}
-
-// The URL of the container registry where the `dockerImageName` is located.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DockerRegistryUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DockerRegistryUrl }).(pulumi.StringOutput)
-}
-
-// The User Name to use for authentication against the registry to pull the image.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DockerRegistryUsername() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DockerRegistryUsername }).(pulumi.StringOutput)
-}
-
-// The version of .NET in use.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DotnetVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DotnetVersion }).(pulumi.StringOutput)
-}
-
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) GoVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.GoVersion }).(pulumi.StringOutput)
-}
-
-// The Java server type.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) JavaServer() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.JavaServer }).(pulumi.StringOutput)
-}
-
-// The Version of the `javaServer` in use.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) JavaServerVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.JavaServerVersion }).(pulumi.StringOutput)
-}
-
-// The Version of Java in use.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) JavaVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.JavaVersion }).(pulumi.StringOutput)
-}
-
-// The version of Node in use.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) NodeVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.NodeVersion }).(pulumi.StringOutput)
-}
-
-// The version of PHP in use.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) PhpVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.PhpVersion }).(pulumi.StringOutput)
-}
-
-// The version of Python in use.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) PythonVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.PythonVersion }).(pulumi.StringOutput)
-}
-
-// The version of Ruby in use.
-func (o GetLinuxWebAppSiteConfigApplicationStackOutput) RubyVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.RubyVersion }).(pulumi.StringOutput)
-}
-
-type GetLinuxWebAppSiteConfigApplicationStackArrayOutput struct{ *pulumi.OutputState }
-
-func (GetLinuxWebAppSiteConfigApplicationStackArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigApplicationStack)(nil)).Elem()
-}
-
-func (o GetLinuxWebAppSiteConfigApplicationStackArrayOutput) ToGetLinuxWebAppSiteConfigApplicationStackArrayOutput() GetLinuxWebAppSiteConfigApplicationStackArrayOutput {
-	return o
-}
-
-func (o GetLinuxWebAppSiteConfigApplicationStackArrayOutput) ToGetLinuxWebAppSiteConfigApplicationStackArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigApplicationStackArrayOutput {
-	return o
-}
-
-func (o GetLinuxWebAppSiteConfigApplicationStackArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigApplicationStackOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigApplicationStack {
-		return vs[0].([]GetLinuxWebAppSiteConfigApplicationStack)[vs[1].(int)]
-	}).(GetLinuxWebAppSiteConfigApplicationStackOutput)
-}
 
 type GetLinuxWebAppSiteConfigAutoHealSetting struct {
 	// A `action` block as defined above.
@@ -1084,10 +472,6 @@ type GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest struct {
 	Count int `pulumi:"count"`
 	// The time interval in the form `hh:mm:ss`.
 	Interval string `pulumi:"interval"`
-	// The path to which this rule status code applies.
-	//
-	// Deprecated: `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-	Path string `pulumi:"path"`
 	// (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
 	TimeTaken string `pulumi:"timeTaken"`
 }
@@ -1108,10 +492,6 @@ type GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs struct {
 	Count pulumi.IntInput `pulumi:"count"`
 	// The time interval in the form `hh:mm:ss`.
 	Interval pulumi.StringInput `pulumi:"interval"`
-	// The path to which this rule status code applies.
-	//
-	// Deprecated: `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-	Path pulumi.StringInput `pulumi:"path"`
 	// (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
 	TimeTaken pulumi.StringInput `pulumi:"timeTaken"`
 }
@@ -1175,13 +555,6 @@ func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) Count()
 // The time interval in the form `hh:mm:ss`.
 func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) Interval() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest) string { return v.Interval }).(pulumi.StringOutput)
-}
-
-// The path to which this rule status code applies.
-//
-// Deprecated: `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-func (o GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest) string { return v.Path }).(pulumi.StringOutput)
 }
 
 // (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
@@ -11239,8 +10612,6 @@ type GetWindowsWebAppSiteConfig struct {
 	AppCommandLine string `pulumi:"appCommandLine"`
 	// A `applicationStack` block as defined above.
 	ApplicationStacks []GetWindowsWebAppSiteConfigApplicationStack `pulumi:"applicationStacks"`
-	// Are Auto heal rules to be enabled.
-	AutoHealEnabled bool `pulumi:"autoHealEnabled"`
 	// A `autoHealSetting` block as defined above.
 	AutoHealSettings []GetWindowsWebAppSiteConfigAutoHealSetting `pulumi:"autoHealSettings"`
 	// The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
@@ -11324,8 +10695,6 @@ type GetWindowsWebAppSiteConfigArgs struct {
 	AppCommandLine pulumi.StringInput `pulumi:"appCommandLine"`
 	// A `applicationStack` block as defined above.
 	ApplicationStacks GetWindowsWebAppSiteConfigApplicationStackArrayInput `pulumi:"applicationStacks"`
-	// Are Auto heal rules to be enabled.
-	AutoHealEnabled pulumi.BoolInput `pulumi:"autoHealEnabled"`
 	// A `autoHealSetting` block as defined above.
 	AutoHealSettings GetWindowsWebAppSiteConfigAutoHealSettingArrayInput `pulumi:"autoHealSettings"`
 	// The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
@@ -11463,11 +10832,6 @@ func (o GetWindowsWebAppSiteConfigOutput) ApplicationStacks() GetWindowsWebAppSi
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) []GetWindowsWebAppSiteConfigApplicationStack {
 		return v.ApplicationStacks
 	}).(GetWindowsWebAppSiteConfigApplicationStackArrayOutput)
-}
-
-// Are Auto heal rules to be enabled.
-func (o GetWindowsWebAppSiteConfigOutput) AutoHealEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) bool { return v.AutoHealEnabled }).(pulumi.BoolOutput)
 }
 
 // A `autoHealSetting` block as defined above.
@@ -11649,10 +11013,7 @@ func (o GetWindowsWebAppSiteConfigArrayOutput) Index(i pulumi.IntInput) GetWindo
 
 type GetWindowsWebAppSiteConfigApplicationStack struct {
 	// The Current Stack value of the Windows Web App.
-	CurrentStack            string `pulumi:"currentStack"`
-	DockerContainerName     string `pulumi:"dockerContainerName"`
-	DockerContainerRegistry string `pulumi:"dockerContainerRegistry"`
-	DockerContainerTag      string `pulumi:"dockerContainerTag"`
+	CurrentStack string `pulumi:"currentStack"`
 	// The docker image, including tag, used by this Windows Web App.
 	DockerImageName string `pulumi:"dockerImageName"`
 	// The User Name to use for authentication against the registry to pull the image.
@@ -11694,10 +11055,7 @@ type GetWindowsWebAppSiteConfigApplicationStackInput interface {
 
 type GetWindowsWebAppSiteConfigApplicationStackArgs struct {
 	// The Current Stack value of the Windows Web App.
-	CurrentStack            pulumi.StringInput `pulumi:"currentStack"`
-	DockerContainerName     pulumi.StringInput `pulumi:"dockerContainerName"`
-	DockerContainerRegistry pulumi.StringInput `pulumi:"dockerContainerRegistry"`
-	DockerContainerTag      pulumi.StringInput `pulumi:"dockerContainerTag"`
+	CurrentStack pulumi.StringInput `pulumi:"currentStack"`
 	// The docker image, including tag, used by this Windows Web App.
 	DockerImageName pulumi.StringInput `pulumi:"dockerImageName"`
 	// The User Name to use for authentication against the registry to pull the image.
@@ -11780,18 +11138,6 @@ func (o GetWindowsWebAppSiteConfigApplicationStackOutput) ToGetWindowsWebAppSite
 // The Current Stack value of the Windows Web App.
 func (o GetWindowsWebAppSiteConfigApplicationStackOutput) CurrentStack() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.CurrentStack }).(pulumi.StringOutput)
-}
-
-func (o GetWindowsWebAppSiteConfigApplicationStackOutput) DockerContainerName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.DockerContainerName }).(pulumi.StringOutput)
-}
-
-func (o GetWindowsWebAppSiteConfigApplicationStackOutput) DockerContainerRegistry() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.DockerContainerRegistry }).(pulumi.StringOutput)
-}
-
-func (o GetWindowsWebAppSiteConfigApplicationStackOutput) DockerContainerTag() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWindowsWebAppSiteConfigApplicationStack) string { return v.DockerContainerTag }).(pulumi.StringOutput)
 }
 
 // The docker image, including tag, used by this Windows Web App.
@@ -12470,10 +11816,6 @@ type GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest struct {
 	Count int `pulumi:"count"`
 	// The time interval in the form `hh:mm:ss`.
 	Interval string `pulumi:"interval"`
-	// The path to which this rule status code applies.
-	//
-	// Deprecated: `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-	Path string `pulumi:"path"`
 	// (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
 	TimeTaken string `pulumi:"timeTaken"`
 }
@@ -12494,10 +11836,6 @@ type GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs struct {
 	Count pulumi.IntInput `pulumi:"count"`
 	// The time interval in the form `hh:mm:ss`.
 	Interval pulumi.StringInput `pulumi:"interval"`
-	// The path to which this rule status code applies.
-	//
-	// Deprecated: `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-	Path pulumi.StringInput `pulumi:"path"`
 	// (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
 	TimeTaken pulumi.StringInput `pulumi:"timeTaken"`
 }
@@ -12561,13 +11899,6 @@ func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) Count
 // The time interval in the form `hh:mm:ss`.
 func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) Interval() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest) string { return v.Interval }).(pulumi.StringOutput)
-}
-
-// The path to which this rule status code applies.
-//
-// Deprecated: `path` will be removed in `slowRequest` and please use `slowRequestWithPath` to set the path in version 4.0 of the AzureRM Provider.
-func (o GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest) string { return v.Path }).(pulumi.StringOutput)
 }
 
 // (Required) The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
@@ -14235,10 +13566,6 @@ func (o GetWindowsWebAppStorageAccountArrayOutput) Index(i pulumi.IntInput) GetW
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigInput)(nil)).Elem(), GetLinuxWebAppSiteConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigApplicationStackInput)(nil)).Elem(), GetLinuxWebAppSiteConfigApplicationStackArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigApplicationStackArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigApplicationStackArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingActionInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingActionArgs{})
@@ -14435,10 +13762,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStickySettingArrayInput)(nil)).Elem(), GetWindowsWebAppStickySettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountArrayInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArray{})
-	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigOutput{})
-	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigArrayOutput{})
-	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigApplicationStackOutput{})
-	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigApplicationStackArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingActionOutput{})

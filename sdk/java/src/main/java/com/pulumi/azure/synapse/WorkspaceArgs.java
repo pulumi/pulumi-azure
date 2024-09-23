@@ -3,12 +3,10 @@
 
 package com.pulumi.azure.synapse;
 
-import com.pulumi.azure.synapse.inputs.WorkspaceAadAdminArgs;
 import com.pulumi.azure.synapse.inputs.WorkspaceAzureDevopsRepoArgs;
 import com.pulumi.azure.synapse.inputs.WorkspaceCustomerManagedKeyArgs;
 import com.pulumi.azure.synapse.inputs.WorkspaceGithubRepoArgs;
 import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
-import com.pulumi.azure.synapse.inputs.WorkspaceSqlAadAdminArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -24,25 +22,6 @@ import javax.annotation.Nullable;
 public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WorkspaceArgs Empty = new WorkspaceArgs();
-
-    /**
-     * @deprecated
-     * The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="aadAdmin")
-    private @Nullable Output<WorkspaceAadAdminArgs> aadAdmin;
-
-    /**
-     * @deprecated
-     * The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<WorkspaceAadAdminArgs>> aadAdmin() {
-        return Optional.ofNullable(this.aadAdmin);
-    }
 
     /**
      * An `azure_devops_repo` block as defined below.
@@ -270,33 +249,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="sqlAadAdmin")
-    private @Nullable Output<WorkspaceSqlAadAdminArgs> sqlAadAdmin;
-
-    /**
-     * @deprecated
-     * The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<WorkspaceSqlAadAdminArgs>> sqlAadAdmin() {
-        return Optional.ofNullable(this.sqlAadAdmin);
-    }
-
-    /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
      * 
      */
     @Import(name="sqlAdministratorLogin")
     private @Nullable Output<String> sqlAdministratorLogin;
 
     /**
-     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
      * 
      */
     public Optional<Output<String>> sqlAdministratorLogin() {
@@ -304,14 +264,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+     * The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
      * 
      */
     @Import(name="sqlAdministratorLoginPassword")
     private @Nullable Output<String> sqlAdministratorLoginPassword;
 
     /**
-     * @return The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+     * @return The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
      * 
      */
     public Optional<Output<String>> sqlAdministratorLoginPassword() {
@@ -366,7 +326,6 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     private WorkspaceArgs() {}
 
     private WorkspaceArgs(WorkspaceArgs $) {
-        this.aadAdmin = $.aadAdmin;
         this.azureDevopsRepo = $.azureDevopsRepo;
         this.azureadAuthenticationOnly = $.azureadAuthenticationOnly;
         this.computeSubnetId = $.computeSubnetId;
@@ -382,7 +341,6 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.purviewId = $.purviewId;
         this.resourceGroupName = $.resourceGroupName;
-        this.sqlAadAdmin = $.sqlAadAdmin;
         this.sqlAdministratorLogin = $.sqlAdministratorLogin;
         this.sqlAdministratorLoginPassword = $.sqlAdministratorLoginPassword;
         this.sqlIdentityControlEnabled = $.sqlIdentityControlEnabled;
@@ -406,31 +364,6 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(WorkspaceArgs defaults) {
             $ = new WorkspaceArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder aadAdmin(@Nullable Output<WorkspaceAadAdminArgs> aadAdmin) {
-            $.aadAdmin = aadAdmin;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder aadAdmin(WorkspaceAadAdminArgs aadAdmin) {
-            return aadAdmin(Output.of(aadAdmin));
         }
 
         /**
@@ -759,32 +692,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder sqlAadAdmin(@Nullable Output<WorkspaceSqlAadAdminArgs> sqlAadAdmin) {
-            $.sqlAadAdmin = sqlAadAdmin;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
-        public Builder sqlAadAdmin(WorkspaceSqlAadAdminArgs sqlAadAdmin) {
-            return sqlAadAdmin(Output.of(sqlAadAdmin));
-        }
-
-        /**
-         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
          * 
          * @return builder
          * 
@@ -795,7 +703,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+         * @param sqlAdministratorLogin Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
          * 
          * @return builder
          * 
@@ -805,7 +713,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
          * 
          * @return builder
          * 
@@ -816,7 +724,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
+         * @param sqlAdministratorLoginPassword The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
          * 
          * @return builder
          * 

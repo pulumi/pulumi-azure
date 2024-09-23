@@ -24,15 +24,15 @@ public final class PointToPointVpnGatewayState extends com.pulumi.resources.Reso
      * A `connection_configuration` block as defined below.
      * 
      */
-    @Import(name="connectionConfiguration")
-    private @Nullable Output<PointToPointVpnGatewayConnectionConfigurationArgs> connectionConfiguration;
+    @Import(name="connectionConfigurations")
+    private @Nullable Output<List<PointToPointVpnGatewayConnectionConfigurationArgs>> connectionConfigurations;
 
     /**
      * @return A `connection_configuration` block as defined below.
      * 
      */
-    public Optional<Output<PointToPointVpnGatewayConnectionConfigurationArgs>> connectionConfiguration() {
-        return Optional.ofNullable(this.connectionConfiguration);
+    public Optional<Output<List<PointToPointVpnGatewayConnectionConfigurationArgs>>> connectionConfigurations() {
+        return Optional.ofNullable(this.connectionConfigurations);
     }
 
     /**
@@ -173,7 +173,7 @@ public final class PointToPointVpnGatewayState extends com.pulumi.resources.Reso
     private PointToPointVpnGatewayState() {}
 
     private PointToPointVpnGatewayState(PointToPointVpnGatewayState $) {
-        this.connectionConfiguration = $.connectionConfiguration;
+        this.connectionConfigurations = $.connectionConfigurations;
         this.dnsServers = $.dnsServers;
         this.location = $.location;
         this.name = $.name;
@@ -204,24 +204,34 @@ public final class PointToPointVpnGatewayState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionConfiguration A `connection_configuration` block as defined below.
+         * @param connectionConfigurations A `connection_configuration` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder connectionConfiguration(@Nullable Output<PointToPointVpnGatewayConnectionConfigurationArgs> connectionConfiguration) {
-            $.connectionConfiguration = connectionConfiguration;
+        public Builder connectionConfigurations(@Nullable Output<List<PointToPointVpnGatewayConnectionConfigurationArgs>> connectionConfigurations) {
+            $.connectionConfigurations = connectionConfigurations;
             return this;
         }
 
         /**
-         * @param connectionConfiguration A `connection_configuration` block as defined below.
+         * @param connectionConfigurations A `connection_configuration` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder connectionConfiguration(PointToPointVpnGatewayConnectionConfigurationArgs connectionConfiguration) {
-            return connectionConfiguration(Output.of(connectionConfiguration));
+        public Builder connectionConfigurations(List<PointToPointVpnGatewayConnectionConfigurationArgs> connectionConfigurations) {
+            return connectionConfigurations(Output.of(connectionConfigurations));
+        }
+
+        /**
+         * @param connectionConfigurations A `connection_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionConfigurations(PointToPointVpnGatewayConnectionConfigurationArgs... connectionConfigurations) {
+            return connectionConfigurations(List.of(connectionConfigurations));
         }
 
         /**

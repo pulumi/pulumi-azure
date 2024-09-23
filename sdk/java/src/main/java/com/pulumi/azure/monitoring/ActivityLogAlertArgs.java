@@ -82,14 +82,14 @@ public final class ActivityLogAlertArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+     * @return The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -283,7 +283,7 @@ public final class ActivityLogAlertArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param location The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+         * @param location The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ActivityLogAlertArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param location The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+         * @param location The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

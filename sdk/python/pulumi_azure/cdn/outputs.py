@@ -167,9 +167,7 @@ class EndpointCustomDomainUserManagedHttps(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "keyVaultCertificateId":
-            suggest = "key_vault_certificate_id"
-        elif key == "keyVaultSecretId":
+        if key == "keyVaultSecretId":
             suggest = "key_vault_secret_id"
         elif key == "tlsVersion":
             suggest = "tls_version"
@@ -186,39 +184,21 @@ class EndpointCustomDomainUserManagedHttps(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_vault_certificate_id: Optional[str] = None,
-                 key_vault_secret_id: Optional[str] = None,
+                 key_vault_secret_id: str,
                  tls_version: Optional[str] = None):
         """
-        :param str key_vault_certificate_id: The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
         :param str key_vault_secret_id: The ID of the Key Vault Secret that contains the HTTPS certificate.
-               
-               > **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
         :param str tls_version: The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
         """
-        if key_vault_certificate_id is not None:
-            pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
-        if key_vault_secret_id is not None:
-            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if tls_version is not None:
             pulumi.set(__self__, "tls_version", tls_version)
 
     @property
-    @pulumi.getter(name="keyVaultCertificateId")
-    @_utilities.deprecated("""This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate""")
-    def key_vault_certificate_id(self) -> Optional[str]:
-        """
-        The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
-        """
-        return pulumi.get(self, "key_vault_certificate_id")
-
-    @property
     @pulumi.getter(name="keyVaultSecretId")
-    def key_vault_secret_id(self) -> Optional[str]:
+    def key_vault_secret_id(self) -> str:
         """
         The ID of the Key Vault Secret that contains the HTTPS certificate.
-
-        > **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
         """
         return pulumi.get(self, "key_vault_secret_id")
 

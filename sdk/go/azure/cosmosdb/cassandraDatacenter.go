@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,10 +23,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -145,7 +145,7 @@ type CassandraDatacenter struct {
 	// Determines the selected sku.
 	//
 	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
-	SkuName pulumi.StringOutput `pulumi:"skuName"`
+	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 }
 
 // NewCassandraDatacenter registers a new resource with the given unique name, arguments, and options.
@@ -458,8 +458,8 @@ func (o CassandraDatacenterOutput) SeedNodeIpAddresses() pulumi.StringArrayOutpu
 // Determines the selected sku.
 //
 // > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
-func (o CassandraDatacenterOutput) SkuName() pulumi.StringOutput {
-	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
+func (o CassandraDatacenterOutput) SkuName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }
 
 type CassandraDatacenterArrayOutput struct{ *pulumi.OutputState }

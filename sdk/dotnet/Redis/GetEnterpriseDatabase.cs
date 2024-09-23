@@ -13,62 +13,12 @@ namespace Pulumi.Azure.Redis
     {
         /// <summary>
         /// Use this data source to access information about an existing Redis Enterprise Database
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Redis.GetEnterpriseDatabase.Invoke(new()
-        ///     {
-        ///         Name = "default",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///         ClusterId = exampleAzurermRedisEnterpriseCluster.Id,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["redisEnterpriseDatabasePrimaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.PrimaryAccessKey),
-        ///         ["redisEnterpriseDatabaseSecondaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.SecondaryAccessKey),
-        ///     };
-        /// });
-        /// ```
         /// </summary>
         public static Task<GetEnterpriseDatabaseResult> InvokeAsync(GetEnterpriseDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Redis Enterprise Database
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Azure.Redis.GetEnterpriseDatabase.Invoke(new()
-        ///     {
-        ///         Name = "default",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///         ClusterId = exampleAzurermRedisEnterpriseCluster.Id,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["redisEnterpriseDatabasePrimaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.PrimaryAccessKey),
-        ///         ["redisEnterpriseDatabaseSecondaryKey"] = example.Apply(getEnterpriseDatabaseResult =&gt; getEnterpriseDatabaseResult.SecondaryAccessKey),
-        ///     };
-        /// });
-        /// ```
         /// </summary>
         public static Output<GetEnterpriseDatabaseResult> Invoke(GetEnterpriseDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseInvokeArgs(), options.WithDefaults());
@@ -89,12 +39,6 @@ namespace Pulumi.Azure.Redis
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group the Redis Enterprise Database instance is located in.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public string? ResourceGroupName { get; set; }
-
         public GetEnterpriseDatabaseArgs()
         {
         }
@@ -114,12 +58,6 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group the Redis Enterprise Database instance is located in.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         public GetEnterpriseDatabaseInvokeArgs()
         {
@@ -155,7 +93,6 @@ namespace Pulumi.Azure.Redis
         /// The Primary Access Key for the Redis Enterprise Database instance.
         /// </summary>
         public readonly string PrimaryAccessKey;
-        public readonly string ResourceGroupName;
         /// <summary>
         /// The Secondary Access Key for the Redis Enterprise Database instance.
         /// </summary>
@@ -175,8 +112,6 @@ namespace Pulumi.Azure.Redis
 
             string primaryAccessKey,
 
-            string resourceGroupName,
-
             string secondaryAccessKey)
         {
             ClusterId = clusterId;
@@ -185,7 +120,6 @@ namespace Pulumi.Azure.Redis
             LinkedDatabaseIds = linkedDatabaseIds;
             Name = name;
             PrimaryAccessKey = primaryAccessKey;
-            ResourceGroupName = resourceGroupName;
             SecondaryAccessKey = secondaryAccessKey;
         }
     }

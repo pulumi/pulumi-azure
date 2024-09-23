@@ -39,7 +39,7 @@ class TimeSeriesDatabaseConnectionArgs:
         :param pulumi.Input[str] kusto_cluster_uri: URI of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kusto_database_name: Name of the Kusto Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_consumer_group_name: Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
-        :param pulumi.Input[str] kusto_table_name: Name of the Kusto Table. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kusto_table_name: Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "digital_twins_id", digital_twins_id)
@@ -156,7 +156,7 @@ class TimeSeriesDatabaseConnectionArgs:
     @pulumi.getter(name="kustoTableName")
     def kusto_table_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Kusto Table. Changing this forces a new resource to be created.
+        Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kusto_table_name")
 
@@ -200,7 +200,7 @@ class _TimeSeriesDatabaseConnectionState:
         :param pulumi.Input[str] kusto_cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kusto_cluster_uri: URI of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kusto_database_name: Name of the Kusto Database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] kusto_table_name: Name of the Kusto Table. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kusto_table_name: Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
         """
         if digital_twins_id is not None:
@@ -324,7 +324,7 @@ class _TimeSeriesDatabaseConnectionState:
     @pulumi.getter(name="kustoTableName")
     def kusto_table_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Kusto Table. Changing this forces a new resource to be created.
+        Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kusto_table_name")
 
@@ -462,7 +462,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         :param pulumi.Input[str] kusto_cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kusto_cluster_uri: URI of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kusto_database_name: Name of the Kusto Database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] kusto_table_name: Name of the Kusto Table. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kusto_table_name: Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
         """
         ...
@@ -655,7 +655,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         :param pulumi.Input[str] kusto_cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kusto_cluster_uri: URI of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kusto_database_name: Name of the Kusto Database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] kusto_table_name: Name of the Kusto Table. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kusto_table_name: Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -740,9 +740,9 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kustoTableName")
-    def kusto_table_name(self) -> pulumi.Output[str]:
+    def kusto_table_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the Kusto Table. Changing this forces a new resource to be created.
+        Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kusto_table_name")
 

@@ -55,11 +55,6 @@ export type FrontdoorRoute = import("./frontdoorRoute").FrontdoorRoute;
 export const FrontdoorRoute: typeof import("./frontdoorRoute").FrontdoorRoute = null as any;
 utilities.lazyLoad(exports, ["FrontdoorRoute"], () => require("./frontdoorRoute"));
 
-export { FrontdoorRouteDisableLinkToDefaultDomainArgs, FrontdoorRouteDisableLinkToDefaultDomainState } from "./frontdoorRouteDisableLinkToDefaultDomain";
-export type FrontdoorRouteDisableLinkToDefaultDomain = import("./frontdoorRouteDisableLinkToDefaultDomain").FrontdoorRouteDisableLinkToDefaultDomain;
-export const FrontdoorRouteDisableLinkToDefaultDomain: typeof import("./frontdoorRouteDisableLinkToDefaultDomain").FrontdoorRouteDisableLinkToDefaultDomain = null as any;
-utilities.lazyLoad(exports, ["FrontdoorRouteDisableLinkToDefaultDomain"], () => require("./frontdoorRouteDisableLinkToDefaultDomain"));
-
 export { FrontdoorRuleArgs, FrontdoorRuleState } from "./frontdoorRule";
 export type FrontdoorRule = import("./frontdoorRule").FrontdoorRule;
 export const FrontdoorRule: typeof import("./frontdoorRule").FrontdoorRule = null as any;
@@ -150,8 +145,6 @@ const _module = {
                 return new FrontdoorProfile(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorRoute:FrontdoorRoute":
                 return new FrontdoorRoute(name, <any>undefined, { urn })
-            case "azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain":
-                return new FrontdoorRouteDisableLinkToDefaultDomain(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorRule:FrontdoorRule":
                 return new FrontdoorRule(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet":
@@ -177,7 +170,6 @@ pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorOrigin", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorOriginGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRoute", _module)
-pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRouteDisableLinkToDefaultDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRule", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRuleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorSecret", _module)

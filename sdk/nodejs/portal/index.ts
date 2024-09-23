@@ -5,15 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { DashboardArgs, DashboardState } from "./dashboard";
-export type Dashboard = import("./dashboard").Dashboard;
-export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
-utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
-
-export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
-export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
-export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
-utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
+export { Azurerm_portal_dashboardArgs, Azurerm_portal_dashboardResult, Azurerm_portal_dashboardOutputArgs } from "./azurerm_portal_dashboard";
+export const azurerm_portal_dashboard: typeof import("./azurerm_portal_dashboard").azurerm_portal_dashboard = null as any;
+export const azurerm_portal_dashboardOutput: typeof import("./azurerm_portal_dashboard").azurerm_portal_dashboardOutput = null as any;
+utilities.lazyLoad(exports, ["azurerm_portal_dashboard","azurerm_portal_dashboardOutput"], () => require("./azurerm_portal_dashboard"));
 
 export { PortalDashboardArgs, PortalDashboardState } from "./portalDashboard";
 export type PortalDashboard = import("./portalDashboard").PortalDashboard;
@@ -25,8 +20,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure:portal/dashboard:Dashboard":
-                return new Dashboard(name, <any>undefined, { urn })
             case "azure:portal/portalDashboard:PortalDashboard":
                 return new PortalDashboard(name, <any>undefined, { urn })
             default:
@@ -34,5 +27,4 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure", "portal/dashboard", _module)
 pulumi.runtime.registerResourceModule("azure", "portal/portalDashboard", _module)

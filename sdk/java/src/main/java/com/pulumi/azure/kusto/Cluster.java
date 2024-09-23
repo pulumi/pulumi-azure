@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.kusto.ClusterArgs;
 import com.pulumi.azure.kusto.inputs.ClusterState;
 import com.pulumi.azure.kusto.outputs.ClusterIdentity;
+import com.pulumi.azure.kusto.outputs.ClusterLanguageExtension;
 import com.pulumi.azure.kusto.outputs.ClusterOptimizedAutoScale;
 import com.pulumi.azure.kusto.outputs.ClusterSku;
 import com.pulumi.azure.kusto.outputs.ClusterVirtualNetworkConfiguration;
@@ -170,18 +171,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.doubleEncryptionEnabled);
     }
     /**
-     * @deprecated
-     * This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="engine", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> engine;
-
-    public Output<Optional<String>> engine() {
-        return Codegen.optional(this.engine);
-    }
-    /**
      * An `identity` block as defined below.
      * 
      */
@@ -201,8 +190,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      * 
      */
-    @Export(name="languageExtensions", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> languageExtensions;
+    @Export(name="languageExtensions", refs={List.class,ClusterLanguageExtension.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ClusterLanguageExtension>> languageExtensions;
 
     /**
      * @return An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
@@ -210,7 +199,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      * 
      */
-    public Output<Optional<List<String>>> languageExtensions() {
+    public Output<Optional<List<ClusterLanguageExtension>>> languageExtensions() {
         return Codegen.optional(this.languageExtensions);
     }
     /**

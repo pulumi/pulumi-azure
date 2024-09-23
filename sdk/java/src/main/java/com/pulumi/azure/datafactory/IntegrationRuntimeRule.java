@@ -83,18 +83,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule")
 public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource {
     /**
-     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+     * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
      * 
      */
     @Export(name="cleanupEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> cleanupEnabled;
+    private Output</* @Nullable */ Boolean> cleanupEnabled;
 
     /**
-     * @return Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
+     * @return Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
      * 
      */
-    public Output<Boolean> cleanupEnabled() {
-        return this.cleanupEnabled;
+    public Output<Optional<Boolean>> cleanupEnabled() {
+        return Codegen.optional(this.cleanupEnabled);
     }
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.

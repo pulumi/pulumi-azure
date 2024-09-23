@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,8 +37,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connection{}
 	case "azure:appservice/customHostnameBinding:CustomHostnameBinding":
 		r = &CustomHostnameBinding{}
-	case "azure:appservice/environment:Environment":
-		r = &Environment{}
 	case "azure:appservice/environmentV3:EnvironmentV3":
 		r = &EnvironmentV3{}
 	case "azure:appservice/functionApp:FunctionApp":
@@ -158,11 +156,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appservice/customHostnameBinding",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"appservice/environment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

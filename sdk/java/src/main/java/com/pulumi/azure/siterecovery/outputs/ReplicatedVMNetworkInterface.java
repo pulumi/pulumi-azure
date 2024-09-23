@@ -4,7 +4,6 @@
 package com.pulumi.azure.siterecovery.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -27,13 +26,6 @@ public final class ReplicatedVMNetworkInterface {
      * 
      */
     private @Nullable String failoverTestSubnetName;
-    /**
-     * @deprecated
-     * this property is not used and will be removed in version 4.0 of the provider
-     * 
-     */
-    @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
-    private @Nullable Boolean isPrimary;
     /**
      * @return Id of the public IP object to use when a failover is done.
      * 
@@ -78,15 +70,6 @@ public final class ReplicatedVMNetworkInterface {
         return Optional.ofNullable(this.failoverTestSubnetName);
     }
     /**
-     * @deprecated
-     * this property is not used and will be removed in version 4.0 of the provider
-     * 
-     */
-    @Deprecated /* this property is not used and will be removed in version 4.0 of the provider */
-    public Optional<Boolean> isPrimary() {
-        return Optional.ofNullable(this.isPrimary);
-    }
-    /**
      * @return Id of the public IP object to use when a failover is done.
      * 
      */
@@ -127,7 +110,6 @@ public final class ReplicatedVMNetworkInterface {
         private @Nullable String failoverTestPublicIpAddressId;
         private @Nullable String failoverTestStaticIp;
         private @Nullable String failoverTestSubnetName;
-        private @Nullable Boolean isPrimary;
         private @Nullable String recoveryPublicIpAddressId;
         private @Nullable String sourceNetworkInterfaceId;
         private @Nullable String targetStaticIp;
@@ -138,7 +120,6 @@ public final class ReplicatedVMNetworkInterface {
     	      this.failoverTestPublicIpAddressId = defaults.failoverTestPublicIpAddressId;
     	      this.failoverTestStaticIp = defaults.failoverTestStaticIp;
     	      this.failoverTestSubnetName = defaults.failoverTestSubnetName;
-    	      this.isPrimary = defaults.isPrimary;
     	      this.recoveryPublicIpAddressId = defaults.recoveryPublicIpAddressId;
     	      this.sourceNetworkInterfaceId = defaults.sourceNetworkInterfaceId;
     	      this.targetStaticIp = defaults.targetStaticIp;
@@ -161,12 +142,6 @@ public final class ReplicatedVMNetworkInterface {
         public Builder failoverTestSubnetName(@Nullable String failoverTestSubnetName) {
 
             this.failoverTestSubnetName = failoverTestSubnetName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder isPrimary(@Nullable Boolean isPrimary) {
-
-            this.isPrimary = isPrimary;
             return this;
         }
         @CustomType.Setter
@@ -198,7 +173,6 @@ public final class ReplicatedVMNetworkInterface {
             _resultValue.failoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
             _resultValue.failoverTestStaticIp = failoverTestStaticIp;
             _resultValue.failoverTestSubnetName = failoverTestSubnetName;
-            _resultValue.isPrimary = isPrimary;
             _resultValue.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
             _resultValue.sourceNetworkInterfaceId = sourceNetworkInterfaceId;
             _resultValue.targetStaticIp = targetStaticIp;

@@ -15,16 +15,6 @@ export type ActionGroup = import("./actionGroup").ActionGroup;
 export const ActionGroup: typeof import("./actionGroup").ActionGroup = null as any;
 utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
 
-export { ActionRuleActionGroupArgs, ActionRuleActionGroupState } from "./actionRuleActionGroup";
-export type ActionRuleActionGroup = import("./actionRuleActionGroup").ActionRuleActionGroup;
-export const ActionRuleActionGroup: typeof import("./actionRuleActionGroup").ActionRuleActionGroup = null as any;
-utilities.lazyLoad(exports, ["ActionRuleActionGroup"], () => require("./actionRuleActionGroup"));
-
-export { ActionRuleSuppressionArgs, ActionRuleSuppressionState } from "./actionRuleSuppression";
-export type ActionRuleSuppression = import("./actionRuleSuppression").ActionRuleSuppression;
-export const ActionRuleSuppression: typeof import("./actionRuleSuppression").ActionRuleSuppression = null as any;
-utilities.lazyLoad(exports, ["ActionRuleSuppression"], () => require("./actionRuleSuppression"));
-
 export { ActivityLogAlertArgs, ActivityLogAlertState } from "./activityLogAlert";
 export type ActivityLogAlert = import("./activityLogAlert").ActivityLogAlert;
 export const ActivityLogAlert: typeof import("./activityLogAlert").ActivityLogAlert = null as any;
@@ -90,11 +80,6 @@ export const getDiagnosticCategories: typeof import("./getDiagnosticCategories")
 export const getDiagnosticCategoriesOutput: typeof import("./getDiagnosticCategories").getDiagnosticCategoriesOutput = null as any;
 utilities.lazyLoad(exports, ["getDiagnosticCategories","getDiagnosticCategoriesOutput"], () => require("./getDiagnosticCategories"));
 
-export { GetLogProfileArgs, GetLogProfileResult, GetLogProfileOutputArgs } from "./getLogProfile";
-export const getLogProfile: typeof import("./getLogProfile").getLogProfile = null as any;
-export const getLogProfileOutput: typeof import("./getLogProfile").getLogProfileOutput = null as any;
-utilities.lazyLoad(exports, ["getLogProfile","getLogProfileOutput"], () => require("./getLogProfile"));
-
 export { GetScheduledQueryRulesAlertArgs, GetScheduledQueryRulesAlertResult, GetScheduledQueryRulesAlertOutputArgs } from "./getScheduledQueryRulesAlert";
 export const getScheduledQueryRulesAlert: typeof import("./getScheduledQueryRulesAlert").getScheduledQueryRulesAlert = null as any;
 export const getScheduledQueryRulesAlertOutput: typeof import("./getScheduledQueryRulesAlert").getScheduledQueryRulesAlertOutput = null as any;
@@ -109,31 +94,6 @@ export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
-
-export { LogProfileArgs, LogProfileState } from "./logProfile";
-export type LogProfile = import("./logProfile").LogProfile;
-export const LogProfile: typeof import("./logProfile").LogProfile = null as any;
-utilities.lazyLoad(exports, ["LogProfile"], () => require("./logProfile"));
-
-export { LogzMonitorArgs, LogzMonitorState } from "./logzMonitor";
-export type LogzMonitor = import("./logzMonitor").LogzMonitor;
-export const LogzMonitor: typeof import("./logzMonitor").LogzMonitor = null as any;
-utilities.lazyLoad(exports, ["LogzMonitor"], () => require("./logzMonitor"));
-
-export { LogzSubAccountArgs, LogzSubAccountState } from "./logzSubAccount";
-export type LogzSubAccount = import("./logzSubAccount").LogzSubAccount;
-export const LogzSubAccount: typeof import("./logzSubAccount").LogzSubAccount = null as any;
-utilities.lazyLoad(exports, ["LogzSubAccount"], () => require("./logzSubAccount"));
-
-export { LogzSubAccountTagRuleArgs, LogzSubAccountTagRuleState } from "./logzSubAccountTagRule";
-export type LogzSubAccountTagRule = import("./logzSubAccountTagRule").LogzSubAccountTagRule;
-export const LogzSubAccountTagRule: typeof import("./logzSubAccountTagRule").LogzSubAccountTagRule = null as any;
-utilities.lazyLoad(exports, ["LogzSubAccountTagRule"], () => require("./logzSubAccountTagRule"));
-
-export { LogzTagRuleArgs, LogzTagRuleState } from "./logzTagRule";
-export type LogzTagRule = import("./logzTagRule").LogzTagRule;
-export const LogzTagRule: typeof import("./logzTagRule").LogzTagRule = null as any;
-utilities.lazyLoad(exports, ["LogzTagRule"], () => require("./logzTagRule"));
 
 export { MetricAlertArgs, MetricAlertState } from "./metricAlert";
 export type MetricAlert = import("./metricAlert").MetricAlert;
@@ -184,10 +144,6 @@ const _module = {
                 return new AadDiagnosticSetting(name, <any>undefined, { urn })
             case "azure:monitoring/actionGroup:ActionGroup":
                 return new ActionGroup(name, <any>undefined, { urn })
-            case "azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup":
-                return new ActionRuleActionGroup(name, <any>undefined, { urn })
-            case "azure:monitoring/actionRuleSuppression:ActionRuleSuppression":
-                return new ActionRuleSuppression(name, <any>undefined, { urn })
             case "azure:monitoring/activityLogAlert:ActivityLogAlert":
                 return new ActivityLogAlert(name, <any>undefined, { urn })
             case "azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup":
@@ -206,16 +162,6 @@ const _module = {
                 return new DataCollectionRuleAssociation(name, <any>undefined, { urn })
             case "azure:monitoring/diagnosticSetting:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
-            case "azure:monitoring/logProfile:LogProfile":
-                return new LogProfile(name, <any>undefined, { urn })
-            case "azure:monitoring/logzMonitor:LogzMonitor":
-                return new LogzMonitor(name, <any>undefined, { urn })
-            case "azure:monitoring/logzSubAccount:LogzSubAccount":
-                return new LogzSubAccount(name, <any>undefined, { urn })
-            case "azure:monitoring/logzSubAccountTagRule:LogzSubAccountTagRule":
-                return new LogzSubAccountTagRule(name, <any>undefined, { urn })
-            case "azure:monitoring/logzTagRule:LogzTagRule":
-                return new LogzTagRule(name, <any>undefined, { urn })
             case "azure:monitoring/metricAlert:MetricAlert":
                 return new MetricAlert(name, <any>undefined, { urn })
             case "azure:monitoring/privateLinkScope:PrivateLinkScope":
@@ -239,8 +185,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "monitoring/aadDiagnosticSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/actionGroup", _module)
-pulumi.runtime.registerResourceModule("azure", "monitoring/actionRuleActionGroup", _module)
-pulumi.runtime.registerResourceModule("azure", "monitoring/actionRuleSuppression", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/activityLogAlert", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/alertProcessingRuleActionGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/alertProcessingRuleSuppression", _module)
@@ -250,11 +194,6 @@ pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionEndpoin
 pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionRule", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionRuleAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/diagnosticSetting", _module)
-pulumi.runtime.registerResourceModule("azure", "monitoring/logProfile", _module)
-pulumi.runtime.registerResourceModule("azure", "monitoring/logzMonitor", _module)
-pulumi.runtime.registerResourceModule("azure", "monitoring/logzSubAccount", _module)
-pulumi.runtime.registerResourceModule("azure", "monitoring/logzSubAccountTagRule", _module)
-pulumi.runtime.registerResourceModule("azure", "monitoring/logzTagRule", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/metricAlert", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/privateLinkScope", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/privateLinkScopedService", _module)

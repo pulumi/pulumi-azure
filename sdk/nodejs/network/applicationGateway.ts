@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     name: "example-pip",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     allocationMethod: "Dynamic",
+ *     allocationMethod: "Static",
  * });
  * const backendAddressPoolName = pulumi.interpolate`${exampleVirtualNetwork.name}-beap`;
  * const frontendPortName = pulumi.interpolate`${exampleVirtualNetwork.name}-feport`;

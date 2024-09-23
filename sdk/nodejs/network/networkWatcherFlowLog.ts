@@ -11,62 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storageAccount` with no existing management rules, until the issue is fixed.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const test = new azure.network.NetworkSecurityGroup("test", {
- *     name: "acctestnsg",
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * const testNetworkWatcher = new azure.network.NetworkWatcher("test", {
- *     name: "acctestnw",
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * const testAccount = new azure.storage.Account("test", {
- *     name: "acctestsa",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     accountTier: "Standard",
- *     accountKind: "StorageV2",
- *     accountReplicationType: "LRS",
- *     enableHttpsTrafficOnly: true,
- * });
- * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("test", {
- *     name: "acctestlaw",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     sku: "PerGB2018",
- * });
- * const testNetworkWatcherFlowLog = new azure.network.NetworkWatcherFlowLog("test", {
- *     networkWatcherName: testNetworkWatcher.name,
- *     resourceGroupName: example.name,
- *     name: "example-log",
- *     networkSecurityGroupId: test.id,
- *     storageAccountId: testAccount.id,
- *     enabled: true,
- *     retentionPolicy: {
- *         enabled: true,
- *         days: 7,
- *     },
- *     trafficAnalytics: {
- *         enabled: true,
- *         workspaceId: testAnalyticsWorkspace.workspaceId,
- *         workspaceRegion: testAnalyticsWorkspace.location,
- *         workspaceResourceId: testAnalyticsWorkspace.id,
- *         intervalInMinutes: 10,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Network Watcher Flow Logs can be imported using the `resource id`, e.g.
@@ -144,9 +88,9 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      */
     public readonly trafficAnalytics!: pulumi.Output<outputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
     /**
-     * The version (revision) of the flow log. Possible values are `1` and `2`.
+     * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
      */
-    public readonly version!: pulumi.Output<number>;
+    public readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a NetworkWatcherFlowLog resource with the given unique name, arguments, and options.
@@ -254,7 +198,7 @@ export interface NetworkWatcherFlowLogState {
      */
     trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics>;
     /**
-     * The version (revision) of the flow log. Possible values are `1` and `2`.
+     * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
      */
     version?: pulumi.Input<number>;
 }
@@ -304,7 +248,7 @@ export interface NetworkWatcherFlowLogArgs {
      */
     trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics>;
     /**
-     * The version (revision) of the flow log. Possible values are `1` and `2`.
+     * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
      */
     version?: pulumi.Input<number>;
 }

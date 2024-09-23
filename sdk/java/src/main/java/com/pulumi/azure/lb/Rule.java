@@ -215,28 +215,28 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="idleTimeoutInMinutes", refs={Integer.class}, tree="[0]")
-    private Output<Integer> idleTimeoutInMinutes;
+    private Output</* @Nullable */ Integer> idleTimeoutInMinutes;
 
     /**
      * @return Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
      * 
      */
-    public Output<Integer> idleTimeoutInMinutes() {
-        return this.idleTimeoutInMinutes;
+    public Output<Optional<Integer>> idleTimeoutInMinutes() {
+        return Codegen.optional(this.idleTimeoutInMinutes);
     }
     /**
      * Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
      * 
      */
     @Export(name="loadDistribution", refs={String.class}, tree="[0]")
-    private Output<String> loadDistribution;
+    private Output</* @Nullable */ String> loadDistribution;
 
     /**
      * @return Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
      * 
      */
-    public Output<String> loadDistribution() {
-        return this.loadDistribution;
+    public Output<Optional<String>> loadDistribution() {
+        return Codegen.optional(this.loadDistribution);
     }
     /**
      * The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.

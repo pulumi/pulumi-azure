@@ -391,7 +391,7 @@ class VolumeGroup(pulumi.CustomResource):
 
         ## Import
 
-        An existing Elastic SAN Volume Group can be imported into Terraform using the `resource id`, e.g.
+        An existing Elastic SAN Volume Group can be imported into Pulumi using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:elasticsan/volumeGroup:VolumeGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ElasticSan/elasticSans/esan1/volumeGroups/vg1
@@ -528,7 +528,7 @@ class VolumeGroup(pulumi.CustomResource):
 
         ## Import
 
-        An existing Elastic SAN Volume Group can be imported into Terraform using the `resource id`, e.g.
+        An existing Elastic SAN Volume Group can be imported into Pulumi using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:elasticsan/volumeGroup:VolumeGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ElasticSan/elasticSans/esan1/volumeGroups/vg1

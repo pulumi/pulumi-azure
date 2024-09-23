@@ -128,9 +128,6 @@ namespace Pulumi.Azure.Sentinel
         [Output("incident")]
         public Output<Outputs.AlertRuleScheduledIncident> Incident { get; private set; } = null!;
 
-        [Output("incidentConfiguration")]
-        public Output<Outputs.AlertRuleScheduledIncidentConfiguration> IncidentConfiguration { get; private set; } = null!;
-
         /// <summary>
         /// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         /// </summary>
@@ -339,9 +336,6 @@ namespace Pulumi.Azure.Sentinel
         [Input("incident")]
         public Input<Inputs.AlertRuleScheduledIncidentArgs>? Incident { get; set; }
 
-        [Input("incidentConfiguration")]
-        public Input<Inputs.AlertRuleScheduledIncidentConfigurationArgs>? IncidentConfiguration { get; set; }
-
         /// <summary>
         /// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         /// </summary>
@@ -529,9 +523,6 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("incident")]
         public Input<Inputs.AlertRuleScheduledIncidentGetArgs>? Incident { get; set; }
-
-        [Input("incidentConfiguration")]
-        public Input<Inputs.AlertRuleScheduledIncidentConfigurationGetArgs>? IncidentConfiguration { get; set; }
 
         /// <summary>
         /// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.

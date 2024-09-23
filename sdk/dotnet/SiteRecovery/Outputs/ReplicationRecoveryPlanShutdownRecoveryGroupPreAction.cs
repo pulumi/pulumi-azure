@@ -49,6 +49,9 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         /// </summary>
         public readonly string? ScriptPath;
+        /// <summary>
+        /// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

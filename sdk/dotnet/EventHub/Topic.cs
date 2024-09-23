@@ -46,7 +46,7 @@ namespace Pulumi.Azure.EventHub
     ///     {
     ///         Name = "tfex_servicebus_topic",
     ///         NamespaceId = exampleNamespace.Id,
-    ///         EnablePartitioning = true,
+    ///         PartitioningEnabled = true,
     ///     });
     /// 
     /// });
@@ -65,57 +65,43 @@ namespace Pulumi.Azure.EventHub
     public partial class Topic : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
+        /// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
         /// </summary>
         [Output("autoDeleteOnIdle")]
-        public Output<string> AutoDeleteOnIdle { get; private set; } = null!;
-
-        [Output("batchedOperationsEnabled")]
-        public Output<bool> BatchedOperationsEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
-        /// </summary>
-        [Output("defaultMessageTtl")]
-        public Output<string> DefaultMessageTtl { get; private set; } = null!;
-
-        /// <summary>
-        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-        /// </summary>
-        [Output("duplicateDetectionHistoryTimeWindow")]
-        public Output<string> DuplicateDetectionHistoryTimeWindow { get; private set; } = null!;
+        public Output<string?> AutoDeleteOnIdle { get; private set; } = null!;
 
         /// <summary>
         /// Boolean flag which controls if server-side batched operations are enabled.
         /// </summary>
-        [Output("enableBatchedOperations")]
-        public Output<bool> EnableBatchedOperations { get; private set; } = null!;
+        [Output("batchedOperationsEnabled")]
+        public Output<bool?> BatchedOperationsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+        /// </summary>
+        [Output("defaultMessageTtl")]
+        public Output<string?> DefaultMessageTtl { get; private set; } = null!;
+
+        /// <summary>
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
+        /// </summary>
+        [Output("duplicateDetectionHistoryTimeWindow")]
+        public Output<string?> DuplicateDetectionHistoryTimeWindow { get; private set; } = null!;
 
         /// <summary>
         /// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         /// </summary>
-        [Output("enableExpress")]
-        public Output<bool> EnableExpress { get; private set; } = null!;
-
-        /// <summary>
-        /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
-        /// </summary>
-        [Output("enablePartitioning")]
-        public Output<bool> EnablePartitioning { get; private set; } = null!;
-
         [Output("expressEnabled")]
-        public Output<bool> ExpressEnabled { get; private set; } = null!;
+        public Output<bool?> ExpressEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
         /// </summary>
         [Output("maxMessageSizeInKilobytes")]
         public Output<int> MaxMessageSizeInKilobytes { get; private set; } = null!;
 
         /// <summary>
-        /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
         /// </summary>
         [Output("maxSizeInMegabytes")]
         public Output<int> MaxSizeInMegabytes { get; private set; } = null!;
@@ -135,8 +121,13 @@ namespace Pulumi.Azure.EventHub
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+        /// </summary>
         [Output("partitioningEnabled")]
-        public Output<bool> PartitioningEnabled { get; private set; } = null!;
+        public Output<bool?> PartitioningEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
@@ -206,57 +197,43 @@ namespace Pulumi.Azure.EventHub
     public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
+        /// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
+        /// <summary>
+        /// Boolean flag which controls if server-side batched operations are enabled.
+        /// </summary>
         [Input("batchedOperationsEnabled")]
         public Input<bool>? BatchedOperationsEnabled { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
+        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself. Defaults to `P10675199DT2H48M5.4775807S`.
         /// </summary>
         [Input("defaultMessageTtl")]
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
         /// </summary>
         [Input("duplicateDetectionHistoryTimeWindow")]
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls if server-side batched operations are enabled.
-        /// </summary>
-        [Input("enableBatchedOperations")]
-        public Input<bool>? EnableBatchedOperations { get; set; }
-
-        /// <summary>
         /// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         /// </summary>
-        [Input("enableExpress")]
-        public Input<bool>? EnableExpress { get; set; }
-
-        /// <summary>
-        /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
-        /// </summary>
-        [Input("enablePartitioning")]
-        public Input<bool>? EnablePartitioning { get; set; }
-
         [Input("expressEnabled")]
         public Input<bool>? ExpressEnabled { get; set; }
 
         /// <summary>
-        /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
         /// </summary>
         [Input("maxMessageSizeInKilobytes")]
         public Input<int>? MaxMessageSizeInKilobytes { get; set; }
 
         /// <summary>
-        /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
         /// </summary>
         [Input("maxSizeInMegabytes")]
         public Input<int>? MaxSizeInMegabytes { get; set; }
@@ -273,6 +250,11 @@ namespace Pulumi.Azure.EventHub
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
 
+        /// <summary>
+        /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+        /// </summary>
         [Input("partitioningEnabled")]
         public Input<bool>? PartitioningEnabled { get; set; }
 
@@ -303,57 +285,43 @@ namespace Pulumi.Azure.EventHub
     public sealed class TopicState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
+        /// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
+        /// <summary>
+        /// Boolean flag which controls if server-side batched operations are enabled.
+        /// </summary>
         [Input("batchedOperationsEnabled")]
         public Input<bool>? BatchedOperationsEnabled { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
+        /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself. Defaults to `P10675199DT2H48M5.4775807S`.
         /// </summary>
         [Input("defaultMessageTtl")]
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
         /// </summary>
         [Input("duplicateDetectionHistoryTimeWindow")]
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls if server-side batched operations are enabled.
-        /// </summary>
-        [Input("enableBatchedOperations")]
-        public Input<bool>? EnableBatchedOperations { get; set; }
-
-        /// <summary>
         /// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         /// </summary>
-        [Input("enableExpress")]
-        public Input<bool>? EnableExpress { get; set; }
-
-        /// <summary>
-        /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
-        /// </summary>
-        [Input("enablePartitioning")]
-        public Input<bool>? EnablePartitioning { get; set; }
-
         [Input("expressEnabled")]
         public Input<bool>? ExpressEnabled { get; set; }
 
         /// <summary>
-        /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
         /// </summary>
         [Input("maxMessageSizeInKilobytes")]
         public Input<int>? MaxMessageSizeInKilobytes { get; set; }
 
         /// <summary>
-        /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
+        /// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
         /// </summary>
         [Input("maxSizeInMegabytes")]
         public Input<int>? MaxSizeInMegabytes { get; set; }
@@ -373,6 +341,11 @@ namespace Pulumi.Azure.EventHub
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
+        /// <summary>
+        /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+        /// </summary>
         [Input("partitioningEnabled")]
         public Input<bool>? PartitioningEnabled { get; set; }
 

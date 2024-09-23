@@ -4,6 +4,7 @@
 package com.pulumi.azure.kusto.inputs;
 
 import com.pulumi.azure.kusto.inputs.ClusterIdentityArgs;
+import com.pulumi.azure.kusto.inputs.ClusterLanguageExtensionArgs;
 import com.pulumi.azure.kusto.inputs.ClusterOptimizedAutoScaleArgs;
 import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
 import com.pulumi.azure.kusto.inputs.ClusterVirtualNetworkConfigurationArgs;
@@ -113,25 +114,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="engine")
-    private @Nullable Output<String> engine;
-
-    /**
-     * @deprecated
-     * This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<String>> engine() {
-        return Optional.ofNullable(this.engine);
-    }
-
-    /**
      * An `identity` block as defined below.
      * 
      */
@@ -153,7 +135,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="languageExtensions")
-    private @Nullable Output<List<String>> languageExtensions;
+    private @Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtensions;
 
     /**
      * @return An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
@@ -161,7 +143,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      * 
      */
-    public Optional<Output<List<String>>> languageExtensions() {
+    public Optional<Output<List<ClusterLanguageExtensionArgs>>> languageExtensions() {
         return Optional.ofNullable(this.languageExtensions);
     }
 
@@ -407,7 +389,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.dataIngestionUri = $.dataIngestionUri;
         this.diskEncryptionEnabled = $.diskEncryptionEnabled;
         this.doubleEncryptionEnabled = $.doubleEncryptionEnabled;
-        this.engine = $.engine;
         this.identity = $.identity;
         this.languageExtensions = $.languageExtensions;
         this.location = $.location;
@@ -592,31 +573,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider. */
-        public Builder engine(@Nullable Output<String> engine) {
-            $.engine = engine;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider. */
-        public Builder engine(String engine) {
-            return engine(Output.of(engine));
-        }
-
-        /**
          * @param identity An `identity` block as defined below.
          * 
          * @return builder
@@ -645,7 +601,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder languageExtensions(@Nullable Output<List<String>> languageExtensions) {
+        public Builder languageExtensions(@Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtensions) {
             $.languageExtensions = languageExtensions;
             return this;
         }
@@ -658,7 +614,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder languageExtensions(List<String> languageExtensions) {
+        public Builder languageExtensions(List<ClusterLanguageExtensionArgs> languageExtensions) {
             return languageExtensions(Output.of(languageExtensions));
         }
 
@@ -670,7 +626,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder languageExtensions(String... languageExtensions) {
+        public Builder languageExtensions(ClusterLanguageExtensionArgs... languageExtensions) {
             return languageExtensions(List.of(languageExtensions));
         }
 

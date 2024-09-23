@@ -364,6 +364,8 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceRootDbfsCustomerManagedKey, __self__).__init__(
             'azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey',
             resource_name,

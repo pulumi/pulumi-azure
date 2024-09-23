@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,10 +31,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -199,10 +199,10 @@ type IoTHub struct {
 	EventHubOperationsEndpoint pulumi.StringOutput `pulumi:"eventHubOperationsEndpoint"`
 	// The EventHub compatible path for operational data
 	EventHubOperationsPath pulumi.StringOutput `pulumi:"eventHubOperationsPath"`
-	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
-	EventHubPartitionCount pulumi.IntOutput `pulumi:"eventHubPartitionCount"`
-	// The event hub retention to use in days. Must be between `1` and `7`.
-	EventHubRetentionInDays pulumi.IntOutput `pulumi:"eventHubRetentionInDays"`
+	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
+	EventHubPartitionCount pulumi.IntPtrOutput `pulumi:"eventHubPartitionCount"`
+	// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
+	EventHubRetentionInDays pulumi.IntPtrOutput `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
 	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
@@ -284,9 +284,9 @@ type ioTHubState struct {
 	EventHubOperationsEndpoint *string `pulumi:"eventHubOperationsEndpoint"`
 	// The EventHub compatible path for operational data
 	EventHubOperationsPath *string `pulumi:"eventHubOperationsPath"`
-	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
 	EventHubPartitionCount *int `pulumi:"eventHubPartitionCount"`
-	// The event hub retention to use in days. Must be between `1` and `7`.
+	// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
 	EventHubRetentionInDays *int `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
@@ -334,9 +334,9 @@ type IoTHubState struct {
 	EventHubOperationsEndpoint pulumi.StringPtrInput
 	// The EventHub compatible path for operational data
 	EventHubOperationsPath pulumi.StringPtrInput
-	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
 	EventHubPartitionCount pulumi.IntPtrInput
-	// The event hub retention to use in days. Must be between `1` and `7`.
+	// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
 	EventHubRetentionInDays pulumi.IntPtrInput
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
@@ -378,9 +378,9 @@ type ioTHubArgs struct {
 	// An `endpoint` block as defined below.
 	Endpoints   []IoTHubEndpoint   `pulumi:"endpoints"`
 	Enrichments []IoTHubEnrichment `pulumi:"enrichments"`
-	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
 	EventHubPartitionCount *int `pulumi:"eventHubPartitionCount"`
-	// The event hub retention to use in days. Must be between `1` and `7`.
+	// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
 	EventHubRetentionInDays *int `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
@@ -414,9 +414,9 @@ type IoTHubArgs struct {
 	// An `endpoint` block as defined below.
 	Endpoints   IoTHubEndpointArrayInput
 	Enrichments IoTHubEnrichmentArrayInput
-	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
 	EventHubPartitionCount pulumi.IntPtrInput
-	// The event hub retention to use in days. Must be between `1` and `7`.
+	// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
 	EventHubRetentionInDays pulumi.IntPtrInput
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
@@ -569,14 +569,14 @@ func (o IoTHubOutput) EventHubOperationsPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.StringOutput { return v.EventHubOperationsPath }).(pulumi.StringOutput)
 }
 
-// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
-func (o IoTHubOutput) EventHubPartitionCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *IoTHub) pulumi.IntOutput { return v.EventHubPartitionCount }).(pulumi.IntOutput)
+// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
+func (o IoTHubOutput) EventHubPartitionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IoTHub) pulumi.IntPtrOutput { return v.EventHubPartitionCount }).(pulumi.IntPtrOutput)
 }
 
-// The event hub retention to use in days. Must be between `1` and `7`.
-func (o IoTHubOutput) EventHubRetentionInDays() pulumi.IntOutput {
-	return o.ApplyT(func(v *IoTHub) pulumi.IntOutput { return v.EventHubRetentionInDays }).(pulumi.IntOutput)
+// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
+func (o IoTHubOutput) EventHubRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IoTHub) pulumi.IntPtrOutput { return v.EventHubRetentionInDays }).(pulumi.IntPtrOutput)
 }
 
 // A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.

@@ -10,7 +10,7 @@ const accessTier = "Hot";
 
 const storageAccount = new azure.storage.Account("storageaccount", {
   resourceGroupName: resourceGroup.name,
-  accountTier: "standard",
+  accountTier: "Standard",
   accountReplicationType: "LRS",
   accessTier,
 });
@@ -41,8 +41,8 @@ const image = new docker.Image("image", {
 
 const containerGroup = new azure.containerservice.Group("containergroup", {
   resourceGroupName: resourceGroup.name,
-  ipAddressType: "public",
-  osType: "linux",
+  ipAddressType: "Public",
+  osType: "Linux",
   imageRegistryCredentials: [
     {
       server: registry.loginServer,

@@ -37,23 +37,18 @@ public final class CacheRedisConfiguration {
      * 
      */
     private @Nullable String aofStorageConnectionString1;
-    private @Nullable Boolean authenticationEnabled;
-    /**
-     * @return Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
-     * 
-     */
-    private @Nullable String dataPersistenceAuthenticationMethod;
     /**
      * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
-     * 
-     * @deprecated
-     * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
+     * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
      * 
      */
-    @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
-    private @Nullable Boolean enableAuthentication;
+    private @Nullable Boolean authenticationEnabled;
+    /**
+     * @return Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
+     * 
+     */
+    private @Nullable String dataPersistenceAuthenticationMethod;
     /**
      * @return Returns the max number of connected clients at the same time.
      * 
@@ -150,28 +145,21 @@ public final class CacheRedisConfiguration {
     public Optional<String> aofStorageConnectionString1() {
         return Optional.ofNullable(this.aofStorageConnectionString1);
     }
+    /**
+     * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+     * 
+     * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+     * 
+     */
     public Optional<Boolean> authenticationEnabled() {
         return Optional.ofNullable(this.authenticationEnabled);
     }
     /**
-     * @return Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`. Defaults to `SAS`.
+     * @return Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
      * 
      */
     public Optional<String> dataPersistenceAuthenticationMethod() {
         return Optional.ofNullable(this.dataPersistenceAuthenticationMethod);
-    }
-    /**
-     * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-     * 
-     * &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `enable_authentication` set to `true`.
-     * 
-     * @deprecated
-     * `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider. */
-    public Optional<Boolean> enableAuthentication() {
-        return Optional.ofNullable(this.enableAuthentication);
     }
     /**
      * @return Returns the max number of connected clients at the same time.
@@ -273,7 +261,6 @@ public final class CacheRedisConfiguration {
         private @Nullable String aofStorageConnectionString1;
         private @Nullable Boolean authenticationEnabled;
         private @Nullable String dataPersistenceAuthenticationMethod;
-        private @Nullable Boolean enableAuthentication;
         private @Nullable Integer maxclients;
         private @Nullable Integer maxfragmentationmemoryReserved;
         private @Nullable Integer maxmemoryDelta;
@@ -294,7 +281,6 @@ public final class CacheRedisConfiguration {
     	      this.aofStorageConnectionString1 = defaults.aofStorageConnectionString1;
     	      this.authenticationEnabled = defaults.authenticationEnabled;
     	      this.dataPersistenceAuthenticationMethod = defaults.dataPersistenceAuthenticationMethod;
-    	      this.enableAuthentication = defaults.enableAuthentication;
     	      this.maxclients = defaults.maxclients;
     	      this.maxfragmentationmemoryReserved = defaults.maxfragmentationmemoryReserved;
     	      this.maxmemoryDelta = defaults.maxmemoryDelta;
@@ -342,12 +328,6 @@ public final class CacheRedisConfiguration {
         public Builder dataPersistenceAuthenticationMethod(@Nullable String dataPersistenceAuthenticationMethod) {
 
             this.dataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableAuthentication(@Nullable Boolean enableAuthentication) {
-
-            this.enableAuthentication = enableAuthentication;
             return this;
         }
         @CustomType.Setter
@@ -424,7 +404,6 @@ public final class CacheRedisConfiguration {
             _resultValue.aofStorageConnectionString1 = aofStorageConnectionString1;
             _resultValue.authenticationEnabled = authenticationEnabled;
             _resultValue.dataPersistenceAuthenticationMethod = dataPersistenceAuthenticationMethod;
-            _resultValue.enableAuthentication = enableAuthentication;
             _resultValue.maxclients = maxclients;
             _resultValue.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
             _resultValue.maxmemoryDelta = maxmemoryDelta;

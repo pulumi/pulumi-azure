@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,10 +77,8 @@ type LookupAccountResult struct {
 	// supports the following:
 	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
 	// Which DNS endpoint type is used - either `Standard` or `AzureDnsZone`.
-	DnsEndpointType        string `pulumi:"dnsEndpointType"`
-	EnableHttpsTrafficOnly bool   `pulumi:"enableHttpsTrafficOnly"`
-	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-	// for more information.
+	DnsEndpointType string `pulumi:"dnsEndpointType"`
+	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information.
 	HttpsTrafficOnlyEnabled bool `pulumi:"httpsTrafficOnlyEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -334,12 +332,7 @@ func (o LookupAccountResultOutput) DnsEndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.DnsEndpointType }).(pulumi.StringOutput)
 }
 
-func (o LookupAccountResultOutput) EnableHttpsTrafficOnly() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableHttpsTrafficOnly }).(pulumi.BoolOutput)
-}
-
-// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-// for more information.
+// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information.
 func (o LookupAccountResultOutput) HttpsTrafficOnlyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.HttpsTrafficOnlyEnabled }).(pulumi.BoolOutput)
 }

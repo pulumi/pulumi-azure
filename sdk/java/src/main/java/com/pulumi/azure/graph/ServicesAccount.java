@@ -6,11 +6,13 @@ package com.pulumi.azure.graph;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.graph.ServicesAccountArgs;
 import com.pulumi.azure.graph.inputs.ServicesAccountState;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -71,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Account can be imported into Terraform using the `resource id`, e.g.
+ * An existing Account can be imported into Pulumi using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:graph/servicesAccount:ServicesAccount example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.GraphServices/accounts/account1
@@ -190,6 +192,9 @@ public class ServicesAccount extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("azure:graph/account:Account").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

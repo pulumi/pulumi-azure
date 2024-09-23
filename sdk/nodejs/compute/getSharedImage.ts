@@ -54,7 +54,19 @@ export interface GetSharedImageArgs {
  * A collection of values returned by getSharedImage.
  */
 export interface GetSharedImageResult {
+    /**
+     * Specifies if the Shared Image supports Accelerated Network.
+     */
+    readonly acceleratedNetworkSupportEnabled: boolean;
     readonly architecture: string;
+    /**
+     * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines.
+     */
+    readonly confidentialVmEnabled: boolean;
+    /**
+     * Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image.
+     */
+    readonly confidentialVmSupported: boolean;
     /**
      * The description of this Shared Image.
      */
@@ -64,6 +76,10 @@ export interface GetSharedImageResult {
      */
     readonly eula: string;
     readonly galleryName: string;
+    /**
+     * Specifies if the Shared Image supports hibernation.
+     */
+    readonly hibernationEnabled: boolean;
     /**
      * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
      */
@@ -109,6 +125,14 @@ export interface GetSharedImageResult {
      * A mapping of tags assigned to the Shared Image.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image.
+     */
+    readonly trustedLaunchEnabled: boolean;
+    /**
+     * Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image.
+     */
+    readonly trustedLaunchSupported: boolean;
 }
 /**
  * Use this data source to access information about an existing Shared Image within a Shared Image Gallery.

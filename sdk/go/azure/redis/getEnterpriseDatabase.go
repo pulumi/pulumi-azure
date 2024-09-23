@@ -7,41 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to access information about an existing Redis Enterprise Database
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := redis.LookupEnterpriseDatabase(ctx, &redis.LookupEnterpriseDatabaseArgs{
-//				Name:              "default",
-//				ResourceGroupName: pulumi.StringRef(exampleAzurermResourceGroup.Name),
-//				ClusterId:         exampleAzurermRedisEnterpriseCluster.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("redisEnterpriseDatabasePrimaryKey", example.PrimaryAccessKey)
-//			ctx.Export("redisEnterpriseDatabaseSecondaryKey", example.SecondaryAccessKey)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupEnterpriseDatabase(ctx *pulumi.Context, args *LookupEnterpriseDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupEnterpriseDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnterpriseDatabaseResult
@@ -58,10 +28,6 @@ type LookupEnterpriseDatabaseArgs struct {
 	ClusterId string `pulumi:"clusterId"`
 	// The name of the Redis Enterprise Database.
 	Name string `pulumi:"name"`
-	// The name of the resource group the Redis Enterprise Database instance is located in.
-	//
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getEnterpriseDatabase.
@@ -78,8 +44,6 @@ type LookupEnterpriseDatabaseResult struct {
 	Name string `pulumi:"name"`
 	// The Primary Access Key for the Redis Enterprise Database instance.
 	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Enterprise Database instance.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
 }
@@ -103,10 +67,6 @@ type LookupEnterpriseDatabaseOutputArgs struct {
 	ClusterId pulumi.StringInput `pulumi:"clusterId"`
 	// The name of the Redis Enterprise Database.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the resource group the Redis Enterprise Database instance is located in.
-	//
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
 func (LookupEnterpriseDatabaseOutputArgs) ElementType() reflect.Type {
@@ -156,11 +116,6 @@ func (o LookupEnterpriseDatabaseResultOutput) Name() pulumi.StringOutput {
 // The Primary Access Key for the Redis Enterprise Database instance.
 func (o LookupEnterpriseDatabaseResultOutput) PrimaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.PrimaryAccessKey }).(pulumi.StringOutput)
-}
-
-// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-func (o LookupEnterpriseDatabaseResultOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEnterpriseDatabaseResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 // The Secondary Access Key for the Redis Enterprise Database instance.

@@ -216,8 +216,6 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.liveTrace);
     }
     /**
-     * Specifies if Live Trace is enabled or not. Defaults to `false`.
-     * 
      * @deprecated
      * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
      * 
@@ -226,10 +224,6 @@ public class Service extends com.pulumi.resources.CustomResource {
     @Export(name="liveTraceEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> liveTraceEnabled;
 
-    /**
-     * @return Specifies if Live Trace is enabled or not. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> liveTraceEnabled() {
         return Codegen.optional(this.liveTraceEnabled);
     }

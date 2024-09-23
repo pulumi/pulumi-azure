@@ -208,6 +208,8 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
             resourceInputs["vnetIntegration"] = args ? args.vnetIntegration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationRuntimeSsis.__pulumiType, name, resourceInputs, opts);
     }
 }

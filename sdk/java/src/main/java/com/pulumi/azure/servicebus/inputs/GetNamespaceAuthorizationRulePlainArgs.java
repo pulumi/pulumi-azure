@@ -46,8 +46,6 @@ public final class GetNamespaceAuthorizationRulePlainArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies the name of the ServiceBus Namespace.
-     * 
      * @deprecated
      * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      * 
@@ -57,8 +55,6 @@ public final class GetNamespaceAuthorizationRulePlainArgs extends com.pulumi.res
     private @Nullable String namespaceName;
 
     /**
-     * @return Specifies the name of the ServiceBus Namespace.
-     * 
      * @deprecated
      * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      * 
@@ -69,10 +65,6 @@ public final class GetNamespaceAuthorizationRulePlainArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-     * 
-     * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
-     * 
      * @deprecated
      * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      * 
@@ -82,10 +74,6 @@ public final class GetNamespaceAuthorizationRulePlainArgs extends com.pulumi.res
     private @Nullable String resourceGroupName;
 
     /**
-     * @return Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-     * 
-     * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
-     * 
      * @deprecated
      * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
      * 
@@ -145,8 +133,6 @@ public final class GetNamespaceAuthorizationRulePlainArgs extends com.pulumi.res
         }
 
         /**
-         * @param namespaceName Specifies the name of the ServiceBus Namespace.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -160,10 +146,6 @@ public final class GetNamespaceAuthorizationRulePlainArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-         * 
-         * &gt; **Note:** `namespace_name` and `resource_group_name` has been deprecated and will be removed in version 4.0 of the provider in favour of `namespace_id`.
-         * 
          * @return builder
          * 
          * @deprecated

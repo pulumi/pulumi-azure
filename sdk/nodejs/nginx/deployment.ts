@@ -118,10 +118,6 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     /**
-     * @deprecated The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-     */
-    public readonly configuration!: pulumi.Output<outputs.nginx.DeploymentConfiguration>;
-    /**
      * Should the metrics be exported to Azure Monitor?
      */
     public readonly diagnoseSupportEnabled!: pulumi.Output<boolean | undefined>;
@@ -195,7 +191,6 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["autoScaleProfiles"] = state ? state.autoScaleProfiles : undefined;
             resourceInputs["automaticUpgradeChannel"] = state ? state.automaticUpgradeChannel : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["diagnoseSupportEnabled"] = state ? state.diagnoseSupportEnabled : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["frontendPrivates"] = state ? state.frontendPrivates : undefined;
@@ -222,7 +217,6 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["autoScaleProfiles"] = args ? args.autoScaleProfiles : undefined;
             resourceInputs["automaticUpgradeChannel"] = args ? args.automaticUpgradeChannel : undefined;
             resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["diagnoseSupportEnabled"] = args ? args.diagnoseSupportEnabled : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["frontendPrivates"] = args ? args.frontendPrivates : undefined;
@@ -262,10 +256,6 @@ export interface DeploymentState {
      * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
     capacity?: pulumi.Input<number>;
-    /**
-     * @deprecated The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-     */
-    configuration?: pulumi.Input<inputs.nginx.DeploymentConfiguration>;
     /**
      * Should the metrics be exported to Azure Monitor?
      */
@@ -343,10 +333,6 @@ export interface DeploymentArgs {
      * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
     capacity?: pulumi.Input<number>;
-    /**
-     * @deprecated The `configuration` block has been superseded by the `azure.nginx.Configuration` resource and will be removed in v4.0 of the AzureRM Provider.
-     */
-    configuration?: pulumi.Input<inputs.nginx.DeploymentConfiguration>;
     /**
      * Should the metrics be exported to Azure Monitor?
      */

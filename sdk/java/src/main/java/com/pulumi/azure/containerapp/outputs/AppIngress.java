@@ -26,12 +26,8 @@ public final class AppIngress {
     /**
      * @return One or more `custom_domain` block as detailed below.
      * 
-     * @deprecated
-     * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
-     * 
      */
-    @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
-    private @Nullable AppIngressCustomDomain customDomain;
+    private @Nullable List<AppIngressCustomDomain> customDomains;
     /**
      * @return The exposed port on the container for the Ingress traffic.
      * 
@@ -81,13 +77,9 @@ public final class AppIngress {
     /**
      * @return One or more `custom_domain` block as detailed below.
      * 
-     * @deprecated
-     * This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release.
-     * 
      */
-    @Deprecated /* This property is deprecated in favour of the new `azure.containerapp.CustomDomain` resource and will become computed only in a future release. */
-    public Optional<AppIngressCustomDomain> customDomain() {
-        return Optional.ofNullable(this.customDomain);
+    public List<AppIngressCustomDomain> customDomains() {
+        return this.customDomains == null ? List.of() : this.customDomains;
     }
     /**
      * @return The exposed port on the container for the Ingress traffic.
@@ -151,7 +143,7 @@ public final class AppIngress {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowInsecureConnections;
-        private @Nullable AppIngressCustomDomain customDomain;
+        private @Nullable List<AppIngressCustomDomain> customDomains;
         private @Nullable Integer exposedPort;
         private @Nullable Boolean externalEnabled;
         private @Nullable String fqdn;
@@ -163,7 +155,7 @@ public final class AppIngress {
         public Builder(AppIngress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowInsecureConnections = defaults.allowInsecureConnections;
-    	      this.customDomain = defaults.customDomain;
+    	      this.customDomains = defaults.customDomains;
     	      this.exposedPort = defaults.exposedPort;
     	      this.externalEnabled = defaults.externalEnabled;
     	      this.fqdn = defaults.fqdn;
@@ -180,10 +172,13 @@ public final class AppIngress {
             return this;
         }
         @CustomType.Setter
-        public Builder customDomain(@Nullable AppIngressCustomDomain customDomain) {
+        public Builder customDomains(@Nullable List<AppIngressCustomDomain> customDomains) {
 
-            this.customDomain = customDomain;
+            this.customDomains = customDomains;
             return this;
+        }
+        public Builder customDomains(AppIngressCustomDomain... customDomains) {
+            return customDomains(List.of(customDomains));
         }
         @CustomType.Setter
         public Builder exposedPort(@Nullable Integer exposedPort) {
@@ -240,7 +235,7 @@ public final class AppIngress {
         public AppIngress build() {
             final var _resultValue = new AppIngress();
             _resultValue.allowInsecureConnections = allowInsecureConnections;
-            _resultValue.customDomain = customDomain;
+            _resultValue.customDomains = customDomains;
             _resultValue.exposedPort = exposedPort;
             _resultValue.externalEnabled = externalEnabled;
             _resultValue.fqdn = fqdn;

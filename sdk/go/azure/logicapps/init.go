@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,8 +43,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IntegrationAccountSchema{}
 	case "azure:logicapps/integrationAccountSession:IntegrationAccountSession":
 		r = &IntegrationAccountSession{}
-	case "azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment":
-		r = &InterationServiceEnvironment{}
 	case "azure:logicapps/standard:Standard":
 		r = &Standard{}
 	case "azure:logicapps/triggerCustom:TriggerCustom":
@@ -121,11 +119,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"logicapps/integrationAccountSession",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"logicapps/interationServiceEnvironment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

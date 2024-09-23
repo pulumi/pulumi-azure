@@ -159,9 +159,9 @@ export class ComputeCluster extends pulumi.CustomResource {
      */
     public readonly ssh!: pulumi.Output<outputs.machinelearning.ComputeClusterSsh | undefined>;
     /**
-     * A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly sshPublicAccessEnabled!: pulumi.Output<boolean>;
+    public readonly sshPublicAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
@@ -281,7 +281,7 @@ export interface ComputeClusterState {
      */
     ssh?: pulumi.Input<inputs.machinelearning.ComputeClusterSsh>;
     /**
-     * A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     sshPublicAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -343,7 +343,7 @@ export interface ComputeClusterArgs {
      */
     ssh?: pulumi.Input<inputs.machinelearning.ComputeClusterSsh>;
     /**
-     * A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     sshPublicAccessEnabled?: pulumi.Input<boolean>;
     /**

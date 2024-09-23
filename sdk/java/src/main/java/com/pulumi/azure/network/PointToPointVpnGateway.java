@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  *             .virtualHubId(exampleVirtualHub.id())
  *             .vpnServerConfigurationId(exampleVpnServerConfiguration.id())
  *             .scaleUnit(1)
- *             .connectionConfiguration(PointToPointVpnGatewayConnectionConfigurationArgs.builder()
+ *             .connectionConfigurations(PointToPointVpnGatewayConnectionConfigurationArgs.builder()
  *                 .name("example-gateway-config")
  *                 .vpnClientAddressPool(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs.builder()
  *                     .addressPrefixes("10.0.2.0/24")
@@ -145,15 +145,15 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * A `connection_configuration` block as defined below.
      * 
      */
-    @Export(name="connectionConfiguration", refs={PointToPointVpnGatewayConnectionConfiguration.class}, tree="[0]")
-    private Output<PointToPointVpnGatewayConnectionConfiguration> connectionConfiguration;
+    @Export(name="connectionConfigurations", refs={List.class,PointToPointVpnGatewayConnectionConfiguration.class}, tree="[0,1]")
+    private Output<List<PointToPointVpnGatewayConnectionConfiguration>> connectionConfigurations;
 
     /**
      * @return A `connection_configuration` block as defined below.
      * 
      */
-    public Output<PointToPointVpnGatewayConnectionConfiguration> connectionConfiguration() {
-        return this.connectionConfiguration;
+    public Output<List<PointToPointVpnGatewayConnectionConfiguration>> connectionConfigurations() {
+        return this.connectionConfigurations;
     }
     /**
      * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.

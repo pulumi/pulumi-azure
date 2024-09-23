@@ -301,14 +301,9 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-        /// 
-        /// &gt; **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         /// </summary>
         [Output("enabled")]
-        public Output<bool> Enabled { get; private set; } = null!;
-
-        [Output("healthProbesEnabled")]
-        public Output<bool> HealthProbesEnabled { get; private set; } = null!;
+        public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
@@ -424,14 +419,9 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-        /// 
-        /// &gt; **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
-
-        [Input("healthProbesEnabled")]
-        public Input<bool>? HealthProbesEnabled { get; set; }
 
         /// <summary>
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
@@ -509,14 +499,9 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
-        /// 
-        /// &gt; **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
-
-        [Input("healthProbesEnabled")]
-        public Input<bool>? HealthProbesEnabled { get; set; }
 
         /// <summary>
         /// The IPv4 address, IPv6 address or Domain name of the Origin.

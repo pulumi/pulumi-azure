@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         /// </summary>
         [Output("extensionOperationsEnabled")]
-        public Output<bool> ExtensionOperationsEnabled { get; private set; } = null!;
+        public Output<bool?> ExtensionOperationsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// One or more `extension` blocks as defined below

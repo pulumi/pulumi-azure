@@ -12,24 +12,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
-     * @deprecated
-     * This property has been deprecated and will be removed in 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-    private @Nullable String dockerImage;
-    /**
      * @return The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
      * 
      */
     private @Nullable String dockerImageName;
-    /**
-     * @deprecated
-     * This property has been deprecated and will be removed in 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-    private @Nullable String dockerImageTag;
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
      * 
@@ -103,29 +89,11 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
 
     private LinuxWebAppSlotSiteConfigApplicationStack() {}
     /**
-     * @deprecated
-     * This property has been deprecated and will be removed in 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-    public Optional<String> dockerImage() {
-        return Optional.ofNullable(this.dockerImage);
-    }
-    /**
      * @return The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
      * 
      */
     public Optional<String> dockerImageName() {
         return Optional.ofNullable(this.dockerImageName);
-    }
-    /**
-     * @deprecated
-     * This property has been deprecated and will be removed in 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in 4.0 of the provider. */
-    public Optional<String> dockerImageTag() {
-        return Optional.ofNullable(this.dockerImageTag);
     }
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
@@ -231,9 +199,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String dockerImage;
         private @Nullable String dockerImageName;
-        private @Nullable String dockerImageTag;
         private @Nullable String dockerRegistryPassword;
         private @Nullable String dockerRegistryUrl;
         private @Nullable String dockerRegistryUsername;
@@ -249,9 +215,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         public Builder() {}
         public Builder(LinuxWebAppSlotSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.dockerImage = defaults.dockerImage;
     	      this.dockerImageName = defaults.dockerImageName;
-    	      this.dockerImageTag = defaults.dockerImageTag;
     	      this.dockerRegistryPassword = defaults.dockerRegistryPassword;
     	      this.dockerRegistryUrl = defaults.dockerRegistryUrl;
     	      this.dockerRegistryUsername = defaults.dockerRegistryUsername;
@@ -267,21 +231,9 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         }
 
         @CustomType.Setter
-        public Builder dockerImage(@Nullable String dockerImage) {
-
-            this.dockerImage = dockerImage;
-            return this;
-        }
-        @CustomType.Setter
         public Builder dockerImageName(@Nullable String dockerImageName) {
 
             this.dockerImageName = dockerImageName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder dockerImageTag(@Nullable String dockerImageTag) {
-
-            this.dockerImageTag = dockerImageTag;
             return this;
         }
         @CustomType.Setter
@@ -358,9 +310,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         }
         public LinuxWebAppSlotSiteConfigApplicationStack build() {
             final var _resultValue = new LinuxWebAppSlotSiteConfigApplicationStack();
-            _resultValue.dockerImage = dockerImage;
             _resultValue.dockerImageName = dockerImageName;
-            _resultValue.dockerImageTag = dockerImageTag;
             _resultValue.dockerRegistryPassword = dockerRegistryPassword;
             _resultValue.dockerRegistryUrl = dockerRegistryUrl;
             _resultValue.dockerRegistryUsername = dockerRegistryUsername;

@@ -38,7 +38,7 @@ namespace Pulumi.Azure.AnalysisServices
     ///         {
     ///             "myuser@domain.tld",
     ///         },
-    ///         EnablePowerBiService = true,
+    ///         PowerBiServiceEnabled = true,
     ///         Ipv4FirewallRules = new[]
     ///         {
     ///             new Azure.AnalysisServices.Inputs.ServerIpv4FirewallRuleArgs
@@ -83,12 +83,6 @@ namespace Pulumi.Azure.AnalysisServices
         public Output<string?> BackupBlobContainerUri { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if the Power BI service is allowed to access or not.
-        /// </summary>
-        [Output("enablePowerBiService")]
-        public Output<bool> EnablePowerBiService { get; private set; } = null!;
-
-        /// <summary>
         /// One or more `ipv4_firewall_rule` block(s) as defined below.
         /// </summary>
         [Output("ipv4FirewallRules")]
@@ -106,14 +100,17 @@ namespace Pulumi.Azure.AnalysisServices
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates if the Power BI service is allowed to access or not.
+        /// </summary>
         [Output("powerBiServiceEnabled")]
-        public Output<bool> PowerBiServiceEnabled { get; private set; } = null!;
+        public Output<bool?> PowerBiServiceEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         /// </summary>
         [Output("querypoolConnectionMode")]
-        public Output<string> QuerypoolConnectionMode { get; private set; } = null!;
+        public Output<string?> QuerypoolConnectionMode { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
@@ -217,12 +214,6 @@ namespace Pulumi.Azure.AnalysisServices
             }
         }
 
-        /// <summary>
-        /// Indicates if the Power BI service is allowed to access or not.
-        /// </summary>
-        [Input("enablePowerBiService")]
-        public Input<bool>? EnablePowerBiService { get; set; }
-
         [Input("ipv4FirewallRules")]
         private InputList<Inputs.ServerIpv4FirewallRuleArgs>? _ipv4FirewallRules;
 
@@ -247,11 +238,14 @@ namespace Pulumi.Azure.AnalysisServices
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Indicates if the Power BI service is allowed to access or not.
+        /// </summary>
         [Input("powerBiServiceEnabled")]
         public Input<bool>? PowerBiServiceEnabled { get; set; }
 
         /// <summary>
-        /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         /// </summary>
         [Input("querypoolConnectionMode")]
         public Input<string>? QuerypoolConnectionMode { get; set; }
@@ -316,12 +310,6 @@ namespace Pulumi.Azure.AnalysisServices
             }
         }
 
-        /// <summary>
-        /// Indicates if the Power BI service is allowed to access or not.
-        /// </summary>
-        [Input("enablePowerBiService")]
-        public Input<bool>? EnablePowerBiService { get; set; }
-
         [Input("ipv4FirewallRules")]
         private InputList<Inputs.ServerIpv4FirewallRuleGetArgs>? _ipv4FirewallRules;
 
@@ -346,11 +334,14 @@ namespace Pulumi.Azure.AnalysisServices
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Indicates if the Power BI service is allowed to access or not.
+        /// </summary>
         [Input("powerBiServiceEnabled")]
         public Input<bool>? PowerBiServiceEnabled { get; set; }
 
         /// <summary>
-        /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
         /// </summary>
         [Input("querypoolConnectionMode")]
         public Input<string>? QuerypoolConnectionMode { get; set; }

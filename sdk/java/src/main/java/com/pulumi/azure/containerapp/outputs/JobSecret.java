@@ -13,43 +13,53 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JobSecret {
     /**
-     * @return A `identity` block as defined below.
+     * @return The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+     * 
+     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
      * 
      */
     private @Nullable String identity;
     /**
-     * @return The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+     * @return The ID of a Key Vault secret. This can be a versioned or version-less ID.
+     * 
+     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
      * 
      */
     private @Nullable String keyVaultSecretId;
     /**
-     * @return Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+     * @return The secret name.
      * 
      */
     private String name;
     /**
      * @return The value for this secret.
      * 
+     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+     * 
      */
     private @Nullable String value;
 
     private JobSecret() {}
     /**
-     * @return A `identity` block as defined below.
+     * @return The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
+     * 
+     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
      * 
      */
     public Optional<String> identity() {
         return Optional.ofNullable(this.identity);
     }
     /**
-     * @return The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+     * @return The ID of a Key Vault secret. This can be a versioned or version-less ID.
+     * 
+     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
      * 
      */
     public Optional<String> keyVaultSecretId() {
         return Optional.ofNullable(this.keyVaultSecretId);
     }
     /**
-     * @return Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
+     * @return The secret name.
      * 
      */
     public String name() {
@@ -57,6 +67,8 @@ public final class JobSecret {
     }
     /**
      * @return The value for this secret.
+     * 
+     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
      * 
      */
     public Optional<String> value() {

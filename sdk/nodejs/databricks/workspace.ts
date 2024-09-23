@@ -112,7 +112,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`.
      */
-    public readonly networkSecurityGroupRulesRequired!: pulumi.Output<string>;
+    public readonly networkSecurityGroupRulesRequired!: pulumi.Output<string | undefined>;
     /**
      * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
      */

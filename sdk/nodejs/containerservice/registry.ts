@@ -40,42 +40,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Encryption)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     name: "registry-uai",
- * });
- * const example = azure.keyvault.getKey({
- *     name: "super-secret",
- *     keyVaultId: existing.id,
- * });
- * const acr = new azure.containerservice.Registry("acr", {
- *     name: "containerRegistry1",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Premium",
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
- *     },
- *     encryption: {
- *         enabled: true,
- *         keyVaultKeyId: example.then(example => example.id),
- *         identityClientId: exampleUserAssignedIdentity.clientId,
- *     },
- * });
- * ```
- *
  * ### Attaching A Container Registry To A Kubernetes Cluster)
  *
  * ```typescript
@@ -180,7 +144,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      *
-     * > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicy`, `trustPolicy`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
     public readonly exportPolicyEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -230,9 +194,9 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `retentionPolicy` block as documented below.
+     * The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
      */
-    public readonly retentionPolicy!: pulumi.Output<outputs.containerservice.RegistryRetentionPolicy>;
+    public readonly retentionPolicyInDays!: pulumi.Output<number | undefined>;
     /**
      * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      */
@@ -242,9 +206,9 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A `trustPolicy` block as documented below.
+     * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
      */
-    public readonly trustPolicy!: pulumi.Output<outputs.containerservice.RegistryTrustPolicy>;
+    public readonly trustPolicyEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
      */
@@ -280,10 +244,10 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["quarantinePolicyEnabled"] = state ? state.quarantinePolicyEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
+            resourceInputs["retentionPolicyInDays"] = state ? state.retentionPolicyInDays : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["trustPolicy"] = state ? state.trustPolicy : undefined;
+            resourceInputs["trustPolicyEnabled"] = state ? state.trustPolicyEnabled : undefined;
             resourceInputs["zoneRedundancyEnabled"] = state ? state.zoneRedundancyEnabled : undefined;
         } else {
             const args = argsOrState as RegistryArgs | undefined;
@@ -307,10 +271,10 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["quarantinePolicyEnabled"] = args ? args.quarantinePolicyEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
+            resourceInputs["retentionPolicyInDays"] = args ? args.retentionPolicyInDays : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustPolicy"] = args ? args.trustPolicy : undefined;
+            resourceInputs["trustPolicyEnabled"] = args ? args.trustPolicyEnabled : undefined;
             resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
             resourceInputs["adminPassword"] = undefined /*out*/;
             resourceInputs["adminUsername"] = undefined /*out*/;
@@ -354,7 +318,7 @@ export interface RegistryState {
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      *
-     * > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicy`, `trustPolicy`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
     exportPolicyEnabled?: pulumi.Input<boolean>;
     /**
@@ -404,9 +368,9 @@ export interface RegistryState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `retentionPolicy` block as documented below.
+     * The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
      */
-    retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
+    retentionPolicyInDays?: pulumi.Input<number>;
     /**
      * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      */
@@ -416,9 +380,9 @@ export interface RegistryState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `trustPolicy` block as documented below.
+     * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
      */
-    trustPolicy?: pulumi.Input<inputs.containerservice.RegistryTrustPolicy>;
+    trustPolicyEnabled?: pulumi.Input<boolean>;
     /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
      */
@@ -448,7 +412,7 @@ export interface RegistryArgs {
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      *
-     * > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicy`, `trustPolicy`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
     exportPolicyEnabled?: pulumi.Input<boolean>;
     /**
@@ -494,9 +458,9 @@ export interface RegistryArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `retentionPolicy` block as documented below.
+     * The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
      */
-    retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
+    retentionPolicyInDays?: pulumi.Input<number>;
     /**
      * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      */
@@ -506,9 +470,9 @@ export interface RegistryArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `trustPolicy` block as documented below.
+     * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
      */
-    trustPolicy?: pulumi.Input<inputs.containerservice.RegistryTrustPolicy>;
+    trustPolicyEnabled?: pulumi.Input<boolean>;
     /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
      */

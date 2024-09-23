@@ -168,9 +168,9 @@ export class TimeSeriesDatabaseConnection extends pulumi.CustomResource {
      */
     public readonly kustoDatabaseName!: pulumi.Output<string>;
     /**
-     * Name of the Kusto Table. Changing this forces a new resource to be created.
+     * Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
      */
-    public readonly kustoTableName!: pulumi.Output<string>;
+    public readonly kustoTableName!: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
      */
@@ -275,7 +275,7 @@ export interface TimeSeriesDatabaseConnectionState {
      */
     kustoDatabaseName?: pulumi.Input<string>;
     /**
-     * Name of the Kusto Table. Changing this forces a new resource to be created.
+     * Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
      */
     kustoTableName?: pulumi.Input<string>;
     /**
@@ -321,7 +321,7 @@ export interface TimeSeriesDatabaseConnectionArgs {
      */
     kustoDatabaseName: pulumi.Input<string>;
     /**
-     * Name of the Kusto Table. Changing this forces a new resource to be created.
+     * Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
      */
     kustoTableName?: pulumi.Input<string>;
     /**

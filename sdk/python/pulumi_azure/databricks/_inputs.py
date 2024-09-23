@@ -136,7 +136,7 @@ if not MYPY:
         """
         no_public_ip: NotRequired[pulumi.Input[bool]]
         """
-        Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+        Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
 
         > **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
 
@@ -201,7 +201,7 @@ class WorkspaceCustomParametersArgs:
         """
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] no_public_ip: Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[bool] no_public_ip: Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
                
                > **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
                
@@ -271,7 +271,7 @@ class WorkspaceCustomParametersArgs:
     @pulumi.getter(name="noPublicIp")
     def no_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+        Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
 
         > **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
 

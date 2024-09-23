@@ -9,37 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cognitive Services Account Deployment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.cognitive.Account("example", {
- *     name: "example-ca",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     kind: "OpenAI",
- *     skuName: "S0",
- * });
- * const exampleDeployment = new azure.cognitive.Deployment("example", {
- *     name: "example-cd",
- *     cognitiveAccountId: exampleAccount.id,
- *     model: {
- *         format: "OpenAI",
- *         name: "text-curie-001",
- *         version: "1",
- *     },
- *     scale: {
- *         type: "Standard",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Cognitive Services Account Deployment can be imported using the `resource id`, e.g.
@@ -92,10 +61,7 @@ export class Deployment extends pulumi.CustomResource {
      * The name of RAI policy.
      */
     public readonly raiPolicyName!: pulumi.Output<string | undefined>;
-    /**
-     * A `scale` block as defined below.
-     */
-    public readonly scale!: pulumi.Output<outputs.cognitive.DeploymentScale>;
+    public readonly sku!: pulumi.Output<outputs.cognitive.DeploymentSku>;
     /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */
@@ -118,7 +84,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["model"] = state ? state.model : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["raiPolicyName"] = state ? state.raiPolicyName : undefined;
-            resourceInputs["scale"] = state ? state.scale : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["versionUpgradeOption"] = state ? state.versionUpgradeOption : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
@@ -128,14 +94,14 @@ export class Deployment extends pulumi.CustomResource {
             if ((!args || args.model === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'model'");
             }
-            if ((!args || args.scale === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'scale'");
+            if ((!args || args.sku === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sku'");
             }
             resourceInputs["cognitiveAccountId"] = args ? args.cognitiveAccountId : undefined;
             resourceInputs["model"] = args ? args.model : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["raiPolicyName"] = args ? args.raiPolicyName : undefined;
-            resourceInputs["scale"] = args ? args.scale : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["versionUpgradeOption"] = args ? args.versionUpgradeOption : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -163,10 +129,7 @@ export interface DeploymentState {
      * The name of RAI policy.
      */
     raiPolicyName?: pulumi.Input<string>;
-    /**
-     * A `scale` block as defined below.
-     */
-    scale?: pulumi.Input<inputs.cognitive.DeploymentScale>;
+    sku?: pulumi.Input<inputs.cognitive.DeploymentSku>;
     /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */
@@ -193,10 +156,7 @@ export interface DeploymentArgs {
      * The name of RAI policy.
      */
     raiPolicyName?: pulumi.Input<string>;
-    /**
-     * A `scale` block as defined below.
-     */
-    scale: pulumi.Input<inputs.cognitive.DeploymentScale>;
+    sku: pulumi.Input<inputs.cognitive.DeploymentSku>;
     /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */

@@ -127,6 +127,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> GalleryName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("hibernationEnabled")]
+        public Output<bool?> HibernationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("hyperVGeneration")]
@@ -339,6 +345,12 @@ namespace Pulumi.Azure.Compute
         public Input<string> GalleryName { get; set; } = null!;
 
         /// <summary>
+        /// Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("hibernationEnabled")]
+        public Input<bool>? HibernationEnabled { get; set; }
+
+        /// <summary>
         /// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hyperVGeneration")]
@@ -517,6 +529,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("galleryName")]
         public Input<string>? GalleryName { get; set; }
+
+        /// <summary>
+        /// Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("hibernationEnabled")]
+        public Input<bool>? HibernationEnabled { get; set; }
 
         /// <summary>
         /// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.

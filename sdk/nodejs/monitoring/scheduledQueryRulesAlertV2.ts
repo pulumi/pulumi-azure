@@ -165,7 +165,7 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
      *
      * > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
      */
-    public readonly evaluationFrequency!: pulumi.Output<string | undefined>;
+    public readonly evaluationFrequency!: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
@@ -271,6 +271,9 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
             const args = argsOrState as ScheduledQueryRulesAlertV2Args | undefined;
             if ((!args || args.criterias === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'criterias'");
+            }
+            if ((!args || args.evaluationFrequency === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'evaluationFrequency'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -454,7 +457,7 @@ export interface ScheduledQueryRulesAlertV2Args {
      *
      * > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
      */
-    evaluationFrequency?: pulumi.Input<string>;
+    evaluationFrequency: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */

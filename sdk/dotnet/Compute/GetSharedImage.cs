@@ -121,7 +121,19 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class GetSharedImageResult
     {
+        /// <summary>
+        /// Specifies if the Shared Image supports Accelerated Network.
+        /// </summary>
+        public readonly bool AcceleratedNetworkSupportEnabled;
         public readonly string Architecture;
+        /// <summary>
+        /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines.
+        /// </summary>
+        public readonly bool ConfidentialVmEnabled;
+        /// <summary>
+        /// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image.
+        /// </summary>
+        public readonly bool ConfidentialVmSupported;
         /// <summary>
         /// The description of this Shared Image.
         /// </summary>
@@ -131,6 +143,10 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Eula;
         public readonly string GalleryName;
+        /// <summary>
+        /// Specifies if the Shared Image supports hibernation.
+        /// </summary>
+        public readonly bool HibernationEnabled;
         /// <summary>
         /// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
         /// </summary>
@@ -176,16 +192,32 @@ namespace Pulumi.Azure.Compute
         /// A mapping of tags assigned to the Shared Image.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image.
+        /// </summary>
+        public readonly bool TrustedLaunchEnabled;
+        /// <summary>
+        /// Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image.
+        /// </summary>
+        public readonly bool TrustedLaunchSupported;
 
         [OutputConstructor]
         private GetSharedImageResult(
+            bool acceleratedNetworkSupportEnabled,
+
             string architecture,
+
+            bool confidentialVmEnabled,
+
+            bool confidentialVmSupported,
 
             string description,
 
             string eula,
 
             string galleryName,
+
+            bool hibernationEnabled,
 
             string hyperVGeneration,
 
@@ -209,12 +241,20 @@ namespace Pulumi.Azure.Compute
 
             bool specialized,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            bool trustedLaunchEnabled,
+
+            bool trustedLaunchSupported)
         {
+            AcceleratedNetworkSupportEnabled = acceleratedNetworkSupportEnabled;
             Architecture = architecture;
+            ConfidentialVmEnabled = confidentialVmEnabled;
+            ConfidentialVmSupported = confidentialVmSupported;
             Description = description;
             Eula = eula;
             GalleryName = galleryName;
+            HibernationEnabled = hibernationEnabled;
             HyperVGeneration = hyperVGeneration;
             Id = id;
             Identifiers = identifiers;
@@ -227,6 +267,8 @@ namespace Pulumi.Azure.Compute
             ResourceGroupName = resourceGroupName;
             Specialized = specialized;
             Tags = tags;
+            TrustedLaunchEnabled = trustedLaunchEnabled;
+            TrustedLaunchSupported = trustedLaunchSupported;
         }
     }
 }

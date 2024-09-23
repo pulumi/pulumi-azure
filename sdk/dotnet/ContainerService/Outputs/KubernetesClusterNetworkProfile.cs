@@ -18,13 +18,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? DnsServiceIp;
         /// <summary>
-        /// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        /// </summary>
-        public readonly string? DockerBridgeCidr;
-        public readonly string? EbpfDataPlane;
-        /// <summary>
         /// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
         /// 
         /// -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
@@ -50,8 +43,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
         /// 
         /// &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
-        /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         /// </summary>
         public readonly string? NetworkDataPlane;
         /// <summary>
@@ -83,18 +74,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? NetworkPolicy;
         /// <summary>
-        /// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-        /// 
-        /// &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-        /// </summary>
-        public readonly ImmutableArray<string> OutboundIpAddressIds;
-        /// <summary>
-        /// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-        /// 
-        /// &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
-        /// </summary>
-        public readonly ImmutableArray<string> OutboundIpPrefixIds;
-        /// <summary>
         /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         /// </summary>
         public readonly string? OutboundType;
@@ -121,10 +100,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         private KubernetesClusterNetworkProfile(
             string? dnsServiceIp,
 
-            string? dockerBridgeCidr,
-
-            string? ebpfDataPlane,
-
             ImmutableArray<string> ipVersions,
 
             Outputs.KubernetesClusterNetworkProfileLoadBalancerProfile? loadBalancerProfile,
@@ -143,10 +118,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? networkPolicy,
 
-            ImmutableArray<string> outboundIpAddressIds,
-
-            ImmutableArray<string> outboundIpPrefixIds,
-
             string? outboundType,
 
             string? podCidr,
@@ -158,8 +129,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
             ImmutableArray<string> serviceCidrs)
         {
             DnsServiceIp = dnsServiceIp;
-            DockerBridgeCidr = dockerBridgeCidr;
-            EbpfDataPlane = ebpfDataPlane;
             IpVersions = ipVersions;
             LoadBalancerProfile = loadBalancerProfile;
             LoadBalancerSku = loadBalancerSku;
@@ -169,8 +138,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
             NetworkPlugin = networkPlugin;
             NetworkPluginMode = networkPluginMode;
             NetworkPolicy = networkPolicy;
-            OutboundIpAddressIds = outboundIpAddressIds;
-            OutboundIpPrefixIds = outboundIpPrefixIds;
             OutboundType = outboundType;
             PodCidr = podCidr;
             PodCidrs = podCidrs;

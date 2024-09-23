@@ -26,11 +26,8 @@ class SubnetArgs:
                  virtual_network_name: pulumi.Input[str],
                  default_outbound_access_enabled: Optional[pulumi.Input[bool]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]] = None,
-                 enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
-                 enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_network_policies: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -66,25 +63,10 @@ class SubnetArgs:
             pulumi.set(__self__, "default_outbound_access_enabled", default_outbound_access_enabled)
         if delegations is not None:
             pulumi.set(__self__, "delegations", delegations)
-        if enforce_private_link_endpoint_network_policies is not None:
-            warnings.warn("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enforce_private_link_endpoint_network_policies is deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-        if enforce_private_link_endpoint_network_policies is not None:
-            pulumi.set(__self__, "enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
-        if enforce_private_link_service_network_policies is not None:
-            warnings.warn("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enforce_private_link_service_network_policies is deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
-        if enforce_private_link_service_network_policies is not None:
-            pulumi.set(__self__, "enforce_private_link_service_network_policies", enforce_private_link_service_network_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if private_endpoint_network_policies is not None:
             pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
-        if private_endpoint_network_policies_enabled is not None:
-            warnings.warn("""`private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""private_endpoint_network_policies_enabled is deprecated: `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-        if private_endpoint_network_policies_enabled is not None:
-            pulumi.set(__self__, "private_endpoint_network_policies_enabled", private_endpoint_network_policies_enabled)
         if private_link_service_network_policies_enabled is not None:
             pulumi.set(__self__, "private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
         if service_endpoint_policy_ids is not None:
@@ -155,26 +137,6 @@ class SubnetArgs:
         pulumi.set(self, "delegations", value)
 
     @property
-    @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
-    @_utilities.deprecated("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-    def enforce_private_link_endpoint_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
-
-    @enforce_private_link_endpoint_network_policies.setter
-    def enforce_private_link_endpoint_network_policies(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enforce_private_link_endpoint_network_policies", value)
-
-    @property
-    @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
-    @_utilities.deprecated("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
-    def enforce_private_link_service_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enforce_private_link_service_network_policies")
-
-    @enforce_private_link_service_network_policies.setter
-    def enforce_private_link_service_network_policies(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enforce_private_link_service_network_policies", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -203,16 +165,6 @@ class SubnetArgs:
     @private_endpoint_network_policies.setter
     def private_endpoint_network_policies(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_endpoint_network_policies", value)
-
-    @property
-    @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
-    @_utilities.deprecated("""`private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-    def private_endpoint_network_policies_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "private_endpoint_network_policies_enabled")
-
-    @private_endpoint_network_policies_enabled.setter
-    def private_endpoint_network_policies_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "private_endpoint_network_policies_enabled", value)
 
     @property
     @pulumi.getter(name="privateLinkServiceNetworkPoliciesEnabled")
@@ -261,11 +213,8 @@ class _SubnetState:
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_outbound_access_enabled: Optional[pulumi.Input[bool]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]] = None,
-                 enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
-                 enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_network_policies: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -302,25 +251,10 @@ class _SubnetState:
             pulumi.set(__self__, "default_outbound_access_enabled", default_outbound_access_enabled)
         if delegations is not None:
             pulumi.set(__self__, "delegations", delegations)
-        if enforce_private_link_endpoint_network_policies is not None:
-            warnings.warn("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enforce_private_link_endpoint_network_policies is deprecated: `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-        if enforce_private_link_endpoint_network_policies is not None:
-            pulumi.set(__self__, "enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
-        if enforce_private_link_service_network_policies is not None:
-            warnings.warn("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enforce_private_link_service_network_policies is deprecated: `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
-        if enforce_private_link_service_network_policies is not None:
-            pulumi.set(__self__, "enforce_private_link_service_network_policies", enforce_private_link_service_network_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if private_endpoint_network_policies is not None:
             pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
-        if private_endpoint_network_policies_enabled is not None:
-            warnings.warn("""`private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""private_endpoint_network_policies_enabled is deprecated: `private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-        if private_endpoint_network_policies_enabled is not None:
-            pulumi.set(__self__, "private_endpoint_network_policies_enabled", private_endpoint_network_policies_enabled)
         if private_link_service_network_policies_enabled is not None:
             pulumi.set(__self__, "private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
         if resource_group_name is not None:
@@ -371,26 +305,6 @@ class _SubnetState:
         pulumi.set(self, "delegations", value)
 
     @property
-    @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
-    @_utilities.deprecated("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-    def enforce_private_link_endpoint_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
-
-    @enforce_private_link_endpoint_network_policies.setter
-    def enforce_private_link_endpoint_network_policies(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enforce_private_link_endpoint_network_policies", value)
-
-    @property
-    @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
-    @_utilities.deprecated("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
-    def enforce_private_link_service_network_policies(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enforce_private_link_service_network_policies")
-
-    @enforce_private_link_service_network_policies.setter
-    def enforce_private_link_service_network_policies(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enforce_private_link_service_network_policies", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -419,16 +333,6 @@ class _SubnetState:
     @private_endpoint_network_policies.setter
     def private_endpoint_network_policies(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_endpoint_network_policies", value)
-
-    @property
-    @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
-    @_utilities.deprecated("""`private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-    def private_endpoint_network_policies_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "private_endpoint_network_policies_enabled")
-
-    @private_endpoint_network_policies_enabled.setter
-    def private_endpoint_network_policies_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "private_endpoint_network_policies_enabled", value)
 
     @property
     @pulumi.getter(name="privateLinkServiceNetworkPoliciesEnabled")
@@ -503,11 +407,8 @@ class Subnet(pulumi.CustomResource):
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_outbound_access_enabled: Optional[pulumi.Input[bool]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
-                 enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
-                 enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_network_policies: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -655,11 +556,8 @@ class Subnet(pulumi.CustomResource):
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_outbound_access_enabled: Optional[pulumi.Input[bool]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
-                 enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
-                 enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_network_policies: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -679,11 +577,8 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["address_prefixes"] = address_prefixes
             __props__.__dict__["default_outbound_access_enabled"] = default_outbound_access_enabled
             __props__.__dict__["delegations"] = delegations
-            __props__.__dict__["enforce_private_link_endpoint_network_policies"] = enforce_private_link_endpoint_network_policies
-            __props__.__dict__["enforce_private_link_service_network_policies"] = enforce_private_link_service_network_policies
             __props__.__dict__["name"] = name
             __props__.__dict__["private_endpoint_network_policies"] = private_endpoint_network_policies
-            __props__.__dict__["private_endpoint_network_policies_enabled"] = private_endpoint_network_policies_enabled
             __props__.__dict__["private_link_service_network_policies_enabled"] = private_link_service_network_policies_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -706,11 +601,8 @@ class Subnet(pulumi.CustomResource):
             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_outbound_access_enabled: Optional[pulumi.Input[bool]] = None,
             delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
-            enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
-            enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             private_endpoint_network_policies: Optional[pulumi.Input[str]] = None,
-            private_endpoint_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
             private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -753,11 +645,8 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["address_prefixes"] = address_prefixes
         __props__.__dict__["default_outbound_access_enabled"] = default_outbound_access_enabled
         __props__.__dict__["delegations"] = delegations
-        __props__.__dict__["enforce_private_link_endpoint_network_policies"] = enforce_private_link_endpoint_network_policies
-        __props__.__dict__["enforce_private_link_service_network_policies"] = enforce_private_link_service_network_policies
         __props__.__dict__["name"] = name
         __props__.__dict__["private_endpoint_network_policies"] = private_endpoint_network_policies
-        __props__.__dict__["private_endpoint_network_policies_enabled"] = private_endpoint_network_policies_enabled
         __props__.__dict__["private_link_service_network_policies_enabled"] = private_link_service_network_policies_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["service_endpoint_policy_ids"] = service_endpoint_policy_ids
@@ -792,18 +681,6 @@ class Subnet(pulumi.CustomResource):
         return pulumi.get(self, "delegations")
 
     @property
-    @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
-    @_utilities.deprecated("""`enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-    def enforce_private_link_endpoint_network_policies(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
-
-    @property
-    @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
-    @_utilities.deprecated("""`enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider""")
-    def enforce_private_link_service_network_policies(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "enforce_private_link_service_network_policies")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -813,7 +690,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointNetworkPolicies")
-    def private_endpoint_network_policies(self) -> pulumi.Output[str]:
+    def private_endpoint_network_policies(self) -> pulumi.Output[Optional[str]]:
         """
         Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
 
@@ -826,14 +703,8 @@ class Subnet(pulumi.CustomResource):
         return pulumi.get(self, "private_endpoint_network_policies")
 
     @property
-    @pulumi.getter(name="privateEndpointNetworkPoliciesEnabled")
-    @_utilities.deprecated("""`private_endpoint_network_policies_enabled` will be removed in favour of the property `private_endpoint_network_policies` in version 4.0 of the AzureRM Provider""")
-    def private_endpoint_network_policies_enabled(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "private_endpoint_network_policies_enabled")
-
-    @property
     @pulumi.getter(name="privateLinkServiceNetworkPoliciesEnabled")
-    def private_link_service_network_policies_enabled(self) -> pulumi.Output[bool]:
+    def private_link_service_network_policies_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 

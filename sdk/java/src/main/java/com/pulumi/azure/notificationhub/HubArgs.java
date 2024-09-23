@@ -4,6 +4,7 @@
 package com.pulumi.azure.notificationhub;
 
 import com.pulumi.azure.notificationhub.inputs.HubApnsCredentialArgs;
+import com.pulumi.azure.notificationhub.inputs.HubBrowserCredentialArgs;
 import com.pulumi.azure.notificationhub.inputs.HubGcmCredentialArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -36,6 +37,21 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<HubApnsCredentialArgs>> apnsCredential() {
         return Optional.ofNullable(this.apnsCredential);
+    }
+
+    /**
+     * A `browser_credential` block as defined below.
+     * 
+     */
+    @Import(name="browserCredential")
+    private @Nullable Output<HubBrowserCredentialArgs> browserCredential;
+
+    /**
+     * @return A `browser_credential` block as defined below.
+     * 
+     */
+    public Optional<Output<HubBrowserCredentialArgs>> browserCredential() {
+        return Optional.ofNullable(this.browserCredential);
     }
 
     /**
@@ -136,6 +152,7 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
 
     private HubArgs(HubArgs $) {
         this.apnsCredential = $.apnsCredential;
+        this.browserCredential = $.browserCredential;
         this.gcmCredential = $.gcmCredential;
         this.location = $.location;
         this.name = $.name;
@@ -185,6 +202,27 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder apnsCredential(HubApnsCredentialArgs apnsCredential) {
             return apnsCredential(Output.of(apnsCredential));
+        }
+
+        /**
+         * @param browserCredential A `browser_credential` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder browserCredential(@Nullable Output<HubBrowserCredentialArgs> browserCredential) {
+            $.browserCredential = browserCredential;
+            return this;
+        }
+
+        /**
+         * @param browserCredential A `browser_credential` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder browserCredential(HubBrowserCredentialArgs browserCredential) {
+            return browserCredential(Output.of(browserCredential));
         }
 
         /**

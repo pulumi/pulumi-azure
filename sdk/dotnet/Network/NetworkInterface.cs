@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Network
         /// &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         /// </summary>
         [Output("acceleratedNetworkingEnabled")]
-        public Output<bool> AcceleratedNetworkingEnabled { get; private set; } = null!;
+        public Output<bool?> AcceleratedNetworkingEnabled { get; private set; } = null!;
 
         /// <summary>
         /// If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
@@ -126,12 +126,6 @@ namespace Pulumi.Azure.Network
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
 
-        [Output("enableAcceleratedNetworking")]
-        public Output<bool> EnableAcceleratedNetworking { get; private set; } = null!;
-
-        [Output("enableIpForwarding")]
-        public Output<bool> EnableIpForwarding { get; private set; } = null!;
-
         /// <summary>
         /// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         /// </summary>
@@ -154,7 +148,7 @@ namespace Pulumi.Azure.Network
         /// Should IP Forwarding be enabled? Defaults to `false`.
         /// </summary>
         [Output("ipForwardingEnabled")]
-        public Output<bool> IpForwardingEnabled { get; private set; } = null!;
+        public Output<bool?> IpForwardingEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The location where the Network Interface should exist. Changing this forces a new resource to be created.
@@ -296,12 +290,6 @@ namespace Pulumi.Azure.Network
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
-        [Input("enableAcceleratedNetworking")]
-        public Input<bool>? EnableAcceleratedNetworking { get; set; }
-
-        [Input("enableIpForwarding")]
-        public Input<bool>? EnableIpForwarding { get; set; }
-
         /// <summary>
         /// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         /// </summary>
@@ -421,12 +409,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
-
-        [Input("enableAcceleratedNetworking")]
-        public Input<bool>? EnableAcceleratedNetworking { get; set; }
-
-        [Input("enableIpForwarding")]
-        public Input<bool>? EnableIpForwarding { get; set; }
 
         /// <summary>
         /// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.

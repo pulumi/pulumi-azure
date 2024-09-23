@@ -136,9 +136,6 @@ namespace Pulumi.Azure.SignalR
         [Output("liveTrace")]
         public Output<Outputs.ServiceLiveTrace?> LiveTrace { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies if Live Trace is enabled or not. Defaults to `false`.
-        /// </summary>
         [Output("liveTraceEnabled")]
         public Output<bool?> LiveTraceEnabled { get; private set; } = null!;
 
@@ -349,9 +346,6 @@ namespace Pulumi.Azure.SignalR
         [Input("liveTrace")]
         public Input<Inputs.ServiceLiveTraceArgs>? LiveTrace { get; set; }
 
-        /// <summary>
-        /// Specifies if Live Trace is enabled or not. Defaults to `false`.
-        /// </summary>
         [Input("liveTraceEnabled")]
         public Input<bool>? LiveTraceEnabled { get; set; }
 
@@ -505,9 +499,6 @@ namespace Pulumi.Azure.SignalR
         [Input("liveTrace")]
         public Input<Inputs.ServiceLiveTraceGetArgs>? LiveTrace { get; set; }
 
-        /// <summary>
-        /// Specifies if Live Trace is enabled or not. Defaults to `false`.
-        /// </summary>
         [Input("liveTraceEnabled")]
         public Input<bool>? LiveTraceEnabled { get; set; }
 

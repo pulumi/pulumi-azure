@@ -41,7 +41,7 @@ class ServicePlanArgs:
                > **NOTE:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment to create this Service Plan in.
                
-               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
         :param pulumi.Input[str] name: The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
@@ -118,7 +118,7 @@ class ServicePlanArgs:
         """
         The ID of the App Service Environment to create this Service Plan in.
 
-        > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+        > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         """
         return pulumi.get(self, "app_service_environment_id")
 
@@ -233,7 +233,7 @@ class _ServicePlanState:
         Input properties used for looking up and filtering ServicePlan resources.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment to create this Service Plan in.
                
-               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] kind: A string representing the Kind of Service Plan.
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
@@ -286,7 +286,7 @@ class _ServicePlanState:
         """
         The ID of the App Service Environment to create this Service Plan in.
 
-        > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+        > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         """
         return pulumi.get(self, "app_service_environment_id")
 
@@ -494,7 +494,7 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment to create this Service Plan in.
                
-               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
         :param pulumi.Input[str] name: The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
@@ -632,7 +632,7 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment to create this Service Plan in.
                
-               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] kind: A string representing the Kind of Service Plan.
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
@@ -677,7 +677,7 @@ class ServicePlan(pulumi.CustomResource):
         """
         The ID of the App Service Environment to create this Service Plan in.
 
-        > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
+        > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         """
         return pulumi.get(self, "app_service_environment_id")
 

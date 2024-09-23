@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Batch
         /// <summary>
         /// The `encryption` block that describes the Azure KeyVault key reference used to encrypt data for the Azure Batch account.
         /// </summary>
-        public readonly Outputs.GetAccountEncryptionResult Encryption;
+        public readonly ImmutableArray<Outputs.GetAccountEncryptionResult> Encryptions;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Batch
         private GetAccountResult(
             string accountEndpoint,
 
-            Outputs.GetAccountEncryptionResult encryption,
+            ImmutableArray<Outputs.GetAccountEncryptionResult> encryptions,
 
             string id,
 
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Batch
             ImmutableDictionary<string, string> tags)
         {
             AccountEndpoint = accountEndpoint;
-            Encryption = encryption;
+            Encryptions = encryptions;
             Id = id;
             KeyVaultReferences = keyVaultReferences;
             Location = location;

@@ -18,56 +18,33 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
     public static final ActionGroupEventHubReceiverArgs Empty = new ActionGroupEventHubReceiverArgs();
 
     /**
-     * The resource ID of the respective Event Hub.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
-    @Import(name="eventHubId")
-    private @Nullable Output<String> eventHubId;
-
-    /**
-     * @return The resource ID of the respective Event Hub.
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
-    public Optional<Output<String>> eventHubId() {
-        return Optional.ofNullable(this.eventHubId);
-    }
-
-    /**
      * The name of the specific Event Hub queue.
      * 
      */
-    @Import(name="eventHubName")
-    private @Nullable Output<String> eventHubName;
+    @Import(name="eventHubName", required=true)
+    private Output<String> eventHubName;
 
     /**
      * @return The name of the specific Event Hub queue.
      * 
      */
-    public Optional<Output<String>> eventHubName() {
-        return Optional.ofNullable(this.eventHubName);
+    public Output<String> eventHubName() {
+        return this.eventHubName;
     }
 
     /**
      * The namespace name of the Event Hub.
      * 
      */
-    @Import(name="eventHubNamespace")
-    private @Nullable Output<String> eventHubNamespace;
+    @Import(name="eventHubNamespace", required=true)
+    private Output<String> eventHubNamespace;
 
     /**
      * @return The namespace name of the Event Hub.
      * 
      */
-    public Optional<Output<String>> eventHubNamespace() {
-        return Optional.ofNullable(this.eventHubNamespace);
+    public Output<String> eventHubNamespace() {
+        return this.eventHubNamespace;
     }
 
     /**
@@ -88,16 +65,12 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
     /**
      * The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
      * 
-     * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
-     * 
      */
     @Import(name="subscriptionId")
     private @Nullable Output<String> subscriptionId;
 
     /**
      * @return The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
-     * 
-     * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
      * 
      */
     public Optional<Output<String>> subscriptionId() {
@@ -137,7 +110,6 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
     private ActionGroupEventHubReceiverArgs() {}
 
     private ActionGroupEventHubReceiverArgs(ActionGroupEventHubReceiverArgs $) {
-        this.eventHubId = $.eventHubId;
         this.eventHubName = $.eventHubName;
         this.eventHubNamespace = $.eventHubNamespace;
         this.name = $.name;
@@ -165,41 +137,12 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param eventHubId The resource ID of the respective Event Hub.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
-         * 
-         */
-        @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
-        public Builder eventHubId(@Nullable Output<String> eventHubId) {
-            $.eventHubId = eventHubId;
-            return this;
-        }
-
-        /**
-         * @param eventHubId The resource ID of the respective Event Hub.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
-         * 
-         */
-        @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
-        public Builder eventHubId(String eventHubId) {
-            return eventHubId(Output.of(eventHubId));
-        }
-
-        /**
          * @param eventHubName The name of the specific Event Hub queue.
          * 
          * @return builder
          * 
          */
-        public Builder eventHubName(@Nullable Output<String> eventHubName) {
+        public Builder eventHubName(Output<String> eventHubName) {
             $.eventHubName = eventHubName;
             return this;
         }
@@ -220,7 +163,7 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder eventHubNamespace(@Nullable Output<String> eventHubNamespace) {
+        public Builder eventHubNamespace(Output<String> eventHubNamespace) {
             $.eventHubNamespace = eventHubNamespace;
             return this;
         }
@@ -259,8 +202,6 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
         /**
          * @param subscriptionId The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
          * 
-         * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
-         * 
          * @return builder
          * 
          */
@@ -271,8 +212,6 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
 
         /**
          * @param subscriptionId The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
-         * 
-         * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
          * 
          * @return builder
          * 
@@ -324,6 +263,12 @@ public final class ActionGroupEventHubReceiverArgs extends com.pulumi.resources.
         }
 
         public ActionGroupEventHubReceiverArgs build() {
+            if ($.eventHubName == null) {
+                throw new MissingRequiredPropertyException("ActionGroupEventHubReceiverArgs", "eventHubName");
+            }
+            if ($.eventHubNamespace == null) {
+                throw new MissingRequiredPropertyException("ActionGroupEventHubReceiverArgs", "eventHubNamespace");
+            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("ActionGroupEventHubReceiverArgs", "name");
             }

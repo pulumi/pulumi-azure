@@ -101,8 +101,6 @@ namespace Pulumi.Azure.Monitoring
     {
         /// <summary>
         /// One or more `enabled_log` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
         /// </summary>
         [Output("enabledLogs")]
         public Output<ImmutableArray<Outputs.AadDiagnosticSettingEnabledLog>> EnabledLogs { get; private set; } = null!;
@@ -126,14 +124,6 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Output("logAnalyticsWorkspaceId")]
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
-
-        /// <summary>
-        /// One or more `log` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-        /// </summary>
-        [Output("logs")]
-        public Output<ImmutableArray<Outputs.AadDiagnosticSettingLog>> Logs { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
@@ -200,8 +190,6 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// One or more `enabled_log` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
         /// </summary>
         public InputList<Inputs.AadDiagnosticSettingEnabledLogArgs> EnabledLogs
         {
@@ -228,21 +216,6 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
-
-        [Input("logs")]
-        private InputList<Inputs.AadDiagnosticSettingLogArgs>? _logs;
-
-        /// <summary>
-        /// One or more `log` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-        /// </summary>
-        [Obsolete(@"`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.")]
-        public InputList<Inputs.AadDiagnosticSettingLogArgs> Logs
-        {
-            get => _logs ?? (_logs = new InputList<Inputs.AadDiagnosticSettingLogArgs>());
-            set => _logs = value;
-        }
 
         /// <summary>
         /// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
@@ -271,8 +244,6 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// One or more `enabled_log` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
         /// </summary>
         public InputList<Inputs.AadDiagnosticSettingEnabledLogGetArgs> EnabledLogs
         {
@@ -299,21 +270,6 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
-
-        [Input("logs")]
-        private InputList<Inputs.AadDiagnosticSettingLogGetArgs>? _logs;
-
-        /// <summary>
-        /// One or more `log` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-        /// </summary>
-        [Obsolete(@"`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.")]
-        public InputList<Inputs.AadDiagnosticSettingLogGetArgs> Logs
-        {
-            get => _logs ?? (_logs = new InputList<Inputs.AadDiagnosticSettingLogGetArgs>());
-            set => _logs = value;
-        }
 
         /// <summary>
         /// The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.

@@ -298,32 +298,32 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
         return this.eventHubOperationsPath;
     }
     /**
-     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
      * 
      */
     @Export(name="eventHubPartitionCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> eventHubPartitionCount;
+    private Output</* @Nullable */ Integer> eventHubPartitionCount;
 
     /**
-     * @return The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+     * @return The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
      * 
      */
-    public Output<Integer> eventHubPartitionCount() {
-        return this.eventHubPartitionCount;
+    public Output<Optional<Integer>> eventHubPartitionCount() {
+        return Codegen.optional(this.eventHubPartitionCount);
     }
     /**
-     * The event hub retention to use in days. Must be between `1` and `7`.
+     * The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
      * 
      */
     @Export(name="eventHubRetentionInDays", refs={Integer.class}, tree="[0]")
-    private Output<Integer> eventHubRetentionInDays;
+    private Output</* @Nullable */ Integer> eventHubRetentionInDays;
 
     /**
-     * @return The event hub retention to use in days. Must be between `1` and `7`.
+     * @return The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
      * 
      */
-    public Output<Integer> eventHubRetentionInDays() {
-        return this.eventHubRetentionInDays;
+    public Output<Optional<Integer>> eventHubRetentionInDays() {
+        return Codegen.optional(this.eventHubRetentionInDays);
     }
     /**
      * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.

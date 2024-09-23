@@ -25,7 +25,6 @@ class ResourceGroupPolicyRemediationArgs:
                  location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parallel_deployments: Optional[pulumi.Input[int]] = None,
-                 policy_definition_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None):
@@ -37,9 +36,6 @@ class ResourceGroupPolicyRemediationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] location_filters: A list of the resource locations that will be remediated.
         :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
-        :param pulumi.Input[str] policy_definition_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-               
-               > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
         :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         :param pulumi.Input[int] resource_count: Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
         :param pulumi.Input[str] resource_discovery_mode: The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
@@ -54,11 +50,6 @@ class ResourceGroupPolicyRemediationArgs:
             pulumi.set(__self__, "name", name)
         if parallel_deployments is not None:
             pulumi.set(__self__, "parallel_deployments", parallel_deployments)
-        if policy_definition_id is not None:
-            warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
-            pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
-        if policy_definition_id is not None:
-            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if policy_definition_reference_id is not None:
             pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
         if resource_count is not None:
@@ -139,21 +130,6 @@ class ResourceGroupPolicyRemediationArgs:
         pulumi.set(self, "parallel_deployments", value)
 
     @property
-    @pulumi.getter(name="policyDefinitionId")
-    @_utilities.deprecated("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
-    def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-
-        > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-        """
-        return pulumi.get(self, "policy_definition_id")
-
-    @policy_definition_id.setter
-    def policy_definition_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_definition_id", value)
-
-    @property
     @pulumi.getter(name="policyDefinitionReferenceId")
     def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -198,7 +174,6 @@ class _ResourceGroupPolicyRemediationState:
                  name: Optional[pulumi.Input[str]] = None,
                  parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
-                 policy_definition_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None,
@@ -210,9 +185,6 @@ class _ResourceGroupPolicyRemediationState:
         :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
         :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
-        :param pulumi.Input[str] policy_definition_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-               
-               > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
         :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         :param pulumi.Input[int] resource_count: Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
         :param pulumi.Input[str] resource_discovery_mode: The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
@@ -228,11 +200,6 @@ class _ResourceGroupPolicyRemediationState:
             pulumi.set(__self__, "parallel_deployments", parallel_deployments)
         if policy_assignment_id is not None:
             pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
-        if policy_definition_id is not None:
-            warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
-            pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
-        if policy_definition_id is not None:
-            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if policy_definition_reference_id is not None:
             pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
         if resource_count is not None:
@@ -303,21 +270,6 @@ class _ResourceGroupPolicyRemediationState:
         pulumi.set(self, "policy_assignment_id", value)
 
     @property
-    @pulumi.getter(name="policyDefinitionId")
-    @_utilities.deprecated("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
-    def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-
-        > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-        """
-        return pulumi.get(self, "policy_definition_id")
-
-    @policy_definition_id.setter
-    def policy_definition_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_definition_id", value)
-
-    @property
     @pulumi.getter(name="policyDefinitionReferenceId")
     def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -376,7 +328,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
-                 policy_definition_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None,
@@ -448,9 +399,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
         :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
-        :param pulumi.Input[str] policy_definition_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-               
-               > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
         :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         :param pulumi.Input[int] resource_count: Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
         :param pulumi.Input[str] resource_discovery_mode: The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
@@ -541,7 +489,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
-                 policy_definition_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None,
@@ -562,7 +509,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
             if policy_assignment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_assignment_id'")
             __props__.__dict__["policy_assignment_id"] = policy_assignment_id
-            __props__.__dict__["policy_definition_id"] = policy_definition_id
             __props__.__dict__["policy_definition_reference_id"] = policy_definition_reference_id
             __props__.__dict__["resource_count"] = resource_count
             __props__.__dict__["resource_discovery_mode"] = resource_discovery_mode
@@ -584,7 +530,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             parallel_deployments: Optional[pulumi.Input[int]] = None,
             policy_assignment_id: Optional[pulumi.Input[str]] = None,
-            policy_definition_id: Optional[pulumi.Input[str]] = None,
             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
             resource_count: Optional[pulumi.Input[int]] = None,
             resource_discovery_mode: Optional[pulumi.Input[str]] = None,
@@ -601,9 +546,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
         :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
-        :param pulumi.Input[str] policy_definition_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-               
-               > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
         :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         :param pulumi.Input[int] resource_count: Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
         :param pulumi.Input[str] resource_discovery_mode: The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
@@ -618,7 +560,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["parallel_deployments"] = parallel_deployments
         __props__.__dict__["policy_assignment_id"] = policy_assignment_id
-        __props__.__dict__["policy_definition_id"] = policy_definition_id
         __props__.__dict__["policy_definition_reference_id"] = policy_definition_reference_id
         __props__.__dict__["resource_count"] = resource_count
         __props__.__dict__["resource_discovery_mode"] = resource_discovery_mode
@@ -664,17 +605,6 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
         The ID of the Policy Assignment that should be remediated.
         """
         return pulumi.get(self, "policy_assignment_id")
-
-    @property
-    @pulumi.getter(name="policyDefinitionId")
-    @_utilities.deprecated("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
-    def policy_definition_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-
-        > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
-        """
-        return pulumi.get(self, "policy_definition_id")
 
     @property
     @pulumi.getter(name="policyDefinitionReferenceId")

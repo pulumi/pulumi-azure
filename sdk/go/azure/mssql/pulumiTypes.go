@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -421,8 +421,6 @@ func (o DatabaseImportPtrOutput) StorageUri() pulumi.StringPtrOutput {
 }
 
 type DatabaseLongTermRetentionPolicy struct {
-	// Specifies if the backups are immutable. Defaults to `false`.
-	ImmutableBackupsEnabled *bool `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 	MonthlyRetention *string `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -445,8 +443,6 @@ type DatabaseLongTermRetentionPolicyInput interface {
 }
 
 type DatabaseLongTermRetentionPolicyArgs struct {
-	// Specifies if the backups are immutable. Defaults to `false`.
-	ImmutableBackupsEnabled pulumi.BoolPtrInput `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 	MonthlyRetention pulumi.StringPtrInput `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -534,11 +530,6 @@ func (o DatabaseLongTermRetentionPolicyOutput) ToDatabaseLongTermRetentionPolicy
 	}).(DatabaseLongTermRetentionPolicyPtrOutput)
 }
 
-// Specifies if the backups are immutable. Defaults to `false`.
-func (o DatabaseLongTermRetentionPolicyOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *bool { return v.ImmutableBackupsEnabled }).(pulumi.BoolPtrOutput)
-}
-
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 func (o DatabaseLongTermRetentionPolicyOutput) MonthlyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *string { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
@@ -581,16 +572,6 @@ func (o DatabaseLongTermRetentionPolicyPtrOutput) Elem() DatabaseLongTermRetenti
 		var ret DatabaseLongTermRetentionPolicy
 		return ret
 	}).(DatabaseLongTermRetentionPolicyOutput)
-}
-
-// Specifies if the backups are immutable. Defaults to `false`.
-func (o DatabaseLongTermRetentionPolicyPtrOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DatabaseLongTermRetentionPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ImmutableBackupsEnabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
@@ -1296,9 +1277,9 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64Ptr
 type ElasticPoolSku struct {
 	// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Capacity int `pulumi:"capacity"`
-	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
 	Family *string `pulumi:"family"`
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
 	Name string `pulumi:"name"`
 	// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, `Premium`, or `HyperScale`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Tier string `pulumi:"tier"`
@@ -1318,9 +1299,9 @@ type ElasticPoolSkuInput interface {
 type ElasticPoolSkuArgs struct {
 	// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, `Premium`, or `HyperScale`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Tier pulumi.StringInput `pulumi:"tier"`
@@ -1408,12 +1389,12 @@ func (o ElasticPoolSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ElasticPoolSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
 func (o ElasticPoolSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
 func (o ElasticPoolSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticPoolSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1457,7 +1438,7 @@ func (o ElasticPoolSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
 func (o ElasticPoolSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticPoolSku) *string {
 		if v == nil {
@@ -1467,7 +1448,7 @@ func (o ElasticPoolSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
 func (o ElasticPoolSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticPoolSku) *string {
 		if v == nil {
@@ -1759,8 +1740,6 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.Str
 }
 
 type ManagedDatabaseLongTermRetentionPolicy struct {
-	// Specifies if the backups are immutable. Defaults to `false`.
-	ImmutableBackupsEnabled *bool `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 	MonthlyRetention *string `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -1783,8 +1762,6 @@ type ManagedDatabaseLongTermRetentionPolicyInput interface {
 }
 
 type ManagedDatabaseLongTermRetentionPolicyArgs struct {
-	// Specifies if the backups are immutable. Defaults to `false`.
-	ImmutableBackupsEnabled pulumi.BoolPtrInput `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 	MonthlyRetention pulumi.StringPtrInput `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -1872,11 +1849,6 @@ func (o ManagedDatabaseLongTermRetentionPolicyOutput) ToManagedDatabaseLongTermR
 	}).(ManagedDatabaseLongTermRetentionPolicyPtrOutput)
 }
 
-// Specifies if the backups are immutable. Defaults to `false`.
-func (o ManagedDatabaseLongTermRetentionPolicyOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *bool { return v.ImmutableBackupsEnabled }).(pulumi.BoolPtrOutput)
-}
-
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 func (o ManagedDatabaseLongTermRetentionPolicyOutput) MonthlyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *string { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
@@ -1919,16 +1891,6 @@ func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) Elem() ManagedDatabaseL
 		var ret ManagedDatabaseLongTermRetentionPolicy
 		return ret
 	}).(ManagedDatabaseLongTermRetentionPolicyOutput)
-}
-
-// Specifies if the backups are immutable. Defaults to `false`.
-func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ImmutableBackupsEnabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.

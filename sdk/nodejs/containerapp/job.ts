@@ -144,13 +144,9 @@ export class Job extends pulumi.CustomResource {
      */
     public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string[]>;
     /**
-     * @deprecated `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
-     */
-    public readonly registries!: pulumi.Output<outputs.containerapp.JobRegistry[]>;
-    /**
      * One or more `registry` blocks as defined below.
      */
-    public readonly registry!: pulumi.Output<outputs.containerapp.JobRegistry[]>;
+    public readonly registries!: pulumi.Output<outputs.containerapp.JobRegistry[] | undefined>;
     /**
      * The maximum number of times a replica is allowed to retry.
      */
@@ -172,11 +168,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * One or more `secret` blocks as defined below.
      */
-    public readonly secret!: pulumi.Output<outputs.containerapp.JobSecret[]>;
-    /**
-     * @deprecated `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
-     */
-    public readonly secrets!: pulumi.Output<outputs.containerapp.JobSecret[]>;
+    public readonly secrets!: pulumi.Output<outputs.containerapp.JobSecret[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -212,12 +204,10 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
             resourceInputs["registries"] = state ? state.registries : undefined;
-            resourceInputs["registry"] = state ? state.registry : undefined;
             resourceInputs["replicaRetryLimit"] = state ? state.replicaRetryLimit : undefined;
             resourceInputs["replicaTimeoutInSeconds"] = state ? state.replicaTimeoutInSeconds : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["scheduleTriggerConfig"] = state ? state.scheduleTriggerConfig : undefined;
-            resourceInputs["secret"] = state ? state.secret : undefined;
             resourceInputs["secrets"] = state ? state.secrets : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["template"] = state ? state.template : undefined;
@@ -243,12 +233,10 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["manualTriggerConfig"] = args ? args.manualTriggerConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["registries"] = args ? args.registries : undefined;
-            resourceInputs["registry"] = args ? args.registry : undefined;
             resourceInputs["replicaRetryLimit"] = args ? args.replicaRetryLimit : undefined;
             resourceInputs["replicaTimeoutInSeconds"] = args ? args.replicaTimeoutInSeconds : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scheduleTriggerConfig"] = args ? args.scheduleTriggerConfig : undefined;
-            resourceInputs["secret"] = args?.secret ? pulumi.secret(args.secret) : undefined;
             resourceInputs["secrets"] = args?.secrets ? pulumi.secret(args.secrets) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["template"] = args ? args.template : undefined;
@@ -257,7 +245,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["secret", "secrets"] };
+        const secretOpts = { additionalSecretOutputs: ["secrets"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Job.__pulumiType, name, resourceInputs, opts);
     }
@@ -300,13 +288,9 @@ export interface JobState {
      */
     outboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
-     */
-    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.JobRegistry>[]>;
-    /**
      * One or more `registry` blocks as defined below.
      */
-    registry?: pulumi.Input<pulumi.Input<inputs.containerapp.JobRegistry>[]>;
+    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.JobRegistry>[]>;
     /**
      * The maximum number of times a replica is allowed to retry.
      */
@@ -327,10 +311,6 @@ export interface JobState {
     scheduleTriggerConfig?: pulumi.Input<inputs.containerapp.JobScheduleTriggerConfig>;
     /**
      * One or more `secret` blocks as defined below.
-     */
-    secret?: pulumi.Input<pulumi.Input<inputs.containerapp.JobSecret>[]>;
-    /**
-     * @deprecated `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.JobSecret>[]>;
     /**
@@ -376,13 +356,9 @@ export interface JobArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * @deprecated `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
-     */
-    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.JobRegistry>[]>;
-    /**
      * One or more `registry` blocks as defined below.
      */
-    registry?: pulumi.Input<pulumi.Input<inputs.containerapp.JobRegistry>[]>;
+    registries?: pulumi.Input<pulumi.Input<inputs.containerapp.JobRegistry>[]>;
     /**
      * The maximum number of times a replica is allowed to retry.
      */
@@ -403,10 +379,6 @@ export interface JobArgs {
     scheduleTriggerConfig?: pulumi.Input<inputs.containerapp.JobScheduleTriggerConfig>;
     /**
      * One or more `secret` blocks as defined below.
-     */
-    secret?: pulumi.Input<pulumi.Input<inputs.containerapp.JobSecret>[]>;
-    /**
-     * @deprecated `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.containerapp.JobSecret>[]>;
     /**

@@ -19,66 +19,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
- * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
- * import com.pulumi.azure.cosmosdb.SqlDatabase;
- * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
- * import com.pulumi.azure.cosmosdb.SqlContainer;
- * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
- * import com.pulumi.azure.cosmosdb.SqlTrigger;
- * import com.pulumi.azure.cosmosdb.SqlTriggerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
- *             .name("tfex-cosmosdb-account")
- *             .resourceGroupName("tfex-cosmosdb-account-rg")
- *             .build());
- * 
- *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
- *             .name("tfex-cosmos-db")
- *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
- *             .throughput(400)
- *             .build());
- * 
- *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
- *             .name("example-container")
- *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
- *             .databaseName(exampleSqlDatabase.name())
- *             .partitionKeyPath("/id")
- *             .build());
- * 
- *         var exampleSqlTrigger = new SqlTrigger("exampleSqlTrigger", SqlTriggerArgs.builder()
- *             .name("test-trigger")
- *             .containerId(exampleSqlContainer.id())
- *             .body("function trigger(){}")
- *             .operation("Delete")
- *             .type("Post")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

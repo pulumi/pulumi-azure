@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Automation.Outputs
         /// <summary>
         /// List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence> MonthlyOccurrences;
+        public readonly Outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence? MonthlyOccurrence;
         public readonly string? NextRun;
         public readonly double? NextRunOffsetMinutes;
         /// <summary>
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Automation.Outputs
 
             string? lastModifiedTime,
 
-            ImmutableArray<Outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence> monthlyOccurrences,
+            Outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence? monthlyOccurrence,
 
             string? nextRun,
 
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.Automation.Outputs
             Interval = interval;
             IsEnabled = isEnabled;
             LastModifiedTime = lastModifiedTime;
-            MonthlyOccurrences = monthlyOccurrences;
+            MonthlyOccurrence = monthlyOccurrence;
             NextRun = nextRun;
             NextRunOffsetMinutes = nextRunOffsetMinutes;
             StartTime = startTime;

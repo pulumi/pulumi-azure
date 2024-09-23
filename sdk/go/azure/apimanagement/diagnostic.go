@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -150,7 +150,7 @@ type Diagnostic struct {
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp pulumi.BoolOutput `pulumi:"logClientIp"`
-	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
 	OperationNameFormat pulumi.StringPtrOutput `pulumi:"operationNameFormat"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -222,7 +222,7 @@ type diagnosticState struct {
 	Identifier *string `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp *bool `pulumi:"logClientIp"`
-	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -253,7 +253,7 @@ type DiagnosticState struct {
 	Identifier pulumi.StringPtrInput
 	// Log client IP address.
 	LogClientIp pulumi.BoolPtrInput
-	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
 	OperationNameFormat pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -288,7 +288,7 @@ type diagnosticArgs struct {
 	Identifier string `pulumi:"identifier"`
 	// Log client IP address.
 	LogClientIp *bool `pulumi:"logClientIp"`
-	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -320,7 +320,7 @@ type DiagnosticArgs struct {
 	Identifier pulumi.StringInput
 	// Log client IP address.
 	LogClientIp pulumi.BoolPtrInput
-	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+	// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
 	OperationNameFormat pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -467,7 +467,7 @@ func (o DiagnosticOutput) LogClientIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Diagnostic) pulumi.BoolOutput { return v.LogClientIp }).(pulumi.BoolOutput)
 }
 
-// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+// The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
 func (o DiagnosticOutput) OperationNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Diagnostic) pulumi.StringPtrOutput { return v.OperationNameFormat }).(pulumi.StringPtrOutput)
 }

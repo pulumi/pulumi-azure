@@ -287,10 +287,6 @@ class DatabaseImportArgs:
 
 if not MYPY:
     class DatabaseLongTermRetentionPolicyArgsDict(TypedDict):
-        immutable_backups_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies if the backups are immutable. Defaults to `false`.
-        """
         monthly_retention: NotRequired[pulumi.Input[str]]
         """
         The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
@@ -313,20 +309,16 @@ elif False:
 @pulumi.input_type
 class DatabaseLongTermRetentionPolicyArgs:
     def __init__(__self__, *,
-                 immutable_backups_enabled: Optional[pulumi.Input[bool]] = None,
                  monthly_retention: Optional[pulumi.Input[str]] = None,
                  week_of_year: Optional[pulumi.Input[int]] = None,
                  weekly_retention: Optional[pulumi.Input[str]] = None,
                  yearly_retention: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] immutable_backups_enabled: Specifies if the backups are immutable. Defaults to `false`.
         :param pulumi.Input[str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
         :param pulumi.Input[int] week_of_year: The week of year to take the yearly backup. Value has to be between `1` and `52`.
         :param pulumi.Input[str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
         :param pulumi.Input[str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
         """
-        if immutable_backups_enabled is not None:
-            pulumi.set(__self__, "immutable_backups_enabled", immutable_backups_enabled)
         if monthly_retention is not None:
             pulumi.set(__self__, "monthly_retention", monthly_retention)
         if week_of_year is not None:
@@ -335,18 +327,6 @@ class DatabaseLongTermRetentionPolicyArgs:
             pulumi.set(__self__, "weekly_retention", weekly_retention)
         if yearly_retention is not None:
             pulumi.set(__self__, "yearly_retention", yearly_retention)
-
-    @property
-    @pulumi.getter(name="immutableBackupsEnabled")
-    def immutable_backups_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the backups are immutable. Defaults to `false`.
-        """
-        return pulumi.get(self, "immutable_backups_enabled")
-
-    @immutable_backups_enabled.setter
-    def immutable_backups_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "immutable_backups_enabled", value)
 
     @property
     @pulumi.getter(name="monthlyRetention")
@@ -689,7 +669,7 @@ if not MYPY:
         """
         name: pulumi.Input[str]
         """
-        Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+        Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
         """
         tier: pulumi.Input[str]
         """
@@ -697,7 +677,7 @@ if not MYPY:
         """
         family: NotRequired[pulumi.Input[str]]
         """
-        The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+        The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
         """
 elif False:
     ElasticPoolSkuArgsDict: TypeAlias = Mapping[str, Any]
@@ -711,9 +691,9 @@ class ElasticPoolSkuArgs:
                  family: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] capacity: The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-        :param pulumi.Input[str] name: Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+        :param pulumi.Input[str] name: Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
         :param pulumi.Input[str] tier: The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, `Premium`, or `HyperScale`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-        :param pulumi.Input[str] family: The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+        :param pulumi.Input[str] family: The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "name", name)
@@ -737,7 +717,7 @@ class ElasticPoolSkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+        Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
         """
         return pulumi.get(self, "name")
 
@@ -761,7 +741,7 @@ class ElasticPoolSkuArgs:
     @pulumi.getter
     def family(self) -> Optional[pulumi.Input[str]]:
         """
-        The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+        The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
         """
         return pulumi.get(self, "family")
 
@@ -894,10 +874,6 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
 
 if not MYPY:
     class ManagedDatabaseLongTermRetentionPolicyArgsDict(TypedDict):
-        immutable_backups_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies if the backups are immutable. Defaults to `false`.
-        """
         monthly_retention: NotRequired[pulumi.Input[str]]
         """
         The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
@@ -920,20 +896,16 @@ elif False:
 @pulumi.input_type
 class ManagedDatabaseLongTermRetentionPolicyArgs:
     def __init__(__self__, *,
-                 immutable_backups_enabled: Optional[pulumi.Input[bool]] = None,
                  monthly_retention: Optional[pulumi.Input[str]] = None,
                  week_of_year: Optional[pulumi.Input[int]] = None,
                  weekly_retention: Optional[pulumi.Input[str]] = None,
                  yearly_retention: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] immutable_backups_enabled: Specifies if the backups are immutable. Defaults to `false`.
         :param pulumi.Input[str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
         :param pulumi.Input[int] week_of_year: The week of year to take the yearly backup. Value has to be between `1` and `52`.
         :param pulumi.Input[str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
         :param pulumi.Input[str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
         """
-        if immutable_backups_enabled is not None:
-            pulumi.set(__self__, "immutable_backups_enabled", immutable_backups_enabled)
         if monthly_retention is not None:
             pulumi.set(__self__, "monthly_retention", monthly_retention)
         if week_of_year is not None:
@@ -942,18 +914,6 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
             pulumi.set(__self__, "weekly_retention", weekly_retention)
         if yearly_retention is not None:
             pulumi.set(__self__, "yearly_retention", yearly_retention)
-
-    @property
-    @pulumi.getter(name="immutableBackupsEnabled")
-    def immutable_backups_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the backups are immutable. Defaults to `false`.
-        """
-        return pulumi.get(self, "immutable_backups_enabled")
-
-    @immutable_backups_enabled.setter
-    def immutable_backups_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "immutable_backups_enabled", value)
 
     @property
     @pulumi.getter(name="monthlyRetention")

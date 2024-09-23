@@ -142,14 +142,6 @@ export class ComputeInstance extends pulumi.CustomResource {
      */
     public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Azure Region where the Machine Learning Compute Instance should exist.
-     *
-     * > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
-     *
-     * @deprecated The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
-     */
-    public readonly location!: pulumi.Output<string>;
-    /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
      */
     public readonly machineLearningWorkspaceId!: pulumi.Output<string>;
@@ -196,7 +188,6 @@ export class ComputeInstance extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodePublicIpEnabled"] = state ? state.nodePublicIpEnabled : undefined;
@@ -217,7 +208,6 @@ export class ComputeInstance extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodePublicIpEnabled"] = args ? args.nodePublicIpEnabled : undefined;
@@ -255,14 +245,6 @@ export interface ComputeInstanceState {
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
      */
     localAuthEnabled?: pulumi.Input<boolean>;
-    /**
-     * The Azure Region where the Machine Learning Compute Instance should exist.
-     *
-     * > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
-     *
-     * @deprecated The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
-     */
-    location?: pulumi.Input<string>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
      */
@@ -317,14 +299,6 @@ export interface ComputeInstanceArgs {
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
      */
     localAuthEnabled?: pulumi.Input<boolean>;
-    /**
-     * The Azure Region where the Machine Learning Compute Instance should exist.
-     *
-     * > **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&tabs=python).
-     *
-     * @deprecated The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
-     */
-    location?: pulumi.Input<string>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
      */

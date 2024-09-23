@@ -138,8 +138,6 @@ if typing.TYPE_CHECKING:
     hpc = __hpc
     import pulumi_azure.hsm as __hsm
     hsm = __hsm
-    import pulumi_azure.hybrid as __hybrid
-    hybrid = __hybrid
     import pulumi_azure.iot as __iot
     iot = __iot
     import pulumi_azure.iotcentral as __iotcentral
@@ -148,8 +146,6 @@ if typing.TYPE_CHECKING:
     keyvault = __keyvault
     import pulumi_azure.kusto as __kusto
     kusto = __kusto
-    import pulumi_azure.lab as __lab
-    lab = __lab
     import pulumi_azure.lb as __lb
     lb = __lb
     import pulumi_azure.lighthouse as __lighthouse
@@ -176,14 +172,10 @@ if typing.TYPE_CHECKING:
     managementresource = __managementresource
     import pulumi_azure.maps as __maps
     maps = __maps
-    import pulumi_azure.mariadb as __mariadb
-    mariadb = __mariadb
     import pulumi_azure.marketplace as __marketplace
     marketplace = __marketplace
     import pulumi_azure.media as __media
     media = __media
-    import pulumi_azure.mediaservices as __mediaservices
-    mediaservices = __mediaservices
     import pulumi_azure.mixedreality as __mixedreality
     mixedreality = __mixedreality
     import pulumi_azure.mobile as __mobile
@@ -256,8 +248,6 @@ if typing.TYPE_CHECKING:
     signalr = __signalr
     import pulumi_azure.siterecovery as __siterecovery
     siterecovery = __siterecovery
-    import pulumi_azure.sql as __sql
-    sql = __sql
     import pulumi_azure.stack as __stack
     stack = __stack
     import pulumi_azure.storage as __storage
@@ -270,8 +260,6 @@ if typing.TYPE_CHECKING:
     systemcenter = __systemcenter
     import pulumi_azure.trafficmanager as __trafficmanager
     trafficmanager = __trafficmanager
-    import pulumi_azure.videoanalyzer as __videoanalyzer
-    videoanalyzer = __videoanalyzer
     import pulumi_azure.voice as __voice
     voice = __voice
     import pulumi_azure.waf as __waf
@@ -345,12 +333,10 @@ else:
     healthcare = _utilities.lazy_import('pulumi_azure.healthcare')
     hpc = _utilities.lazy_import('pulumi_azure.hpc')
     hsm = _utilities.lazy_import('pulumi_azure.hsm')
-    hybrid = _utilities.lazy_import('pulumi_azure.hybrid')
     iot = _utilities.lazy_import('pulumi_azure.iot')
     iotcentral = _utilities.lazy_import('pulumi_azure.iotcentral')
     keyvault = _utilities.lazy_import('pulumi_azure.keyvault')
     kusto = _utilities.lazy_import('pulumi_azure.kusto')
-    lab = _utilities.lazy_import('pulumi_azure.lab')
     lb = _utilities.lazy_import('pulumi_azure.lb')
     lighthouse = _utilities.lazy_import('pulumi_azure.lighthouse')
     loadtest = _utilities.lazy_import('pulumi_azure.loadtest')
@@ -364,10 +350,8 @@ else:
     managementgroups = _utilities.lazy_import('pulumi_azure.managementgroups')
     managementresource = _utilities.lazy_import('pulumi_azure.managementresource')
     maps = _utilities.lazy_import('pulumi_azure.maps')
-    mariadb = _utilities.lazy_import('pulumi_azure.mariadb')
     marketplace = _utilities.lazy_import('pulumi_azure.marketplace')
     media = _utilities.lazy_import('pulumi_azure.media')
-    mediaservices = _utilities.lazy_import('pulumi_azure.mediaservices')
     mixedreality = _utilities.lazy_import('pulumi_azure.mixedreality')
     mobile = _utilities.lazy_import('pulumi_azure.mobile')
     monitoring = _utilities.lazy_import('pulumi_azure.monitoring')
@@ -404,14 +388,12 @@ else:
     servicefabric = _utilities.lazy_import('pulumi_azure.servicefabric')
     signalr = _utilities.lazy_import('pulumi_azure.signalr')
     siterecovery = _utilities.lazy_import('pulumi_azure.siterecovery')
-    sql = _utilities.lazy_import('pulumi_azure.sql')
     stack = _utilities.lazy_import('pulumi_azure.stack')
     storage = _utilities.lazy_import('pulumi_azure.storage')
     streamanalytics = _utilities.lazy_import('pulumi_azure.streamanalytics')
     synapse = _utilities.lazy_import('pulumi_azure.synapse')
     systemcenter = _utilities.lazy_import('pulumi_azure.systemcenter')
     trafficmanager = _utilities.lazy_import('pulumi_azure.trafficmanager')
-    videoanalyzer = _utilities.lazy_import('pulumi_azure.videoanalyzer')
     voice = _utilities.lazy_import('pulumi_azure.voice')
     waf = _utilities.lazy_import('pulumi_azure.waf')
     webpubsub = _utilities.lazy_import('pulumi_azure.webpubsub')
@@ -1226,14 +1208,6 @@ _utilities.register(
   "fqn": "pulumi_azure.appservice",
   "classes": {
    "azure:appservice/customHostnameBinding:CustomHostnameBinding": "CustomHostnameBinding"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "appservice/environment",
-  "fqn": "pulumi_azure.appservice",
-  "classes": {
-   "azure:appservice/environment:Environment": "Environment"
   }
  },
  {
@@ -2158,14 +2132,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "cdn/frontdoorRouteDisableLinkToDefaultDomain",
-  "fqn": "pulumi_azure.cdn",
-  "classes": {
-   "azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain": "FrontdoorRouteDisableLinkToDefaultDomain"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "cdn/frontdoorRule",
   "fqn": "pulumi_azure.cdn",
   "classes": {
@@ -2374,38 +2340,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "compute/diskPool",
-  "fqn": "pulumi_azure.compute",
-  "classes": {
-   "azure:compute/diskPool:DiskPool": "DiskPool"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "compute/diskPoolIscsiTarget",
-  "fqn": "pulumi_azure.compute",
-  "classes": {
-   "azure:compute/diskPoolIscsiTarget:DiskPoolIscsiTarget": "DiskPoolIscsiTarget"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "compute/diskPoolIscsiTargetLun",
-  "fqn": "pulumi_azure.compute",
-  "classes": {
-   "azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun": "DiskPoolIscsiTargetLun"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "compute/diskPoolManagedDiskAttachment",
-  "fqn": "pulumi_azure.compute",
-  "classes": {
-   "azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment": "DiskPoolManagedDiskAttachment"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "compute/extension",
   "fqn": "pulumi_azure.compute",
   "classes": {
@@ -2586,14 +2520,6 @@ _utilities.register(
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/virtualMachine:VirtualMachine": "VirtualMachine"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "compute/virtualMachineRestorePointCollection",
-  "fqn": "pulumi_azure.compute",
-  "classes": {
-   "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection": "VirtualMachineRestorePointCollection"
   }
  },
  {
@@ -3070,14 +2996,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "core/templateDeployment",
-  "fqn": "pulumi_azure.core",
-  "classes": {
-   "azure:core/templateDeployment:TemplateDeployment": "TemplateDeployment"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "core/tenantTemplateDeployment",
   "fqn": "pulumi_azure.core",
   "classes": {
@@ -3170,14 +3088,6 @@ _utilities.register(
   "fqn": "pulumi_azure.cosmosdb",
   "classes": {
    "azure:cosmosdb/mongoUserDefinition:MongoUserDefinition": "MongoUserDefinition"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "cosmosdb/notebookWorkspace",
-  "fqn": "pulumi_azure.cosmosdb",
-  "classes": {
-   "azure:cosmosdb/notebookWorkspace:NotebookWorkspace": "NotebookWorkspace"
   }
  },
  {
@@ -3318,14 +3228,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "dashboard/dashboard",
-  "fqn": "pulumi_azure.dashboard",
-  "classes": {
-   "azure:dashboard/dashboard:Dashboard": "Dashboard"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "dashboard/grafana",
   "fqn": "pulumi_azure.dashboard",
   "classes": {
@@ -3358,14 +3260,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "databoxedge/order",
-  "fqn": "pulumi_azure.databoxedge",
-  "classes": {
-   "azure:databoxedge/order:Order": "Order"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "databricks/accessConnector",
   "fqn": "pulumi_azure.databricks",
   "classes": {
@@ -3386,14 +3280,6 @@ _utilities.register(
   "fqn": "pulumi_azure.databricks",
   "classes": {
    "azure:databricks/workspace:Workspace": "Workspace"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "databricks/workspaceCustomerManagedKey",
-  "fqn": "pulumi_azure.databricks",
-  "classes": {
-   "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey": "WorkspaceCustomerManagedKey"
   }
  },
  {
@@ -3570,14 +3456,6 @@ _utilities.register(
   "fqn": "pulumi_azure.datafactory",
   "classes": {
    "azure:datafactory/flowletDataFlow:FlowletDataFlow": "FlowletDataFlow"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "datafactory/integrationRuntimeManaged",
-  "fqn": "pulumi_azure.datafactory",
-  "classes": {
-   "azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged": "IntegrationRuntimeManaged"
   }
  },
  {
@@ -4606,14 +4484,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "graph/account",
-  "fqn": "pulumi_azure.graph",
-  "classes": {
-   "azure:graph/account:Account": "Account"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "graph/servicesAccount",
   "fqn": "pulumi_azure.graph",
   "classes": {
@@ -4918,54 +4788,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "iot/timeSeriesInsightsAccessPolicy",
-  "fqn": "pulumi_azure.iot",
-  "classes": {
-   "azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy": "TimeSeriesInsightsAccessPolicy"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "iot/timeSeriesInsightsEventSourceEventhub",
-  "fqn": "pulumi_azure.iot",
-  "classes": {
-   "azure:iot/timeSeriesInsightsEventSourceEventhub:TimeSeriesInsightsEventSourceEventhub": "TimeSeriesInsightsEventSourceEventhub"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "iot/timeSeriesInsightsEventSourceIothub",
-  "fqn": "pulumi_azure.iot",
-  "classes": {
-   "azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub": "TimeSeriesInsightsEventSourceIothub"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "iot/timeSeriesInsightsGen2Environment",
-  "fqn": "pulumi_azure.iot",
-  "classes": {
-   "azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment": "TimeSeriesInsightsGen2Environment"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "iot/timeSeriesInsightsReferenceDataSet",
-  "fqn": "pulumi_azure.iot",
-  "classes": {
-   "azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet": "TimeSeriesInsightsReferenceDataSet"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "iot/timeSeriesInsightsStandardEnvironment",
-  "fqn": "pulumi_azure.iot",
-  "classes": {
-   "azure:iot/timeSeriesInsightsStandardEnvironment:TimeSeriesInsightsStandardEnvironment": "TimeSeriesInsightsStandardEnvironment"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "iotcentral/application",
   "fqn": "pulumi_azure.iotcentral",
   "classes": {
@@ -5194,38 +5016,6 @@ _utilities.register(
   "fqn": "pulumi_azure.kusto",
   "classes": {
    "azure:kusto/script:Script": "Script"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "lab/lab",
-  "fqn": "pulumi_azure.lab",
-  "classes": {
-   "azure:lab/lab:Lab": "Lab"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "lab/schedule",
-  "fqn": "pulumi_azure.lab",
-  "classes": {
-   "azure:lab/schedule:Schedule": "Schedule"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "lab/servicePlan",
-  "fqn": "pulumi_azure.lab",
-  "classes": {
-   "azure:lab/servicePlan:ServicePlan": "ServicePlan"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "lab/user",
-  "fqn": "pulumi_azure.lab",
-  "classes": {
-   "azure:lab/user:User": "User"
   }
  },
  {
@@ -5490,14 +5280,6 @@ _utilities.register(
   "fqn": "pulumi_azure.logicapps",
   "classes": {
    "azure:logicapps/integrationAccountSession:IntegrationAccountSession": "IntegrationAccountSession"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "logicapps/interationServiceEnvironment",
-  "fqn": "pulumi_azure.logicapps",
-  "classes": {
-   "azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment": "InterationServiceEnvironment"
   }
  },
  {
@@ -5774,46 +5556,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "mariadb/configuration",
-  "fqn": "pulumi_azure.mariadb",
-  "classes": {
-   "azure:mariadb/configuration:Configuration": "Configuration"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mariadb/database",
-  "fqn": "pulumi_azure.mariadb",
-  "classes": {
-   "azure:mariadb/database:Database": "Database"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mariadb/firewallRule",
-  "fqn": "pulumi_azure.mariadb",
-  "classes": {
-   "azure:mariadb/firewallRule:FirewallRule": "FirewallRule"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mariadb/server",
-  "fqn": "pulumi_azure.mariadb",
-  "classes": {
-   "azure:mariadb/server:Server": "Server"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mariadb/virtualNetworkRule",
-  "fqn": "pulumi_azure.mariadb",
-  "classes": {
-   "azure:mariadb/virtualNetworkRule:VirtualNetworkRule": "VirtualNetworkRule"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "marketplace/agreement",
   "fqn": "pulumi_azure.marketplace",
   "classes": {
@@ -5834,102 +5576,6 @@ _utilities.register(
   "fqn": "pulumi_azure.media",
   "classes": {
    "azure:media/accountFilter:AccountFilter": "AccountFilter"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/asset",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/asset:Asset": "Asset"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/assetFilter",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/assetFilter:AssetFilter": "AssetFilter"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/contentKeyPolicy",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/contentKeyPolicy:ContentKeyPolicy": "ContentKeyPolicy"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/job",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/job:Job": "Job"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/liveEvent",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/liveEvent:LiveEvent": "LiveEvent"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/liveEventOutput",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/liveEventOutput:LiveEventOutput": "LiveEventOutput"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/serviceAccount",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/serviceAccount:ServiceAccount": "ServiceAccount"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/streamingEndpoint",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/streamingEndpoint:StreamingEndpoint": "StreamingEndpoint"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/streamingLocator",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/streamingLocator:StreamingLocator": "StreamingLocator"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/streamingPolicy",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/streamingPolicy:StreamingPolicy": "StreamingPolicy"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/transform",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/transform:Transform": "Transform"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mediaservices/account",
-  "fqn": "pulumi_azure.mediaservices",
-  "classes": {
-   "azure:mediaservices/account:Account": "Account"
   }
  },
  {
@@ -6046,22 +5692,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "monitoring/actionRuleActionGroup",
-  "fqn": "pulumi_azure.monitoring",
-  "classes": {
-   "azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup": "ActionRuleActionGroup"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "monitoring/actionRuleSuppression",
-  "fqn": "pulumi_azure.monitoring",
-  "classes": {
-   "azure:monitoring/actionRuleSuppression:ActionRuleSuppression": "ActionRuleSuppression"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "monitoring/activityLogAlert",
   "fqn": "pulumi_azure.monitoring",
   "classes": {
@@ -6130,46 +5760,6 @@ _utilities.register(
   "fqn": "pulumi_azure.monitoring",
   "classes": {
    "azure:monitoring/diagnosticSetting:DiagnosticSetting": "DiagnosticSetting"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "monitoring/logProfile",
-  "fqn": "pulumi_azure.monitoring",
-  "classes": {
-   "azure:monitoring/logProfile:LogProfile": "LogProfile"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "monitoring/logzMonitor",
-  "fqn": "pulumi_azure.monitoring",
-  "classes": {
-   "azure:monitoring/logzMonitor:LogzMonitor": "LogzMonitor"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "monitoring/logzSubAccount",
-  "fqn": "pulumi_azure.monitoring",
-  "classes": {
-   "azure:monitoring/logzSubAccount:LogzSubAccount": "LogzSubAccount"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "monitoring/logzSubAccountTagRule",
-  "fqn": "pulumi_azure.monitoring",
-  "classes": {
-   "azure:monitoring/logzSubAccountTagRule:LogzSubAccountTagRule": "LogzSubAccountTagRule"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "monitoring/logzTagRule",
-  "fqn": "pulumi_azure.monitoring",
-  "classes": {
-   "azure:monitoring/logzTagRule:LogzTagRule": "LogzTagRule"
   }
  },
  {
@@ -6462,38 +6052,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "mysql/activeDirectoryAdministrator",
-  "fqn": "pulumi_azure.mysql",
-  "classes": {
-   "azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator": "ActiveDirectoryAdministrator"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mysql/configuration",
-  "fqn": "pulumi_azure.mysql",
-  "classes": {
-   "azure:mysql/configuration:Configuration": "Configuration"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mysql/database",
-  "fqn": "pulumi_azure.mysql",
-  "classes": {
-   "azure:mysql/database:Database": "Database"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mysql/firewallRule",
-  "fqn": "pulumi_azure.mysql",
-  "classes": {
-   "azure:mysql/firewallRule:FirewallRule": "FirewallRule"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "mysql/flexibleDatabase",
   "fqn": "pulumi_azure.mysql",
   "classes": {
@@ -6506,14 +6064,6 @@ _utilities.register(
   "fqn": "pulumi_azure.mysql",
   "classes": {
    "azure:mysql/flexibleServer:FlexibleServer": "FlexibleServer"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mysql/flexibleServerActiveDirectoryAdministrator",
-  "fqn": "pulumi_azure.mysql",
-  "classes": {
-   "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator": "FlexibleServerActiveDirectoryAdministrator"
   }
  },
  {
@@ -6538,30 +6088,6 @@ _utilities.register(
   "fqn": "pulumi_azure.mysql",
   "classes": {
    "azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule": "FlexibleServerFirewallRule"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mysql/server",
-  "fqn": "pulumi_azure.mysql",
-  "classes": {
-   "azure:mysql/server:Server": "Server"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mysql/serverKey",
-  "fqn": "pulumi_azure.mysql",
-  "classes": {
-   "azure:mysql/serverKey:ServerKey": "ServerKey"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "mysql/virtualNetworkRule",
-  "fqn": "pulumi_azure.mysql",
-  "classes": {
-   "azure:mysql/virtualNetworkRule:VirtualNetworkRule": "VirtualNetworkRule"
   }
  },
  {
@@ -6962,14 +6488,6 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection": "NetworkManagerSubscriptionConnection"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "network/networkPacketCapture",
-  "fqn": "pulumi_azure.network",
-  "classes": {
-   "azure:network/networkPacketCapture:NetworkPacketCapture": "NetworkPacketCapture"
   }
  },
  {
@@ -7590,14 +7108,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "portal/dashboard",
-  "fqn": "pulumi_azure.portal",
-  "classes": {
-   "azure:portal/dashboard:Dashboard": "Dashboard"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "portal/portalDashboard",
   "fqn": "pulumi_azure.portal",
   "classes": {
@@ -8070,14 +7580,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "securitycenter/serverVulnerabilityAssessment",
-  "fqn": "pulumi_azure.securitycenter",
-  "classes": {
-   "azure:securitycenter/serverVulnerabilityAssessment:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "securitycenter/serverVulnerabilityAssessmentVirtualMachine",
   "fqn": "pulumi_azure.securitycenter",
   "classes": {
@@ -8414,14 +7916,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "servicebus/namespaceNetworkRuleSet",
-  "fqn": "pulumi_azure.servicebus",
-  "classes": {
-   "azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "servicebus/queue",
   "fqn": "pulumi_azure.servicebus",
   "classes": {
@@ -8634,94 +8128,6 @@ _utilities.register(
   "fqn": "pulumi_azure.siterecovery",
   "classes": {
    "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation": "VmwareReplicationPolicyAssociation"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "sql/activeDirectoryAdministrator",
-  "fqn": "pulumi_azure.sql",
-  "classes": {
-   "azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator": "ActiveDirectoryAdministrator"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "sql/database",
-  "fqn": "pulumi_azure.sql",
-  "classes": {
-   "azure:sql/database:Database": "Database"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "sql/elasticPool",
-  "fqn": "pulumi_azure.sql",
-  "classes": {
-   "azure:sql/elasticPool:ElasticPool": "ElasticPool"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "sql/failoverGroup",
-  "fqn": "pulumi_azure.sql",
-  "classes": {
-   "azure:sql/failoverGroup:FailoverGroup": "FailoverGroup"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "sql/firewallRule",
-  "fqn": "pulumi_azure.sql",
-  "classes": {
-   "azure:sql/firewallRule:FirewallRule": "FirewallRule"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "sql/managedDatabase",
-  "fqn": "pulumi_azure.sql",
-  "classes": {
-   "azure:sql/managedDatabase:ManagedDatabase": "ManagedDatabase"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "sql/managedInstance",
-  "fqn": "pulumi_azure.sql",
-  "classes": {
-   "azure:sql/managedInstance:ManagedInstance": "ManagedInstance"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "sql/managedInstanceActiveDirectoryAdministrator",
-  "fqn": "pulumi_azure.sql",
-  "classes": {
-   "azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator": "ManagedInstanceActiveDirectoryAdministrator"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "sql/managedInstanceFailoverGroup",
-  "fqn": "pulumi_azure.sql",
-  "classes": {
-   "azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup": "ManagedInstanceFailoverGroup"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "sql/sqlServer",
-  "fqn": "pulumi_azure.sql",
-  "classes": {
-   "azure:sql/sqlServer:SqlServer": "SqlServer"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "sql/virtualNetworkRule",
-  "fqn": "pulumi_azure.sql",
-  "classes": {
-   "azure:sql/virtualNetworkRule:VirtualNetworkRule": "VirtualNetworkRule"
   }
  },
  {
@@ -9378,22 +8784,6 @@ _utilities.register(
   "fqn": "pulumi_azure.trafficmanager",
   "classes": {
    "azure:trafficmanager/profile:Profile": "Profile"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "videoanalyzer/analyzer",
-  "fqn": "pulumi_azure.videoanalyzer",
-  "classes": {
-   "azure:videoanalyzer/analyzer:Analyzer": "Analyzer"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "videoanalyzer/edgeModule",
-  "fqn": "pulumi_azure.videoanalyzer",
-  "classes": {
-   "azure:videoanalyzer/edgeModule:EdgeModule": "EdgeModule"
   }
  },
  {

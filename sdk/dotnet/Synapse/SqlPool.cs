@@ -133,7 +133,7 @@ namespace Pulumi.Azure.Synapse
         /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
         /// </summary>
         [Output("storageAccountType")]
-        public Output<string?> StorageAccountType { get; private set; } = null!;
+        public Output<string> StorageAccountType { get; private set; } = null!;
 
         /// <summary>
         /// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
@@ -244,8 +244,8 @@ namespace Pulumi.Azure.Synapse
         /// <summary>
         /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
         /// </summary>
-        [Input("storageAccountType")]
-        public Input<string>? StorageAccountType { get; set; }
+        [Input("storageAccountType", required: true)]
+        public Input<string> StorageAccountType { get; set; } = null!;
 
         /// <summary>
         /// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.

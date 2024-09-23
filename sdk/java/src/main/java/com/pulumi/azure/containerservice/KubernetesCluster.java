@@ -139,26 +139,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="apiServerAccessProfile", refs={KubernetesClusterApiServerAccessProfile.class}, tree="[0]")
-    private Output<KubernetesClusterApiServerAccessProfile> apiServerAccessProfile;
+    private Output</* @Nullable */ KubernetesClusterApiServerAccessProfile> apiServerAccessProfile;
 
     /**
      * @return An `api_server_access_profile` block as defined below.
      * 
      */
-    public Output<KubernetesClusterApiServerAccessProfile> apiServerAccessProfile() {
-        return this.apiServerAccessProfile;
-    }
-    /**
-     * @deprecated
-     * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
-     * 
-     */
-    @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
-    @Export(name="apiServerAuthorizedIpRanges", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> apiServerAuthorizedIpRanges;
-
-    public Output<List<String>> apiServerAuthorizedIpRanges() {
-        return this.apiServerAuthorizedIpRanges;
+    public Output<Optional<KubernetesClusterApiServerAccessProfile>> apiServerAccessProfile() {
+        return Codegen.optional(this.apiServerAccessProfile);
     }
     /**
      * A `auto_scaler_profile` block as defined below.
@@ -182,8 +170,8 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      * 
      */
-    @Export(name="automaticChannelUpgrade", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> automaticChannelUpgrade;
+    @Export(name="automaticUpgradeChannel", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> automaticUpgradeChannel;
 
     /**
      * @return The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -193,8 +181,8 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      * 
      */
-    public Output<Optional<String>> automaticChannelUpgrade() {
-        return Codegen.optional(this.automaticChannelUpgrade);
+    public Output<Optional<String>> automaticUpgradeChannel() {
+        return Codegen.optional(this.automaticUpgradeChannel);
     }
     /**
      * A `azure_active_directory_role_based_access_control` block as defined below.
@@ -265,18 +253,6 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> currentKubernetesVersion() {
         return this.currentKubernetesVersion;
-    }
-    /**
-     * @deprecated
-     * This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.
-     * 
-     */
-    @Deprecated /* This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details. */
-    @Export(name="customCaTrustCertificatesBase64s", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> customCaTrustCertificatesBase64s;
-
-    public Output<Optional<List<String>>> customCaTrustCertificatesBase64s() {
-        return Codegen.optional(this.customCaTrustCertificatesBase64s);
     }
     /**
      * A `default_node_pool` block as defined below.
@@ -355,18 +331,6 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> edgeZone() {
         return Codegen.optional(this.edgeZone);
-    }
-    /**
-     * @deprecated
-     * The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider. */
-    @Export(name="enablePodSecurityPolicy", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enablePodSecurityPolicy;
-
-    public Output<Optional<Boolean>> enablePodSecurityPolicy() {
-        return Codegen.optional(this.enablePodSecurityPolicy);
     }
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
@@ -461,14 +425,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.imageCleanerEnabled);
     }
     /**
-     * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+     * Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
      * 
      */
     @Export(name="imageCleanerIntervalHours", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> imageCleanerIntervalHours;
 
     /**
-     * @return Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+     * @return Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
      * 
      */
     public Output<Optional<Integer>> imageCleanerIntervalHours() {
@@ -761,22 +725,22 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.networkProfile;
     }
     /**
-     * The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     * The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      * 
-     * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+     * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
      * 
      */
-    @Export(name="nodeOsChannelUpgrade", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> nodeOsChannelUpgrade;
+    @Export(name="nodeOsUpgradeChannel", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> nodeOsUpgradeChannel;
 
     /**
-     * @return The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+     * @return The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      * 
-     * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+     * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
      * 
      */
-    public Output<Optional<String>> nodeOsChannelUpgrade() {
-        return Codegen.optional(this.nodeOsChannelUpgrade);
+    public Output<Optional<String>> nodeOsUpgradeChannel() {
+        return Codegen.optional(this.nodeOsUpgradeChannel);
     }
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -1081,18 +1045,6 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> privateFqdn() {
         return this.privateFqdn;
-    }
-    /**
-     * @deprecated
-     * `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider. */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
-
-    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
-        return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.

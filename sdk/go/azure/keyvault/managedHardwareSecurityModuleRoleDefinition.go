@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,17 +37,18 @@ type ManagedHardwareSecurityModuleRoleDefinition struct {
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
 	// The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
-	// The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-	VaultBaseUrl pulumi.StringOutput `pulumi:"vaultBaseUrl"`
 }
 
 // NewManagedHardwareSecurityModuleRoleDefinition registers a new resource with the given unique name, arguments, and options.
 func NewManagedHardwareSecurityModuleRoleDefinition(ctx *pulumi.Context,
 	name string, args *ManagedHardwareSecurityModuleRoleDefinitionArgs, opts ...pulumi.ResourceOption) (*ManagedHardwareSecurityModuleRoleDefinition, error) {
 	if args == nil {
-		args = &ManagedHardwareSecurityModuleRoleDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ManagedHsmId == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedHsmId'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedHardwareSecurityModuleRoleDefinition
 	err := ctx.RegisterResource("azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition", name, args, &resource, opts...)
@@ -83,8 +85,6 @@ type managedHardwareSecurityModuleRoleDefinitionState struct {
 	RoleName *string `pulumi:"roleName"`
 	// The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
 	RoleType *string `pulumi:"roleType"`
-	// The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-	VaultBaseUrl *string `pulumi:"vaultBaseUrl"`
 }
 
 type ManagedHardwareSecurityModuleRoleDefinitionState struct {
@@ -101,8 +101,6 @@ type ManagedHardwareSecurityModuleRoleDefinitionState struct {
 	RoleName pulumi.StringPtrInput
 	// The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
 	RoleType pulumi.StringPtrInput
-	// The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-	VaultBaseUrl pulumi.StringPtrInput
 }
 
 func (ManagedHardwareSecurityModuleRoleDefinitionState) ElementType() reflect.Type {
@@ -112,30 +110,26 @@ func (ManagedHardwareSecurityModuleRoleDefinitionState) ElementType() reflect.Ty
 type managedHardwareSecurityModuleRoleDefinitionArgs struct {
 	// Specifies a text description about this KeyVault Role Definition.
 	Description  *string `pulumi:"description"`
-	ManagedHsmId *string `pulumi:"managedHsmId"`
+	ManagedHsmId string  `pulumi:"managedHsmId"`
 	// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
 	Name *string `pulumi:"name"`
 	// One or more `permission` blocks as defined below.
 	Permissions []ManagedHardwareSecurityModuleRoleDefinitionPermission `pulumi:"permissions"`
 	// Specify a name for this KeyVault Role Definition.
 	RoleName *string `pulumi:"roleName"`
-	// The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-	VaultBaseUrl *string `pulumi:"vaultBaseUrl"`
 }
 
 // The set of arguments for constructing a ManagedHardwareSecurityModuleRoleDefinition resource.
 type ManagedHardwareSecurityModuleRoleDefinitionArgs struct {
 	// Specifies a text description about this KeyVault Role Definition.
 	Description  pulumi.StringPtrInput
-	ManagedHsmId pulumi.StringPtrInput
+	ManagedHsmId pulumi.StringInput
 	// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
 	Name pulumi.StringPtrInput
 	// One or more `permission` blocks as defined below.
 	Permissions ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput
 	// Specify a name for this KeyVault Role Definition.
 	RoleName pulumi.StringPtrInput
-	// The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-	VaultBaseUrl pulumi.StringPtrInput
 }
 
 func (ManagedHardwareSecurityModuleRoleDefinitionArgs) ElementType() reflect.Type {
@@ -259,11 +253,6 @@ func (o ManagedHardwareSecurityModuleRoleDefinitionOutput) RoleName() pulumi.Str
 // The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
 func (o ManagedHardwareSecurityModuleRoleDefinitionOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleDefinition) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
-}
-
-// The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
-func (o ManagedHardwareSecurityModuleRoleDefinitionOutput) VaultBaseUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleDefinition) pulumi.StringOutput { return v.VaultBaseUrl }).(pulumi.StringOutput)
 }
 
 type ManagedHardwareSecurityModuleRoleDefinitionArrayOutput struct{ *pulumi.OutputState }

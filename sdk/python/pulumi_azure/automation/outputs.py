@@ -847,9 +847,7 @@ class SoftwareUpdateConfigurationLinux(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "classificationIncluded":
-            suggest = "classification_included"
-        elif key == "classificationsIncludeds":
+        if key == "classificationsIncludeds":
             suggest = "classifications_includeds"
         elif key == "excludedPackages":
             suggest = "excluded_packages"
@@ -868,8 +866,7 @@ class SoftwareUpdateConfigurationLinux(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 classification_included: Optional[str] = None,
-                 classifications_includeds: Optional[Sequence[str]] = None,
+                 classifications_includeds: Sequence[str],
                  excluded_packages: Optional[Sequence[str]] = None,
                  included_packages: Optional[Sequence[str]] = None,
                  reboot: Optional[str] = None):
@@ -881,10 +878,7 @@ class SoftwareUpdateConfigurationLinux(dict):
         :param Sequence[str] included_packages: Specifies a list of packages to included from the Software Update Configuration.
         :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         """
-        if classification_included is not None:
-            pulumi.set(__self__, "classification_included", classification_included)
-        if classifications_includeds is not None:
-            pulumi.set(__self__, "classifications_includeds", classifications_includeds)
+        pulumi.set(__self__, "classifications_includeds", classifications_includeds)
         if excluded_packages is not None:
             pulumi.set(__self__, "excluded_packages", excluded_packages)
         if included_packages is not None:
@@ -893,14 +887,8 @@ class SoftwareUpdateConfigurationLinux(dict):
             pulumi.set(__self__, "reboot", reboot)
 
     @property
-    @pulumi.getter(name="classificationIncluded")
-    @_utilities.deprecated("""this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.""")
-    def classification_included(self) -> Optional[str]:
-        return pulumi.get(self, "classification_included")
-
-    @property
     @pulumi.getter(name="classificationsIncludeds")
-    def classifications_includeds(self) -> Optional[Sequence[str]]:
+    def classifications_includeds(self) -> Sequence[str]:
         """
         Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
 
@@ -1014,8 +1002,8 @@ class SoftwareUpdateConfigurationSchedule(dict):
             suggest = "is_enabled"
         elif key == "lastModifiedTime":
             suggest = "last_modified_time"
-        elif key == "monthlyOccurrences":
-            suggest = "monthly_occurrences"
+        elif key == "monthlyOccurrence":
+            suggest = "monthly_occurrence"
         elif key == "nextRun":
             suggest = "next_run"
         elif key == "nextRunOffsetMinutes":
@@ -1049,7 +1037,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
                  interval: Optional[int] = None,
                  is_enabled: Optional[bool] = None,
                  last_modified_time: Optional[str] = None,
-                 monthly_occurrences: Optional[Sequence['outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence']] = None,
+                 monthly_occurrence: Optional['outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence'] = None,
                  next_run: Optional[str] = None,
                  next_run_offset_minutes: Optional[float] = None,
                  start_time: Optional[str] = None,
@@ -1063,7 +1051,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
         :param str expiry_time: The end time of the schedule.
         :param int interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         :param bool is_enabled: Whether the schedule is enabled. Defaults to `true`.
-        :param Sequence['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs'] monthly_occurrences: List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+        :param 'SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs' monthly_occurrence: List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         :param str start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param str time_zone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
@@ -1086,8 +1074,8 @@ class SoftwareUpdateConfigurationSchedule(dict):
             pulumi.set(__self__, "is_enabled", is_enabled)
         if last_modified_time is not None:
             pulumi.set(__self__, "last_modified_time", last_modified_time)
-        if monthly_occurrences is not None:
-            pulumi.set(__self__, "monthly_occurrences", monthly_occurrences)
+        if monthly_occurrence is not None:
+            pulumi.set(__self__, "monthly_occurrence", monthly_occurrence)
         if next_run is not None:
             pulumi.set(__self__, "next_run", next_run)
         if next_run_offset_minutes is not None:
@@ -1171,12 +1159,12 @@ class SoftwareUpdateConfigurationSchedule(dict):
         return pulumi.get(self, "last_modified_time")
 
     @property
-    @pulumi.getter(name="monthlyOccurrences")
-    def monthly_occurrences(self) -> Optional[Sequence['outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence']]:
+    @pulumi.getter(name="monthlyOccurrence")
+    def monthly_occurrence(self) -> Optional['outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence']:
         """
         List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         """
-        return pulumi.get(self, "monthly_occurrences")
+        return pulumi.get(self, "monthly_occurrence")
 
     @property
     @pulumi.getter(name="nextRun")
@@ -1445,9 +1433,7 @@ class SoftwareUpdateConfigurationWindows(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "classificationIncluded":
-            suggest = "classification_included"
-        elif key == "classificationsIncludeds":
+        if key == "classificationsIncludeds":
             suggest = "classifications_includeds"
         elif key == "excludedKnowledgeBaseNumbers":
             suggest = "excluded_knowledge_base_numbers"
@@ -1466,8 +1452,7 @@ class SoftwareUpdateConfigurationWindows(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 classification_included: Optional[str] = None,
-                 classifications_includeds: Optional[Sequence[str]] = None,
+                 classifications_includeds: Sequence[str],
                  excluded_knowledge_base_numbers: Optional[Sequence[str]] = None,
                  included_knowledge_base_numbers: Optional[Sequence[str]] = None,
                  reboot: Optional[str] = None):
@@ -1479,10 +1464,7 @@ class SoftwareUpdateConfigurationWindows(dict):
         :param Sequence[str] included_knowledge_base_numbers: Specifies a list of knowledge base numbers included.
         :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         """
-        if classification_included is not None:
-            pulumi.set(__self__, "classification_included", classification_included)
-        if classifications_includeds is not None:
-            pulumi.set(__self__, "classifications_includeds", classifications_includeds)
+        pulumi.set(__self__, "classifications_includeds", classifications_includeds)
         if excluded_knowledge_base_numbers is not None:
             pulumi.set(__self__, "excluded_knowledge_base_numbers", excluded_knowledge_base_numbers)
         if included_knowledge_base_numbers is not None:
@@ -1491,14 +1473,8 @@ class SoftwareUpdateConfigurationWindows(dict):
             pulumi.set(__self__, "reboot", reboot)
 
     @property
-    @pulumi.getter(name="classificationIncluded")
-    @_utilities.deprecated("""this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.""")
-    def classification_included(self) -> Optional[str]:
-        return pulumi.get(self, "classification_included")
-
-    @property
     @pulumi.getter(name="classificationsIncludeds")
-    def classifications_includeds(self) -> Optional[Sequence[str]]:
+    def classifications_includeds(self) -> Sequence[str]:
         """
         Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
 

@@ -152,9 +152,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("partitionKeyKind")]
         public Output<string?> PartitionKeyKind { get; private set; } = null!;
 
-        [Output("partitionKeyPath")]
-        public Output<string> PartitionKeyPath { get; private set; } = null!;
-
         /// <summary>
         /// A list of partition key paths. Changing this forces a new resource to be created.
         /// </summary>
@@ -287,10 +284,7 @@ namespace Pulumi.Azure.CosmosDB
         [Input("partitionKeyKind")]
         public Input<string>? PartitionKeyKind { get; set; }
 
-        [Input("partitionKeyPath")]
-        public Input<string>? PartitionKeyPath { get; set; }
-
-        [Input("partitionKeyPaths")]
+        [Input("partitionKeyPaths", required: true)]
         private InputList<string>? _partitionKeyPaths;
 
         /// <summary>
@@ -395,9 +389,6 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("partitionKeyKind")]
         public Input<string>? PartitionKeyKind { get; set; }
-
-        [Input("partitionKeyPath")]
-        public Input<string>? PartitionKeyPath { get; set; }
 
         [Input("partitionKeyPaths")]
         private InputList<string>? _partitionKeyPaths;

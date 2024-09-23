@@ -16,9 +16,6 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
      * 
      */
     private String currentStack;
-    private String dockerContainerName;
-    private String dockerContainerRegistry;
-    private String dockerContainerTag;
     /**
      * @return The docker image, including tag, used by this Windows Web App.
      * 
@@ -86,15 +83,6 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
      */
     public String currentStack() {
         return this.currentStack;
-    }
-    public String dockerContainerName() {
-        return this.dockerContainerName;
-    }
-    public String dockerContainerRegistry() {
-        return this.dockerContainerRegistry;
-    }
-    public String dockerContainerTag() {
-        return this.dockerContainerTag;
     }
     /**
      * @return The docker image, including tag, used by this Windows Web App.
@@ -196,9 +184,6 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
     @CustomType.Builder
     public static final class Builder {
         private String currentStack;
-        private String dockerContainerName;
-        private String dockerContainerRegistry;
-        private String dockerContainerTag;
         private String dockerImageName;
         private String dockerRegistryPassword;
         private String dockerRegistryUrl;
@@ -218,9 +203,6 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
         public Builder(GetWindowsWebAppSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.currentStack = defaults.currentStack;
-    	      this.dockerContainerName = defaults.dockerContainerName;
-    	      this.dockerContainerRegistry = defaults.dockerContainerRegistry;
-    	      this.dockerContainerTag = defaults.dockerContainerTag;
     	      this.dockerImageName = defaults.dockerImageName;
     	      this.dockerRegistryPassword = defaults.dockerRegistryPassword;
     	      this.dockerRegistryUrl = defaults.dockerRegistryUrl;
@@ -244,30 +226,6 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
               throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "currentStack");
             }
             this.currentStack = currentStack;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder dockerContainerName(String dockerContainerName) {
-            if (dockerContainerName == null) {
-              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dockerContainerName");
-            }
-            this.dockerContainerName = dockerContainerName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder dockerContainerRegistry(String dockerContainerRegistry) {
-            if (dockerContainerRegistry == null) {
-              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dockerContainerRegistry");
-            }
-            this.dockerContainerRegistry = dockerContainerRegistry;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder dockerContainerTag(String dockerContainerTag) {
-            if (dockerContainerTag == null) {
-              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dockerContainerTag");
-            }
-            this.dockerContainerTag = dockerContainerTag;
             return this;
         }
         @CustomType.Setter
@@ -393,9 +351,6 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
         public GetWindowsWebAppSiteConfigApplicationStack build() {
             final var _resultValue = new GetWindowsWebAppSiteConfigApplicationStack();
             _resultValue.currentStack = currentStack;
-            _resultValue.dockerContainerName = dockerContainerName;
-            _resultValue.dockerContainerRegistry = dockerContainerRegistry;
-            _resultValue.dockerContainerTag = dockerContainerTag;
             _resultValue.dockerImageName = dockerImageName;
             _resultValue.dockerRegistryPassword = dockerRegistryPassword;
             _resultValue.dockerRegistryUrl = dockerRegistryUrl;

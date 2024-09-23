@@ -27,10 +27,19 @@ class GetSharedImageResult:
     """
     A collection of values returned by getSharedImage.
     """
-    def __init__(__self__, architecture=None, description=None, eula=None, gallery_name=None, hyper_v_generation=None, id=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, purchase_plans=None, release_note_uri=None, resource_group_name=None, specialized=None, tags=None):
+    def __init__(__self__, accelerated_network_support_enabled=None, architecture=None, confidential_vm_enabled=None, confidential_vm_supported=None, description=None, eula=None, gallery_name=None, hibernation_enabled=None, hyper_v_generation=None, id=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, purchase_plans=None, release_note_uri=None, resource_group_name=None, specialized=None, tags=None, trusted_launch_enabled=None, trusted_launch_supported=None):
+        if accelerated_network_support_enabled and not isinstance(accelerated_network_support_enabled, bool):
+            raise TypeError("Expected argument 'accelerated_network_support_enabled' to be a bool")
+        pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
+        if confidential_vm_enabled and not isinstance(confidential_vm_enabled, bool):
+            raise TypeError("Expected argument 'confidential_vm_enabled' to be a bool")
+        pulumi.set(__self__, "confidential_vm_enabled", confidential_vm_enabled)
+        if confidential_vm_supported and not isinstance(confidential_vm_supported, bool):
+            raise TypeError("Expected argument 'confidential_vm_supported' to be a bool")
+        pulumi.set(__self__, "confidential_vm_supported", confidential_vm_supported)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -40,6 +49,9 @@ class GetSharedImageResult:
         if gallery_name and not isinstance(gallery_name, str):
             raise TypeError("Expected argument 'gallery_name' to be a str")
         pulumi.set(__self__, "gallery_name", gallery_name)
+        if hibernation_enabled and not isinstance(hibernation_enabled, bool):
+            raise TypeError("Expected argument 'hibernation_enabled' to be a bool")
+        pulumi.set(__self__, "hibernation_enabled", hibernation_enabled)
         if hyper_v_generation and not isinstance(hyper_v_generation, str):
             raise TypeError("Expected argument 'hyper_v_generation' to be a str")
         pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
@@ -76,11 +88,41 @@ class GetSharedImageResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if trusted_launch_enabled and not isinstance(trusted_launch_enabled, bool):
+            raise TypeError("Expected argument 'trusted_launch_enabled' to be a bool")
+        pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
+        if trusted_launch_supported and not isinstance(trusted_launch_supported, bool):
+            raise TypeError("Expected argument 'trusted_launch_supported' to be a bool")
+        pulumi.set(__self__, "trusted_launch_supported", trusted_launch_supported)
+
+    @property
+    @pulumi.getter(name="acceleratedNetworkSupportEnabled")
+    def accelerated_network_support_enabled(self) -> bool:
+        """
+        Specifies if the Shared Image supports Accelerated Network.
+        """
+        return pulumi.get(self, "accelerated_network_support_enabled")
 
     @property
     @pulumi.getter
     def architecture(self) -> str:
         return pulumi.get(self, "architecture")
+
+    @property
+    @pulumi.getter(name="confidentialVmEnabled")
+    def confidential_vm_enabled(self) -> bool:
+        """
+        Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines.
+        """
+        return pulumi.get(self, "confidential_vm_enabled")
+
+    @property
+    @pulumi.getter(name="confidentialVmSupported")
+    def confidential_vm_supported(self) -> bool:
+        """
+        Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image.
+        """
+        return pulumi.get(self, "confidential_vm_supported")
 
     @property
     @pulumi.getter
@@ -102,6 +144,14 @@ class GetSharedImageResult:
     @pulumi.getter(name="galleryName")
     def gallery_name(self) -> str:
         return pulumi.get(self, "gallery_name")
+
+    @property
+    @pulumi.getter(name="hibernationEnabled")
+    def hibernation_enabled(self) -> bool:
+        """
+        Specifies if the Shared Image supports hibernation.
+        """
+        return pulumi.get(self, "hibernation_enabled")
 
     @property
     @pulumi.getter(name="hyperVGeneration")
@@ -196,6 +246,22 @@ class GetSharedImageResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="trustedLaunchEnabled")
+    def trusted_launch_enabled(self) -> bool:
+        """
+        Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image.
+        """
+        return pulumi.get(self, "trusted_launch_enabled")
+
+    @property
+    @pulumi.getter(name="trustedLaunchSupported")
+    def trusted_launch_supported(self) -> bool:
+        """
+        Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image.
+        """
+        return pulumi.get(self, "trusted_launch_supported")
+
 
 class AwaitableGetSharedImageResult(GetSharedImageResult):
     # pylint: disable=using-constant-test
@@ -203,10 +269,14 @@ class AwaitableGetSharedImageResult(GetSharedImageResult):
         if False:
             yield self
         return GetSharedImageResult(
+            accelerated_network_support_enabled=self.accelerated_network_support_enabled,
             architecture=self.architecture,
+            confidential_vm_enabled=self.confidential_vm_enabled,
+            confidential_vm_supported=self.confidential_vm_supported,
             description=self.description,
             eula=self.eula,
             gallery_name=self.gallery_name,
+            hibernation_enabled=self.hibernation_enabled,
             hyper_v_generation=self.hyper_v_generation,
             id=self.id,
             identifiers=self.identifiers,
@@ -218,7 +288,9 @@ class AwaitableGetSharedImageResult(GetSharedImageResult):
             release_note_uri=self.release_note_uri,
             resource_group_name=self.resource_group_name,
             specialized=self.specialized,
-            tags=self.tags)
+            tags=self.tags,
+            trusted_launch_enabled=self.trusted_launch_enabled,
+            trusted_launch_supported=self.trusted_launch_supported)
 
 
 def get_shared_image(gallery_name: Optional[str] = None,
@@ -252,10 +324,14 @@ def get_shared_image(gallery_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImage:getSharedImage', __args__, opts=opts, typ=GetSharedImageResult).value
 
     return AwaitableGetSharedImageResult(
+        accelerated_network_support_enabled=pulumi.get(__ret__, 'accelerated_network_support_enabled'),
         architecture=pulumi.get(__ret__, 'architecture'),
+        confidential_vm_enabled=pulumi.get(__ret__, 'confidential_vm_enabled'),
+        confidential_vm_supported=pulumi.get(__ret__, 'confidential_vm_supported'),
         description=pulumi.get(__ret__, 'description'),
         eula=pulumi.get(__ret__, 'eula'),
         gallery_name=pulumi.get(__ret__, 'gallery_name'),
+        hibernation_enabled=pulumi.get(__ret__, 'hibernation_enabled'),
         hyper_v_generation=pulumi.get(__ret__, 'hyper_v_generation'),
         id=pulumi.get(__ret__, 'id'),
         identifiers=pulumi.get(__ret__, 'identifiers'),
@@ -267,7 +343,9 @@ def get_shared_image(gallery_name: Optional[str] = None,
         release_note_uri=pulumi.get(__ret__, 'release_note_uri'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         specialized=pulumi.get(__ret__, 'specialized'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        trusted_launch_enabled=pulumi.get(__ret__, 'trusted_launch_enabled'),
+        trusted_launch_supported=pulumi.get(__ret__, 'trusted_launch_supported'))
 
 
 @_utilities.lift_output_func(get_shared_image)

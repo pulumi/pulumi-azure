@@ -24,6 +24,7 @@ class HubArgs:
                  namespace_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  apns_credential: Optional[pulumi.Input['HubApnsCredentialArgs']] = None,
+                 browser_credential: Optional[pulumi.Input['HubBrowserCredentialArgs']] = None,
                  gcm_credential: Optional[pulumi.Input['HubGcmCredentialArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class HubArgs:
         :param pulumi.Input['HubApnsCredentialArgs'] apns_credential: A `apns_credential` block as defined below.
                
                > **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+        :param pulumi.Input['HubBrowserCredentialArgs'] browser_credential: A `browser_credential` block as defined below.
         :param pulumi.Input['HubGcmCredentialArgs'] gcm_credential: A `gcm_credential` block as defined below.
                
                > **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
@@ -46,6 +48,8 @@ class HubArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if apns_credential is not None:
             pulumi.set(__self__, "apns_credential", apns_credential)
+        if browser_credential is not None:
+            pulumi.set(__self__, "browser_credential", browser_credential)
         if gcm_credential is not None:
             pulumi.set(__self__, "gcm_credential", gcm_credential)
         if location is not None:
@@ -92,6 +96,18 @@ class HubArgs:
     @apns_credential.setter
     def apns_credential(self, value: Optional[pulumi.Input['HubApnsCredentialArgs']]):
         pulumi.set(self, "apns_credential", value)
+
+    @property
+    @pulumi.getter(name="browserCredential")
+    def browser_credential(self) -> Optional[pulumi.Input['HubBrowserCredentialArgs']]:
+        """
+        A `browser_credential` block as defined below.
+        """
+        return pulumi.get(self, "browser_credential")
+
+    @browser_credential.setter
+    def browser_credential(self, value: Optional[pulumi.Input['HubBrowserCredentialArgs']]):
+        pulumi.set(self, "browser_credential", value)
 
     @property
     @pulumi.getter(name="gcmCredential")
@@ -148,6 +164,7 @@ class HubArgs:
 class _HubState:
     def __init__(__self__, *,
                  apns_credential: Optional[pulumi.Input['HubApnsCredentialArgs']] = None,
+                 browser_credential: Optional[pulumi.Input['HubBrowserCredentialArgs']] = None,
                  gcm_credential: Optional[pulumi.Input['HubGcmCredentialArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -159,6 +176,7 @@ class _HubState:
         :param pulumi.Input['HubApnsCredentialArgs'] apns_credential: A `apns_credential` block as defined below.
                
                > **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+        :param pulumi.Input['HubBrowserCredentialArgs'] browser_credential: A `browser_credential` block as defined below.
         :param pulumi.Input['HubGcmCredentialArgs'] gcm_credential: A `gcm_credential` block as defined below.
                
                > **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
@@ -170,6 +188,8 @@ class _HubState:
         """
         if apns_credential is not None:
             pulumi.set(__self__, "apns_credential", apns_credential)
+        if browser_credential is not None:
+            pulumi.set(__self__, "browser_credential", browser_credential)
         if gcm_credential is not None:
             pulumi.set(__self__, "gcm_credential", gcm_credential)
         if location is not None:
@@ -196,6 +216,18 @@ class _HubState:
     @apns_credential.setter
     def apns_credential(self, value: Optional[pulumi.Input['HubApnsCredentialArgs']]):
         pulumi.set(self, "apns_credential", value)
+
+    @property
+    @pulumi.getter(name="browserCredential")
+    def browser_credential(self) -> Optional[pulumi.Input['HubBrowserCredentialArgs']]:
+        """
+        A `browser_credential` block as defined below.
+        """
+        return pulumi.get(self, "browser_credential")
+
+    @browser_credential.setter
+    def browser_credential(self, value: Optional[pulumi.Input['HubBrowserCredentialArgs']]):
+        pulumi.set(self, "browser_credential", value)
 
     @property
     @pulumi.getter(name="gcmCredential")
@@ -278,6 +310,7 @@ class Hub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apns_credential: Optional[pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']]] = None,
+                 browser_credential: Optional[pulumi.Input[Union['HubBrowserCredentialArgs', 'HubBrowserCredentialArgsDict']]] = None,
                  gcm_credential: Optional[pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -323,6 +356,7 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']] apns_credential: A `apns_credential` block as defined below.
                
                > **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+        :param pulumi.Input[Union['HubBrowserCredentialArgs', 'HubBrowserCredentialArgsDict']] browser_credential: A `browser_credential` block as defined below.
         :param pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']] gcm_credential: A `gcm_credential` block as defined below.
                
                > **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
@@ -387,6 +421,7 @@ class Hub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apns_credential: Optional[pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']]] = None,
+                 browser_credential: Optional[pulumi.Input[Union['HubBrowserCredentialArgs', 'HubBrowserCredentialArgsDict']]] = None,
                  gcm_credential: Optional[pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -403,6 +438,7 @@ class Hub(pulumi.CustomResource):
             __props__ = HubArgs.__new__(HubArgs)
 
             __props__.__dict__["apns_credential"] = apns_credential
+            __props__.__dict__["browser_credential"] = browser_credential
             __props__.__dict__["gcm_credential"] = gcm_credential
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -424,6 +460,7 @@ class Hub(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             apns_credential: Optional[pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']]] = None,
+            browser_credential: Optional[pulumi.Input[Union['HubBrowserCredentialArgs', 'HubBrowserCredentialArgsDict']]] = None,
             gcm_credential: Optional[pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -440,6 +477,7 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[Union['HubApnsCredentialArgs', 'HubApnsCredentialArgsDict']] apns_credential: A `apns_credential` block as defined below.
                
                > **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+        :param pulumi.Input[Union['HubBrowserCredentialArgs', 'HubBrowserCredentialArgsDict']] browser_credential: A `browser_credential` block as defined below.
         :param pulumi.Input[Union['HubGcmCredentialArgs', 'HubGcmCredentialArgsDict']] gcm_credential: A `gcm_credential` block as defined below.
                
                > **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
@@ -454,6 +492,7 @@ class Hub(pulumi.CustomResource):
         __props__ = _HubState.__new__(_HubState)
 
         __props__.__dict__["apns_credential"] = apns_credential
+        __props__.__dict__["browser_credential"] = browser_credential
         __props__.__dict__["gcm_credential"] = gcm_credential
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -471,6 +510,14 @@ class Hub(pulumi.CustomResource):
         > **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         """
         return pulumi.get(self, "apns_credential")
+
+    @property
+    @pulumi.getter(name="browserCredential")
+    def browser_credential(self) -> pulumi.Output[Optional['outputs.HubBrowserCredential']]:
+        """
+        A `browser_credential` block as defined below.
+        """
+        return pulumi.get(self, "browser_credential")
 
     @property
     @pulumi.getter(name="gcmCredential")

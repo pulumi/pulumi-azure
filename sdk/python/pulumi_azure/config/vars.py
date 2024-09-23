@@ -157,6 +157,21 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('partnerId')
 
     @property
+    def resource_provider_registrations(self) -> Optional[str]:
+        """
+        The set of Resource Providers which should be automatically registered for the subscription.
+        """
+        return __config__.get('resourceProviderRegistrations')
+
+    @property
+    def resource_providers_to_registers(self) -> Optional[str]:
+        """
+        A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
+        `resource_provider_registrations` property.
+        """
+        return __config__.get('resourceProvidersToRegisters')
+
+    @property
     def skip_provider_registration(self) -> bool:
         """
         Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already

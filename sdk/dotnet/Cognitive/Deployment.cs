@@ -12,50 +12,6 @@ namespace Pulumi.Azure.Cognitive
     /// <summary>
     /// Manages a Cognitive Services Account Deployment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Cognitive.Account("example", new()
-    ///     {
-    ///         Name = "example-ca",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Kind = "OpenAI",
-    ///         SkuName = "S0",
-    ///     });
-    /// 
-    ///     var exampleDeployment = new Azure.Cognitive.Deployment("example", new()
-    ///     {
-    ///         Name = "example-cd",
-    ///         CognitiveAccountId = exampleAccount.Id,
-    ///         Model = new Azure.Cognitive.Inputs.DeploymentModelArgs
-    ///         {
-    ///             Format = "OpenAI",
-    ///             Name = "text-curie-001",
-    ///             Version = "1",
-    ///         },
-    ///         Scale = new Azure.Cognitive.Inputs.DeploymentScaleArgs
-    ///         {
-    ///             Type = "Standard",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Cognitive Services Account Deployment can be imported using the `resource id`, e.g.
@@ -91,11 +47,8 @@ namespace Pulumi.Azure.Cognitive
         [Output("raiPolicyName")]
         public Output<string?> RaiPolicyName { get; private set; } = null!;
 
-        /// <summary>
-        /// A `scale` block as defined below.
-        /// </summary>
-        [Output("scale")]
-        public Output<Outputs.DeploymentScale> Scale { get; private set; } = null!;
+        [Output("sku")]
+        public Output<Outputs.DeploymentSku> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
@@ -173,11 +126,8 @@ namespace Pulumi.Azure.Cognitive
         [Input("raiPolicyName")]
         public Input<string>? RaiPolicyName { get; set; }
 
-        /// <summary>
-        /// A `scale` block as defined below.
-        /// </summary>
-        [Input("scale", required: true)]
-        public Input<Inputs.DeploymentScaleArgs> Scale { get; set; } = null!;
+        [Input("sku", required: true)]
+        public Input<Inputs.DeploymentSkuArgs> Sku { get; set; } = null!;
 
         /// <summary>
         /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
@@ -217,11 +167,8 @@ namespace Pulumi.Azure.Cognitive
         [Input("raiPolicyName")]
         public Input<string>? RaiPolicyName { get; set; }
 
-        /// <summary>
-        /// A `scale` block as defined below.
-        /// </summary>
-        [Input("scale")]
-        public Input<Inputs.DeploymentScaleGetArgs>? Scale { get; set; }
+        [Input("sku")]
+        public Input<Inputs.DeploymentSkuGetArgs>? Sku { get; set; }
 
         /// <summary>
         /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.

@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -23,6 +24,11 @@ public final class ImageDataDisk {
      */
     private @Nullable String caching;
     /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String diskEncryptionSetId;
+    /**
      * @return Specifies the logical unit number of the data disk.
      * 
      */
@@ -37,6 +43,11 @@ public final class ImageDataDisk {
      * 
      */
     private @Nullable Integer sizeGb;
+    /**
+     * @return The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+     * 
+     */
+    private String storageType;
 
     private ImageDataDisk() {}
     /**
@@ -52,6 +63,13 @@ public final class ImageDataDisk {
      */
     public Optional<String> caching() {
         return Optional.ofNullable(this.caching);
+    }
+    /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this disk. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> diskEncryptionSetId() {
+        return Optional.ofNullable(this.diskEncryptionSetId);
     }
     /**
      * @return Specifies the logical unit number of the data disk.
@@ -74,6 +92,13 @@ public final class ImageDataDisk {
     public Optional<Integer> sizeGb() {
         return Optional.ofNullable(this.sizeGb);
     }
+    /**
+     * @return The type of Storage Disk to use. Possible values are `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+     * 
+     */
+    public String storageType() {
+        return this.storageType;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -86,17 +111,21 @@ public final class ImageDataDisk {
     public static final class Builder {
         private @Nullable String blobUri;
         private @Nullable String caching;
+        private @Nullable String diskEncryptionSetId;
         private @Nullable Integer lun;
         private @Nullable String managedDiskId;
         private @Nullable Integer sizeGb;
+        private String storageType;
         public Builder() {}
         public Builder(ImageDataDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobUri = defaults.blobUri;
     	      this.caching = defaults.caching;
+    	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
     	      this.lun = defaults.lun;
     	      this.managedDiskId = defaults.managedDiskId;
     	      this.sizeGb = defaults.sizeGb;
+    	      this.storageType = defaults.storageType;
         }
 
         @CustomType.Setter
@@ -109,6 +138,12 @@ public final class ImageDataDisk {
         public Builder caching(@Nullable String caching) {
 
             this.caching = caching;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
+
+            this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
         @CustomType.Setter
@@ -129,13 +164,23 @@ public final class ImageDataDisk {
             this.sizeGb = sizeGb;
             return this;
         }
+        @CustomType.Setter
+        public Builder storageType(String storageType) {
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("ImageDataDisk", "storageType");
+            }
+            this.storageType = storageType;
+            return this;
+        }
         public ImageDataDisk build() {
             final var _resultValue = new ImageDataDisk();
             _resultValue.blobUri = blobUri;
             _resultValue.caching = caching;
+            _resultValue.diskEncryptionSetId = diskEncryptionSetId;
             _resultValue.lun = lun;
             _resultValue.managedDiskId = managedDiskId;
             _resultValue.sizeGb = sizeGb;
+            _resultValue.storageType = storageType;
             return _resultValue;
         }
     }

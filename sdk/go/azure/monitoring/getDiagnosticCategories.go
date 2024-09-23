@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/monitoring"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,10 +70,6 @@ type GetDiagnosticCategoriesResult struct {
 	LogCategoryGroups []string `pulumi:"logCategoryGroups"`
 	// A list of the supported log category types of this resource to send to the destination.
 	LogCategoryTypes []string `pulumi:"logCategoryTypes"`
-	// A list of the Log Categories supported for this Resource.
-	//
-	// Deprecated: `logs` will be removed in favour of the property `logCategoryTypes` in version 4.0 of the AzureRM Provider.
-	Logs []string `pulumi:"logs"`
 	// A list of the Metric Categories supported for this Resource.
 	Metrics    []string `pulumi:"metrics"`
 	ResourceId string   `pulumi:"resourceId"`
@@ -130,13 +126,6 @@ func (o GetDiagnosticCategoriesResultOutput) LogCategoryGroups() pulumi.StringAr
 // A list of the supported log category types of this resource to send to the destination.
 func (o GetDiagnosticCategoriesResultOutput) LogCategoryTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDiagnosticCategoriesResult) []string { return v.LogCategoryTypes }).(pulumi.StringArrayOutput)
-}
-
-// A list of the Log Categories supported for this Resource.
-//
-// Deprecated: `logs` will be removed in favour of the property `logCategoryTypes` in version 4.0 of the AzureRM Provider.
-func (o GetDiagnosticCategoriesResultOutput) Logs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetDiagnosticCategoriesResult) []string { return v.Logs }).(pulumi.StringArrayOutput)
 }
 
 // A list of the Metric Categories supported for this Resource.

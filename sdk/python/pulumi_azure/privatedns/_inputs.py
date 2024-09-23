@@ -21,8 +21,8 @@ __all__ = [
     'MxRecordRecordArgsDict',
     'ResolverForwardingRuleTargetDnsServerArgs',
     'ResolverForwardingRuleTargetDnsServerArgsDict',
-    'ResolverInboundEndpointIpConfigurationArgs',
-    'ResolverInboundEndpointIpConfigurationArgsDict',
+    'ResolverInboundEndpointIpConfigurationsArgs',
+    'ResolverInboundEndpointIpConfigurationsArgsDict',
     'SRVRecordRecordArgs',
     'SRVRecordRecordArgsDict',
     'TxtRecordRecordArgs',
@@ -250,7 +250,7 @@ class ResolverForwardingRuleTargetDnsServerArgs:
 
 
 if not MYPY:
-    class ResolverInboundEndpointIpConfigurationArgsDict(TypedDict):
+    class ResolverInboundEndpointIpConfigurationsArgsDict(TypedDict):
         subnet_id: pulumi.Input[str]
         """
         The subnet ID of the IP configuration.
@@ -264,10 +264,10 @@ if not MYPY:
         Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
         """
 elif False:
-    ResolverInboundEndpointIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    ResolverInboundEndpointIpConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class ResolverInboundEndpointIpConfigurationArgs:
+class ResolverInboundEndpointIpConfigurationsArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  private_ip_address: Optional[pulumi.Input[str]] = None,

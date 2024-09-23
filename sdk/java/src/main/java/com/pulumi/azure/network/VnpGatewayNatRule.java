@@ -110,56 +110,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/vnpGatewayNatRule:VnpGatewayNatRule")
 public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
     /**
-     * @deprecated
-     * `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider. */
-    @Export(name="externalAddressSpaceMappings", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> externalAddressSpaceMappings;
-
-    public Output<List<String>> externalAddressSpaceMappings() {
-        return this.externalAddressSpaceMappings;
-    }
-    /**
      * One of more `external_mapping` blocks as defined below.
      * 
      */
     @Export(name="externalMappings", refs={List.class,VnpGatewayNatRuleExternalMapping.class}, tree="[0,1]")
-    private Output<List<VnpGatewayNatRuleExternalMapping>> externalMappings;
+    private Output</* @Nullable */ List<VnpGatewayNatRuleExternalMapping>> externalMappings;
 
     /**
      * @return One of more `external_mapping` blocks as defined below.
      * 
      */
-    public Output<List<VnpGatewayNatRuleExternalMapping>> externalMappings() {
-        return this.externalMappings;
-    }
-    /**
-     * @deprecated
-     * `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider. */
-    @Export(name="internalAddressSpaceMappings", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> internalAddressSpaceMappings;
-
-    public Output<List<String>> internalAddressSpaceMappings() {
-        return this.internalAddressSpaceMappings;
+    public Output<Optional<List<VnpGatewayNatRuleExternalMapping>>> externalMappings() {
+        return Codegen.optional(this.externalMappings);
     }
     /**
      * One of more `internal_mapping` blocks as defined below.
      * 
      */
     @Export(name="internalMappings", refs={List.class,VnpGatewayNatRuleInternalMapping.class}, tree="[0,1]")
-    private Output<List<VnpGatewayNatRuleInternalMapping>> internalMappings;
+    private Output</* @Nullable */ List<VnpGatewayNatRuleInternalMapping>> internalMappings;
 
     /**
      * @return One of more `internal_mapping` blocks as defined below.
      * 
      */
-    public Output<List<VnpGatewayNatRuleInternalMapping>> internalMappings() {
-        return this.internalMappings;
+    public Output<Optional<List<VnpGatewayNatRuleInternalMapping>>> internalMappings() {
+        return Codegen.optional(this.internalMappings);
     }
     /**
      * The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
@@ -202,18 +178,6 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
-    }
-    /**
-     * @deprecated
-     * The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* The property `resource_group_name` has been superseded by `vpn_gateway_id` and will be removed in v4.0 of the AzureRM provider */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
-    private Output<String> resourceGroupName;
-
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
     }
     /**
      * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.

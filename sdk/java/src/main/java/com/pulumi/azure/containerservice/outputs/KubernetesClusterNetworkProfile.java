@@ -21,24 +21,6 @@ public final class KubernetesClusterNetworkProfile {
      */
     private @Nullable String dnsServiceIp;
     /**
-     * @return IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-    private @Nullable String dockerBridgeCidr;
-    /**
-     * @deprecated
-     * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
-    private @Nullable String ebpfDataPlane;
-    /**
      * @return Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
      * 
      * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
@@ -68,8 +50,6 @@ public final class KubernetesClusterNetworkProfile {
      * &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
      * 
      * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
      * 
      */
     private @Nullable String networkDataPlane;
@@ -106,20 +86,6 @@ public final class KubernetesClusterNetworkProfile {
      */
     private @Nullable String networkPolicy;
     /**
-     * @return The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-     * 
-     * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-     * 
-     */
-    private @Nullable List<String> outboundIpAddressIds;
-    /**
-     * @return The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-     * 
-     * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
-     * 
-     */
-    private @Nullable List<String> outboundIpPrefixIds;
-    /**
      * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
      * 
      */
@@ -154,28 +120,6 @@ public final class KubernetesClusterNetworkProfile {
      */
     public Optional<String> dnsServiceIp() {
         return Optional.ofNullable(this.dnsServiceIp);
-    }
-    /**
-     * @return IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
-    public Optional<String> dockerBridgeCidr() {
-        return Optional.ofNullable(this.dockerBridgeCidr);
-    }
-    /**
-     * @deprecated
-     * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
-    public Optional<String> ebpfDataPlane() {
-        return Optional.ofNullable(this.ebpfDataPlane);
     }
     /**
      * @return Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
@@ -215,8 +159,6 @@ public final class KubernetesClusterNetworkProfile {
      * &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
      * 
      * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
      * 
      */
     public Optional<String> networkDataPlane() {
@@ -261,24 +203,6 @@ public final class KubernetesClusterNetworkProfile {
      */
     public Optional<String> networkPolicy() {
         return Optional.ofNullable(this.networkPolicy);
-    }
-    /**
-     * @return The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-     * 
-     * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
-     * 
-     */
-    public List<String> outboundIpAddressIds() {
-        return this.outboundIpAddressIds == null ? List.of() : this.outboundIpAddressIds;
-    }
-    /**
-     * @return The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-     * 
-     * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
-     * 
-     */
-    public List<String> outboundIpPrefixIds() {
-        return this.outboundIpPrefixIds == null ? List.of() : this.outboundIpPrefixIds;
     }
     /**
      * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
@@ -328,8 +252,6 @@ public final class KubernetesClusterNetworkProfile {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String dnsServiceIp;
-        private @Nullable String dockerBridgeCidr;
-        private @Nullable String ebpfDataPlane;
         private @Nullable List<String> ipVersions;
         private @Nullable KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile;
         private @Nullable String loadBalancerSku;
@@ -339,8 +261,6 @@ public final class KubernetesClusterNetworkProfile {
         private String networkPlugin;
         private @Nullable String networkPluginMode;
         private @Nullable String networkPolicy;
-        private @Nullable List<String> outboundIpAddressIds;
-        private @Nullable List<String> outboundIpPrefixIds;
         private @Nullable String outboundType;
         private @Nullable String podCidr;
         private @Nullable List<String> podCidrs;
@@ -350,8 +270,6 @@ public final class KubernetesClusterNetworkProfile {
         public Builder(KubernetesClusterNetworkProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsServiceIp = defaults.dnsServiceIp;
-    	      this.dockerBridgeCidr = defaults.dockerBridgeCidr;
-    	      this.ebpfDataPlane = defaults.ebpfDataPlane;
     	      this.ipVersions = defaults.ipVersions;
     	      this.loadBalancerProfile = defaults.loadBalancerProfile;
     	      this.loadBalancerSku = defaults.loadBalancerSku;
@@ -361,8 +279,6 @@ public final class KubernetesClusterNetworkProfile {
     	      this.networkPlugin = defaults.networkPlugin;
     	      this.networkPluginMode = defaults.networkPluginMode;
     	      this.networkPolicy = defaults.networkPolicy;
-    	      this.outboundIpAddressIds = defaults.outboundIpAddressIds;
-    	      this.outboundIpPrefixIds = defaults.outboundIpPrefixIds;
     	      this.outboundType = defaults.outboundType;
     	      this.podCidr = defaults.podCidr;
     	      this.podCidrs = defaults.podCidrs;
@@ -374,18 +290,6 @@ public final class KubernetesClusterNetworkProfile {
         public Builder dnsServiceIp(@Nullable String dnsServiceIp) {
 
             this.dnsServiceIp = dnsServiceIp;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder dockerBridgeCidr(@Nullable String dockerBridgeCidr) {
-
-            this.dockerBridgeCidr = dockerBridgeCidr;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder ebpfDataPlane(@Nullable String ebpfDataPlane) {
-
-            this.ebpfDataPlane = ebpfDataPlane;
             return this;
         }
         @CustomType.Setter
@@ -448,24 +352,6 @@ public final class KubernetesClusterNetworkProfile {
             return this;
         }
         @CustomType.Setter
-        public Builder outboundIpAddressIds(@Nullable List<String> outboundIpAddressIds) {
-
-            this.outboundIpAddressIds = outboundIpAddressIds;
-            return this;
-        }
-        public Builder outboundIpAddressIds(String... outboundIpAddressIds) {
-            return outboundIpAddressIds(List.of(outboundIpAddressIds));
-        }
-        @CustomType.Setter
-        public Builder outboundIpPrefixIds(@Nullable List<String> outboundIpPrefixIds) {
-
-            this.outboundIpPrefixIds = outboundIpPrefixIds;
-            return this;
-        }
-        public Builder outboundIpPrefixIds(String... outboundIpPrefixIds) {
-            return outboundIpPrefixIds(List.of(outboundIpPrefixIds));
-        }
-        @CustomType.Setter
         public Builder outboundType(@Nullable String outboundType) {
 
             this.outboundType = outboundType;
@@ -504,8 +390,6 @@ public final class KubernetesClusterNetworkProfile {
         public KubernetesClusterNetworkProfile build() {
             final var _resultValue = new KubernetesClusterNetworkProfile();
             _resultValue.dnsServiceIp = dnsServiceIp;
-            _resultValue.dockerBridgeCidr = dockerBridgeCidr;
-            _resultValue.ebpfDataPlane = ebpfDataPlane;
             _resultValue.ipVersions = ipVersions;
             _resultValue.loadBalancerProfile = loadBalancerProfile;
             _resultValue.loadBalancerSku = loadBalancerSku;
@@ -515,8 +399,6 @@ public final class KubernetesClusterNetworkProfile {
             _resultValue.networkPlugin = networkPlugin;
             _resultValue.networkPluginMode = networkPluginMode;
             _resultValue.networkPolicy = networkPolicy;
-            _resultValue.outboundIpAddressIds = outboundIpAddressIds;
-            _resultValue.outboundIpPrefixIds = outboundIpPrefixIds;
             _resultValue.outboundType = outboundType;
             _resultValue.podCidr = podCidr;
             _resultValue.podCidrs = podCidrs;

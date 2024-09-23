@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,8 +43,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MongoRoleDefinition{}
 	case "azure:cosmosdb/mongoUserDefinition:MongoUserDefinition":
 		r = &MongoUserDefinition{}
-	case "azure:cosmosdb/notebookWorkspace:NotebookWorkspace":
-		r = &NotebookWorkspace{}
 	case "azure:cosmosdb/postgresqlCluster:PostgresqlCluster":
 		r = &PostgresqlCluster{}
 	case "azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration":
@@ -139,11 +137,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cosmosdb/mongoUserDefinition",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"cosmosdb/notebookWorkspace",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

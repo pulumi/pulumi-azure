@@ -157,14 +157,14 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
     @Import(name="sshPublicAccessEnabled")
     private @Nullable Output<Boolean> sshPublicAccessEnabled;
 
     /**
-     * @return A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
     public Optional<Output<Boolean>> sshPublicAccessEnabled() {
@@ -458,7 +458,7 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sshPublicAccessEnabled A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param sshPublicAccessEnabled A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sshPublicAccessEnabled A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param sshPublicAccessEnabled A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
          * 
          * @return builder
          * 

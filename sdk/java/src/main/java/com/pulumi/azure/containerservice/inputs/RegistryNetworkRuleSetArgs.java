@@ -4,7 +4,6 @@
 package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.azure.containerservice.inputs.RegistryNetworkRuleSetIpRuleArgs;
-import com.pulumi.azure.containerservice.inputs.RegistryNetworkRuleSetVirtualNetworkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -56,31 +55,11 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.ipRules);
     }
 
-    /**
-     * @deprecated
-     * The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider. */
-    @Import(name="virtualNetworks")
-    private @Nullable Output<List<RegistryNetworkRuleSetVirtualNetworkArgs>> virtualNetworks;
-
-    /**
-     * @deprecated
-     * The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider. */
-    public Optional<Output<List<RegistryNetworkRuleSetVirtualNetworkArgs>>> virtualNetworks() {
-        return Optional.ofNullable(this.virtualNetworks);
-    }
-
     private RegistryNetworkRuleSetArgs() {}
 
     private RegistryNetworkRuleSetArgs(RegistryNetworkRuleSetArgs $) {
         this.defaultAction = $.defaultAction;
         this.ipRules = $.ipRules;
-        this.virtualNetworks = $.virtualNetworks;
     }
 
     public static Builder builder() {
@@ -163,43 +142,6 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
          */
         public Builder ipRules(RegistryNetworkRuleSetIpRuleArgs... ipRules) {
             return ipRules(List.of(ipRules));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider. */
-        public Builder virtualNetworks(@Nullable Output<List<RegistryNetworkRuleSetVirtualNetworkArgs>> virtualNetworks) {
-            $.virtualNetworks = virtualNetworks;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider. */
-        public Builder virtualNetworks(List<RegistryNetworkRuleSetVirtualNetworkArgs> virtualNetworks) {
-            return virtualNetworks(Output.of(virtualNetworks));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `virtual_network` is deprecated since this is used exclusively for service endpoints which are being deprecated. Users are expected to use Private Endpoints instead. This property will be removed in v4.0 of the AzureRM Provider. */
-        public Builder virtualNetworks(RegistryNetworkRuleSetVirtualNetworkArgs... virtualNetworks) {
-            return virtualNetworks(List.of(virtualNetworks));
         }
 
         public RegistryNetworkRuleSetArgs build() {

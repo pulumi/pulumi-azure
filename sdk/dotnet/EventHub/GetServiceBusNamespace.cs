@@ -164,10 +164,6 @@ namespace Pulumi.Azure.EventHub
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Whether or not this ServiceBus Namespace is zone redundant.
-        /// </summary>
-        public readonly bool ZoneRedundant;
 
         [OutputConstructor]
         private GetServiceBusNamespaceResult(
@@ -195,9 +191,7 @@ namespace Pulumi.Azure.EventHub
 
             string sku,
 
-            ImmutableDictionary<string, string> tags,
-
-            bool zoneRedundant)
+            ImmutableDictionary<string, string> tags)
         {
             Capacity = capacity;
             DefaultPrimaryConnectionString = defaultPrimaryConnectionString;
@@ -212,7 +206,6 @@ namespace Pulumi.Azure.EventHub
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;
-            ZoneRedundant = zoneRedundant;
         }
     }
 }

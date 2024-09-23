@@ -13,11 +13,9 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     public sealed class ProtectionContainerMappingAutomaticUpdateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
+        /// The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
         /// 
         /// &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
-        /// 
-        /// &gt; **Note:**: `authentication_type` will default to `SystemAssignedIdentity` in version 4.0.
         /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }

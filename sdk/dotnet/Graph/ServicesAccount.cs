@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Graph
     /// 
     /// ## Import
     /// 
-    /// An existing Account can be imported into Terraform using the `resource id`, e.g.
+    /// An existing Account can be imported into Pulumi using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:graph/servicesAccount:ServicesAccount example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.GraphServices/accounts/account1
@@ -112,6 +112,10 @@ namespace Pulumi.Azure.Graph
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure:graph/account:Account" },
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

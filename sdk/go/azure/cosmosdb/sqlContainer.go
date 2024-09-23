@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -117,8 +117,6 @@ type SqlContainer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
 	PartitionKeyKind pulumi.StringPtrOutput `pulumi:"partitionKeyKind"`
-	// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
-	PartitionKeyPath pulumi.StringOutput `pulumi:"partitionKeyPath"`
 	// A list of partition key paths. Changing this forces a new resource to be created.
 	PartitionKeyPaths pulumi.StringArrayOutput `pulumi:"partitionKeyPaths"`
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
@@ -143,6 +141,9 @@ func NewSqlContainer(ctx *pulumi.Context,
 	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.PartitionKeyPaths == nil {
+		return nil, errors.New("invalid value for required argument 'PartitionKeyPaths'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -190,8 +191,6 @@ type sqlContainerState struct {
 	Name *string `pulumi:"name"`
 	// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
 	PartitionKeyKind *string `pulumi:"partitionKeyKind"`
-	// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
-	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
 	// A list of partition key paths. Changing this forces a new resource to be created.
 	PartitionKeyPaths []string `pulumi:"partitionKeyPaths"`
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
@@ -225,8 +224,6 @@ type SqlContainerState struct {
 	Name pulumi.StringPtrInput
 	// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
 	PartitionKeyKind pulumi.StringPtrInput
-	// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
-	PartitionKeyPath pulumi.StringPtrInput
 	// A list of partition key paths. Changing this forces a new resource to be created.
 	PartitionKeyPaths pulumi.StringArrayInput
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
@@ -264,8 +261,6 @@ type sqlContainerArgs struct {
 	Name *string `pulumi:"name"`
 	// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
 	PartitionKeyKind *string `pulumi:"partitionKeyKind"`
-	// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
-	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
 	// A list of partition key paths. Changing this forces a new resource to be created.
 	PartitionKeyPaths []string `pulumi:"partitionKeyPaths"`
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
@@ -300,8 +295,6 @@ type SqlContainerArgs struct {
 	Name pulumi.StringPtrInput
 	// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
 	PartitionKeyKind pulumi.StringPtrInput
-	// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
-	PartitionKeyPath pulumi.StringPtrInput
 	// A list of partition key paths. Changing this forces a new resource to be created.
 	PartitionKeyPaths pulumi.StringArrayInput
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
@@ -446,11 +439,6 @@ func (o SqlContainerOutput) Name() pulumi.StringOutput {
 // Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
 func (o SqlContainerOutput) PartitionKeyKind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlContainer) pulumi.StringPtrOutput { return v.PartitionKeyKind }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
-func (o SqlContainerOutput) PartitionKeyPath() pulumi.StringOutput {
-	return o.ApplyT(func(v *SqlContainer) pulumi.StringOutput { return v.PartitionKeyPath }).(pulumi.StringOutput)
 }
 
 // A list of partition key paths. Changing this forces a new resource to be created.

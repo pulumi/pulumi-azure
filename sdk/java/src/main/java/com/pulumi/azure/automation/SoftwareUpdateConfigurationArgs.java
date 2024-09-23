@@ -57,15 +57,15 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
      * A `linux` block as defined below.
      * 
      */
-    @Import(name="linuxes")
-    private @Nullable Output<List<SoftwareUpdateConfigurationLinuxArgs>> linuxes;
+    @Import(name="linux")
+    private @Nullable Output<SoftwareUpdateConfigurationLinuxArgs> linux;
 
     /**
      * @return A `linux` block as defined below.
      * 
      */
-    public Optional<Output<List<SoftwareUpdateConfigurationLinuxArgs>>> linuxes() {
-        return Optional.ofNullable(this.linuxes);
+    public Optional<Output<SoftwareUpdateConfigurationLinuxArgs>> linux() {
+        return Optional.ofNullable(this.linux);
     }
 
     /**
@@ -99,67 +99,48 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * @deprecated
-     * This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider. */
-    @Import(name="operatingSystem")
-    private @Nullable Output<String> operatingSystem;
-
-    /**
-     * @deprecated
-     * This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider. */
-    public Optional<Output<String>> operatingSystem() {
-        return Optional.ofNullable(this.operatingSystem);
-    }
-
-    /**
      * A `post_task` blocks as defined below.
      * 
      */
-    @Import(name="postTasks")
-    private @Nullable Output<List<SoftwareUpdateConfigurationPostTaskArgs>> postTasks;
+    @Import(name="postTask")
+    private @Nullable Output<SoftwareUpdateConfigurationPostTaskArgs> postTask;
 
     /**
      * @return A `post_task` blocks as defined below.
      * 
      */
-    public Optional<Output<List<SoftwareUpdateConfigurationPostTaskArgs>>> postTasks() {
-        return Optional.ofNullable(this.postTasks);
+    public Optional<Output<SoftwareUpdateConfigurationPostTaskArgs>> postTask() {
+        return Optional.ofNullable(this.postTask);
     }
 
     /**
      * A `pre_task` blocks as defined below.
      * 
      */
-    @Import(name="preTasks")
-    private @Nullable Output<List<SoftwareUpdateConfigurationPreTaskArgs>> preTasks;
+    @Import(name="preTask")
+    private @Nullable Output<SoftwareUpdateConfigurationPreTaskArgs> preTask;
 
     /**
      * @return A `pre_task` blocks as defined below.
      * 
      */
-    public Optional<Output<List<SoftwareUpdateConfigurationPreTaskArgs>>> preTasks() {
-        return Optional.ofNullable(this.preTasks);
+    public Optional<Output<SoftwareUpdateConfigurationPreTaskArgs>> preTask() {
+        return Optional.ofNullable(this.preTask);
     }
 
     /**
      * A `schedule` blocks as defined below.
      * 
      */
-    @Import(name="schedules", required=true)
-    private Output<List<SoftwareUpdateConfigurationScheduleArgs>> schedules;
+    @Import(name="schedule", required=true)
+    private Output<SoftwareUpdateConfigurationScheduleArgs> schedule;
 
     /**
      * @return A `schedule` blocks as defined below.
      * 
      */
-    public Output<List<SoftwareUpdateConfigurationScheduleArgs>> schedules() {
-        return this.schedules;
+    public Output<SoftwareUpdateConfigurationScheduleArgs> schedule() {
+        return this.schedule;
     }
 
     /**
@@ -216,13 +197,12 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     private SoftwareUpdateConfigurationArgs(SoftwareUpdateConfigurationArgs $) {
         this.automationAccountId = $.automationAccountId;
         this.duration = $.duration;
-        this.linuxes = $.linuxes;
+        this.linux = $.linux;
         this.name = $.name;
         this.nonAzureComputerNames = $.nonAzureComputerNames;
-        this.operatingSystem = $.operatingSystem;
-        this.postTasks = $.postTasks;
-        this.preTasks = $.preTasks;
-        this.schedules = $.schedules;
+        this.postTask = $.postTask;
+        this.preTask = $.preTask;
+        this.schedule = $.schedule;
         this.target = $.target;
         this.virtualMachineIds = $.virtualMachineIds;
         this.windows = $.windows;
@@ -289,34 +269,24 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param linuxes A `linux` block as defined below.
+         * @param linux A `linux` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder linuxes(@Nullable Output<List<SoftwareUpdateConfigurationLinuxArgs>> linuxes) {
-            $.linuxes = linuxes;
+        public Builder linux(@Nullable Output<SoftwareUpdateConfigurationLinuxArgs> linux) {
+            $.linux = linux;
             return this;
         }
 
         /**
-         * @param linuxes A `linux` block as defined below.
+         * @param linux A `linux` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder linuxes(List<SoftwareUpdateConfigurationLinuxArgs> linuxes) {
-            return linuxes(Output.of(linuxes));
-        }
-
-        /**
-         * @param linuxes A `linux` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder linuxes(SoftwareUpdateConfigurationLinuxArgs... linuxes) {
-            return linuxes(List.of(linuxes));
+        public Builder linux(SoftwareUpdateConfigurationLinuxArgs linux) {
+            return linux(Output.of(linux));
         }
 
         /**
@@ -372,121 +342,66 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param postTask A `post_task` blocks as defined below.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-         * 
          */
-        @Deprecated /* This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider. */
-        public Builder operatingSystem(@Nullable Output<String> operatingSystem) {
-            $.operatingSystem = operatingSystem;
+        public Builder postTask(@Nullable Output<SoftwareUpdateConfigurationPostTaskArgs> postTask) {
+            $.postTask = postTask;
             return this;
         }
 
         /**
+         * @param postTask A `post_task` blocks as defined below.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider.
-         * 
          */
-        @Deprecated /* This property has been deprecated and will be removed in a future release. The use of either the `linux` or `windows` blocks replaces setting this value directly. This value is ignored by the provider. */
-        public Builder operatingSystem(String operatingSystem) {
-            return operatingSystem(Output.of(operatingSystem));
+        public Builder postTask(SoftwareUpdateConfigurationPostTaskArgs postTask) {
+            return postTask(Output.of(postTask));
         }
 
         /**
-         * @param postTasks A `post_task` blocks as defined below.
+         * @param preTask A `pre_task` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder postTasks(@Nullable Output<List<SoftwareUpdateConfigurationPostTaskArgs>> postTasks) {
-            $.postTasks = postTasks;
+        public Builder preTask(@Nullable Output<SoftwareUpdateConfigurationPreTaskArgs> preTask) {
+            $.preTask = preTask;
             return this;
         }
 
         /**
-         * @param postTasks A `post_task` blocks as defined below.
+         * @param preTask A `pre_task` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder postTasks(List<SoftwareUpdateConfigurationPostTaskArgs> postTasks) {
-            return postTasks(Output.of(postTasks));
+        public Builder preTask(SoftwareUpdateConfigurationPreTaskArgs preTask) {
+            return preTask(Output.of(preTask));
         }
 
         /**
-         * @param postTasks A `post_task` blocks as defined below.
+         * @param schedule A `schedule` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder postTasks(SoftwareUpdateConfigurationPostTaskArgs... postTasks) {
-            return postTasks(List.of(postTasks));
-        }
-
-        /**
-         * @param preTasks A `pre_task` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder preTasks(@Nullable Output<List<SoftwareUpdateConfigurationPreTaskArgs>> preTasks) {
-            $.preTasks = preTasks;
+        public Builder schedule(Output<SoftwareUpdateConfigurationScheduleArgs> schedule) {
+            $.schedule = schedule;
             return this;
         }
 
         /**
-         * @param preTasks A `pre_task` blocks as defined below.
+         * @param schedule A `schedule` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder preTasks(List<SoftwareUpdateConfigurationPreTaskArgs> preTasks) {
-            return preTasks(Output.of(preTasks));
-        }
-
-        /**
-         * @param preTasks A `pre_task` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder preTasks(SoftwareUpdateConfigurationPreTaskArgs... preTasks) {
-            return preTasks(List.of(preTasks));
-        }
-
-        /**
-         * @param schedules A `schedule` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder schedules(Output<List<SoftwareUpdateConfigurationScheduleArgs>> schedules) {
-            $.schedules = schedules;
-            return this;
-        }
-
-        /**
-         * @param schedules A `schedule` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder schedules(List<SoftwareUpdateConfigurationScheduleArgs> schedules) {
-            return schedules(Output.of(schedules));
-        }
-
-        /**
-         * @param schedules A `schedule` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder schedules(SoftwareUpdateConfigurationScheduleArgs... schedules) {
-            return schedules(List.of(schedules));
+        public Builder schedule(SoftwareUpdateConfigurationScheduleArgs schedule) {
+            return schedule(Output.of(schedule));
         }
 
         /**
@@ -570,8 +485,8 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
             if ($.automationAccountId == null) {
                 throw new MissingRequiredPropertyException("SoftwareUpdateConfigurationArgs", "automationAccountId");
             }
-            if ($.schedules == null) {
-                throw new MissingRequiredPropertyException("SoftwareUpdateConfigurationArgs", "schedules");
+            if ($.schedule == null) {
+                throw new MissingRequiredPropertyException("SoftwareUpdateConfigurationArgs", "schedule");
             }
             return $;
         }

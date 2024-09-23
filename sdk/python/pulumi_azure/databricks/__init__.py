@@ -11,7 +11,6 @@ from .get_workspace import *
 from .get_workspace_private_endpoint_connection import *
 from .virtual_network_peering import *
 from .workspace import *
-from .workspace_customer_managed_key import *
 from .workspace_root_dbfs_customer_managed_key import *
 from ._inputs import *
 from . import outputs

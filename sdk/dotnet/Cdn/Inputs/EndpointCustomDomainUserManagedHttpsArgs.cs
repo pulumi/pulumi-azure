@@ -13,18 +13,10 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class EndpointCustomDomainUserManagedHttpsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
-        /// </summary>
-        [Input("keyVaultCertificateId")]
-        public Input<string>? KeyVaultCertificateId { get; set; }
-
-        /// <summary>
         /// The ID of the Key Vault Secret that contains the HTTPS certificate.
-        /// 
-        /// &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
         /// </summary>
-        [Input("keyVaultSecretId")]
-        public Input<string>? KeyVaultSecretId { get; set; }
+        [Input("keyVaultSecretId", required: true)]
+        public Input<string> KeyVaultSecretId { get; set; } = null!;
 
         /// <summary>
         /// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.

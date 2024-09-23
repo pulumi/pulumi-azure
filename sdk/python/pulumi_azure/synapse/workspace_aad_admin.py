@@ -14,10 +14,10 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
-__all__ = ['WorkspaceAadAdminInitArgs', 'WorkspaceAadAdmin']
+__all__ = ['WorkspaceAadAdminArgs', 'WorkspaceAadAdmin']
 
 @pulumi.input_type
-class WorkspaceAadAdminInitArgs:
+class WorkspaceAadAdminArgs:
     def __init__(__self__, *,
                  login: pulumi.Input[str],
                  object_id: pulumi.Input[str],
@@ -257,7 +257,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceAadAdminInitArgs,
+                 args: WorkspaceAadAdminArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Active Directory Administrator setting for a Synapse Workspace
@@ -340,12 +340,12 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceAadAdminInitArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceAadAdminArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceAadAdminInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceAadAdminArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -365,7 +365,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceAadAdminInitArgs.__new__(WorkspaceAadAdminInitArgs)
+            __props__ = WorkspaceAadAdminArgs.__new__(WorkspaceAadAdminArgs)
 
             if login is None and not opts.urn:
                 raise TypeError("Missing required property 'login'")

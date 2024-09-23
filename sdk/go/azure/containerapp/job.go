@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -142,10 +142,8 @@ type Job struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of the Public IP Addresses which the Container App uses for outbound network access.
 	OutboundIpAddresses pulumi.StringArrayOutput `pulumi:"outboundIpAddresses"`
-	// Deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
-	Registries JobRegistryArrayOutput `pulumi:"registries"`
 	// One or more `registry` blocks as defined below.
-	Registry JobRegistryArrayOutput `pulumi:"registry"`
+	Registries JobRegistryArrayOutput `pulumi:"registries"`
 	// The maximum number of times a replica is allowed to retry.
 	ReplicaRetryLimit pulumi.IntPtrOutput `pulumi:"replicaRetryLimit"`
 	// The maximum number of seconds a replica is allowed to run.
@@ -157,8 +155,6 @@ type Job struct {
 	// > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig JobScheduleTriggerConfigPtrOutput `pulumi:"scheduleTriggerConfig"`
 	// One or more `secret` blocks as defined below.
-	Secret JobSecretArrayOutput `pulumi:"secret"`
-	// Deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
 	Secrets JobSecretArrayOutput `pulumi:"secrets"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -187,14 +183,10 @@ func NewJob(ctx *pulumi.Context,
 	if args.Template == nil {
 		return nil, errors.New("invalid value for required argument 'Template'")
 	}
-	if args.Secret != nil {
-		args.Secret = pulumi.ToSecret(args.Secret).(JobSecretArrayInput)
-	}
 	if args.Secrets != nil {
 		args.Secrets = pulumi.ToSecret(args.Secrets).(JobSecretArrayInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"secret",
 		"secrets",
 	})
 	opts = append(opts, secrets)
@@ -237,10 +229,8 @@ type jobState struct {
 	Name *string `pulumi:"name"`
 	// A list of the Public IP Addresses which the Container App uses for outbound network access.
 	OutboundIpAddresses []string `pulumi:"outboundIpAddresses"`
-	// Deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
-	Registries []JobRegistry `pulumi:"registries"`
 	// One or more `registry` blocks as defined below.
-	Registry []JobRegistry `pulumi:"registry"`
+	Registries []JobRegistry `pulumi:"registries"`
 	// The maximum number of times a replica is allowed to retry.
 	ReplicaRetryLimit *int `pulumi:"replicaRetryLimit"`
 	// The maximum number of seconds a replica is allowed to run.
@@ -252,8 +242,6 @@ type jobState struct {
 	// > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig *JobScheduleTriggerConfig `pulumi:"scheduleTriggerConfig"`
 	// One or more `secret` blocks as defined below.
-	Secret []JobSecret `pulumi:"secret"`
-	// Deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
 	Secrets []JobSecret `pulumi:"secrets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -280,10 +268,8 @@ type JobState struct {
 	Name pulumi.StringPtrInput
 	// A list of the Public IP Addresses which the Container App uses for outbound network access.
 	OutboundIpAddresses pulumi.StringArrayInput
-	// Deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
-	Registries JobRegistryArrayInput
 	// One or more `registry` blocks as defined below.
-	Registry JobRegistryArrayInput
+	Registries JobRegistryArrayInput
 	// The maximum number of times a replica is allowed to retry.
 	ReplicaRetryLimit pulumi.IntPtrInput
 	// The maximum number of seconds a replica is allowed to run.
@@ -295,8 +281,6 @@ type JobState struct {
 	// > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig JobScheduleTriggerConfigPtrInput
 	// One or more `secret` blocks as defined below.
-	Secret JobSecretArrayInput
-	// Deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
 	Secrets JobSecretArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -323,10 +307,8 @@ type jobArgs struct {
 	ManualTriggerConfig *JobManualTriggerConfig `pulumi:"manualTriggerConfig"`
 	// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
-	Registries []JobRegistry `pulumi:"registries"`
 	// One or more `registry` blocks as defined below.
-	Registry []JobRegistry `pulumi:"registry"`
+	Registries []JobRegistry `pulumi:"registries"`
 	// The maximum number of times a replica is allowed to retry.
 	ReplicaRetryLimit *int `pulumi:"replicaRetryLimit"`
 	// The maximum number of seconds a replica is allowed to run.
@@ -338,8 +320,6 @@ type jobArgs struct {
 	// > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig *JobScheduleTriggerConfig `pulumi:"scheduleTriggerConfig"`
 	// One or more `secret` blocks as defined below.
-	Secret []JobSecret `pulumi:"secret"`
-	// Deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
 	Secrets []JobSecret `pulumi:"secrets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -363,10 +343,8 @@ type JobArgs struct {
 	ManualTriggerConfig JobManualTriggerConfigPtrInput
 	// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
-	Registries JobRegistryArrayInput
 	// One or more `registry` blocks as defined below.
-	Registry JobRegistryArrayInput
+	Registries JobRegistryArrayInput
 	// The maximum number of times a replica is allowed to retry.
 	ReplicaRetryLimit pulumi.IntPtrInput
 	// The maximum number of seconds a replica is allowed to run.
@@ -378,8 +356,6 @@ type JobArgs struct {
 	// > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig JobScheduleTriggerConfigPtrInput
 	// One or more `secret` blocks as defined below.
-	Secret JobSecretArrayInput
-	// Deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
 	Secrets JobSecretArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -516,14 +492,9 @@ func (o JobOutput) OutboundIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringArrayOutput { return v.OutboundIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: `registries` has been renamed to `registry` and will be removed in version 4.0 of the AzureRM Provider.
+// One or more `registry` blocks as defined below.
 func (o JobOutput) Registries() JobRegistryArrayOutput {
 	return o.ApplyT(func(v *Job) JobRegistryArrayOutput { return v.Registries }).(JobRegistryArrayOutput)
-}
-
-// One or more `registry` blocks as defined below.
-func (o JobOutput) Registry() JobRegistryArrayOutput {
-	return o.ApplyT(func(v *Job) JobRegistryArrayOutput { return v.Registry }).(JobRegistryArrayOutput)
 }
 
 // The maximum number of times a replica is allowed to retry.
@@ -549,11 +520,6 @@ func (o JobOutput) ScheduleTriggerConfig() JobScheduleTriggerConfigPtrOutput {
 }
 
 // One or more `secret` blocks as defined below.
-func (o JobOutput) Secret() JobSecretArrayOutput {
-	return o.ApplyT(func(v *Job) JobSecretArrayOutput { return v.Secret }).(JobSecretArrayOutput)
-}
-
-// Deprecated: `secrets` has been renamed to `secret` and will be removed in version 4.0 of the AzureRM Provider.
 func (o JobOutput) Secrets() JobSecretArrayOutput {
 	return o.ApplyT(func(v *Job) JobSecretArrayOutput { return v.Secrets }).(JobSecretArrayOutput)
 }

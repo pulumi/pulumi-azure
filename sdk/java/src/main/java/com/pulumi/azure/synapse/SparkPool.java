@@ -301,10 +301,10 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sparkLogFolder);
     }
     @Export(name="sparkVersion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> sparkVersion;
+    private Output<String> sparkVersion;
 
-    public Output<Optional<String>> sparkVersion() {
-        return Codegen.optional(this.sparkVersion);
+    public Output<String> sparkVersion() {
+        return this.sparkVersion;
     }
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.

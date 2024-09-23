@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Automation
         /// The is exportable flag of the certificate.
         /// </summary>
         [Output("exportable")]
-        public Output<bool> Exportable { get; private set; } = null!;
+        public Output<bool?> Exportable { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Certificate. Changing this forces a new resource to be created.

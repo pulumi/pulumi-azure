@@ -16,33 +16,6 @@ public final class DataConnectorMicrosoftThreatIntelligenceState extends com.pul
     public static final DataConnectorMicrosoftThreatIntelligenceState Empty = new DataConnectorMicrosoftThreatIntelligenceState();
 
     /**
-     * The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
-     * 
-     * &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This field is deprecated and will be removed in version 4.0 of the AzureRM Provider. */
-    @Import(name="bingSafetyPhishingUrlLookbackDate")
-    private @Nullable Output<String> bingSafetyPhishingUrlLookbackDate;
-
-    /**
-     * @return The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
-     * 
-     * &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-     * 
-     * @deprecated
-     * This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* This field is deprecated and will be removed in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<String>> bingSafetyPhishingUrlLookbackDate() {
-        return Optional.ofNullable(this.bingSafetyPhishingUrlLookbackDate);
-    }
-
-    /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
      * 
      */
@@ -117,7 +90,6 @@ public final class DataConnectorMicrosoftThreatIntelligenceState extends com.pul
     private DataConnectorMicrosoftThreatIntelligenceState() {}
 
     private DataConnectorMicrosoftThreatIntelligenceState(DataConnectorMicrosoftThreatIntelligenceState $) {
-        this.bingSafetyPhishingUrlLookbackDate = $.bingSafetyPhishingUrlLookbackDate;
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
         this.microsoftEmergingThreatFeedLookbackDate = $.microsoftEmergingThreatFeedLookbackDate;
         this.name = $.name;
@@ -140,39 +112,6 @@ public final class DataConnectorMicrosoftThreatIntelligenceState extends com.pul
 
         public Builder(DataConnectorMicrosoftThreatIntelligenceState defaults) {
             $ = new DataConnectorMicrosoftThreatIntelligenceState(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param bingSafetyPhishingUrlLookbackDate The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
-         * 
-         * &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* This field is deprecated and will be removed in version 4.0 of the AzureRM Provider. */
-        public Builder bingSafetyPhishingUrlLookbackDate(@Nullable Output<String> bingSafetyPhishingUrlLookbackDate) {
-            $.bingSafetyPhishingUrlLookbackDate = bingSafetyPhishingUrlLookbackDate;
-            return this;
-        }
-
-        /**
-         * @param bingSafetyPhishingUrlLookbackDate The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
-         * 
-         * &gt; **Note:** `bing_safety_phishing_url_lookback_date` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* This field is deprecated and will be removed in version 4.0 of the AzureRM Provider. */
-        public Builder bingSafetyPhishingUrlLookbackDate(String bingSafetyPhishingUrlLookbackDate) {
-            return bingSafetyPhishingUrlLookbackDate(Output.of(bingSafetyPhishingUrlLookbackDate));
         }
 
         /**

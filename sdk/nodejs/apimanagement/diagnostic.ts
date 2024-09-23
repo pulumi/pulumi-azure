@@ -163,7 +163,7 @@ export class Diagnostic extends pulumi.CustomResource {
      */
     public readonly logClientIp!: pulumi.Output<boolean>;
     /**
-     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
      */
     public readonly operationNameFormat!: pulumi.Output<string | undefined>;
     /**
@@ -285,7 +285,7 @@ export interface DiagnosticState {
      */
     logClientIp?: pulumi.Input<boolean>;
     /**
-     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
      */
     operationNameFormat?: pulumi.Input<string>;
     /**
@@ -347,7 +347,7 @@ export interface DiagnosticArgs {
      */
     logClientIp?: pulumi.Input<boolean>;
     /**
-     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
+     * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`.
      */
     operationNameFormat?: pulumi.Input<string>;
     /**

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/elasticcloud"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/elasticcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,7 +79,7 @@ type Elasticsearch struct {
 	// The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `logs` block as defined below.
-	Logs ElasticsearchLogsOutput `pulumi:"logs"`
+	Logs ElasticsearchLogsPtrOutput `pulumi:"logs"`
 	// Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
 	MonitoringEnabled pulumi.BoolPtrOutput `pulumi:"monitoringEnabled"`
 	// The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
@@ -383,8 +383,8 @@ func (o ElasticsearchOutput) Location() pulumi.StringOutput {
 }
 
 // A `logs` block as defined below.
-func (o ElasticsearchOutput) Logs() ElasticsearchLogsOutput {
-	return o.ApplyT(func(v *Elasticsearch) ElasticsearchLogsOutput { return v.Logs }).(ElasticsearchLogsOutput)
+func (o ElasticsearchOutput) Logs() ElasticsearchLogsPtrOutput {
+	return o.ApplyT(func(v *Elasticsearch) ElasticsearchLogsPtrOutput { return v.Logs }).(ElasticsearchLogsPtrOutput)
 }
 
 // Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.

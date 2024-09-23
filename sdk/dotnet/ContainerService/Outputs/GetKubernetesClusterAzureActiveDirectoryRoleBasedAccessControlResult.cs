@@ -22,18 +22,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool AzureRbacEnabled;
         /// <summary>
-        /// The Client ID of an Azure Active Directory Application.
-        /// </summary>
-        public readonly string ClientAppId;
-        /// <summary>
-        /// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
-        /// </summary>
-        public readonly bool Managed;
-        /// <summary>
-        /// The Server ID of an Azure Active Directory Application.
-        /// </summary>
-        public readonly string ServerAppId;
-        /// <summary>
         /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
         /// </summary>
         public readonly string TenantId;
@@ -44,19 +32,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool azureRbacEnabled,
 
-            string clientAppId,
-
-            bool managed,
-
-            string serverAppId,
-
             string tenantId)
         {
             AdminGroupObjectIds = adminGroupObjectIds;
             AzureRbacEnabled = azureRbacEnabled;
-            ClientAppId = clientAppId;
-            Managed = managed;
-            ServerAppId = serverAppId;
             TenantId = tenantId;
         }
     }

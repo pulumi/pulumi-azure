@@ -96,33 +96,6 @@ public final class ComputeInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Azure Region where the Machine Learning Compute Instance should exist.
-     * 
-     * &gt; **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&amp;tabs=python).
-     * 
-     * @deprecated
-     * The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider */
-    @Import(name="location")
-    private @Nullable Output<String> location;
-
-    /**
-     * @return The Azure Region where the Machine Learning Compute Instance should exist.
-     * 
-     * &gt; **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&amp;tabs=python).
-     * 
-     * @deprecated
-     * The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider */
-    public Optional<Output<String>> location() {
-        return Optional.ofNullable(this.location);
-    }
-
-    /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
@@ -235,7 +208,6 @@ public final class ComputeInstanceState extends com.pulumi.resources.ResourceArg
         this.description = $.description;
         this.identity = $.identity;
         this.localAuthEnabled = $.localAuthEnabled;
-        this.location = $.location;
         this.machineLearningWorkspaceId = $.machineLearningWorkspaceId;
         this.name = $.name;
         this.nodePublicIpEnabled = $.nodePublicIpEnabled;
@@ -366,39 +338,6 @@ public final class ComputeInstanceState extends com.pulumi.resources.ResourceArg
          */
         public Builder localAuthEnabled(Boolean localAuthEnabled) {
             return localAuthEnabled(Output.of(localAuthEnabled));
-        }
-
-        /**
-         * @param location The Azure Region where the Machine Learning Compute Instance should exist.
-         * 
-         * &gt; **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&amp;tabs=python).
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider */
-        public Builder location(@Nullable Output<String> location) {
-            $.location = location;
-            return this;
-        }
-
-        /**
-         * @param location The Azure Region where the Machine Learning Compute Instance should exist.
-         * 
-         * &gt; **Note:** The `location` field is not supported for Machine Learning Compute Instances and has no effect so as such will be removed in v4.0 of the AzureRM provider. For more information, please see the product [documentation](https://learn.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?view=azureml-api-2&amp;tabs=python).
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* The `azure.machinelearning.ComputeInstance` must be deployed to the same location as the associated `azure.machinelearning.Workspace` resource, as the `location` fields must be the same the `location` field no longer has any effect and will be removed in version 4.0 of the AzureRM Provider */
-        public Builder location(String location) {
-            return location(Output.of(location));
         }
 
         /**

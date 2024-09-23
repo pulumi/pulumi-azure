@@ -22,15 +22,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? CurrentStack;
         /// <summary>
-        /// The name of the container to be used. This value is required with `docker_container_tag`.
-        /// </summary>
-        public readonly string? DockerContainerName;
-        public readonly string? DockerContainerRegistry;
-        /// <summary>
-        /// The tag of the container to be used. This value is required with `docker_container_name`.
-        /// </summary>
-        public readonly string? DockerContainerTag;
-        /// <summary>
         /// The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
         /// </summary>
         public readonly string? DockerImageName;
@@ -93,7 +84,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Specifies whether this is a Python app. Defaults to `false`.
         /// </summary>
         public readonly bool? Python;
-        public readonly string? PythonVersion;
         /// <summary>
         /// The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
         /// 
@@ -104,12 +94,6 @@ namespace Pulumi.Azure.AppService.Outputs
         [OutputConstructor]
         private WindowsWebAppSiteConfigApplicationStack(
             string? currentStack,
-
-            string? dockerContainerName,
-
-            string? dockerContainerRegistry,
-
-            string? dockerContainerTag,
 
             string? dockerImageName,
 
@@ -137,14 +121,9 @@ namespace Pulumi.Azure.AppService.Outputs
 
             bool? python,
 
-            string? pythonVersion,
-
             string? tomcatVersion)
         {
             CurrentStack = currentStack;
-            DockerContainerName = dockerContainerName;
-            DockerContainerRegistry = dockerContainerRegistry;
-            DockerContainerTag = dockerContainerTag;
             DockerImageName = dockerImageName;
             DockerRegistryPassword = dockerRegistryPassword;
             DockerRegistryUrl = dockerRegistryUrl;
@@ -158,7 +137,6 @@ namespace Pulumi.Azure.AppService.Outputs
             NodeVersion = nodeVersion;
             PhpVersion = phpVersion;
             Python = python;
-            PythonVersion = pythonVersion;
             TomcatVersion = tomcatVersion;
         }
     }

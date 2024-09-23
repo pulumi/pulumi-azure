@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "media-resources",
@@ -26,11 +27,11 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleServiceAccount = new azure.media.ServiceAccount("example", {
+ * const exampleMediaServicesAccount = new azurerm.index.MediaServicesAccount("example", {
  *     name: "examplemediaacc",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     storageAccounts: [{
+ *     storageAccount: [{
  *         id: exampleAccount.id,
  *         isPrimary: true,
  *     }],

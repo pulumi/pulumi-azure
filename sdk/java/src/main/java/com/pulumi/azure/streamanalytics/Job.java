@@ -123,18 +123,18 @@ public class Job extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contentStoragePolicy);
     }
     /**
-     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](&lt;https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx&gt;).
+     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](&lt;https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx&gt;). Defaults to `en-US`.
      * 
      */
     @Export(name="dataLocale", refs={String.class}, tree="[0]")
-    private Output<String> dataLocale;
+    private Output</* @Nullable */ String> dataLocale;
 
     /**
-     * @return Specifies the Data Locale of the Job, which [should be a supported .NET Culture](&lt;https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx&gt;).
+     * @return Specifies the Data Locale of the Job, which [should be a supported .NET Culture](&lt;https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx&gt;). Defaults to `en-US`.
      * 
      */
-    public Output<String> dataLocale() {
-        return this.dataLocale;
+    public Output<Optional<String>> dataLocale() {
+        return Codegen.optional(this.dataLocale);
     }
     /**
      * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.

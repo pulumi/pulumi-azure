@@ -4,7 +4,6 @@
 package com.pulumi.azure.monitoring;
 
 import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingEnabledLogArgs;
-import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingLogArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -21,16 +20,12 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
     /**
      * One or more `enabled_log` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
-     * 
      */
     @Import(name="enabledLogs")
     private @Nullable Output<List<AadDiagnosticSettingEnabledLogArgs>> enabledLogs;
 
     /**
      * @return One or more `enabled_log` blocks as defined below.
-     * 
-     * &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
      * 
      */
     public Optional<Output<List<AadDiagnosticSettingEnabledLogArgs>>> enabledLogs() {
@@ -87,33 +82,6 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * One or more `log` blocks as defined below.
-     * 
-     * &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
-    @Import(name="logs")
-    private @Nullable Output<List<AadDiagnosticSettingLogArgs>> logs;
-
-    /**
-     * @return One or more `log` blocks as defined below.
-     * 
-     * &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
-    public Optional<Output<List<AadDiagnosticSettingLogArgs>>> logs() {
-        return Optional.ofNullable(this.logs);
-    }
-
-    /**
      * The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
      * 
      */
@@ -154,7 +122,6 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
         this.eventhubAuthorizationRuleId = $.eventhubAuthorizationRuleId;
         this.eventhubName = $.eventhubName;
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
-        this.logs = $.logs;
         this.name = $.name;
         this.storageAccountId = $.storageAccountId;
     }
@@ -180,8 +147,6 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
         /**
          * @param enabledLogs One or more `enabled_log` blocks as defined below.
          * 
-         * &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
-         * 
          * @return builder
          * 
          */
@@ -193,8 +158,6 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
         /**
          * @param enabledLogs One or more `enabled_log` blocks as defined below.
          * 
-         * &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
-         * 
          * @return builder
          * 
          */
@@ -204,8 +167,6 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param enabledLogs One or more `enabled_log` blocks as defined below.
-         * 
-         * &gt; **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
          * 
          * @return builder
          * 
@@ -279,55 +240,6 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
          */
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             return logAnalyticsWorkspaceId(Output.of(logAnalyticsWorkspaceId));
-        }
-
-        /**
-         * @param logs One or more `log` blocks as defined below.
-         * 
-         * &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
-        public Builder logs(@Nullable Output<List<AadDiagnosticSettingLogArgs>> logs) {
-            $.logs = logs;
-            return this;
-        }
-
-        /**
-         * @param logs One or more `log` blocks as defined below.
-         * 
-         * &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
-        public Builder logs(List<AadDiagnosticSettingLogArgs> logs) {
-            return logs(Output.of(logs));
-        }
-
-        /**
-         * @param logs One or more `log` blocks as defined below.
-         * 
-         * &gt; **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
-        public Builder logs(AadDiagnosticSettingLogArgs... logs) {
-            return logs(List.of(logs));
         }
 
         /**

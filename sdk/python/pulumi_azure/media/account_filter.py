@@ -244,6 +244,7 @@ class AccountFilter(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="media-resources",
@@ -254,13 +255,13 @@ class AccountFilter(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("example",
-            name="examplemediaacc",
+        example_media_services_account = azurerm.index.MediaServicesAccount("example",
+            name=examplemediaacc,
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[{
-                "id": example_account.id,
-                "is_primary": True,
+            storage_account=[{
+                id: example_account.id,
+                isPrimary: True,
             }])
         example_account_filter = azure.media.AccountFilter("example",
             name="Filter1",
@@ -343,6 +344,7 @@ class AccountFilter(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="media-resources",
@@ -353,13 +355,13 @@ class AccountFilter(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("example",
-            name="examplemediaacc",
+        example_media_services_account = azurerm.index.MediaServicesAccount("example",
+            name=examplemediaacc,
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[{
-                "id": example_account.id,
-                "is_primary": True,
+            storage_account=[{
+                id: example_account.id,
+                isPrimary: True,
             }])
         example_account_filter = azure.media.AccountFilter("example",
             name="Filter1",

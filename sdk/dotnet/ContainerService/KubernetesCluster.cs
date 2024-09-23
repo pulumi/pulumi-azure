@@ -81,10 +81,7 @@ namespace Pulumi.Azure.ContainerService
         /// An `api_server_access_profile` block as defined below.
         /// </summary>
         [Output("apiServerAccessProfile")]
-        public Output<Outputs.KubernetesClusterApiServerAccessProfile> ApiServerAccessProfile { get; private set; } = null!;
-
-        [Output("apiServerAuthorizedIpRanges")]
-        public Output<ImmutableArray<string>> ApiServerAuthorizedIpRanges { get; private set; } = null!;
+        public Output<Outputs.KubernetesClusterApiServerAccessProfile?> ApiServerAccessProfile { get; private set; } = null!;
 
         /// <summary>
         /// A `auto_scaler_profile` block as defined below.
@@ -99,8 +96,8 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// &gt; **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
         /// </summary>
-        [Output("automaticChannelUpgrade")]
-        public Output<string?> AutomaticChannelUpgrade { get; private set; } = null!;
+        [Output("automaticUpgradeChannel")]
+        public Output<string?> AutomaticUpgradeChannel { get; private set; } = null!;
 
         /// <summary>
         /// A `azure_active_directory_role_based_access_control` block as defined below.
@@ -131,9 +128,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("currentKubernetesVersion")]
         public Output<string> CurrentKubernetesVersion { get; private set; } = null!;
-
-        [Output("customCaTrustCertificatesBase64s")]
-        public Output<ImmutableArray<string>> CustomCaTrustCertificatesBase64s { get; private set; } = null!;
 
         /// <summary>
         /// A `default_node_pool` block as defined below.
@@ -168,9 +162,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
-
-        [Output("enablePodSecurityPolicy")]
-        public Output<bool?> EnablePodSecurityPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The FQDN of the Azure Kubernetes Managed Cluster.
@@ -213,7 +204,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> ImageCleanerEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+        /// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
         /// </summary>
         [Output("imageCleanerIntervalHours")]
         public Output<int?> ImageCleanerIntervalHours { get; private set; } = null!;
@@ -343,12 +334,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterNetworkProfile> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+        /// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
         /// 
-        /// &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+        /// &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         /// </summary>
-        [Output("nodeOsChannelUpgrade")]
-        public Output<string?> NodeOsChannelUpgrade { get; private set; } = null!;
+        [Output("nodeOsUpgradeChannel")]
+        public Output<string?> NodeOsUpgradeChannel { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -472,9 +463,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("privateFqdn")]
         public Output<string> PrivateFqdn { get; private set; } = null!;
-
-        [Output("publicNetworkAccessEnabled")]
-        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -627,15 +615,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("apiServerAccessProfile")]
         public Input<Inputs.KubernetesClusterApiServerAccessProfileArgs>? ApiServerAccessProfile { get; set; }
 
-        [Input("apiServerAuthorizedIpRanges")]
-        private InputList<string>? _apiServerAuthorizedIpRanges;
-        [Obsolete(@"This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider")]
-        public InputList<string> ApiServerAuthorizedIpRanges
-        {
-            get => _apiServerAuthorizedIpRanges ?? (_apiServerAuthorizedIpRanges = new InputList<string>());
-            set => _apiServerAuthorizedIpRanges = value;
-        }
-
         /// <summary>
         /// A `auto_scaler_profile` block as defined below.
         /// </summary>
@@ -649,8 +628,8 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// &gt; **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
         /// </summary>
-        [Input("automaticChannelUpgrade")]
-        public Input<string>? AutomaticChannelUpgrade { get; set; }
+        [Input("automaticUpgradeChannel")]
+        public Input<string>? AutomaticUpgradeChannel { get; set; }
 
         /// <summary>
         /// A `azure_active_directory_role_based_access_control` block as defined below.
@@ -675,15 +654,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("costAnalysisEnabled")]
         public Input<bool>? CostAnalysisEnabled { get; set; }
-
-        [Input("customCaTrustCertificatesBase64s")]
-        private InputList<string>? _customCaTrustCertificatesBase64s;
-        [Obsolete(@"This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.")]
-        public InputList<string> CustomCaTrustCertificatesBase64s
-        {
-            get => _customCaTrustCertificatesBase64s ?? (_customCaTrustCertificatesBase64s = new InputList<string>());
-            set => _customCaTrustCertificatesBase64s = value;
-        }
 
         /// <summary>
         /// A `default_node_pool` block as defined below.
@@ -719,9 +689,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
-        [Input("enablePodSecurityPolicy")]
-        public Input<bool>? EnablePodSecurityPolicy { get; set; }
-
         /// <summary>
         /// Should HTTP Application Routing be enabled?
         /// 
@@ -751,7 +718,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? ImageCleanerEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+        /// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
         /// </summary>
         [Input("imageCleanerIntervalHours")]
         public Input<int>? ImageCleanerIntervalHours { get; set; }
@@ -857,12 +824,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+        /// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
         /// 
-        /// &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+        /// &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         /// </summary>
-        [Input("nodeOsChannelUpgrade")]
-        public Input<string>? NodeOsChannelUpgrade { get; set; }
+        [Input("nodeOsUpgradeChannel")]
+        public Input<string>? NodeOsUpgradeChannel { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -962,9 +929,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
-
-        [Input("publicNetworkAccessEnabled")]
-        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -1078,15 +1042,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("apiServerAccessProfile")]
         public Input<Inputs.KubernetesClusterApiServerAccessProfileGetArgs>? ApiServerAccessProfile { get; set; }
 
-        [Input("apiServerAuthorizedIpRanges")]
-        private InputList<string>? _apiServerAuthorizedIpRanges;
-        [Obsolete(@"This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider")]
-        public InputList<string> ApiServerAuthorizedIpRanges
-        {
-            get => _apiServerAuthorizedIpRanges ?? (_apiServerAuthorizedIpRanges = new InputList<string>());
-            set => _apiServerAuthorizedIpRanges = value;
-        }
-
         /// <summary>
         /// A `auto_scaler_profile` block as defined below.
         /// </summary>
@@ -1100,8 +1055,8 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// &gt; **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
         /// </summary>
-        [Input("automaticChannelUpgrade")]
-        public Input<string>? AutomaticChannelUpgrade { get; set; }
+        [Input("automaticUpgradeChannel")]
+        public Input<string>? AutomaticUpgradeChannel { get; set; }
 
         /// <summary>
         /// A `azure_active_directory_role_based_access_control` block as defined below.
@@ -1132,15 +1087,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("currentKubernetesVersion")]
         public Input<string>? CurrentKubernetesVersion { get; set; }
-
-        [Input("customCaTrustCertificatesBase64s")]
-        private InputList<string>? _customCaTrustCertificatesBase64s;
-        [Obsolete(@"This property is not available in the stable API and will be removed in v4.0 of the Azure Provider. Please see https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#aks-migration-to-stable-api for more details.")]
-        public InputList<string> CustomCaTrustCertificatesBase64s
-        {
-            get => _customCaTrustCertificatesBase64s ?? (_customCaTrustCertificatesBase64s = new InputList<string>());
-            set => _customCaTrustCertificatesBase64s = value;
-        }
 
         /// <summary>
         /// A `default_node_pool` block as defined below.
@@ -1175,9 +1121,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
-
-        [Input("enablePodSecurityPolicy")]
-        public Input<bool>? EnablePodSecurityPolicy { get; set; }
 
         /// <summary>
         /// The FQDN of the Azure Kubernetes Managed Cluster.
@@ -1220,7 +1163,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? ImageCleanerEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
+        /// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
         /// </summary>
         [Input("imageCleanerIntervalHours")]
         public Input<int>? ImageCleanerIntervalHours { get; set; }
@@ -1390,12 +1333,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNetworkProfileGetArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
+        /// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
         /// 
-        /// &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
+        /// &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         /// </summary>
-        [Input("nodeOsChannelUpgrade")]
-        public Input<string>? NodeOsChannelUpgrade { get; set; }
+        [Input("nodeOsUpgradeChannel")]
+        public Input<string>? NodeOsUpgradeChannel { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -1519,9 +1462,6 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("privateFqdn")]
         public Input<string>? PrivateFqdn { get; set; }
-
-        [Input("publicNetworkAccessEnabled")]
-        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.

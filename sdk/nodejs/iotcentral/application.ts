@@ -108,9 +108,9 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+     * A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
      */
-    public readonly template!: pulumi.Output<string>;
+    public readonly template!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -202,7 +202,7 @@ export interface ApplicationState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+     * A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
      */
     template?: pulumi.Input<string>;
 }
@@ -250,7 +250,7 @@ export interface ApplicationArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
+     * A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
      */
     template?: pulumi.Input<string>;
 }

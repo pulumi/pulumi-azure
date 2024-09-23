@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,7 +93,7 @@ type OrchestratedVirtualMachineScaleSet struct {
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
 	//
 	// > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
-	ExtensionOperationsEnabled pulumi.BoolOutput `pulumi:"extensionOperationsEnabled"`
+	ExtensionOperationsEnabled pulumi.BoolPtrOutput `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
@@ -698,8 +698,8 @@ func (o OrchestratedVirtualMachineScaleSetOutput) EvictionPolicy() pulumi.String
 // Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
 //
 // > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
-func (o OrchestratedVirtualMachineScaleSetOutput) ExtensionOperationsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolOutput { return v.ExtensionOperationsEnabled }).(pulumi.BoolOutput)
+func (o OrchestratedVirtualMachineScaleSetOutput) ExtensionOperationsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.ExtensionOperationsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // One or more `extension` blocks as defined below

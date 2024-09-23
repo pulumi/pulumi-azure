@@ -12,9 +12,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class RegistryEncryptionGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
         /// <summary>
         /// The client ID of the managed identity associated with the encryption key.
         /// </summary>

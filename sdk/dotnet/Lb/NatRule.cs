@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Lb
         /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         /// </summary>
         [Output("idleTimeoutInMinutes")]
-        public Output<int> IdleTimeoutInMinutes { get; private set; } = null!;
+        public Output<int?> IdleTimeoutInMinutes { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.

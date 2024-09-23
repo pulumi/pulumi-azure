@@ -27,10 +27,6 @@ public final class DiagnosticSettingMetric {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return A `retention_policy` block as defined below.
-     * 
-     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-     * 
      * @deprecated
      * `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
      * 
@@ -56,10 +52,6 @@ public final class DiagnosticSettingMetric {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return A `retention_policy` block as defined below.
-     * 
-     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-     * 
      * @deprecated
      * `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
      * 

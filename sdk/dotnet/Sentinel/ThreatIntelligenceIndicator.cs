@@ -12,56 +12,6 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a Sentinel Threat Intelligence Indicator.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-rg",
-    ///         Location = "east us",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
-    ///     {
-    ///         Name = "example-law",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "PerGB2018",
-    ///         RetentionInDays = 30,
-    ///     });
-    /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
-    ///     {
-    ///         ResourceGroupName = example.Name,
-    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///     });
-    /// 
-    ///     var exampleThreatIntelligenceIndicator = new Azure.Sentinel.ThreatIntelligenceIndicator("example", new()
-    ///     {
-    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///         PatternType = "domain-name",
-    ///         Pattern = "http://example.com",
-    ///         Source = "Microsoft Sentinel",
-    ///         ValidateFromUtc = "2022-12-14T16:00:00Z",
-    ///         DisplayName = "example-indicator",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             test,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Sentinel Threat Intelligence Indicators can be imported using the `resource id`, e.g.

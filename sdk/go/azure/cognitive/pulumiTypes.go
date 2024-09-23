@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1703,172 +1703,172 @@ func (o DeploymentModelPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type DeploymentScale struct {
+type DeploymentSku struct {
 	// Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
 	Capacity *int `pulumi:"capacity"`
 	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
 	Family *string `pulumi:"family"`
+	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
 	Size *string `pulumi:"size"`
 	// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
 	Tier *string `pulumi:"tier"`
-	// The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
-	Type string `pulumi:"type"`
 }
 
-// DeploymentScaleInput is an input type that accepts DeploymentScaleArgs and DeploymentScaleOutput values.
-// You can construct a concrete instance of `DeploymentScaleInput` via:
+// DeploymentSkuInput is an input type that accepts DeploymentSkuArgs and DeploymentSkuOutput values.
+// You can construct a concrete instance of `DeploymentSkuInput` via:
 //
-//	DeploymentScaleArgs{...}
-type DeploymentScaleInput interface {
+//	DeploymentSkuArgs{...}
+type DeploymentSkuInput interface {
 	pulumi.Input
 
-	ToDeploymentScaleOutput() DeploymentScaleOutput
-	ToDeploymentScaleOutputWithContext(context.Context) DeploymentScaleOutput
+	ToDeploymentSkuOutput() DeploymentSkuOutput
+	ToDeploymentSkuOutputWithContext(context.Context) DeploymentSkuOutput
 }
 
-type DeploymentScaleArgs struct {
+type DeploymentSkuArgs struct {
 	// Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
 	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
-	// The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (DeploymentScaleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentScale)(nil)).Elem()
+func (DeploymentSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentSku)(nil)).Elem()
 }
 
-func (i DeploymentScaleArgs) ToDeploymentScaleOutput() DeploymentScaleOutput {
-	return i.ToDeploymentScaleOutputWithContext(context.Background())
+func (i DeploymentSkuArgs) ToDeploymentSkuOutput() DeploymentSkuOutput {
+	return i.ToDeploymentSkuOutputWithContext(context.Background())
 }
 
-func (i DeploymentScaleArgs) ToDeploymentScaleOutputWithContext(ctx context.Context) DeploymentScaleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScaleOutput)
+func (i DeploymentSkuArgs) ToDeploymentSkuOutputWithContext(ctx context.Context) DeploymentSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSkuOutput)
 }
 
-func (i DeploymentScaleArgs) ToDeploymentScalePtrOutput() DeploymentScalePtrOutput {
-	return i.ToDeploymentScalePtrOutputWithContext(context.Background())
+func (i DeploymentSkuArgs) ToDeploymentSkuPtrOutput() DeploymentSkuPtrOutput {
+	return i.ToDeploymentSkuPtrOutputWithContext(context.Background())
 }
 
-func (i DeploymentScaleArgs) ToDeploymentScalePtrOutputWithContext(ctx context.Context) DeploymentScalePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScaleOutput).ToDeploymentScalePtrOutputWithContext(ctx)
+func (i DeploymentSkuArgs) ToDeploymentSkuPtrOutputWithContext(ctx context.Context) DeploymentSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSkuOutput).ToDeploymentSkuPtrOutputWithContext(ctx)
 }
 
-// DeploymentScalePtrInput is an input type that accepts DeploymentScaleArgs, DeploymentScalePtr and DeploymentScalePtrOutput values.
-// You can construct a concrete instance of `DeploymentScalePtrInput` via:
+// DeploymentSkuPtrInput is an input type that accepts DeploymentSkuArgs, DeploymentSkuPtr and DeploymentSkuPtrOutput values.
+// You can construct a concrete instance of `DeploymentSkuPtrInput` via:
 //
-//	        DeploymentScaleArgs{...}
+//	        DeploymentSkuArgs{...}
 //
 //	or:
 //
 //	        nil
-type DeploymentScalePtrInput interface {
+type DeploymentSkuPtrInput interface {
 	pulumi.Input
 
-	ToDeploymentScalePtrOutput() DeploymentScalePtrOutput
-	ToDeploymentScalePtrOutputWithContext(context.Context) DeploymentScalePtrOutput
+	ToDeploymentSkuPtrOutput() DeploymentSkuPtrOutput
+	ToDeploymentSkuPtrOutputWithContext(context.Context) DeploymentSkuPtrOutput
 }
 
-type deploymentScalePtrType DeploymentScaleArgs
+type deploymentSkuPtrType DeploymentSkuArgs
 
-func DeploymentScalePtr(v *DeploymentScaleArgs) DeploymentScalePtrInput {
-	return (*deploymentScalePtrType)(v)
+func DeploymentSkuPtr(v *DeploymentSkuArgs) DeploymentSkuPtrInput {
+	return (*deploymentSkuPtrType)(v)
 }
 
-func (*deploymentScalePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentScale)(nil)).Elem()
+func (*deploymentSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentSku)(nil)).Elem()
 }
 
-func (i *deploymentScalePtrType) ToDeploymentScalePtrOutput() DeploymentScalePtrOutput {
-	return i.ToDeploymentScalePtrOutputWithContext(context.Background())
+func (i *deploymentSkuPtrType) ToDeploymentSkuPtrOutput() DeploymentSkuPtrOutput {
+	return i.ToDeploymentSkuPtrOutputWithContext(context.Background())
 }
 
-func (i *deploymentScalePtrType) ToDeploymentScalePtrOutputWithContext(ctx context.Context) DeploymentScalePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScalePtrOutput)
+func (i *deploymentSkuPtrType) ToDeploymentSkuPtrOutputWithContext(ctx context.Context) DeploymentSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSkuPtrOutput)
 }
 
-type DeploymentScaleOutput struct{ *pulumi.OutputState }
+type DeploymentSkuOutput struct{ *pulumi.OutputState }
 
-func (DeploymentScaleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentScale)(nil)).Elem()
+func (DeploymentSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentSku)(nil)).Elem()
 }
 
-func (o DeploymentScaleOutput) ToDeploymentScaleOutput() DeploymentScaleOutput {
+func (o DeploymentSkuOutput) ToDeploymentSkuOutput() DeploymentSkuOutput {
 	return o
 }
 
-func (o DeploymentScaleOutput) ToDeploymentScaleOutputWithContext(ctx context.Context) DeploymentScaleOutput {
+func (o DeploymentSkuOutput) ToDeploymentSkuOutputWithContext(ctx context.Context) DeploymentSkuOutput {
 	return o
 }
 
-func (o DeploymentScaleOutput) ToDeploymentScalePtrOutput() DeploymentScalePtrOutput {
-	return o.ToDeploymentScalePtrOutputWithContext(context.Background())
+func (o DeploymentSkuOutput) ToDeploymentSkuPtrOutput() DeploymentSkuPtrOutput {
+	return o.ToDeploymentSkuPtrOutputWithContext(context.Background())
 }
 
-func (o DeploymentScaleOutput) ToDeploymentScalePtrOutputWithContext(ctx context.Context) DeploymentScalePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentScale) *DeploymentScale {
+func (o DeploymentSkuOutput) ToDeploymentSkuPtrOutputWithContext(ctx context.Context) DeploymentSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentSku) *DeploymentSku {
 		return &v
-	}).(DeploymentScalePtrOutput)
+	}).(DeploymentSkuPtrOutput)
 }
 
 // Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
-func (o DeploymentScaleOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeploymentScale) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+func (o DeploymentSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
 // If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
-func (o DeploymentScaleOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentScale) *string { return v.Family }).(pulumi.StringPtrOutput)
+func (o DeploymentSkuOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentSku) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+func (o DeploymentSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
-func (o DeploymentScaleOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentScale) *string { return v.Size }).(pulumi.StringPtrOutput)
+func (o DeploymentSkuOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentSku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
 // Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
-func (o DeploymentScaleOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentScale) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o DeploymentSkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
-func (o DeploymentScaleOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentScale) string { return v.Type }).(pulumi.StringOutput)
+type DeploymentSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentSku)(nil)).Elem()
 }
 
-type DeploymentScalePtrOutput struct{ *pulumi.OutputState }
-
-func (DeploymentScalePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentScale)(nil)).Elem()
-}
-
-func (o DeploymentScalePtrOutput) ToDeploymentScalePtrOutput() DeploymentScalePtrOutput {
+func (o DeploymentSkuPtrOutput) ToDeploymentSkuPtrOutput() DeploymentSkuPtrOutput {
 	return o
 }
 
-func (o DeploymentScalePtrOutput) ToDeploymentScalePtrOutputWithContext(ctx context.Context) DeploymentScalePtrOutput {
+func (o DeploymentSkuPtrOutput) ToDeploymentSkuPtrOutputWithContext(ctx context.Context) DeploymentSkuPtrOutput {
 	return o
 }
 
-func (o DeploymentScalePtrOutput) Elem() DeploymentScaleOutput {
-	return o.ApplyT(func(v *DeploymentScale) DeploymentScale {
+func (o DeploymentSkuPtrOutput) Elem() DeploymentSkuOutput {
+	return o.ApplyT(func(v *DeploymentSku) DeploymentSku {
 		if v != nil {
 			return *v
 		}
-		var ret DeploymentScale
+		var ret DeploymentSku
 		return ret
-	}).(DeploymentScaleOutput)
+	}).(DeploymentSkuOutput)
 }
 
 // Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
-func (o DeploymentScalePtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeploymentScale) *int {
+func (o DeploymentSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentSku) *int {
 		if v == nil {
 			return nil
 		}
@@ -1877,8 +1877,8 @@ func (o DeploymentScalePtrOutput) Capacity() pulumi.IntPtrOutput {
 }
 
 // If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
-func (o DeploymentScalePtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentScale) *string {
+func (o DeploymentSkuPtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentSku) *string {
 		if v == nil {
 			return nil
 		}
@@ -1886,9 +1886,19 @@ func (o DeploymentScalePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+func (o DeploymentSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 // The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
-func (o DeploymentScalePtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentScale) *string {
+func (o DeploymentSkuPtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentSku) *string {
 		if v == nil {
 			return nil
 		}
@@ -1897,22 +1907,12 @@ func (o DeploymentScalePtrOutput) Size() pulumi.StringPtrOutput {
 }
 
 // Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
-func (o DeploymentScalePtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentScale) *string {
+func (o DeploymentSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentSku) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
-func (o DeploymentScalePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentScale) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2063,8 +2063,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageArrayInput)(nil)).Elem(), AccountStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModelInput)(nil)).Elem(), DeploymentModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModelPtrInput)(nil)).Elem(), DeploymentModelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentScaleInput)(nil)).Elem(), DeploymentScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentScalePtrInput)(nil)).Elem(), DeploymentScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentSkuInput)(nil)).Elem(), DeploymentSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentSkuPtrInput)(nil)).Elem(), DeploymentSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityArrayInput)(nil)).Elem(), GetAccountIdentityArray{})
 	pulumi.RegisterOutputType(AIServicesCustomerManagedKeyOutput{})
@@ -2089,8 +2089,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountStorageArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentModelOutput{})
 	pulumi.RegisterOutputType(DeploymentModelPtrOutput{})
-	pulumi.RegisterOutputType(DeploymentScaleOutput{})
-	pulumi.RegisterOutputType(DeploymentScalePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentSkuOutput{})
+	pulumi.RegisterOutputType(DeploymentSkuPtrOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityArrayOutput{})
 }

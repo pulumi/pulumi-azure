@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -100,7 +100,7 @@ type Profile struct {
 	// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
-	ProfileStatus pulumi.StringOutput `pulumi:"profileStatus"`
+	ProfileStatus pulumi.StringPtrOutput `pulumi:"profileStatus"`
 	// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -398,8 +398,8 @@ func (o ProfileOutput) Name() pulumi.StringOutput {
 }
 
 // The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
-func (o ProfileOutput) ProfileStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileStatus }).(pulumi.StringOutput)
+func (o ProfileOutput) ProfileStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.ProfileStatus }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.

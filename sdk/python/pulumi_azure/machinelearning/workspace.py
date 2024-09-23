@@ -38,7 +38,6 @@ class WorkspaceArgs:
                  managed_network: Optional[pulumi.Input['WorkspaceManagedNetworkArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
-                 public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  serverless_compute: Optional[pulumi.Input['WorkspaceServerlessComputeArgs']] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -67,8 +66,7 @@ class WorkspaceArgs:
         :param pulumi.Input['WorkspaceManagedNetworkArgs'] managed_network: A `managed_network` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
-        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
+        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
                
                > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input['WorkspaceServerlessComputeArgs'] serverless_compute: A `serverless_compute` block as defined below.
@@ -105,11 +103,6 @@ class WorkspaceArgs:
             pulumi.set(__self__, "name", name)
         if primary_user_assigned_identity is not None:
             pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
-        if public_access_behind_virtual_network_enabled is not None:
-            warnings.warn("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_access_behind_virtual_network_enabled is deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-        if public_access_behind_virtual_network_enabled is not None:
-            pulumi.set(__self__, "public_access_behind_virtual_network_enabled", public_access_behind_virtual_network_enabled)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if serverless_compute is not None:
@@ -330,23 +323,10 @@ class WorkspaceArgs:
         pulumi.set(self, "primary_user_assigned_identity", value)
 
     @property
-    @pulumi.getter(name="publicAccessBehindVirtualNetworkEnabled")
-    @_utilities.deprecated("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-    def public_access_behind_virtual_network_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "public_access_behind_virtual_network_enabled")
-
-    @public_access_behind_virtual_network_enabled.setter
-    def public_access_behind_virtual_network_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "public_access_behind_virtual_network_enabled", value)
-
-    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable public access when this Machine Learning Workspace is behind VNet.
+        Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
 
         > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         """
@@ -424,7 +404,6 @@ class _WorkspaceState:
                  managed_network: Optional[pulumi.Input['WorkspaceManagedNetworkArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
-                 public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serverless_compute: Optional[pulumi.Input['WorkspaceServerlessComputeArgs']] = None,
@@ -453,8 +432,7 @@ class _WorkspaceState:
         :param pulumi.Input['WorkspaceManagedNetworkArgs'] managed_network: A `managed_network` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
-        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
+        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
                
                > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -499,11 +477,6 @@ class _WorkspaceState:
             pulumi.set(__self__, "name", name)
         if primary_user_assigned_identity is not None:
             pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
-        if public_access_behind_virtual_network_enabled is not None:
-            warnings.warn("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_access_behind_virtual_network_enabled is deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-        if public_access_behind_virtual_network_enabled is not None:
-            pulumi.set(__self__, "public_access_behind_virtual_network_enabled", public_access_behind_virtual_network_enabled)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
@@ -716,23 +689,10 @@ class _WorkspaceState:
         pulumi.set(self, "primary_user_assigned_identity", value)
 
     @property
-    @pulumi.getter(name="publicAccessBehindVirtualNetworkEnabled")
-    @_utilities.deprecated("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-    def public_access_behind_virtual_network_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "public_access_behind_virtual_network_enabled")
-
-    @public_access_behind_virtual_network_enabled.setter
-    def public_access_behind_virtual_network_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "public_access_behind_virtual_network_enabled", value)
-
-    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable public access when this Machine Learning Workspace is behind VNet.
+        Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
 
         > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         """
@@ -849,7 +809,6 @@ class Workspace(pulumi.CustomResource):
                  managed_network: Optional[pulumi.Input[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
-                 public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serverless_compute: Optional[pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
@@ -1140,8 +1099,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict']] managed_network: A `managed_network` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
-        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
+        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
                
                > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -1452,7 +1410,6 @@ class Workspace(pulumi.CustomResource):
                  managed_network: Optional[pulumi.Input[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
-                 public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serverless_compute: Optional[pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
@@ -1490,7 +1447,6 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["managed_network"] = managed_network
             __props__.__dict__["name"] = name
             __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
-            __props__.__dict__["public_access_behind_virtual_network_enabled"] = public_access_behind_virtual_network_enabled
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -1530,7 +1486,6 @@ class Workspace(pulumi.CustomResource):
             managed_network: Optional[pulumi.Input[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
-            public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             serverless_compute: Optional[pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
@@ -1564,8 +1519,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict']] managed_network: A `managed_network` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
-        :param pulumi.Input[bool] public_access_behind_virtual_network_enabled: Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
+        :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
                
                > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -1598,7 +1552,6 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["managed_network"] = managed_network
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
-        __props__.__dict__["public_access_behind_virtual_network_enabled"] = public_access_behind_virtual_network_enabled
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["serverless_compute"] = serverless_compute
@@ -1740,19 +1693,10 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "primary_user_assigned_identity")
 
     @property
-    @pulumi.getter(name="publicAccessBehindVirtualNetworkEnabled")
-    @_utilities.deprecated("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
-    def public_access_behind_virtual_network_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "public_access_behind_virtual_network_enabled")
-
-    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> pulumi.Output[bool]:
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable public access when this Machine Learning Workspace is behind VNet.
+        Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
 
         > **NOTE:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         """

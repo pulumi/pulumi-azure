@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .sku("S0")
  *             .adminUsers("myuser}{@literal @}{@code domain.tld")
- *             .enablePowerBiService(true)
+ *             .powerBiServiceEnabled(true)
  *             .ipv4FirewallRules(ServerIpv4FirewallRuleArgs.builder()
  *                 .name("myRule1")
  *                 .rangeStart("210.117.252.0")
@@ -117,24 +117,6 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.backupBlobContainerUri);
     }
     /**
-     * Indicates if the Power BI service is allowed to access or not.
-     * 
-     * @deprecated
-     * The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="enablePowerBiService", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enablePowerBiService;
-
-    /**
-     * @return Indicates if the Power BI service is allowed to access or not.
-     * 
-     */
-    public Output<Boolean> enablePowerBiService() {
-        return this.enablePowerBiService;
-    }
-    /**
      * One or more `ipv4_firewall_rule` block(s) as defined below.
      * 
      */
@@ -176,25 +158,33 @@ public class Server extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Indicates if the Power BI service is allowed to access or not.
+     * 
+     */
     @Export(name="powerBiServiceEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> powerBiServiceEnabled;
+    private Output</* @Nullable */ Boolean> powerBiServiceEnabled;
 
-    public Output<Boolean> powerBiServiceEnabled() {
-        return this.powerBiServiceEnabled;
+    /**
+     * @return Indicates if the Power BI service is allowed to access or not.
+     * 
+     */
+    public Output<Optional<Boolean>> powerBiServiceEnabled() {
+        return Codegen.optional(this.powerBiServiceEnabled);
     }
     /**
-     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
      * 
      */
     @Export(name="querypoolConnectionMode", refs={String.class}, tree="[0]")
-    private Output<String> querypoolConnectionMode;
+    private Output</* @Nullable */ String> querypoolConnectionMode;
 
     /**
-     * @return Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+     * @return Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
      * 
      */
-    public Output<String> querypoolConnectionMode() {
-        return this.querypoolConnectionMode;
+    public Output<Optional<String>> querypoolConnectionMode() {
+        return Codegen.optional(this.querypoolConnectionMode);
     }
     /**
      * The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
 //	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -101,8 +101,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -177,14 +177,12 @@ type Account struct {
 	// An `analyticalStorage` block as defined below.
 	AnalyticalStorage        AccountAnalyticalStorageOutput `pulumi:"analyticalStorage"`
 	AnalyticalStorageEnabled pulumi.BoolPtrOutput           `pulumi:"analyticalStorageEnabled"`
-	AutomaticFailoverEnabled pulumi.BoolOutput              `pulumi:"automaticFailoverEnabled"`
+	AutomaticFailoverEnabled pulumi.BoolPtrOutput           `pulumi:"automaticFailoverEnabled"`
 	Backup                   AccountBackupOutput            `pulumi:"backup"`
 	BurstCapacityEnabled     pulumi.BoolPtrOutput           `pulumi:"burstCapacityEnabled"`
 	Capabilities             AccountCapabilityArrayOutput   `pulumi:"capabilities"`
 	// A `capacity` block as defined below.
-	Capacity AccountCapacityOutput `pulumi:"capacity"`
-	// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-	ConnectionStrings pulumi.StringArrayOutput       `pulumi:"connectionStrings"`
+	Capacity          AccountCapacityOutput          `pulumi:"capacity"`
 	ConsistencyPolicy AccountConsistencyPolicyOutput `pulumi:"consistencyPolicy"`
 	CorsRule          AccountCorsRulePtrOutput       `pulumi:"corsRule"`
 	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
@@ -193,18 +191,12 @@ type Account struct {
 	CreateMode pulumi.StringOutput `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType pulumi.StringPtrOutput `pulumi:"defaultIdentityType"`
-	// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableAutomaticFailover pulumi.BoolOutput `pulumi:"enableAutomaticFailover"`
-	// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableFreeTier pulumi.BoolOutput `pulumi:"enableFreeTier"`
-	// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableMultipleWriteLocations pulumi.BoolOutput `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint                      pulumi.StringOutput           `pulumi:"endpoint"`
-	FreeTierEnabled               pulumi.BoolOutput             `pulumi:"freeTierEnabled"`
+	FreeTierEnabled               pulumi.BoolPtrOutput          `pulumi:"freeTierEnabled"`
 	GeoLocations                  AccountGeoLocationArrayOutput `pulumi:"geoLocations"`
 	Identity                      AccountIdentityPtrOutput      `pulumi:"identity"`
-	IpRangeFilter                 pulumi.StringPtrOutput        `pulumi:"ipRangeFilter"`
+	IpRangeFilters                pulumi.StringArrayOutput      `pulumi:"ipRangeFilters"`
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrOutput          `pulumi:"isVirtualNetworkFilterEnabled"`
 	KeyVaultKeyId                 pulumi.StringPtrOutput        `pulumi:"keyVaultKeyId"`
 	Kind                          pulumi.StringPtrOutput        `pulumi:"kind"`
@@ -212,9 +204,9 @@ type Account struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
-	MinimalTlsVersion             pulumi.StringOutput `pulumi:"minimalTlsVersion"`
-	MongoServerVersion            pulumi.StringOutput `pulumi:"mongoServerVersion"`
-	MultipleWriteLocationsEnabled pulumi.BoolOutput   `pulumi:"multipleWriteLocationsEnabled"`
+	MinimalTlsVersion             pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
+	MongoServerVersion            pulumi.StringOutput    `pulumi:"mongoServerVersion"`
+	MultipleWriteLocationsEnabled pulumi.BoolPtrOutput   `pulumi:"multipleWriteLocationsEnabled"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name                             pulumi.StringOutput      `pulumi:"name"`
 	NetworkAclBypassForAzureServices pulumi.BoolPtrOutput     `pulumi:"networkAclBypassForAzureServices"`
@@ -279,7 +271,6 @@ func NewAccount(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"connectionStrings",
 		"primaryKey",
 		"primaryMongodbConnectionString",
 		"primaryReadonlyKey",
@@ -326,9 +317,7 @@ type accountState struct {
 	BurstCapacityEnabled     *bool                     `pulumi:"burstCapacityEnabled"`
 	Capabilities             []AccountCapability       `pulumi:"capabilities"`
 	// A `capacity` block as defined below.
-	Capacity *AccountCapacity `pulumi:"capacity"`
-	// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-	ConnectionStrings []string                  `pulumi:"connectionStrings"`
+	Capacity          *AccountCapacity          `pulumi:"capacity"`
 	ConsistencyPolicy *AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
 	CorsRule          *AccountCorsRule          `pulumi:"corsRule"`
 	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
@@ -337,18 +326,12 @@ type accountState struct {
 	CreateMode *string `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
-	// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
-	// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableFreeTier *bool `pulumi:"enableFreeTier"`
-	// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint                      *string              `pulumi:"endpoint"`
 	FreeTierEnabled               *bool                `pulumi:"freeTierEnabled"`
 	GeoLocations                  []AccountGeoLocation `pulumi:"geoLocations"`
 	Identity                      *AccountIdentity     `pulumi:"identity"`
-	IpRangeFilter                 *string              `pulumi:"ipRangeFilter"`
+	IpRangeFilters                []string             `pulumi:"ipRangeFilters"`
 	IsVirtualNetworkFilterEnabled *bool                `pulumi:"isVirtualNetworkFilterEnabled"`
 	KeyVaultKeyId                 *string              `pulumi:"keyVaultKeyId"`
 	Kind                          *string              `pulumi:"kind"`
@@ -413,9 +396,7 @@ type AccountState struct {
 	BurstCapacityEnabled     pulumi.BoolPtrInput
 	Capabilities             AccountCapabilityArrayInput
 	// A `capacity` block as defined below.
-	Capacity AccountCapacityPtrInput
-	// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-	ConnectionStrings pulumi.StringArrayInput
+	Capacity          AccountCapacityPtrInput
 	ConsistencyPolicy AccountConsistencyPolicyPtrInput
 	CorsRule          AccountCorsRulePtrInput
 	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
@@ -424,18 +405,12 @@ type AccountState struct {
 	CreateMode pulumi.StringPtrInput
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType pulumi.StringPtrInput
-	// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableAutomaticFailover pulumi.BoolPtrInput
-	// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableFreeTier pulumi.BoolPtrInput
-	// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableMultipleWriteLocations pulumi.BoolPtrInput
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint                      pulumi.StringPtrInput
 	FreeTierEnabled               pulumi.BoolPtrInput
 	GeoLocations                  AccountGeoLocationArrayInput
 	Identity                      AccountIdentityPtrInput
-	IpRangeFilter                 pulumi.StringPtrInput
+	IpRangeFilters                pulumi.StringArrayInput
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
 	KeyVaultKeyId                 pulumi.StringPtrInput
 	Kind                          pulumi.StringPtrInput
@@ -512,17 +487,11 @@ type accountArgs struct {
 	// > **Note:** `createMode` can only be defined when the `backup.type` is set to `Continuous`.
 	CreateMode *string `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
-	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
-	// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
-	// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableFreeTier *bool `pulumi:"enableFreeTier"`
-	// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableMultipleWriteLocations  *bool                `pulumi:"enableMultipleWriteLocations"`
+	DefaultIdentityType           *string              `pulumi:"defaultIdentityType"`
 	FreeTierEnabled               *bool                `pulumi:"freeTierEnabled"`
 	GeoLocations                  []AccountGeoLocation `pulumi:"geoLocations"`
 	Identity                      *AccountIdentity     `pulumi:"identity"`
-	IpRangeFilter                 *string              `pulumi:"ipRangeFilter"`
+	IpRangeFilters                []string             `pulumi:"ipRangeFilters"`
 	IsVirtualNetworkFilterEnabled *bool                `pulumi:"isVirtualNetworkFilterEnabled"`
 	KeyVaultKeyId                 *string              `pulumi:"keyVaultKeyId"`
 	Kind                          *string              `pulumi:"kind"`
@@ -568,17 +537,11 @@ type AccountArgs struct {
 	// > **Note:** `createMode` can only be defined when the `backup.type` is set to `Continuous`.
 	CreateMode pulumi.StringPtrInput
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
-	DefaultIdentityType pulumi.StringPtrInput
-	// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableAutomaticFailover pulumi.BoolPtrInput
-	// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableFreeTier pulumi.BoolPtrInput
-	// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
-	EnableMultipleWriteLocations  pulumi.BoolPtrInput
+	DefaultIdentityType           pulumi.StringPtrInput
 	FreeTierEnabled               pulumi.BoolPtrInput
 	GeoLocations                  AccountGeoLocationArrayInput
 	Identity                      AccountIdentityPtrInput
-	IpRangeFilter                 pulumi.StringPtrInput
+	IpRangeFilters                pulumi.StringArrayInput
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
 	KeyVaultKeyId                 pulumi.StringPtrInput
 	Kind                          pulumi.StringPtrInput
@@ -705,8 +668,8 @@ func (o AccountOutput) AnalyticalStorageEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.AnalyticalStorageEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o AccountOutput) AutomaticFailoverEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.AutomaticFailoverEnabled }).(pulumi.BoolOutput)
+func (o AccountOutput) AutomaticFailoverEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.AutomaticFailoverEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o AccountOutput) Backup() AccountBackupOutput {
@@ -724,11 +687,6 @@ func (o AccountOutput) Capabilities() AccountCapabilityArrayOutput {
 // A `capacity` block as defined below.
 func (o AccountOutput) Capacity() AccountCapacityOutput {
 	return o.ApplyT(func(v *Account) AccountCapacityOutput { return v.Capacity }).(AccountCapacityOutput)
-}
-
-// Deprecated: This property has been superseded by the primary and secondary connection strings for sql, mongodb and readonly and will be removed in v4.0 of the AzureRM provider
-func (o AccountOutput) ConnectionStrings() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.ConnectionStrings }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountOutput) ConsistencyPolicy() AccountConsistencyPolicyOutput {
@@ -751,28 +709,13 @@ func (o AccountOutput) DefaultIdentityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.DefaultIdentityType }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: This property has been superseded by `automaticFailoverEnabled` and will be removed in v4.0 of the AzureRM Provider
-func (o AccountOutput) EnableAutomaticFailover() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.EnableAutomaticFailover }).(pulumi.BoolOutput)
-}
-
-// Deprecated: This property has been superseded by `freeTierEnabled` and will be removed in v4.0 of the AzureRM Provider
-func (o AccountOutput) EnableFreeTier() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.EnableFreeTier }).(pulumi.BoolOutput)
-}
-
-// Deprecated: This property has been superseded by `multipleWriteLocationsEnabled` and will be removed in v4.0 of the AzureRM Provider
-func (o AccountOutput) EnableMultipleWriteLocations() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.EnableMultipleWriteLocations }).(pulumi.BoolOutput)
-}
-
 // The endpoint used to connect to the CosmosDB account.
 func (o AccountOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-func (o AccountOutput) FreeTierEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.FreeTierEnabled }).(pulumi.BoolOutput)
+func (o AccountOutput) FreeTierEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.FreeTierEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o AccountOutput) GeoLocations() AccountGeoLocationArrayOutput {
@@ -783,8 +726,8 @@ func (o AccountOutput) Identity() AccountIdentityPtrOutput {
 	return o.ApplyT(func(v *Account) AccountIdentityPtrOutput { return v.Identity }).(AccountIdentityPtrOutput)
 }
 
-func (o AccountOutput) IpRangeFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.IpRangeFilter }).(pulumi.StringPtrOutput)
+func (o AccountOutput) IpRangeFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.IpRangeFilters }).(pulumi.StringArrayOutput)
 }
 
 func (o AccountOutput) IsVirtualNetworkFilterEnabled() pulumi.BoolPtrOutput {
@@ -809,16 +752,16 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 }
 
 // Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
-func (o AccountOutput) MinimalTlsVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.MinimalTlsVersion }).(pulumi.StringOutput)
+func (o AccountOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o AccountOutput) MongoServerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.MongoServerVersion }).(pulumi.StringOutput)
 }
 
-func (o AccountOutput) MultipleWriteLocationsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.MultipleWriteLocationsEnabled }).(pulumi.BoolOutput)
+func (o AccountOutput) MultipleWriteLocationsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.MultipleWriteLocationsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.

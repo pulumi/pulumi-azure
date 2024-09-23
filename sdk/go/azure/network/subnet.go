@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,10 +98,6 @@ type Subnet struct {
 	DefaultOutboundAccessEnabled pulumi.BoolPtrOutput `pulumi:"defaultOutboundAccessEnabled"`
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayOutput `pulumi:"delegations"`
-	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolOutput `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
-	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolOutput `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
@@ -111,13 +107,11 @@ type Subnet struct {
 	// > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
 	//
 	// > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
-	PrivateEndpointNetworkPolicies pulumi.StringOutput `pulumi:"privateEndpointNetworkPolicies"`
-	// Deprecated: `privateEndpointNetworkPoliciesEnabled` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-	PrivateEndpointNetworkPoliciesEnabled pulumi.BoolOutput `pulumi:"privateEndpointNetworkPoliciesEnabled"`
+	PrivateEndpointNetworkPolicies pulumi.StringPtrOutput `pulumi:"privateEndpointNetworkPolicies"`
 	// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 	//
 	// > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
-	PrivateLinkServiceNetworkPoliciesEnabled pulumi.BoolOutput `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
+	PrivateLinkServiceNetworkPoliciesEnabled pulumi.BoolPtrOutput `pulumi:"privateLinkServiceNetworkPoliciesEnabled"`
 	// The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The list of IDs of Service Endpoint Policies to associate with the subnet.
@@ -177,10 +171,6 @@ type subnetState struct {
 	DefaultOutboundAccessEnabled *bool `pulumi:"defaultOutboundAccessEnabled"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
-	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-	EnforcePrivateLinkEndpointNetworkPolicies *bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
-	EnforcePrivateLinkServiceNetworkPolicies *bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
@@ -191,8 +181,6 @@ type subnetState struct {
 	//
 	// > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
 	PrivateEndpointNetworkPolicies *string `pulumi:"privateEndpointNetworkPolicies"`
-	// Deprecated: `privateEndpointNetworkPoliciesEnabled` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-	PrivateEndpointNetworkPoliciesEnabled *bool `pulumi:"privateEndpointNetworkPoliciesEnabled"`
 	// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 	//
 	// > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
@@ -218,10 +206,6 @@ type SubnetState struct {
 	DefaultOutboundAccessEnabled pulumi.BoolPtrInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
-	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrInput
-	// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
-	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
@@ -232,8 +216,6 @@ type SubnetState struct {
 	//
 	// > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
 	PrivateEndpointNetworkPolicies pulumi.StringPtrInput
-	// Deprecated: `privateEndpointNetworkPoliciesEnabled` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-	PrivateEndpointNetworkPoliciesEnabled pulumi.BoolPtrInput
 	// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 	//
 	// > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
@@ -263,10 +245,6 @@ type subnetArgs struct {
 	DefaultOutboundAccessEnabled *bool `pulumi:"defaultOutboundAccessEnabled"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
-	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-	EnforcePrivateLinkEndpointNetworkPolicies *bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
-	EnforcePrivateLinkServiceNetworkPolicies *bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
@@ -277,8 +255,6 @@ type subnetArgs struct {
 	//
 	// > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
 	PrivateEndpointNetworkPolicies *string `pulumi:"privateEndpointNetworkPolicies"`
-	// Deprecated: `privateEndpointNetworkPoliciesEnabled` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-	PrivateEndpointNetworkPoliciesEnabled *bool `pulumi:"privateEndpointNetworkPoliciesEnabled"`
 	// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 	//
 	// > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
@@ -305,10 +281,6 @@ type SubnetArgs struct {
 	DefaultOutboundAccessEnabled pulumi.BoolPtrInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
-	// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-	EnforcePrivateLinkEndpointNetworkPolicies pulumi.BoolPtrInput
-	// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
-	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolPtrInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
@@ -319,8 +291,6 @@ type SubnetArgs struct {
 	//
 	// > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
 	PrivateEndpointNetworkPolicies pulumi.StringPtrInput
-	// Deprecated: `privateEndpointNetworkPoliciesEnabled` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-	PrivateEndpointNetworkPoliciesEnabled pulumi.BoolPtrInput
 	// Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 	//
 	// > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
@@ -441,16 +411,6 @@ func (o SubnetOutput) Delegations() SubnetDelegationArrayOutput {
 	return o.ApplyT(func(v *Subnet) SubnetDelegationArrayOutput { return v.Delegations }).(SubnetDelegationArrayOutput)
 }
 
-// Deprecated: `enforcePrivateLinkEndpointNetworkPolicies` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-func (o SubnetOutput) EnforcePrivateLinkEndpointNetworkPolicies() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Subnet) pulumi.BoolOutput { return v.EnforcePrivateLinkEndpointNetworkPolicies }).(pulumi.BoolOutput)
-}
-
-// Deprecated: `enforcePrivateLinkServiceNetworkPolicies` will be removed in favour of the property `privateLinkServiceNetworkPoliciesEnabled` in version 4.0 of the AzureRM Provider
-func (o SubnetOutput) EnforcePrivateLinkServiceNetworkPolicies() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Subnet) pulumi.BoolOutput { return v.EnforcePrivateLinkServiceNetworkPolicies }).(pulumi.BoolOutput)
-}
-
 // The name of the subnet. Changing this forces a new resource to be created.
 func (o SubnetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -463,20 +423,15 @@ func (o SubnetOutput) Name() pulumi.StringOutput {
 // > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
 //
 // > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
-func (o SubnetOutput) PrivateEndpointNetworkPolicies() pulumi.StringOutput {
-	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.PrivateEndpointNetworkPolicies }).(pulumi.StringOutput)
-}
-
-// Deprecated: `privateEndpointNetworkPoliciesEnabled` will be removed in favour of the property `privateEndpointNetworkPolicies` in version 4.0 of the AzureRM Provider
-func (o SubnetOutput) PrivateEndpointNetworkPoliciesEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Subnet) pulumi.BoolOutput { return v.PrivateEndpointNetworkPoliciesEnabled }).(pulumi.BoolOutput)
+func (o SubnetOutput) PrivateEndpointNetworkPolicies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.PrivateEndpointNetworkPolicies }).(pulumi.StringPtrOutput)
 }
 
 // Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 //
 // > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
-func (o SubnetOutput) PrivateLinkServiceNetworkPoliciesEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Subnet) pulumi.BoolOutput { return v.PrivateLinkServiceNetworkPoliciesEnabled }).(pulumi.BoolOutput)
+func (o SubnetOutput) PrivateLinkServiceNetworkPoliciesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.PrivateLinkServiceNetworkPoliciesEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.

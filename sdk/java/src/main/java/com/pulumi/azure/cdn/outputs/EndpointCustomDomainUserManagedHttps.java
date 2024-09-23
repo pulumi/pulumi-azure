@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,21 +13,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointCustomDomainUserManagedHttps {
     /**
-     * @return The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
-     * 
-     * @deprecated
-     * This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
-     * 
-     */
-    @Deprecated /* This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate */
-    private @Nullable String keyVaultCertificateId;
-    /**
      * @return The ID of the Key Vault Secret that contains the HTTPS certificate.
      * 
-     * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
-     * 
      */
-    private @Nullable String keyVaultSecretId;
+    private String keyVaultSecretId;
     /**
      * @return The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
      * 
@@ -35,24 +25,11 @@ public final class EndpointCustomDomainUserManagedHttps {
 
     private EndpointCustomDomainUserManagedHttps() {}
     /**
-     * @return The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
-     * 
-     * @deprecated
-     * This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
-     * 
-     */
-    @Deprecated /* This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate */
-    public Optional<String> keyVaultCertificateId() {
-        return Optional.ofNullable(this.keyVaultCertificateId);
-    }
-    /**
      * @return The ID of the Key Vault Secret that contains the HTTPS certificate.
      * 
-     * &gt; **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
-     * 
      */
-    public Optional<String> keyVaultSecretId() {
-        return Optional.ofNullable(this.keyVaultSecretId);
+    public String keyVaultSecretId() {
+        return this.keyVaultSecretId;
     }
     /**
      * @return The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
@@ -71,26 +48,20 @@ public final class EndpointCustomDomainUserManagedHttps {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String keyVaultCertificateId;
-        private @Nullable String keyVaultSecretId;
+        private String keyVaultSecretId;
         private @Nullable String tlsVersion;
         public Builder() {}
         public Builder(EndpointCustomDomainUserManagedHttps defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.keyVaultCertificateId = defaults.keyVaultCertificateId;
     	      this.keyVaultSecretId = defaults.keyVaultSecretId;
     	      this.tlsVersion = defaults.tlsVersion;
         }
 
         @CustomType.Setter
-        public Builder keyVaultCertificateId(@Nullable String keyVaultCertificateId) {
-
-            this.keyVaultCertificateId = keyVaultCertificateId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder keyVaultSecretId(@Nullable String keyVaultSecretId) {
-
+        public Builder keyVaultSecretId(String keyVaultSecretId) {
+            if (keyVaultSecretId == null) {
+              throw new MissingRequiredPropertyException("EndpointCustomDomainUserManagedHttps", "keyVaultSecretId");
+            }
             this.keyVaultSecretId = keyVaultSecretId;
             return this;
         }
@@ -102,7 +73,6 @@ public final class EndpointCustomDomainUserManagedHttps {
         }
         public EndpointCustomDomainUserManagedHttps build() {
             final var _resultValue = new EndpointCustomDomainUserManagedHttps();
-            _resultValue.keyVaultCertificateId = keyVaultCertificateId;
             _resultValue.keyVaultSecretId = keyVaultSecretId;
             _resultValue.tlsVersion = tlsVersion;
             return _resultValue;

@@ -56,6 +56,7 @@ namespace Pulumi.Azure.Monitoring
     ///     {
     ///         Name = "example-activitylogalert",
     ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Scopes = new[]
     ///         {
     ///             example.Id,
@@ -119,7 +120,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+        /// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -225,7 +226,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+        /// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -305,7 +306,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created. Defaults to `global`.
+        /// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

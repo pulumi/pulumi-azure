@@ -134,6 +134,8 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["shortTermRetentionDays"] = args ? args.shortTermRetentionDays : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:sql/managedDatabase:ManagedDatabase" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }

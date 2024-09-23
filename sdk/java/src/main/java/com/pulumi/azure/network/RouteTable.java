@@ -61,7 +61,6 @@ import javax.annotation.Nullable;
  *             .name("example-route-table")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .disableBgpRoutePropagation(false)
  *             .routes(RouteTableRouteArgs.builder()
  *                 .name("route1")
  *                 .addressPrefix("10.1.0.0/16")
@@ -87,29 +86,19 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/routeTable:RouteTable")
 public class RouteTable extends com.pulumi.resources.CustomResource {
+    /**
+     * Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+     * 
+     */
     @Export(name="bgpRoutePropagationEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> bgpRoutePropagationEnabled;
-
-    public Output<Boolean> bgpRoutePropagationEnabled() {
-        return this.bgpRoutePropagationEnabled;
-    }
-    /**
-     * Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-     * 
-     * @deprecated
-     * The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider. */
-    @Export(name="disableBgpRoutePropagation", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> disableBgpRoutePropagation;
+    private Output</* @Nullable */ Boolean> bgpRoutePropagationEnabled;
 
     /**
-     * @return Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+     * @return Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
      * 
      */
-    public Output<Boolean> disableBgpRoutePropagation() {
-        return this.disableBgpRoutePropagation;
+    public Output<Optional<Boolean>> bgpRoutePropagationEnabled() {
+        return Codegen.optional(this.bgpRoutePropagationEnabled);
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

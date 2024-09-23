@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -86,7 +86,7 @@ type Certificate struct {
 	// The description of this Automation Certificate.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The is exportable flag of the certificate.
-	Exportable pulumi.BoolOutput `pulumi:"exportable"`
+	Exportable pulumi.BoolPtrOutput `pulumi:"exportable"`
 	// Specifies the name of the Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
@@ -312,8 +312,8 @@ func (o CertificateOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The is exportable flag of the certificate.
-func (o CertificateOutput) Exportable() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.BoolOutput { return v.Exportable }).(pulumi.BoolOutput)
+func (o CertificateOutput) Exportable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.BoolPtrOutput { return v.Exportable }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the Certificate. Changing this forces a new resource to be created.

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     name: "rg-example",
@@ -21,7 +22,7 @@ import * as utilities from "../utilities";
  *     name: "example-job",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
+ * const exampleSqlServer = new azurerm.index.SqlServer("example", {
  *     name: "example-server",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
@@ -29,7 +30,7 @@ import * as utilities from "../utilities";
  *     administratorLogin: "dbadmin",
  *     administratorLoginPassword: "example-password",
  * });
- * const exampleDatabase = new azure.sql.Database("example", {
+ * const exampleSqlDatabase = new azurerm.index.SqlDatabase("example", {
  *     name: "exampledb",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
@@ -46,7 +47,7 @@ import * as utilities from "../utilities";
  *     server: exampleSqlServer.fullyQualifiedDomainName,
  *     user: exampleSqlServer.administratorLogin,
  *     password: exampleSqlServer.administratorLoginPassword,
- *     database: exampleDatabase.name,
+ *     database: exampleSqlDatabase.name,
  *     table: "ExampleTable",
  * });
  * ```

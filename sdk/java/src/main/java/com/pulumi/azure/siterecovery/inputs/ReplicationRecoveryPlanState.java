@@ -6,7 +6,6 @@ package com.pulumi.azure.siterecovery.inputs;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanAzureToAzureSettingsArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanFailoverRecoveryGroupArgs;
-import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanRecoveryGroupArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanShutdownRecoveryGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -90,33 +89,6 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
     }
 
     /**
-     * Three or more `recovery_group` block defined as below.
-     * 
-     * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-     * 
-     * @deprecated
-     * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-    @Import(name="recoveryGroups")
-    private @Nullable Output<List<ReplicationRecoveryPlanRecoveryGroupArgs>> recoveryGroups;
-
-    /**
-     * @return Three or more `recovery_group` block defined as below.
-     * 
-     * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-     * 
-     * @deprecated
-     * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
-     * 
-     */
-    @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-    public Optional<Output<List<ReplicationRecoveryPlanRecoveryGroupArgs>>> recoveryGroups() {
-        return Optional.ofNullable(this.recoveryGroups);
-    }
-
-    /**
      * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
@@ -187,7 +159,6 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
         this.bootRecoveryGroups = $.bootRecoveryGroups;
         this.failoverRecoveryGroup = $.failoverRecoveryGroup;
         this.name = $.name;
-        this.recoveryGroups = $.recoveryGroups;
         this.recoveryVaultId = $.recoveryVaultId;
         this.shutdownRecoveryGroup = $.shutdownRecoveryGroup;
         this.sourceRecoveryFabricId = $.sourceRecoveryFabricId;
@@ -314,55 +285,6 @@ public final class ReplicationRecoveryPlanState extends com.pulumi.resources.Res
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @param recoveryGroups Three or more `recovery_group` block defined as below.
-         * 
-         * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-        public Builder recoveryGroups(@Nullable Output<List<ReplicationRecoveryPlanRecoveryGroupArgs>> recoveryGroups) {
-            $.recoveryGroups = recoveryGroups;
-            return this;
-        }
-
-        /**
-         * @param recoveryGroups Three or more `recovery_group` block defined as below.
-         * 
-         * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-        public Builder recoveryGroups(List<ReplicationRecoveryPlanRecoveryGroupArgs> recoveryGroups) {
-            return recoveryGroups(Output.of(recoveryGroups));
-        }
-
-        /**
-         * @param recoveryGroups Three or more `recovery_group` block defined as below.
-         * 
-         * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
-         * 
-         */
-        @Deprecated /* the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider. */
-        public Builder recoveryGroups(ReplicationRecoveryPlanRecoveryGroupArgs... recoveryGroups) {
-            return recoveryGroups(List.of(recoveryGroups));
         }
 
         /**

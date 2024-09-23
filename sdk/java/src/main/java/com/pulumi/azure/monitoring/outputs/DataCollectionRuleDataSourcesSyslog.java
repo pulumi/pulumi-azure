@@ -8,7 +8,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class DataCollectionRuleDataSourcesSyslog {
@@ -30,10 +29,8 @@ public final class DataCollectionRuleDataSourcesSyslog {
     /**
      * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
      * 
-     * &gt; **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `[&#34;Microsoft-Syslog&#34;]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
-     * 
      */
-    private @Nullable List<String> streams;
+    private List<String> streams;
 
     private DataCollectionRuleDataSourcesSyslog() {}
     /**
@@ -60,11 +57,9 @@ public final class DataCollectionRuleDataSourcesSyslog {
     /**
      * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
      * 
-     * &gt; **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `[&#34;Microsoft-Syslog&#34;]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
-     * 
      */
     public List<String> streams() {
-        return this.streams == null ? List.of() : this.streams;
+        return this.streams;
     }
 
     public static Builder builder() {
@@ -79,7 +74,7 @@ public final class DataCollectionRuleDataSourcesSyslog {
         private List<String> facilityNames;
         private List<String> logLevels;
         private String name;
-        private @Nullable List<String> streams;
+        private List<String> streams;
         public Builder() {}
         public Builder(DataCollectionRuleDataSourcesSyslog defaults) {
     	      Objects.requireNonNull(defaults);
@@ -120,8 +115,10 @@ public final class DataCollectionRuleDataSourcesSyslog {
             return this;
         }
         @CustomType.Setter
-        public Builder streams(@Nullable List<String> streams) {
-
+        public Builder streams(List<String> streams) {
+            if (streams == null) {
+              throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesSyslog", "streams");
+            }
             this.streams = streams;
             return this;
         }

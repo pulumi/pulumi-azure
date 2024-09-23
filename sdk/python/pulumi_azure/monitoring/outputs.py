@@ -18,8 +18,6 @@ from . import outputs
 __all__ = [
     'AadDiagnosticSettingEnabledLog',
     'AadDiagnosticSettingEnabledLogRetentionPolicy',
-    'AadDiagnosticSettingLog',
-    'AadDiagnosticSettingLogRetentionPolicy',
     'ActionGroupArmRoleReceiver',
     'ActionGroupAutomationRunbookReceiver',
     'ActionGroupAzureAppPushReceiver',
@@ -32,26 +30,6 @@ __all__ = [
     'ActionGroupVoiceReceiver',
     'ActionGroupWebhookReceiver',
     'ActionGroupWebhookReceiverAadAuth',
-    'ActionRuleActionGroupCondition',
-    'ActionRuleActionGroupConditionAlertContext',
-    'ActionRuleActionGroupConditionAlertRuleId',
-    'ActionRuleActionGroupConditionDescription',
-    'ActionRuleActionGroupConditionMonitor',
-    'ActionRuleActionGroupConditionMonitorService',
-    'ActionRuleActionGroupConditionSeverity',
-    'ActionRuleActionGroupConditionTargetResourceType',
-    'ActionRuleActionGroupScope',
-    'ActionRuleSuppressionCondition',
-    'ActionRuleSuppressionConditionAlertContext',
-    'ActionRuleSuppressionConditionAlertRuleId',
-    'ActionRuleSuppressionConditionDescription',
-    'ActionRuleSuppressionConditionMonitor',
-    'ActionRuleSuppressionConditionMonitorService',
-    'ActionRuleSuppressionConditionSeverity',
-    'ActionRuleSuppressionConditionTargetResourceType',
-    'ActionRuleSuppressionScope',
-    'ActionRuleSuppressionSuppression',
-    'ActionRuleSuppressionSuppressionSchedule',
     'ActivityLogAlertAction',
     'ActivityLogAlertCriteria',
     'ActivityLogAlertCriteriaResourceHealth',
@@ -135,16 +113,8 @@ __all__ = [
     'DataCollectionRuleStreamDeclarationColumn',
     'DiagnosticSettingEnabledLog',
     'DiagnosticSettingEnabledLogRetentionPolicy',
-    'DiagnosticSettingLog',
-    'DiagnosticSettingLogRetentionPolicy',
     'DiagnosticSettingMetric',
     'DiagnosticSettingMetricRetentionPolicy',
-    'LogProfileRetentionPolicy',
-    'LogzMonitorPlan',
-    'LogzMonitorUser',
-    'LogzSubAccountTagRuleTagFilter',
-    'LogzSubAccountUser',
-    'LogzTagRuleTagFilter',
     'MetricAlertAction',
     'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria',
     'MetricAlertCriteria',
@@ -202,7 +172,6 @@ __all__ = [
     'GetDataCollectionRuleIdentityResult',
     'GetDataCollectionRuleStreamDeclarationResult',
     'GetDataCollectionRuleStreamDeclarationColumnResult',
-    'GetLogProfileRetentionPolicyResult',
     'GetScheduledQueryRulesAlertActionResult',
     'GetScheduledQueryRulesAlertTriggerResult',
     'GetScheduledQueryRulesAlertTriggerMetricTriggerResult',
@@ -258,95 +227,6 @@ class AadDiagnosticSettingEnabledLog(dict):
 
 @pulumi.output_type
 class AadDiagnosticSettingEnabledLogRetentionPolicy(dict):
-    def __init__(__self__, *,
-                 days: Optional[int] = None,
-                 enabled: Optional[bool] = None):
-        """
-        :param int days: The number of days for which this Retention Policy should apply. Defaults to `0`.
-        :param bool enabled: Is this Retention Policy enabled? Defaults to `false`.
-        """
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def days(self) -> Optional[int]:
-        """
-        The number of days for which this Retention Policy should apply. Defaults to `0`.
-        """
-        return pulumi.get(self, "days")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Is this Retention Policy enabled? Defaults to `false`.
-        """
-        return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class AadDiagnosticSettingLog(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "retentionPolicy":
-            suggest = "retention_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AadDiagnosticSettingLog. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AadDiagnosticSettingLog.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AadDiagnosticSettingLog.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 category: str,
-                 retention_policy: 'outputs.AadDiagnosticSettingLogRetentionPolicy',
-                 enabled: Optional[bool] = None):
-        """
-        :param str category: The log category for the Azure Active Directory Diagnostic.
-        :param 'AadDiagnosticSettingLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
-        :param bool enabled: Is this Diagnostic Log enabled? Defaults to `true`.
-        """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "retention_policy", retention_policy)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def category(self) -> str:
-        """
-        The log category for the Azure Active Directory Diagnostic.
-        """
-        return pulumi.get(self, "category")
-
-    @property
-    @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> 'outputs.AadDiagnosticSettingLogRetentionPolicy':
-        """
-        A `retention_policy` block as defined below.
-        """
-        return pulumi.get(self, "retention_policy")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Is this Diagnostic Log enabled? Defaults to `true`.
-        """
-        return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class AadDiagnosticSettingLogRetentionPolicy(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None,
                  enabled: Optional[bool] = None):
@@ -745,9 +625,7 @@ class ActionGroupEventHubReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "eventHubId":
-            suggest = "event_hub_id"
-        elif key == "eventHubName":
+        if key == "eventHubName":
             suggest = "event_hub_name"
         elif key == "eventHubNamespace":
             suggest = "event_hub_namespace"
@@ -770,37 +648,45 @@ class ActionGroupEventHubReceiver(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 event_hub_name: str,
+                 event_hub_namespace: str,
                  name: str,
-                 event_hub_id: Optional[str] = None,
-                 event_hub_name: Optional[str] = None,
-                 event_hub_namespace: Optional[str] = None,
                  subscription_id: Optional[str] = None,
                  tenant_id: Optional[str] = None,
                  use_common_alert_schema: Optional[bool] = None):
         """
-        :param str name: The name of the EventHub Receiver, must be unique within action group.
-        :param str event_hub_id: The resource ID of the respective Event Hub.
         :param str event_hub_name: The name of the specific Event Hub queue.
         :param str event_hub_namespace: The namespace name of the Event Hub.
+        :param str name: The name of the EventHub Receiver, must be unique within action group.
         :param str subscription_id: The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
-               
-               > **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
         :param str tenant_id: The Tenant ID for the subscription containing this Event Hub.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        pulumi.set(__self__, "event_hub_namespace", event_hub_namespace)
         pulumi.set(__self__, "name", name)
-        if event_hub_id is not None:
-            pulumi.set(__self__, "event_hub_id", event_hub_id)
-        if event_hub_name is not None:
-            pulumi.set(__self__, "event_hub_name", event_hub_name)
-        if event_hub_namespace is not None:
-            pulumi.set(__self__, "event_hub_namespace", event_hub_namespace)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
         if use_common_alert_schema is not None:
             pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> str:
+        """
+        The name of the specific Event Hub queue.
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter(name="eventHubNamespace")
+    def event_hub_namespace(self) -> str:
+        """
+        The namespace name of the Event Hub.
+        """
+        return pulumi.get(self, "event_hub_namespace")
 
     @property
     @pulumi.getter
@@ -811,37 +697,10 @@ class ActionGroupEventHubReceiver(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="eventHubId")
-    @_utilities.deprecated("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
-    def event_hub_id(self) -> Optional[str]:
-        """
-        The resource ID of the respective Event Hub.
-        """
-        return pulumi.get(self, "event_hub_id")
-
-    @property
-    @pulumi.getter(name="eventHubName")
-    def event_hub_name(self) -> Optional[str]:
-        """
-        The name of the specific Event Hub queue.
-        """
-        return pulumi.get(self, "event_hub_name")
-
-    @property
-    @pulumi.getter(name="eventHubNamespace")
-    def event_hub_namespace(self) -> Optional[str]:
-        """
-        The namespace name of the Event Hub.
-        """
-        return pulumi.get(self, "event_hub_namespace")
-
-    @property
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> Optional[str]:
         """
         The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
-
-        > **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -1282,855 +1141,6 @@ class ActionGroupWebhookReceiverAadAuth(dict):
 
 
 @pulumi.output_type
-class ActionRuleActionGroupCondition(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "alertContext":
-            suggest = "alert_context"
-        elif key == "alertRuleId":
-            suggest = "alert_rule_id"
-        elif key == "monitorService":
-            suggest = "monitor_service"
-        elif key == "targetResourceType":
-            suggest = "target_resource_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ActionRuleActionGroupCondition. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ActionRuleActionGroupCondition.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ActionRuleActionGroupCondition.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 alert_context: Optional['outputs.ActionRuleActionGroupConditionAlertContext'] = None,
-                 alert_rule_id: Optional['outputs.ActionRuleActionGroupConditionAlertRuleId'] = None,
-                 description: Optional['outputs.ActionRuleActionGroupConditionDescription'] = None,
-                 monitor: Optional['outputs.ActionRuleActionGroupConditionMonitor'] = None,
-                 monitor_service: Optional['outputs.ActionRuleActionGroupConditionMonitorService'] = None,
-                 severity: Optional['outputs.ActionRuleActionGroupConditionSeverity'] = None,
-                 target_resource_type: Optional['outputs.ActionRuleActionGroupConditionTargetResourceType'] = None):
-        """
-        :param 'ActionRuleActionGroupConditionAlertContextArgs' alert_context: A `alert_context` block as defined below.
-        :param 'ActionRuleActionGroupConditionAlertRuleIdArgs' alert_rule_id: A `alert_rule_id` block as defined below.
-        :param 'ActionRuleActionGroupConditionDescriptionArgs' description: A `description` block as defined below.
-        :param 'ActionRuleActionGroupConditionMonitorArgs' monitor: A `monitor` block as defined below.
-        :param 'ActionRuleActionGroupConditionMonitorServiceArgs' monitor_service: A `monitor_service` block as defined below.
-        :param 'ActionRuleActionGroupConditionSeverityArgs' severity: A `severity` block as defined below.
-        :param 'ActionRuleActionGroupConditionTargetResourceTypeArgs' target_resource_type: A `target_resource_type` block as defined below.
-        """
-        if alert_context is not None:
-            pulumi.set(__self__, "alert_context", alert_context)
-        if alert_rule_id is not None:
-            pulumi.set(__self__, "alert_rule_id", alert_rule_id)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
-        if monitor_service is not None:
-            pulumi.set(__self__, "monitor_service", monitor_service)
-        if severity is not None:
-            pulumi.set(__self__, "severity", severity)
-        if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
-
-    @property
-    @pulumi.getter(name="alertContext")
-    def alert_context(self) -> Optional['outputs.ActionRuleActionGroupConditionAlertContext']:
-        """
-        A `alert_context` block as defined below.
-        """
-        return pulumi.get(self, "alert_context")
-
-    @property
-    @pulumi.getter(name="alertRuleId")
-    def alert_rule_id(self) -> Optional['outputs.ActionRuleActionGroupConditionAlertRuleId']:
-        """
-        A `alert_rule_id` block as defined below.
-        """
-        return pulumi.get(self, "alert_rule_id")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional['outputs.ActionRuleActionGroupConditionDescription']:
-        """
-        A `description` block as defined below.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def monitor(self) -> Optional['outputs.ActionRuleActionGroupConditionMonitor']:
-        """
-        A `monitor` block as defined below.
-        """
-        return pulumi.get(self, "monitor")
-
-    @property
-    @pulumi.getter(name="monitorService")
-    def monitor_service(self) -> Optional['outputs.ActionRuleActionGroupConditionMonitorService']:
-        """
-        A `monitor_service` block as defined below.
-        """
-        return pulumi.get(self, "monitor_service")
-
-    @property
-    @pulumi.getter
-    def severity(self) -> Optional['outputs.ActionRuleActionGroupConditionSeverity']:
-        """
-        A `severity` block as defined below.
-        """
-        return pulumi.get(self, "severity")
-
-    @property
-    @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> Optional['outputs.ActionRuleActionGroupConditionTargetResourceType']:
-        """
-        A `target_resource_type` block as defined below.
-        """
-        return pulumi.get(self, "target_resource_type")
-
-
-@pulumi.output_type
-class ActionRuleActionGroupConditionAlertContext(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param Sequence[str] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleActionGroupConditionAlertRuleId(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param Sequence[str] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleActionGroupConditionDescription(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param Sequence[str] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleActionGroupConditionMonitor(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param Sequence[str] values: A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleActionGroupConditionMonitorService(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param Sequence[str] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleActionGroupConditionSeverity(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-        :param Sequence[str] values: A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleActionGroupConditionTargetResourceType(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param Sequence[str] values: A list of values to match for a given condition. The values should be valid resource types.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition. The values should be valid resource types.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleActionGroupScope(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceIds":
-            suggest = "resource_ids"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ActionRuleActionGroupScope. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ActionRuleActionGroupScope.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ActionRuleActionGroupScope.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 resource_ids: Sequence[str],
-                 type: str):
-        """
-        :param Sequence[str] resource_ids: A list of resource IDs of the given scope type which will be the target of action rule.
-        :param str type: Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-        """
-        pulumi.set(__self__, "resource_ids", resource_ids)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="resourceIds")
-    def resource_ids(self) -> Sequence[str]:
-        """
-        A list of resource IDs of the given scope type which will be the target of action rule.
-        """
-        return pulumi.get(self, "resource_ids")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ActionRuleSuppressionCondition(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "alertContext":
-            suggest = "alert_context"
-        elif key == "alertRuleId":
-            suggest = "alert_rule_id"
-        elif key == "monitorService":
-            suggest = "monitor_service"
-        elif key == "targetResourceType":
-            suggest = "target_resource_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ActionRuleSuppressionCondition. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ActionRuleSuppressionCondition.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ActionRuleSuppressionCondition.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 alert_context: Optional['outputs.ActionRuleSuppressionConditionAlertContext'] = None,
-                 alert_rule_id: Optional['outputs.ActionRuleSuppressionConditionAlertRuleId'] = None,
-                 description: Optional['outputs.ActionRuleSuppressionConditionDescription'] = None,
-                 monitor: Optional['outputs.ActionRuleSuppressionConditionMonitor'] = None,
-                 monitor_service: Optional['outputs.ActionRuleSuppressionConditionMonitorService'] = None,
-                 severity: Optional['outputs.ActionRuleSuppressionConditionSeverity'] = None,
-                 target_resource_type: Optional['outputs.ActionRuleSuppressionConditionTargetResourceType'] = None):
-        """
-        :param 'ActionRuleSuppressionConditionAlertContextArgs' alert_context: A `alert_context` block as defined below.
-        :param 'ActionRuleSuppressionConditionAlertRuleIdArgs' alert_rule_id: A `alert_rule_id` block as defined below.
-        :param 'ActionRuleSuppressionConditionDescriptionArgs' description: A `description` block as defined below.
-        :param 'ActionRuleSuppressionConditionMonitorArgs' monitor: A `monitor` block as defined below.
-        :param 'ActionRuleSuppressionConditionMonitorServiceArgs' monitor_service: A `monitor_service` block as defined below.
-        :param 'ActionRuleSuppressionConditionSeverityArgs' severity: A `severity` block as defined below.
-        :param 'ActionRuleSuppressionConditionTargetResourceTypeArgs' target_resource_type: A `target_resource_type` block as defined below.
-        """
-        if alert_context is not None:
-            pulumi.set(__self__, "alert_context", alert_context)
-        if alert_rule_id is not None:
-            pulumi.set(__self__, "alert_rule_id", alert_rule_id)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
-        if monitor_service is not None:
-            pulumi.set(__self__, "monitor_service", monitor_service)
-        if severity is not None:
-            pulumi.set(__self__, "severity", severity)
-        if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
-
-    @property
-    @pulumi.getter(name="alertContext")
-    def alert_context(self) -> Optional['outputs.ActionRuleSuppressionConditionAlertContext']:
-        """
-        A `alert_context` block as defined below.
-        """
-        return pulumi.get(self, "alert_context")
-
-    @property
-    @pulumi.getter(name="alertRuleId")
-    def alert_rule_id(self) -> Optional['outputs.ActionRuleSuppressionConditionAlertRuleId']:
-        """
-        A `alert_rule_id` block as defined below.
-        """
-        return pulumi.get(self, "alert_rule_id")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional['outputs.ActionRuleSuppressionConditionDescription']:
-        """
-        A `description` block as defined below.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def monitor(self) -> Optional['outputs.ActionRuleSuppressionConditionMonitor']:
-        """
-        A `monitor` block as defined below.
-        """
-        return pulumi.get(self, "monitor")
-
-    @property
-    @pulumi.getter(name="monitorService")
-    def monitor_service(self) -> Optional['outputs.ActionRuleSuppressionConditionMonitorService']:
-        """
-        A `monitor_service` block as defined below.
-        """
-        return pulumi.get(self, "monitor_service")
-
-    @property
-    @pulumi.getter
-    def severity(self) -> Optional['outputs.ActionRuleSuppressionConditionSeverity']:
-        """
-        A `severity` block as defined below.
-        """
-        return pulumi.get(self, "severity")
-
-    @property
-    @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> Optional['outputs.ActionRuleSuppressionConditionTargetResourceType']:
-        """
-        A `target_resource_type` block as defined below.
-        """
-        return pulumi.get(self, "target_resource_type")
-
-
-@pulumi.output_type
-class ActionRuleSuppressionConditionAlertContext(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param Sequence[str] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleSuppressionConditionAlertRuleId(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param Sequence[str] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleSuppressionConditionDescription(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        :param Sequence[str] values: A list of values to match for a given condition.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleSuppressionConditionMonitor(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param Sequence[str] values: A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleSuppressionConditionMonitorService(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param Sequence[str] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleSuppressionConditionSeverity(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-        :param Sequence[str] values: A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals`and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleSuppressionConditionTargetResourceType(dict):
-    def __init__(__self__, *,
-                 operator: str,
-                 values: Sequence[str]):
-        """
-        :param str operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        :param Sequence[str] values: A list of values to match for a given condition. The values should be valid resource types.
-        """
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> str:
-        """
-        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        A list of values to match for a given condition. The values should be valid resource types.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class ActionRuleSuppressionScope(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceIds":
-            suggest = "resource_ids"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ActionRuleSuppressionScope. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ActionRuleSuppressionScope.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ActionRuleSuppressionScope.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 resource_ids: Sequence[str],
-                 type: str):
-        """
-        :param Sequence[str] resource_ids: A list of resource IDs of the given scope type which will be the target of action rule.
-        :param str type: Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-        """
-        pulumi.set(__self__, "resource_ids", resource_ids)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="resourceIds")
-    def resource_ids(self) -> Sequence[str]:
-        """
-        A list of resource IDs of the given scope type which will be the target of action rule.
-        """
-        return pulumi.get(self, "resource_ids")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ActionRuleSuppressionSuppression(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "recurrenceType":
-            suggest = "recurrence_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ActionRuleSuppressionSuppression. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ActionRuleSuppressionSuppression.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ActionRuleSuppressionSuppression.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 recurrence_type: str,
-                 schedule: Optional['outputs.ActionRuleSuppressionSuppressionSchedule'] = None):
-        """
-        :param str recurrence_type: Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
-        :param 'ActionRuleSuppressionSuppressionScheduleArgs' schedule: A `schedule` block as defined below. Required if `recurrence_type` is `Daily`, `Monthly`, `Once` or `Weekly`.
-        """
-        pulumi.set(__self__, "recurrence_type", recurrence_type)
-        if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
-
-    @property
-    @pulumi.getter(name="recurrenceType")
-    def recurrence_type(self) -> str:
-        """
-        Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
-        """
-        return pulumi.get(self, "recurrence_type")
-
-    @property
-    @pulumi.getter
-    def schedule(self) -> Optional['outputs.ActionRuleSuppressionSuppressionSchedule']:
-        """
-        A `schedule` block as defined below. Required if `recurrence_type` is `Daily`, `Monthly`, `Once` or `Weekly`.
-        """
-        return pulumi.get(self, "schedule")
-
-
-@pulumi.output_type
-class ActionRuleSuppressionSuppressionSchedule(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "endDateUtc":
-            suggest = "end_date_utc"
-        elif key == "startDateUtc":
-            suggest = "start_date_utc"
-        elif key == "recurrenceMonthlies":
-            suggest = "recurrence_monthlies"
-        elif key == "recurrenceWeeklies":
-            suggest = "recurrence_weeklies"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ActionRuleSuppressionSuppressionSchedule. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ActionRuleSuppressionSuppressionSchedule.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ActionRuleSuppressionSuppressionSchedule.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 end_date_utc: str,
-                 start_date_utc: str,
-                 recurrence_monthlies: Optional[Sequence[int]] = None,
-                 recurrence_weeklies: Optional[Sequence[str]] = None):
-        """
-        :param str end_date_utc: specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
-        :param str start_date_utc: specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
-        :param Sequence[int] recurrence_monthlies: specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrence_type` is `Monthly`.
-        :param Sequence[str] recurrence_weeklies: specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-        """
-        pulumi.set(__self__, "end_date_utc", end_date_utc)
-        pulumi.set(__self__, "start_date_utc", start_date_utc)
-        if recurrence_monthlies is not None:
-            pulumi.set(__self__, "recurrence_monthlies", recurrence_monthlies)
-        if recurrence_weeklies is not None:
-            pulumi.set(__self__, "recurrence_weeklies", recurrence_weeklies)
-
-    @property
-    @pulumi.getter(name="endDateUtc")
-    def end_date_utc(self) -> str:
-        """
-        specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
-        """
-        return pulumi.get(self, "end_date_utc")
-
-    @property
-    @pulumi.getter(name="startDateUtc")
-    def start_date_utc(self) -> str:
-        """
-        specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
-        """
-        return pulumi.get(self, "start_date_utc")
-
-    @property
-    @pulumi.getter(name="recurrenceMonthlies")
-    def recurrence_monthlies(self) -> Optional[Sequence[int]]:
-        """
-        specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrence_type` is `Monthly`.
-        """
-        return pulumi.get(self, "recurrence_monthlies")
-
-    @property
-    @pulumi.getter(name="recurrenceWeeklies")
-    def recurrence_weeklies(self) -> Optional[Sequence[str]]:
-        """
-        specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-        """
-        return pulumi.get(self, "recurrence_weeklies")
-
-
-@pulumi.output_type
 class ActivityLogAlertAction(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2196,8 +1206,8 @@ class ActivityLogAlertCriteria(dict):
             suggest = "resource_group"
         elif key == "resourceGroups":
             suggest = "resource_groups"
-        elif key == "resourceHealths":
-            suggest = "resource_healths"
+        elif key == "resourceHealth":
+            suggest = "resource_health"
         elif key == "resourceId":
             suggest = "resource_id"
         elif key == "resourceIds":
@@ -2210,8 +1220,8 @@ class ActivityLogAlertCriteria(dict):
             suggest = "resource_type"
         elif key == "resourceTypes":
             suggest = "resource_types"
-        elif key == "serviceHealths":
-            suggest = "service_healths"
+        elif key == "serviceHealth":
+            suggest = "service_health"
         elif key == "subStatus":
             suggest = "sub_status"
         elif key == "subStatuses":
@@ -2239,14 +1249,14 @@ class ActivityLogAlertCriteria(dict):
                  recommendation_type: Optional[str] = None,
                  resource_group: Optional[str] = None,
                  resource_groups: Optional[Sequence[str]] = None,
-                 resource_healths: Optional[Sequence['outputs.ActivityLogAlertCriteriaResourceHealth']] = None,
+                 resource_health: Optional['outputs.ActivityLogAlertCriteriaResourceHealth'] = None,
                  resource_id: Optional[str] = None,
                  resource_ids: Optional[Sequence[str]] = None,
                  resource_provider: Optional[str] = None,
                  resource_providers: Optional[Sequence[str]] = None,
                  resource_type: Optional[str] = None,
                  resource_types: Optional[Sequence[str]] = None,
-                 service_healths: Optional[Sequence['outputs.ActivityLogAlertCriteriaServiceHealth']] = None,
+                 service_health: Optional['outputs.ActivityLogAlertCriteriaServiceHealth'] = None,
                  status: Optional[str] = None,
                  statuses: Optional[Sequence[str]] = None,
                  sub_status: Optional[str] = None,
@@ -2266,7 +1276,7 @@ class ActivityLogAlertCriteria(dict):
         :param Sequence[str] resource_groups: A list of names of resource groups monitored by the activity log alert.
                
                > **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
-        :param Sequence['ActivityLogAlertCriteriaResourceHealthArgs'] resource_healths: A block to define fine grain resource health settings.
+        :param 'ActivityLogAlertCriteriaResourceHealthArgs' resource_health: A block to define fine grain resource health settings.
         :param str resource_id: The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
         :param Sequence[str] resource_ids: A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
                
@@ -2279,7 +1289,7 @@ class ActivityLogAlertCriteria(dict):
         :param Sequence[str] resource_types: A list of resource types monitored by the activity log alert.
                
                > **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
-        :param Sequence['ActivityLogAlertCriteriaServiceHealthArgs'] service_healths: A block to define fine grain service health settings.
+        :param 'ActivityLogAlertCriteriaServiceHealthArgs' service_health: A block to define fine grain service health settings.
         :param str status: The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
         :param Sequence[str] statuses: A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
                
@@ -2308,8 +1318,8 @@ class ActivityLogAlertCriteria(dict):
             pulumi.set(__self__, "resource_group", resource_group)
         if resource_groups is not None:
             pulumi.set(__self__, "resource_groups", resource_groups)
-        if resource_healths is not None:
-            pulumi.set(__self__, "resource_healths", resource_healths)
+        if resource_health is not None:
+            pulumi.set(__self__, "resource_health", resource_health)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if resource_ids is not None:
@@ -2322,8 +1332,8 @@ class ActivityLogAlertCriteria(dict):
             pulumi.set(__self__, "resource_type", resource_type)
         if resource_types is not None:
             pulumi.set(__self__, "resource_types", resource_types)
-        if service_healths is not None:
-            pulumi.set(__self__, "service_healths", service_healths)
+        if service_health is not None:
+            pulumi.set(__self__, "service_health", service_health)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if statuses is not None:
@@ -2418,12 +1428,12 @@ class ActivityLogAlertCriteria(dict):
         return pulumi.get(self, "resource_groups")
 
     @property
-    @pulumi.getter(name="resourceHealths")
-    def resource_healths(self) -> Optional[Sequence['outputs.ActivityLogAlertCriteriaResourceHealth']]:
+    @pulumi.getter(name="resourceHealth")
+    def resource_health(self) -> Optional['outputs.ActivityLogAlertCriteriaResourceHealth']:
         """
         A block to define fine grain resource health settings.
         """
-        return pulumi.get(self, "resource_healths")
+        return pulumi.get(self, "resource_health")
 
     @property
     @pulumi.getter(name="resourceId")
@@ -2480,12 +1490,12 @@ class ActivityLogAlertCriteria(dict):
         return pulumi.get(self, "resource_types")
 
     @property
-    @pulumi.getter(name="serviceHealths")
-    def service_healths(self) -> Optional[Sequence['outputs.ActivityLogAlertCriteriaServiceHealth']]:
+    @pulumi.getter(name="serviceHealth")
+    def service_health(self) -> Optional['outputs.ActivityLogAlertCriteriaServiceHealth']:
         """
         A block to define fine grain service health settings.
         """
-        return pulumi.get(self, "service_healths")
+        return pulumi.get(self, "service_health")
 
     @property
     @pulumi.getter
@@ -5967,20 +4977,17 @@ class DataCollectionRuleDataSourcesSyslog(dict):
                  facility_names: Sequence[str],
                  log_levels: Sequence[str],
                  name: str,
-                 streams: Optional[Sequence[str]] = None):
+                 streams: Sequence[str]):
         """
         :param Sequence[str] facility_names: Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `alert`, `*`, `audit`, `auth`, `authpriv`, `clock`, `cron`, `daemon`, `ftp`, `kern`, `local5`, `local4`, `local1`, `local7`, `local6`, `local3`, `local2`, `local0`, `lpr`, `mail`, `mark`, `news`, `nopri`, `ntp`, `syslog`, `user` and `uucp`.
         :param Sequence[str] log_levels: Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
         :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
-               
-               > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
         """
         pulumi.set(__self__, "facility_names", facility_names)
         pulumi.set(__self__, "log_levels", log_levels)
         pulumi.set(__self__, "name", name)
-        if streams is not None:
-            pulumi.set(__self__, "streams", streams)
+        pulumi.set(__self__, "streams", streams)
 
     @property
     @pulumi.getter(name="facilityNames")
@@ -6008,11 +5015,9 @@ class DataCollectionRuleDataSourcesSyslog(dict):
 
     @property
     @pulumi.getter
-    def streams(self) -> Optional[Sequence[str]]:
+    def streams(self) -> Sequence[str]:
         """
         Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
-
-        > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
         """
         return pulumi.get(self, "streams")
 
@@ -6812,9 +5817,6 @@ class DiagnosticSettingEnabledLog(dict):
                > **NOTE:** Not all resources have category groups available.
                
                > **NOTE:** Exactly one of `category` or `category_group` must be specified.
-        :param 'DiagnosticSettingEnabledLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
-               
-               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
         if category is not None:
             pulumi.set(__self__, "category", category)
@@ -6849,11 +5851,6 @@ class DiagnosticSettingEnabledLog(dict):
     @pulumi.getter(name="retentionPolicy")
     @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
     def retention_policy(self) -> Optional['outputs.DiagnosticSettingEnabledLogRetentionPolicy']:
-        """
-        A `retention_policy` block as defined below.
-
-        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-        """
         return pulumi.get(self, "retention_policy")
 
 
@@ -6863,11 +5860,7 @@ class DiagnosticSettingEnabledLogRetentionPolicy(dict):
                  enabled: bool,
                  days: Optional[int] = None):
         """
-        :param bool enabled: Is this Retention Policy enabled?
-        :param int days: The number of days for which this Retention Policy should apply.
-               
-               
-               > **NOTE:** Setting this to `0` will retain the events indefinitely.
+        :param bool enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
@@ -6877,146 +5870,13 @@ class DiagnosticSettingEnabledLogRetentionPolicy(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is this Retention Policy enabled?
+        Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def days(self) -> Optional[int]:
-        """
-        The number of days for which this Retention Policy should apply.
-
-
-        > **NOTE:** Setting this to `0` will retain the events indefinitely.
-        """
-        return pulumi.get(self, "days")
-
-
-@pulumi.output_type
-class DiagnosticSettingLog(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "categoryGroup":
-            suggest = "category_group"
-        elif key == "retentionPolicy":
-            suggest = "retention_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DiagnosticSettingLog. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DiagnosticSettingLog.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DiagnosticSettingLog.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 category: Optional[str] = None,
-                 category_group: Optional[str] = None,
-                 enabled: Optional[bool] = None,
-                 retention_policy: Optional['outputs.DiagnosticSettingLogRetentionPolicy'] = None):
-        """
-        :param str category: The name of a Diagnostic Log Category for this Resource.
-               
-               > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
-        :param str category_group: The name of a Diagnostic Log Category Group for this Resource.
-               
-               > **NOTE:** Not all resources have category groups available.
-               
-               > **NOTE:** Exactly one of `category` or `category_group` must be specified.
-        :param bool enabled: Is this Diagnostic Log enabled? Defaults to `true`.
-        :param 'DiagnosticSettingLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
-               
-               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-        """
-        if category is not None:
-            pulumi.set(__self__, "category", category)
-        if category_group is not None:
-            pulumi.set(__self__, "category_group", category_group)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
-
-    @property
-    @pulumi.getter
-    def category(self) -> Optional[str]:
-        """
-        The name of a Diagnostic Log Category for this Resource.
-
-        > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
-        """
-        return pulumi.get(self, "category")
-
-    @property
-    @pulumi.getter(name="categoryGroup")
-    def category_group(self) -> Optional[str]:
-        """
-        The name of a Diagnostic Log Category Group for this Resource.
-
-        > **NOTE:** Not all resources have category groups available.
-
-        > **NOTE:** Exactly one of `category` or `category_group` must be specified.
-        """
-        return pulumi.get(self, "category_group")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Is this Diagnostic Log enabled? Defaults to `true`.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
-    def retention_policy(self) -> Optional['outputs.DiagnosticSettingLogRetentionPolicy']:
-        """
-        A `retention_policy` block as defined below.
-
-        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-        """
-        return pulumi.get(self, "retention_policy")
-
-
-@pulumi.output_type
-class DiagnosticSettingLogRetentionPolicy(dict):
-    def __init__(__self__, *,
-                 enabled: bool,
-                 days: Optional[int] = None):
-        """
-        :param bool enabled: Is this Retention Policy enabled?
-        :param int days: The number of days for which this Retention Policy should apply.
-               
-               
-               > **NOTE:** Setting this to `0` will retain the events indefinitely.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        Is this Retention Policy enabled?
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def days(self) -> Optional[int]:
-        """
-        The number of days for which this Retention Policy should apply.
-
-
-        > **NOTE:** Setting this to `0` will retain the events indefinitely.
-        """
         return pulumi.get(self, "days")
 
 
@@ -7048,9 +5908,6 @@ class DiagnosticSettingMetric(dict):
                
                > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
         :param bool enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
-        :param 'DiagnosticSettingMetricRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
-               
-               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
         pulumi.set(__self__, "category", category)
         if enabled is not None:
@@ -7080,11 +5937,6 @@ class DiagnosticSettingMetric(dict):
     @pulumi.getter(name="retentionPolicy")
     @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
     def retention_policy(self) -> Optional['outputs.DiagnosticSettingMetricRetentionPolicy']:
-        """
-        A `retention_policy` block as defined below.
-
-        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
-        """
         return pulumi.get(self, "retention_policy")
 
 
@@ -7094,11 +5946,7 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
                  enabled: bool,
                  days: Optional[int] = None):
         """
-        :param bool enabled: Is this Retention Policy enabled?
-        :param int days: The number of days for which this Retention Policy should apply.
-               
-               
-               > **NOTE:** Setting this to `0` will retain the events indefinitely.
+        :param bool enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
@@ -7108,359 +5956,14 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is this Retention Policy enabled?
+        Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def days(self) -> Optional[int]:
-        """
-        The number of days for which this Retention Policy should apply.
-
-
-        > **NOTE:** Setting this to `0` will retain the events indefinitely.
-        """
         return pulumi.get(self, "days")
-
-
-@pulumi.output_type
-class LogProfileRetentionPolicy(dict):
-    def __init__(__self__, *,
-                 enabled: bool,
-                 days: Optional[int] = None):
-        """
-        :param bool enabled: A boolean value to indicate whether the retention policy is enabled.
-        :param int days: The number of days for the retention policy. Defaults to `0`.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        A boolean value to indicate whether the retention policy is enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def days(self) -> Optional[int]:
-        """
-        The number of days for the retention policy. Defaults to `0`.
-        """
-        return pulumi.get(self, "days")
-
-
-@pulumi.output_type
-class LogzMonitorPlan(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "billingCycle":
-            suggest = "billing_cycle"
-        elif key == "effectiveDate":
-            suggest = "effective_date"
-        elif key == "usageType":
-            suggest = "usage_type"
-        elif key == "planId":
-            suggest = "plan_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LogzMonitorPlan. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LogzMonitorPlan.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LogzMonitorPlan.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 billing_cycle: str,
-                 effective_date: str,
-                 usage_type: str,
-                 plan_id: Optional[str] = None):
-        """
-        :param str billing_cycle: Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
-        :param str effective_date: Date when plan was applied. Changing this forces a new logz Monitor to be created.
-        :param str usage_type: Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
-        :param str plan_id: Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
-        """
-        pulumi.set(__self__, "billing_cycle", billing_cycle)
-        pulumi.set(__self__, "effective_date", effective_date)
-        pulumi.set(__self__, "usage_type", usage_type)
-        if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
-
-    @property
-    @pulumi.getter(name="billingCycle")
-    def billing_cycle(self) -> str:
-        """
-        Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "billing_cycle")
-
-    @property
-    @pulumi.getter(name="effectiveDate")
-    def effective_date(self) -> str:
-        """
-        Date when plan was applied. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "effective_date")
-
-    @property
-    @pulumi.getter(name="usageType")
-    def usage_type(self) -> str:
-        """
-        Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "usage_type")
-
-    @property
-    @pulumi.getter(name="planId")
-    def plan_id(self) -> Optional[str]:
-        """
-        Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "plan_id")
-
-
-@pulumi.output_type
-class LogzMonitorUser(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "firstName":
-            suggest = "first_name"
-        elif key == "lastName":
-            suggest = "last_name"
-        elif key == "phoneNumber":
-            suggest = "phone_number"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LogzMonitorUser. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LogzMonitorUser.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LogzMonitorUser.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 email: str,
-                 first_name: str,
-                 last_name: str,
-                 phone_number: str):
-        """
-        :param str email: Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-               
-               > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-        :param str first_name: First Name of the user. Changing this forces a new logz Monitor to be created.
-        :param str last_name: Last Name of the user. Changing this forces a new logz Monitor to be created.
-        :param str phone_number: Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-        """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "phone_number", phone_number)
-
-    @property
-    @pulumi.getter
-    def email(self) -> str:
-        """
-        Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-
-        > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-        """
-        return pulumi.get(self, "email")
-
-    @property
-    @pulumi.getter(name="firstName")
-    def first_name(self) -> str:
-        """
-        First Name of the user. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "first_name")
-
-    @property
-    @pulumi.getter(name="lastName")
-    def last_name(self) -> str:
-        """
-        Last Name of the user. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "last_name")
-
-    @property
-    @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> str:
-        """
-        Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "phone_number")
-
-
-@pulumi.output_type
-class LogzSubAccountTagRuleTagFilter(dict):
-    def __init__(__self__, *,
-                 action: str,
-                 name: str,
-                 value: Optional[str] = None):
-        """
-        :param str action: The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
-        :param str name: The name of the tag to match.
-        :param str value: The value of the tag to match.
-        """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def action(self) -> str:
-        """
-        The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
-        """
-        return pulumi.get(self, "action")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the tag to match.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value of the tag to match.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class LogzSubAccountUser(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "firstName":
-            suggest = "first_name"
-        elif key == "lastName":
-            suggest = "last_name"
-        elif key == "phoneNumber":
-            suggest = "phone_number"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LogzSubAccountUser. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LogzSubAccountUser.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LogzSubAccountUser.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 email: str,
-                 first_name: str,
-                 last_name: str,
-                 phone_number: str):
-        """
-        :param str email: Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
-               
-               > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-        :param str first_name: First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-        :param str last_name: Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-        :param str phone_number: Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
-        """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "phone_number", phone_number)
-
-    @property
-    @pulumi.getter
-    def email(self) -> str:
-        """
-        Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
-
-        > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
-        """
-        return pulumi.get(self, "email")
-
-    @property
-    @pulumi.getter(name="firstName")
-    def first_name(self) -> str:
-        """
-        First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-        """
-        return pulumi.get(self, "first_name")
-
-    @property
-    @pulumi.getter(name="lastName")
-    def last_name(self) -> str:
-        """
-        Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
-        """
-        return pulumi.get(self, "last_name")
-
-    @property
-    @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> str:
-        """
-        Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
-        """
-        return pulumi.get(self, "phone_number")
-
-
-@pulumi.output_type
-class LogzTagRuleTagFilter(dict):
-    def __init__(__self__, *,
-                 action: str,
-                 name: str,
-                 value: Optional[str] = None):
-        """
-        :param str action: The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
-        :param str name: The name of this `tag_filter`.
-        :param str value: The value of this `tag_filter`.
-        """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def action(self) -> str:
-        """
-        The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
-        """
-        return pulumi.get(self, "action")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of this `tag_filter`.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The value of this `tag_filter`.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -8860,7 +7363,6 @@ class GetActionGroupEmailReceiverResult(dict):
 @pulumi.output_type
 class GetActionGroupEventHubReceiverResult(dict):
     def __init__(__self__, *,
-                 event_hub_id: str,
                  event_hub_name: str,
                  event_hub_namespace: str,
                  name: str,
@@ -8868,7 +7370,6 @@ class GetActionGroupEventHubReceiverResult(dict):
                  tenant_id: str,
                  use_common_alert_schema: Optional[bool] = None):
         """
-        :param str event_hub_id: The resource ID of the respective Event Hub.
         :param str event_hub_name: The name of the specific Event Hub queue.
         :param str event_hub_namespace: The namespace name of the Event Hub.
         :param str name: Specifies the name of the Action Group.
@@ -8876,7 +7377,6 @@ class GetActionGroupEventHubReceiverResult(dict):
         :param str tenant_id: The Tenant ID for the subscription containing this Event Hub.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "event_hub_id", event_hub_id)
         pulumi.set(__self__, "event_hub_name", event_hub_name)
         pulumi.set(__self__, "event_hub_namespace", event_hub_namespace)
         pulumi.set(__self__, "name", name)
@@ -8884,15 +7384,6 @@ class GetActionGroupEventHubReceiverResult(dict):
         pulumi.set(__self__, "tenant_id", tenant_id)
         if use_common_alert_schema is not None:
             pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
-
-    @property
-    @pulumi.getter(name="eventHubId")
-    @_utilities.deprecated("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
-    def event_hub_id(self) -> str:
-        """
-        The resource ID of the respective Event Hub.
-        """
-        return pulumi.get(self, "event_hub_id")
 
     @property
     @pulumi.getter(name="eventHubName")
@@ -10381,35 +8872,6 @@ class GetDataCollectionRuleStreamDeclarationColumnResult(dict):
         cSpecifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class GetLogProfileRetentionPolicyResult(dict):
-    def __init__(__self__, *,
-                 days: int,
-                 enabled: bool):
-        """
-        :param int days: The number of days for the retention policy.
-        :param bool enabled: A boolean value indicating whether the retention policy is enabled.
-        """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def days(self) -> int:
-        """
-        The number of days for the retention policy.
-        """
-        return pulumi.get(self, "days")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        A boolean value indicating whether the retention policy is enabled.
-        """
-        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

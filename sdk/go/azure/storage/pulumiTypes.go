@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -4598,7 +4598,7 @@ func (o AccountStaticWebsitePtrOutput) IndexDocument() pulumi.StringPtrOutput {
 }
 
 type BlobInventoryPolicyRule struct {
-	// A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+	// A `filter` block as defined above.
 	Filter *BlobInventoryPolicyRuleFilter `pulumi:"filter"`
 	// The format of the inventory files. Possible values are `Csv` and `Parquet`.
 	Format string `pulumi:"format"`
@@ -4626,7 +4626,7 @@ type BlobInventoryPolicyRuleInput interface {
 }
 
 type BlobInventoryPolicyRuleArgs struct {
-	// A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+	// A `filter` block as defined above.
 	Filter BlobInventoryPolicyRuleFilterPtrInput `pulumi:"filter"`
 	// The format of the inventory files. Possible values are `Csv` and `Parquet`.
 	Format pulumi.StringInput `pulumi:"format"`
@@ -4693,7 +4693,7 @@ func (o BlobInventoryPolicyRuleOutput) ToBlobInventoryPolicyRuleOutputWithContex
 	return o
 }
 
-// A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+// A `filter` block as defined above.
 func (o BlobInventoryPolicyRuleOutput) Filter() BlobInventoryPolicyRuleFilterPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRule) *BlobInventoryPolicyRuleFilter { return v.Filter }).(BlobInventoryPolicyRuleFilterPtrOutput)
 }

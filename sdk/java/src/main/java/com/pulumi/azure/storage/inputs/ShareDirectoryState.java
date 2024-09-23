@@ -47,44 +47,6 @@ public final class ShareDirectoryState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * @deprecated
-     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
-    @Import(name="shareName")
-    private @Nullable Output<String> shareName;
-
-    /**
-     * @deprecated
-     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
-    public Optional<Output<String>> shareName() {
-        return Optional.ofNullable(this.shareName);
-    }
-
-    /**
-     * @deprecated
-     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
-    @Import(name="storageAccountName")
-    private @Nullable Output<String> storageAccountName;
-
-    /**
-     * @deprecated
-     * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
-    public Optional<Output<String>> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
-    }
-
-    /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      * 
      */
@@ -104,8 +66,6 @@ public final class ShareDirectoryState extends com.pulumi.resources.ResourceArgs
     private ShareDirectoryState(ShareDirectoryState $) {
         this.metadata = $.metadata;
         this.name = $.name;
-        this.shareName = $.shareName;
-        this.storageAccountName = $.storageAccountName;
         this.storageShareId = $.storageShareId;
     }
 
@@ -167,56 +127,6 @@ public final class ShareDirectoryState extends com.pulumi.resources.ResourceArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
-        public Builder shareName(@Nullable Output<String> shareName) {
-            $.shareName = shareName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
-        public Builder shareName(String shareName) {
-            return shareName(Output.of(shareName));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
-        public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
-            $.storageAccountName = storageAccountName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* the `share_name` and `storage_account_name` properties have been superseded by the `storage_share_id` property and will be removed in version 4.0 of the AzureRM provider */
-        public Builder storageAccountName(String storageAccountName) {
-            return storageAccountName(Output.of(storageAccountName));
         }
 
         /**

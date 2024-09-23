@@ -23,12 +23,10 @@ __all__ = [
     'SqlPoolRestore',
     'SqlPoolVulnerabilityAssessmentBaselineBaseline',
     'SqlPoolVulnerabilityAssessmentRecurringScans',
-    'WorkspaceAadAdmin',
     'WorkspaceAzureDevopsRepo',
     'WorkspaceCustomerManagedKey',
     'WorkspaceGithubRepo',
     'WorkspaceIdentity',
-    'WorkspaceSqlAadAdmin',
     'WorkspaceVulnerabilityAssessmentRecurringScans',
     'GetWorkspaceIdentityResult',
 ]
@@ -294,7 +292,7 @@ class SqlPoolVulnerabilityAssessmentRecurringScans(dict):
                  emails: Optional[Sequence[str]] = None,
                  enabled: Optional[bool] = None):
         """
-        :param bool email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        :param bool email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
         :param Sequence[str] emails: Specifies an array of email addresses to which the scan notification is sent.
         :param bool enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
@@ -309,7 +307,7 @@ class SqlPoolVulnerabilityAssessmentRecurringScans(dict):
     @pulumi.getter(name="emailSubscriptionAdminsEnabled")
     def email_subscription_admins_enabled(self) -> Optional[bool]:
         """
-        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
         """
         return pulumi.get(self, "email_subscription_admins_enabled")
 
@@ -328,57 +326,6 @@ class SqlPoolVulnerabilityAssessmentRecurringScans(dict):
         Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class WorkspaceAadAdmin(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "objectId":
-            suggest = "object_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkspaceAadAdmin. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WorkspaceAadAdmin.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WorkspaceAadAdmin.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 login: str,
-                 object_id: str,
-                 tenant_id: str):
-        """
-        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-        """
-        pulumi.set(__self__, "login", login)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter
-    def login(self) -> str:
-        return pulumi.get(self, "login")
-
-    @property
-    @pulumi.getter(name="objectId")
-    def object_id(self) -> str:
-        return pulumi.get(self, "object_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-        """
-        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -745,57 +692,6 @@ class WorkspaceIdentity(dict):
 
 
 @pulumi.output_type
-class WorkspaceSqlAadAdmin(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "objectId":
-            suggest = "object_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkspaceSqlAadAdmin. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WorkspaceSqlAadAdmin.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WorkspaceSqlAadAdmin.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 login: str,
-                 object_id: str,
-                 tenant_id: str):
-        """
-        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-        """
-        pulumi.set(__self__, "login", login)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter
-    def login(self) -> str:
-        return pulumi.get(self, "login")
-
-    @property
-    @pulumi.getter(name="objectId")
-    def object_id(self) -> str:
-        return pulumi.get(self, "object_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
-        """
-        return pulumi.get(self, "tenant_id")
-
-
-@pulumi.output_type
 class WorkspaceVulnerabilityAssessmentRecurringScans(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -819,7 +715,7 @@ class WorkspaceVulnerabilityAssessmentRecurringScans(dict):
                  emails: Optional[Sequence[str]] = None,
                  enabled: Optional[bool] = None):
         """
-        :param bool email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        :param bool email_subscription_admins_enabled: Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
         :param Sequence[str] emails: Specifies an array of email addresses to which the scan notification is sent.
         :param bool enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
@@ -834,7 +730,7 @@ class WorkspaceVulnerabilityAssessmentRecurringScans(dict):
     @pulumi.getter(name="emailSubscriptionAdminsEnabled")
     def email_subscription_admins_enabled(self) -> Optional[bool]:
         """
-        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
         """
         return pulumi.get(self, "email_subscription_admins_enabled")
 

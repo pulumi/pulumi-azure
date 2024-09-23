@@ -100,7 +100,6 @@ __all__ = [
     'ServiceHostnameConfigurationProxy',
     'ServiceHostnameConfigurationScm',
     'ServiceIdentity',
-    'ServicePolicy',
     'ServiceProtocols',
     'ServiceSecurity',
     'ServiceSignIn',
@@ -6365,46 +6364,6 @@ class ServiceIdentity(dict):
         The identifier for the tenant access information contract.
         """
         return pulumi.get(self, "tenant_id")
-
-
-@pulumi.output_type
-class ServicePolicy(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "xmlContent":
-            suggest = "xml_content"
-        elif key == "xmlLink":
-            suggest = "xml_link"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServicePolicy. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServicePolicy.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServicePolicy.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 xml_content: Optional[str] = None,
-                 xml_link: Optional[str] = None):
-        if xml_content is not None:
-            pulumi.set(__self__, "xml_content", xml_content)
-        if xml_link is not None:
-            pulumi.set(__self__, "xml_link", xml_link)
-
-    @property
-    @pulumi.getter(name="xmlContent")
-    def xml_content(self) -> Optional[str]:
-        return pulumi.get(self, "xml_content")
-
-    @property
-    @pulumi.getter(name="xmlLink")
-    def xml_link(self) -> Optional[str]:
-        return pulumi.get(self, "xml_link")
 
 
 @pulumi.output_type

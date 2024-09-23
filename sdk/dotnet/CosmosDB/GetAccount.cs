@@ -123,11 +123,7 @@ namespace Pulumi.Azure.CosmosDB
         /// Capabilities enabled on this Cosmos DB account.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountCapabilityResult> Capabilities;
-        public readonly ImmutableArray<string> ConnectionStrings;
         public readonly ImmutableArray<Outputs.GetAccountConsistencyPolicyResult> ConsistencyPolicies;
-        public readonly bool EnableAutomaticFailover;
-        public readonly bool EnableFreeTier;
-        public readonly bool EnableMultipleWriteLocations;
         /// <summary>
         /// The endpoint used to connect to the CosmosDB account.
         /// </summary>
@@ -242,15 +238,7 @@ namespace Pulumi.Azure.CosmosDB
 
             ImmutableArray<Outputs.GetAccountCapabilityResult> capabilities,
 
-            ImmutableArray<string> connectionStrings,
-
             ImmutableArray<Outputs.GetAccountConsistencyPolicyResult> consistencyPolicies,
-
-            bool enableAutomaticFailover,
-
-            bool enableFreeTier,
-
-            bool enableMultipleWriteLocations,
 
             string endpoint,
 
@@ -312,11 +300,7 @@ namespace Pulumi.Azure.CosmosDB
         {
             AutomaticFailoverEnabled = automaticFailoverEnabled;
             Capabilities = capabilities;
-            ConnectionStrings = connectionStrings;
             ConsistencyPolicies = consistencyPolicies;
-            EnableAutomaticFailover = enableAutomaticFailover;
-            EnableFreeTier = enableFreeTier;
-            EnableMultipleWriteLocations = enableMultipleWriteLocations;
             Endpoint = endpoint;
             FreeTierEnabled = freeTierEnabled;
             GeoLocations = geoLocations;

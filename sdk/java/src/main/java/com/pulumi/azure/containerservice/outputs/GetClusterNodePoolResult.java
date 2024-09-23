@@ -16,17 +16,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterNodePoolResult {
-    private Boolean autoScalingEnabled;
     /**
      * @return Does this Node Pool have Auto-Scaling enabled?
      * 
      */
-    private Boolean enableAutoScaling;
-    /**
-     * @return Do nodes in this Node Pool have a Public IP Address?
-     * 
-     */
-    private Boolean enableNodePublicIp;
+    private Boolean autoScalingEnabled;
     /**
      * @return The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
      * 
@@ -69,6 +63,10 @@ public final class GetClusterNodePoolResult {
      * 
      */
     private Map<String,String> nodeLabels;
+    /**
+     * @return Do nodes in this Node Pool have a Public IP Address?
+     * 
+     */
     private Boolean nodePublicIpEnabled;
     /**
      * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
@@ -143,22 +141,12 @@ public final class GetClusterNodePoolResult {
     private List<String> zones;
 
     private GetClusterNodePoolResult() {}
-    public Boolean autoScalingEnabled() {
-        return this.autoScalingEnabled;
-    }
     /**
      * @return Does this Node Pool have Auto-Scaling enabled?
      * 
      */
-    public Boolean enableAutoScaling() {
-        return this.enableAutoScaling;
-    }
-    /**
-     * @return Do nodes in this Node Pool have a Public IP Address?
-     * 
-     */
-    public Boolean enableNodePublicIp() {
-        return this.enableNodePublicIp;
+    public Boolean autoScalingEnabled() {
+        return this.autoScalingEnabled;
     }
     /**
      * @return The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
@@ -222,6 +210,10 @@ public final class GetClusterNodePoolResult {
     public Map<String,String> nodeLabels() {
         return this.nodeLabels;
     }
+    /**
+     * @return Do nodes in this Node Pool have a Public IP Address?
+     * 
+     */
     public Boolean nodePublicIpEnabled() {
         return this.nodePublicIpEnabled;
     }
@@ -337,8 +329,6 @@ public final class GetClusterNodePoolResult {
     @CustomType.Builder
     public static final class Builder {
         private Boolean autoScalingEnabled;
-        private Boolean enableAutoScaling;
-        private Boolean enableNodePublicIp;
         private String evictionPolicy;
         private String id;
         private String kubernetesClusterName;
@@ -369,8 +359,6 @@ public final class GetClusterNodePoolResult {
         public Builder(GetClusterNodePoolResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoScalingEnabled = defaults.autoScalingEnabled;
-    	      this.enableAutoScaling = defaults.enableAutoScaling;
-    	      this.enableNodePublicIp = defaults.enableNodePublicIp;
     	      this.evictionPolicy = defaults.evictionPolicy;
     	      this.id = defaults.id;
     	      this.kubernetesClusterName = defaults.kubernetesClusterName;
@@ -405,22 +393,6 @@ public final class GetClusterNodePoolResult {
               throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "autoScalingEnabled");
             }
             this.autoScalingEnabled = autoScalingEnabled;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableAutoScaling(Boolean enableAutoScaling) {
-            if (enableAutoScaling == null) {
-              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "enableAutoScaling");
-            }
-            this.enableAutoScaling = enableAutoScaling;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableNodePublicIp(Boolean enableNodePublicIp) {
-            if (enableNodePublicIp == null) {
-              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "enableNodePublicIp");
-            }
-            this.enableNodePublicIp = enableNodePublicIp;
             return this;
         }
         @CustomType.Setter
@@ -643,8 +615,6 @@ public final class GetClusterNodePoolResult {
         public GetClusterNodePoolResult build() {
             final var _resultValue = new GetClusterNodePoolResult();
             _resultValue.autoScalingEnabled = autoScalingEnabled;
-            _resultValue.enableAutoScaling = enableAutoScaling;
-            _resultValue.enableNodePublicIp = enableNodePublicIp;
             _resultValue.evictionPolicy = evictionPolicy;
             _resultValue.id = id;
             _resultValue.kubernetesClusterName = kubernetesClusterName;

@@ -45,12 +45,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.LinuxWebAppSiteConfigApplicationStackGetArgs>? ApplicationStack { get; set; }
 
         /// <summary>
-        /// Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-        /// </summary>
-        [Input("autoHealEnabled")]
-        public Input<bool>? AutoHealEnabled { get; set; }
-
-        /// <summary>
         /// A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         /// </summary>
         [Input("autoHealSetting")]

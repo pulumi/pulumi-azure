@@ -787,7 +787,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> pulumi.Output[int]:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
         """
@@ -795,7 +795,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadDistribution")
-    def load_distribution(self) -> pulumi.Output[str]:
+    def load_distribution(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
         """

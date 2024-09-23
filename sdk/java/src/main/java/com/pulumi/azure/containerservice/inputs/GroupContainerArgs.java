@@ -3,8 +3,6 @@
 
 package com.pulumi.azure.containerservice.inputs;
 
-import com.pulumi.azure.containerservice.inputs.GroupContainerGpuArgs;
-import com.pulumi.azure.containerservice.inputs.GroupContainerGpuLimitArgs;
 import com.pulumi.azure.containerservice.inputs.GroupContainerLivenessProbeArgs;
 import com.pulumi.azure.containerservice.inputs.GroupContainerPortArgs;
 import com.pulumi.azure.containerservice.inputs.GroupContainerReadinessProbeArgs;
@@ -84,44 +82,6 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<Map<String,String>>> environmentVariables() {
         return Optional.ofNullable(this.environmentVariables);
-    }
-
-    /**
-     * @deprecated
-     * The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-    @Import(name="gpu")
-    private @Nullable Output<GroupContainerGpuArgs> gpu;
-
-    /**
-     * @deprecated
-     * The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-    public Optional<Output<GroupContainerGpuArgs>> gpu() {
-        return Optional.ofNullable(this.gpu);
-    }
-
-    /**
-     * @deprecated
-     * The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-    @Import(name="gpuLimit")
-    private @Nullable Output<GroupContainerGpuLimitArgs> gpuLimit;
-
-    /**
-     * @deprecated
-     * The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-    public Optional<Output<GroupContainerGpuLimitArgs>> gpuLimit() {
-        return Optional.ofNullable(this.gpuLimit);
     }
 
     /**
@@ -281,8 +241,6 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
         this.cpu = $.cpu;
         this.cpuLimit = $.cpuLimit;
         this.environmentVariables = $.environmentVariables;
-        this.gpu = $.gpu;
-        this.gpuLimit = $.gpuLimit;
         this.image = $.image;
         this.livenessProbe = $.livenessProbe;
         this.memory = $.memory;
@@ -405,56 +363,6 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder environmentVariables(Map<String,String> environmentVariables) {
             return environmentVariables(Output.of(environmentVariables));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-        public Builder gpu(@Nullable Output<GroupContainerGpuArgs> gpu) {
-            $.gpu = gpu;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* The `gpu` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-        public Builder gpu(GroupContainerGpuArgs gpu) {
-            return gpu(Output.of(gpu));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-        public Builder gpuLimit(@Nullable Output<GroupContainerGpuLimitArgs> gpuLimit) {
-            $.gpuLimit = gpuLimit;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* The `gpu_limit` block has been deprecated since K80 and P100 GPU Skus have been retired and remaining GPU resources are not fully supported and not appropriate for production workloads. This block will be removed in v4.0 of the AzureRM provider. */
-        public Builder gpuLimit(GroupContainerGpuLimitArgs gpuLimit) {
-            return gpuLimit(Output.of(gpuLimit));
         }
 
         /**

@@ -10,7 +10,6 @@ import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledAlertDetailsOverride;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledEntityMapping;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledEventGrouping;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledIncident;
-import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledIncidentConfiguration;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledSentinelEntityMapping;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -243,18 +242,6 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      */
     public Output<AlertRuleScheduledIncident> incident() {
         return this.incident;
-    }
-    /**
-     * @deprecated
-     * The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider */
-    @Export(name="incidentConfiguration", refs={AlertRuleScheduledIncidentConfiguration.class}, tree="[0]")
-    private Output<AlertRuleScheduledIncidentConfiguration> incidentConfiguration;
-
-    public Output<AlertRuleScheduledIncidentConfiguration> incidentConfiguration() {
-        return this.incidentConfiguration;
     }
     /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.

@@ -80,7 +80,6 @@ from .network_manager_scope_connection import *
 from .network_manager_security_admin_configuration import *
 from .network_manager_static_member import *
 from .network_manager_subscription_connection import *
-from .network_packet_capture import *
 from .network_security_group import *
 from .network_security_rule import *
 from .network_watcher import *
