@@ -177,9 +177,6 @@ def get_local_network_gateway(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_local_network_gateway)
 def get_local_network_gateway_output(name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalNetworkGatewayResult]:
@@ -201,4 +198,18 @@ def get_local_network_gateway_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Local Network Gateway.
     :param str resource_group_name: The name of the Resource Group where the Local Network Gateway exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getLocalNetworkGateway:getLocalNetworkGateway', __args__, opts=opts, typ=GetLocalNetworkGatewayResult)
+    return __ret__.apply(lambda __response__: GetLocalNetworkGatewayResult(
+        address_spaces=pulumi.get(__response__, 'address_spaces'),
+        bgp_settings=pulumi.get(__response__, 'bgp_settings'),
+        gateway_address=pulumi.get(__response__, 'gateway_address'),
+        gateway_fqdn=pulumi.get(__response__, 'gateway_fqdn'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

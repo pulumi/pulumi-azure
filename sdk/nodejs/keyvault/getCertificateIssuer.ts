@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCertificateIssuer(args: GetCertificateIssuerArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateIssuerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getCertificateIssuer:getCertificateIssuer", {
         "keyVaultId": args.keyVaultId,
@@ -97,7 +96,11 @@ export interface GetCertificateIssuerResult {
  * ```
  */
 export function getCertificateIssuerOutput(args: GetCertificateIssuerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateIssuerResult> {
-    return pulumi.output(args).apply((a: any) => getCertificateIssuer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:keyvault/getCertificateIssuer:getCertificateIssuer", {
+        "keyVaultId": args.keyVaultId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

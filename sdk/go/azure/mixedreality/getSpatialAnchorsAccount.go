@@ -75,14 +75,20 @@ type LookupSpatialAnchorsAccountResult struct {
 
 func LookupSpatialAnchorsAccountOutput(ctx *pulumi.Context, args LookupSpatialAnchorsAccountOutputArgs, opts ...pulumi.InvokeOption) LookupSpatialAnchorsAccountResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSpatialAnchorsAccountResult, error) {
+		ApplyT(func(v interface{}) (LookupSpatialAnchorsAccountResultOutput, error) {
 			args := v.(LookupSpatialAnchorsAccountArgs)
-			r, err := LookupSpatialAnchorsAccount(ctx, &args, opts...)
-			var s LookupSpatialAnchorsAccountResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSpatialAnchorsAccountResult
+			secret, err := ctx.InvokePackageRaw("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSpatialAnchorsAccountResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSpatialAnchorsAccountResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSpatialAnchorsAccountResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSpatialAnchorsAccountResultOutput)
 }
 

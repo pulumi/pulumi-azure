@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCnameRecord(args: GetCnameRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetCnameRecordResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getCnameRecord:getCnameRecord", {
         "name": args.name,
@@ -92,7 +91,12 @@ export interface GetCnameRecordResult {
  * ```
  */
 export function getCnameRecordOutput(args: GetCnameRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCnameRecordResult> {
-    return pulumi.output(args).apply((a: any) => getCnameRecord(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:privatedns/getCnameRecord:getCnameRecord", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "zoneName": args.zoneName,
+    }, opts);
 }
 
 /**

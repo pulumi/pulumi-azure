@@ -304,9 +304,6 @@ def get_configuration_store(name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         soft_delete_retention_days=pulumi.get(__ret__, 'soft_delete_retention_days'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_configuration_store)
 def get_configuration_store_output(name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationStoreResult]:
@@ -328,4 +325,28 @@ def get_configuration_store_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The Name of this App Configuration.
     :param str resource_group_name: The name of the Resource Group where the App Configuration exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appconfiguration/getConfigurationStore:getConfigurationStore', __args__, opts=opts, typ=GetConfigurationStoreResult)
+    return __ret__.apply(lambda __response__: GetConfigurationStoreResult(
+        encryptions=pulumi.get(__response__, 'encryptions'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        local_auth_enabled=pulumi.get(__response__, 'local_auth_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        primary_read_keys=pulumi.get(__response__, 'primary_read_keys'),
+        primary_write_keys=pulumi.get(__response__, 'primary_write_keys'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        purge_protection_enabled=pulumi.get(__response__, 'purge_protection_enabled'),
+        replicas=pulumi.get(__response__, 'replicas'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_read_keys=pulumi.get(__response__, 'secondary_read_keys'),
+        secondary_write_keys=pulumi.get(__response__, 'secondary_write_keys'),
+        sku=pulumi.get(__response__, 'sku'),
+        soft_delete_retention_days=pulumi.get(__response__, 'soft_delete_retention_days'),
+        tags=pulumi.get(__response__, 'tags')))

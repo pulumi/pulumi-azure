@@ -113,14 +113,20 @@ type GetSasResult struct {
 
 func GetSasOutput(ctx *pulumi.Context, args GetSasOutputArgs, opts ...pulumi.InvokeOption) GetSasResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSasResult, error) {
+		ApplyT(func(v interface{}) (GetSasResultOutput, error) {
 			args := v.(GetSasArgs)
-			r, err := GetSas(ctx, &args, opts...)
-			var s GetSasResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSasResult
+			secret, err := ctx.InvokePackageRaw("azure:eventhub/getSas:getSas", args, &rv, "", opts...)
+			if err != nil {
+				return GetSasResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSasResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSasResultOutput), nil
+			}
+			return output, nil
 		}).(GetSasResultOutput)
 }
 

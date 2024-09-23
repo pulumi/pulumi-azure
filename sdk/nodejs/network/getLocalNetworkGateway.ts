@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNetworkGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getLocalNetworkGateway:getLocalNetworkGateway", {
         "name": args.name,
@@ -97,7 +96,11 @@ export interface GetLocalNetworkGatewayResult {
  * ```
  */
 export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getLocalNetworkGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getLocalNetworkGateway:getLocalNetworkGateway", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
