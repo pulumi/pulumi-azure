@@ -40,7 +40,6 @@ import * as utilities from "../utilities";
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     pulumi.log.warn("getRoleDefinition is deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition")
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:role/getRoleDefinition:getRoleDefinition", {
         "name": args.name,
@@ -131,7 +130,14 @@ export interface GetRoleDefinitionResult {
  */
 /** @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
 export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getRoleDefinition(a, opts))
+    pulumi.log.warn("getRoleDefinition is deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition")
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:role/getRoleDefinition:getRoleDefinition", {
+        "name": args.name,
+        "roleDefinitionId": args.roleDefinitionId,
+        "scope": args.scope,
+    }, opts);
 }
 
 /**

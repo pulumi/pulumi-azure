@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getKeyVault:getKeyVault", {
         "name": args.name,
@@ -122,7 +121,11 @@ export interface GetKeyVaultResult {
  * ```
  */
 export function getKeyVaultOutput(args: GetKeyVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyVaultResult> {
-    return pulumi.output(args).apply((a: any) => getKeyVault(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:keyvault/getKeyVault:getKeyVault", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

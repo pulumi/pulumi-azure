@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
 export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
     pulumi.log.warn("getManagementGroup is deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup")
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {
         "displayName": args.displayName,
@@ -99,7 +98,13 @@ export interface GetManagementGroupResult {
  */
 /** @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
 export function getManagementGroupOutput(args?: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
-    return pulumi.output(args).apply((a: any) => getManagementGroup(a, opts))
+    pulumi.log.warn("getManagementGroup is deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup")
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:managementgroups/getManagementGroup:getManagementGroup", {
+        "displayName": args.displayName,
+        "name": args.name,
+    }, opts);
 }
 
 /**
