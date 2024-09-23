@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGatewayConnection(args: GetGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getGatewayConnection:getGatewayConnection", {
         "name": args.name,
@@ -166,7 +165,11 @@ export interface GetGatewayConnectionResult {
  * ```
  */
 export function getGatewayConnectionOutput(args: GetGatewayConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getGatewayConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getGatewayConnection:getGatewayConnection", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

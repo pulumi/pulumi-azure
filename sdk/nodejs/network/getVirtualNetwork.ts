@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getVirtualNetwork:getVirtualNetwork", {
         "name": args.name,
@@ -103,7 +102,11 @@ export interface GetVirtualNetworkResult {
  * ```
  */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getVirtualNetwork:getVirtualNetwork", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

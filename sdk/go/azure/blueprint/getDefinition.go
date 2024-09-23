@@ -93,14 +93,20 @@ type GetDefinitionResult struct {
 
 func GetDefinitionOutput(ctx *pulumi.Context, args GetDefinitionOutputArgs, opts ...pulumi.InvokeOption) GetDefinitionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDefinitionResult, error) {
+		ApplyT(func(v interface{}) (GetDefinitionResultOutput, error) {
 			args := v.(GetDefinitionArgs)
-			r, err := GetDefinition(ctx, &args, opts...)
-			var s GetDefinitionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDefinitionResult
+			secret, err := ctx.InvokePackageRaw("azure:blueprint/getDefinition:getDefinition", args, &rv, "", opts...)
+			if err != nil {
+				return GetDefinitionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDefinitionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDefinitionResultOutput), nil
+			}
+			return output, nil
 		}).(GetDefinitionResultOutput)
 }
 
