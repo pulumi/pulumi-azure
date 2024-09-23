@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getDedicatedHost:getDedicatedHost", {
         "dedicatedHostGroupName": args.dedicatedHostGroupName,
@@ -87,7 +86,12 @@ export interface GetDedicatedHostResult {
  * ```
  */
 export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
-    return pulumi.output(args).apply((a: any) => getDedicatedHost(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getDedicatedHost:getDedicatedHost", {
+        "dedicatedHostGroupName": args.dedicatedHostGroupName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

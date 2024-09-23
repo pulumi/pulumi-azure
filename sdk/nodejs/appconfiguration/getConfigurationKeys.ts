@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConfigurationKeys(args: GetConfigurationKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", {
         "configurationStoreId": args.configurationStoreId,
@@ -91,7 +90,12 @@ export interface GetConfigurationKeysResult {
  * ```
  */
 export function getConfigurationKeysOutput(args: GetConfigurationKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationKeysResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", {
+        "configurationStoreId": args.configurationStoreId,
+        "key": args.key,
+        "label": args.label,
+    }, opts);
 }
 
 /**

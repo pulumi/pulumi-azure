@@ -85,14 +85,20 @@ type GetAppServiceEnvironmentResult struct {
 
 func GetAppServiceEnvironmentOutput(ctx *pulumi.Context, args GetAppServiceEnvironmentOutputArgs, opts ...pulumi.InvokeOption) GetAppServiceEnvironmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAppServiceEnvironmentResult, error) {
+		ApplyT(func(v interface{}) (GetAppServiceEnvironmentResultOutput, error) {
 			args := v.(GetAppServiceEnvironmentArgs)
-			r, err := GetAppServiceEnvironment(ctx, &args, opts...)
-			var s GetAppServiceEnvironmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAppServiceEnvironmentResult
+			secret, err := ctx.InvokePackageRaw("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", args, &rv, "", opts...)
+			if err != nil {
+				return GetAppServiceEnvironmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAppServiceEnvironmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAppServiceEnvironmentResultOutput), nil
+			}
+			return output, nil
 		}).(GetAppServiceEnvironmentResultOutput)
 }
 

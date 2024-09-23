@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWorkspacePrivateEndpointConnection(args: GetWorkspacePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspacePrivateEndpointConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", {
         "privateEndpointId": args.privateEndpointId,
@@ -83,7 +82,11 @@ export interface GetWorkspacePrivateEndpointConnectionResult {
  * ```
  */
 export function getWorkspacePrivateEndpointConnectionOutput(args: GetWorkspacePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacePrivateEndpointConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspacePrivateEndpointConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", {
+        "privateEndpointId": args.privateEndpointId,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 /**
