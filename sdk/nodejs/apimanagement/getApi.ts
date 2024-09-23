@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:apimanagement/getApi:getApi", {
         "apiManagementName": args.apiManagementName,
@@ -137,7 +136,13 @@ export interface GetApiResult {
  * ```
  */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
-    return pulumi.output(args).apply((a: any) => getApi(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:apimanagement/getApi:getApi", {
+        "apiManagementName": args.apiManagementName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "revision": args.revision,
+    }, opts);
 }
 
 /**

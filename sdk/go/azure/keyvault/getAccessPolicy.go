@@ -72,14 +72,20 @@ type LookupAccessPolicyResult struct {
 
 func LookupAccessPolicyOutput(ctx *pulumi.Context, args LookupAccessPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAccessPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupAccessPolicyResultOutput, error) {
 			args := v.(LookupAccessPolicyArgs)
-			r, err := LookupAccessPolicy(ctx, &args, opts...)
-			var s LookupAccessPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAccessPolicyResult
+			secret, err := ctx.InvokePackageRaw("azure:keyvault/getAccessPolicy:getAccessPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAccessPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAccessPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAccessPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAccessPolicyResultOutput)
 }
 

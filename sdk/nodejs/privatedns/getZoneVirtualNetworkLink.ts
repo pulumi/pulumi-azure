@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getZoneVirtualNetworkLink(args: GetZoneVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneVirtualNetworkLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", {
         "name": args.name,
@@ -91,7 +90,12 @@ export interface GetZoneVirtualNetworkLinkResult {
  * ```
  */
 export function getZoneVirtualNetworkLinkOutput(args: GetZoneVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneVirtualNetworkLinkResult> {
-    return pulumi.output(args).apply((a: any) => getZoneVirtualNetworkLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", {
+        "name": args.name,
+        "privateDnsZoneName": args.privateDnsZoneName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

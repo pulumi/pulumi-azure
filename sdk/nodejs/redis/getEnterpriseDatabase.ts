@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Redis Enterprise Database
  */
 export function getEnterpriseDatabase(args: GetEnterpriseDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseDatabaseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", {
         "clusterId": args.clusterId,
@@ -67,7 +66,11 @@ export interface GetEnterpriseDatabaseResult {
  * Use this data source to access information about an existing Redis Enterprise Database
  */
 export function getEnterpriseDatabaseOutput(args: GetEnterpriseDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getEnterpriseDatabase(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", {
+        "clusterId": args.clusterId,
+        "name": args.name,
+    }, opts);
 }
 
 /**
