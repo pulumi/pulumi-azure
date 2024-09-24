@@ -80,14 +80,20 @@ type LookupNetworkSiteResult struct {
 
 func LookupNetworkSiteOutput(ctx *pulumi.Context, args LookupNetworkSiteOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSiteResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkSiteResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkSiteResultOutput, error) {
 			args := v.(LookupNetworkSiteArgs)
-			r, err := LookupNetworkSite(ctx, &args, opts...)
-			var s LookupNetworkSiteResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkSiteResult
+			secret, err := ctx.InvokePackageRaw("azure:mobile/getNetworkSite:getNetworkSite", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkSiteResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkSiteResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkSiteResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkSiteResultOutput)
 }
 

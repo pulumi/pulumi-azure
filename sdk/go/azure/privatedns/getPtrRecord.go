@@ -78,14 +78,20 @@ type GetPtrRecordResult struct {
 
 func GetPtrRecordOutput(ctx *pulumi.Context, args GetPtrRecordOutputArgs, opts ...pulumi.InvokeOption) GetPtrRecordResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPtrRecordResult, error) {
+		ApplyT(func(v interface{}) (GetPtrRecordResultOutput, error) {
 			args := v.(GetPtrRecordArgs)
-			r, err := GetPtrRecord(ctx, &args, opts...)
-			var s GetPtrRecordResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPtrRecordResult
+			secret, err := ctx.InvokePackageRaw("azure:privatedns/getPtrRecord:getPtrRecord", args, &rv, "", opts...)
+			if err != nil {
+				return GetPtrRecordResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPtrRecordResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPtrRecordResultOutput), nil
+			}
+			return output, nil
 		}).(GetPtrRecordResultOutput)
 }
 

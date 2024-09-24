@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDatasetDataLakeGen2(args: GetDatasetDataLakeGen2Args, opts?: pulumi.InvokeOptions): Promise<GetDatasetDataLakeGen2Result> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", {
         "name": args.name,
@@ -91,7 +90,11 @@ export interface GetDatasetDataLakeGen2Result {
  * ```
  */
 export function getDatasetDataLakeGen2Output(args: GetDatasetDataLakeGen2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetDataLakeGen2Result> {
-    return pulumi.output(args).apply((a: any) => getDatasetDataLakeGen2(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", {
+        "name": args.name,
+        "shareId": args.shareId,
+    }, opts);
 }
 
 /**

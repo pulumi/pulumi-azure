@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIpGroups(args: GetIpGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getIpGroups:getIpGroups", {
         "name": args.name,
@@ -81,7 +80,11 @@ export interface GetIpGroupsResult {
  * ```
  */
 export function getIpGroupsOutput(args: GetIpGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupsResult> {
-    return pulumi.output(args).apply((a: any) => getIpGroups(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getIpGroups:getIpGroups", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
