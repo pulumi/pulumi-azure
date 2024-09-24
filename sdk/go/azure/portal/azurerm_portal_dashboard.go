@@ -79,14 +79,20 @@ type Azurerm_portal_dashboardResult struct {
 
 func Azurerm_portal_dashboardOutput(ctx *pulumi.Context, args Azurerm_portal_dashboardOutputArgs, opts ...pulumi.InvokeOption) Azurerm_portal_dashboardResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (Azurerm_portal_dashboardResult, error) {
+		ApplyT(func(v interface{}) (Azurerm_portal_dashboardResultOutput, error) {
 			args := v.(Azurerm_portal_dashboardArgs)
-			r, err := Azurerm_portal_dashboard(ctx, &args, opts...)
-			var s Azurerm_portal_dashboardResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv Azurerm_portal_dashboardResult
+			secret, err := ctx.InvokePackageRaw("azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard", args, &rv, "", opts...)
+			if err != nil {
+				return Azurerm_portal_dashboardResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(Azurerm_portal_dashboardResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(Azurerm_portal_dashboardResultOutput), nil
+			}
+			return output, nil
 		}).(Azurerm_portal_dashboardResultOutput)
 }
 

@@ -80,14 +80,20 @@ type LookupNetworkDataNetworkResult struct {
 
 func LookupNetworkDataNetworkOutput(ctx *pulumi.Context, args LookupNetworkDataNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkDataNetworkResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkDataNetworkResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkDataNetworkResultOutput, error) {
 			args := v.(LookupNetworkDataNetworkArgs)
-			r, err := LookupNetworkDataNetwork(ctx, &args, opts...)
-			var s LookupNetworkDataNetworkResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkDataNetworkResult
+			secret, err := ctx.InvokePackageRaw("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkDataNetworkResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkDataNetworkResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkDataNetworkResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkDataNetworkResultOutput)
 }
 

@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSoaRecord(args: GetSoaRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetSoaRecordResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:dns/getSoaRecord:getSoaRecord", {
         "name": args.name,
@@ -116,7 +115,12 @@ export interface GetSoaRecordResult {
  * ```
  */
 export function getSoaRecordOutput(args: GetSoaRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoaRecordResult> {
-    return pulumi.output(args).apply((a: any) => getSoaRecord(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:dns/getSoaRecord:getSoaRecord", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "zoneName": args.zoneName,
+    }, opts);
 }
 
 /**

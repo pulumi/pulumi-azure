@@ -78,14 +78,20 @@ type LookupBoolVariableResult struct {
 
 func LookupBoolVariableOutput(ctx *pulumi.Context, args LookupBoolVariableOutputArgs, opts ...pulumi.InvokeOption) LookupBoolVariableResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBoolVariableResult, error) {
+		ApplyT(func(v interface{}) (LookupBoolVariableResultOutput, error) {
 			args := v.(LookupBoolVariableArgs)
-			r, err := LookupBoolVariable(ctx, &args, opts...)
-			var s LookupBoolVariableResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBoolVariableResult
+			secret, err := ctx.InvokePackageRaw("azure:automation/getBoolVariable:getBoolVariable", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBoolVariableResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBoolVariableResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBoolVariableResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBoolVariableResultOutput)
 }
 

@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getContainers(args: GetContainersArgs, opts?: pulumi.InvokeOptions): Promise<GetContainersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getContainers:getContainers", {
         "namePrefix": args.namePrefix,
@@ -75,7 +74,11 @@ export interface GetContainersResult {
  * ```
  */
 export function getContainersOutput(args: GetContainersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainersResult> {
-    return pulumi.output(args).apply((a: any) => getContainers(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:storage/getContainers:getContainers", {
+        "namePrefix": args.namePrefix,
+        "storageAccountId": args.storageAccountId,
+    }, opts);
 }
 
 /**

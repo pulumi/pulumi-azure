@@ -88,14 +88,20 @@ type GetPolicyAssignmentResult struct {
 
 func GetPolicyAssignmentOutput(ctx *pulumi.Context, args GetPolicyAssignmentOutputArgs, opts ...pulumi.InvokeOption) GetPolicyAssignmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPolicyAssignmentResult, error) {
+		ApplyT(func(v interface{}) (GetPolicyAssignmentResultOutput, error) {
 			args := v.(GetPolicyAssignmentArgs)
-			r, err := GetPolicyAssignment(ctx, &args, opts...)
-			var s GetPolicyAssignmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPolicyAssignmentResult
+			secret, err := ctx.InvokePackageRaw("azure:policy/getPolicyAssignment:getPolicyAssignment", args, &rv, "", opts...)
+			if err != nil {
+				return GetPolicyAssignmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPolicyAssignmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPolicyAssignmentResultOutput), nil
+			}
+			return output, nil
 		}).(GetPolicyAssignmentResultOutput)
 }
 
