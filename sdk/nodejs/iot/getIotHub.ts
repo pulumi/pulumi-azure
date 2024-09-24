@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIotHub(args: GetIotHubArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:iot/getIotHub:getIotHub", {
         "name": args.name,
@@ -87,7 +86,12 @@ export interface GetIotHubResult {
  * ```
  */
 export function getIotHubOutput(args: GetIotHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResult> {
-    return pulumi.output(args).apply((a: any) => getIotHub(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:iot/getIotHub:getIotHub", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

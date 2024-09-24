@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInsights(args: GetInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appinsights/getInsights:getInsights", {
         "name": args.name,
@@ -103,7 +102,11 @@ export interface GetInsightsResult {
  * ```
  */
 export function getInsightsOutput(args: GetInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInsightsResult> {
-    return pulumi.output(args).apply((a: any) => getInsights(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appinsights/getInsights:getInsights", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

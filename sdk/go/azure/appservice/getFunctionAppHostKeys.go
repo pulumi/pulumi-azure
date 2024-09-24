@@ -82,14 +82,20 @@ type GetFunctionAppHostKeysResult struct {
 
 func GetFunctionAppHostKeysOutput(ctx *pulumi.Context, args GetFunctionAppHostKeysOutputArgs, opts ...pulumi.InvokeOption) GetFunctionAppHostKeysResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetFunctionAppHostKeysResult, error) {
+		ApplyT(func(v interface{}) (GetFunctionAppHostKeysResultOutput, error) {
 			args := v.(GetFunctionAppHostKeysArgs)
-			r, err := GetFunctionAppHostKeys(ctx, &args, opts...)
-			var s GetFunctionAppHostKeysResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetFunctionAppHostKeysResult
+			secret, err := ctx.InvokePackageRaw("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args, &rv, "", opts...)
+			if err != nil {
+				return GetFunctionAppHostKeysResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetFunctionAppHostKeysResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetFunctionAppHostKeysResultOutput), nil
+			}
+			return output, nil
 		}).(GetFunctionAppHostKeysResultOutput)
 }
 

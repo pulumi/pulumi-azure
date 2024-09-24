@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getHciCluster(args: GetHciClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetHciClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:stack/getHciCluster:getHciCluster", {
         "name": args.name,
@@ -113,7 +112,11 @@ export interface GetHciClusterResult {
  * ```
  */
 export function getHciClusterOutput(args: GetHciClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHciClusterResult> {
-    return pulumi.output(args).apply((a: any) => getHciCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:stack/getHciCluster:getHciCluster", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

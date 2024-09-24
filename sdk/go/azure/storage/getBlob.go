@@ -87,14 +87,20 @@ type LookupBlobResult struct {
 
 func LookupBlobOutput(ctx *pulumi.Context, args LookupBlobOutputArgs, opts ...pulumi.InvokeOption) LookupBlobResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBlobResult, error) {
+		ApplyT(func(v interface{}) (LookupBlobResultOutput, error) {
 			args := v.(LookupBlobArgs)
-			r, err := LookupBlob(ctx, &args, opts...)
-			var s LookupBlobResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBlobResult
+			secret, err := ctx.InvokePackageRaw("azure:storage/getBlob:getBlob", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBlobResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBlobResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBlobResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBlobResultOutput)
 }
 

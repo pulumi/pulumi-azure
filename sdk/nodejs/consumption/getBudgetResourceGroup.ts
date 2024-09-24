@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBudgetResourceGroup(args: GetBudgetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResourceGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", {
         "name": args.name,
@@ -96,7 +95,11 @@ export interface GetBudgetResourceGroupResult {
  * ```
  */
 export function getBudgetResourceGroupOutput(args: GetBudgetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResourceGroupResult> {
-    return pulumi.output(args).apply((a: any) => getBudgetResourceGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", {
+        "name": args.name,
+        "resourceGroupId": args.resourceGroupId,
+    }, opts);
 }
 
 /**

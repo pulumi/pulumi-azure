@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  */
 export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getSubscription:getSubscription", {
         "subscriptionId": args.subscriptionId,
@@ -91,7 +90,11 @@ export interface GetSubscriptionResult {
  * ```
  */
 export function getSubscriptionOutput(args?: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getSubscription(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:core/getSubscription:getSubscription", {
+        "subscriptionId": args.subscriptionId,
+    }, opts);
 }
 
 /**
