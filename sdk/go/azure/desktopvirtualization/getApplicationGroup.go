@@ -82,14 +82,20 @@ type LookupApplicationGroupResult struct {
 
 func LookupApplicationGroupOutput(ctx *pulumi.Context, args LookupApplicationGroupOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupApplicationGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupApplicationGroupResultOutput, error) {
 			args := v.(LookupApplicationGroupArgs)
-			r, err := LookupApplicationGroup(ctx, &args, opts...)
-			var s LookupApplicationGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupApplicationGroupResult
+			secret, err := ctx.InvokePackageRaw("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupApplicationGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupApplicationGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupApplicationGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupApplicationGroupResultOutput)
 }
 

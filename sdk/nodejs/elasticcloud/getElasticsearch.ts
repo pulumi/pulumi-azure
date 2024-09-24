@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getElasticsearch(args: GetElasticsearchArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticsearchResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:elasticcloud/getElasticsearch:getElasticsearch", {
         "logs": args.logs,
@@ -131,7 +130,12 @@ export interface GetElasticsearchResult {
  * ```
  */
 export function getElasticsearchOutput(args: GetElasticsearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticsearchResult> {
-    return pulumi.output(args).apply((a: any) => getElasticsearch(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:elasticcloud/getElasticsearch:getElasticsearch", {
+        "logs": args.logs,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

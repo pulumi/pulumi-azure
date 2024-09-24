@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", {
         "name": args.name,
@@ -99,7 +98,11 @@ export interface GetUserAssignedIdentityResult {
  * ```
  */
 export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
-    return pulumi.output(args).apply((a: any) => getUserAssignedIdentity(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

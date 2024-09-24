@@ -84,14 +84,20 @@ type LookupVirtualMachineConfigurationAssignmentResult struct {
 
 func LookupVirtualMachineConfigurationAssignmentOutput(ctx *pulumi.Context, args LookupVirtualMachineConfigurationAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineConfigurationAssignmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualMachineConfigurationAssignmentResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualMachineConfigurationAssignmentResultOutput, error) {
 			args := v.(LookupVirtualMachineConfigurationAssignmentArgs)
-			r, err := LookupVirtualMachineConfigurationAssignment(ctx, &args, opts...)
-			var s LookupVirtualMachineConfigurationAssignmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualMachineConfigurationAssignmentResult
+			secret, err := ctx.InvokePackageRaw("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualMachineConfigurationAssignmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualMachineConfigurationAssignmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualMachineConfigurationAssignmentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualMachineConfigurationAssignmentResultOutput)
 }
 

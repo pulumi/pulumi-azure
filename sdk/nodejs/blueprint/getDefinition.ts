@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDefinition(args: GetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:blueprint/getDefinition:getDefinition", {
         "name": args.name,
@@ -105,7 +104,11 @@ export interface GetDefinitionResult {
  * ```
  */
 export function getDefinitionOutput(args: GetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:blueprint/getDefinition:getDefinition", {
+        "name": args.name,
+        "scopeId": args.scopeId,
+    }, opts);
 }
 
 /**

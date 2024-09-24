@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualHubConnection(args: GetVirtualHubConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getVirtualHubConnection:getVirtualHubConnection", {
         "name": args.name,
@@ -100,7 +99,12 @@ export interface GetVirtualHubConnectionResult {
  * ```
  */
 export function getVirtualHubConnectionOutput(args: GetVirtualHubConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualHubConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getVirtualHubConnection:getVirtualHubConnection", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualHubName": args.virtualHubName,
+    }, opts);
 }
 
 /**
