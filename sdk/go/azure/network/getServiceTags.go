@@ -81,14 +81,20 @@ type GetServiceTagsResult struct {
 
 func GetServiceTagsOutput(ctx *pulumi.Context, args GetServiceTagsOutputArgs, opts ...pulumi.InvokeOption) GetServiceTagsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetServiceTagsResult, error) {
+		ApplyT(func(v interface{}) (GetServiceTagsResultOutput, error) {
 			args := v.(GetServiceTagsArgs)
-			r, err := GetServiceTags(ctx, &args, opts...)
-			var s GetServiceTagsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetServiceTagsResult
+			secret, err := ctx.InvokePackageRaw("azure:network/getServiceTags:getServiceTags", args, &rv, "", opts...)
+			if err != nil {
+				return GetServiceTagsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetServiceTagsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetServiceTagsResultOutput), nil
+			}
+			return output, nil
 		}).(GetServiceTagsResultOutput)
 }
 

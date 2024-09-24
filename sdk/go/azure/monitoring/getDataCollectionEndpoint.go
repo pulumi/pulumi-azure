@@ -84,14 +84,20 @@ type LookupDataCollectionEndpointResult struct {
 
 func LookupDataCollectionEndpointOutput(ctx *pulumi.Context, args LookupDataCollectionEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupDataCollectionEndpointResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDataCollectionEndpointResult, error) {
+		ApplyT(func(v interface{}) (LookupDataCollectionEndpointResultOutput, error) {
 			args := v.(LookupDataCollectionEndpointArgs)
-			r, err := LookupDataCollectionEndpoint(ctx, &args, opts...)
-			var s LookupDataCollectionEndpointResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDataCollectionEndpointResult
+			secret, err := ctx.InvokePackageRaw("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDataCollectionEndpointResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDataCollectionEndpointResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDataCollectionEndpointResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDataCollectionEndpointResultOutput)
 }
 
