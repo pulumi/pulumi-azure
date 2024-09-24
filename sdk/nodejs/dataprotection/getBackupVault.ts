@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:dataprotection/getBackupVault:getBackupVault", {
         "name": args.name,
@@ -95,7 +94,11 @@ export interface GetBackupVaultResult {
  * ```
  */
 export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
-    return pulumi.output(args).apply((a: any) => getBackupVault(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:dataprotection/getBackupVault:getBackupVault", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
