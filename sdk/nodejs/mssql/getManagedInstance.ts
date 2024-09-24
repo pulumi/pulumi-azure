@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mssql/getManagedInstance:getManagedInstance", {
         "name": args.name,
@@ -144,7 +143,11 @@ export interface GetManagedInstanceResult {
  * ```
  */
 export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getManagedInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:mssql/getManagedInstance:getManagedInstance", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

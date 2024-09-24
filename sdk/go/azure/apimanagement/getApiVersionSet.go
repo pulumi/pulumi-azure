@@ -81,14 +81,20 @@ type LookupApiVersionSetResult struct {
 
 func LookupApiVersionSetOutput(ctx *pulumi.Context, args LookupApiVersionSetOutputArgs, opts ...pulumi.InvokeOption) LookupApiVersionSetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupApiVersionSetResult, error) {
+		ApplyT(func(v interface{}) (LookupApiVersionSetResultOutput, error) {
 			args := v.(LookupApiVersionSetArgs)
-			r, err := LookupApiVersionSet(ctx, &args, opts...)
-			var s LookupApiVersionSetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupApiVersionSetResult
+			secret, err := ctx.InvokePackageRaw("azure:apimanagement/getApiVersionSet:getApiVersionSet", args, &rv, "", opts...)
+			if err != nil {
+				return LookupApiVersionSetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupApiVersionSetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupApiVersionSetResultOutput), nil
+			}
+			return output, nil
 		}).(LookupApiVersionSetResultOutput)
 }
 

@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDateTimeVariable(args: GetDateTimeVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetDateTimeVariableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:automation/getDateTimeVariable:getDateTimeVariable", {
         "automationAccountName": args.automationAccountName,
@@ -91,7 +90,12 @@ export interface GetDateTimeVariableResult {
  * ```
  */
 export function getDateTimeVariableOutput(args: GetDateTimeVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDateTimeVariableResult> {
-    return pulumi.output(args).apply((a: any) => getDateTimeVariable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:automation/getDateTimeVariable:getDateTimeVariable", {
+        "automationAccountName": args.automationAccountName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

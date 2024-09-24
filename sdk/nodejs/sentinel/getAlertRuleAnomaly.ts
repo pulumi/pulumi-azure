@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAlertRuleAnomaly(args: GetAlertRuleAnomalyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleAnomalyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", {
         "displayName": args.displayName,
@@ -165,7 +164,12 @@ export interface GetAlertRuleAnomalyResult {
  * ```
  */
 export function getAlertRuleAnomalyOutput(args: GetAlertRuleAnomalyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleAnomalyResult> {
-    return pulumi.output(args).apply((a: any) => getAlertRuleAnomaly(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", {
+        "displayName": args.displayName,
+        "logAnalyticsWorkspaceId": args.logAnalyticsWorkspaceId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

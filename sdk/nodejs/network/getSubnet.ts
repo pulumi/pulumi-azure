@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getSubnet:getSubnet", {
         "name": args.name,
@@ -108,7 +107,12 @@ export interface GetSubnetResult {
  * ```
  */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
-    return pulumi.output(args).apply((a: any) => getSubnet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getSubnet:getSubnet", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualNetworkName": args.virtualNetworkName,
+    }, opts);
 }
 
 /**

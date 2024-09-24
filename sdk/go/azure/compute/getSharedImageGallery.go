@@ -76,14 +76,20 @@ type LookupSharedImageGalleryResult struct {
 
 func LookupSharedImageGalleryOutput(ctx *pulumi.Context, args LookupSharedImageGalleryOutputArgs, opts ...pulumi.InvokeOption) LookupSharedImageGalleryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSharedImageGalleryResult, error) {
+		ApplyT(func(v interface{}) (LookupSharedImageGalleryResultOutput, error) {
 			args := v.(LookupSharedImageGalleryArgs)
-			r, err := LookupSharedImageGallery(ctx, &args, opts...)
-			var s LookupSharedImageGalleryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSharedImageGalleryResult
+			secret, err := ctx.InvokePackageRaw("azure:compute/getSharedImageGallery:getSharedImageGallery", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSharedImageGalleryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSharedImageGalleryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSharedImageGalleryResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSharedImageGalleryResultOutput)
 }
 
