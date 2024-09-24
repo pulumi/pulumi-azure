@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualHubRouteTable(args: GetVirtualHubRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubRouteTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", {
         "name": args.name,
@@ -96,7 +95,12 @@ export interface GetVirtualHubRouteTableResult {
  * ```
  */
 export function getVirtualHubRouteTableOutput(args: GetVirtualHubRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubRouteTableResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualHubRouteTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "virtualHubName": args.virtualHubName,
+    }, opts);
 }
 
 /**

@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVolumeGroup(args: GetVolumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:elasticsan/getVolumeGroup:getVolumeGroup", {
         "elasticSanId": args.elasticSanId,
@@ -101,7 +100,11 @@ export interface GetVolumeGroupResult {
  * ```
  */
 export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupResult> {
-    return pulumi.output(args).apply((a: any) => getVolumeGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:elasticsan/getVolumeGroup:getVolumeGroup", {
+        "elasticSanId": args.elasticSanId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

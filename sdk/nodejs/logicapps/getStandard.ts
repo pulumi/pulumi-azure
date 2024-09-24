@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:logicapps/getStandard:getStandard", {
         "name": args.name,
@@ -107,7 +106,13 @@ export interface GetStandardResult {
  * ```
  */
 export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {
-    return pulumi.output(args).apply((a: any) => getStandard(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:logicapps/getStandard:getStandard", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "siteConfig": args.siteConfig,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -138,9 +138,6 @@ def get_shared_image_versions(gallery_name: Optional[str] = None,
         images=pulumi.get(__ret__, 'images'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags_filter=pulumi.get(__ret__, 'tags_filter'))
-
-
-@_utilities.lift_output_func(get_shared_image_versions)
 def get_shared_image_versions_output(gallery_name: Optional[pulumi.Input[str]] = None,
                                      image_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -166,4 +163,17 @@ def get_shared_image_versions_output(gallery_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
     :param Mapping[str, str] tags_filter: A mapping of tags to filter the list of images against.
     """
-    ...
+    __args__ = dict()
+    __args__['galleryName'] = gallery_name
+    __args__['imageName'] = image_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tagsFilter'] = tags_filter
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getSharedImageVersions:getSharedImageVersions', __args__, opts=opts, typ=GetSharedImageVersionsResult)
+    return __ret__.apply(lambda __response__: GetSharedImageVersionsResult(
+        gallery_name=pulumi.get(__response__, 'gallery_name'),
+        id=pulumi.get(__response__, 'id'),
+        image_name=pulumi.get(__response__, 'image_name'),
+        images=pulumi.get(__response__, 'images'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags_filter=pulumi.get(__response__, 'tags_filter')))

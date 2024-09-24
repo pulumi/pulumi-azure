@@ -278,9 +278,6 @@ def get_scheduled_query_rules_alert(name: Optional[str] = None,
         throttling=pulumi.get(__ret__, 'throttling'),
         time_window=pulumi.get(__ret__, 'time_window'),
         triggers=pulumi.get(__ret__, 'triggers'))
-
-
-@_utilities.lift_output_func(get_scheduled_query_rules_alert)
 def get_scheduled_query_rules_alert_output(name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRulesAlertResult]:
@@ -302,4 +299,26 @@ def get_scheduled_query_rules_alert_output(name: Optional[pulumi.Input[str]] = N
     :param str name: Specifies the name of the scheduled query rule.
     :param str resource_group_name: Specifies the name of the resource group where the scheduled query rule is located.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert', __args__, opts=opts, typ=GetScheduledQueryRulesAlertResult)
+    return __ret__.apply(lambda __response__: GetScheduledQueryRulesAlertResult(
+        actions=pulumi.get(__response__, 'actions'),
+        authorized_resource_ids=pulumi.get(__response__, 'authorized_resource_ids'),
+        data_source_id=pulumi.get(__response__, 'data_source_id'),
+        description=pulumi.get(__response__, 'description'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        frequency=pulumi.get(__response__, 'frequency'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        query=pulumi.get(__response__, 'query'),
+        query_type=pulumi.get(__response__, 'query_type'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        severity=pulumi.get(__response__, 'severity'),
+        tags=pulumi.get(__response__, 'tags'),
+        throttling=pulumi.get(__response__, 'throttling'),
+        time_window=pulumi.get(__response__, 'time_window'),
+        triggers=pulumi.get(__response__, 'triggers')))

@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDatasetKustoDatabase(args: GetDatasetKustoDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetKustoDatabaseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", {
         "name": args.name,
@@ -83,7 +82,11 @@ export interface GetDatasetKustoDatabaseResult {
  * ```
  */
 export function getDatasetKustoDatabaseOutput(args: GetDatasetKustoDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetKustoDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getDatasetKustoDatabase(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", {
+        "name": args.name,
+        "shareId": args.shareId,
+    }, opts);
 }
 
 /**

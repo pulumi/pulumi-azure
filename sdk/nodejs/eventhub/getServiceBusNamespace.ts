@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
 /** @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
 export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceBusNamespaceResult> {
     pulumi.log.warn("getServiceBusNamespace is deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace")
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", {
         "name": args.name,
@@ -116,7 +115,12 @@ export interface GetServiceBusNamespaceResult {
  */
 /** @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
 export function getServiceBusNamespaceOutput(args: GetServiceBusNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceBusNamespaceResult> {
-    return pulumi.output(args).apply((a: any) => getServiceBusNamespace(a, opts))
+    pulumi.log.warn("getServiceBusNamespace is deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace")
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
