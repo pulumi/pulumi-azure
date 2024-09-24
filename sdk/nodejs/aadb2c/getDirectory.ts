@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:aadb2c/getDirectory:getDirectory", {
         "domainName": args.domainName,
@@ -95,7 +94,11 @@ export interface GetDirectoryResult {
  * ```
  */
 export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryResult> {
-    return pulumi.output(args).apply((a: any) => getDirectory(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:aadb2c/getDirectory:getDirectory", {
+        "domainName": args.domainName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

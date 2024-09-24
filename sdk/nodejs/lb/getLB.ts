@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLB(args: GetLBArgs, opts?: pulumi.InvokeOptions): Promise<GetLBResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:lb/getLB:getLB", {
         "name": args.name,
@@ -100,7 +99,11 @@ export interface GetLBResult {
  * ```
  */
 export function getLBOutput(args: GetLBOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLBResult> {
-    return pulumi.output(args).apply((a: any) => getLB(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:lb/getLB:getLB", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

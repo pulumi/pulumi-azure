@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
 /** @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
 export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {
     pulumi.log.warn("getEventhubNamespace is deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace")
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", {
         "name": args.name,
@@ -131,7 +130,12 @@ export interface GetEventhubNamespaceResult {
  */
 /** @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
 export function getEventhubNamespaceOutput(args: GetEventhubNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventhubNamespaceResult> {
-    return pulumi.output(args).apply((a: any) => getEventhubNamespace(a, opts))
+    pulumi.log.warn("getEventhubNamespace is deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace")
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:eventhub/getEventhubNamespace:getEventhubNamespace", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

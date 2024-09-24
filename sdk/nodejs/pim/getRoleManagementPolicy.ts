@@ -50,7 +50,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRoleManagementPolicy(args: GetRoleManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleManagementPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", {
         "roleDefinitionId": args.roleDefinitionId,
@@ -151,7 +150,11 @@ export interface GetRoleManagementPolicyResult {
  * ```
  */
 export function getRoleManagementPolicyOutput(args: GetRoleManagementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleManagementPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getRoleManagementPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", {
+        "roleDefinitionId": args.roleDefinitionId,
+        "scope": args.scope,
+    }, opts);
 }
 
 /**

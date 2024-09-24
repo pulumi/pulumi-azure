@@ -58,7 +58,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccountBlobContainerSAS(args: GetAccountBlobContainerSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountBlobContainerSASResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", {
         "cacheControl": args.cacheControl,
@@ -209,7 +208,21 @@ export interface GetAccountBlobContainerSASResult {
  * ```
  */
 export function getAccountBlobContainerSASOutput(args: GetAccountBlobContainerSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountBlobContainerSASResult> {
-    return pulumi.output(args).apply((a: any) => getAccountBlobContainerSAS(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", {
+        "cacheControl": args.cacheControl,
+        "connectionString": args.connectionString,
+        "containerName": args.containerName,
+        "contentDisposition": args.contentDisposition,
+        "contentEncoding": args.contentEncoding,
+        "contentLanguage": args.contentLanguage,
+        "contentType": args.contentType,
+        "expiry": args.expiry,
+        "httpsOnly": args.httpsOnly,
+        "ipAddress": args.ipAddress,
+        "permissions": args.permissions,
+        "start": args.start,
+    }, opts);
 }
 
 /**

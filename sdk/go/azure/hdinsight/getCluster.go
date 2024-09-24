@@ -96,14 +96,20 @@ type GetClusterResult struct {
 
 func GetClusterOutput(ctx *pulumi.Context, args GetClusterOutputArgs, opts ...pulumi.InvokeOption) GetClusterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetClusterResult, error) {
+		ApplyT(func(v interface{}) (GetClusterResultOutput, error) {
 			args := v.(GetClusterArgs)
-			r, err := GetCluster(ctx, &args, opts...)
-			var s GetClusterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetClusterResult
+			secret, err := ctx.InvokePackageRaw("azure:hdinsight/getCluster:getCluster", args, &rv, "", opts...)
+			if err != nil {
+				return GetClusterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetClusterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetClusterResultOutput), nil
+			}
+			return output, nil
 		}).(GetClusterResultOutput)
 }
 

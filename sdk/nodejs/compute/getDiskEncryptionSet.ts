@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", {
         "name": args.name,
@@ -93,7 +92,11 @@ export interface GetDiskEncryptionSetResult {
  * ```
  */
 export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskEncryptionSetResult> {
-    return pulumi.output(args).apply((a: any) => getDiskEncryptionSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
