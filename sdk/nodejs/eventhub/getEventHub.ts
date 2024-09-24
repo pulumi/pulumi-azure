@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventhub/getEventHub:getEventHub", {
         "name": args.name,
@@ -87,7 +86,12 @@ export interface GetEventHubResult {
  * ```
  */
 export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
-    return pulumi.output(args).apply((a: any) => getEventHub(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:eventhub/getEventHub:getEventHub", {
+        "name": args.name,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

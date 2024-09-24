@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVolumeQuotaRule(args: GetVolumeQuotaRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeQuotaRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", {
         "name": args.name,
@@ -87,7 +86,11 @@ export interface GetVolumeQuotaRuleResult {
  * ```
  */
 export function getVolumeQuotaRuleOutput(args: GetVolumeQuotaRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeQuotaRuleResult> {
-    return pulumi.output(args).apply((a: any) => getVolumeQuotaRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", {
+        "name": args.name,
+        "volumeId": args.volumeId,
+    }, opts);
 }
 
 /**

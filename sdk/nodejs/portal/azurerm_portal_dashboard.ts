@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function azurerm_portal_dashboard(args: Azurerm_portal_dashboardArgs, opts?: pulumi.InvokeOptions): Promise<Azurerm_portal_dashboardResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard", {
         "dashboardProperties": args.dashboardProperties,
@@ -94,7 +93,13 @@ export interface Azurerm_portal_dashboardResult {
  * ```
  */
 export function azurerm_portal_dashboardOutput(args: Azurerm_portal_dashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<Azurerm_portal_dashboardResult> {
-    return pulumi.output(args).apply((a: any) => azurerm_portal_dashboard(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard", {
+        "dashboardProperties": args.dashboardProperties,
+        "displayName": args.displayName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

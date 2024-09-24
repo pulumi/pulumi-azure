@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFabric(args: GetFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetFabricResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:siterecovery/getFabric:getFabric", {
         "name": args.name,
@@ -81,7 +80,12 @@ export interface GetFabricResult {
  * ```
  */
 export function getFabricOutput(args: GetFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFabricResult> {
-    return pulumi.output(args).apply((a: any) => getFabric(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:siterecovery/getFabric:getFabric", {
+        "name": args.name,
+        "recoveryVaultName": args.recoveryVaultName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

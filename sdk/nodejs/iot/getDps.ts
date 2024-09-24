@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDps(args: GetDpsArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:iot/getDps:getDps", {
         "name": args.name,
@@ -92,7 +91,12 @@ export interface GetDpsResult {
  * ```
  */
 export function getDpsOutput(args: GetDpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsResult> {
-    return pulumi.output(args).apply((a: any) => getDps(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:iot/getDps:getDps", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**
