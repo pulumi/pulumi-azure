@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getImages(args: GetImagesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getImages:getImages", {
         "resourceGroupName": args.resourceGroupName,
@@ -73,7 +72,11 @@ export interface GetImagesResult {
  * ```
  */
 export function getImagesOutput(args: GetImagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagesResult> {
-    return pulumi.output(args).apply((a: any) => getImages(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:compute/getImages:getImages", {
+        "resourceGroupName": args.resourceGroupName,
+        "tagsFilter": args.tagsFilter,
+    }, opts);
 }
 
 /**

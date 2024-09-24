@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFrontdoorFirewallPolicy(args: GetFrontdoorFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorFirewallPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", {
         "name": args.name,
@@ -89,7 +88,11 @@ export interface GetFrontdoorFirewallPolicyResult {
  * ```
  */
 export function getFrontdoorFirewallPolicyOutput(args: GetFrontdoorFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorFirewallPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getFrontdoorFirewallPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

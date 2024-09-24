@@ -79,14 +79,20 @@ type GetPlatformImageResult struct {
 
 func GetPlatformImageOutput(ctx *pulumi.Context, args GetPlatformImageOutputArgs, opts ...pulumi.InvokeOption) GetPlatformImageResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPlatformImageResult, error) {
+		ApplyT(func(v interface{}) (GetPlatformImageResultOutput, error) {
 			args := v.(GetPlatformImageArgs)
-			r, err := GetPlatformImage(ctx, &args, opts...)
-			var s GetPlatformImageResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPlatformImageResult
+			secret, err := ctx.InvokePackageRaw("azure:compute/getPlatformImage:getPlatformImage", args, &rv, "", opts...)
+			if err != nil {
+				return GetPlatformImageResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPlatformImageResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPlatformImageResultOutput), nil
+			}
+			return output, nil
 		}).(GetPlatformImageResultOutput)
 }
 

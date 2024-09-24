@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 export function getNamespaceDisasterRecoveryConfig(args: GetNamespaceDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceDisasterRecoveryConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", {
         "aliasAuthorizationRuleId": args.aliasAuthorizationRuleId,
@@ -59,7 +58,14 @@ export interface GetNamespaceDisasterRecoveryConfigResult {
     readonly secondaryConnectionStringAlias: string;
 }
 export function getNamespaceDisasterRecoveryConfigOutput(args: GetNamespaceDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceDisasterRecoveryConfigResult> {
-    return pulumi.output(args).apply((a: any) => getNamespaceDisasterRecoveryConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", {
+        "aliasAuthorizationRuleId": args.aliasAuthorizationRuleId,
+        "name": args.name,
+        "namespaceId": args.namespaceId,
+        "namespaceName": args.namespaceName,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

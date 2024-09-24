@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  */
 export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getSubscriptions:getSubscriptions", {
         "displayNameContains": args.displayNameContains,
@@ -74,7 +73,12 @@ export interface GetSubscriptionsResult {
  * ```
  */
 export function getSubscriptionsOutput(args?: GetSubscriptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionsResult> {
-    return pulumi.output(args).apply((a: any) => getSubscriptions(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:core/getSubscriptions:getSubscriptions", {
+        "displayNameContains": args.displayNameContains,
+        "displayNamePrefix": args.displayNamePrefix,
+    }, opts);
 }
 
 /**
