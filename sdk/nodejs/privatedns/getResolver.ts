@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResolver(args: GetResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getResolver:getResolver", {
         "name": args.name,
@@ -81,7 +80,11 @@ export interface GetResolverResult {
  * ```
  */
 export function getResolverOutput(args: GetResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverResult> {
-    return pulumi.output(args).apply((a: any) => getResolver(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:privatedns/getResolver:getResolver", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

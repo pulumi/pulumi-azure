@@ -52,7 +52,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSas(args: GetSasArgs, opts?: pulumi.InvokeOptions): Promise<GetSasResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventhub/getSas:getSas", {
         "connectionString": args.connectionString,
@@ -137,7 +136,11 @@ export interface GetSasResult {
  * ```
  */
 export function getSasOutput(args: GetSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSasResult> {
-    return pulumi.output(args).apply((a: any) => getSas(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:eventhub/getSas:getSas", {
+        "connectionString": args.connectionString,
+        "expiry": args.expiry,
+    }, opts);
 }
 
 /**

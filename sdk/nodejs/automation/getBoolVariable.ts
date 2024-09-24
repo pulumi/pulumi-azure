@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBoolVariable(args: GetBoolVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetBoolVariableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:automation/getBoolVariable:getBoolVariable", {
         "automationAccountName": args.automationAccountName,
@@ -91,7 +90,12 @@ export interface GetBoolVariableResult {
  * ```
  */
 export function getBoolVariableOutput(args: GetBoolVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBoolVariableResult> {
-    return pulumi.output(args).apply((a: any) => getBoolVariable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:automation/getBoolVariable:getBoolVariable", {
+        "automationAccountName": args.automationAccountName,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
