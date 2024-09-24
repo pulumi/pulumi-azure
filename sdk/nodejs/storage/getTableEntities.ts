@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTableEntities(args: GetTableEntitiesArgs, opts?: pulumi.InvokeOptions): Promise<GetTableEntitiesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getTableEntities:getTableEntities", {
         "filter": args.filter,
@@ -81,7 +80,12 @@ export interface GetTableEntitiesResult {
  * ```
  */
 export function getTableEntitiesOutput(args: GetTableEntitiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableEntitiesResult> {
-    return pulumi.output(args).apply((a: any) => getTableEntities(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:storage/getTableEntities:getTableEntities", {
+        "filter": args.filter,
+        "selects": args.selects,
+        "storageTableId": args.storageTableId,
+    }, opts);
 }
 
 /**

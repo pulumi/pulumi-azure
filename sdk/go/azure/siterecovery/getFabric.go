@@ -73,14 +73,20 @@ type LookupFabricResult struct {
 
 func LookupFabricOutput(ctx *pulumi.Context, args LookupFabricOutputArgs, opts ...pulumi.InvokeOption) LookupFabricResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFabricResult, error) {
+		ApplyT(func(v interface{}) (LookupFabricResultOutput, error) {
 			args := v.(LookupFabricArgs)
-			r, err := LookupFabric(ctx, &args, opts...)
-			var s LookupFabricResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFabricResult
+			secret, err := ctx.InvokePackageRaw("azure:siterecovery/getFabric:getFabric", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFabricResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFabricResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFabricResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFabricResultOutput)
 }
 

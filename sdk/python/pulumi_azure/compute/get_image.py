@@ -193,9 +193,6 @@ def get_image(name: Optional[str] = None,
         sort_descending=pulumi.get(__ret__, 'sort_descending'),
         tags=pulumi.get(__ret__, 'tags'),
         zone_resilient=pulumi.get(__ret__, 'zone_resilient'))
-
-
-@_utilities.lift_output_func(get_image)
 def get_image_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                      name_regex: Optional[pulumi.Input[Optional[str]]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -221,4 +218,21 @@ def get_image_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_group_name: The Name of the Resource Group where this Image exists.
     :param bool sort_descending: By default when matching by regex, images are sorted by name in ascending order and the first match is chosen, to sort descending, set this flag.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['nameRegex'] = name_regex
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sortDescending'] = sort_descending
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
+    return __ret__.apply(lambda __response__: GetImageResult(
+        data_disks=pulumi.get(__response__, 'data_disks'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        name_regex=pulumi.get(__response__, 'name_regex'),
+        os_disks=pulumi.get(__response__, 'os_disks'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sort_descending=pulumi.get(__response__, 'sort_descending'),
+        tags=pulumi.get(__response__, 'tags'),
+        zone_resilient=pulumi.get(__response__, 'zone_resilient')))

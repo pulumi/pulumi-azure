@@ -68,7 +68,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getAccountSAS:getAccountSAS", {
         "connectionString": args.connectionString,
@@ -211,7 +210,18 @@ export interface GetAccountSASResult {
  * ```
  */
 export function getAccountSASOutput(args: GetAccountSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountSASResult> {
-    return pulumi.output(args).apply((a: any) => getAccountSAS(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:storage/getAccountSAS:getAccountSAS", {
+        "connectionString": args.connectionString,
+        "expiry": args.expiry,
+        "httpsOnly": args.httpsOnly,
+        "ipAddresses": args.ipAddresses,
+        "permissions": args.permissions,
+        "resourceTypes": args.resourceTypes,
+        "services": args.services,
+        "signedVersion": args.signedVersion,
+        "start": args.start,
+    }, opts);
 }
 
 /**

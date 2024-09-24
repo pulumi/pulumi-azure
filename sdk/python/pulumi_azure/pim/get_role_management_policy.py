@@ -194,9 +194,6 @@ def get_role_management_policy(role_definition_id: Optional[str] = None,
         notification_rules=pulumi.get(__ret__, 'notification_rules'),
         role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
         scope=pulumi.get(__ret__, 'scope'))
-
-
-@_utilities.lift_output_func(get_role_management_policy)
 def get_role_management_policy_output(role_definition_id: Optional[pulumi.Input[str]] = None,
                                       scope: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleManagementPolicyResult]:
@@ -235,4 +232,18 @@ def get_role_management_policy_output(role_definition_id: Optional[pulumi.Input[
     :param str role_definition_id: The scoped Role Definition ID of the role for which this policy applies.
     :param str scope: The scope to which this Role Management Policy applies. Can refer to a management group, a subscription or a resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['roleDefinitionId'] = role_definition_id
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:pim/getRoleManagementPolicy:getRoleManagementPolicy', __args__, opts=opts, typ=GetRoleManagementPolicyResult)
+    return __ret__.apply(lambda __response__: GetRoleManagementPolicyResult(
+        activation_rules=pulumi.get(__response__, 'activation_rules'),
+        active_assignment_rules=pulumi.get(__response__, 'active_assignment_rules'),
+        description=pulumi.get(__response__, 'description'),
+        eligible_assignment_rules=pulumi.get(__response__, 'eligible_assignment_rules'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        notification_rules=pulumi.get(__response__, 'notification_rules'),
+        role_definition_id=pulumi.get(__response__, 'role_definition_id'),
+        scope=pulumi.get(__response__, 'scope')))
