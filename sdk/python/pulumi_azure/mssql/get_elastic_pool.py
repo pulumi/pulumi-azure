@@ -246,9 +246,6 @@ def get_elastic_pool(name: Optional[str] = None,
         skus=pulumi.get(__ret__, 'skus'),
         tags=pulumi.get(__ret__, 'tags'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-
-
-@_utilities.lift_output_func(get_elastic_pool)
 def get_elastic_pool_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             server_name: Optional[pulumi.Input[str]] = None,
@@ -273,4 +270,24 @@ def get_elastic_pool_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group which contains the elastic pool.
     :param str server_name: The name of the SQL Server which contains the elastic pool.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mssql/getElasticPool:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult)
+    return __ret__.apply(lambda __response__: GetElasticPoolResult(
+        enclave_type=pulumi.get(__response__, 'enclave_type'),
+        id=pulumi.get(__response__, 'id'),
+        license_type=pulumi.get(__response__, 'license_type'),
+        location=pulumi.get(__response__, 'location'),
+        max_size_bytes=pulumi.get(__response__, 'max_size_bytes'),
+        max_size_gb=pulumi.get(__response__, 'max_size_gb'),
+        name=pulumi.get(__response__, 'name'),
+        per_db_max_capacity=pulumi.get(__response__, 'per_db_max_capacity'),
+        per_db_min_capacity=pulumi.get(__response__, 'per_db_min_capacity'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        server_name=pulumi.get(__response__, 'server_name'),
+        skus=pulumi.get(__response__, 'skus'),
+        tags=pulumi.get(__response__, 'tags'),
+        zone_redundant=pulumi.get(__response__, 'zone_redundant')))
