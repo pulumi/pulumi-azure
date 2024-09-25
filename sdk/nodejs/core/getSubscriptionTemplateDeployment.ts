@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Subscription Template Deployment.
  */
 export function getSubscriptionTemplateDeployment(args: GetSubscriptionTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionTemplateDeploymentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", {
         "name": args.name,
@@ -43,7 +42,10 @@ export interface GetSubscriptionTemplateDeploymentResult {
  * Use this data source to access information about an existing Subscription Template Deployment.
  */
 export function getSubscriptionTemplateDeploymentOutput(args: GetSubscriptionTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionTemplateDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getSubscriptionTemplateDeployment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

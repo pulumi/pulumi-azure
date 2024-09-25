@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
 /** @deprecated azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
     pulumi.log.warn("getUserAssignedIdentity is deprecated: azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity")
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", {
         "name": args.name,
@@ -102,7 +101,12 @@ export interface GetUserAssignedIdentityResult {
  */
 /** @deprecated azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
 export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
-    return pulumi.output(args).apply((a: any) => getUserAssignedIdentity(a, opts))
+    pulumi.log.warn("getUserAssignedIdentity is deprecated: azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity")
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**

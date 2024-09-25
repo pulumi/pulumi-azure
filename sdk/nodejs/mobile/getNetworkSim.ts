@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Get information about a Mobile Network Sim.
  */
 export function getNetworkSim(args: GetNetworkSimArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSimResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mobile/getNetworkSim:getNetworkSim", {
         "mobileNetworkSimGroupId": args.mobileNetworkSimGroupId,
@@ -79,7 +78,11 @@ export interface GetNetworkSimResult {
  * Get information about a Mobile Network Sim.
  */
 export function getNetworkSimOutput(args: GetNetworkSimOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSimResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkSim(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:mobile/getNetworkSim:getNetworkSim", {
+        "mobileNetworkSimGroupId": args.mobileNetworkSimGroupId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

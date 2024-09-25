@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCertificateOrder(args: GetCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateOrderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getCertificateOrder:getCertificateOrder", {
         "name": args.name,
@@ -141,7 +140,11 @@ export interface GetCertificateOrderResult {
  * ```
  */
 export function getCertificateOrderOutput(args: GetCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateOrderResult> {
-    return pulumi.output(args).apply((a: any) => getCertificateOrder(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("azure:appservice/getCertificateOrder:getCertificateOrder", {
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
