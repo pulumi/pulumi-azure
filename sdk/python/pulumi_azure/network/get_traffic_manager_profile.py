@@ -199,9 +199,6 @@ def get_traffic_manager_profile(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         traffic_routing_method=pulumi.get(__ret__, 'traffic_routing_method'),
         traffic_view_enabled=pulumi.get(__ret__, 'traffic_view_enabled'))
-
-
-@_utilities.lift_output_func(get_traffic_manager_profile)
 def get_traffic_manager_profile_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -227,4 +224,21 @@ def get_traffic_manager_profile_output(name: Optional[pulumi.Input[str]] = None,
     :param Mapping[str, str] tags: A mapping of tags to assign to the resource.
     :param bool traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    __args__['trafficViewEnabled'] = traffic_view_enabled
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getTrafficManagerProfile:getTrafficManagerProfile', __args__, opts=opts, typ=GetTrafficManagerProfileResult)
+    return __ret__.apply(lambda __response__: GetTrafficManagerProfileResult(
+        dns_configs=pulumi.get(__response__, 'dns_configs'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        id=pulumi.get(__response__, 'id'),
+        monitor_configs=pulumi.get(__response__, 'monitor_configs'),
+        name=pulumi.get(__response__, 'name'),
+        profile_status=pulumi.get(__response__, 'profile_status'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        traffic_routing_method=pulumi.get(__response__, 'traffic_routing_method'),
+        traffic_view_enabled=pulumi.get(__response__, 'traffic_view_enabled')))

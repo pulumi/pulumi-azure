@@ -246,9 +246,6 @@ def get_queue_authorization_rule(name: Optional[str] = None,
         secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'),
         send=pulumi.get(__ret__, 'send'))
-
-
-@_utilities.lift_output_func(get_queue_authorization_rule)
 def get_queue_authorization_rule_output(name: Optional[pulumi.Input[str]] = None,
                                         namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
                                         queue_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -277,4 +274,27 @@ def get_queue_authorization_rule_output(name: Optional[pulumi.Input[str]] = None
     :param str queue_name: The name of the ServiceBus Queue.
     :param str resource_group_name: The name of the Resource Group where the ServiceBus Queue Authorisation Rule exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['namespaceName'] = namespace_name
+    __args__['queueId'] = queue_id
+    __args__['queueName'] = queue_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule', __args__, opts=opts, typ=GetQueueAuthorizationRuleResult)
+    return __ret__.apply(lambda __response__: GetQueueAuthorizationRuleResult(
+        id=pulumi.get(__response__, 'id'),
+        listen=pulumi.get(__response__, 'listen'),
+        manage=pulumi.get(__response__, 'manage'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
+        primary_connection_string_alias=pulumi.get(__response__, 'primary_connection_string_alias'),
+        primary_key=pulumi.get(__response__, 'primary_key'),
+        queue_id=pulumi.get(__response__, 'queue_id'),
+        queue_name=pulumi.get(__response__, 'queue_name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
+        secondary_connection_string_alias=pulumi.get(__response__, 'secondary_connection_string_alias'),
+        secondary_key=pulumi.get(__response__, 'secondary_key'),
+        send=pulumi.get(__response__, 'send')))
