@@ -125,9 +125,6 @@ def get_access_policy(name: Optional[str] = None,
         key_permissions=pulumi.get(__ret__, 'key_permissions'),
         name=pulumi.get(__ret__, 'name'),
         secret_permissions=pulumi.get(__ret__, 'secret_permissions'))
-
-
-@_utilities.lift_output_func(get_access_policy)
 def get_access_policy_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
@@ -148,4 +145,13 @@ def get_access_policy_output(name: Optional[pulumi.Input[str]] = None,
            `Secret Management`, `Certificate Management`, `Key & Secret Management`, `Key & Certificate Management`,
            `Secret & Certificate Management`,  `Key, Secret, & Certificate Management`
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getAccessPolicy:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult)
+    return __ret__.apply(lambda __response__: GetAccessPolicyResult(
+        certificate_permissions=pulumi.get(__response__, 'certificate_permissions'),
+        id=pulumi.get(__response__, 'id'),
+        key_permissions=pulumi.get(__response__, 'key_permissions'),
+        name=pulumi.get(__response__, 'name'),
+        secret_permissions=pulumi.get(__response__, 'secret_permissions')))
