@@ -319,9 +319,6 @@ def get_volume(account_name: Optional[str] = None,
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         volume_path=pulumi.get(__ret__, 'volume_path'),
         zone=pulumi.get(__ret__, 'zone'))
-
-
-@_utilities.lift_output_func(get_volume)
 def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
                       name: Optional[pulumi.Input[str]] = None,
                       pool_name: Optional[pulumi.Input[str]] = None,
@@ -351,4 +348,32 @@ def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The Name of the Resource Group where the NetApp Volume exists.
     :param str security_style: Volume security style
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['name'] = name
+    __args__['poolName'] = pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['securityStyle'] = security_style
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:netapp/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult)
+    return __ret__.apply(lambda __response__: GetVolumeResult(
+        account_name=pulumi.get(__response__, 'account_name'),
+        data_protection_replications=pulumi.get(__response__, 'data_protection_replications'),
+        encryption_key_source=pulumi.get(__response__, 'encryption_key_source'),
+        id=pulumi.get(__response__, 'id'),
+        key_vault_private_endpoint_id=pulumi.get(__response__, 'key_vault_private_endpoint_id'),
+        location=pulumi.get(__response__, 'location'),
+        mount_ip_addresses=pulumi.get(__response__, 'mount_ip_addresses'),
+        name=pulumi.get(__response__, 'name'),
+        network_features=pulumi.get(__response__, 'network_features'),
+        pool_name=pulumi.get(__response__, 'pool_name'),
+        protocols=pulumi.get(__response__, 'protocols'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        security_style=pulumi.get(__response__, 'security_style'),
+        service_level=pulumi.get(__response__, 'service_level'),
+        smb_access_based_enumeration_enabled=pulumi.get(__response__, 'smb_access_based_enumeration_enabled'),
+        smb_non_browsable_enabled=pulumi.get(__response__, 'smb_non_browsable_enabled'),
+        storage_quota_in_gb=pulumi.get(__response__, 'storage_quota_in_gb'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        volume_path=pulumi.get(__response__, 'volume_path'),
+        zone=pulumi.get(__response__, 'zone')))
