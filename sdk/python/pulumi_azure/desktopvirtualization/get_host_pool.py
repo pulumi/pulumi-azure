@@ -267,9 +267,6 @@ def get_host_pool(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         validate_environment=pulumi.get(__ret__, 'validate_environment'))
-
-
-@_utilities.lift_output_func(get_host_pool)
 def get_host_pool_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostPoolResult]:
@@ -290,4 +287,25 @@ def get_host_pool_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Virtual Desktop Host Pool to retrieve.
     :param str resource_group_name: The name of the resource group where the Virtual Desktop Host Pool exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:desktopvirtualization/getHostPool:getHostPool', __args__, opts=opts, typ=GetHostPoolResult)
+    return __ret__.apply(lambda __response__: GetHostPoolResult(
+        custom_rdp_properties=pulumi.get(__response__, 'custom_rdp_properties'),
+        description=pulumi.get(__response__, 'description'),
+        friendly_name=pulumi.get(__response__, 'friendly_name'),
+        id=pulumi.get(__response__, 'id'),
+        load_balancer_type=pulumi.get(__response__, 'load_balancer_type'),
+        location=pulumi.get(__response__, 'location'),
+        maximum_sessions_allowed=pulumi.get(__response__, 'maximum_sessions_allowed'),
+        name=pulumi.get(__response__, 'name'),
+        personal_desktop_assignment_type=pulumi.get(__response__, 'personal_desktop_assignment_type'),
+        preferred_app_group_type=pulumi.get(__response__, 'preferred_app_group_type'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        scheduled_agent_updates=pulumi.get(__response__, 'scheduled_agent_updates'),
+        start_vm_on_connect=pulumi.get(__response__, 'start_vm_on_connect'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        validate_environment=pulumi.get(__response__, 'validate_environment')))
