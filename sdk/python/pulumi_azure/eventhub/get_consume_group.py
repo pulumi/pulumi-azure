@@ -138,9 +138,6 @@ def get_consume_group(eventhub_name: Optional[str] = None,
         namespace_name=pulumi.get(__ret__, 'namespace_name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         user_metadata=pulumi.get(__ret__, 'user_metadata'))
-
-
-@_utilities.lift_output_func(get_consume_group)
 def get_consume_group_output(eventhub_name: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              namespace_name: Optional[pulumi.Input[str]] = None,
@@ -167,4 +164,17 @@ def get_consume_group_output(eventhub_name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: Specifies the name of the grandparent EventHub Namespace.
     :param str resource_group_name: The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists.
     """
-    ...
+    __args__ = dict()
+    __args__['eventhubName'] = eventhub_name
+    __args__['name'] = name
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:eventhub/getConsumeGroup:getConsumeGroup', __args__, opts=opts, typ=GetConsumeGroupResult)
+    return __ret__.apply(lambda __response__: GetConsumeGroupResult(
+        eventhub_name=pulumi.get(__response__, 'eventhub_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        user_metadata=pulumi.get(__response__, 'user_metadata')))

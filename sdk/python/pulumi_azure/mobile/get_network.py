@@ -162,9 +162,6 @@ def get_network(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         service_key=pulumi.get(__ret__, 'service_key'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_network)
 def get_network_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkResult]:
@@ -185,4 +182,17 @@ def get_network_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name which should be used for this Mobile Network.
     :param str resource_group_name: Specifies the name of the Resource Group where the Mobile Network should exist.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetwork:getNetwork', __args__, opts=opts, typ=GetNetworkResult)
+    return __ret__.apply(lambda __response__: GetNetworkResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        mobile_country_code=pulumi.get(__response__, 'mobile_country_code'),
+        mobile_network_code=pulumi.get(__response__, 'mobile_network_code'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        service_key=pulumi.get(__response__, 'service_key'),
+        tags=pulumi.get(__response__, 'tags')))
