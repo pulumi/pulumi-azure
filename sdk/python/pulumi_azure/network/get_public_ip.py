@@ -332,9 +332,6 @@ def get_public_ip(name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_public_ip)
 def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPResult]:
@@ -408,4 +405,26 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the public IP address.
     :param str resource_group_name: Specifies the name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getPublicIP:getPublicIP', __args__, opts=opts, typ=GetPublicIPResult)
+    return __ret__.apply(lambda __response__: GetPublicIPResult(
+        allocation_method=pulumi.get(__response__, 'allocation_method'),
+        ddos_protection_mode=pulumi.get(__response__, 'ddos_protection_mode'),
+        ddos_protection_plan_id=pulumi.get(__response__, 'ddos_protection_plan_id'),
+        domain_name_label=pulumi.get(__response__, 'domain_name_label'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        id=pulumi.get(__response__, 'id'),
+        idle_timeout_in_minutes=pulumi.get(__response__, 'idle_timeout_in_minutes'),
+        ip_address=pulumi.get(__response__, 'ip_address'),
+        ip_tags=pulumi.get(__response__, 'ip_tags'),
+        ip_version=pulumi.get(__response__, 'ip_version'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        reverse_fqdn=pulumi.get(__response__, 'reverse_fqdn'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        zones=pulumi.get(__response__, 'zones')))
