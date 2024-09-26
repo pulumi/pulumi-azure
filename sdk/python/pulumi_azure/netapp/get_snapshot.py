@@ -153,9 +153,6 @@ def get_snapshot(account_name: Optional[str] = None,
         pool_name=pulumi.get(__ret__, 'pool_name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         volume_name=pulumi.get(__ret__, 'volume_name'))
-
-
-@_utilities.lift_output_func(get_snapshot)
 def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
                         name: Optional[pulumi.Input[str]] = None,
                         pool_name: Optional[pulumi.Input[str]] = None,
@@ -186,4 +183,19 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The Name of the Resource Group where the NetApp Snapshot exists.
     :param str volume_name: The name of the NetApp Volume where the NetApp Snapshot exists.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['name'] = name
+    __args__['poolName'] = pool_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['volumeName'] = volume_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:netapp/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
+    return __ret__.apply(lambda __response__: GetSnapshotResult(
+        account_name=pulumi.get(__response__, 'account_name'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        pool_name=pulumi.get(__response__, 'pool_name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        volume_name=pulumi.get(__response__, 'volume_name')))
