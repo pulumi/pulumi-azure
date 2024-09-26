@@ -164,9 +164,6 @@ def get_pool(account_name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         service_level=pulumi.get(__ret__, 'service_level'),
         size_in_tb=pulumi.get(__ret__, 'size_in_tb'))
-
-
-@_utilities.lift_output_func(get_pool)
 def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -191,4 +188,18 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the NetApp Pool.
     :param str resource_group_name: The Name of the Resource Group where the NetApp Pool exists.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:netapp/getPool:getPool', __args__, opts=opts, typ=GetPoolResult)
+    return __ret__.apply(lambda __response__: GetPoolResult(
+        account_name=pulumi.get(__response__, 'account_name'),
+        encryption_type=pulumi.get(__response__, 'encryption_type'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        service_level=pulumi.get(__response__, 'service_level'),
+        size_in_tb=pulumi.get(__response__, 'size_in_tb')))

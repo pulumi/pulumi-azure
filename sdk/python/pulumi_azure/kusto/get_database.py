@@ -163,9 +163,6 @@ def get_database(cluster_name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         size=pulumi.get(__ret__, 'size'),
         soft_delete_period=pulumi.get(__ret__, 'soft_delete_period'))
-
-
-@_utilities.lift_output_func(get_database)
 def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
                         name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -189,4 +186,18 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Kusto Database.
     :param str resource_group_name: The Resource Group where the Kusto Database exists.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:kusto/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
+    return __ret__.apply(lambda __response__: GetDatabaseResult(
+        cluster_name=pulumi.get(__response__, 'cluster_name'),
+        hot_cache_period=pulumi.get(__response__, 'hot_cache_period'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        size=pulumi.get(__response__, 'size'),
+        soft_delete_period=pulumi.get(__response__, 'soft_delete_period')))
