@@ -179,9 +179,6 @@ def get_definition(name: Optional[str] = None,
         target_scope=pulumi.get(__ret__, 'target_scope'),
         time_created=pulumi.get(__ret__, 'time_created'),
         versions=pulumi.get(__ret__, 'versions'))
-
-
-@_utilities.lift_output_func(get_definition)
 def get_definition_output(name: Optional[pulumi.Input[str]] = None,
                           scope_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefinitionResult]:
@@ -206,4 +203,18 @@ def get_definition_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Blueprint.
     :param str scope_id: The ID of the Subscription or Management Group, as the scope at which the blueprint definition is stored.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['scopeId'] = scope_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:blueprint/getDefinition:getDefinition', __args__, opts=opts, typ=GetDefinitionResult)
+    return __ret__.apply(lambda __response__: GetDefinitionResult(
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        name=pulumi.get(__response__, 'name'),
+        scope_id=pulumi.get(__response__, 'scope_id'),
+        target_scope=pulumi.get(__response__, 'target_scope'),
+        time_created=pulumi.get(__response__, 'time_created'),
+        versions=pulumi.get(__response__, 'versions')))

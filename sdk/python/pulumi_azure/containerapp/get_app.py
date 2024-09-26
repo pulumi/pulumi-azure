@@ -281,9 +281,6 @@ def get_app(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         templates=pulumi.get(__ret__, 'templates'),
         workload_profile_name=pulumi.get(__ret__, 'workload_profile_name'))
-
-
-@_utilities.lift_output_func(get_app)
 def get_app_output(name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
@@ -304,4 +301,27 @@ def get_app_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Container App.
     :param str resource_group_name: The name of the Resource Group where this Container App exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:containerapp/getApp:getApp', __args__, opts=opts, typ=GetAppResult)
+    return __ret__.apply(lambda __response__: GetAppResult(
+        container_app_environment_id=pulumi.get(__response__, 'container_app_environment_id'),
+        custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
+        daprs=pulumi.get(__response__, 'daprs'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        ingresses=pulumi.get(__response__, 'ingresses'),
+        latest_revision_fqdn=pulumi.get(__response__, 'latest_revision_fqdn'),
+        latest_revision_name=pulumi.get(__response__, 'latest_revision_name'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        registries=pulumi.get(__response__, 'registries'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        revision_mode=pulumi.get(__response__, 'revision_mode'),
+        secrets=pulumi.get(__response__, 'secrets'),
+        tags=pulumi.get(__response__, 'tags'),
+        templates=pulumi.get(__response__, 'templates'),
+        workload_profile_name=pulumi.get(__response__, 'workload_profile_name')))
