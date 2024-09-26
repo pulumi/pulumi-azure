@@ -202,9 +202,6 @@ def get_certificate(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         nginx_deployment_id=pulumi.get(__ret__, 'nginx_deployment_id'),
         sha1_thumbprint=pulumi.get(__ret__, 'sha1_thumbprint'))
-
-
-@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
                            nginx_deployment_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
@@ -226,4 +223,20 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the NGINX Certificate.
     :param str nginx_deployment_id: The ID of the NGINX Deployment that the certificate is associated with.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['nginxDeploymentId'] = nginx_deployment_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:nginx/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
+    return __ret__.apply(lambda __response__: GetCertificateResult(
+        certificate_virtual_path=pulumi.get(__response__, 'certificate_virtual_path'),
+        error_code=pulumi.get(__response__, 'error_code'),
+        error_message=pulumi.get(__response__, 'error_message'),
+        id=pulumi.get(__response__, 'id'),
+        key_vault_secret_creation_date=pulumi.get(__response__, 'key_vault_secret_creation_date'),
+        key_vault_secret_id=pulumi.get(__response__, 'key_vault_secret_id'),
+        key_vault_secret_version=pulumi.get(__response__, 'key_vault_secret_version'),
+        key_virtual_path=pulumi.get(__response__, 'key_virtual_path'),
+        name=pulumi.get(__response__, 'name'),
+        nginx_deployment_id=pulumi.get(__response__, 'nginx_deployment_id'),
+        sha1_thumbprint=pulumi.get(__response__, 'sha1_thumbprint')))

@@ -135,9 +135,6 @@ def get_account(identity: Optional[Union['GetAccountIdentityArgs', 'GetAccountId
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_account)
 def get_account_output(identity: Optional[pulumi.Input[Optional[Union['GetAccountIdentityArgs', 'GetAccountIdentityArgsDict']]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -160,4 +157,16 @@ def get_account_output(identity: Optional[pulumi.Input[Optional[Union['GetAccoun
     :param str name: The name of the NetApp Account.
     :param str resource_group_name: The Name of the Resource Group where the NetApp Account exists.
     """
-    ...
+    __args__ = dict()
+    __args__['identity'] = identity
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:netapp/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
+    return __ret__.apply(lambda __response__: GetAccountResult(
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))
