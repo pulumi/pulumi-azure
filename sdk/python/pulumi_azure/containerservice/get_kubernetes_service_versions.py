@@ -150,9 +150,6 @@ def get_kubernetes_service_versions(include_preview: Optional[bool] = None,
         location=pulumi.get(__ret__, 'location'),
         version_prefix=pulumi.get(__ret__, 'version_prefix'),
         versions=pulumi.get(__ret__, 'versions'))
-
-
-@_utilities.lift_output_func(get_kubernetes_service_versions)
 def get_kubernetes_service_versions_output(include_preview: Optional[pulumi.Input[Optional[bool]]] = None,
                                            location: Optional[pulumi.Input[str]] = None,
                                            version_prefix: Optional[pulumi.Input[Optional[str]]] = None,
@@ -176,4 +173,17 @@ def get_kubernetes_service_versions_output(include_preview: Optional[pulumi.Inpu
     :param str location: Specifies the location in which to query for versions.
     :param str version_prefix: A prefix filter for the versions of Kubernetes which should be returned; for example `1.` will return `1.9` to `1.14`, whereas `1.12` will return `1.12.2`.
     """
-    ...
+    __args__ = dict()
+    __args__['includePreview'] = include_preview
+    __args__['location'] = location
+    __args__['versionPrefix'] = version_prefix
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions', __args__, opts=opts, typ=GetKubernetesServiceVersionsResult)
+    return __ret__.apply(lambda __response__: GetKubernetesServiceVersionsResult(
+        default_version=pulumi.get(__response__, 'default_version'),
+        id=pulumi.get(__response__, 'id'),
+        include_preview=pulumi.get(__response__, 'include_preview'),
+        latest_version=pulumi.get(__response__, 'latest_version'),
+        location=pulumi.get(__response__, 'location'),
+        version_prefix=pulumi.get(__response__, 'version_prefix'),
+        versions=pulumi.get(__response__, 'versions')))
