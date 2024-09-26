@@ -258,9 +258,6 @@ def get_topic_authorization_rule(name: Optional[str] = None,
         send=pulumi.get(__ret__, 'send'),
         topic_id=pulumi.get(__ret__, 'topic_id'),
         topic_name=pulumi.get(__ret__, 'topic_name'))
-
-
-@_utilities.lift_output_func(get_topic_authorization_rule)
 def get_topic_authorization_rule_output(name: Optional[pulumi.Input[str]] = None,
                                         namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
                                         queue_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -290,4 +287,29 @@ def get_topic_authorization_rule_output(name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group in which the ServiceBus Namespace exists.
     :param str topic_name: The name of the ServiceBus Topic.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['namespaceName'] = namespace_name
+    __args__['queueName'] = queue_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['topicId'] = topic_id
+    __args__['topicName'] = topic_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule', __args__, opts=opts, typ=GetTopicAuthorizationRuleResult)
+    return __ret__.apply(lambda __response__: GetTopicAuthorizationRuleResult(
+        id=pulumi.get(__response__, 'id'),
+        listen=pulumi.get(__response__, 'listen'),
+        manage=pulumi.get(__response__, 'manage'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
+        primary_connection_string_alias=pulumi.get(__response__, 'primary_connection_string_alias'),
+        primary_key=pulumi.get(__response__, 'primary_key'),
+        queue_name=pulumi.get(__response__, 'queue_name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
+        secondary_connection_string_alias=pulumi.get(__response__, 'secondary_connection_string_alias'),
+        secondary_key=pulumi.get(__response__, 'secondary_key'),
+        send=pulumi.get(__response__, 'send'),
+        topic_id=pulumi.get(__response__, 'topic_id'),
+        topic_name=pulumi.get(__response__, 'topic_name')))
