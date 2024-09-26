@@ -191,9 +191,6 @@ def get_virtual_wan(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         virtual_hub_ids=pulumi.get(__ret__, 'virtual_hub_ids'),
         vpn_site_ids=pulumi.get(__ret__, 'vpn_site_ids'))
-
-
-@_utilities.lift_output_func(get_virtual_wan)
 def get_virtual_wan_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualWanResult]:
@@ -204,4 +201,20 @@ def get_virtual_wan_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Virtual Wan.
     :param str resource_group_name: The name of the Resource Group where the Virtual Wan exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getVirtualWan:getVirtualWan', __args__, opts=opts, typ=GetVirtualWanResult)
+    return __ret__.apply(lambda __response__: GetVirtualWanResult(
+        allow_branch_to_branch_traffic=pulumi.get(__response__, 'allow_branch_to_branch_traffic'),
+        disable_vpn_encryption=pulumi.get(__response__, 'disable_vpn_encryption'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        office365_local_breakout_category=pulumi.get(__response__, 'office365_local_breakout_category'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        virtual_hub_ids=pulumi.get(__response__, 'virtual_hub_ids'),
+        vpn_site_ids=pulumi.get(__response__, 'vpn_site_ids')))
