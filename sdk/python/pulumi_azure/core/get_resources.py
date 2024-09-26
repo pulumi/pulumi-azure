@@ -136,9 +136,6 @@ def get_resources(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         resources=pulumi.get(__ret__, 'resources'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_resources)
 def get_resources_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                          required_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -153,4 +150,17 @@ def get_resources_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_group_name: The name of the Resource group where the Resources are located.
     :param str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['requiredTags'] = required_tags
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:core/getResources:getResources', __args__, opts=opts, typ=GetResourcesResult)
+    return __ret__.apply(lambda __response__: GetResourcesResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        required_tags=pulumi.get(__response__, 'required_tags'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        resources=pulumi.get(__response__, 'resources'),
+        type=pulumi.get(__response__, 'type')))
