@@ -164,9 +164,6 @@ def get_medtech_service(name: Optional[str] = None,
         identities=pulumi.get(__ret__, 'identities'),
         name=pulumi.get(__ret__, 'name'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-
-
-@_utilities.lift_output_func(get_medtech_service)
 def get_medtech_service_output(name: Optional[pulumi.Input[str]] = None,
                                workspace_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMedtechServiceResult]:
@@ -188,4 +185,17 @@ def get_medtech_service_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Healthcare Med Tech Service.
     :param str workspace_id: The id of the Healthcare Workspace in which the Healthcare Med Tech Service exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:healthcare/getMedtechService:getMedtechService', __args__, opts=opts, typ=GetMedtechServiceResult)
+    return __ret__.apply(lambda __response__: GetMedtechServiceResult(
+        device_mapping_json=pulumi.get(__response__, 'device_mapping_json'),
+        eventhub_consumer_group_name=pulumi.get(__response__, 'eventhub_consumer_group_name'),
+        eventhub_name=pulumi.get(__response__, 'eventhub_name'),
+        eventhub_namespace_name=pulumi.get(__response__, 'eventhub_namespace_name'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        name=pulumi.get(__response__, 'name'),
+        workspace_id=pulumi.get(__response__, 'workspace_id')))
