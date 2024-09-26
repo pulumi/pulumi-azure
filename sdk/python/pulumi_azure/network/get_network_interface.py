@@ -271,9 +271,6 @@ def get_network_interface(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'),
         virtual_machine_id=pulumi.get(__ret__, 'virtual_machine_id'))
-
-
-@_utilities.lift_output_func(get_network_interface)
 def get_network_interface_output(name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
@@ -295,4 +292,25 @@ def get_network_interface_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Network Interface.
     :param str resource_group_name: Specifies the name of the resource group the Network Interface is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getNetworkInterface:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult)
+    return __ret__.apply(lambda __response__: GetNetworkInterfaceResult(
+        accelerated_networking_enabled=pulumi.get(__response__, 'accelerated_networking_enabled'),
+        applied_dns_servers=pulumi.get(__response__, 'applied_dns_servers'),
+        dns_servers=pulumi.get(__response__, 'dns_servers'),
+        id=pulumi.get(__response__, 'id'),
+        internal_dns_name_label=pulumi.get(__response__, 'internal_dns_name_label'),
+        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
+        ip_forwarding_enabled=pulumi.get(__response__, 'ip_forwarding_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        mac_address=pulumi.get(__response__, 'mac_address'),
+        name=pulumi.get(__response__, 'name'),
+        network_security_group_id=pulumi.get(__response__, 'network_security_group_id'),
+        private_ip_address=pulumi.get(__response__, 'private_ip_address'),
+        private_ip_addresses=pulumi.get(__response__, 'private_ip_addresses'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        virtual_machine_id=pulumi.get(__response__, 'virtual_machine_id')))

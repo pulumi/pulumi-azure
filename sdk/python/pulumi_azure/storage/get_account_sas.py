@@ -249,9 +249,6 @@ def get_account_sas(connection_string: Optional[str] = None,
         services=pulumi.get(__ret__, 'services'),
         signed_version=pulumi.get(__ret__, 'signed_version'),
         start=pulumi.get(__ret__, 'start'))
-
-
-@_utilities.lift_output_func(get_account_sas)
 def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None,
                            expiry: Optional[pulumi.Input[str]] = None,
                            https_only: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -332,4 +329,27 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
     :param str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
     :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
     """
-    ...
+    __args__ = dict()
+    __args__['connectionString'] = connection_string
+    __args__['expiry'] = expiry
+    __args__['httpsOnly'] = https_only
+    __args__['ipAddresses'] = ip_addresses
+    __args__['permissions'] = permissions
+    __args__['resourceTypes'] = resource_types
+    __args__['services'] = services
+    __args__['signedVersion'] = signed_version
+    __args__['start'] = start
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getAccountSAS:getAccountSAS', __args__, opts=opts, typ=GetAccountSASResult)
+    return __ret__.apply(lambda __response__: GetAccountSASResult(
+        connection_string=pulumi.get(__response__, 'connection_string'),
+        expiry=pulumi.get(__response__, 'expiry'),
+        https_only=pulumi.get(__response__, 'https_only'),
+        id=pulumi.get(__response__, 'id'),
+        ip_addresses=pulumi.get(__response__, 'ip_addresses'),
+        permissions=pulumi.get(__response__, 'permissions'),
+        resource_types=pulumi.get(__response__, 'resource_types'),
+        sas=pulumi.get(__response__, 'sas'),
+        services=pulumi.get(__response__, 'services'),
+        signed_version=pulumi.get(__response__, 'signed_version'),
+        start=pulumi.get(__response__, 'start')))
