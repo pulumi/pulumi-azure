@@ -176,9 +176,6 @@ def get_workspace(name: Optional[str] = None,
         query_endpoint=pulumi.get(__ret__, 'query_endpoint'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
@@ -200,4 +197,18 @@ def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Workspace.
     :param str resource_group_name: Specifies the name of the resource group the Workspace is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:monitoring/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        default_data_collection_endpoint_id=pulumi.get(__response__, 'default_data_collection_endpoint_id'),
+        default_data_collection_rule_id=pulumi.get(__response__, 'default_data_collection_rule_id'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        query_endpoint=pulumi.get(__response__, 'query_endpoint'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

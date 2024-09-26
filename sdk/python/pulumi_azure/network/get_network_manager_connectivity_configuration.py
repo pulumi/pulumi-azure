@@ -177,9 +177,6 @@ def get_network_manager_connectivity_configuration(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         network_manager_id=pulumi.get(__ret__, 'network_manager_id'))
-
-
-@_utilities.lift_output_func(get_network_manager_connectivity_configuration)
 def get_network_manager_connectivity_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                                           network_manager_id: Optional[pulumi.Input[str]] = None,
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkManagerConnectivityConfigurationResult]:
@@ -201,4 +198,18 @@ def get_network_manager_connectivity_configuration_output(name: Optional[pulumi.
     :param str name: The name of this Network Manager Connectivity Configuration.
     :param str network_manager_id: The ID of the Network Manager.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['networkManagerId'] = network_manager_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration', __args__, opts=opts, typ=GetNetworkManagerConnectivityConfigurationResult)
+    return __ret__.apply(lambda __response__: GetNetworkManagerConnectivityConfigurationResult(
+        applies_to_groups=pulumi.get(__response__, 'applies_to_groups'),
+        connectivity_topology=pulumi.get(__response__, 'connectivity_topology'),
+        delete_existing_peering_enabled=pulumi.get(__response__, 'delete_existing_peering_enabled'),
+        description=pulumi.get(__response__, 'description'),
+        global_mesh_enabled=pulumi.get(__response__, 'global_mesh_enabled'),
+        hubs=pulumi.get(__response__, 'hubs'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        network_manager_id=pulumi.get(__response__, 'network_manager_id')))

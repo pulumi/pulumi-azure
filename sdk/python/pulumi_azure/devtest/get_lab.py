@@ -215,9 +215,6 @@ def get_lab(name: Optional[str] = None,
         storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
-
-
-@_utilities.lift_output_func(get_lab)
 def get_lab_output(name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
@@ -239,4 +236,21 @@ def get_lab_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Dev Test Lab.
     :param str resource_group_name: The Name of the Resource Group where the Dev Test Lab exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:devtest/getLab:getLab', __args__, opts=opts, typ=GetLabResult)
+    return __ret__.apply(lambda __response__: GetLabResult(
+        artifacts_storage_account_id=pulumi.get(__response__, 'artifacts_storage_account_id'),
+        default_premium_storage_account_id=pulumi.get(__response__, 'default_premium_storage_account_id'),
+        default_storage_account_id=pulumi.get(__response__, 'default_storage_account_id'),
+        id=pulumi.get(__response__, 'id'),
+        key_vault_id=pulumi.get(__response__, 'key_vault_id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        premium_data_disk_storage_account_id=pulumi.get(__response__, 'premium_data_disk_storage_account_id'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        storage_type=pulumi.get(__response__, 'storage_type'),
+        tags=pulumi.get(__response__, 'tags'),
+        unique_identifier=pulumi.get(__response__, 'unique_identifier')))
