@@ -192,9 +192,6 @@ def get_network_sim(mobile_network_sim_group_id: Optional[str] = None,
         static_ip_configurations=pulumi.get(__ret__, 'static_ip_configurations'),
         vendor_key_fingerprint=pulumi.get(__ret__, 'vendor_key_fingerprint'),
         vendor_name=pulumi.get(__ret__, 'vendor_name'))
-
-
-@_utilities.lift_output_func(get_network_sim)
 def get_network_sim_output(mobile_network_sim_group_id: Optional[pulumi.Input[str]] = None,
                            name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSimResult]:
@@ -205,4 +202,20 @@ def get_network_sim_output(mobile_network_sim_group_id: Optional[pulumi.Input[st
     :param str mobile_network_sim_group_id: The ID of the Mobile Network which the Mobile Network Sim belongs to.
     :param str name: The name which should be used for this Mobile Network Sim.
     """
-    ...
+    __args__ = dict()
+    __args__['mobileNetworkSimGroupId'] = mobile_network_sim_group_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkSim:getNetworkSim', __args__, opts=opts, typ=GetNetworkSimResult)
+    return __ret__.apply(lambda __response__: GetNetworkSimResult(
+        device_type=pulumi.get(__response__, 'device_type'),
+        id=pulumi.get(__response__, 'id'),
+        integrated_circuit_card_identifier=pulumi.get(__response__, 'integrated_circuit_card_identifier'),
+        international_mobile_subscriber_identity=pulumi.get(__response__, 'international_mobile_subscriber_identity'),
+        mobile_network_sim_group_id=pulumi.get(__response__, 'mobile_network_sim_group_id'),
+        name=pulumi.get(__response__, 'name'),
+        sim_policy_id=pulumi.get(__response__, 'sim_policy_id'),
+        sim_state=pulumi.get(__response__, 'sim_state'),
+        static_ip_configurations=pulumi.get(__response__, 'static_ip_configurations'),
+        vendor_key_fingerprint=pulumi.get(__response__, 'vendor_key_fingerprint'),
+        vendor_name=pulumi.get(__response__, 'vendor_name')))

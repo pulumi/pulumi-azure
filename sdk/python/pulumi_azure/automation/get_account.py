@@ -174,9 +174,6 @@ def get_account(name: Optional[str] = None,
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-
-
-@_utilities.lift_output_func(get_account)
 def get_account_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
@@ -198,4 +195,18 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Automation Account.
     :param str resource_group_name: Specifies the name of the Resource Group where the Automation Account exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:automation/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
+    return __ret__.apply(lambda __response__: GetAccountResult(
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        hybrid_service_url=pulumi.get(__response__, 'hybrid_service_url'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        name=pulumi.get(__response__, 'name'),
+        primary_key=pulumi.get(__response__, 'primary_key'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_key=pulumi.get(__response__, 'secondary_key')))

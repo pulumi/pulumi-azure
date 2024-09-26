@@ -294,9 +294,6 @@ def get_job(name: Optional[str] = None,
         start_time=pulumi.get(__ret__, 'start_time'),
         streaming_units=pulumi.get(__ret__, 'streaming_units'),
         transformation_query=pulumi.get(__ret__, 'transformation_query'))
-
-
-@_utilities.lift_output_func(get_job)
 def get_job_output(name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
@@ -318,4 +315,27 @@ def get_job_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Stream Analytics Job.
     :param str resource_group_name: Specifies the name of the resource group the Stream Analytics Job is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:streamanalytics/getJob:getJob', __args__, opts=opts, typ=GetJobResult)
+    return __ret__.apply(lambda __response__: GetJobResult(
+        compatibility_level=pulumi.get(__response__, 'compatibility_level'),
+        data_locale=pulumi.get(__response__, 'data_locale'),
+        events_late_arrival_max_delay_in_seconds=pulumi.get(__response__, 'events_late_arrival_max_delay_in_seconds'),
+        events_out_of_order_max_delay_in_seconds=pulumi.get(__response__, 'events_out_of_order_max_delay_in_seconds'),
+        events_out_of_order_policy=pulumi.get(__response__, 'events_out_of_order_policy'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        job_id=pulumi.get(__response__, 'job_id'),
+        last_output_time=pulumi.get(__response__, 'last_output_time'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        output_error_policy=pulumi.get(__response__, 'output_error_policy'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        start_mode=pulumi.get(__response__, 'start_mode'),
+        start_time=pulumi.get(__response__, 'start_time'),
+        streaming_units=pulumi.get(__response__, 'streaming_units'),
+        transformation_query=pulumi.get(__response__, 'transformation_query')))

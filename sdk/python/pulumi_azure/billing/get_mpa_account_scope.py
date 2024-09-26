@@ -98,9 +98,6 @@ def get_mpa_account_scope(billing_account_name: Optional[str] = None,
         billing_account_name=pulumi.get(__ret__, 'billing_account_name'),
         customer_name=pulumi.get(__ret__, 'customer_name'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_mpa_account_scope)
 def get_mpa_account_scope_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                  customer_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMpaAccountScopeResult]:
@@ -122,4 +119,12 @@ def get_mpa_account_scope_output(billing_account_name: Optional[pulumi.Input[str
     :param str billing_account_name: The Billing Account Name of the MPA account.
     :param str customer_name: The Customer Name in the above Billing Account.
     """
-    ...
+    __args__ = dict()
+    __args__['billingAccountName'] = billing_account_name
+    __args__['customerName'] = customer_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:billing/getMpaAccountScope:getMpaAccountScope', __args__, opts=opts, typ=GetMpaAccountScopeResult)
+    return __ret__.apply(lambda __response__: GetMpaAccountScopeResult(
+        billing_account_name=pulumi.get(__response__, 'billing_account_name'),
+        customer_name=pulumi.get(__response__, 'customer_name'),
+        id=pulumi.get(__response__, 'id')))
