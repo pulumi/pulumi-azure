@@ -335,9 +335,6 @@ def get_app_service(name: Optional[str] = None,
         site_credentials=pulumi.get(__ret__, 'site_credentials'),
         source_controls=pulumi.get(__ret__, 'source_controls'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_app_service)
 def get_app_service_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceResult]:
@@ -361,4 +358,30 @@ def get_app_service_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the App Service.
     :param str resource_group_name: The Name of the Resource Group where the App Service exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appservice/getAppService:getAppService', __args__, opts=opts, typ=GetAppServiceResult)
+    return __ret__.apply(lambda __response__: GetAppServiceResult(
+        app_service_plan_id=pulumi.get(__response__, 'app_service_plan_id'),
+        app_settings=pulumi.get(__response__, 'app_settings'),
+        client_affinity_enabled=pulumi.get(__response__, 'client_affinity_enabled'),
+        client_cert_enabled=pulumi.get(__response__, 'client_cert_enabled'),
+        connection_strings=pulumi.get(__response__, 'connection_strings'),
+        custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
+        default_site_hostname=pulumi.get(__response__, 'default_site_hostname'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        https_only=pulumi.get(__response__, 'https_only'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_ip_address_lists=pulumi.get(__response__, 'outbound_ip_address_lists'),
+        outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        possible_outbound_ip_address_lists=pulumi.get(__response__, 'possible_outbound_ip_address_lists'),
+        possible_outbound_ip_addresses=pulumi.get(__response__, 'possible_outbound_ip_addresses'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        site_configs=pulumi.get(__response__, 'site_configs'),
+        site_credentials=pulumi.get(__response__, 'site_credentials'),
+        source_controls=pulumi.get(__response__, 'source_controls'),
+        tags=pulumi.get(__response__, 'tags')))

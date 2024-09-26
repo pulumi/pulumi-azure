@@ -137,9 +137,6 @@ def get_ip_group(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_ip_group)
 def get_ip_group_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpGroupResult]:
@@ -161,4 +158,15 @@ def get_ip_group_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the Name of the IP Group.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the IP Group exists
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getIpGroup:getIpGroup', __args__, opts=opts, typ=GetIpGroupResult)
+    return __ret__.apply(lambda __response__: GetIpGroupResult(
+        cidrs=pulumi.get(__response__, 'cidrs'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))
