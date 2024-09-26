@@ -177,9 +177,6 @@ def get_role_definition(name: Optional[str] = None,
         role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
         scope=pulumi.get(__ret__, 'scope'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_role_definition)
 def get_role_definition_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                                role_definition_id: Optional[pulumi.Input[Optional[str]]] = None,
                                scope: Optional[pulumi.Input[Optional[str]]] = None,
@@ -216,4 +213,18 @@ def get_role_definition_output(name: Optional[pulumi.Input[Optional[str]]] = Non
            
            > **Note:** One of `name` or `role_definition_id` must be specified.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['roleDefinitionId'] = role_definition_id
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:authorization/getRoleDefinition:getRoleDefinition', __args__, opts=opts, typ=GetRoleDefinitionResult)
+    return __ret__.apply(lambda __response__: GetRoleDefinitionResult(
+        assignable_scopes=pulumi.get(__response__, 'assignable_scopes'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        permissions=pulumi.get(__response__, 'permissions'),
+        role_definition_id=pulumi.get(__response__, 'role_definition_id'),
+        scope=pulumi.get(__response__, 'scope'),
+        type=pulumi.get(__response__, 'type')))
