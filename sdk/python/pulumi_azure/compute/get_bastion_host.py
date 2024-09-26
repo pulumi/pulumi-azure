@@ -245,9 +245,6 @@ def get_bastion_host(name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         tunneling_enabled=pulumi.get(__ret__, 'tunneling_enabled'))
-
-
-@_utilities.lift_output_func(get_bastion_host)
 def get_bastion_host_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionHostResult]:
@@ -269,4 +266,23 @@ def get_bastion_host_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Bastion Host.
     :param str resource_group_name: The name of the Resource Group where the Bastion Host exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getBastionHost:getBastionHost', __args__, opts=opts, typ=GetBastionHostResult)
+    return __ret__.apply(lambda __response__: GetBastionHostResult(
+        copy_paste_enabled=pulumi.get(__response__, 'copy_paste_enabled'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        file_copy_enabled=pulumi.get(__response__, 'file_copy_enabled'),
+        id=pulumi.get(__response__, 'id'),
+        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
+        ip_connect_enabled=pulumi.get(__response__, 'ip_connect_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        scale_units=pulumi.get(__response__, 'scale_units'),
+        shareable_link_enabled=pulumi.get(__response__, 'shareable_link_enabled'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        tunneling_enabled=pulumi.get(__response__, 'tunneling_enabled')))
