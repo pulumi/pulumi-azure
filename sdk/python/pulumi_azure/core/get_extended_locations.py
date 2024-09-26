@@ -96,9 +96,6 @@ def get_extended_locations(location: Optional[str] = None,
         extended_locations=pulumi.get(__ret__, 'extended_locations'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'))
-
-
-@_utilities.lift_output_func(get_extended_locations)
 def get_extended_locations_output(location: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtendedLocationsResult]:
     """
@@ -116,4 +113,11 @@ def get_extended_locations_output(location: Optional[pulumi.Input[str]] = None,
 
     :param str location: The Azure location to retrieve the Extended Locations for.
     """
-    ...
+    __args__ = dict()
+    __args__['location'] = location
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:core/getExtendedLocations:getExtendedLocations', __args__, opts=opts, typ=GetExtendedLocationsResult)
+    return __ret__.apply(lambda __response__: GetExtendedLocationsResult(
+        extended_locations=pulumi.get(__response__, 'extended_locations'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location')))
