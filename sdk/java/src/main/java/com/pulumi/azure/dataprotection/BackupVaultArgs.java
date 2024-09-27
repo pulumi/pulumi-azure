@@ -7,6 +7,7 @@ import com.pulumi.azure.dataprotection.inputs.BackupVaultIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Map;
@@ -18,6 +19,25 @@ import javax.annotation.Nullable;
 public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BackupVaultArgs Empty = new BackupVaultArgs();
+
+    /**
+     * Whether to enable cross-region restore for the Backup Vault.
+     * 
+     * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+     * 
+     */
+    @Import(name="crossRegionRestoreEnabled")
+    private @Nullable Output<Boolean> crossRegionRestoreEnabled;
+
+    /**
+     * @return Whether to enable cross-region restore for the Backup Vault.
+     * 
+     * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+     * 
+     */
+    public Optional<Output<Boolean>> crossRegionRestoreEnabled() {
+        return Optional.ofNullable(this.crossRegionRestoreEnabled);
+    }
 
     /**
      * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
@@ -169,6 +189,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     private BackupVaultArgs() {}
 
     private BackupVaultArgs(BackupVaultArgs $) {
+        this.crossRegionRestoreEnabled = $.crossRegionRestoreEnabled;
         this.datastoreType = $.datastoreType;
         this.identity = $.identity;
         this.location = $.location;
@@ -196,6 +217,31 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(BackupVaultArgs defaults) {
             $ = new BackupVaultArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param crossRegionRestoreEnabled Whether to enable cross-region restore for the Backup Vault.
+         * 
+         * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossRegionRestoreEnabled(@Nullable Output<Boolean> crossRegionRestoreEnabled) {
+            $.crossRegionRestoreEnabled = crossRegionRestoreEnabled;
+            return this;
+        }
+
+        /**
+         * @param crossRegionRestoreEnabled Whether to enable cross-region restore for the Backup Vault.
+         * 
+         * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossRegionRestoreEnabled(Boolean crossRegionRestoreEnabled) {
+            return crossRegionRestoreEnabled(Output.of(crossRegionRestoreEnabled));
         }
 
         /**

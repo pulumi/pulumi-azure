@@ -49,6 +49,10 @@ public final class PolicyPolicySettings {
      * 
      */
     private @Nullable Boolean requestBodyCheck;
+    /**
+     * @return Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+     * 
+     */
     private @Nullable Boolean requestBodyEnforcement;
     /**
      * @return Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
@@ -106,6 +110,10 @@ public final class PolicyPolicySettings {
     public Optional<Boolean> requestBodyCheck() {
         return Optional.ofNullable(this.requestBodyCheck);
     }
+    /**
+     * @return Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+     * 
+     */
     public Optional<Boolean> requestBodyEnforcement() {
         return Optional.ofNullable(this.requestBodyEnforcement);
     }

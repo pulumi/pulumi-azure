@@ -37724,27 +37724,6 @@ export namespace maps {
     }
 }
 
-export namespace media {
-    export interface AccountFilterPresentationTimeRange {
-        endInUnits?: pulumi.Input<number>;
-        forceEnd?: pulumi.Input<boolean>;
-        liveBackoffInUnits?: pulumi.Input<number>;
-        presentationWindowInUnits?: pulumi.Input<number>;
-        startInUnits?: pulumi.Input<number>;
-        unitTimescaleInMilliseconds: pulumi.Input<number>;
-    }
-
-    export interface AccountFilterTrackSelection {
-        conditions: pulumi.Input<pulumi.Input<inputs.media.AccountFilterTrackSelectionCondition>[]>;
-    }
-
-    export interface AccountFilterTrackSelectionCondition {
-        operation: pulumi.Input<string>;
-        property: pulumi.Input<string>;
-        value: pulumi.Input<string>;
-    }
-}
-
 export namespace mobile {
     export interface NetworkAttachedDataNetworkNetworkAddressPortTranslation {
         /**
@@ -50571,6 +50550,9 @@ export namespace waf {
          * Is Request Body Inspection enabled? Defaults to `true`.
          */
         requestBodyCheck?: pulumi.Input<boolean>;
+        /**
+         * Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
+         */
         requestBodyEnforcement?: pulumi.Input<boolean>;
         /**
          * Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.

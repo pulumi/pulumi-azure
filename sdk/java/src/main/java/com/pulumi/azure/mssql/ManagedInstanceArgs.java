@@ -216,6 +216,21 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The service principal type. The only possible value is `SystemAssigned`.
+     * 
+     */
+    @Import(name="servicePrincipalType")
+    private @Nullable Output<String> servicePrincipalType;
+
+    /**
+     * @return The service principal type. The only possible value is `SystemAssigned`.
+     * 
+     */
+    public Optional<Output<String>> servicePrincipalType() {
+        return Optional.ofNullable(this.servicePrincipalType);
+    }
+
+    /**
      * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      * 
      */
@@ -351,6 +366,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         this.proxyOverride = $.proxyOverride;
         this.publicDataEndpointEnabled = $.publicDataEndpointEnabled;
         this.resourceGroupName = $.resourceGroupName;
+        this.servicePrincipalType = $.servicePrincipalType;
         this.skuName = $.skuName;
         this.storageAccountType = $.storageAccountType;
         this.storageSizeInGb = $.storageSizeInGb;
@@ -650,6 +666,27 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param servicePrincipalType The service principal type. The only possible value is `SystemAssigned`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePrincipalType(@Nullable Output<String> servicePrincipalType) {
+            $.servicePrincipalType = servicePrincipalType;
+            return this;
+        }
+
+        /**
+         * @param servicePrincipalType The service principal type. The only possible value is `SystemAssigned`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePrincipalType(String servicePrincipalType) {
+            return servicePrincipalType(Output.of(servicePrincipalType));
         }
 
         /**

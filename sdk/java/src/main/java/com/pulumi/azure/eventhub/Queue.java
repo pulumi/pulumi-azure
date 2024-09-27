@@ -89,18 +89,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:eventhub/queue:Queue")
 public class Queue extends com.pulumi.resources.CustomResource {
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      * 
      */
     @Export(name="autoDeleteOnIdle", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> autoDeleteOnIdle;
+    private Output<String> autoDeleteOnIdle;
 
     /**
-     * @return The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+     * @return The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      * 
      */
-    public Output<Optional<String>> autoDeleteOnIdle() {
-        return Codegen.optional(this.autoDeleteOnIdle);
+    public Output<String> autoDeleteOnIdle() {
+        return this.autoDeleteOnIdle;
     }
     /**
      * Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
@@ -131,18 +131,18 @@ public class Queue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deadLetteringOnMessageExpiration);
     }
     /**
-     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      * 
      */
     @Export(name="defaultMessageTtl", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> defaultMessageTtl;
+    private Output<String> defaultMessageTtl;
 
     /**
-     * @return The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+     * @return The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      * 
      */
-    public Output<Optional<String>> defaultMessageTtl() {
-        return Codegen.optional(this.defaultMessageTtl);
+    public Output<String> defaultMessageTtl() {
+        return this.defaultMessageTtl;
     }
     /**
      * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
@@ -233,28 +233,28 @@ public class Queue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxDeliveryCount);
     }
     /**
-     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     @Export(name="maxMessageSizeInKilobytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxMessageSizeInKilobytes;
 
     /**
-     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     public Output<Integer> maxMessageSizeInKilobytes() {
         return this.maxMessageSizeInKilobytes;
     }
     /**
-     * Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      * 
      */
     @Export(name="maxSizeInMegabytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSizeInMegabytes;
 
     /**
-     * @return Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
+     * @return Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      * 
      */
     public Output<Integer> maxSizeInMegabytes() {

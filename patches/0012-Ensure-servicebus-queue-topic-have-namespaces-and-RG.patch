@@ -7,19 +7,19 @@ Subject: [PATCH] Ensure servicebus queue & topic have namespaces and RG names
 These are computed attributes for use in the servicebus mixins in Pulumi.
 
 diff --git a/internal/services/servicebus/servicebus_queue_resource.go b/internal/services/servicebus/servicebus_queue_resource.go
-index 579c5712ce..cc468319b5 100644
+index b4df3f33be..fc4838204d 100644
 --- a/internal/services/servicebus/servicebus_queue_resource.go
 +++ b/internal/services/servicebus/servicebus_queue_resource.go
-@@ -47,6 +47,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
+@@ -46,6 +46,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
  	}
  }
  
 +// FORK: @stack72: Ensured the ResourceGroupName and NamespaceName was available as a computed attribute for use
 +// in the servicebus mixins in Pulumi
  func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
- 	schema := map[string]*pluginsdk.Schema{
+ 	return map[string]*pluginsdk.Schema{
  		"name": {
-@@ -165,6 +167,16 @@ func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
+@@ -166,6 +168,16 @@ func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
  			ForceNew: true,
  		},
  
@@ -36,7 +36,7 @@ index 579c5712ce..cc468319b5 100644
  		"status": {
  			Type:     pluginsdk.TypeString,
  			Optional: true,
-@@ -480,6 +492,8 @@ func resourceServiceBusQueueRead(d *pluginsdk.ResourceData, meta interface{}) er
+@@ -377,6 +389,8 @@ func resourceServiceBusQueueRead(d *pluginsdk.ResourceData, meta interface{}) er
  
  	d.Set("name", id.QueueName)
  	d.Set("namespace_id", namespaceId.ID())

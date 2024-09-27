@@ -96,7 +96,6 @@ import * as managementgroups from "./managementgroups";
 import * as managementresource from "./managementresource";
 import * as maps from "./maps";
 import * as marketplace from "./marketplace";
-import * as media from "./media";
 import * as mixedreality from "./mixedreality";
 import * as mobile from "./mobile";
 import * as monitoring from "./monitoring";
@@ -228,7 +227,6 @@ export {
     managementresource,
     maps,
     marketplace,
-    media,
     mixedreality,
     mobile,
     monitoring,

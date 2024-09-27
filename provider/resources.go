@@ -138,7 +138,6 @@ const (
 	azureMaps                  = "Maps"                  // Maps
 	azureMarketPlace           = "Marketplace"           // Marketplace
 	azureMediaServices         = "MediaServices"         // Media Services
-	azureMedia                 = "Media"                 // Media
 	azureMixedReality          = "MixedReality"          // Mixed Reality
 	azureMonitoring            = "Monitoring"            // Metrics/monitoring resources
 	azureMobile                = "Mobile"                // Mobile
@@ -301,7 +300,6 @@ var moduleMap = map[string]string{
 	"maps":                azureMaps,
 	"marketplace":         azureMarketPlace,
 	"media_services":      azureMediaServices,
-	"media":               azureMedia,
 	// Ignored: azureMixedReality. The only token is "azurerm_spatial_anchors_account".
 	"monitor":          azureMonitoring,
 	"mobile":           azureMobile,
@@ -1560,9 +1558,6 @@ func Provider() tfbridge.ProviderInfo {
 			// Maps
 			"azurerm_maps_account": {Tok: azureResource(azureMaps, "Account")},
 			"azurerm_maps_creator": {Tok: azureResource(azureMaps, "Creator")},
-
-			// Media
-			"azurerm_media_services_account_filter": {Tok: azureResource(azureMedia, "AccountFilter"), Docs: &info.Doc{AllowMissing: true}},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {

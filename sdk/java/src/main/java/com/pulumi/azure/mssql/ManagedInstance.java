@@ -252,6 +252,20 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
+     * The service principal type. The only possible value is `SystemAssigned`.
+     * 
+     */
+    @Export(name="servicePrincipalType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> servicePrincipalType;
+
+    /**
+     * @return The service principal type. The only possible value is `SystemAssigned`.
+     * 
+     */
+    public Output<Optional<String>> servicePrincipalType() {
+        return Codegen.optional(this.servicePrincipalType);
+    }
+    /**
      * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      * 
      */

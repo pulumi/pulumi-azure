@@ -41,6 +41,9 @@ namespace Pulumi.Azure.Waf.Outputs
         /// Is Request Body Inspection enabled? Defaults to `true`.
         /// </summary>
         public readonly bool? RequestBodyCheck;
+        /// <summary>
+        /// Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+        /// </summary>
         public readonly bool? RequestBodyEnforcement;
         /// <summary>
         /// Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.

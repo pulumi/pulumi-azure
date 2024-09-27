@@ -5,6 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .arc_machine import *
+from .automanage_configuration_assignment import *
 from .extension import *
 from .get import *
 from . import outputs

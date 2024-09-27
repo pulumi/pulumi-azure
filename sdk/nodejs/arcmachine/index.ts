@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ArcMachineArgs, ArcMachineState } from "./arcMachine";
+export type ArcMachine = import("./arcMachine").ArcMachine;
+export const ArcMachine: typeof import("./arcMachine").ArcMachine = null as any;
+utilities.lazyLoad(exports, ["ArcMachine"], () => require("./arcMachine"));
+
+export { AutomanageConfigurationAssignmentArgs, AutomanageConfigurationAssignmentState } from "./automanageConfigurationAssignment";
+export type AutomanageConfigurationAssignment = import("./automanageConfigurationAssignment").AutomanageConfigurationAssignment;
+export const AutomanageConfigurationAssignment: typeof import("./automanageConfigurationAssignment").AutomanageConfigurationAssignment = null as any;
+utilities.lazyLoad(exports, ["AutomanageConfigurationAssignment"], () => require("./automanageConfigurationAssignment"));
+
 export { ExtensionArgs, ExtensionState } from "./extension";
 export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
@@ -20,6 +30,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:arcmachine/arcMachine:ArcMachine":
+                return new ArcMachine(name, <any>undefined, { urn })
+            case "azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment":
+                return new AutomanageConfigurationAssignment(name, <any>undefined, { urn })
             case "azure:arcmachine/extension:Extension":
                 return new Extension(name, <any>undefined, { urn })
             default:
@@ -27,4 +41,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "arcmachine/arcMachine", _module)
+pulumi.runtime.registerResourceModule("azure", "arcmachine/automanageConfigurationAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "arcmachine/extension", _module)

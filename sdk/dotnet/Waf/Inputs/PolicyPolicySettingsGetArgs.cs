@@ -54,6 +54,9 @@ namespace Pulumi.Azure.Waf.Inputs
         [Input("requestBodyCheck")]
         public Input<bool>? RequestBodyCheck { get; set; }
 
+        /// <summary>
+        /// Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+        /// </summary>
         [Input("requestBodyEnforcement")]
         public Input<bool>? RequestBodyEnforcement { get; set; }
 

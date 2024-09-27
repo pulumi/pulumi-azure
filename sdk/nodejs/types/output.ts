@@ -47497,28 +47497,6 @@ export namespace maps {
 
 }
 
-export namespace media {
-    export interface AccountFilterPresentationTimeRange {
-        endInUnits?: number;
-        forceEnd?: boolean;
-        liveBackoffInUnits?: number;
-        presentationWindowInUnits?: number;
-        startInUnits?: number;
-        unitTimescaleInMilliseconds: number;
-    }
-
-    export interface AccountFilterTrackSelection {
-        conditions: outputs.media.AccountFilterTrackSelectionCondition[];
-    }
-
-    export interface AccountFilterTrackSelectionCondition {
-        operation: string;
-        property: string;
-        value: string;
-    }
-
-}
-
 export namespace mobile {
     export interface GetNetworkAttachedDataNetworkNetworkAddressPortTranslation {
         icmpPinholeTimeoutInSeconds: number;
@@ -64650,6 +64628,9 @@ export namespace waf {
          * Is Request Body Inspection enabled? Defaults to `true`.
          */
         requestBodyCheck?: boolean;
+        /**
+         * Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
+         */
         requestBodyEnforcement?: boolean;
         /**
          * Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.

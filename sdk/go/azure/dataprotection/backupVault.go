@@ -62,6 +62,10 @@ import (
 type BackupVault struct {
 	pulumi.CustomResourceState
 
+	// Whether to enable cross-region restore for the Backup Vault.
+	//
+	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
+	CrossRegionRestoreEnabled pulumi.BoolPtrOutput `pulumi:"crossRegionRestoreEnabled"`
 	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -127,6 +131,10 @@ func GetBackupVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupVault resources.
 type backupVaultState struct {
+	// Whether to enable cross-region restore for the Backup Vault.
+	//
+	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
+	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
 	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -154,6 +162,10 @@ type backupVaultState struct {
 }
 
 type BackupVaultState struct {
+	// Whether to enable cross-region restore for the Backup Vault.
+	//
+	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
+	CrossRegionRestoreEnabled pulumi.BoolPtrInput
 	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -185,6 +197,10 @@ func (BackupVaultState) ElementType() reflect.Type {
 }
 
 type backupVaultArgs struct {
+	// Whether to enable cross-region restore for the Backup Vault.
+	//
+	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
+	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
 	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -213,6 +229,10 @@ type backupVaultArgs struct {
 
 // The set of arguments for constructing a BackupVault resource.
 type BackupVaultArgs struct {
+	// Whether to enable cross-region restore for the Backup Vault.
+	//
+	// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
+	CrossRegionRestoreEnabled pulumi.BoolPtrInput
 	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -324,6 +344,13 @@ func (o BackupVaultOutput) ToBackupVaultOutput() BackupVaultOutput {
 
 func (o BackupVaultOutput) ToBackupVaultOutputWithContext(ctx context.Context) BackupVaultOutput {
 	return o
+}
+
+// Whether to enable cross-region restore for the Backup Vault.
+//
+// > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
+func (o BackupVaultOutput) CrossRegionRestoreEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.BoolPtrOutput { return v.CrossRegionRestoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
