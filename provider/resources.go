@@ -1562,7 +1562,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_maps_creator": {Tok: azureResource(azureMaps, "Creator")},
 
 			// Media
-			"azurerm_media_services_account_filter": {Tok: azureResource(azureMedia, "AccountFilter")},
+			"azurerm_media_services_account_filter": {Tok: azureResource(azureMedia, "AccountFilter"), Docs: &info.Doc{AllowMissing: true}},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {
