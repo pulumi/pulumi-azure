@@ -282,6 +282,21 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enable SMB encryption.
+     * 
+     */
+    @Import(name="smb3ProtocolEncryptionEnabled")
+    private @Nullable Output<Boolean> smb3ProtocolEncryptionEnabled;
+
+    /**
+     * @return Enable SMB encryption.
+     * 
+     */
+    public Optional<Output<Boolean>> smb3ProtocolEncryptionEnabled() {
+        return Optional.ofNullable(this.smb3ProtocolEncryptionEnabled);
+    }
+
+    /**
      * Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn&#39;t have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn&#39;t show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
      * 
      */
@@ -455,6 +470,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         this.resourceGroupName = $.resourceGroupName;
         this.securityStyle = $.securityStyle;
         this.serviceLevel = $.serviceLevel;
+        this.smb3ProtocolEncryptionEnabled = $.smb3ProtocolEncryptionEnabled;
         this.smbAccessBasedEnumerationEnabled = $.smbAccessBasedEnumerationEnabled;
         this.smbContinuousAvailabilityEnabled = $.smbContinuousAvailabilityEnabled;
         this.smbNonBrowsableEnabled = $.smbNonBrowsableEnabled;
@@ -862,6 +878,27 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder serviceLevel(String serviceLevel) {
             return serviceLevel(Output.of(serviceLevel));
+        }
+
+        /**
+         * @param smb3ProtocolEncryptionEnabled Enable SMB encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smb3ProtocolEncryptionEnabled(@Nullable Output<Boolean> smb3ProtocolEncryptionEnabled) {
+            $.smb3ProtocolEncryptionEnabled = smb3ProtocolEncryptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param smb3ProtocolEncryptionEnabled Enable SMB encryption.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smb3ProtocolEncryptionEnabled(Boolean smb3ProtocolEncryptionEnabled) {
+            return smb3ProtocolEncryptionEnabled(Output.of(smb3ProtocolEncryptionEnabled));
         }
 
         /**

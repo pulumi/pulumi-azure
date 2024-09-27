@@ -14,6 +14,59 @@ import (
 
 // Manages a Cognitive Services Account Deployment.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cognitive"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cognitive.NewAccount(ctx, "example", &cognitive.AccountArgs{
+//				Name:              pulumi.String("example-ca"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Kind:              pulumi.String("OpenAI"),
+//				SkuName:           pulumi.String("S0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognitive.NewDeployment(ctx, "example", &cognitive.DeploymentArgs{
+//				Name:               pulumi.String("example-cd"),
+//				CognitiveAccountId: exampleAccount.ID(),
+//				Model: &cognitive.DeploymentModelArgs{
+//					Format:  pulumi.String("OpenAI"),
+//					Name:    pulumi.String("text-curie-001"),
+//					Version: pulumi.String("1"),
+//				},
+//				Sku: &cognitive.DeploymentSkuArgs{
+//					Name: pulumi.String("Standard"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Cognitive Services Account Deployment can be imported using the `resource id`, e.g.
@@ -32,7 +85,8 @@ type Deployment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of RAI policy.
 	RaiPolicyName pulumi.StringPtrOutput `pulumi:"raiPolicyName"`
-	Sku           DeploymentSkuOutput    `pulumi:"sku"`
+	// A `sku` block as defined below.
+	Sku DeploymentSkuOutput `pulumi:"sku"`
 	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
 	VersionUpgradeOption pulumi.StringPtrOutput `pulumi:"versionUpgradeOption"`
 }
@@ -83,8 +137,9 @@ type deploymentState struct {
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of RAI policy.
-	RaiPolicyName *string        `pulumi:"raiPolicyName"`
-	Sku           *DeploymentSku `pulumi:"sku"`
+	RaiPolicyName *string `pulumi:"raiPolicyName"`
+	// A `sku` block as defined below.
+	Sku *DeploymentSku `pulumi:"sku"`
 	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
 	VersionUpgradeOption *string `pulumi:"versionUpgradeOption"`
 }
@@ -98,7 +153,8 @@ type DeploymentState struct {
 	Name pulumi.StringPtrInput
 	// The name of RAI policy.
 	RaiPolicyName pulumi.StringPtrInput
-	Sku           DeploymentSkuPtrInput
+	// A `sku` block as defined below.
+	Sku DeploymentSkuPtrInput
 	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
 	VersionUpgradeOption pulumi.StringPtrInput
 }
@@ -115,8 +171,9 @@ type deploymentArgs struct {
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of RAI policy.
-	RaiPolicyName *string       `pulumi:"raiPolicyName"`
-	Sku           DeploymentSku `pulumi:"sku"`
+	RaiPolicyName *string `pulumi:"raiPolicyName"`
+	// A `sku` block as defined below.
+	Sku DeploymentSku `pulumi:"sku"`
 	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
 	VersionUpgradeOption *string `pulumi:"versionUpgradeOption"`
 }
@@ -131,7 +188,8 @@ type DeploymentArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of RAI policy.
 	RaiPolicyName pulumi.StringPtrInput
-	Sku           DeploymentSkuInput
+	// A `sku` block as defined below.
+	Sku DeploymentSkuInput
 	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
 	VersionUpgradeOption pulumi.StringPtrInput
 }
@@ -243,6 +301,7 @@ func (o DeploymentOutput) RaiPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.RaiPolicyName }).(pulumi.StringPtrOutput)
 }
 
+// A `sku` block as defined below.
 func (o DeploymentOutput) Sku() DeploymentSkuOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentSkuOutput { return v.Sku }).(DeploymentSkuOutput)
 }

@@ -29,12 +29,6 @@ class AccountFilterArgs:
                  track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]] = None):
         """
         The set of arguments for constructing a AccountFilter resource.
-        :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[int] first_quality_bitrate: The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-        :param pulumi.Input[str] name: The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input['AccountFilterPresentationTimeRangeArgs'] presentation_time_range: A `presentation_time_range` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]] track_selections: One or more `track_selection` blocks as defined below.
         """
         pulumi.set(__self__, "media_services_account_name", media_services_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -50,9 +44,6 @@ class AccountFilterArgs:
     @property
     @pulumi.getter(name="mediaServicesAccountName")
     def media_services_account_name(self) -> pulumi.Input[str]:
-        """
-        The Media Services account name. Changing this forces a new Account Filter to be created.
-        """
         return pulumi.get(self, "media_services_account_name")
 
     @media_services_account_name.setter
@@ -62,9 +53,6 @@ class AccountFilterArgs:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -74,9 +62,6 @@ class AccountFilterArgs:
     @property
     @pulumi.getter(name="firstQualityBitrate")
     def first_quality_bitrate(self) -> Optional[pulumi.Input[int]]:
-        """
-        The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-        """
         return pulumi.get(self, "first_quality_bitrate")
 
     @first_quality_bitrate.setter
@@ -86,9 +71,6 @@ class AccountFilterArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -98,9 +80,6 @@ class AccountFilterArgs:
     @property
     @pulumi.getter(name="presentationTimeRange")
     def presentation_time_range(self) -> Optional[pulumi.Input['AccountFilterPresentationTimeRangeArgs']]:
-        """
-        A `presentation_time_range` block as defined below.
-        """
         return pulumi.get(self, "presentation_time_range")
 
     @presentation_time_range.setter
@@ -110,9 +89,6 @@ class AccountFilterArgs:
     @property
     @pulumi.getter(name="trackSelections")
     def track_selections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]]:
-        """
-        One or more `track_selection` blocks as defined below.
-        """
         return pulumi.get(self, "track_selections")
 
     @track_selections.setter
@@ -131,12 +107,6 @@ class _AccountFilterState:
                  track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]] = None):
         """
         Input properties used for looking up and filtering AccountFilter resources.
-        :param pulumi.Input[int] first_quality_bitrate: The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-        :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input['AccountFilterPresentationTimeRangeArgs'] presentation_time_range: A `presentation_time_range` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]] track_selections: One or more `track_selection` blocks as defined below.
         """
         if first_quality_bitrate is not None:
             pulumi.set(__self__, "first_quality_bitrate", first_quality_bitrate)
@@ -154,9 +124,6 @@ class _AccountFilterState:
     @property
     @pulumi.getter(name="firstQualityBitrate")
     def first_quality_bitrate(self) -> Optional[pulumi.Input[int]]:
-        """
-        The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-        """
         return pulumi.get(self, "first_quality_bitrate")
 
     @first_quality_bitrate.setter
@@ -166,9 +133,6 @@ class _AccountFilterState:
     @property
     @pulumi.getter(name="mediaServicesAccountName")
     def media_services_account_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Media Services account name. Changing this forces a new Account Filter to be created.
-        """
         return pulumi.get(self, "media_services_account_name")
 
     @media_services_account_name.setter
@@ -178,9 +142,6 @@ class _AccountFilterState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -190,9 +151,6 @@ class _AccountFilterState:
     @property
     @pulumi.getter(name="presentationTimeRange")
     def presentation_time_range(self) -> Optional[pulumi.Input['AccountFilterPresentationTimeRangeArgs']]:
-        """
-        A `presentation_time_range` block as defined below.
-        """
         return pulumi.get(self, "presentation_time_range")
 
     @presentation_time_range.setter
@@ -202,9 +160,6 @@ class _AccountFilterState:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -214,9 +169,6 @@ class _AccountFilterState:
     @property
     @pulumi.getter(name="trackSelections")
     def track_selections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]]:
-        """
-        One or more `track_selection` blocks as defined below.
-        """
         return pulumi.get(self, "track_selections")
 
     @track_selections.setter
@@ -237,98 +189,9 @@ class AccountFilter(pulumi.CustomResource):
                  track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountFilterTrackSelectionArgs', 'AccountFilterTrackSelectionArgsDict']]]]] = None,
                  __props__=None):
         """
-        Manages a Media Services Account Filter.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azurerm as azurerm
-
-        example = azure.core.ResourceGroup("example",
-            name="media-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_media_services_account = azurerm.index.MediaServicesAccount("example",
-            name=examplemediaacc,
-            location=example.location,
-            resource_group_name=example.name,
-            storage_account=[{
-                id: example_account.id,
-                isPrimary: True,
-            }])
-        example_account_filter = azure.media.AccountFilter("example",
-            name="Filter1",
-            resource_group_name=test_azurerm_resource_group["name"],
-            media_services_account_name=test["name"],
-            first_quality_bitrate=128000,
-            presentation_time_range={
-                "start_in_units": 0,
-                "end_in_units": 15,
-                "presentation_window_in_units": 90,
-                "live_backoff_in_units": 0,
-                "unit_timescale_in_milliseconds": 1000,
-                "force_end": False,
-            },
-            track_selections=[
-                {
-                    "conditions": [
-                        {
-                            "property": "Type",
-                            "operation": "Equal",
-                            "value": "Audio",
-                        },
-                        {
-                            "property": "Language",
-                            "operation": "NotEqual",
-                            "value": "en",
-                        },
-                        {
-                            "property": "FourCC",
-                            "operation": "NotEqual",
-                            "value": "EC-3",
-                        },
-                    ],
-                },
-                {
-                    "conditions": [
-                        {
-                            "property": "Type",
-                            "operation": "Equal",
-                            "value": "Video",
-                        },
-                        {
-                            "property": "Bitrate",
-                            "operation": "Equal",
-                            "value": "3000000-5000000",
-                        },
-                    ],
-                },
-            ])
-        ```
-
-        ## Import
-
-        Account Filters can be imported using the `resource id`, e.g.
-
-        ```sh
-        $ pulumi import azure:media/accountFilter:AccountFilter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/accountFilters/filter1
-        ```
-
+        Create a AccountFilter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] first_quality_bitrate: The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-        :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[Union['AccountFilterPresentationTimeRangeArgs', 'AccountFilterPresentationTimeRangeArgsDict']] presentation_time_range: A `presentation_time_range` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountFilterTrackSelectionArgs', 'AccountFilterTrackSelectionArgsDict']]]] track_selections: One or more `track_selection` blocks as defined below.
         """
         ...
     @overload
@@ -337,90 +200,7 @@ class AccountFilter(pulumi.CustomResource):
                  args: AccountFilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Media Services Account Filter.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azurerm as azurerm
-
-        example = azure.core.ResourceGroup("example",
-            name="media-resources",
-            location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplestoracc",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_media_services_account = azurerm.index.MediaServicesAccount("example",
-            name=examplemediaacc,
-            location=example.location,
-            resource_group_name=example.name,
-            storage_account=[{
-                id: example_account.id,
-                isPrimary: True,
-            }])
-        example_account_filter = azure.media.AccountFilter("example",
-            name="Filter1",
-            resource_group_name=test_azurerm_resource_group["name"],
-            media_services_account_name=test["name"],
-            first_quality_bitrate=128000,
-            presentation_time_range={
-                "start_in_units": 0,
-                "end_in_units": 15,
-                "presentation_window_in_units": 90,
-                "live_backoff_in_units": 0,
-                "unit_timescale_in_milliseconds": 1000,
-                "force_end": False,
-            },
-            track_selections=[
-                {
-                    "conditions": [
-                        {
-                            "property": "Type",
-                            "operation": "Equal",
-                            "value": "Audio",
-                        },
-                        {
-                            "property": "Language",
-                            "operation": "NotEqual",
-                            "value": "en",
-                        },
-                        {
-                            "property": "FourCC",
-                            "operation": "NotEqual",
-                            "value": "EC-3",
-                        },
-                    ],
-                },
-                {
-                    "conditions": [
-                        {
-                            "property": "Type",
-                            "operation": "Equal",
-                            "value": "Video",
-                        },
-                        {
-                            "property": "Bitrate",
-                            "operation": "Equal",
-                            "value": "3000000-5000000",
-                        },
-                    ],
-                },
-            ])
-        ```
-
-        ## Import
-
-        Account Filters can be imported using the `resource id`, e.g.
-
-        ```sh
-        $ pulumi import azure:media/accountFilter:AccountFilter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/accountFilters/filter1
-        ```
-
+        Create a AccountFilter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountFilterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -484,12 +264,6 @@ class AccountFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] first_quality_bitrate: The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-        :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[Union['AccountFilterPresentationTimeRangeArgs', 'AccountFilterPresentationTimeRangeArgsDict']] presentation_time_range: A `presentation_time_range` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountFilterTrackSelectionArgs', 'AccountFilterTrackSelectionArgsDict']]]] track_selections: One or more `track_selection` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -506,48 +280,30 @@ class AccountFilter(pulumi.CustomResource):
     @property
     @pulumi.getter(name="firstQualityBitrate")
     def first_quality_bitrate(self) -> pulumi.Output[Optional[int]]:
-        """
-        The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-        """
         return pulumi.get(self, "first_quality_bitrate")
 
     @property
     @pulumi.getter(name="mediaServicesAccountName")
     def media_services_account_name(self) -> pulumi.Output[str]:
-        """
-        The Media Services account name. Changing this forces a new Account Filter to be created.
-        """
         return pulumi.get(self, "media_services_account_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="presentationTimeRange")
     def presentation_time_range(self) -> pulumi.Output[Optional['outputs.AccountFilterPresentationTimeRange']]:
-        """
-        A `presentation_time_range` block as defined below.
-        """
         return pulumi.get(self, "presentation_time_range")
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="trackSelections")
     def track_selections(self) -> pulumi.Output[Optional[Sequence['outputs.AccountFilterTrackSelection']]]:
-        """
-        One or more `track_selection` blocks as defined below.
-        """
         return pulumi.get(self, "track_selections")
 

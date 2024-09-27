@@ -118,8 +118,6 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// A `event_grouping` block as defined below.
-        /// 
-        /// &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Output("eventGrouping")]
         public Output<Outputs.AlertRuleNrtEventGrouping> EventGrouping { get; private set; } = null!;
@@ -300,8 +298,6 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// A `event_grouping` block as defined below.
-        /// 
-        /// &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Input("eventGrouping", required: true)]
         public Input<Inputs.AlertRuleNrtEventGroupingArgs> EventGrouping { get; set; } = null!;
@@ -462,8 +458,6 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// A `event_grouping` block as defined below.
-        /// 
-        /// &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Input("eventGrouping")]
         public Input<Inputs.AlertRuleNrtEventGroupingGetArgs>? EventGrouping { get; set; }

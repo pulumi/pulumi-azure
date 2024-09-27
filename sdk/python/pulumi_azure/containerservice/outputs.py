@@ -3858,7 +3858,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
         :param Sequence[str] allowed_unsafe_sysctls: Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
         :param int container_log_max_line: Specifies the maximum number of container log files that can be present for a container. must be at least 2.
         :param int container_log_max_size_mb: Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
-        :param bool cpu_cfs_quota_enabled: Is CPU CFS quota enforcement for containers enabled?
+        :param bool cpu_cfs_quota_enabled: Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
         :param str cpu_cfs_quota_period: Specifies the CPU CFS quota period value.
         :param str cpu_manager_policy: Specifies the CPU Manager policy to use. Possible values are `none` and `static`,.
         :param int image_gc_high_threshold: Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
@@ -3915,7 +3915,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @pulumi.getter(name="cpuCfsQuotaEnabled")
     def cpu_cfs_quota_enabled(self) -> Optional[bool]:
         """
-        Is CPU CFS quota enforcement for containers enabled?
+        Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
         """
         return pulumi.get(self, "cpu_cfs_quota_enabled")
 
@@ -6674,8 +6674,8 @@ class KubernetesClusterNetworkProfileNatGatewayProfile(dict):
                  managed_outbound_ip_count: Optional[int] = None):
         """
         :param Sequence[str] effective_outbound_ips: The outcome (resource IDs) of the specified arguments.
-        :param int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
-        :param int managed_outbound_ip_count: Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+        :param int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
+        :param int managed_outbound_ip_count: Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
         """
         if effective_outbound_ips is not None:
             pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
@@ -6696,7 +6696,7 @@ class KubernetesClusterNetworkProfileNatGatewayProfile(dict):
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[int]:
         """
-        Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+        Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
@@ -6704,7 +6704,7 @@ class KubernetesClusterNetworkProfileNatGatewayProfile(dict):
     @pulumi.getter(name="managedOutboundIpCount")
     def managed_outbound_ip_count(self) -> Optional[int]:
         """
-        Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+        Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
         """
         return pulumi.get(self, "managed_outbound_ip_count")
 

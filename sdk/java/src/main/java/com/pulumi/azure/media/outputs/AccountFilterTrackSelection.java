@@ -11,17 +11,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AccountFilterTrackSelection {
-    /**
-     * @return One or more `selection` blocks as defined above.
-     * 
-     */
     private List<AccountFilterTrackSelectionCondition> conditions;
 
     private AccountFilterTrackSelection() {}
-    /**
-     * @return One or more `selection` blocks as defined above.
-     * 
-     */
     public List<AccountFilterTrackSelectionCondition> conditions() {
         return this.conditions;
     }

@@ -6,95 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Media Services Account Filter.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "media-resources",
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     name: "examplestoracc",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- * });
- * const exampleMediaServicesAccount = new azurerm.index.MediaServicesAccount("example", {
- *     name: "examplemediaacc",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     storageAccount: [{
- *         id: exampleAccount.id,
- *         isPrimary: true,
- *     }],
- * });
- * const exampleAccountFilter = new azure.media.AccountFilter("example", {
- *     name: "Filter1",
- *     resourceGroupName: testAzurermResourceGroup.name,
- *     mediaServicesAccountName: test.name,
- *     firstQualityBitrate: 128000,
- *     presentationTimeRange: {
- *         startInUnits: 0,
- *         endInUnits: 15,
- *         presentationWindowInUnits: 90,
- *         liveBackoffInUnits: 0,
- *         unitTimescaleInMilliseconds: 1000,
- *         forceEnd: false,
- *     },
- *     trackSelections: [
- *         {
- *             conditions: [
- *                 {
- *                     property: "Type",
- *                     operation: "Equal",
- *                     value: "Audio",
- *                 },
- *                 {
- *                     property: "Language",
- *                     operation: "NotEqual",
- *                     value: "en",
- *                 },
- *                 {
- *                     property: "FourCC",
- *                     operation: "NotEqual",
- *                     value: "EC-3",
- *                 },
- *             ],
- *         },
- *         {
- *             conditions: [
- *                 {
- *                     property: "Type",
- *                     operation: "Equal",
- *                     value: "Video",
- *                 },
- *                 {
- *                     property: "Bitrate",
- *                     operation: "Equal",
- *                     value: "3000000-5000000",
- *                 },
- *             ],
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Account Filters can be imported using the `resource id`, e.g.
- *
- * ```sh
- * $ pulumi import azure:media/accountFilter:AccountFilter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/accountFilters/filter1
- * ```
- */
 export class AccountFilter extends pulumi.CustomResource {
     /**
      * Get an existing AccountFilter resource's state with the given name, ID, and optional extra
@@ -123,29 +34,11 @@ export class AccountFilter extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccountFilter.__pulumiType;
     }
 
-    /**
-     * The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-     */
     public readonly firstQualityBitrate!: pulumi.Output<number | undefined>;
-    /**
-     * The Media Services account name. Changing this forces a new Account Filter to be created.
-     */
     public readonly mediaServicesAccountName!: pulumi.Output<string>;
-    /**
-     * The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A `presentationTimeRange` block as defined below.
-     */
     public readonly presentationTimeRange!: pulumi.Output<outputs.media.AccountFilterPresentationTimeRange | undefined>;
-    /**
-     * The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-     */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
-     * One or more `trackSelection` blocks as defined below.
-     */
     public readonly trackSelections!: pulumi.Output<outputs.media.AccountFilterTrackSelection[] | undefined>;
 
     /**
@@ -191,29 +84,11 @@ export class AccountFilter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccountFilter resources.
  */
 export interface AccountFilterState {
-    /**
-     * The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-     */
     firstQualityBitrate?: pulumi.Input<number>;
-    /**
-     * The Media Services account name. Changing this forces a new Account Filter to be created.
-     */
     mediaServicesAccountName?: pulumi.Input<string>;
-    /**
-     * The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A `presentationTimeRange` block as defined below.
-     */
     presentationTimeRange?: pulumi.Input<inputs.media.AccountFilterPresentationTimeRange>;
-    /**
-     * The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-     */
     resourceGroupName?: pulumi.Input<string>;
-    /**
-     * One or more `trackSelection` blocks as defined below.
-     */
     trackSelections?: pulumi.Input<pulumi.Input<inputs.media.AccountFilterTrackSelection>[]>;
 }
 
@@ -221,28 +96,10 @@ export interface AccountFilterState {
  * The set of arguments for constructing a AccountFilter resource.
  */
 export interface AccountFilterArgs {
-    /**
-     * The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-     */
     firstQualityBitrate?: pulumi.Input<number>;
-    /**
-     * The Media Services account name. Changing this forces a new Account Filter to be created.
-     */
     mediaServicesAccountName: pulumi.Input<string>;
-    /**
-     * The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A `presentationTimeRange` block as defined below.
-     */
     presentationTimeRange?: pulumi.Input<inputs.media.AccountFilterPresentationTimeRange>;
-    /**
-     * The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-     */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * One or more `trackSelection` blocks as defined below.
-     */
     trackSelections?: pulumi.Input<pulumi.Input<inputs.media.AccountFilterTrackSelection>[]>;
 }

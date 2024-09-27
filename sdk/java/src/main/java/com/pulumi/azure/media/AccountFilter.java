@@ -18,207 +18,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Media Services Account Filter.
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.storage.Account;
- * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azurerm.mediaServicesAccount;
- * import com.pulumi.azurerm.MediaServicesAccountArgs;
- * import com.pulumi.azure.media.AccountFilter;
- * import com.pulumi.azure.media.AccountFilterArgs;
- * import com.pulumi.azure.media.inputs.AccountFilterPresentationTimeRangeArgs;
- * import com.pulumi.azure.media.inputs.AccountFilterTrackSelectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("media-resources")
- *             .location("West Europe")
- *             .build());
- * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("examplestoracc")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .accountTier("Standard")
- *             .accountReplicationType("GRS")
- *             .build());
- * 
- *         var exampleMediaServicesAccount = new MediaServicesAccount("exampleMediaServicesAccount", MediaServicesAccountArgs.builder()
- *             .name("examplemediaacc")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .storageAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .build());
- * 
- *         var exampleAccountFilter = new AccountFilter("exampleAccountFilter", AccountFilterArgs.builder()
- *             .name("Filter1")
- *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .mediaServicesAccountName(test.name())
- *             .firstQualityBitrate(128000)
- *             .presentationTimeRange(AccountFilterPresentationTimeRangeArgs.builder()
- *                 .startInUnits(0)
- *                 .endInUnits(15)
- *                 .presentationWindowInUnits(90)
- *                 .liveBackoffInUnits(0)
- *                 .unitTimescaleInMilliseconds(1000)
- *                 .forceEnd(false)
- *                 .build())
- *             .trackSelections(            
- *                 AccountFilterTrackSelectionArgs.builder()
- *                     .conditions(                    
- *                         AccountFilterTrackSelectionConditionArgs.builder()
- *                             .property("Type")
- *                             .operation("Equal")
- *                             .value("Audio")
- *                             .build(),
- *                         AccountFilterTrackSelectionConditionArgs.builder()
- *                             .property("Language")
- *                             .operation("NotEqual")
- *                             .value("en")
- *                             .build(),
- *                         AccountFilterTrackSelectionConditionArgs.builder()
- *                             .property("FourCC")
- *                             .operation("NotEqual")
- *                             .value("EC-3")
- *                             .build())
- *                     .build(),
- *                 AccountFilterTrackSelectionArgs.builder()
- *                     .conditions(                    
- *                         AccountFilterTrackSelectionConditionArgs.builder()
- *                             .property("Type")
- *                             .operation("Equal")
- *                             .value("Video")
- *                             .build(),
- *                         AccountFilterTrackSelectionConditionArgs.builder()
- *                             .property("Bitrate")
- *                             .operation("Equal")
- *                             .value("3000000-5000000")
- *                             .build())
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ## Import
- * 
- * Account Filters can be imported using the `resource id`, e.g.
- * 
- * ```sh
- * $ pulumi import azure:media/accountFilter:AccountFilter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/accountFilters/filter1
- * ```
- * 
- */
 @ResourceType(type="azure:media/accountFilter:AccountFilter")
 public class AccountFilter extends com.pulumi.resources.CustomResource {
-    /**
-     * The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-     * 
-     */
     @Export(name="firstQualityBitrate", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> firstQualityBitrate;
 
-    /**
-     * @return The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-     * 
-     */
     public Output<Optional<Integer>> firstQualityBitrate() {
         return Codegen.optional(this.firstQualityBitrate);
     }
-    /**
-     * The Media Services account name. Changing this forces a new Account Filter to be created.
-     * 
-     */
     @Export(name="mediaServicesAccountName", refs={String.class}, tree="[0]")
     private Output<String> mediaServicesAccountName;
 
-    /**
-     * @return The Media Services account name. Changing this forces a new Account Filter to be created.
-     * 
-     */
     public Output<String> mediaServicesAccountName() {
         return this.mediaServicesAccountName;
     }
-    /**
-     * The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A `presentation_time_range` block as defined below.
-     * 
-     */
     @Export(name="presentationTimeRange", refs={AccountFilterPresentationTimeRange.class}, tree="[0]")
     private Output</* @Nullable */ AccountFilterPresentationTimeRange> presentationTimeRange;
 
-    /**
-     * @return A `presentation_time_range` block as defined below.
-     * 
-     */
     public Output<Optional<AccountFilterPresentationTimeRange>> presentationTimeRange() {
         return Codegen.optional(this.presentationTimeRange);
     }
-    /**
-     * The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-     * 
-     */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
-    /**
-     * @return The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-     * 
-     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    /**
-     * One or more `track_selection` blocks as defined below.
-     * 
-     */
     @Export(name="trackSelections", refs={List.class,AccountFilterTrackSelection.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountFilterTrackSelection>> trackSelections;
 
-    /**
-     * @return One or more `track_selection` blocks as defined below.
-     * 
-     */
     public Output<Optional<List<AccountFilterTrackSelection>>> trackSelections() {
         return Codegen.optional(this.trackSelections);
     }

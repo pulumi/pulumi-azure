@@ -27,10 +27,6 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
         The set of arguments for constructing a DataConnectorMicrosoftThreatIntelligence resource.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-               
-               > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
-               
-               > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
                
@@ -60,10 +56,6 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
     def microsoft_emerging_threat_feed_lookback_date(self) -> pulumi.Input[str]:
         """
         The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-
-        > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
-
-        > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         """
         return pulumi.get(self, "microsoft_emerging_threat_feed_lookback_date")
 
@@ -109,10 +101,6 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
         Input properties used for looking up and filtering DataConnectorMicrosoftThreatIntelligence resources.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-               
-               > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
-               
-               > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
                
@@ -144,10 +132,6 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
     def microsoft_emerging_threat_feed_lookback_date(self) -> Optional[pulumi.Input[str]]:
         """
         The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-
-        > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
-
-        > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         """
         return pulumi.get(self, "microsoft_emerging_threat_feed_lookback_date")
 
@@ -228,10 +212,6 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-               
-               > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
-               
-               > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
                
@@ -334,10 +314,6 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-               
-               > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
-               
-               > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
                
@@ -366,10 +342,6 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
     def microsoft_emerging_threat_feed_lookback_date(self) -> pulumi.Output[str]:
         """
         The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-
-        > **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
-
-        > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         """
         return pulumi.get(self, "microsoft_emerging_threat_feed_lookback_date")
 

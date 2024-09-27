@@ -1224,7 +1224,7 @@ if not MYPY:
     class LinuxVirtualMachineAdminSshKeyArgsDict(TypedDict):
         public_key: pulumi.Input[str]
         """
-        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
+        The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format. Changing this forces a new resource to be created.
         """
         username: pulumi.Input[str]
         """
@@ -1241,7 +1241,7 @@ class LinuxVirtualMachineAdminSshKeyArgs:
                  public_key: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] public_key: The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_key: The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format. Changing this forces a new resource to be created.
         :param pulumi.Input[str] username: The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
                
                > **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
@@ -1253,7 +1253,7 @@ class LinuxVirtualMachineAdminSshKeyArgs:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Input[str]:
         """
-        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
+        The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_key")
 
@@ -1962,7 +1962,7 @@ if not MYPY:
     class LinuxVirtualMachineScaleSetAdminSshKeyArgsDict(TypedDict):
         public_key: pulumi.Input[str]
         """
-        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+        The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         """
         username: pulumi.Input[str]
         """
@@ -1979,7 +1979,7 @@ class LinuxVirtualMachineScaleSetAdminSshKeyArgs:
                  public_key: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] public_key: The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+        :param pulumi.Input[str] public_key: The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         :param pulumi.Input[str] username: The Username for which this Public SSH Key should be configured.
                
                > **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
@@ -1991,7 +1991,7 @@ class LinuxVirtualMachineScaleSetAdminSshKeyArgs:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Input[str]:
         """
-        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+        The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         """
         return pulumi.get(self, "public_key")
 
@@ -6395,7 +6395,7 @@ if not MYPY:
     class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgsDict(TypedDict):
         public_key: pulumi.Input[str]
         """
-        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+        The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         """
         username: pulumi.Input[str]
         """
@@ -6412,7 +6412,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyAr
                  public_key: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] public_key: The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+        :param pulumi.Input[str] public_key: The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         :param pulumi.Input[str] username: The Username for which this Public SSH Key should be configured.
                
                > **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
@@ -6424,7 +6424,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyAr
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Input[str]:
         """
-        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+        The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         """
         return pulumi.get(self, "public_key")
 

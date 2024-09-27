@@ -64,14 +64,14 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfigArgs extends com
     }
 
     /**
-     * Is CPU CFS quota enforcement for containers enabled?
+     * Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
      * 
      */
     @Import(name="cpuCfsQuotaEnabled")
     private @Nullable Output<Boolean> cpuCfsQuotaEnabled;
 
     /**
-     * @return Is CPU CFS quota enforcement for containers enabled?
+     * @return Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> cpuCfsQuotaEnabled() {
@@ -275,7 +275,7 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfigArgs extends com
         }
 
         /**
-         * @param cpuCfsQuotaEnabled Is CPU CFS quota enforcement for containers enabled?
+         * @param cpuCfsQuotaEnabled Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfigArgs extends com
         }
 
         /**
-         * @param cpuCfsQuotaEnabled Is CPU CFS quota enforcement for containers enabled?
+         * @param cpuCfsQuotaEnabled Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
          * 
          * @return builder
          * 

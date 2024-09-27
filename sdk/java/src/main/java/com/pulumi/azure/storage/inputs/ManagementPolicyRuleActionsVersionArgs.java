@@ -16,14 +16,14 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
     public static final ManagementPolicyRuleActionsVersionArgs Empty = new ManagementPolicyRuleActionsVersionArgs();
 
     /**
-     * The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
+     * The age in days after creation to tier blob version to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     @Import(name="changeTierToArchiveAfterDaysSinceCreation")
     private @Nullable Output<Integer> changeTierToArchiveAfterDaysSinceCreation;
 
     /**
-     * @return The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after creation to tier blob version to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Output<Integer>> changeTierToArchiveAfterDaysSinceCreation() {
@@ -31,14 +31,14 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
     }
 
     /**
-     * The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+     * The age in days creation create to tier blob version to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     @Import(name="changeTierToCoolAfterDaysSinceCreation")
     private @Nullable Output<Integer> changeTierToCoolAfterDaysSinceCreation;
 
     /**
-     * @return The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days creation create to tier blob version to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Output<Integer>> changeTierToCoolAfterDaysSinceCreation() {
@@ -46,14 +46,14 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
     }
 
     /**
-     * The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
+     * The age in days after creation to delete the blob version. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     @Import(name="deleteAfterDaysSinceCreation")
     private @Nullable Output<Integer> deleteAfterDaysSinceCreation;
 
     /**
-     * @return The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after creation to delete the blob version. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Output<Integer>> deleteAfterDaysSinceCreation() {
@@ -61,14 +61,14 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
     }
 
     /**
-     * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+     * The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     @Import(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
     private @Nullable Output<Integer> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
 
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Output<Integer>> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan() {
@@ -119,7 +119,7 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
         }
 
         /**
-         * @param changeTierToArchiveAfterDaysSinceCreation The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
+         * @param changeTierToArchiveAfterDaysSinceCreation The age in days after creation to tier blob version to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
         }
 
         /**
-         * @param changeTierToArchiveAfterDaysSinceCreation The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
+         * @param changeTierToArchiveAfterDaysSinceCreation The age in days after creation to tier blob version to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
         }
 
         /**
-         * @param changeTierToCoolAfterDaysSinceCreation The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+         * @param changeTierToCoolAfterDaysSinceCreation The age in days creation create to tier blob version to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
         }
 
         /**
-         * @param changeTierToCoolAfterDaysSinceCreation The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+         * @param changeTierToCoolAfterDaysSinceCreation The age in days creation create to tier blob version to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
         }
 
         /**
-         * @param deleteAfterDaysSinceCreation The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
+         * @param deleteAfterDaysSinceCreation The age in days after creation to delete the blob version. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
         }
 
         /**
-         * @param deleteAfterDaysSinceCreation The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
+         * @param deleteAfterDaysSinceCreation The age in days after creation to delete the blob version. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceLastTierChangeGreaterThan The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+         * @param tierToArchiveAfterDaysSinceLastTierChangeGreaterThan The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ManagementPolicyRuleActionsVersionArgs extends com.pulumi.res
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceLastTierChangeGreaterThan The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+         * @param tierToArchiveAfterDaysSinceLastTierChangeGreaterThan The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 

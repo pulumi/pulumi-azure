@@ -37,13 +37,13 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<int>? DeleteAfterDaysSinceLastAccessTimeGreaterThan { get; set; }
 
         /// <summary>
-        /// The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
+        /// The age in days after last modification to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         [Input("deleteAfterDaysSinceModificationGreaterThan")]
         public Input<int>? DeleteAfterDaysSinceModificationGreaterThan { get; set; }
 
         /// <summary>
-        /// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+        /// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
         /// 
         /// &gt; **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
         /// </summary>
@@ -51,19 +51,19 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<int>? TierToArchiveAfterDaysSinceCreationGreaterThan { get; set; }
 
         /// <summary>
-        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         [Input("tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan")]
         public Input<int>? TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan { get; set; }
 
         /// <summary>
-        /// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+        /// The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         [Input("tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")]
         public Input<int>? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan { get; set; }
 
         /// <summary>
-        /// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
+        /// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         [Input("tierToArchiveAfterDaysSinceModificationGreaterThan")]
         public Input<int>? TierToArchiveAfterDaysSinceModificationGreaterThan { get; set; }
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<int>? TierToColdAfterDaysSinceLastAccessTimeGreaterThan { get; set; }
 
         /// <summary>
-        /// The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+        /// The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         [Input("tierToColdAfterDaysSinceModificationGreaterThan")]
         public Input<int>? TierToColdAfterDaysSinceModificationGreaterThan { get; set; }
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<int>? TierToCoolAfterDaysSinceLastAccessTimeGreaterThan { get; set; }
 
         /// <summary>
-        /// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+        /// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         [Input("tierToCoolAfterDaysSinceModificationGreaterThan")]
         public Input<int>? TierToCoolAfterDaysSinceModificationGreaterThan { get; set; }

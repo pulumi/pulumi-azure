@@ -6480,9 +6480,15 @@ class GatewayLocationDataArgs:
 
 if not MYPY:
     class LoggerApplicationInsightsArgsDict(TypedDict):
-        instrumentation_key: pulumi.Input[str]
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The connection string of Application Insights.
+        """
+        instrumentation_key: NotRequired[pulumi.Input[str]]
         """
         The instrumentation key used to push data to Application Insights.
+
+        > **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
         """
 elif False:
     LoggerApplicationInsightsArgsDict: TypeAlias = Mapping[str, Any]
@@ -6490,22 +6496,43 @@ elif False:
 @pulumi.input_type
 class LoggerApplicationInsightsArgs:
     def __init__(__self__, *,
-                 instrumentation_key: pulumi.Input[str]):
+                 connection_string: Optional[pulumi.Input[str]] = None,
+                 instrumentation_key: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] connection_string: The connection string of Application Insights.
         :param pulumi.Input[str] instrumentation_key: The instrumentation key used to push data to Application Insights.
+               
+               > **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
         """
-        pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if instrumentation_key is not None:
+            pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection string of Application Insights.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_string", value)
 
     @property
     @pulumi.getter(name="instrumentationKey")
-    def instrumentation_key(self) -> pulumi.Input[str]:
+    def instrumentation_key(self) -> Optional[pulumi.Input[str]]:
         """
         The instrumentation key used to push data to Application Insights.
+
+        > **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
         """
         return pulumi.get(self, "instrumentation_key")
 
     @instrumentation_key.setter
-    def instrumentation_key(self, value: pulumi.Input[str]):
+    def instrumentation_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instrumentation_key", value)
 
 

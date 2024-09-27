@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey
     {
         /// <summary>
-        /// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+        /// The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         /// </summary>
         public readonly string PublicKey;
         /// <summary>

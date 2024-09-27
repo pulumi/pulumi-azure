@@ -19,12 +19,12 @@ public final class KubernetesClusterNetworkProfileNatGatewayProfile {
      */
     private @Nullable List<String> effectiveOutboundIps;
     /**
-     * @return Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+     * @return Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
      * 
      */
     private @Nullable Integer idleTimeoutInMinutes;
     /**
-     * @return Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+     * @return Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
      * 
      */
     private @Nullable Integer managedOutboundIpCount;
@@ -38,14 +38,14 @@ public final class KubernetesClusterNetworkProfileNatGatewayProfile {
         return this.effectiveOutboundIps == null ? List.of() : this.effectiveOutboundIps;
     }
     /**
-     * @return Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+     * @return Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
      * 
      */
     public Optional<Integer> idleTimeoutInMinutes() {
         return Optional.ofNullable(this.idleTimeoutInMinutes);
     }
     /**
-     * @return Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+     * @return Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
      * 
      */
     public Optional<Integer> managedOutboundIpCount() {

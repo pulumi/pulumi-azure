@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class ManagementPolicyRuleActionsVersion
     {
         /// <summary>
-        /// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
+        /// The age in days after creation to tier blob version to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         public readonly int? ChangeTierToArchiveAfterDaysSinceCreation;
         /// <summary>
-        /// The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+        /// The age in days creation create to tier blob version to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         public readonly int? ChangeTierToCoolAfterDaysSinceCreation;
         /// <summary>
-        /// The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
+        /// The age in days after creation to delete the blob version. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         public readonly int? DeleteAfterDaysSinceCreation;
         /// <summary>
-        /// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+        /// The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
         /// <summary>

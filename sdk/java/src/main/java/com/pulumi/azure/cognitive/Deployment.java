@@ -22,6 +22,64 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.cognitive.Account;
+ * import com.pulumi.azure.cognitive.AccountArgs;
+ * import com.pulumi.azure.cognitive.Deployment;
+ * import com.pulumi.azure.cognitive.DeploymentArgs;
+ * import com.pulumi.azure.cognitive.inputs.DeploymentModelArgs;
+ * import com.pulumi.azure.cognitive.inputs.DeploymentSkuArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("example-ca")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .kind("OpenAI")
+ *             .skuName("S0")
+ *             .build());
+ * 
+ *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()
+ *             .name("example-cd")
+ *             .cognitiveAccountId(exampleAccount.id())
+ *             .model(DeploymentModelArgs.builder()
+ *                 .format("OpenAI")
+ *                 .name("text-curie-001")
+ *                 .version("1")
+ *                 .build())
+ *             .sku(DeploymentSkuArgs.builder()
+ *                 .name("Standard")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -91,9 +149,17 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> raiPolicyName() {
         return Codegen.optional(this.raiPolicyName);
     }
+    /**
+     * A `sku` block as defined below.
+     * 
+     */
     @Export(name="sku", refs={DeploymentSku.class}, tree="[0]")
     private Output<DeploymentSku> sku;
 
+    /**
+     * @return A `sku` block as defined below.
+     * 
+     */
     public Output<DeploymentSku> sku() {
         return this.sku;
     }

@@ -12,136 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Media Services Account Filter.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/media"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
-//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("media-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplestoracc"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("GRS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azurerm.NewMediaServicesAccount(ctx, "example", &azurerm.MediaServicesAccountArgs{
-//				Name:              "examplemediaacc",
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				StorageAccount: []map[string]interface{}{
-//					map[string]interface{}{
-//						"id":        exampleAccount.ID(),
-//						"isPrimary": true,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = media.NewAccountFilter(ctx, "example", &media.AccountFilterArgs{
-//				Name:                     pulumi.String("Filter1"),
-//				ResourceGroupName:        pulumi.Any(testAzurermResourceGroup.Name),
-//				MediaServicesAccountName: pulumi.Any(test.Name),
-//				FirstQualityBitrate:      pulumi.Int(128000),
-//				PresentationTimeRange: &media.AccountFilterPresentationTimeRangeArgs{
-//					StartInUnits:                pulumi.Int(0),
-//					EndInUnits:                  pulumi.Int(15),
-//					PresentationWindowInUnits:   pulumi.Int(90),
-//					LiveBackoffInUnits:          pulumi.Int(0),
-//					UnitTimescaleInMilliseconds: pulumi.Int(1000),
-//					ForceEnd:                    pulumi.Bool(false),
-//				},
-//				TrackSelections: media.AccountFilterTrackSelectionArray{
-//					&media.AccountFilterTrackSelectionArgs{
-//						Conditions: media.AccountFilterTrackSelectionConditionArray{
-//							&media.AccountFilterTrackSelectionConditionArgs{
-//								Property:  pulumi.String("Type"),
-//								Operation: pulumi.String("Equal"),
-//								Value:     pulumi.String("Audio"),
-//							},
-//							&media.AccountFilterTrackSelectionConditionArgs{
-//								Property:  pulumi.String("Language"),
-//								Operation: pulumi.String("NotEqual"),
-//								Value:     pulumi.String("en"),
-//							},
-//							&media.AccountFilterTrackSelectionConditionArgs{
-//								Property:  pulumi.String("FourCC"),
-//								Operation: pulumi.String("NotEqual"),
-//								Value:     pulumi.String("EC-3"),
-//							},
-//						},
-//					},
-//					&media.AccountFilterTrackSelectionArgs{
-//						Conditions: media.AccountFilterTrackSelectionConditionArray{
-//							&media.AccountFilterTrackSelectionConditionArgs{
-//								Property:  pulumi.String("Type"),
-//								Operation: pulumi.String("Equal"),
-//								Value:     pulumi.String("Video"),
-//							},
-//							&media.AccountFilterTrackSelectionConditionArgs{
-//								Property:  pulumi.String("Bitrate"),
-//								Operation: pulumi.String("Equal"),
-//								Value:     pulumi.String("3000000-5000000"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Account Filters can be imported using the `resource id`, e.g.
-//
-// ```sh
-// $ pulumi import azure:media/accountFilter:AccountFilter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/accountFilters/filter1
-// ```
 type AccountFilter struct {
 	pulumi.CustomResourceState
 
-	// The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-	FirstQualityBitrate pulumi.IntPtrOutput `pulumi:"firstQualityBitrate"`
-	// The Media Services account name. Changing this forces a new Account Filter to be created.
-	MediaServicesAccountName pulumi.StringOutput `pulumi:"mediaServicesAccountName"`
-	// The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A `presentationTimeRange` block as defined below.
-	PresentationTimeRange AccountFilterPresentationTimeRangePtrOutput `pulumi:"presentationTimeRange"`
-	// The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// One or more `trackSelection` blocks as defined below.
-	TrackSelections AccountFilterTrackSelectionArrayOutput `pulumi:"trackSelections"`
+	FirstQualityBitrate      pulumi.IntPtrOutput                         `pulumi:"firstQualityBitrate"`
+	MediaServicesAccountName pulumi.StringOutput                         `pulumi:"mediaServicesAccountName"`
+	Name                     pulumi.StringOutput                         `pulumi:"name"`
+	PresentationTimeRange    AccountFilterPresentationTimeRangePtrOutput `pulumi:"presentationTimeRange"`
+	ResourceGroupName        pulumi.StringOutput                         `pulumi:"resourceGroupName"`
+	TrackSelections          AccountFilterTrackSelectionArrayOutput      `pulumi:"trackSelections"`
 }
 
 // NewAccountFilter registers a new resource with the given unique name, arguments, and options.
@@ -180,33 +59,21 @@ func GetAccountFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountFilter resources.
 type accountFilterState struct {
-	// The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-	FirstQualityBitrate *int `pulumi:"firstQualityBitrate"`
-	// The Media Services account name. Changing this forces a new Account Filter to be created.
-	MediaServicesAccountName *string `pulumi:"mediaServicesAccountName"`
-	// The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-	Name *string `pulumi:"name"`
-	// A `presentationTimeRange` block as defined below.
-	PresentationTimeRange *AccountFilterPresentationTimeRange `pulumi:"presentationTimeRange"`
-	// The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// One or more `trackSelection` blocks as defined below.
-	TrackSelections []AccountFilterTrackSelection `pulumi:"trackSelections"`
+	FirstQualityBitrate      *int                                `pulumi:"firstQualityBitrate"`
+	MediaServicesAccountName *string                             `pulumi:"mediaServicesAccountName"`
+	Name                     *string                             `pulumi:"name"`
+	PresentationTimeRange    *AccountFilterPresentationTimeRange `pulumi:"presentationTimeRange"`
+	ResourceGroupName        *string                             `pulumi:"resourceGroupName"`
+	TrackSelections          []AccountFilterTrackSelection       `pulumi:"trackSelections"`
 }
 
 type AccountFilterState struct {
-	// The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-	FirstQualityBitrate pulumi.IntPtrInput
-	// The Media Services account name. Changing this forces a new Account Filter to be created.
+	FirstQualityBitrate      pulumi.IntPtrInput
 	MediaServicesAccountName pulumi.StringPtrInput
-	// The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-	Name pulumi.StringPtrInput
-	// A `presentationTimeRange` block as defined below.
-	PresentationTimeRange AccountFilterPresentationTimeRangePtrInput
-	// The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-	ResourceGroupName pulumi.StringPtrInput
-	// One or more `trackSelection` blocks as defined below.
-	TrackSelections AccountFilterTrackSelectionArrayInput
+	Name                     pulumi.StringPtrInput
+	PresentationTimeRange    AccountFilterPresentationTimeRangePtrInput
+	ResourceGroupName        pulumi.StringPtrInput
+	TrackSelections          AccountFilterTrackSelectionArrayInput
 }
 
 func (AccountFilterState) ElementType() reflect.Type {
@@ -214,34 +81,22 @@ func (AccountFilterState) ElementType() reflect.Type {
 }
 
 type accountFilterArgs struct {
-	// The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-	FirstQualityBitrate *int `pulumi:"firstQualityBitrate"`
-	// The Media Services account name. Changing this forces a new Account Filter to be created.
-	MediaServicesAccountName string `pulumi:"mediaServicesAccountName"`
-	// The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-	Name *string `pulumi:"name"`
-	// A `presentationTimeRange` block as defined below.
-	PresentationTimeRange *AccountFilterPresentationTimeRange `pulumi:"presentationTimeRange"`
-	// The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// One or more `trackSelection` blocks as defined below.
-	TrackSelections []AccountFilterTrackSelection `pulumi:"trackSelections"`
+	FirstQualityBitrate      *int                                `pulumi:"firstQualityBitrate"`
+	MediaServicesAccountName string                              `pulumi:"mediaServicesAccountName"`
+	Name                     *string                             `pulumi:"name"`
+	PresentationTimeRange    *AccountFilterPresentationTimeRange `pulumi:"presentationTimeRange"`
+	ResourceGroupName        string                              `pulumi:"resourceGroupName"`
+	TrackSelections          []AccountFilterTrackSelection       `pulumi:"trackSelections"`
 }
 
 // The set of arguments for constructing a AccountFilter resource.
 type AccountFilterArgs struct {
-	// The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-	FirstQualityBitrate pulumi.IntPtrInput
-	// The Media Services account name. Changing this forces a new Account Filter to be created.
+	FirstQualityBitrate      pulumi.IntPtrInput
 	MediaServicesAccountName pulumi.StringInput
-	// The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-	Name pulumi.StringPtrInput
-	// A `presentationTimeRange` block as defined below.
-	PresentationTimeRange AccountFilterPresentationTimeRangePtrInput
-	// The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-	ResourceGroupName pulumi.StringInput
-	// One or more `trackSelection` blocks as defined below.
-	TrackSelections AccountFilterTrackSelectionArrayInput
+	Name                     pulumi.StringPtrInput
+	PresentationTimeRange    AccountFilterPresentationTimeRangePtrInput
+	ResourceGroupName        pulumi.StringInput
+	TrackSelections          AccountFilterTrackSelectionArrayInput
 }
 
 func (AccountFilterArgs) ElementType() reflect.Type {
@@ -331,32 +186,26 @@ func (o AccountFilterOutput) ToAccountFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
 func (o AccountFilterOutput) FirstQualityBitrate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountFilter) pulumi.IntPtrOutput { return v.FirstQualityBitrate }).(pulumi.IntPtrOutput)
 }
 
-// The Media Services account name. Changing this forces a new Account Filter to be created.
 func (o AccountFilterOutput) MediaServicesAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountFilter) pulumi.StringOutput { return v.MediaServicesAccountName }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
 func (o AccountFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `presentationTimeRange` block as defined below.
 func (o AccountFilterOutput) PresentationTimeRange() AccountFilterPresentationTimeRangePtrOutput {
 	return o.ApplyT(func(v *AccountFilter) AccountFilterPresentationTimeRangePtrOutput { return v.PresentationTimeRange }).(AccountFilterPresentationTimeRangePtrOutput)
 }
 
-// The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
 func (o AccountFilterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountFilter) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// One or more `trackSelection` blocks as defined below.
 func (o AccountFilterOutput) TrackSelections() AccountFilterTrackSelectionArrayOutput {
 	return o.ApplyT(func(v *AccountFilter) AccountFilterTrackSelectionArrayOutput { return v.TrackSelections }).(AccountFilterTrackSelectionArrayOutput)
 }

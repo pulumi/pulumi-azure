@@ -44,8 +44,6 @@ class AlertRuleNrtArgs:
         The set of arguments for constructing a AlertRuleNrt resource.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel NRT Alert Rule.
         :param pulumi.Input['AlertRuleNrtEventGroupingArgs'] event_grouping: A `event_grouping` block as defined below.
-               
-               > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] query: The query of this Sentinel NRT Alert Rule.
         :param pulumi.Input[str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
@@ -117,8 +115,6 @@ class AlertRuleNrtArgs:
     def event_grouping(self) -> pulumi.Input['AlertRuleNrtEventGroupingArgs']:
         """
         A `event_grouping` block as defined below.
-
-        > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         """
         return pulumi.get(self, "event_grouping")
 
@@ -366,8 +362,6 @@ class _AlertRuleNrtState:
         :param pulumi.Input[bool] enabled: Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingArgs']]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input['AlertRuleNrtEventGroupingArgs'] event_grouping: A `event_grouping` block as defined below.
-               
-               > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input['AlertRuleNrtIncidentArgs'] incident: A `incident` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
@@ -521,8 +515,6 @@ class _AlertRuleNrtState:
     def event_grouping(self) -> Optional[pulumi.Input['AlertRuleNrtEventGroupingArgs']]:
         """
         A `event_grouping` block as defined below.
-
-        > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         """
         return pulumi.get(self, "event_grouping")
 
@@ -727,8 +719,6 @@ class AlertRuleNrt(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict']] event_grouping: A `event_grouping` block as defined below.
-               
-               > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict']] incident: A `incident` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
@@ -903,8 +893,6 @@ class AlertRuleNrt(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict']] event_grouping: A `event_grouping` block as defined below.
-               
-               > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict']] incident: A `incident` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
@@ -1012,8 +1000,6 @@ class AlertRuleNrt(pulumi.CustomResource):
     def event_grouping(self) -> pulumi.Output['outputs.AlertRuleNrtEventGrouping']:
         """
         A `event_grouping` block as defined below.
-
-        > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         """
         return pulumi.get(self, "event_grouping")
 

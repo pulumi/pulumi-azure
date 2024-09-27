@@ -79,10 +79,6 @@ type DataConnectorMicrosoftThreatIntelligence struct {
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-	//
-	// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
-	//
-	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate pulumi.StringOutput `pulumi:"microsoftEmergingThreatFeedLookbackDate"`
 	// The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -131,10 +127,6 @@ type dataConnectorMicrosoftThreatIntelligenceState struct {
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-	//
-	// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
-	//
-	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate *string `pulumi:"microsoftEmergingThreatFeedLookbackDate"`
 	// The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	Name *string `pulumi:"name"`
@@ -148,10 +140,6 @@ type DataConnectorMicrosoftThreatIntelligenceState struct {
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-	//
-	// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
-	//
-	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate pulumi.StringPtrInput
 	// The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	Name pulumi.StringPtrInput
@@ -169,10 +157,6 @@ type dataConnectorMicrosoftThreatIntelligenceArgs struct {
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-	//
-	// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
-	//
-	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate string `pulumi:"microsoftEmergingThreatFeedLookbackDate"`
 	// The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	Name *string `pulumi:"name"`
@@ -187,10 +171,6 @@ type DataConnectorMicrosoftThreatIntelligenceArgs struct {
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-	//
-	// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
-	//
-	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate pulumi.StringInput
 	// The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	Name pulumi.StringPtrInput
@@ -295,10 +275,6 @@ func (o DataConnectorMicrosoftThreatIntelligenceOutput) LogAnalyticsWorkspaceId(
 }
 
 // The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-//
-// > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
-//
-// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 func (o DataConnectorMicrosoftThreatIntelligenceOutput) MicrosoftEmergingThreatFeedLookbackDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorMicrosoftThreatIntelligence) pulumi.StringOutput {
 		return v.MicrosoftEmergingThreatFeedLookbackDate

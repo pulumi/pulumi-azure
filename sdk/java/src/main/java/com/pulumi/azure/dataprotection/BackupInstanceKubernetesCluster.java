@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *                 .name("default")
  *                 .nodeCount(1)
  *                 .vmSize("Standard_DS2_v2")
- *                 .enableHostEncryption(true)
+ *                 .hostEncryptionEnabled(true)
  *                 .build())
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")

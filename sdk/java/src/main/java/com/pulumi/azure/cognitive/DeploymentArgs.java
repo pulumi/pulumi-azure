@@ -78,9 +78,17 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.raiPolicyName);
     }
 
+    /**
+     * A `sku` block as defined below.
+     * 
+     */
     @Import(name="sku", required=true)
     private Output<DeploymentSkuArgs> sku;
 
+    /**
+     * @return A `sku` block as defined below.
+     * 
+     */
     public Output<DeploymentSkuArgs> sku() {
         return this.sku;
     }
@@ -213,11 +221,23 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
             return raiPolicyName(Output.of(raiPolicyName));
         }
 
+        /**
+         * @param sku A `sku` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sku(Output<DeploymentSkuArgs> sku) {
             $.sku = sku;
             return this;
         }
 
+        /**
+         * @param sku A `sku` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sku(DeploymentSkuArgs sku) {
             return sku(Output.of(sku));
         }

@@ -18,11 +18,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> EffectiveOutboundIps;
         /// <summary>
-        /// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+        /// Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
         /// </summary>
         public readonly int? IdleTimeoutInMinutes;
         /// <summary>
-        /// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+        /// Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
         /// </summary>
         public readonly int? ManagedOutboundIpCount;
 

@@ -4,25 +4,42 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class LoggerApplicationInsights {
     /**
-     * @return The instrumentation key used to push data to Application Insights.
+     * @return The connection string of Application Insights.
      * 
      */
-    private String instrumentationKey;
-
-    private LoggerApplicationInsights() {}
+    private @Nullable String connectionString;
     /**
      * @return The instrumentation key used to push data to Application Insights.
      * 
+     * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+     * 
      */
-    public String instrumentationKey() {
-        return this.instrumentationKey;
+    private @Nullable String instrumentationKey;
+
+    private LoggerApplicationInsights() {}
+    /**
+     * @return The connection string of Application Insights.
+     * 
+     */
+    public Optional<String> connectionString() {
+        return Optional.ofNullable(this.connectionString);
+    }
+    /**
+     * @return The instrumentation key used to push data to Application Insights.
+     * 
+     * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+     * 
+     */
+    public Optional<String> instrumentationKey() {
+        return Optional.ofNullable(this.instrumentationKey);
     }
 
     public static Builder builder() {
@@ -34,23 +51,30 @@ public final class LoggerApplicationInsights {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String instrumentationKey;
+        private @Nullable String connectionString;
+        private @Nullable String instrumentationKey;
         public Builder() {}
         public Builder(LoggerApplicationInsights defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.connectionString = defaults.connectionString;
     	      this.instrumentationKey = defaults.instrumentationKey;
         }
 
         @CustomType.Setter
-        public Builder instrumentationKey(String instrumentationKey) {
-            if (instrumentationKey == null) {
-              throw new MissingRequiredPropertyException("LoggerApplicationInsights", "instrumentationKey");
-            }
+        public Builder connectionString(@Nullable String connectionString) {
+
+            this.connectionString = connectionString;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder instrumentationKey(@Nullable String instrumentationKey) {
+
             this.instrumentationKey = instrumentationKey;
             return this;
         }
         public LoggerApplicationInsights build() {
             final var _resultValue = new LoggerApplicationInsights();
+            _resultValue.connectionString = connectionString;
             _resultValue.instrumentationKey = instrumentationKey;
             return _resultValue;
         }

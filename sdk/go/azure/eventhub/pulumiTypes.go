@@ -7013,6 +7013,8 @@ type NamespaceNetworkRuleSet struct {
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules []NamespaceNetworkRuleSetNetworkRule `pulumi:"networkRules"`
 	// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+	//
+	// > **Note:** To disable public network access, you must also configure the property `publicNetworkAccessEnabled`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
 	TrustedServicesAllowed *bool `pulumi:"trustedServicesAllowed"`
@@ -7037,6 +7039,8 @@ type NamespaceNetworkRuleSetArgs struct {
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayInput `pulumi:"networkRules"`
 	// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+	//
+	// > **Note:** To disable public network access, you must also configure the property `publicNetworkAccessEnabled`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput `pulumi:"publicNetworkAccessEnabled"`
 	// Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
 	TrustedServicesAllowed pulumi.BoolPtrInput `pulumi:"trustedServicesAllowed"`
@@ -7135,6 +7139,8 @@ func (o NamespaceNetworkRuleSetOutput) NetworkRules() NamespaceNetworkRuleSetNet
 }
 
 // Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+//
+// > **Note:** To disable public network access, you must also configure the property `publicNetworkAccessEnabled`.
 func (o NamespaceNetworkRuleSetOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NamespaceNetworkRuleSet) *bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7199,6 +7205,8 @@ func (o NamespaceNetworkRuleSetPtrOutput) NetworkRules() NamespaceNetworkRuleSet
 }
 
 // Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+//
+// > **Note:** To disable public network access, you must also configure the property `publicNetworkAccessEnabled`.
 func (o NamespaceNetworkRuleSetPtrOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NamespaceNetworkRuleSet) *bool {
 		if v == nil {

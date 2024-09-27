@@ -1708,7 +1708,7 @@ type DeploymentSku struct {
 	Capacity *int `pulumi:"capacity"`
 	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
 	Family *string `pulumi:"family"`
-	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+	// The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
 	Name string `pulumi:"name"`
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
 	Size *string `pulumi:"size"`
@@ -1732,7 +1732,7 @@ type DeploymentSkuArgs struct {
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+	// The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
 	Size pulumi.StringPtrInput `pulumi:"size"`
@@ -1827,7 +1827,7 @@ func (o DeploymentSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+// The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
 func (o DeploymentSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1886,7 +1886,7 @@ func (o DeploymentSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+// The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
 func (o DeploymentSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentSku) *string {
 		if v == nil {

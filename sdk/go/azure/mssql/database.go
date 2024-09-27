@@ -21,7 +21,6 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -31,16 +30,6 @@ import (
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
 //				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("examplesa"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
@@ -57,15 +46,13 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
-//				Name:          pulumi.String("example-db"),
-//				ServerId:      exampleServer.ID(),
-//				Collation:     pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
-//				LicenseType:   pulumi.String("LicenseIncluded"),
-//				MaxSizeGb:     pulumi.Int(4),
-//				ReadScale:     pulumi.Bool(true),
-//				SkuName:       pulumi.String("S0"),
-//				ZoneRedundant: pulumi.Bool(true),
-//				EnclaveType:   pulumi.String("VBS"),
+//				Name:        pulumi.String("example-db"),
+//				ServerId:    exampleServer.ID(),
+//				Collation:   pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
+//				LicenseType: pulumi.String("LicenseIncluded"),
+//				MaxSizeGb:   pulumi.Int(2),
+//				SkuName:     pulumi.String("S0"),
+//				EnclaveType: pulumi.String("VBS"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

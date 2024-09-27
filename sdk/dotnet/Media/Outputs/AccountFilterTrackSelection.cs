@@ -13,9 +13,6 @@ namespace Pulumi.Azure.Media.Outputs
     [OutputType]
     public sealed class AccountFilterTrackSelection
     {
-        /// <summary>
-        /// One or more `selection` blocks as defined above.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AccountFilterTrackSelectionCondition> Conditions;
 
         [OutputConstructor]

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// </summary>
         public readonly string? Family;
         /// <summary>
-        /// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+        /// The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
         /// </summary>
         public readonly string Name;
         /// <summary>

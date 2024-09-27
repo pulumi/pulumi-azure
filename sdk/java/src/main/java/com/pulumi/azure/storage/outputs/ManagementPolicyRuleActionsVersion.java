@@ -12,22 +12,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagementPolicyRuleActionsVersion {
     /**
-     * @return The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after creation to tier blob version to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     private @Nullable Integer changeTierToArchiveAfterDaysSinceCreation;
     /**
-     * @return The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days creation create to tier blob version to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     private @Nullable Integer changeTierToCoolAfterDaysSinceCreation;
     /**
-     * @return The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after creation to delete the blob version. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     private @Nullable Integer deleteAfterDaysSinceCreation;
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     private @Nullable Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
@@ -39,28 +39,28 @@ public final class ManagementPolicyRuleActionsVersion {
 
     private ManagementPolicyRuleActionsVersion() {}
     /**
-     * @return The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after creation to tier blob version to archive storage. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Integer> changeTierToArchiveAfterDaysSinceCreation() {
         return Optional.ofNullable(this.changeTierToArchiveAfterDaysSinceCreation);
     }
     /**
-     * @return The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days creation create to tier blob version to cool storage. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Integer> changeTierToCoolAfterDaysSinceCreation() {
         return Optional.ofNullable(this.changeTierToCoolAfterDaysSinceCreation);
     }
     /**
-     * @return The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after creation to delete the blob version. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Integer> deleteAfterDaysSinceCreation() {
         return Optional.ofNullable(this.deleteAfterDaysSinceCreation);
     }
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Integer> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan() {

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? ContainerLogMaxSizeMb;
         /// <summary>
-        /// Is CPU CFS quota enforcement for containers enabled?
+        /// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
         /// </summary>
         public readonly bool? CpuCfsQuotaEnabled;
         /// <summary>

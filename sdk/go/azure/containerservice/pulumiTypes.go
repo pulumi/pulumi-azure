@@ -7715,7 +7715,7 @@ type KubernetesClusterDefaultNodePoolKubeletConfig struct {
 	ContainerLogMaxLine *int `pulumi:"containerLogMaxLine"`
 	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb *int `pulumi:"containerLogMaxSizeMb"`
-	// Is CPU CFS quota enforcement for containers enabled?
+	// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
 	CpuCfsQuotaEnabled *bool `pulumi:"cpuCfsQuotaEnabled"`
 	// Specifies the CPU CFS quota period value.
 	CpuCfsQuotaPeriod *string `pulumi:"cpuCfsQuotaPeriod"`
@@ -7749,7 +7749,7 @@ type KubernetesClusterDefaultNodePoolKubeletConfigArgs struct {
 	ContainerLogMaxLine pulumi.IntPtrInput `pulumi:"containerLogMaxLine"`
 	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMb"`
-	// Is CPU CFS quota enforcement for containers enabled?
+	// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
 	CpuCfsQuotaEnabled pulumi.BoolPtrInput `pulumi:"cpuCfsQuotaEnabled"`
 	// Specifies the CPU CFS quota period value.
 	CpuCfsQuotaPeriod pulumi.StringPtrInput `pulumi:"cpuCfsQuotaPeriod"`
@@ -7857,7 +7857,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ContainerLogMaxSize
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ContainerLogMaxSizeMb }).(pulumi.IntPtrOutput)
 }
 
-// Is CPU CFS quota enforcement for containers enabled?
+// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) CpuCfsQuotaEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *bool { return v.CpuCfsQuotaEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7946,7 +7946,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ContainerLogMaxS
 	}).(pulumi.IntPtrOutput)
 }
 
-// Is CPU CFS quota enforcement for containers enabled?
+// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) CpuCfsQuotaEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *bool {
 		if v == nil {
@@ -13987,9 +13987,9 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundPor
 type KubernetesClusterNetworkProfileNatGatewayProfile struct {
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps []string `pulumi:"effectiveOutboundIps"`
-	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+	// Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+	// Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
 	ManagedOutboundIpCount *int `pulumi:"managedOutboundIpCount"`
 }
 
@@ -14007,9 +14007,9 @@ type KubernetesClusterNetworkProfileNatGatewayProfileInput interface {
 type KubernetesClusterNetworkProfileNatGatewayProfileArgs struct {
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps pulumi.StringArrayInput `pulumi:"effectiveOutboundIps"`
-	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+	// Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
 	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
-	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+	// Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
 	ManagedOutboundIpCount pulumi.IntPtrInput `pulumi:"managedOutboundIpCount"`
 }
 
@@ -14095,12 +14095,12 @@ func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) EffectiveOutboun
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileNatGatewayProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
 }
 
-// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+// Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
 func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileNatGatewayProfile) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+// Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
 func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) ManagedOutboundIpCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileNatGatewayProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
 }
@@ -14139,7 +14139,7 @@ func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) EffectiveOutb
 	}).(pulumi.StringArrayOutput)
 }
 
-// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+// Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
 func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfileNatGatewayProfile) *int {
 		if v == nil {
@@ -14149,7 +14149,7 @@ func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) IdleTimeoutIn
 	}).(pulumi.IntPtrOutput)
 }
 
-// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+// Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
 func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) ManagedOutboundIpCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfileNatGatewayProfile) *int {
 		if v == nil {

@@ -33,14 +33,14 @@ public final class KubernetesClusterNetworkProfileNatGatewayProfileArgs extends 
     }
 
     /**
-     * Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+     * Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
      * 
      */
     @Import(name="idleTimeoutInMinutes")
     private @Nullable Output<Integer> idleTimeoutInMinutes;
 
     /**
-     * @return Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+     * @return Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
      * 
      */
     public Optional<Output<Integer>> idleTimeoutInMinutes() {
@@ -48,14 +48,14 @@ public final class KubernetesClusterNetworkProfileNatGatewayProfileArgs extends 
     }
 
     /**
-     * Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+     * Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
      * 
      */
     @Import(name="managedOutboundIpCount")
     private @Nullable Output<Integer> managedOutboundIpCount;
 
     /**
-     * @return Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+     * @return Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
      * 
      */
     public Optional<Output<Integer>> managedOutboundIpCount() {
@@ -120,7 +120,7 @@ public final class KubernetesClusterNetworkProfileNatGatewayProfileArgs extends 
         }
 
         /**
-         * @param idleTimeoutInMinutes Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+         * @param idleTimeoutInMinutes Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class KubernetesClusterNetworkProfileNatGatewayProfileArgs extends 
         }
 
         /**
-         * @param idleTimeoutInMinutes Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+         * @param idleTimeoutInMinutes Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class KubernetesClusterNetworkProfileNatGatewayProfileArgs extends 
         }
 
         /**
-         * @param managedOutboundIpCount Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+         * @param managedOutboundIpCount Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class KubernetesClusterNetworkProfileNatGatewayProfileArgs extends 
         }
 
         /**
-         * @param managedOutboundIpCount Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+         * @param managedOutboundIpCount Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
          * 
          * @return builder
          * 

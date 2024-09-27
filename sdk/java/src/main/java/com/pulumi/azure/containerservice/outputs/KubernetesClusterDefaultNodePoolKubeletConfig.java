@@ -30,7 +30,7 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
      */
     private @Nullable Integer containerLogMaxSizeMb;
     /**
-     * @return Is CPU CFS quota enforcement for containers enabled?
+     * @return Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean cpuCfsQuotaEnabled;
@@ -88,7 +88,7 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
         return Optional.ofNullable(this.containerLogMaxSizeMb);
     }
     /**
-     * @return Is CPU CFS quota enforcement for containers enabled?
+     * @return Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> cpuCfsQuotaEnabled() {

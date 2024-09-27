@@ -289,6 +289,20 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.serviceLevel;
     }
     /**
+     * Enable SMB encryption.
+     * 
+     */
+    @Export(name="smb3ProtocolEncryptionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> smb3ProtocolEncryptionEnabled;
+
+    /**
+     * @return Enable SMB encryption.
+     * 
+     */
+    public Output<Optional<Boolean>> smb3ProtocolEncryptionEnabled() {
+        return Codegen.optional(this.smb3ProtocolEncryptionEnabled);
+    }
+    /**
      * Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn&#39;t have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn&#39;t show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
      * 
      */

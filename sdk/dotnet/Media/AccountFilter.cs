@@ -9,159 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Media
 {
-    /// <summary>
-    /// Manages a Media Services Account Filter.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Azurerm = Pulumi.Azurerm;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "media-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
-    ///     {
-    ///         Name = "examplestoracc",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "GRS",
-    ///     });
-    /// 
-    ///     var exampleMediaServicesAccount = new Azurerm.Index.MediaServicesAccount("example", new()
-    ///     {
-    ///         Name = "examplemediaacc",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         StorageAccount = new[]
-    ///         {
-    ///             
-    ///             {
-    ///                 { "id", exampleAccount.Id },
-    ///                 { "isPrimary", true },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAccountFilter = new Azure.Media.AccountFilter("example", new()
-    ///     {
-    ///         Name = "Filter1",
-    ///         ResourceGroupName = testAzurermResourceGroup.Name,
-    ///         MediaServicesAccountName = test.Name,
-    ///         FirstQualityBitrate = 128000,
-    ///         PresentationTimeRange = new Azure.Media.Inputs.AccountFilterPresentationTimeRangeArgs
-    ///         {
-    ///             StartInUnits = 0,
-    ///             EndInUnits = 15,
-    ///             PresentationWindowInUnits = 90,
-    ///             LiveBackoffInUnits = 0,
-    ///             UnitTimescaleInMilliseconds = 1000,
-    ///             ForceEnd = false,
-    ///         },
-    ///         TrackSelections = new[]
-    ///         {
-    ///             new Azure.Media.Inputs.AccountFilterTrackSelectionArgs
-    ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
-    ///                     {
-    ///                         Property = "Type",
-    ///                         Operation = "Equal",
-    ///                         Value = "Audio",
-    ///                     },
-    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
-    ///                     {
-    ///                         Property = "Language",
-    ///                         Operation = "NotEqual",
-    ///                         Value = "en",
-    ///                     },
-    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
-    ///                     {
-    ///                         Property = "FourCC",
-    ///                         Operation = "NotEqual",
-    ///                         Value = "EC-3",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Azure.Media.Inputs.AccountFilterTrackSelectionArgs
-    ///             {
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
-    ///                     {
-    ///                         Property = "Type",
-    ///                         Operation = "Equal",
-    ///                         Value = "Video",
-    ///                     },
-    ///                     new Azure.Media.Inputs.AccountFilterTrackSelectionConditionArgs
-    ///                     {
-    ///                         Property = "Bitrate",
-    ///                         Operation = "Equal",
-    ///                         Value = "3000000-5000000",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Account Filters can be imported using the `resource id`, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure:media/accountFilter:AccountFilter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/accountFilters/filter1
-    /// ```
-    /// </summary>
     [AzureResourceType("azure:media/accountFilter:AccountFilter")]
     public partial class AccountFilter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-        /// </summary>
         [Output("firstQualityBitrate")]
         public Output<int?> FirstQualityBitrate { get; private set; } = null!;
 
-        /// <summary>
-        /// The Media Services account name. Changing this forces a new Account Filter to be created.
-        /// </summary>
         [Output("mediaServicesAccountName")]
         public Output<string> MediaServicesAccountName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A `presentation_time_range` block as defined below.
-        /// </summary>
         [Output("presentationTimeRange")]
         public Output<Outputs.AccountFilterPresentationTimeRange?> PresentationTimeRange { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more `track_selection` blocks as defined below.
-        /// </summary>
         [Output("trackSelections")]
         public Output<ImmutableArray<Outputs.AccountFilterTrackSelection>> TrackSelections { get; private set; } = null!;
 
@@ -211,42 +76,23 @@ namespace Pulumi.Azure.Media
 
     public sealed class AccountFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-        /// </summary>
         [Input("firstQualityBitrate")]
         public Input<int>? FirstQualityBitrate { get; set; }
 
-        /// <summary>
-        /// The Media Services account name. Changing this forces a new Account Filter to be created.
-        /// </summary>
         [Input("mediaServicesAccountName", required: true)]
         public Input<string> MediaServicesAccountName { get; set; } = null!;
 
-        /// <summary>
-        /// The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A `presentation_time_range` block as defined below.
-        /// </summary>
         [Input("presentationTimeRange")]
         public Input<Inputs.AccountFilterPresentationTimeRangeArgs>? PresentationTimeRange { get; set; }
 
-        /// <summary>
-        /// The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("trackSelections")]
         private InputList<Inputs.AccountFilterTrackSelectionArgs>? _trackSelections;
-
-        /// <summary>
-        /// One or more `track_selection` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.AccountFilterTrackSelectionArgs> TrackSelections
         {
             get => _trackSelections ?? (_trackSelections = new InputList<Inputs.AccountFilterTrackSelectionArgs>());
@@ -261,42 +107,23 @@ namespace Pulumi.Azure.Media
 
     public sealed class AccountFilterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
-        /// </summary>
         [Input("firstQualityBitrate")]
         public Input<int>? FirstQualityBitrate { get; set; }
 
-        /// <summary>
-        /// The Media Services account name. Changing this forces a new Account Filter to be created.
-        /// </summary>
         [Input("mediaServicesAccountName")]
         public Input<string>? MediaServicesAccountName { get; set; }
 
-        /// <summary>
-        /// The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A `presentation_time_range` block as defined below.
-        /// </summary>
         [Input("presentationTimeRange")]
         public Input<Inputs.AccountFilterPresentationTimeRangeGetArgs>? PresentationTimeRange { get; set; }
 
-        /// <summary>
-        /// The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("trackSelections")]
         private InputList<Inputs.AccountFilterTrackSelectionGetArgs>? _trackSelections;
-
-        /// <summary>
-        /// One or more `track_selection` blocks as defined below.
-        /// </summary>
         public InputList<Inputs.AccountFilterTrackSelectionGetArgs> TrackSelections
         {
             get => _trackSelections ?? (_trackSelections = new InputList<Inputs.AccountFilterTrackSelectionGetArgs>());

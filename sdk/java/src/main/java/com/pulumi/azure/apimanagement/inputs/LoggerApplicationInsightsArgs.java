@@ -5,9 +5,10 @@ package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,23 +16,43 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
     public static final LoggerApplicationInsightsArgs Empty = new LoggerApplicationInsightsArgs();
 
     /**
-     * The instrumentation key used to push data to Application Insights.
+     * The connection string of Application Insights.
      * 
      */
-    @Import(name="instrumentationKey", required=true)
-    private Output<String> instrumentationKey;
+    @Import(name="connectionString")
+    private @Nullable Output<String> connectionString;
+
+    /**
+     * @return The connection string of Application Insights.
+     * 
+     */
+    public Optional<Output<String>> connectionString() {
+        return Optional.ofNullable(this.connectionString);
+    }
+
+    /**
+     * The instrumentation key used to push data to Application Insights.
+     * 
+     * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+     * 
+     */
+    @Import(name="instrumentationKey")
+    private @Nullable Output<String> instrumentationKey;
 
     /**
      * @return The instrumentation key used to push data to Application Insights.
      * 
+     * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+     * 
      */
-    public Output<String> instrumentationKey() {
-        return this.instrumentationKey;
+    public Optional<Output<String>> instrumentationKey() {
+        return Optional.ofNullable(this.instrumentationKey);
     }
 
     private LoggerApplicationInsightsArgs() {}
 
     private LoggerApplicationInsightsArgs(LoggerApplicationInsightsArgs $) {
+        this.connectionString = $.connectionString;
         this.instrumentationKey = $.instrumentationKey;
     }
 
@@ -54,18 +75,43 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param instrumentationKey The instrumentation key used to push data to Application Insights.
+         * @param connectionString The connection string of Application Insights.
          * 
          * @return builder
          * 
          */
-        public Builder instrumentationKey(Output<String> instrumentationKey) {
+        public Builder connectionString(@Nullable Output<String> connectionString) {
+            $.connectionString = connectionString;
+            return this;
+        }
+
+        /**
+         * @param connectionString The connection string of Application Insights.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionString(String connectionString) {
+            return connectionString(Output.of(connectionString));
+        }
+
+        /**
+         * @param instrumentationKey The instrumentation key used to push data to Application Insights.
+         * 
+         * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instrumentationKey(@Nullable Output<String> instrumentationKey) {
             $.instrumentationKey = instrumentationKey;
             return this;
         }
 
         /**
          * @param instrumentationKey The instrumentation key used to push data to Application Insights.
+         * 
+         * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
          * 
          * @return builder
          * 
@@ -75,9 +121,6 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
         }
 
         public LoggerApplicationInsightsArgs build() {
-            if ($.instrumentationKey == null) {
-                throw new MissingRequiredPropertyException("LoggerApplicationInsightsArgs", "instrumentationKey");
-            }
             return $;
         }
     }
