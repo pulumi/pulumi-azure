@@ -1815,6 +1815,14 @@
                     }
                 }
             },
+            "azurerm_arc_machine": {
+                "current": "azure:arcmachine/arcMachine:ArcMachine",
+                "majorVersion": 6
+            },
+            "azurerm_arc_machine_automanage_configuration_assignment": {
+                "current": "azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment",
+                "majorVersion": 6
+            },
             "azurerm_arc_machine_extension": {
                 "current": "azure:arcmachine/extension:Extension",
                 "majorVersion": 6
@@ -13152,25 +13160,6 @@
             "azurerm_marketplace_role_assignment": {
                 "current": "azure:marketplace/roleAssignment:RoleAssignment",
                 "majorVersion": 6
-            },
-            "azurerm_media_services_account_filter": {
-                "current": "azure:media/accountFilter:AccountFilter",
-                "majorVersion": 6,
-                "fields": {
-                    "presentation_time_range": {
-                        "maxItemsOne": true
-                    },
-                    "track_selection": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "condition": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    }
-                }
             },
             "azurerm_mobile_network": {
                 "current": "azure:mobile/network:Network",
