@@ -165,9 +165,6 @@ def get_managed_hardware_security_module_role_definition(managed_hsm_id: Optiona
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
         role_name=pulumi.get(__ret__, 'role_name'),
         role_type=pulumi.get(__ret__, 'role_type'))
-
-
-@_utilities.lift_output_func(get_managed_hardware_security_module_role_definition)
 def get_managed_hardware_security_module_role_definition_output(managed_hsm_id: Optional[pulumi.Input[str]] = None,
                                                                 name: Optional[pulumi.Input[str]] = None,
                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleRoleDefinitionResult]:
@@ -177,4 +174,18 @@ def get_managed_hardware_security_module_role_definition_output(managed_hsm_id: 
 
     :param str name: The name in UUID notation of this KeyVault Role Definition.
     """
-    ...
+    __args__ = dict()
+    __args__['managedHsmId'] = managed_hsm_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition', __args__, opts=opts, typ=GetManagedHardwareSecurityModuleRoleDefinitionResult)
+    return __ret__.apply(lambda __response__: GetManagedHardwareSecurityModuleRoleDefinitionResult(
+        assignable_scopes=pulumi.get(__response__, 'assignable_scopes'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        managed_hsm_id=pulumi.get(__response__, 'managed_hsm_id'),
+        name=pulumi.get(__response__, 'name'),
+        permissions=pulumi.get(__response__, 'permissions'),
+        resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
+        role_name=pulumi.get(__response__, 'role_name'),
+        role_type=pulumi.get(__response__, 'role_type')))

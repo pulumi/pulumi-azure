@@ -342,9 +342,6 @@ def get_managed_instance(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timezone_id=pulumi.get(__ret__, 'timezone_id'),
         vcores=pulumi.get(__ret__, 'vcores'))
-
-
-@_utilities.lift_output_func(get_managed_instance)
 def get_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceResult]:
@@ -365,4 +362,31 @@ def get_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the SQL Managed Instance.
     :param str resource_group_name: The name of the resource group where the SQL Managed Instance exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mssql/getManagedInstance:getManagedInstance', __args__, opts=opts, typ=GetManagedInstanceResult)
+    return __ret__.apply(lambda __response__: GetManagedInstanceResult(
+        administrator_login=pulumi.get(__response__, 'administrator_login'),
+        collation=pulumi.get(__response__, 'collation'),
+        customer_managed_key_id=pulumi.get(__response__, 'customer_managed_key_id'),
+        dns_zone=pulumi.get(__response__, 'dns_zone'),
+        dns_zone_partner_id=pulumi.get(__response__, 'dns_zone_partner_id'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        license_type=pulumi.get(__response__, 'license_type'),
+        location=pulumi.get(__response__, 'location'),
+        minimum_tls_version=pulumi.get(__response__, 'minimum_tls_version'),
+        name=pulumi.get(__response__, 'name'),
+        proxy_override=pulumi.get(__response__, 'proxy_override'),
+        public_data_endpoint_enabled=pulumi.get(__response__, 'public_data_endpoint_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        storage_account_type=pulumi.get(__response__, 'storage_account_type'),
+        storage_size_in_gb=pulumi.get(__response__, 'storage_size_in_gb'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        timezone_id=pulumi.get(__response__, 'timezone_id'),
+        vcores=pulumi.get(__response__, 'vcores')))
