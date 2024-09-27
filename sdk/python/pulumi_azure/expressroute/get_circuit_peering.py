@@ -245,9 +245,6 @@ def get_circuit_peering(express_route_circuit_name: Optional[str] = None,
         secondary_peer_address_prefix=pulumi.get(__ret__, 'secondary_peer_address_prefix'),
         shared_key=pulumi.get(__ret__, 'shared_key'),
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
-
-
-@_utilities.lift_output_func(get_circuit_peering)
 def get_circuit_peering_output(express_route_circuit_name: Optional[pulumi.Input[str]] = None,
                                peering_type: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -271,4 +268,25 @@ def get_circuit_peering_output(express_route_circuit_name: Optional[pulumi.Input
     :param str peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
     :param str resource_group_name: The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
     """
-    ...
+    __args__ = dict()
+    __args__['expressRouteCircuitName'] = express_route_circuit_name
+    __args__['peeringType'] = peering_type
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:expressroute/getCircuitPeering:getCircuitPeering', __args__, opts=opts, typ=GetCircuitPeeringResult)
+    return __ret__.apply(lambda __response__: GetCircuitPeeringResult(
+        azure_asn=pulumi.get(__response__, 'azure_asn'),
+        express_route_circuit_name=pulumi.get(__response__, 'express_route_circuit_name'),
+        gateway_manager_etag=pulumi.get(__response__, 'gateway_manager_etag'),
+        id=pulumi.get(__response__, 'id'),
+        ipv4_enabled=pulumi.get(__response__, 'ipv4_enabled'),
+        peer_asn=pulumi.get(__response__, 'peer_asn'),
+        peering_type=pulumi.get(__response__, 'peering_type'),
+        primary_azure_port=pulumi.get(__response__, 'primary_azure_port'),
+        primary_peer_address_prefix=pulumi.get(__response__, 'primary_peer_address_prefix'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        route_filter_id=pulumi.get(__response__, 'route_filter_id'),
+        secondary_azure_port=pulumi.get(__response__, 'secondary_azure_port'),
+        secondary_peer_address_prefix=pulumi.get(__response__, 'secondary_peer_address_prefix'),
+        shared_key=pulumi.get(__response__, 'shared_key'),
+        vlan_id=pulumi.get(__response__, 'vlan_id')))

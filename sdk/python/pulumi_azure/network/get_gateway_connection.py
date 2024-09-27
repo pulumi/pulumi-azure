@@ -390,9 +390,6 @@ def get_gateway_connection(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_policy_based_traffic_selectors=pulumi.get(__ret__, 'use_policy_based_traffic_selectors'),
         virtual_network_gateway_id=pulumi.get(__ret__, 'virtual_network_gateway_id'))
-
-
-@_utilities.lift_output_func(get_gateway_connection)
 def get_gateway_connection_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayConnectionResult]:
@@ -414,4 +411,34 @@ def get_gateway_connection_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Virtual Network Gateway Connection.
     :param str resource_group_name: Specifies the name of the resource group the Virtual Network Gateway Connection is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getGatewayConnection:getGatewayConnection', __args__, opts=opts, typ=GetGatewayConnectionResult)
+    return __ret__.apply(lambda __response__: GetGatewayConnectionResult(
+        authorization_key=pulumi.get(__response__, 'authorization_key'),
+        connection_protocol=pulumi.get(__response__, 'connection_protocol'),
+        dpd_timeout_seconds=pulumi.get(__response__, 'dpd_timeout_seconds'),
+        egress_bytes_transferred=pulumi.get(__response__, 'egress_bytes_transferred'),
+        enable_bgp=pulumi.get(__response__, 'enable_bgp'),
+        express_route_circuit_id=pulumi.get(__response__, 'express_route_circuit_id'),
+        express_route_gateway_bypass=pulumi.get(__response__, 'express_route_gateway_bypass'),
+        id=pulumi.get(__response__, 'id'),
+        ingress_bytes_transferred=pulumi.get(__response__, 'ingress_bytes_transferred'),
+        ipsec_policies=pulumi.get(__response__, 'ipsec_policies'),
+        local_azure_ip_address_enabled=pulumi.get(__response__, 'local_azure_ip_address_enabled'),
+        local_network_gateway_id=pulumi.get(__response__, 'local_network_gateway_id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        peer_virtual_network_gateway_id=pulumi.get(__response__, 'peer_virtual_network_gateway_id'),
+        private_link_fast_path_enabled=pulumi.get(__response__, 'private_link_fast_path_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        routing_weight=pulumi.get(__response__, 'routing_weight'),
+        shared_key=pulumi.get(__response__, 'shared_key'),
+        tags=pulumi.get(__response__, 'tags'),
+        traffic_selector_policies=pulumi.get(__response__, 'traffic_selector_policies'),
+        type=pulumi.get(__response__, 'type'),
+        use_policy_based_traffic_selectors=pulumi.get(__response__, 'use_policy_based_traffic_selectors'),
+        virtual_network_gateway_id=pulumi.get(__response__, 'virtual_network_gateway_id')))

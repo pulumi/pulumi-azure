@@ -244,9 +244,6 @@ def get_app_service_plan(name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-
-
-@_utilities.lift_output_func(get_app_service_plan)
 def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServicePlanResult]:
@@ -270,4 +267,23 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the App Service Plan.
     :param str resource_group_name: The Name of the Resource Group where the App Service Plan exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appservice/getAppServicePlan:getAppServicePlan', __args__, opts=opts, typ=GetAppServicePlanResult)
+    return __ret__.apply(lambda __response__: GetAppServicePlanResult(
+        app_service_environment_id=pulumi.get(__response__, 'app_service_environment_id'),
+        id=pulumi.get(__response__, 'id'),
+        is_xenon=pulumi.get(__response__, 'is_xenon'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        maximum_elastic_worker_count=pulumi.get(__response__, 'maximum_elastic_worker_count'),
+        maximum_number_of_workers=pulumi.get(__response__, 'maximum_number_of_workers'),
+        name=pulumi.get(__response__, 'name'),
+        per_site_scaling=pulumi.get(__response__, 'per_site_scaling'),
+        reserved=pulumi.get(__response__, 'reserved'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        zone_redundant=pulumi.get(__response__, 'zone_redundant')))
