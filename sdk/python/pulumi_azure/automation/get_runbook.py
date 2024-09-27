@@ -216,9 +216,6 @@ def get_runbook(automation_account_name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         runbook_type=pulumi.get(__ret__, 'runbook_type'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_runbook)
 def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -243,4 +240,22 @@ def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = No
     :param str name: The name of the Automation Runbook.
     :param str resource_group_name: The name of the Resource Group where the Automation exists.
     """
-    ...
+    __args__ = dict()
+    __args__['automationAccountName'] = automation_account_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:automation/getRunbook:getRunbook', __args__, opts=opts, typ=GetRunbookResult)
+    return __ret__.apply(lambda __response__: GetRunbookResult(
+        automation_account_name=pulumi.get(__response__, 'automation_account_name'),
+        content=pulumi.get(__response__, 'content'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        log_activity_trace_level=pulumi.get(__response__, 'log_activity_trace_level'),
+        log_progress=pulumi.get(__response__, 'log_progress'),
+        log_verbose=pulumi.get(__response__, 'log_verbose'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        runbook_type=pulumi.get(__response__, 'runbook_type'),
+        tags=pulumi.get(__response__, 'tags')))
