@@ -52,6 +52,14 @@ namespace Pulumi.Azure.DataProtection
     public partial class BackupVault : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether to enable cross-region restore for the Backup Vault.
+        /// 
+        /// &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+        /// </summary>
+        [Output("crossRegionRestoreEnabled")]
+        public Output<bool?> CrossRegionRestoreEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -158,6 +166,14 @@ namespace Pulumi.Azure.DataProtection
     public sealed class BackupVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to enable cross-region restore for the Backup Vault.
+        /// 
+        /// &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+        /// </summary>
+        [Input("crossRegionRestoreEnabled")]
+        public Input<bool>? CrossRegionRestoreEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -231,6 +247,14 @@ namespace Pulumi.Azure.DataProtection
 
     public sealed class BackupVaultState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable cross-region restore for the Backup Vault.
+        /// 
+        /// &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+        /// </summary>
+        [Input("crossRegionRestoreEnabled")]
+        public Input<bool>? CrossRegionRestoreEnabled { get; set; }
+
         /// <summary>
         /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
         /// 

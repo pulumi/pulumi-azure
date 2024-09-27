@@ -24,6 +24,7 @@ class BackupVaultArgs:
                  datastore_type: pulumi.Input[str],
                  redundancy: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['BackupVaultIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,9 @@ class BackupVaultArgs:
                > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
+        :param pulumi.Input[bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
+               
+               > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
         :param pulumi.Input['BackupVaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
@@ -51,6 +55,8 @@ class BackupVaultArgs:
         pulumi.set(__self__, "datastore_type", datastore_type)
         pulumi.set(__self__, "redundancy", redundancy)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cross_region_restore_enabled is not None:
+            pulumi.set(__self__, "cross_region_restore_enabled", cross_region_restore_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -101,6 +107,20 @@ class BackupVaultArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="crossRegionRestoreEnabled")
+    def cross_region_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable cross-region restore for the Backup Vault.
+
+        > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+        """
+        return pulumi.get(self, "cross_region_restore_enabled")
+
+    @cross_region_restore_enabled.setter
+    def cross_region_restore_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cross_region_restore_enabled", value)
 
     @property
     @pulumi.getter
@@ -182,6 +202,7 @@ class BackupVaultArgs:
 @pulumi.input_type
 class _BackupVaultState:
     def __init__(__self__, *,
+                 cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  datastore_type: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['BackupVaultIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -193,6 +214,9 @@ class _BackupVaultState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering BackupVault resources.
+        :param pulumi.Input[bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
+               
+               > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
         :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
                
                > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -209,6 +233,8 @@ class _BackupVaultState:
                > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
         """
+        if cross_region_restore_enabled is not None:
+            pulumi.set(__self__, "cross_region_restore_enabled", cross_region_restore_enabled)
         if datastore_type is not None:
             pulumi.set(__self__, "datastore_type", datastore_type)
         if identity is not None:
@@ -227,6 +253,20 @@ class _BackupVaultState:
             pulumi.set(__self__, "soft_delete", soft_delete)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="crossRegionRestoreEnabled")
+    def cross_region_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable cross-region restore for the Backup Vault.
+
+        > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+        """
+        return pulumi.get(self, "cross_region_restore_enabled")
+
+    @cross_region_restore_enabled.setter
+    def cross_region_restore_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cross_region_restore_enabled", value)
 
     @property
     @pulumi.getter(name="datastoreType")
@@ -348,6 +388,7 @@ class BackupVault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  datastore_type: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -388,6 +429,9 @@ class BackupVault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
+               
+               > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
         :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
                
                > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -453,6 +497,7 @@ class BackupVault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  datastore_type: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -471,6 +516,7 @@ class BackupVault(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BackupVaultArgs.__new__(BackupVaultArgs)
 
+            __props__.__dict__["cross_region_restore_enabled"] = cross_region_restore_enabled
             if datastore_type is None and not opts.urn:
                 raise TypeError("Missing required property 'datastore_type'")
             __props__.__dict__["datastore_type"] = datastore_type
@@ -496,6 +542,7 @@ class BackupVault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
             datastore_type: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -512,6 +559,9 @@ class BackupVault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
+               
+               > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
         :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
                
                > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -532,6 +582,7 @@ class BackupVault(pulumi.CustomResource):
 
         __props__ = _BackupVaultState.__new__(_BackupVaultState)
 
+        __props__.__dict__["cross_region_restore_enabled"] = cross_region_restore_enabled
         __props__.__dict__["datastore_type"] = datastore_type
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
@@ -542,6 +593,16 @@ class BackupVault(pulumi.CustomResource):
         __props__.__dict__["soft_delete"] = soft_delete
         __props__.__dict__["tags"] = tags
         return BackupVault(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="crossRegionRestoreEnabled")
+    def cross_region_restore_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable cross-region restore for the Backup Vault.
+
+        > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+        """
+        return pulumi.get(self, "cross_region_restore_enabled")
 
     @property
     @pulumi.getter(name="datastoreType")

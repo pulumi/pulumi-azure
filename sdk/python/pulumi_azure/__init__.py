@@ -174,8 +174,6 @@ if typing.TYPE_CHECKING:
     maps = __maps
     import pulumi_azure.marketplace as __marketplace
     marketplace = __marketplace
-    import pulumi_azure.media as __media
-    media = __media
     import pulumi_azure.mixedreality as __mixedreality
     mixedreality = __mixedreality
     import pulumi_azure.mobile as __mobile
@@ -351,7 +349,6 @@ else:
     managementresource = _utilities.lazy_import('pulumi_azure.managementresource')
     maps = _utilities.lazy_import('pulumi_azure.maps')
     marketplace = _utilities.lazy_import('pulumi_azure.marketplace')
-    media = _utilities.lazy_import('pulumi_azure.media')
     mixedreality = _utilities.lazy_import('pulumi_azure.mixedreality')
     mobile = _utilities.lazy_import('pulumi_azure.mobile')
     monitoring = _utilities.lazy_import('pulumi_azure.monitoring')
@@ -1520,6 +1517,22 @@ _utilities.register(
   "fqn": "pulumi_azure.arckubernetes",
   "classes": {
    "azure:arckubernetes/fluxConfiguration:FluxConfiguration": "FluxConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "arcmachine/arcMachine",
+  "fqn": "pulumi_azure.arcmachine",
+  "classes": {
+   "azure:arcmachine/arcMachine:ArcMachine": "ArcMachine"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "arcmachine/automanageConfigurationAssignment",
+  "fqn": "pulumi_azure.arcmachine",
+  "classes": {
+   "azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment": "AutomanageConfigurationAssignment"
   }
  },
  {
@@ -5568,14 +5581,6 @@ _utilities.register(
   "fqn": "pulumi_azure.marketplace",
   "classes": {
    "azure:marketplace/roleAssignment:RoleAssignment": "RoleAssignment"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "media/accountFilter",
-  "fqn": "pulumi_azure.media",
-  "classes": {
-   "azure:media/accountFilter:AccountFilter": "AccountFilter"
   }
  },
  {

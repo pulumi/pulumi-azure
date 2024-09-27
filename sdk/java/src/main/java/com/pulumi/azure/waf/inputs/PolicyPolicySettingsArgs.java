@@ -123,9 +123,17 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.requestBodyCheck);
     }
 
+    /**
+     * Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+     * 
+     */
     @Import(name="requestBodyEnforcement")
     private @Nullable Output<Boolean> requestBodyEnforcement;
 
+    /**
+     * @return Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> requestBodyEnforcement() {
         return Optional.ofNullable(this.requestBodyEnforcement);
     }
@@ -324,11 +332,23 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
             return requestBodyCheck(Output.of(requestBodyCheck));
         }
 
+        /**
+         * @param requestBodyEnforcement Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestBodyEnforcement(@Nullable Output<Boolean> requestBodyEnforcement) {
             $.requestBodyEnforcement = requestBodyEnforcement;
             return this;
         }
 
+        /**
+         * @param requestBodyEnforcement Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestBodyEnforcement(Boolean requestBodyEnforcement) {
             return requestBodyEnforcement(Output.of(requestBodyEnforcement));
         }

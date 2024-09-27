@@ -56,6 +56,8 @@ type ManagedInstance struct {
 	PublicDataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"publicDataEndpointEnabled"`
 	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The service principal type. The only possible value is `SystemAssigned`.
+	ServicePrincipalType pulumi.StringPtrOutput `pulumi:"servicePrincipalType"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
@@ -171,6 +173,8 @@ type managedInstanceState struct {
 	PublicDataEndpointEnabled *bool `pulumi:"publicDataEndpointEnabled"`
 	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The service principal type. The only possible value is `SystemAssigned`.
+	ServicePrincipalType *string `pulumi:"servicePrincipalType"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName *string `pulumi:"skuName"`
 	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
@@ -220,6 +224,8 @@ type ManagedInstanceState struct {
 	PublicDataEndpointEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The service principal type. The only possible value is `SystemAssigned`.
+	ServicePrincipalType pulumi.StringPtrInput
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName pulumi.StringPtrInput
 	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
@@ -269,6 +275,8 @@ type managedInstanceArgs struct {
 	PublicDataEndpointEnabled *bool `pulumi:"publicDataEndpointEnabled"`
 	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The service principal type. The only possible value is `SystemAssigned`.
+	ServicePrincipalType *string `pulumi:"servicePrincipalType"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName string `pulumi:"skuName"`
 	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
@@ -315,6 +323,8 @@ type ManagedInstanceArgs struct {
 	PublicDataEndpointEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The service principal type. The only possible value is `SystemAssigned`.
+	ServicePrincipalType pulumi.StringPtrInput
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName pulumi.StringInput
 	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
@@ -493,6 +503,11 @@ func (o ManagedInstanceOutput) PublicDataEndpointEnabled() pulumi.BoolPtrOutput 
 // The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 func (o ManagedInstanceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The service principal type. The only possible value is `SystemAssigned`.
+func (o ManagedInstanceOutput) ServicePrincipalType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.ServicePrincipalType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.

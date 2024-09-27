@@ -116,6 +116,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The service principal type. The only possible value is `SystemAssigned`.
+        /// </summary>
+        [Output("servicePrincipalType")]
+        public Output<string?> ServicePrincipalType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         /// </summary>
         [Output("skuName")]
@@ -306,6 +312,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The service principal type. The only possible value is `SystemAssigned`.
+        /// </summary>
+        [Input("servicePrincipalType")]
+        public Input<string>? ServicePrincipalType { get; set; }
+
+        /// <summary>
         /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         /// </summary>
         [Input("skuName", required: true)]
@@ -466,6 +478,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The service principal type. The only possible value is `SystemAssigned`.
+        /// </summary>
+        [Input("servicePrincipalType")]
+        public Input<string>? ServicePrincipalType { get; set; }
 
         /// <summary>
         /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.

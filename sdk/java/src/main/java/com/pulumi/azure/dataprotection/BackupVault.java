@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Map;
@@ -77,6 +78,24 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:dataprotection/backupVault:BackupVault")
 public class BackupVault extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether to enable cross-region restore for the Backup Vault.
+     * 
+     * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+     * 
+     */
+    @Export(name="crossRegionRestoreEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> crossRegionRestoreEnabled;
+
+    /**
+     * @return Whether to enable cross-region restore for the Backup Vault.
+     * 
+     * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+     * 
+     */
+    public Output<Optional<Boolean>> crossRegionRestoreEnabled() {
+        return Codegen.optional(this.crossRegionRestoreEnabled);
+    }
     /**
      * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      * 

@@ -38,6 +38,7 @@ class ManagedInstanceArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  proxy_override: Optional[pulumi.Input[str]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 service_principal_type: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None,
@@ -61,6 +62,7 @@ class ManagedInstanceArgs:
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
+        :param pulumi.Input[str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
@@ -92,6 +94,8 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "proxy_override", proxy_override)
         if public_data_endpoint_enabled is not None:
             pulumi.set(__self__, "public_data_endpoint_enabled", public_data_endpoint_enabled)
+        if service_principal_type is not None:
+            pulumi.set(__self__, "service_principal_type", service_principal_type)
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
         if tags is not None:
@@ -306,6 +310,18 @@ class ManagedInstanceArgs:
         pulumi.set(self, "public_data_endpoint_enabled", value)
 
     @property
+    @pulumi.getter(name="servicePrincipalType")
+    def service_principal_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service principal type. The only possible value is `SystemAssigned`.
+        """
+        return pulumi.get(self, "service_principal_type")
+
+    @service_principal_type.setter
+    def service_principal_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_principal_type", value)
+
+    @property
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -372,6 +388,7 @@ class _ManagedInstanceState:
                  proxy_override: Optional[pulumi.Input[str]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_principal_type: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
@@ -397,6 +414,7 @@ class _ManagedInstanceState:
         :param pulumi.Input[str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
@@ -436,6 +454,8 @@ class _ManagedInstanceState:
             pulumi.set(__self__, "public_data_endpoint_enabled", public_data_endpoint_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if service_principal_type is not None:
+            pulumi.set(__self__, "service_principal_type", service_principal_type)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if storage_account_type is not None:
@@ -634,6 +654,18 @@ class _ManagedInstanceState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="servicePrincipalType")
+    def service_principal_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service principal type. The only possible value is `SystemAssigned`.
+        """
+        return pulumi.get(self, "service_principal_type")
+
+    @service_principal_type.setter
+    def service_principal_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_principal_type", value)
+
+    @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -748,6 +780,7 @@ class ManagedInstance(pulumi.CustomResource):
                  proxy_override: Optional[pulumi.Input[str]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_principal_type: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
@@ -785,6 +818,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
@@ -841,6 +875,7 @@ class ManagedInstance(pulumi.CustomResource):
                  proxy_override: Optional[pulumi.Input[str]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_principal_type: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
@@ -879,6 +914,7 @@ class ManagedInstance(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["service_principal_type"] = service_principal_type
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
@@ -926,6 +962,7 @@ class ManagedInstance(pulumi.CustomResource):
             proxy_override: Optional[pulumi.Input[str]] = None,
             public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            service_principal_type: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             storage_account_type: Optional[pulumi.Input[str]] = None,
             storage_size_in_gb: Optional[pulumi.Input[int]] = None,
@@ -956,6 +993,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
@@ -984,6 +1022,7 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["proxy_override"] = proxy_override
         __props__.__dict__["public_data_endpoint_enabled"] = public_data_endpoint_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["service_principal_type"] = service_principal_type
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["storage_account_type"] = storage_account_type
         __props__.__dict__["storage_size_in_gb"] = storage_size_in_gb
@@ -1113,6 +1152,14 @@ class ManagedInstance(pulumi.CustomResource):
         The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="servicePrincipalType")
+    def service_principal_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The service principal type. The only possible value is `SystemAssigned`.
+        """
+        return pulumi.get(self, "service_principal_type")
 
     @property
     @pulumi.getter(name="skuName")

@@ -18,14 +18,14 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     public static final QueueState Empty = new QueueState();
 
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      * 
      */
     @Import(name="autoDeleteOnIdle")
     private @Nullable Output<String> autoDeleteOnIdle;
 
     /**
-     * @return The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+     * @return The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      * 
      */
     public Optional<Output<String>> autoDeleteOnIdle() {
@@ -63,14 +63,14 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      * 
      */
     @Import(name="defaultMessageTtl")
     private @Nullable Output<String> defaultMessageTtl;
 
     /**
-     * @return The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+     * @return The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      * 
      */
     public Optional<Output<String>> defaultMessageTtl() {
@@ -172,14 +172,14 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     @Import(name="maxMessageSizeInKilobytes")
     private @Nullable Output<Integer> maxMessageSizeInKilobytes;
 
     /**
-     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+     * @return Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
     public Optional<Output<Integer>> maxMessageSizeInKilobytes() {
@@ -187,14 +187,14 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      * 
      */
     @Import(name="maxSizeInMegabytes")
     private @Nullable Output<Integer> maxSizeInMegabytes;
 
     /**
-     * @return Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
+     * @return Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      * 
      */
     public Optional<Output<Integer>> maxSizeInMegabytes() {
@@ -353,7 +353,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+         * @param autoDeleteOnIdle The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultMessageTtl The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+         * @param defaultMessageTtl The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultMessageTtl The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+         * @param defaultMessageTtl The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+         * @param maxMessageSizeInKilobytes Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSizeInMegabytes Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
+         * @param maxSizeInMegabytes Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSizeInMegabytes Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
+         * @param maxSizeInMegabytes Integer value which controls the size of memory allocated for the queue. For supported values see the &#34;Queue or topic size&#34; section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
          * 
          * @return builder
          * 

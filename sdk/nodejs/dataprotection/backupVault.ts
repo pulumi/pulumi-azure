@@ -65,6 +65,12 @@ export class BackupVault extends pulumi.CustomResource {
     }
 
     /**
+     * Whether to enable cross-region restore for the Backup Vault.
+     *
+     * > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
+     */
+    public readonly crossRegionRestoreEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
@@ -120,6 +126,7 @@ export class BackupVault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupVaultState | undefined;
+            resourceInputs["crossRegionRestoreEnabled"] = state ? state.crossRegionRestoreEnabled : undefined;
             resourceInputs["datastoreType"] = state ? state.datastoreType : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -140,6 +147,7 @@ export class BackupVault extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["crossRegionRestoreEnabled"] = args ? args.crossRegionRestoreEnabled : undefined;
             resourceInputs["datastoreType"] = args ? args.datastoreType : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -159,6 +167,12 @@ export class BackupVault extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BackupVault resources.
  */
 export interface BackupVaultState {
+    /**
+     * Whether to enable cross-region restore for the Backup Vault.
+     *
+     * > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
+     */
+    crossRegionRestoreEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      *
@@ -207,6 +221,12 @@ export interface BackupVaultState {
  * The set of arguments for constructing a BackupVault resource.
  */
 export interface BackupVaultArgs {
+    /**
+     * Whether to enable cross-region restore for the Backup Vault.
+     *
+     * > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
+     */
+    crossRegionRestoreEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      *

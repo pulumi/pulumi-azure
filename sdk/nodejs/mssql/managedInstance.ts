@@ -108,6 +108,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The service principal type. The only possible value is `SystemAssigned`.
+     */
+    public readonly servicePrincipalType!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      */
     public readonly skuName!: pulumi.Output<string>;
@@ -168,6 +172,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["proxyOverride"] = state ? state.proxyOverride : undefined;
             resourceInputs["publicDataEndpointEnabled"] = state ? state.publicDataEndpointEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["servicePrincipalType"] = state ? state.servicePrincipalType : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["storageAccountType"] = state ? state.storageAccountType : undefined;
             resourceInputs["storageSizeInGb"] = state ? state.storageSizeInGb : undefined;
@@ -215,6 +220,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["proxyOverride"] = args ? args.proxyOverride : undefined;
             resourceInputs["publicDataEndpointEnabled"] = args ? args.publicDataEndpointEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["servicePrincipalType"] = args ? args.servicePrincipalType : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["storageAccountType"] = args ? args.storageAccountType : undefined;
             resourceInputs["storageSizeInGb"] = args ? args.storageSizeInGb : undefined;
@@ -299,6 +305,10 @@ export interface ManagedInstanceState {
      * The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The service principal type. The only possible value is `SystemAssigned`.
+     */
+    servicePrincipalType?: pulumi.Input<string>;
     /**
      * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      */
@@ -389,6 +399,10 @@ export interface ManagedInstanceArgs {
      * The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The service principal type. The only possible value is `SystemAssigned`.
+     */
+    servicePrincipalType?: pulumi.Input<string>;
     /**
      * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      */

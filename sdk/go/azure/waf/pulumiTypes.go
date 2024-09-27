@@ -1345,7 +1345,8 @@ type PolicyPolicySettings struct {
 	// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
 	Mode *string `pulumi:"mode"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
-	RequestBodyCheck       *bool `pulumi:"requestBodyCheck"`
+	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
+	// Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
 	RequestBodyEnforcement *bool `pulumi:"requestBodyEnforcement"`
 	// Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
 	RequestBodyInspectLimitInKb *int `pulumi:"requestBodyInspectLimitInKb"`
@@ -1376,7 +1377,8 @@ type PolicyPolicySettingsArgs struct {
 	// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
-	RequestBodyCheck       pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
+	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
+	// Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
 	RequestBodyEnforcement pulumi.BoolPtrInput `pulumi:"requestBodyEnforcement"`
 	// Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
 	RequestBodyInspectLimitInKb pulumi.IntPtrInput `pulumi:"requestBodyInspectLimitInKb"`
@@ -1494,6 +1496,7 @@ func (o PolicyPolicySettingsOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.RequestBodyCheck }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
 func (o PolicyPolicySettingsOutput) RequestBodyEnforcement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.RequestBodyEnforcement }).(pulumi.BoolPtrOutput)
 }
@@ -1597,6 +1600,7 @@ func (o PolicyPolicySettingsPtrOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
 func (o PolicyPolicySettingsPtrOutput) RequestBodyEnforcement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyPolicySettings) *bool {
 		if v == nil {

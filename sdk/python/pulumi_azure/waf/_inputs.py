@@ -884,6 +884,9 @@ if not MYPY:
         Is Request Body Inspection enabled? Defaults to `true`.
         """
         request_body_enforcement: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+        """
         request_body_inspect_limit_in_kb: NotRequired[pulumi.Input[int]]
         """
         Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
@@ -911,6 +914,7 @@ class PolicyPolicySettingsArgs:
         :param pulumi.Input[int] max_request_body_size_in_kb: The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
         :param pulumi.Input[str] mode: Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[bool] request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
+        :param pulumi.Input[bool] request_body_enforcement: Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
         :param pulumi.Input[int] request_body_inspect_limit_in_kb: Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
         """
         if enabled is not None:
@@ -1019,6 +1023,9 @@ class PolicyPolicySettingsArgs:
     @property
     @pulumi.getter(name="requestBodyEnforcement")
     def request_body_enforcement(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+        """
         return pulumi.get(self, "request_body_enforcement")
 
     @request_body_enforcement.setter

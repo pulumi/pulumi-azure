@@ -70,9 +70,9 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      */
-    public readonly autoDeleteOnIdle!: pulumi.Output<string | undefined>;
+    public readonly autoDeleteOnIdle!: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
      */
@@ -82,9 +82,9 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
     /**
-     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      */
-    public readonly defaultMessageTtl!: pulumi.Output<string | undefined>;
+    public readonly defaultMessageTtl!: pulumi.Output<string>;
     /**
      * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
      */
@@ -112,11 +112,11 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
     /**
-     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     public readonly maxMessageSizeInKilobytes!: pulumi.Output<number>;
     /**
-     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     public readonly maxSizeInMegabytes!: pulumi.Output<number>;
     /**
@@ -219,7 +219,7 @@ export class Queue extends pulumi.CustomResource {
  */
 export interface QueueState {
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
     /**
@@ -231,7 +231,7 @@ export interface QueueState {
      */
     deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
-     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      */
     defaultMessageTtl?: pulumi.Input<string>;
     /**
@@ -261,11 +261,11 @@ export interface QueueState {
      */
     maxDeliveryCount?: pulumi.Input<number>;
     /**
-     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
-     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     maxSizeInMegabytes?: pulumi.Input<number>;
     /**
@@ -303,7 +303,7 @@ export interface QueueState {
  */
 export interface QueueArgs {
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
+     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
     /**
@@ -315,7 +315,7 @@ export interface QueueArgs {
      */
     deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
-     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself. Defaults to `P10675199DT2H48M5.4775807S`.
+     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      */
     defaultMessageTtl?: pulumi.Input<string>;
     /**
@@ -345,11 +345,11 @@ export interface QueueArgs {
      */
     maxDeliveryCount?: pulumi.Input<number>;
     /**
-     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
+     * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
     maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
-     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
     maxSizeInMegabytes?: pulumi.Input<number>;
     /**
