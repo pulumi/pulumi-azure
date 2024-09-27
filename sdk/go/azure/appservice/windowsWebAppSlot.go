@@ -51,7 +51,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID(),
-//				SiteConfig:        nil,
+//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
@@ -59,7 +59,7 @@ import (
 //			_, err = appservice.NewWindowsWebAppSlot(ctx, "example", &appservice.WindowsWebAppSlotArgs{
 //				Name:         pulumi.String("example-slot"),
 //				AppServiceId: exampleWindowsWebApp.ID(),
-//				SiteConfig:   nil,
+//				SiteConfig:   &appservice.WindowsWebAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

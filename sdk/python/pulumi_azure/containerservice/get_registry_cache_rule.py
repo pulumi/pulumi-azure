@@ -126,9 +126,6 @@ def get_registry_cache_rule(container_registry_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         source_repo=pulumi.get(__ret__, 'source_repo'),
         target_repo=pulumi.get(__ret__, 'target_repo'))
-
-
-@_utilities.lift_output_func(get_registry_cache_rule)
 def get_registry_cache_rule_output(container_registry_id: Optional[pulumi.Input[str]] = None,
                                    name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryCacheRuleResult]:
@@ -139,4 +136,15 @@ def get_registry_cache_rule_output(container_registry_id: Optional[pulumi.Input[
     :param str container_registry_id: The ID of the container registry where the cache rule should apply. Changing this forces a new resource to be created.
     :param str name: Specifies the name of the Container Registry Cache Rule. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
     """
-    ...
+    __args__ = dict()
+    __args__['containerRegistryId'] = container_registry_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:containerservice/getRegistryCacheRule:getRegistryCacheRule', __args__, opts=opts, typ=GetRegistryCacheRuleResult)
+    return __ret__.apply(lambda __response__: GetRegistryCacheRuleResult(
+        container_registry_id=pulumi.get(__response__, 'container_registry_id'),
+        credential_set_id=pulumi.get(__response__, 'credential_set_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        source_repo=pulumi.get(__response__, 'source_repo'),
+        target_repo=pulumi.get(__response__, 'target_repo')))
