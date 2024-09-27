@@ -202,9 +202,6 @@ def get_managed_hardware_security_module(name: Optional[str] = None,
         soft_delete_retention_days=pulumi.get(__ret__, 'soft_delete_retention_days'),
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
-
-
-@_utilities.lift_output_func(get_managed_hardware_security_module)
 def get_managed_hardware_security_module_output(name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleResult]:
@@ -226,4 +223,20 @@ def get_managed_hardware_security_module_output(name: Optional[pulumi.Input[str]
     :param str name: The name of the Key Vault Managed Hardware Security Module.
     :param str resource_group_name: The name of the Resource Group in which the Key Vault Managed Hardware Security Module exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule', __args__, opts=opts, typ=GetManagedHardwareSecurityModuleResult)
+    return __ret__.apply(lambda __response__: GetManagedHardwareSecurityModuleResult(
+        admin_object_ids=pulumi.get(__response__, 'admin_object_ids'),
+        hsm_uri=pulumi.get(__response__, 'hsm_uri'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        purge_protection_enabled=pulumi.get(__response__, 'purge_protection_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        soft_delete_retention_days=pulumi.get(__response__, 'soft_delete_retention_days'),
+        tags=pulumi.get(__response__, 'tags'),
+        tenant_id=pulumi.get(__response__, 'tenant_id')))

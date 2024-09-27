@@ -124,9 +124,6 @@ def get_diagnostic_categories(resource_id: Optional[str] = None,
         log_category_types=pulumi.get(__ret__, 'log_category_types'),
         metrics=pulumi.get(__ret__, 'metrics'),
         resource_id=pulumi.get(__ret__, 'resource_id'))
-
-
-@_utilities.lift_output_func(get_diagnostic_categories)
 def get_diagnostic_categories_output(resource_id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticCategoriesResult]:
     """
@@ -146,4 +143,13 @@ def get_diagnostic_categories_output(resource_id: Optional[pulumi.Input[str]] = 
 
     :param str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceId'] = resource_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:monitoring/getDiagnosticCategories:getDiagnosticCategories', __args__, opts=opts, typ=GetDiagnosticCategoriesResult)
+    return __ret__.apply(lambda __response__: GetDiagnosticCategoriesResult(
+        id=pulumi.get(__response__, 'id'),
+        log_category_groups=pulumi.get(__response__, 'log_category_groups'),
+        log_category_types=pulumi.get(__response__, 'log_category_types'),
+        metrics=pulumi.get(__response__, 'metrics'),
+        resource_id=pulumi.get(__response__, 'resource_id')))
