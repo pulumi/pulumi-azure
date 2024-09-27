@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  * A PostgreSQL Flexible Virtual Endpoint can be imported using the `resource id`, e.g.
  * 
  * ```sh
- * $ pulumi import azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBForPostgreSql/flexibleServers/server1/virtualendpoints/endpoint1
+ * $ pulumi import azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/server1/virtualEndpoints/endpoint1
  * ```
  * 
  */

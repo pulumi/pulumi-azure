@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  *             .subnets(            
  *                 VirtualNetworkSubnetArgs.builder()
  *                     .name("subnet1")
- *                     .addressPrefix("10.0.1.0/24")
+ *                     .addressPrefixes("10.0.1.0/24")
  *                     .build(),
  *                 VirtualNetworkSubnetArgs.builder()
  *                     .name("subnet2")
- *                     .addressPrefix("10.0.2.0/24")
+ *                     .addressPrefixes("10.0.2.0/24")
  *                     .securityGroup(exampleNetworkSecurityGroup.id())
  *                     .build())
  *             .tags(Map.of("environment", "Production"))

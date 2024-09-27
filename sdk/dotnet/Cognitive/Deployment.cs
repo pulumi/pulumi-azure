@@ -12,6 +12,50 @@ namespace Pulumi.Azure.Cognitive
     /// <summary>
     /// Manages a Cognitive Services Account Deployment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Cognitive.Account("example", new()
+    ///     {
+    ///         Name = "example-ca",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Kind = "OpenAI",
+    ///         SkuName = "S0",
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Azure.Cognitive.Deployment("example", new()
+    ///     {
+    ///         Name = "example-cd",
+    ///         CognitiveAccountId = exampleAccount.Id,
+    ///         Model = new Azure.Cognitive.Inputs.DeploymentModelArgs
+    ///         {
+    ///             Format = "OpenAI",
+    ///             Name = "text-curie-001",
+    ///             Version = "1",
+    ///         },
+    ///         Sku = new Azure.Cognitive.Inputs.DeploymentSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Cognitive Services Account Deployment can be imported using the `resource id`, e.g.
@@ -47,6 +91,9 @@ namespace Pulumi.Azure.Cognitive
         [Output("raiPolicyName")]
         public Output<string?> RaiPolicyName { get; private set; } = null!;
 
+        /// <summary>
+        /// A `sku` block as defined below.
+        /// </summary>
         [Output("sku")]
         public Output<Outputs.DeploymentSku> Sku { get; private set; } = null!;
 
@@ -126,6 +173,9 @@ namespace Pulumi.Azure.Cognitive
         [Input("raiPolicyName")]
         public Input<string>? RaiPolicyName { get; set; }
 
+        /// <summary>
+        /// A `sku` block as defined below.
+        /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.DeploymentSkuArgs> Sku { get; set; } = null!;
 
@@ -167,6 +217,9 @@ namespace Pulumi.Azure.Cognitive
         [Input("raiPolicyName")]
         public Input<string>? RaiPolicyName { get; set; }
 
+        /// <summary>
+        /// A `sku` block as defined below.
+        /// </summary>
         [Input("sku")]
         public Input<Inputs.DeploymentSkuGetArgs>? Sku { get; set; }
 

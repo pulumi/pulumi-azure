@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class LinuxVirtualMachineScaleSetAdminSshKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+        /// The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;

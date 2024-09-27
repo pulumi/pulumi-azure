@@ -73,10 +73,6 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-     *
-     * > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
-     *
-     * > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
      */
     public readonly microsoftEmergingThreatFeedLookbackDate!: pulumi.Output<string>;
     /**
@@ -135,10 +131,6 @@ export interface DataConnectorMicrosoftThreatIntelligenceState {
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-     *
-     * > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
-     *
-     * > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
      */
     microsoftEmergingThreatFeedLookbackDate?: pulumi.Input<string>;
     /**
@@ -163,10 +155,6 @@ export interface DataConnectorMicrosoftThreatIntelligenceArgs {
     logAnalyticsWorkspaceId: pulumi.Input<string>;
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-     *
-     * > **Note:** `microsoftEmergingThreatFeedLookbackDate` will be required in version 4.0 of the provider.
-     *
-     * > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
      */
     microsoftEmergingThreatFeedLookbackDate: pulumi.Input<string>;
     /**

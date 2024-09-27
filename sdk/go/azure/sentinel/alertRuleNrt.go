@@ -95,8 +95,6 @@ type AlertRuleNrt struct {
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings AlertRuleNrtEntityMappingArrayOutput `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
-	//
-	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 	EventGrouping AlertRuleNrtEventGroupingOutput `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident AlertRuleNrtIncidentOutput `pulumi:"incident"`
@@ -184,8 +182,6 @@ type alertRuleNrtState struct {
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings []AlertRuleNrtEntityMapping `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
-	//
-	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 	EventGrouping *AlertRuleNrtEventGrouping `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident *AlertRuleNrtIncident `pulumi:"incident"`
@@ -229,8 +225,6 @@ type AlertRuleNrtState struct {
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings AlertRuleNrtEntityMappingArrayInput
 	// A `eventGrouping` block as defined below.
-	//
-	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 	EventGrouping AlertRuleNrtEventGroupingPtrInput
 	// A `incident` block as defined below.
 	Incident AlertRuleNrtIncidentPtrInput
@@ -278,8 +272,6 @@ type alertRuleNrtArgs struct {
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings []AlertRuleNrtEntityMapping `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
-	//
-	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 	EventGrouping AlertRuleNrtEventGrouping `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident *AlertRuleNrtIncident `pulumi:"incident"`
@@ -324,8 +316,6 @@ type AlertRuleNrtArgs struct {
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings AlertRuleNrtEntityMappingArrayInput
 	// A `eventGrouping` block as defined below.
-	//
-	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 	EventGrouping AlertRuleNrtEventGroupingInput
 	// A `incident` block as defined below.
 	Incident AlertRuleNrtIncidentPtrInput
@@ -479,8 +469,6 @@ func (o AlertRuleNrtOutput) EntityMappings() AlertRuleNrtEntityMappingArrayOutpu
 }
 
 // A `eventGrouping` block as defined below.
-//
-// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 func (o AlertRuleNrtOutput) EventGrouping() AlertRuleNrtEventGroupingOutput {
 	return o.ApplyT(func(v *AlertRuleNrt) AlertRuleNrtEventGroupingOutput { return v.EventGrouping }).(AlertRuleNrtEventGroupingOutput)
 }

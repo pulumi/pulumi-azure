@@ -26,15 +26,6 @@ namespace Pulumi.Azure.MSSql
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
-    ///     {
-    ///         Name = "examplesa",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///     });
-    /// 
     ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
     ///         Name = "example-sqlserver",
@@ -51,10 +42,8 @@ namespace Pulumi.Azure.MSSql
     ///         ServerId = exampleServer.Id,
     ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
     ///         LicenseType = "LicenseIncluded",
-    ///         MaxSizeGb = 4,
-    ///         ReadScale = true,
+    ///         MaxSizeGb = 2,
     ///         SkuName = "S0",
-    ///         ZoneRedundant = true,
     ///         EnclaveType = "VBS",
     ///         Tags = 
     ///         {

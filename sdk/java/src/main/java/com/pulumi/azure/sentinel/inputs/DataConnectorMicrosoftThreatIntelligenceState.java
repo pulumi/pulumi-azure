@@ -33,20 +33,12 @@ public final class DataConnectorMicrosoftThreatIntelligenceState extends com.pul
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
      * 
-     * &gt; **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
-     * 
-     * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
-     * 
      */
     @Import(name="microsoftEmergingThreatFeedLookbackDate")
     private @Nullable Output<String> microsoftEmergingThreatFeedLookbackDate;
 
     /**
      * @return The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-     * 
-     * &gt; **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
-     * 
-     * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
      * 
      */
     public Optional<Output<String>> microsoftEmergingThreatFeedLookbackDate() {
@@ -138,10 +130,6 @@ public final class DataConnectorMicrosoftThreatIntelligenceState extends com.pul
         /**
          * @param microsoftEmergingThreatFeedLookbackDate The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
          * 
-         * &gt; **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
-         * 
-         * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
-         * 
          * @return builder
          * 
          */
@@ -152,10 +140,6 @@ public final class DataConnectorMicrosoftThreatIntelligenceState extends com.pul
 
         /**
          * @param microsoftEmergingThreatFeedLookbackDate The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
-         * 
-         * &gt; **Note:** `microsoft_emerging_threat_feed_lookback_date` will be required in version 4.0 of the provider.
-         * 
-         * &gt; **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
          * 
          * @return builder
          * 

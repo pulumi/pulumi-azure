@@ -41,6 +41,7 @@ class VolumeArgs:
                  network_features: Optional[pulumi.Input[str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
+                 smb3_protocol_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_access_based_enumeration_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_continuous_availability_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_non_browsable_enabled: Optional[pulumi.Input[bool]] = None,
@@ -71,6 +72,7 @@ class VolumeArgs:
         :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] smb3_protocol_encryption_enabled: Enable SMB encryption.
         :param pulumi.Input[bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability.
         :param pulumi.Input[bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
@@ -114,6 +116,8 @@ class VolumeArgs:
             pulumi.set(__self__, "protocols", protocols)
         if security_style is not None:
             pulumi.set(__self__, "security_style", security_style)
+        if smb3_protocol_encryption_enabled is not None:
+            pulumi.set(__self__, "smb3_protocol_encryption_enabled", smb3_protocol_encryption_enabled)
         if smb_access_based_enumeration_enabled is not None:
             pulumi.set(__self__, "smb_access_based_enumeration_enabled", smb_access_based_enumeration_enabled)
         if smb_continuous_availability_enabled is not None:
@@ -371,6 +375,18 @@ class VolumeArgs:
         pulumi.set(self, "security_style", value)
 
     @property
+    @pulumi.getter(name="smb3ProtocolEncryptionEnabled")
+    def smb3_protocol_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable SMB encryption.
+        """
+        return pulumi.get(self, "smb3_protocol_encryption_enabled")
+
+    @smb3_protocol_encryption_enabled.setter
+    def smb3_protocol_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "smb3_protocol_encryption_enabled", value)
+
+    @property
     @pulumi.getter(name="smbAccessBasedEnumerationEnabled")
     def smb_access_based_enumeration_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -478,6 +494,7 @@ class _VolumeState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
+                 smb3_protocol_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_access_based_enumeration_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_continuous_availability_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_non_browsable_enabled: Optional[pulumi.Input[bool]] = None,
@@ -509,6 +526,7 @@ class _VolumeState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] smb3_protocol_encryption_enabled: Enable SMB encryption.
         :param pulumi.Input[bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability.
         :param pulumi.Input[bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
@@ -558,6 +576,8 @@ class _VolumeState:
             pulumi.set(__self__, "security_style", security_style)
         if service_level is not None:
             pulumi.set(__self__, "service_level", service_level)
+        if smb3_protocol_encryption_enabled is not None:
+            pulumi.set(__self__, "smb3_protocol_encryption_enabled", smb3_protocol_encryption_enabled)
         if smb_access_based_enumeration_enabled is not None:
             pulumi.set(__self__, "smb_access_based_enumeration_enabled", smb_access_based_enumeration_enabled)
         if smb_continuous_availability_enabled is not None:
@@ -797,6 +817,18 @@ class _VolumeState:
         pulumi.set(self, "service_level", value)
 
     @property
+    @pulumi.getter(name="smb3ProtocolEncryptionEnabled")
+    def smb3_protocol_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable SMB encryption.
+        """
+        return pulumi.get(self, "smb3_protocol_encryption_enabled")
+
+    @smb3_protocol_encryption_enabled.setter
+    def smb3_protocol_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "smb3_protocol_encryption_enabled", value)
+
+    @property
     @pulumi.getter(name="smbAccessBasedEnumerationEnabled")
     def smb_access_based_enumeration_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -941,6 +973,7 @@ class Volume(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
+                 smb3_protocol_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_access_based_enumeration_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_continuous_availability_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_non_browsable_enabled: Optional[pulumi.Input[bool]] = None,
@@ -981,6 +1014,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] smb3_protocol_encryption_enabled: Enable SMB encryption.
         :param pulumi.Input[bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability.
         :param pulumi.Input[bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
@@ -1041,6 +1075,7 @@ class Volume(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
+                 smb3_protocol_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_access_based_enumeration_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_continuous_availability_enabled: Optional[pulumi.Input[bool]] = None,
                  smb_non_browsable_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1085,6 +1120,7 @@ class Volume(pulumi.CustomResource):
             if service_level is None and not opts.urn:
                 raise TypeError("Missing required property 'service_level'")
             __props__.__dict__["service_level"] = service_level
+            __props__.__dict__["smb3_protocol_encryption_enabled"] = smb3_protocol_encryption_enabled
             __props__.__dict__["smb_access_based_enumeration_enabled"] = smb_access_based_enumeration_enabled
             __props__.__dict__["smb_continuous_availability_enabled"] = smb_continuous_availability_enabled
             __props__.__dict__["smb_non_browsable_enabled"] = smb_non_browsable_enabled
@@ -1130,6 +1166,7 @@ class Volume(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             security_style: Optional[pulumi.Input[str]] = None,
             service_level: Optional[pulumi.Input[str]] = None,
+            smb3_protocol_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             smb_access_based_enumeration_enabled: Optional[pulumi.Input[bool]] = None,
             smb_continuous_availability_enabled: Optional[pulumi.Input[bool]] = None,
             smb_non_browsable_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1166,6 +1203,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_style: Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] smb3_protocol_encryption_enabled: Enable SMB encryption.
         :param pulumi.Input[bool] smb_access_based_enumeration_enabled: Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         :param pulumi.Input[bool] smb_continuous_availability_enabled: Enable SMB Continuous Availability.
         :param pulumi.Input[bool] smb_non_browsable_enabled: Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
@@ -1201,6 +1239,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["security_style"] = security_style
         __props__.__dict__["service_level"] = service_level
+        __props__.__dict__["smb3_protocol_encryption_enabled"] = smb3_protocol_encryption_enabled
         __props__.__dict__["smb_access_based_enumeration_enabled"] = smb_access_based_enumeration_enabled
         __props__.__dict__["smb_continuous_availability_enabled"] = smb_continuous_availability_enabled
         __props__.__dict__["smb_non_browsable_enabled"] = smb_non_browsable_enabled
@@ -1357,6 +1396,14 @@ class Volume(pulumi.CustomResource):
         The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_level")
+
+    @property
+    @pulumi.getter(name="smb3ProtocolEncryptionEnabled")
+    def smb3_protocol_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable SMB encryption.
+        """
+        return pulumi.get(self, "smb3_protocol_encryption_enabled")
 
     @property
     @pulumi.getter(name="smbAccessBasedEnumerationEnabled")

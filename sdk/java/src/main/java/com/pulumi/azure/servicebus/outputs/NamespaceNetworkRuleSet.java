@@ -32,6 +32,8 @@ public final class NamespaceNetworkRuleSet {
     /**
      * @return Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      * 
+     * &gt; **Note:** To disable public network access, you must also configure the property `public_network_access_enabled`.
+     * 
      */
     private @Nullable Boolean publicNetworkAccessEnabled;
     /**
@@ -64,6 +66,8 @@ public final class NamespaceNetworkRuleSet {
     }
     /**
      * @return Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+     * 
+     * &gt; **Note:** To disable public network access, you must also configure the property `public_network_access_enabled`.
      * 
      */
     public Optional<Boolean> publicNetworkAccessEnabled() {

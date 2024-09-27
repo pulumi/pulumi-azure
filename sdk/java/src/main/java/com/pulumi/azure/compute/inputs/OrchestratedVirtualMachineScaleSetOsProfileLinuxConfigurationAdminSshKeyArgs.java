@@ -15,14 +15,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     public static final OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs();
 
     /**
-     * The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+     * The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
      * 
      */
     @Import(name="publicKey", required=true)
     private Output<String> publicKey;
 
     /**
-     * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+     * @return The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
      * 
      */
     public Output<String> publicKey() {
@@ -74,7 +74,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param publicKey The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+         * @param publicKey The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param publicKey The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+         * @param publicKey The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
          * 
          * @return builder
          * 

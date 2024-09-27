@@ -34,29 +34,29 @@ public final class ManagementPolicyRuleActionsBaseBlob {
      */
     private @Nullable Integer deleteAfterDaysSinceLastAccessTimeGreaterThan;
     /**
-     * @return The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     private @Nullable Integer deleteAfterDaysSinceModificationGreaterThan;
     /**
-     * @return The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+     * @return The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      * &gt; **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
      * 
      */
     private @Nullable Integer tierToArchiveAfterDaysSinceCreationGreaterThan;
     /**
-     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     private @Nullable Integer tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     private @Nullable Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
     /**
-     * @return The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     private @Nullable Integer tierToArchiveAfterDaysSinceModificationGreaterThan;
@@ -73,7 +73,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
      */
     private @Nullable Integer tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
     /**
-     * @return The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     private @Nullable Integer tierToColdAfterDaysSinceModificationGreaterThan;
@@ -90,7 +90,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
      */
     private @Nullable Integer tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
     /**
-     * @return The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     private @Nullable Integer tierToCoolAfterDaysSinceModificationGreaterThan;
@@ -124,14 +124,14 @@ public final class ManagementPolicyRuleActionsBaseBlob {
         return Optional.ofNullable(this.deleteAfterDaysSinceLastAccessTimeGreaterThan);
     }
     /**
-     * @return The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Integer> deleteAfterDaysSinceModificationGreaterThan() {
         return Optional.ofNullable(this.deleteAfterDaysSinceModificationGreaterThan);
     }
     /**
-     * @return The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+     * @return The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      * &gt; **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
      * 
@@ -140,21 +140,21 @@ public final class ManagementPolicyRuleActionsBaseBlob {
         return Optional.ofNullable(this.tierToArchiveAfterDaysSinceCreationGreaterThan);
     }
     /**
-     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Integer> tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan() {
         return Optional.ofNullable(this.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan);
     }
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Integer> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan() {
         return Optional.ofNullable(this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan);
     }
     /**
-     * @return The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Integer> tierToArchiveAfterDaysSinceModificationGreaterThan() {
@@ -177,7 +177,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
         return Optional.ofNullable(this.tierToColdAfterDaysSinceLastAccessTimeGreaterThan);
     }
     /**
-     * @return The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Integer> tierToColdAfterDaysSinceModificationGreaterThan() {
@@ -200,7 +200,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
         return Optional.ofNullable(this.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan);
     }
     /**
-     * @return The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Integer> tierToCoolAfterDaysSinceModificationGreaterThan() {

@@ -10460,8 +10460,12 @@ func (o GatewayLocationDataPtrOutput) Region() pulumi.StringPtrOutput {
 }
 
 type LoggerApplicationInsights struct {
+	// The connection string of Application Insights.
+	ConnectionString *string `pulumi:"connectionString"`
 	// The instrumentation key used to push data to Application Insights.
-	InstrumentationKey string `pulumi:"instrumentationKey"`
+	//
+	// > **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+	InstrumentationKey *string `pulumi:"instrumentationKey"`
 }
 
 // LoggerApplicationInsightsInput is an input type that accepts LoggerApplicationInsightsArgs and LoggerApplicationInsightsOutput values.
@@ -10476,8 +10480,12 @@ type LoggerApplicationInsightsInput interface {
 }
 
 type LoggerApplicationInsightsArgs struct {
+	// The connection string of Application Insights.
+	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
 	// The instrumentation key used to push data to Application Insights.
-	InstrumentationKey pulumi.StringInput `pulumi:"instrumentationKey"`
+	//
+	// > **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+	InstrumentationKey pulumi.StringPtrInput `pulumi:"instrumentationKey"`
 }
 
 func (LoggerApplicationInsightsArgs) ElementType() reflect.Type {
@@ -10557,9 +10565,16 @@ func (o LoggerApplicationInsightsOutput) ToLoggerApplicationInsightsPtrOutputWit
 	}).(LoggerApplicationInsightsPtrOutput)
 }
 
+// The connection string of Application Insights.
+func (o LoggerApplicationInsightsOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoggerApplicationInsights) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
 // The instrumentation key used to push data to Application Insights.
-func (o LoggerApplicationInsightsOutput) InstrumentationKey() pulumi.StringOutput {
-	return o.ApplyT(func(v LoggerApplicationInsights) string { return v.InstrumentationKey }).(pulumi.StringOutput)
+//
+// > **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+func (o LoggerApplicationInsightsOutput) InstrumentationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoggerApplicationInsights) *string { return v.InstrumentationKey }).(pulumi.StringPtrOutput)
 }
 
 type LoggerApplicationInsightsPtrOutput struct{ *pulumi.OutputState }
@@ -10586,13 +10601,25 @@ func (o LoggerApplicationInsightsPtrOutput) Elem() LoggerApplicationInsightsOutp
 	}).(LoggerApplicationInsightsOutput)
 }
 
+// The connection string of Application Insights.
+func (o LoggerApplicationInsightsPtrOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoggerApplicationInsights) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
 // The instrumentation key used to push data to Application Insights.
+//
+// > **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
 func (o LoggerApplicationInsightsPtrOutput) InstrumentationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggerApplicationInsights) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.InstrumentationKey
+		return v.InstrumentationKey
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+        /// The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

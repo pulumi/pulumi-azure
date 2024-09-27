@@ -179,8 +179,8 @@ public final class Config {
  * The Subscription ID which should be used.
  * 
  */
-    public String subscriptionId() {
-        return Codegen.stringProp("subscriptionId").config(config).env("ARM_SUBSCRIPTION_ID").def("").require();
+    public Optional<String> subscriptionId() {
+        return Codegen.stringProp("subscriptionId").config(config).env("ARM_SUBSCRIPTION_ID").def("").get();
     }
 /**
  * The Tenant ID which should be used.

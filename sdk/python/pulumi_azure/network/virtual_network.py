@@ -484,6 +484,44 @@ class VirtualNetwork(pulumi.CustomResource):
         **NOTE on Virtual Networks and DNS Servers:** This provider currently provides both a standalone virtual network DNS Servers resource, and allows for DNS servers to be defined in-line within the Virtual Network resource.
         At this time you cannot use a Virtual Network with in-line DNS servers in conjunction with any Virtual Network DNS Servers resources. Doing so will cause a conflict of Virtual Network DNS Servers configurations and will overwrite virtual networks DNS servers.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="example-security-group",
+            location=example.location,
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            location=example.location,
+            resource_group_name=example.name,
+            address_spaces=["10.0.0.0/16"],
+            dns_servers=[
+                "10.0.0.4",
+                "10.0.0.5",
+            ],
+            subnets=[
+                {
+                    "name": "subnet1",
+                    "address_prefixes": ["10.0.1.0/24"],
+                },
+                {
+                    "name": "subnet2",
+                    "address_prefixes": ["10.0.2.0/24"],
+                    "security_group": example_network_security_group.id,
+                },
+            ],
+            tags={
+                "environment": "Production",
+            })
+        ```
+
         ## Import
 
         Virtual Networks can be imported using the `resource id`, e.g.
@@ -528,6 +566,44 @@ class VirtualNetwork(pulumi.CustomResource):
         At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
         **NOTE on Virtual Networks and DNS Servers:** This provider currently provides both a standalone virtual network DNS Servers resource, and allows for DNS servers to be defined in-line within the Virtual Network resource.
         At this time you cannot use a Virtual Network with in-line DNS servers in conjunction with any Virtual Network DNS Servers resources. Doing so will cause a conflict of Virtual Network DNS Servers configurations and will overwrite virtual networks DNS servers.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="example-security-group",
+            location=example.location,
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            location=example.location,
+            resource_group_name=example.name,
+            address_spaces=["10.0.0.0/16"],
+            dns_servers=[
+                "10.0.0.4",
+                "10.0.0.5",
+            ],
+            subnets=[
+                {
+                    "name": "subnet1",
+                    "address_prefixes": ["10.0.1.0/24"],
+                },
+                {
+                    "name": "subnet2",
+                    "address_prefixes": ["10.0.2.0/24"],
+                    "security_group": example_network_security_group.id,
+                },
+            ],
+            tags={
+                "environment": "Production",
+            })
+        ```
 
         ## Import
 

@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int>? ContainerLogMaxSizeMb { get; set; }
 
         /// <summary>
-        /// Is CPU CFS quota enforcement for containers enabled?
+        /// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
         /// </summary>
         [Input("cpuCfsQuotaEnabled")]
         public Input<bool>? CpuCfsQuotaEnabled { get; set; }

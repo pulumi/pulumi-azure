@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class LinuxVirtualMachineAdminSshKey {
     /**
-     * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
+     * @return The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format. Changing this forces a new resource to be created.
      * 
      */
     private String publicKey;
@@ -25,7 +25,7 @@ public final class LinuxVirtualMachineAdminSshKey {
 
     private LinuxVirtualMachineAdminSshKey() {}
     /**
-     * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
+     * @return The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format. Changing this forces a new resource to be created.
      * 
      */
     public String publicKey() {

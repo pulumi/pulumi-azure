@@ -17,13 +17,6 @@ import * as utilities from "../utilities";
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     name: "examplesa",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
  * const exampleServer = new azure.mssql.Server("example", {
  *     name: "example-sqlserver",
  *     resourceGroupName: example.name,
@@ -37,10 +30,8 @@ import * as utilities from "../utilities";
  *     serverId: exampleServer.id,
  *     collation: "SQL_Latin1_General_CP1_CI_AS",
  *     licenseType: "LicenseIncluded",
- *     maxSizeGb: 4,
- *     readScale: true,
+ *     maxSizeGb: 2,
  *     skuName: "S0",
- *     zoneRedundant: true,
  *     enclaveType: "VBS",
  *     tags: {
  *         foo: "bar",

@@ -74,14 +74,14 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
     }
 
     /**
-     * The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
+     * The age in days after last modification to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     @Import(name="deleteAfterDaysSinceModificationGreaterThan")
     private @Nullable Output<Integer> deleteAfterDaysSinceModificationGreaterThan;
 
     /**
-     * @return The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Output<Integer>> deleteAfterDaysSinceModificationGreaterThan() {
@@ -89,7 +89,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
     }
 
     /**
-     * The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+     * The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      * &gt; **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
      * 
@@ -98,7 +98,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
     private @Nullable Output<Integer> tierToArchiveAfterDaysSinceCreationGreaterThan;
 
     /**
-     * @return The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+     * @return The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      * &gt; **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
      * 
@@ -108,14 +108,14 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
     }
 
     /**
-     * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+     * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     @Import(name="tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan")
     private @Nullable Output<Integer> tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
 
     /**
-     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+     * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Output<Integer>> tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan() {
@@ -123,14 +123,14 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
     }
 
     /**
-     * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+     * The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     @Import(name="tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")
     private @Nullable Output<Integer> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
 
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Output<Integer>> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan() {
@@ -138,14 +138,14 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
     }
 
     /**
-     * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
+     * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     @Import(name="tierToArchiveAfterDaysSinceModificationGreaterThan")
     private @Nullable Output<Integer> tierToArchiveAfterDaysSinceModificationGreaterThan;
 
     /**
-     * @return The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Output<Integer>> tierToArchiveAfterDaysSinceModificationGreaterThan() {
@@ -187,14 +187,14 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
     }
 
     /**
-     * The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+     * The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     @Import(name="tierToColdAfterDaysSinceModificationGreaterThan")
     private @Nullable Output<Integer> tierToColdAfterDaysSinceModificationGreaterThan;
 
     /**
-     * @return The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Output<Integer>> tierToColdAfterDaysSinceModificationGreaterThan() {
@@ -236,14 +236,14 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
     }
 
     /**
-     * The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+     * The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     @Import(name="tierToCoolAfterDaysSinceModificationGreaterThan")
     private @Nullable Output<Integer> tierToCoolAfterDaysSinceModificationGreaterThan;
 
     /**
-     * @return The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+     * @return The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      */
     public Optional<Output<Integer>> tierToCoolAfterDaysSinceModificationGreaterThan() {
@@ -363,7 +363,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param deleteAfterDaysSinceModificationGreaterThan The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
+         * @param deleteAfterDaysSinceModificationGreaterThan The age in days after last modification to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param deleteAfterDaysSinceModificationGreaterThan The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
+         * @param deleteAfterDaysSinceModificationGreaterThan The age in days after last modification to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceCreationGreaterThan The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+         * @param tierToArchiveAfterDaysSinceCreationGreaterThan The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * &gt; **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
          * 
@@ -397,7 +397,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceCreationGreaterThan The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+         * @param tierToArchiveAfterDaysSinceCreationGreaterThan The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * &gt; **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
          * 
@@ -409,7 +409,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+         * @param tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+         * @param tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceLastTierChangeGreaterThan The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+         * @param tierToArchiveAfterDaysSinceLastTierChangeGreaterThan The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceLastTierChangeGreaterThan The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+         * @param tierToArchiveAfterDaysSinceLastTierChangeGreaterThan The age in days after last tier change to the blobs to skip to be archved. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
+         * @param tierToArchiveAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToArchiveAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
+         * @param tierToArchiveAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToColdAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+         * @param tierToColdAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToColdAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+         * @param tierToColdAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -585,7 +585,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToCoolAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+         * @param tierToCoolAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class ManagementPolicyRuleActionsBaseBlobArgs extends com.pulumi.re
         }
 
         /**
-         * @param tierToCoolAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+         * @param tierToCoolAfterDaysSinceModificationGreaterThan The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
          * 
          * @return builder
          * 

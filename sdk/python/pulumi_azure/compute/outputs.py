@@ -924,7 +924,7 @@ class LinuxVirtualMachineAdminSshKey(dict):
                  public_key: str,
                  username: str):
         """
-        :param str public_key: The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
+        :param str public_key: The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format. Changing this forces a new resource to be created.
         :param str username: The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
                
                > **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
@@ -936,7 +936,7 @@ class LinuxVirtualMachineAdminSshKey(dict):
     @pulumi.getter(name="publicKey")
     def public_key(self) -> str:
         """
-        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
+        The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "public_key")
 
@@ -1489,7 +1489,7 @@ class LinuxVirtualMachineScaleSetAdminSshKey(dict):
                  public_key: str,
                  username: str):
         """
-        :param str public_key: The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+        :param str public_key: The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         :param str username: The Username for which this Public SSH Key should be configured.
                
                > **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
@@ -1501,7 +1501,7 @@ class LinuxVirtualMachineScaleSetAdminSshKey(dict):
     @pulumi.getter(name="publicKey")
     def public_key(self) -> str:
         """
-        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+        The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         """
         return pulumi.get(self, "public_key")
 
@@ -4854,7 +4854,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(d
                  public_key: str,
                  username: str):
         """
-        :param str public_key: The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+        :param str public_key: The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         :param str username: The Username for which this Public SSH Key should be configured.
                
                > **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
@@ -4866,7 +4866,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(d
     @pulumi.getter(name="publicKey")
     def public_key(self) -> str:
         """
-        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+        The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
         """
         return pulumi.get(self, "public_key")
 

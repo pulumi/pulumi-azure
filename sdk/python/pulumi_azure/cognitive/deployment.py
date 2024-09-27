@@ -31,6 +31,7 @@ class DeploymentArgs:
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input['DeploymentModelArgs'] model: A `model` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['DeploymentSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
         :param pulumi.Input[str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
@@ -72,6 +73,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter
     def sku(self) -> pulumi.Input['DeploymentSkuArgs']:
+        """
+        A `sku` block as defined below.
+        """
         return pulumi.get(self, "sku")
 
     @sku.setter
@@ -130,6 +134,7 @@ class _DeploymentState:
         :param pulumi.Input['DeploymentModelArgs'] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
+        :param pulumi.Input['DeploymentSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         """
         if cognitive_account_id is not None:
@@ -196,6 +201,9 @@ class _DeploymentState:
     @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['DeploymentSkuArgs']]:
+        """
+        A `sku` block as defined below.
+        """
         return pulumi.get(self, "sku")
 
     @sku.setter
@@ -230,6 +238,34 @@ class Deployment(pulumi.CustomResource):
         """
         Manages a Cognitive Services Account Deployment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.cognitive.Account("example",
+            name="example-ca",
+            location=example.location,
+            resource_group_name=example.name,
+            kind="OpenAI",
+            sku_name="S0")
+        example_deployment = azure.cognitive.Deployment("example",
+            name="example-cd",
+            cognitive_account_id=example_account.id,
+            model={
+                "format": "OpenAI",
+                "name": "text-curie-001",
+                "version": "1",
+            },
+            sku={
+                "name": "Standard",
+            })
+        ```
+
         ## Import
 
         Cognitive Services Account Deployment can be imported using the `resource id`, e.g.
@@ -244,6 +280,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
+        :param pulumi.Input[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']] sku: A `sku` block as defined below.
         :param pulumi.Input[str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         """
         ...
@@ -254,6 +291,34 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cognitive Services Account Deployment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.cognitive.Account("example",
+            name="example-ca",
+            location=example.location,
+            resource_group_name=example.name,
+            kind="OpenAI",
+            sku_name="S0")
+        example_deployment = azure.cognitive.Deployment("example",
+            name="example-cd",
+            cognitive_account_id=example_account.id,
+            model={
+                "format": "OpenAI",
+                "name": "text-curie-001",
+                "version": "1",
+            },
+            sku={
+                "name": "Standard",
+            })
+        ```
 
         ## Import
 
@@ -332,6 +397,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
+        :param pulumi.Input[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']] sku: A `sku` block as defined below.
         :param pulumi.Input[str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -381,6 +447,9 @@ class Deployment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def sku(self) -> pulumi.Output['outputs.DeploymentSku']:
+        """
+        A `sku` block as defined below.
+        """
         return pulumi.get(self, "sku")
 
     @property

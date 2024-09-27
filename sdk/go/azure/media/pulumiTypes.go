@@ -14,20 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccountFilterPresentationTimeRange struct {
-	// The absolute end time boundary. Applies to Video on Demand (VoD).
-	// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
-	EndInUnits *int `pulumi:"endInUnits"`
-	// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: `false`, `true`.
-	ForceEnd *bool `pulumi:"forceEnd"`
-	// The relative to end right edge. Applies to Live Streaming only.
-	// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMilliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
-	LiveBackoffInUnits *int `pulumi:"liveBackoffInUnits"`
-	// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMilliseconds`. For example, set `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
-	PresentationWindowInUnits *int `pulumi:"presentationWindowInUnits"`
-	// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
-	StartInUnits *int `pulumi:"startInUnits"`
-	// Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1000. Or if you want to set `startInUnits` in 30 milliseconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1. Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
-	UnitTimescaleInMilliseconds int `pulumi:"unitTimescaleInMilliseconds"`
+	EndInUnits                  *int  `pulumi:"endInUnits"`
+	ForceEnd                    *bool `pulumi:"forceEnd"`
+	LiveBackoffInUnits          *int  `pulumi:"liveBackoffInUnits"`
+	PresentationWindowInUnits   *int  `pulumi:"presentationWindowInUnits"`
+	StartInUnits                *int  `pulumi:"startInUnits"`
+	UnitTimescaleInMilliseconds int   `pulumi:"unitTimescaleInMilliseconds"`
 }
 
 // AccountFilterPresentationTimeRangeInput is an input type that accepts AccountFilterPresentationTimeRangeArgs and AccountFilterPresentationTimeRangeOutput values.
@@ -42,20 +34,12 @@ type AccountFilterPresentationTimeRangeInput interface {
 }
 
 type AccountFilterPresentationTimeRangeArgs struct {
-	// The absolute end time boundary. Applies to Video on Demand (VoD).
-	// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
-	EndInUnits pulumi.IntPtrInput `pulumi:"endInUnits"`
-	// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: `false`, `true`.
-	ForceEnd pulumi.BoolPtrInput `pulumi:"forceEnd"`
-	// The relative to end right edge. Applies to Live Streaming only.
-	// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMilliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
-	LiveBackoffInUnits pulumi.IntPtrInput `pulumi:"liveBackoffInUnits"`
-	// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMilliseconds`. For example, set `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
-	PresentationWindowInUnits pulumi.IntPtrInput `pulumi:"presentationWindowInUnits"`
-	// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
-	StartInUnits pulumi.IntPtrInput `pulumi:"startInUnits"`
-	// Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1000. Or if you want to set `startInUnits` in 30 milliseconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1. Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
-	UnitTimescaleInMilliseconds pulumi.IntInput `pulumi:"unitTimescaleInMilliseconds"`
+	EndInUnits                  pulumi.IntPtrInput  `pulumi:"endInUnits"`
+	ForceEnd                    pulumi.BoolPtrInput `pulumi:"forceEnd"`
+	LiveBackoffInUnits          pulumi.IntPtrInput  `pulumi:"liveBackoffInUnits"`
+	PresentationWindowInUnits   pulumi.IntPtrInput  `pulumi:"presentationWindowInUnits"`
+	StartInUnits                pulumi.IntPtrInput  `pulumi:"startInUnits"`
+	UnitTimescaleInMilliseconds pulumi.IntInput     `pulumi:"unitTimescaleInMilliseconds"`
 }
 
 func (AccountFilterPresentationTimeRangeArgs) ElementType() reflect.Type {
@@ -135,34 +119,26 @@ func (o AccountFilterPresentationTimeRangeOutput) ToAccountFilterPresentationTim
 	}).(AccountFilterPresentationTimeRangePtrOutput)
 }
 
-// The absolute end time boundary. Applies to Video on Demand (VoD).
-// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
 func (o AccountFilterPresentationTimeRangeOutput) EndInUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountFilterPresentationTimeRange) *int { return v.EndInUnits }).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: `false`, `true`.
 func (o AccountFilterPresentationTimeRangeOutput) ForceEnd() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountFilterPresentationTimeRange) *bool { return v.ForceEnd }).(pulumi.BoolPtrOutput)
 }
 
-// The relative to end right edge. Applies to Live Streaming only.
-// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMilliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
 func (o AccountFilterPresentationTimeRangeOutput) LiveBackoffInUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountFilterPresentationTimeRange) *int { return v.LiveBackoffInUnits }).(pulumi.IntPtrOutput)
 }
 
-// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMilliseconds`. For example, set `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
 func (o AccountFilterPresentationTimeRangeOutput) PresentationWindowInUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountFilterPresentationTimeRange) *int { return v.PresentationWindowInUnits }).(pulumi.IntPtrOutput)
 }
 
-// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
 func (o AccountFilterPresentationTimeRangeOutput) StartInUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountFilterPresentationTimeRange) *int { return v.StartInUnits }).(pulumi.IntPtrOutput)
 }
 
-// Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1000. Or if you want to set `startInUnits` in 30 milliseconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1. Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
 func (o AccountFilterPresentationTimeRangeOutput) UnitTimescaleInMilliseconds() pulumi.IntOutput {
 	return o.ApplyT(func(v AccountFilterPresentationTimeRange) int { return v.UnitTimescaleInMilliseconds }).(pulumi.IntOutput)
 }
@@ -191,8 +167,6 @@ func (o AccountFilterPresentationTimeRangePtrOutput) Elem() AccountFilterPresent
 	}).(AccountFilterPresentationTimeRangeOutput)
 }
 
-// The absolute end time boundary. Applies to Video on Demand (VoD).
-// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
 func (o AccountFilterPresentationTimeRangePtrOutput) EndInUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *int {
 		if v == nil {
@@ -202,7 +176,6 @@ func (o AccountFilterPresentationTimeRangePtrOutput) EndInUnits() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: `false`, `true`.
 func (o AccountFilterPresentationTimeRangePtrOutput) ForceEnd() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *bool {
 		if v == nil {
@@ -212,8 +185,6 @@ func (o AccountFilterPresentationTimeRangePtrOutput) ForceEnd() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The relative to end right edge. Applies to Live Streaming only.
-// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMilliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
 func (o AccountFilterPresentationTimeRangePtrOutput) LiveBackoffInUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *int {
 		if v == nil {
@@ -223,7 +194,6 @@ func (o AccountFilterPresentationTimeRangePtrOutput) LiveBackoffInUnits() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMilliseconds`. For example, set `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
 func (o AccountFilterPresentationTimeRangePtrOutput) PresentationWindowInUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *int {
 		if v == nil {
@@ -233,7 +203,6 @@ func (o AccountFilterPresentationTimeRangePtrOutput) PresentationWindowInUnits()
 	}).(pulumi.IntPtrOutput)
 }
 
-// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMilliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMilliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
 func (o AccountFilterPresentationTimeRangePtrOutput) StartInUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *int {
 		if v == nil {
@@ -243,7 +212,6 @@ func (o AccountFilterPresentationTimeRangePtrOutput) StartInUnits() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1000. Or if you want to set `startInUnits` in 30 milliseconds, you would use a value of 30 when using the `unitTimescaleInMilliseconds` in 1. Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
 func (o AccountFilterPresentationTimeRangePtrOutput) UnitTimescaleInMilliseconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountFilterPresentationTimeRange) *int {
 		if v == nil {
@@ -254,7 +222,6 @@ func (o AccountFilterPresentationTimeRangePtrOutput) UnitTimescaleInMilliseconds
 }
 
 type AccountFilterTrackSelection struct {
-	// One or more `selection` blocks as defined above.
 	Conditions []AccountFilterTrackSelectionCondition `pulumi:"conditions"`
 }
 
@@ -270,7 +237,6 @@ type AccountFilterTrackSelectionInput interface {
 }
 
 type AccountFilterTrackSelectionArgs struct {
-	// One or more `selection` blocks as defined above.
 	Conditions AccountFilterTrackSelectionConditionArrayInput `pulumi:"conditions"`
 }
 
@@ -325,7 +291,6 @@ func (o AccountFilterTrackSelectionOutput) ToAccountFilterTrackSelectionOutputWi
 	return o
 }
 
-// One or more `selection` blocks as defined above.
 func (o AccountFilterTrackSelectionOutput) Conditions() AccountFilterTrackSelectionConditionArrayOutput {
 	return o.ApplyT(func(v AccountFilterTrackSelection) []AccountFilterTrackSelectionCondition { return v.Conditions }).(AccountFilterTrackSelectionConditionArrayOutput)
 }
@@ -351,12 +316,9 @@ func (o AccountFilterTrackSelectionArrayOutput) Index(i pulumi.IntInput) Account
 }
 
 type AccountFilterTrackSelectionCondition struct {
-	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
 	Operation string `pulumi:"operation"`
-	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
-	Property string `pulumi:"property"`
-	// The track property value to match or not match.
-	Value string `pulumi:"value"`
+	Property  string `pulumi:"property"`
+	Value     string `pulumi:"value"`
 }
 
 // AccountFilterTrackSelectionConditionInput is an input type that accepts AccountFilterTrackSelectionConditionArgs and AccountFilterTrackSelectionConditionOutput values.
@@ -371,12 +333,9 @@ type AccountFilterTrackSelectionConditionInput interface {
 }
 
 type AccountFilterTrackSelectionConditionArgs struct {
-	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
 	Operation pulumi.StringInput `pulumi:"operation"`
-	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
-	Property pulumi.StringInput `pulumi:"property"`
-	// The track property value to match or not match.
-	Value pulumi.StringInput `pulumi:"value"`
+	Property  pulumi.StringInput `pulumi:"property"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (AccountFilterTrackSelectionConditionArgs) ElementType() reflect.Type {
@@ -430,17 +389,14 @@ func (o AccountFilterTrackSelectionConditionOutput) ToAccountFilterTrackSelectio
 	return o
 }
 
-// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
 func (o AccountFilterTrackSelectionConditionOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Operation }).(pulumi.StringOutput)
 }
 
-// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
 func (o AccountFilterTrackSelectionConditionOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Property }).(pulumi.StringOutput)
 }
 
-// The track property value to match or not match.
 func (o AccountFilterTrackSelectionConditionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Value }).(pulumi.StringOutput)
 }

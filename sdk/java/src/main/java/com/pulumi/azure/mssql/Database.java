@@ -38,8 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.storage.Account;
- * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.mssql.Server;
  * import com.pulumi.azure.mssql.ServerArgs;
  * import com.pulumi.azure.mssql.Database;
@@ -62,14 +60,6 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("examplesa")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .accountTier("Standard")
- *             .accountReplicationType("LRS")
- *             .build());
- * 
  *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .name("example-sqlserver")
  *             .resourceGroupName(example.name())
@@ -84,10 +74,8 @@ import javax.annotation.Nullable;
  *             .serverId(exampleServer.id())
  *             .collation("SQL_Latin1_General_CP1_CI_AS")
  *             .licenseType("LicenseIncluded")
- *             .maxSizeGb(4)
- *             .readScale(true)
+ *             .maxSizeGb(2)
  *             .skuName("S0")
- *             .zoneRedundant(true)
  *             .enclaveType("VBS")
  *             .tags(Map.of("foo", "bar"))
  *             .build());

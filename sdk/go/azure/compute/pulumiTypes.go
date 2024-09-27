@@ -1743,7 +1743,7 @@ func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pu
 }
 
 type LinuxVirtualMachineAdminSshKey struct {
-	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
+	// The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format. Changing this forces a new resource to be created.
 	PublicKey string `pulumi:"publicKey"`
 	// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
 	//
@@ -1763,7 +1763,7 @@ type LinuxVirtualMachineAdminSshKeyInput interface {
 }
 
 type LinuxVirtualMachineAdminSshKeyArgs struct {
-	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
+	// The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format. Changing this forces a new resource to be created.
 	PublicKey pulumi.StringInput `pulumi:"publicKey"`
 	// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
 	//
@@ -1822,7 +1822,7 @@ func (o LinuxVirtualMachineAdminSshKeyOutput) ToLinuxVirtualMachineAdminSshKeyOu
 	return o
 }
 
-// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
+// The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineAdminSshKeyOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineAdminSshKey) string { return v.PublicKey }).(pulumi.StringOutput)
 }
@@ -3296,7 +3296,7 @@ func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) UltraSsdEnab
 }
 
 type LinuxVirtualMachineScaleSetAdminSshKey struct {
-	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+	// The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
 	PublicKey string `pulumi:"publicKey"`
 	// The Username for which this Public SSH Key should be configured.
 	//
@@ -3316,7 +3316,7 @@ type LinuxVirtualMachineScaleSetAdminSshKeyInput interface {
 }
 
 type LinuxVirtualMachineScaleSetAdminSshKeyArgs struct {
-	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+	// The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
 	PublicKey pulumi.StringInput `pulumi:"publicKey"`
 	// The Username for which this Public SSH Key should be configured.
 	//
@@ -3375,7 +3375,7 @@ func (o LinuxVirtualMachineScaleSetAdminSshKeyOutput) ToLinuxVirtualMachineScale
 	return o
 }
 
-// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
+// The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
 func (o LinuxVirtualMachineScaleSetAdminSshKeyOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdminSshKey) string { return v.PublicKey }).(pulumi.StringOutput)
 }
@@ -10982,7 +10982,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) 
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey struct {
-	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+	// The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
 	PublicKey string `pulumi:"publicKey"`
 	// The Username for which this Public SSH Key should be configured.
 	//
@@ -11002,7 +11002,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyInp
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs struct {
-	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+	// The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
 	PublicKey pulumi.StringInput `pulumi:"publicKey"`
 	// The Username for which this Public SSH Key should be configured.
 	//
@@ -11061,7 +11061,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey
 	return o
 }
 
-// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+// The Public Key which should be used for authentication, which needs to be in `ssh-rsa` format with at least 2048-bit or in `ssh-ed25519` format.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey) string {
 		return v.PublicKey

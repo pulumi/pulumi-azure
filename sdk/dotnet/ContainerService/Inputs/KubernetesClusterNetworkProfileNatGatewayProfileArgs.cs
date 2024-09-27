@@ -25,13 +25,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+        /// Desired outbound flow idle timeout in minutes for the managed nat gateway. Must be between `4` and `120` inclusive. Defaults to `4`.
         /// </summary>
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         /// <summary>
-        /// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+        /// Count of desired managed outbound IPs for the managed nat gateway. Must be between `1` and `16` inclusive.
         /// </summary>
         [Input("managedOutboundIpCount")]
         public Input<int>? ManagedOutboundIpCount { get; set; }

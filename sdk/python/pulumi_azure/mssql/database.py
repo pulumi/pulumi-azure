@@ -1300,12 +1300,6 @@ class Database(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplesa",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
         example_server = azure.mssql.Server("example",
             name="example-sqlserver",
             resource_group_name=example.name,
@@ -1318,10 +1312,8 @@ class Database(pulumi.CustomResource):
             server_id=example_server.id,
             collation="SQL_Latin1_General_CP1_CI_AS",
             license_type="LicenseIncluded",
-            max_size_gb=4,
-            read_scale=True,
+            max_size_gb=2,
             sku_name="S0",
-            zone_redundant=True,
             enclave_type="VBS",
             tags={
                 "foo": "bar",
@@ -1504,12 +1496,6 @@ class Database(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example_account = azure.storage.Account("example",
-            name="examplesa",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
         example_server = azure.mssql.Server("example",
             name="example-sqlserver",
             resource_group_name=example.name,
@@ -1522,10 +1508,8 @@ class Database(pulumi.CustomResource):
             server_id=example_server.id,
             collation="SQL_Latin1_General_CP1_CI_AS",
             license_type="LicenseIncluded",
-            max_size_gb=4,
-            read_scale=True,
+            max_size_gb=2,
             sku_name="S0",
-            zone_redundant=True,
             enclave_type="VBS",
             tags={
                 "foo": "bar",

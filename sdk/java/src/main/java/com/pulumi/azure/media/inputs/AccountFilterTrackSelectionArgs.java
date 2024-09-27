@@ -15,17 +15,9 @@ public final class AccountFilterTrackSelectionArgs extends com.pulumi.resources.
 
     public static final AccountFilterTrackSelectionArgs Empty = new AccountFilterTrackSelectionArgs();
 
-    /**
-     * One or more `selection` blocks as defined above.
-     * 
-     */
     @Import(name="conditions", required=true)
     private Output<List<AccountFilterTrackSelectionConditionArgs>> conditions;
 
-    /**
-     * @return One or more `selection` blocks as defined above.
-     * 
-     */
     public Output<List<AccountFilterTrackSelectionConditionArgs>> conditions() {
         return this.conditions;
     }
@@ -54,33 +46,15 @@ public final class AccountFilterTrackSelectionArgs extends com.pulumi.resources.
             $ = new AccountFilterTrackSelectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param conditions One or more `selection` blocks as defined above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(Output<List<AccountFilterTrackSelectionConditionArgs>> conditions) {
             $.conditions = conditions;
             return this;
         }
 
-        /**
-         * @param conditions One or more `selection` blocks as defined above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(List<AccountFilterTrackSelectionConditionArgs> conditions) {
             return conditions(Output.of(conditions));
         }
 
-        /**
-         * @param conditions One or more `selection` blocks as defined above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conditions(AccountFilterTrackSelectionConditionArgs... conditions) {
             return conditions(List.of(conditions));
         }

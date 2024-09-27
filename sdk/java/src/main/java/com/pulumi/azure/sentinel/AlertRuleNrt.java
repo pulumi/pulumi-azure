@@ -217,16 +217,12 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
     /**
      * A `event_grouping` block as defined below.
      * 
-     * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
-     * 
      */
     @Export(name="eventGrouping", refs={AlertRuleNrtEventGrouping.class}, tree="[0]")
     private Output<AlertRuleNrtEventGrouping> eventGrouping;
 
     /**
      * @return A `event_grouping` block as defined below.
-     * 
-     * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
      * 
      */
     public Output<AlertRuleNrtEventGrouping> eventGrouping() {

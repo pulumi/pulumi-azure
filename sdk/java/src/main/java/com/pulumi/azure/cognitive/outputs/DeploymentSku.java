@@ -24,7 +24,7 @@ public final class DeploymentSku {
      */
     private @Nullable String family;
     /**
-     * @return The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+     * @return The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
      * 
      */
     private String name;
@@ -55,7 +55,7 @@ public final class DeploymentSku {
         return Optional.ofNullable(this.family);
     }
     /**
-     * @return The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
+     * @return The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
      * 
      */
     public String name() {

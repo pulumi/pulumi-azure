@@ -9,6 +9,37 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cognitive Services Account Deployment.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.cognitive.Account("example", {
+ *     name: "example-ca",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     kind: "OpenAI",
+ *     skuName: "S0",
+ * });
+ * const exampleDeployment = new azure.cognitive.Deployment("example", {
+ *     name: "example-cd",
+ *     cognitiveAccountId: exampleAccount.id,
+ *     model: {
+ *         format: "OpenAI",
+ *         name: "text-curie-001",
+ *         version: "1",
+ *     },
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Cognitive Services Account Deployment can be imported using the `resource id`, e.g.
@@ -61,6 +92,9 @@ export class Deployment extends pulumi.CustomResource {
      * The name of RAI policy.
      */
     public readonly raiPolicyName!: pulumi.Output<string | undefined>;
+    /**
+     * A `sku` block as defined below.
+     */
     public readonly sku!: pulumi.Output<outputs.cognitive.DeploymentSku>;
     /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
@@ -129,6 +163,9 @@ export interface DeploymentState {
      * The name of RAI policy.
      */
     raiPolicyName?: pulumi.Input<string>;
+    /**
+     * A `sku` block as defined below.
+     */
     sku?: pulumi.Input<inputs.cognitive.DeploymentSku>;
     /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
@@ -156,6 +193,9 @@ export interface DeploymentArgs {
      * The name of RAI policy.
      */
     raiPolicyName?: pulumi.Input<string>;
+    /**
+     * A `sku` block as defined below.
+     */
     sku: pulumi.Input<inputs.cognitive.DeploymentSku>;
     /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.

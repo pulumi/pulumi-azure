@@ -14,13 +14,23 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class LoggerApplicationInsights
     {
         /// <summary>
-        /// The instrumentation key used to push data to Application Insights.
+        /// The connection string of Application Insights.
         /// </summary>
-        public readonly string InstrumentationKey;
+        public readonly string? ConnectionString;
+        /// <summary>
+        /// The instrumentation key used to push data to Application Insights.
+        /// 
+        /// &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+        /// </summary>
+        public readonly string? InstrumentationKey;
 
         [OutputConstructor]
-        private LoggerApplicationInsights(string instrumentationKey)
+        private LoggerApplicationInsights(
+            string? connectionString,
+
+            string? instrumentationKey)
         {
+            ConnectionString = connectionString;
             InstrumentationKey = instrumentationKey;
         }
     }

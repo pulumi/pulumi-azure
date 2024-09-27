@@ -147,16 +147,12 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `event_grouping` block as defined below.
      * 
-     * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
-     * 
      */
     @Import(name="eventGrouping", required=true)
     private Output<AlertRuleNrtEventGroupingArgs> eventGrouping;
 
     /**
      * @return A `event_grouping` block as defined below.
-     * 
-     * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
      * 
      */
     public Output<AlertRuleNrtEventGroupingArgs> eventGrouping() {
@@ -550,8 +546,6 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param eventGrouping A `event_grouping` block as defined below.
          * 
-         * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
-         * 
          * @return builder
          * 
          */
@@ -562,8 +556,6 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param eventGrouping A `event_grouping` block as defined below.
-         * 
-         * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
          * 
          * @return builder
          * 

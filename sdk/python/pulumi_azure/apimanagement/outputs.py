@@ -4786,7 +4786,9 @@ class LoggerApplicationInsights(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "instrumentationKey":
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "instrumentationKey":
             suggest = "instrumentation_key"
 
         if suggest:
@@ -4801,17 +4803,34 @@ class LoggerApplicationInsights(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instrumentation_key: str):
+                 connection_string: Optional[str] = None,
+                 instrumentation_key: Optional[str] = None):
         """
+        :param str connection_string: The connection string of Application Insights.
         :param str instrumentation_key: The instrumentation key used to push data to Application Insights.
+               
+               > **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
         """
-        pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if instrumentation_key is not None:
+            pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[str]:
+        """
+        The connection string of Application Insights.
+        """
+        return pulumi.get(self, "connection_string")
 
     @property
     @pulumi.getter(name="instrumentationKey")
-    def instrumentation_key(self) -> str:
+    def instrumentation_key(self) -> Optional[str]:
         """
         The instrumentation key used to push data to Application Insights.
+
+        > **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
         """
         return pulumi.get(self, "instrumentation_key")
 

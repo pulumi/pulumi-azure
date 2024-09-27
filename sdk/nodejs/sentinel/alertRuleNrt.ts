@@ -109,8 +109,6 @@ export class AlertRuleNrt extends pulumi.CustomResource {
     public readonly entityMappings!: pulumi.Output<outputs.sentinel.AlertRuleNrtEntityMapping[] | undefined>;
     /**
      * A `eventGrouping` block as defined below.
-     *
-     * > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
      */
     public readonly eventGrouping!: pulumi.Output<outputs.sentinel.AlertRuleNrtEventGrouping>;
     /**
@@ -268,8 +266,6 @@ export interface AlertRuleNrtState {
     entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtEntityMapping>[]>;
     /**
      * A `eventGrouping` block as defined below.
-     *
-     * > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
      */
     eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleNrtEventGrouping>;
     /**
@@ -354,8 +350,6 @@ export interface AlertRuleNrtArgs {
     entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtEntityMapping>[]>;
     /**
      * A `eventGrouping` block as defined below.
-     *
-     * > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
      */
     eventGrouping: pulumi.Input<inputs.sentinel.AlertRuleNrtEventGrouping>;
     /**
