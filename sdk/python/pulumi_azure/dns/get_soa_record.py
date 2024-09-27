@@ -242,9 +242,6 @@ def get_soa_record(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         ttl=pulumi.get(__ret__, 'ttl'),
         zone_name=pulumi.get(__ret__, 'zone_name'))
-
-
-@_utilities.lift_output_func(get_soa_record)
 def get_soa_record_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           zone_name: Optional[pulumi.Input[str]] = None,
@@ -266,4 +263,24 @@ def get_soa_record_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists.
     :param str zone_name: Specifies the DNS Zone where the resource exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['zoneName'] = zone_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:dns/getSoaRecord:getSoaRecord', __args__, opts=opts, typ=GetSoaRecordResult)
+    return __ret__.apply(lambda __response__: GetSoaRecordResult(
+        email=pulumi.get(__response__, 'email'),
+        expire_time=pulumi.get(__response__, 'expire_time'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        id=pulumi.get(__response__, 'id'),
+        minimum_ttl=pulumi.get(__response__, 'minimum_ttl'),
+        name=pulumi.get(__response__, 'name'),
+        refresh_time=pulumi.get(__response__, 'refresh_time'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        retry_time=pulumi.get(__response__, 'retry_time'),
+        serial_number=pulumi.get(__response__, 'serial_number'),
+        tags=pulumi.get(__response__, 'tags'),
+        ttl=pulumi.get(__response__, 'ttl'),
+        zone_name=pulumi.get(__response__, 'zone_name')))

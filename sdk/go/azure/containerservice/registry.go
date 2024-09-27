@@ -46,12 +46,12 @@ import (
 //					&containerservice.RegistryGeoreplicationArgs{
 //						Location:              pulumi.String("East US"),
 //						ZoneRedundancyEnabled: pulumi.Bool(true),
-//						Tags:                  nil,
+//						Tags:                  pulumi.StringMap{},
 //					},
 //					&containerservice.RegistryGeoreplicationArgs{
 //						Location:              pulumi.String("North Europe"),
 //						ZoneRedundancyEnabled: pulumi.Bool(true),
-//						Tags:                  nil,
+//						Tags:                  pulumi.StringMap{},
 //					},
 //				},
 //			})
