@@ -119,9 +119,6 @@ def get_certificates(include_pending: Optional[bool] = None,
         include_pending=pulumi.get(__ret__, 'include_pending'),
         key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
         names=pulumi.get(__ret__, 'names'))
-
-
-@_utilities.lift_output_func(get_certificates)
 def get_certificates_output(include_pending: Optional[pulumi.Input[Optional[bool]]] = None,
                             key_vault_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificatesResult]:
@@ -134,4 +131,14 @@ def get_certificates_output(include_pending: Optional[pulumi.Input[Optional[bool
            
            **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['includePending'] = include_pending
+    __args__['keyVaultId'] = key_vault_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getCertificates:getCertificates', __args__, opts=opts, typ=GetCertificatesResult)
+    return __ret__.apply(lambda __response__: GetCertificatesResult(
+        certificates=pulumi.get(__response__, 'certificates'),
+        id=pulumi.get(__response__, 'id'),
+        include_pending=pulumi.get(__response__, 'include_pending'),
+        key_vault_id=pulumi.get(__response__, 'key_vault_id'),
+        names=pulumi.get(__response__, 'names')))
