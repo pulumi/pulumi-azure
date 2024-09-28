@@ -51,7 +51,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID(),
-//				SiteConfig:        nil,
+//				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

@@ -100,9 +100,6 @@ def get_resource_group_template_deployment(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         output_content=pulumi.get(__ret__, 'output_content'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-
-
-@_utilities.lift_output_func(get_resource_group_template_deployment)
 def get_resource_group_template_deployment_output(name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGroupTemplateDeploymentResult]:
@@ -113,4 +110,13 @@ def get_resource_group_template_deployment_output(name: Optional[pulumi.Input[st
     :param str name: The name of this Resource Group Template Deployment.
     :param str resource_group_name: The name of the Resource Group to which the Resource Group Template Deployment was applied.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment', __args__, opts=opts, typ=GetResourceGroupTemplateDeploymentResult)
+    return __ret__.apply(lambda __response__: GetResourceGroupTemplateDeploymentResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        output_content=pulumi.get(__response__, 'output_content'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name')))

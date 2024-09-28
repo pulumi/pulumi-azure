@@ -168,9 +168,6 @@ def get_volume_group_sap_hana(account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         volumes=pulumi.get(__ret__, 'volumes'))
-
-
-@_utilities.lift_output_func(get_volume_group_sap_hana)
 def get_volume_group_sap_hana_output(account_name: Optional[pulumi.Input[str]] = None,
                                      name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -195,4 +192,18 @@ def get_volume_group_sap_hana_output(account_name: Optional[pulumi.Input[str]] =
     :param str name: The name of this Application Volume Group for SAP HANA application.
     :param str resource_group_name: The name of the Resource Group where the Application Volume Group exists.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana', __args__, opts=opts, typ=GetVolumeGroupSapHanaResult)
+    return __ret__.apply(lambda __response__: GetVolumeGroupSapHanaResult(
+        account_name=pulumi.get(__response__, 'account_name'),
+        application_identifier=pulumi.get(__response__, 'application_identifier'),
+        group_description=pulumi.get(__response__, 'group_description'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        volumes=pulumi.get(__response__, 'volumes')))
