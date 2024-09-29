@@ -124,9 +124,6 @@ def get_fabric(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         recovery_vault_name=pulumi.get(__ret__, 'recovery_vault_name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-
-
-@_utilities.lift_output_func(get_fabric)
 def get_fabric_output(name: Optional[pulumi.Input[str]] = None,
                       recovery_vault_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -150,4 +147,15 @@ def get_fabric_output(name: Optional[pulumi.Input[str]] = None,
     :param str recovery_vault_name: The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
     :param str resource_group_name: The name of the resource group in which the associated Recovery Services Vault resides.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['recoveryVaultName'] = recovery_vault_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:siterecovery/getFabric:getFabric', __args__, opts=opts, typ=GetFabricResult)
+    return __ret__.apply(lambda __response__: GetFabricResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        recovery_vault_name=pulumi.get(__response__, 'recovery_vault_name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name')))

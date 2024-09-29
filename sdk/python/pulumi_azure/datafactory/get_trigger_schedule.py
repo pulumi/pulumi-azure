@@ -229,9 +229,6 @@ def get_trigger_schedule(data_factory_id: Optional[str] = None,
         schedules=pulumi.get(__ret__, 'schedules'),
         start_time=pulumi.get(__ret__, 'start_time'),
         time_zone=pulumi.get(__ret__, 'time_zone'))
-
-
-@_utilities.lift_output_func(get_trigger_schedule)
 def get_trigger_schedule_output(data_factory_id: Optional[pulumi.Input[str]] = None,
                                 name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerScheduleResult]:
@@ -253,4 +250,22 @@ def get_trigger_schedule_output(data_factory_id: Optional[pulumi.Input[str]] = N
     :param str data_factory_id: The ID of the Azure Data Factory to fetch trigger schedule from.
     :param str name: The name of the trigger schedule.
     """
-    ...
+    __args__ = dict()
+    __args__['dataFactoryId'] = data_factory_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:datafactory/getTriggerSchedule:getTriggerSchedule', __args__, opts=opts, typ=GetTriggerScheduleResult)
+    return __ret__.apply(lambda __response__: GetTriggerScheduleResult(
+        activated=pulumi.get(__response__, 'activated'),
+        annotations=pulumi.get(__response__, 'annotations'),
+        data_factory_id=pulumi.get(__response__, 'data_factory_id'),
+        description=pulumi.get(__response__, 'description'),
+        end_time=pulumi.get(__response__, 'end_time'),
+        frequency=pulumi.get(__response__, 'frequency'),
+        id=pulumi.get(__response__, 'id'),
+        interval=pulumi.get(__response__, 'interval'),
+        name=pulumi.get(__response__, 'name'),
+        pipeline_name=pulumi.get(__response__, 'pipeline_name'),
+        schedules=pulumi.get(__response__, 'schedules'),
+        start_time=pulumi.get(__response__, 'start_time'),
+        time_zone=pulumi.get(__response__, 'time_zone')))
