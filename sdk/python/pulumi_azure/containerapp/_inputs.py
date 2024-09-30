@@ -662,7 +662,7 @@ if not MYPY:
         """
         The suffix string to which this `traffic_weight` applies.
 
-        > **Note:** `latest_revision` conflicts with `revision_suffix`, which means you shall either set `latest_revision` to `true` or specify `revision_suffix`. Especially for creation, there shall only be one `traffic_weight`, with the `latest_revision` set to `true`, and leave the `revision_suffix` empty.
+        > **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
         """
 elif False:
     AppIngressTrafficWeightArgsDict: TypeAlias = Mapping[str, Any]
@@ -682,7 +682,7 @@ class AppIngressTrafficWeightArgs:
         :param pulumi.Input[bool] latest_revision: This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
         :param pulumi.Input[str] revision_suffix: The suffix string to which this `traffic_weight` applies.
                
-               > **Note:** `latest_revision` conflicts with `revision_suffix`, which means you shall either set `latest_revision` to `true` or specify `revision_suffix`. Especially for creation, there shall only be one `traffic_weight`, with the `latest_revision` set to `true`, and leave the `revision_suffix` empty.
+               > **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
         """
         pulumi.set(__self__, "percentage", percentage)
         if label is not None:
@@ -736,7 +736,7 @@ class AppIngressTrafficWeightArgs:
         """
         The suffix string to which this `traffic_weight` applies.
 
-        > **Note:** `latest_revision` conflicts with `revision_suffix`, which means you shall either set `latest_revision` to `true` or specify `revision_suffix`. Especially for creation, there shall only be one `traffic_weight`, with the `latest_revision` set to `true`, and leave the `revision_suffix` empty.
+        > **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
         """
         return pulumi.get(self, "revision_suffix")
 

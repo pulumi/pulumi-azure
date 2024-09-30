@@ -92,6 +92,8 @@ type SharedImage struct {
 	ConfidentialVmSupported pulumi.BoolPtrOutput `pulumi:"confidentialVmSupported"`
 	// A description of this Shared Image.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+	DiskControllerTypeNvmeEnabled pulumi.BoolPtrOutput `pulumi:"diskControllerTypeNvmeEnabled"`
 	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
 	DiskTypesNotAlloweds pulumi.StringArrayOutput `pulumi:"diskTypesNotAlloweds"`
 	// The end of life date in RFC3339 format of the Image.
@@ -194,6 +196,8 @@ type sharedImageState struct {
 	ConfidentialVmSupported *bool `pulumi:"confidentialVmSupported"`
 	// A description of this Shared Image.
 	Description *string `pulumi:"description"`
+	// Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+	DiskControllerTypeNvmeEnabled *bool `pulumi:"diskControllerTypeNvmeEnabled"`
 	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
 	DiskTypesNotAlloweds []string `pulumi:"diskTypesNotAlloweds"`
 	// The end of life date in RFC3339 format of the Image.
@@ -255,6 +259,8 @@ type SharedImageState struct {
 	ConfidentialVmSupported pulumi.BoolPtrInput
 	// A description of this Shared Image.
 	Description pulumi.StringPtrInput
+	// Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+	DiskControllerTypeNvmeEnabled pulumi.BoolPtrInput
 	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
 	DiskTypesNotAlloweds pulumi.StringArrayInput
 	// The end of life date in RFC3339 format of the Image.
@@ -320,6 +326,8 @@ type sharedImageArgs struct {
 	ConfidentialVmSupported *bool `pulumi:"confidentialVmSupported"`
 	// A description of this Shared Image.
 	Description *string `pulumi:"description"`
+	// Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+	DiskControllerTypeNvmeEnabled *bool `pulumi:"diskControllerTypeNvmeEnabled"`
 	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
 	DiskTypesNotAlloweds []string `pulumi:"diskTypesNotAlloweds"`
 	// The end of life date in RFC3339 format of the Image.
@@ -382,6 +390,8 @@ type SharedImageArgs struct {
 	ConfidentialVmSupported pulumi.BoolPtrInput
 	// A description of this Shared Image.
 	Description pulumi.StringPtrInput
+	// Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+	DiskControllerTypeNvmeEnabled pulumi.BoolPtrInput
 	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
 	DiskTypesNotAlloweds pulumi.StringArrayInput
 	// The end of life date in RFC3339 format of the Image.
@@ -542,6 +552,11 @@ func (o SharedImageOutput) ConfidentialVmSupported() pulumi.BoolPtrOutput {
 // A description of this Shared Image.
 func (o SharedImageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+func (o SharedImageOutput) DiskControllerTypeNvmeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SharedImage) pulumi.BoolPtrOutput { return v.DiskControllerTypeNvmeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.

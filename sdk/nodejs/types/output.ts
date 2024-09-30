@@ -29208,7 +29208,7 @@ export namespace containerapp {
         /**
          * The suffix string to which this `trafficWeight` applies.
          *
-         * > **Note:** `latestRevision` conflicts with `revisionSuffix`, which means you shall either set `latestRevision` to `true` or specify `revisionSuffix`. Especially for creation, there shall only be one `trafficWeight`, with the `latestRevision` set to `true`, and leave the `revisionSuffix` empty.
+         * > **Note:** If `latestRevision` is `false`, the `revisionSuffix` shall be specified.
          */
         revisionSuffix?: string;
     }
@@ -37541,6 +37541,77 @@ export namespace dataprotection {
     export interface BackupPolicyKubernetesClusterRetentionRuleLifeCycle {
         /**
          * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+         */
+        dataStoreType: string;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+         */
+        duration: string;
+    }
+
+    export interface BackupPolicyMysqlFlexibleServerDefaultRetentionRule {
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+         */
+        lifeCycles: outputs.dataprotection.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle[];
+    }
+
+    export interface BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+         */
+        dataStoreType: string;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+         */
+        duration: string;
+    }
+
+    export interface BackupPolicyMysqlFlexibleServerRetentionRule {
+        /**
+         * A `criteria` block as defined below. Changing this forces a new resource to be created.
+         */
+        criteria: outputs.dataprotection.BackupPolicyMysqlFlexibleServerRetentionRuleCriteria;
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+         */
+        lifeCycles: outputs.dataprotection.BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle[];
+        /**
+         * Specifies the name of the retention rule. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+         */
+        priority: number;
+    }
+
+    export interface BackupPolicyMysqlFlexibleServerRetentionRuleCriteria {
+        /**
+         * Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+         */
+        absoluteCriteria?: string;
+        /**
+         * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+         */
+        daysOfWeeks?: string[];
+        /**
+         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+         */
+        monthsOfYears?: string[];
+        /**
+         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+         */
+        scheduledBackupTimes?: string[];
+        /**
+         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         */
+        weeksOfMonths?: string[];
+    }
+
+    export interface BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: string;
         /**
@@ -55660,6 +55731,130 @@ export namespace network {
         tunnelIps: string[];
     }
 
+    export interface GetVpnServerConfigurationAzureActiveDirectoryAuthentication {
+        /**
+         * The Audience which should be used for authentication.
+         */
+        audience: string;
+        /**
+         * The Issuer which should be used for authentication.
+         */
+        issuer: string;
+        /**
+         * The Tenant which should be used for authentication.
+         */
+        tenant: string;
+    }
+
+    export interface GetVpnServerConfigurationClientRevokedCertificate {
+        /**
+         * The Name of the VPN Server Configuration.
+         */
+        name: string;
+        /**
+         * The Thumbprint of the Certificate.
+         */
+        thumbprint: string;
+    }
+
+    export interface GetVpnServerConfigurationClientRootCertificate {
+        /**
+         * The Name of the VPN Server Configuration.
+         */
+        name: string;
+        /**
+         * The Public Key Data associated with the Certificate.
+         */
+        publicCertData: string;
+    }
+
+    export interface GetVpnServerConfigurationIpsecPolicy {
+        /**
+         * The DH Group, used in IKE Phase 1.
+         */
+        dhGroup: string;
+        /**
+         * The IKE encryption algorithm, used for IKE Phase 2.
+         */
+        ikeEncryption: string;
+        /**
+         * The IKE encryption integrity algorithm, used for IKE Phase 2.
+         */
+        ikeIntegrity: string;
+        /**
+         * The IPSec encryption algorithm, used for IKE phase 1.
+         */
+        ipsecEncryption: string;
+        /**
+         * The IPSec integrity algorithm, used for IKE phase 1.
+         */
+        ipsecIntegrity: string;
+        /**
+         * The Pfs Group, used in IKE Phase 2.
+         */
+        pfsGroup: string;
+        /**
+         * The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+         */
+        saDataSizeKilobytes: number;
+        /**
+         * The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+         */
+        saLifetimeSeconds: number;
+    }
+
+    export interface GetVpnServerConfigurationRadius {
+        /**
+         * One or more `clientRootCertificate` blocks as defined below.
+         */
+        clientRootCertificates: outputs.network.GetVpnServerConfigurationRadiusClientRootCertificate[];
+        /**
+         * One or more `serverRootCertificate` blocks as defined below.
+         */
+        serverRootCertificates: outputs.network.GetVpnServerConfigurationRadiusServerRootCertificate[];
+        /**
+         * One or more `server` blocks as defined below.
+         */
+        servers: outputs.network.GetVpnServerConfigurationRadiusServer[];
+    }
+
+    export interface GetVpnServerConfigurationRadiusClientRootCertificate {
+        /**
+         * The Name of the VPN Server Configuration.
+         */
+        name: string;
+        /**
+         * The Thumbprint of the Certificate.
+         */
+        thumbprint: string;
+    }
+
+    export interface GetVpnServerConfigurationRadiusServer {
+        /**
+         * The Address of the Radius Server.
+         */
+        address: string;
+        /**
+         * The Score of the Radius Server determines the priority of the server.
+         */
+        score: number;
+        /**
+         * The Secret used to communicate with the Radius Server.
+         */
+        secret: string;
+    }
+
+    export interface GetVpnServerConfigurationRadiusServerRootCertificate {
+        /**
+         * The Name of the VPN Server Configuration.
+         */
+        name: string;
+        /**
+         * The Public Key Data associated with the Certificate.
+         */
+        publicCertData: string;
+    }
+
     export interface LocalNetworkGatewayBgpSettings {
         /**
          * The BGP speaker's ASN.
@@ -62465,6 +62660,299 @@ export namespace stack {
         type: string;
     }
 
+    export interface HciDeploymentSettingScaleUnit {
+        /**
+         * Specify the full name of the Active Directory Organizational Unit container object prepared for the deployment, including the domain components. For example:`OU=HCI01,DC=contoso,DC=com`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        activeDirectoryOrganizationalUnitPath: string;
+        /**
+         * Whether to enable BitLocker for boot volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        bitlockerBootVolumeEnabled?: boolean;
+        /**
+         * Whether to enable BitLocker for data volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        bitlockerDataVolumeEnabled?: boolean;
+        /**
+         * A `cluster` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        cluster: outputs.stack.HciDeploymentSettingScaleUnitCluster;
+        /**
+         * Whether to enable credential guard. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        credentialGuardEnabled?: boolean;
+        /**
+         * Specifies the FQDN for deploying cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        domainFqdn: string;
+        /**
+         * Whether to enable drift control. Possible values are `true` and `false`. When set to `true`, the security baseline is re-applied regularly. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        driftControlEnabled?: boolean;
+        /**
+         * Whether to enable DRTM protection. Possible values are `true` and `false`. When set to `true`, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        drtmProtectionEnabled?: boolean;
+        /**
+         * Whether to collect log data to facilitate quicker issue resolution. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        episodicDataUploadEnabled?: boolean;
+        /**
+         * Whether to store data sent to Microsoft in EU. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to `false` results in all data sent to Microsoft to be stored outside of the EU. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        euLocationEnabled?: boolean;
+        /**
+         * A `hostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        hostNetwork: outputs.stack.HciDeploymentSettingScaleUnitHostNetwork;
+        /**
+         * Whether to enable HVCI protection. Possible values are `true` and `false`. When set to `true`, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        hvciProtectionEnabled?: boolean;
+        /**
+         * One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        infrastructureNetworks: outputs.stack.HciDeploymentSettingScaleUnitInfrastructureNetwork[];
+        /**
+         * Specifies the name prefix to deploy cluster. It must be 1-8 characters long and contain only letters, numbers and hyphens Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        namePrefix: string;
+        /**
+         * A `optionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        optionalService: outputs.stack.HciDeploymentSettingScaleUnitOptionalService;
+        /**
+         * One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        physicalNodes: outputs.stack.HciDeploymentSettingScaleUnitPhysicalNode[];
+        /**
+         * The URI to the Key Vault or secret store. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        secretsLocation: string;
+        /**
+         * Whether to enable side channel mitigation. Possible values are `true` and `false`. When set to `true`, all side channel mitigations are enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        sideChannelMitigationEnabled?: boolean;
+        /**
+         * Whether to enable SMB cluster encryption. Possible values are `true` and `false`. When set to `true`, cluster east-west traffic is encrypted. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        smbClusterEncryptionEnabled?: boolean;
+        /**
+         * Whether to enable SMB signing. Possible values are `true` and `false`. When set to `true`, the SMB default instance requires sign in for the client and server services. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        smbSigningEnabled?: boolean;
+        /**
+         * A `storage` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        storage: outputs.stack.HciDeploymentSettingScaleUnitStorage;
+        /**
+         * Whether the telemetry data will be sent to Microsoft. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        streamingDataClientEnabled?: boolean;
+        /**
+         * Whether to enable WDAC. Possible values are `true` and `false`. When set to `true`, applications and the code that you can run on your Azure Stack HCI cluster are limited. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        wdacEnabled?: boolean;
+    }
+
+    export interface HciDeploymentSettingScaleUnitCluster {
+        /**
+         * Specifies the Azure blob service endpoint, for example, `core.windows.net`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        azureServiceEndpoint: string;
+        /**
+         * Specifies the Azure Storage account name of the cloud witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        cloudAccountName: string;
+        /**
+         * Specifies the name of the cluster. It must be 3-15 characters long and contain only letters, numbers and hyphens. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        name: string;
+        /**
+         * Specifies the fileshare path of the local witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        witnessPath: string;
+        /**
+         * Specifies the type of the witness. Possible values are `Cloud`, `FileShare`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        witnessType: string;
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetwork {
+        /**
+         * One or more `intent` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        intents: outputs.stack.HciDeploymentSettingScaleUnitHostNetworkIntent[];
+        /**
+         * Whether allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically. Optional parameter required only for [3 nodes switchless deployments](https://learn.microsoft.com/azure-stack/hci/concepts/physical-network-requirements?tabs=overview%2C23H2reqs#using-switchless). Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        storageAutoIpEnabled?: boolean;
+        /**
+         * Defines how the storage adapters between nodes are connected either switch or switch less. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        storageConnectivitySwitchlessEnabled?: boolean;
+        /**
+         * One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        storageNetworks: outputs.stack.HciDeploymentSettingScaleUnitHostNetworkStorageNetwork[];
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetworkIntent {
+        /**
+         * A `adapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        adapterPropertyOverride?: outputs.stack.HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride;
+        /**
+         * Whether to override adapter properties. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        adapterPropertyOverrideEnabled?: boolean;
+        /**
+         * Specifies a list of ID of network interfaces used for the network intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        adapters: string[];
+        /**
+         * Specifies the name of the intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        name: string;
+        /**
+         * A `qosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        qosPolicyOverride?: outputs.stack.HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride;
+        /**
+         * Whether to override QoS policy. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        qosPolicyOverrideEnabled?: boolean;
+        /**
+         * Specifies a list of network traffic types. Possible values are `Compute`, `Storage`, `Management`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        trafficTypes: string[];
+        /**
+         * A `virtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        virtualSwitchConfigurationOverride?: outputs.stack.HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride;
+        /**
+         * Whether to override virtual switch configuration. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        virtualSwitchConfigurationOverrideEnabled?: boolean;
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride {
+        /**
+         * The jumbo frame size of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        jumboPacket?: string;
+        /**
+         * The network direct of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        networkDirect?: string;
+        /**
+         * The network direct technology of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        networkDirectTechnology?: string;
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride {
+        /**
+         * Specifies the percentage of the allocated storage traffic bandwidth. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        bandwidthPercentageSmb?: string;
+        /**
+         * Specifies the Cluster traffic priority. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        priorityValue8021ActionCluster?: string;
+        /**
+         * Specifies the Priority Flow Control where Data Center Bridging (DCB) is used. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        priorityValue8021ActionSmb?: string;
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride {
+        /**
+         * Specifies the IoV enable status for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        enableIov?: string;
+        /**
+         * Specifies the load balancing algorithm for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        loadBalancingAlgorithm?: string;
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetworkStorageNetwork {
+        /**
+         * The name of the storage network. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        name: string;
+        /**
+         * The name of the network adapter. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        networkAdapterName: string;
+        /**
+         * Specifies the ID for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        vlanId: string;
+    }
+
+    export interface HciDeploymentSettingScaleUnitInfrastructureNetwork {
+        /**
+         * Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         *
+         * > **NOTE:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+         */
+        dhcpEnabled?: boolean;
+        /**
+         * Specifies a list of IPv4 addresses of the DNS servers in your environment. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        dnsServers: string[];
+        /**
+         * Specifies the default gateway that should be used for the provided IP address space. It should be in the format of an IPv4 IP address. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        gateway: string;
+        /**
+         * One or more `ipPool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        ipPools: outputs.stack.HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool[];
+        /**
+         * Specifies the subnet mask that matches the provided IP address space. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        subnetMask: string;
+    }
+
+    export interface HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool {
+        /**
+         * Specifies starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        endingAddress: string;
+        /**
+         * Specifies ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        startingAddress: string;
+    }
+
+    export interface HciDeploymentSettingScaleUnitOptionalService {
+        /**
+         * Specifies the name of custom location. A custom location will be created after the deployment is completed. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        customLocation: string;
+    }
+
+    export interface HciDeploymentSettingScaleUnitPhysicalNode {
+        /**
+         * Specifies the IPv4 address assigned to each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        ipv4Address: string;
+        /**
+         * The NETBIOS name of each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        name: string;
+    }
+
+    export interface HciDeploymentSettingScaleUnitStorage {
+        /**
+         * The configuration mode of storage. If set to `Express` and your storage is configured as per best practices based on the number of nodes in the cluster. Possible values are `Express`, `InfraOnly` and `KeepStorage`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        configurationMode: string;
+    }
+
     export interface HciLogicalNetworkSubnet {
         /**
          * The address prefix in CIDR notation. Changing this forces a new resource to be created.
@@ -63748,7 +64236,7 @@ export namespace storage {
          */
         copyBlobsCreatedAfter?: string;
         /**
-         * The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+         * The destination storage container name.
          */
         destinationContainerName: string;
         /**
@@ -63757,7 +64245,7 @@ export namespace storage {
         filterOutBlobsWithPrefixes?: string[];
         name: string;
         /**
-         * The source storage container name. Changing this forces a new Storage Object Replication to be created.
+         * The source storage container name.
          */
         sourceContainerName: string;
     }

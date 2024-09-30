@@ -258,7 +258,9 @@ type WindowsVirtualMachineScaleSet struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
-	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -459,7 +461,9 @@ type windowsVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
-	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -599,7 +603,9 @@ type WindowsVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrInput
-	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -741,7 +747,9 @@ type windowsVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
-	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -880,7 +888,9 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrInput
-	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -1305,7 +1315,9 @@ func (o WindowsVirtualMachineScaleSetOutput) ZoneBalance() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.ZoneBalance }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+// Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+//
+// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 func (o WindowsVirtualMachineScaleSetOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

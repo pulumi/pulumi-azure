@@ -23,8 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:stack/hciCluster:HciCluster":
 		r = &HciCluster{}
+	case "azure:stack/hciDeploymentSetting:HciDeploymentSetting":
+		r = &HciDeploymentSetting{}
 	case "azure:stack/hciLogicalNetwork:HciLogicalNetwork":
 		r = &HciLogicalNetwork{}
+	case "azure:stack/hciStoragePath:HciStoragePath":
+		r = &HciStoragePath{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -45,7 +49,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"stack/hciDeploymentSetting",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"stack/hciLogicalNetwork",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"stack/hciStoragePath",
 		&module{version},
 	)
 }

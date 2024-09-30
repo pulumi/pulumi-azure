@@ -96,14 +96,14 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+     * The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
     /**
-     * @return The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+     * @return The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> scope() {
@@ -245,7 +245,7 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scope The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+         * @param scope The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scope The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+         * @param scope The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

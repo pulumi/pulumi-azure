@@ -112,7 +112,7 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
      */
     public readonly roleDefinitionId!: pulumi.Output<string>;
     /**
-     * The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+     * The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
      */
     public readonly scope!: pulumi.Output<string>;
 
@@ -192,7 +192,7 @@ export interface RoleManagementPolicyState {
      */
     roleDefinitionId?: pulumi.Input<string>;
     /**
-     * The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+     * The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
      */
     scope?: pulumi.Input<string>;
 }
@@ -222,7 +222,7 @@ export interface RoleManagementPolicyArgs {
      */
     roleDefinitionId: pulumi.Input<string>;
     /**
-     * The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+     * The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
      */
     scope: pulumi.Input<string>;
 }

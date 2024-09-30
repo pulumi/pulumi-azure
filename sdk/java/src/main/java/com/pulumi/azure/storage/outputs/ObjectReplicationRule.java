@@ -19,7 +19,7 @@ public final class ObjectReplicationRule {
      */
     private @Nullable String copyBlobsCreatedAfter;
     /**
-     * @return The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+     * @return The destination storage container name.
      * 
      */
     private String destinationContainerName;
@@ -30,7 +30,7 @@ public final class ObjectReplicationRule {
     private @Nullable List<String> filterOutBlobsWithPrefixes;
     private @Nullable String name;
     /**
-     * @return The source storage container name. Changing this forces a new Storage Object Replication to be created.
+     * @return The source storage container name.
      * 
      */
     private String sourceContainerName;
@@ -44,7 +44,7 @@ public final class ObjectReplicationRule {
         return Optional.ofNullable(this.copyBlobsCreatedAfter);
     }
     /**
-     * @return The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+     * @return The destination storage container name.
      * 
      */
     public String destinationContainerName() {
@@ -61,7 +61,7 @@ public final class ObjectReplicationRule {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The source storage container name. Changing this forces a new Storage Object Replication to be created.
+     * @return The source storage container name.
      * 
      */
     public String sourceContainerName() {

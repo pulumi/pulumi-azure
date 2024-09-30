@@ -78,6 +78,8 @@ type StaticWebApp struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Are Preview (Staging) environments enabled. Defaults to `true`.
 	PreviewEnvironmentsEnabled pulumi.BoolPtrOutput `pulumi:"previewEnvironmentsEnabled"`
+	// Should public network access be enabled for the Static Web App. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -147,6 +149,8 @@ type staticWebAppState struct {
 	Name *string `pulumi:"name"`
 	// Are Preview (Staging) environments enabled. Defaults to `true`.
 	PreviewEnvironmentsEnabled *bool `pulumi:"previewEnvironmentsEnabled"`
+	// Should public network access be enabled for the Static Web App. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -176,6 +180,8 @@ type StaticWebAppState struct {
 	Name pulumi.StringPtrInput
 	// Are Preview (Staging) environments enabled. Defaults to `true`.
 	PreviewEnvironmentsEnabled pulumi.BoolPtrInput
+	// Should public network access be enabled for the Static Web App. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -205,6 +211,8 @@ type staticWebAppArgs struct {
 	Name *string `pulumi:"name"`
 	// Are Preview (Staging) environments enabled. Defaults to `true`.
 	PreviewEnvironmentsEnabled *bool `pulumi:"previewEnvironmentsEnabled"`
+	// Should public network access be enabled for the Static Web App. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -231,6 +239,8 @@ type StaticWebAppArgs struct {
 	Name pulumi.StringPtrInput
 	// Are Preview (Staging) environments enabled. Defaults to `true`.
 	PreviewEnvironmentsEnabled pulumi.BoolPtrInput
+	// Should public network access be enabled for the Static Web App. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -371,6 +381,11 @@ func (o StaticWebAppOutput) Name() pulumi.StringOutput {
 // Are Preview (Staging) environments enabled. Defaults to `true`.
 func (o StaticWebAppOutput) PreviewEnvironmentsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StaticWebApp) pulumi.BoolPtrOutput { return v.PreviewEnvironmentsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should public network access be enabled for the Static Web App. Defaults to `true`.
+func (o StaticWebAppOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StaticWebApp) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.

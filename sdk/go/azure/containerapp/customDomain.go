@@ -65,6 +65,8 @@ type CustomDomain struct {
 	//
 	// > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
 	ContainerAppEnvironmentCertificateId pulumi.StringPtrOutput `pulumi:"containerAppEnvironmentCertificateId"`
+	// The ID of the Container App Environment Managed Certificate to use.
+	ContainerAppEnvironmentManagedCertificateId pulumi.StringOutput `pulumi:"containerAppEnvironmentManagedCertificateId"`
 	// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
 	ContainerAppId pulumi.StringOutput `pulumi:"containerAppId"`
 	// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
@@ -112,6 +114,8 @@ type customDomainState struct {
 	//
 	// > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
 	ContainerAppEnvironmentCertificateId *string `pulumi:"containerAppEnvironmentCertificateId"`
+	// The ID of the Container App Environment Managed Certificate to use.
+	ContainerAppEnvironmentManagedCertificateId *string `pulumi:"containerAppEnvironmentManagedCertificateId"`
 	// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
 	ContainerAppId *string `pulumi:"containerAppId"`
 	// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
@@ -127,6 +131,8 @@ type CustomDomainState struct {
 	//
 	// > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
 	ContainerAppEnvironmentCertificateId pulumi.StringPtrInput
+	// The ID of the Container App Environment Managed Certificate to use.
+	ContainerAppEnvironmentManagedCertificateId pulumi.StringPtrInput
 	// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
 	ContainerAppId pulumi.StringPtrInput
 	// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
@@ -267,6 +273,11 @@ func (o CustomDomainOutput) CertificateBindingType() pulumi.StringPtrOutput {
 // > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
 func (o CustomDomainOutput) ContainerAppEnvironmentCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomain) pulumi.StringPtrOutput { return v.ContainerAppEnvironmentCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Container App Environment Managed Certificate to use.
+func (o CustomDomainOutput) ContainerAppEnvironmentManagedCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.ContainerAppEnvironmentManagedCertificateId }).(pulumi.StringOutput)
 }
 
 // The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.

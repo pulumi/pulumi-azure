@@ -558,7 +558,9 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+     * 
+     * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      * 
      * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
@@ -567,7 +569,9 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+     * @return Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+     * 
+     * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      * 
      * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
@@ -1385,7 +1389,9 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+         * @param zones Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+         * 
+         * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
          * 
          * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
@@ -1398,7 +1404,9 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+         * @param zones Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+         * 
+         * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
          * 
          * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
@@ -1410,7 +1418,9 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+         * @param zones Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+         * 
+         * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
          * 
          * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 

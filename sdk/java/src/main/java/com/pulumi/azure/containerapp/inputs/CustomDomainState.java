@@ -50,6 +50,21 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the Container App Environment Managed Certificate to use.
+     * 
+     */
+    @Import(name="containerAppEnvironmentManagedCertificateId")
+    private @Nullable Output<String> containerAppEnvironmentManagedCertificateId;
+
+    /**
+     * @return The ID of the Container App Environment Managed Certificate to use.
+     * 
+     */
+    public Optional<Output<String>> containerAppEnvironmentManagedCertificateId() {
+        return Optional.ofNullable(this.containerAppEnvironmentManagedCertificateId);
+    }
+
+    /**
      * The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
      * 
      */
@@ -88,6 +103,7 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
     private CustomDomainState(CustomDomainState $) {
         this.certificateBindingType = $.certificateBindingType;
         this.containerAppEnvironmentCertificateId = $.containerAppEnvironmentCertificateId;
+        this.containerAppEnvironmentManagedCertificateId = $.containerAppEnvironmentManagedCertificateId;
         this.containerAppId = $.containerAppId;
         this.name = $.name;
     }
@@ -154,6 +170,27 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder containerAppEnvironmentCertificateId(String containerAppEnvironmentCertificateId) {
             return containerAppEnvironmentCertificateId(Output.of(containerAppEnvironmentCertificateId));
+        }
+
+        /**
+         * @param containerAppEnvironmentManagedCertificateId The ID of the Container App Environment Managed Certificate to use.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containerAppEnvironmentManagedCertificateId(@Nullable Output<String> containerAppEnvironmentManagedCertificateId) {
+            $.containerAppEnvironmentManagedCertificateId = containerAppEnvironmentManagedCertificateId;
+            return this;
+        }
+
+        /**
+         * @param containerAppEnvironmentManagedCertificateId The ID of the Container App Environment Managed Certificate to use.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containerAppEnvironmentManagedCertificateId(String containerAppEnvironmentManagedCertificateId) {
+            return containerAppEnvironmentManagedCertificateId(Output.of(containerAppEnvironmentManagedCertificateId));
         }
 
         /**

@@ -99,6 +99,10 @@ export class StaticWebApp extends pulumi.CustomResource {
      */
     public readonly previewEnvironmentsEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Should public network access be enabled for the Static Web App. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -137,6 +141,7 @@ export class StaticWebApp extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["previewEnvironmentsEnabled"] = state ? state.previewEnvironmentsEnabled : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuSize"] = state ? state.skuSize : undefined;
             resourceInputs["skuTier"] = state ? state.skuTier : undefined;
@@ -153,6 +158,7 @@ export class StaticWebApp extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["previewEnvironmentsEnabled"] = args ? args.previewEnvironmentsEnabled : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuSize"] = args ? args.skuSize : undefined;
             resourceInputs["skuTier"] = args ? args.skuTier : undefined;
@@ -208,6 +214,10 @@ export interface StaticWebAppState {
      */
     previewEnvironmentsEnabled?: pulumi.Input<boolean>;
     /**
+     * Should public network access be enabled for the Static Web App. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -257,6 +267,10 @@ export interface StaticWebAppArgs {
      * Are Preview (Staging) environments enabled. Defaults to `true`.
      */
     previewEnvironmentsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should public network access be enabled for the Static Web App. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */

@@ -3032,8 +3032,8 @@ class ObjectReplicationRule(dict):
                  filter_out_blobs_with_prefixes: Optional[Sequence[str]] = None,
                  name: Optional[str] = None):
         """
-        :param str destination_container_name: The destination storage container name. Changing this forces a new Storage Object Replication to be created.
-        :param str source_container_name: The source storage container name. Changing this forces a new Storage Object Replication to be created.
+        :param str destination_container_name: The destination storage container name.
+        :param str source_container_name: The source storage container name.
         :param str copy_blobs_created_after: The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
         :param Sequence[str] filter_out_blobs_with_prefixes: Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
         """
@@ -3050,7 +3050,7 @@ class ObjectReplicationRule(dict):
     @pulumi.getter(name="destinationContainerName")
     def destination_container_name(self) -> str:
         """
-        The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+        The destination storage container name.
         """
         return pulumi.get(self, "destination_container_name")
 
@@ -3058,7 +3058,7 @@ class ObjectReplicationRule(dict):
     @pulumi.getter(name="sourceContainerName")
     def source_container_name(self) -> str:
         """
-        The source storage container name. Changing this forces a new Storage Object Replication to be created.
+        The source storage container name.
         """
         return pulumi.get(self, "source_container_name")
 

@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedHardwareSecurityModule{}
 	case "azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey":
 		r = &ManagedHardwareSecurityModuleKey{}
+	case "azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy":
+		r = &ManagedHardwareSecurityModuleKeyRotationPolicy{}
 	case "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment":
 		r = &ManagedHardwareSecurityModuleRoleAssignment{}
 	case "azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition":
@@ -105,6 +107,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"keyvault/managedHardwareSecurityModuleKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"keyvault/managedHardwareSecurityModuleKeyRotationPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

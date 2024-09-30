@@ -33,14 +33,14 @@ public final class ObjectReplicationRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+     * The destination storage container name.
      * 
      */
     @Import(name="destinationContainerName", required=true)
     private Output<String> destinationContainerName;
 
     /**
-     * @return The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+     * @return The destination storage container name.
      * 
      */
     public Output<String> destinationContainerName() {
@@ -70,14 +70,14 @@ public final class ObjectReplicationRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The source storage container name. Changing this forces a new Storage Object Replication to be created.
+     * The source storage container name.
      * 
      */
     @Import(name="sourceContainerName", required=true)
     private Output<String> sourceContainerName;
 
     /**
-     * @return The source storage container name. Changing this forces a new Storage Object Replication to be created.
+     * @return The source storage container name.
      * 
      */
     public Output<String> sourceContainerName() {
@@ -134,7 +134,7 @@ public final class ObjectReplicationRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param destinationContainerName The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+         * @param destinationContainerName The destination storage container name.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ObjectReplicationRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param destinationContainerName The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+         * @param destinationContainerName The destination storage container name.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ObjectReplicationRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sourceContainerName The source storage container name. Changing this forces a new Storage Object Replication to be created.
+         * @param sourceContainerName The source storage container name.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ObjectReplicationRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sourceContainerName The source storage container name. Changing this forces a new Storage Object Replication to be created.
+         * @param sourceContainerName The source storage container name.
          * 
          * @return builder
          * 

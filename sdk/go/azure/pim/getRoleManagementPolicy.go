@@ -112,7 +112,7 @@ func LookupRoleManagementPolicy(ctx *pulumi.Context, args *LookupRoleManagementP
 type LookupRoleManagementPolicyArgs struct {
 	// The scoped Role Definition ID of the role for which this policy applies.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-	// The scope to which this Role Management Policy applies. Can refer to a management group, a subscription or a resource group.
+	// The scope to which this Role Management Policy applies. Can refer to a management group, a subscription, a resource group or a resource.
 	Scope string `pulumi:"scope"`
 }
 
@@ -159,7 +159,7 @@ func LookupRoleManagementPolicyOutput(ctx *pulumi.Context, args LookupRoleManage
 type LookupRoleManagementPolicyOutputArgs struct {
 	// The scoped Role Definition ID of the role for which this policy applies.
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
-	// The scope to which this Role Management Policy applies. Can refer to a management group, a subscription or a resource group.
+	// The scope to which this Role Management Policy applies. Can refer to a management group, a subscription, a resource group or a resource.
 	Scope pulumi.StringInput `pulumi:"scope"`
 }
 

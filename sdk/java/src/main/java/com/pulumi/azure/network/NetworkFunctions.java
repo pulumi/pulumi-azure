@@ -70,6 +70,8 @@ import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
 import com.pulumi.azure.network.inputs.GetVirtualWanPlainArgs;
 import com.pulumi.azure.network.inputs.GetVpnGatewayArgs;
 import com.pulumi.azure.network.inputs.GetVpnGatewayPlainArgs;
+import com.pulumi.azure.network.inputs.GetVpnServerConfigurationArgs;
+import com.pulumi.azure.network.inputs.GetVpnServerConfigurationPlainArgs;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayResult;
 import com.pulumi.azure.network.outputs.GetApplicationSecurityGroupResult;
 import com.pulumi.azure.network.outputs.GetExpressRouteCircuitResult;
@@ -103,6 +105,7 @@ import com.pulumi.azure.network.outputs.GetVirtualNetworkGatewayResult;
 import com.pulumi.azure.network.outputs.GetVirtualNetworkResult;
 import com.pulumi.azure.network.outputs.GetVirtualWanResult;
 import com.pulumi.azure.network.outputs.GetVpnGatewayResult;
+import com.pulumi.azure.network.outputs.GetVpnServerConfigurationResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -6289,5 +6292,181 @@ public final class NetworkFunctions {
      */
     public static CompletableFuture<GetVpnGatewayResult> getVpnGatewayPlain(GetVpnGatewayPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:network/getVpnGateway:getVpnGateway", TypeShape.of(GetVpnGatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing VPN Server Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVpnServerConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVpnServerConfiguration(GetVpnServerConfigurationArgs.builder()
+     *             .name("existing-local-vpn-server-configuration")
+     *             .resourceGroupName("existing-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("azurermVpnServerConfiguration", example.applyValue(getVpnServerConfigurationResult -> getVpnServerConfigurationResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVpnServerConfigurationResult> getVpnServerConfiguration(GetVpnServerConfigurationArgs args) {
+        return getVpnServerConfiguration(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing VPN Server Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVpnServerConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVpnServerConfiguration(GetVpnServerConfigurationArgs.builder()
+     *             .name("existing-local-vpn-server-configuration")
+     *             .resourceGroupName("existing-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("azurermVpnServerConfiguration", example.applyValue(getVpnServerConfigurationResult -> getVpnServerConfigurationResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetVpnServerConfigurationResult> getVpnServerConfigurationPlain(GetVpnServerConfigurationPlainArgs args) {
+        return getVpnServerConfigurationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing VPN Server Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVpnServerConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVpnServerConfiguration(GetVpnServerConfigurationArgs.builder()
+     *             .name("existing-local-vpn-server-configuration")
+     *             .resourceGroupName("existing-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("azurermVpnServerConfiguration", example.applyValue(getVpnServerConfigurationResult -> getVpnServerConfigurationResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVpnServerConfigurationResult> getVpnServerConfiguration(GetVpnServerConfigurationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:network/getVpnServerConfiguration:getVpnServerConfiguration", TypeShape.of(GetVpnServerConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing VPN Server Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVpnServerConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVpnServerConfiguration(GetVpnServerConfigurationArgs.builder()
+     *             .name("existing-local-vpn-server-configuration")
+     *             .resourceGroupName("existing-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("azurermVpnServerConfiguration", example.applyValue(getVpnServerConfigurationResult -> getVpnServerConfigurationResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetVpnServerConfigurationResult> getVpnServerConfigurationPlain(GetVpnServerConfigurationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:network/getVpnServerConfiguration:getVpnServerConfiguration", TypeShape.of(GetVpnServerConfigurationResult.class), args, Utilities.withVersion(options));
     }
 }

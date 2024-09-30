@@ -260,6 +260,11 @@ export const getVpnGateway: typeof import("./getVpnGateway").getVpnGateway = nul
 export const getVpnGatewayOutput: typeof import("./getVpnGateway").getVpnGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getVpnGateway","getVpnGatewayOutput"], () => require("./getVpnGateway"));
 
+export { GetVpnServerConfigurationArgs, GetVpnServerConfigurationResult, GetVpnServerConfigurationOutputArgs } from "./getVpnServerConfiguration";
+export const getVpnServerConfiguration: typeof import("./getVpnServerConfiguration").getVpnServerConfiguration = null as any;
+export const getVpnServerConfigurationOutput: typeof import("./getVpnServerConfiguration").getVpnServerConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getVpnServerConfiguration","getVpnServerConfigurationOutput"], () => require("./getVpnServerConfiguration"));
+
 export { IPGroupArgs, IPGroupState } from "./ipgroup";
 export type IPGroup = import("./ipgroup").IPGroup;
 export const IPGroup: typeof import("./ipgroup").IPGroup = null as any;

@@ -168,7 +168,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> ExportPolicyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `georeplications` block as documented below.
+        /// One or more `georeplications` blocks as documented below.
         /// 
         /// &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
         /// 
@@ -349,7 +349,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.RegistryGeoreplicationArgs>? _georeplications;
 
         /// <summary>
-        /// A `georeplications` block as documented below.
+        /// One or more `georeplications` blocks as documented below.
         /// 
         /// &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
         /// 
@@ -513,7 +513,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.RegistryGeoreplicationGetArgs>? _georeplications;
 
         /// <summary>
-        /// A `georeplications` block as documented below.
+        /// One or more `georeplications` blocks as documented below.
         /// 
         /// &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
         /// 

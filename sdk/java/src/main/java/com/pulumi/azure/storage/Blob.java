@@ -231,14 +231,14 @@ public class Blob extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.size);
     }
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
      * 
      */
     @Export(name="source", refs={AssetOrArchive.class}, tree="[0]")
     private Output</* @Nullable */ AssetOrArchive> source;
 
     /**
-     * @return An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+     * @return An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
      * 
      */
     public Output<Optional<AssetOrArchive>> source() {

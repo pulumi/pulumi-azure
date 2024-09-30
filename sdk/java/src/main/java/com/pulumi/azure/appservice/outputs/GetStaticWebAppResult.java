@@ -29,6 +29,7 @@ public final class GetStaticWebAppResult {
     private String location;
     private String name;
     private Boolean previewEnvironmentsEnabled;
+    private Boolean publicNetworkAccessEnabled;
     private String resourceGroupName;
     private String skuSize;
     private String skuTier;
@@ -69,6 +70,9 @@ public final class GetStaticWebAppResult {
     public Boolean previewEnvironmentsEnabled() {
         return this.previewEnvironmentsEnabled;
     }
+    public Boolean publicNetworkAccessEnabled() {
+        return this.publicNetworkAccessEnabled;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -101,6 +105,7 @@ public final class GetStaticWebAppResult {
         private String location;
         private String name;
         private Boolean previewEnvironmentsEnabled;
+        private Boolean publicNetworkAccessEnabled;
         private String resourceGroupName;
         private String skuSize;
         private String skuTier;
@@ -118,6 +123,7 @@ public final class GetStaticWebAppResult {
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.previewEnvironmentsEnabled = defaults.previewEnvironmentsEnabled;
+    	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.skuSize = defaults.skuSize;
     	      this.skuTier = defaults.skuTier;
@@ -211,6 +217,14 @@ public final class GetStaticWebAppResult {
             return this;
         }
         @CustomType.Setter
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStaticWebAppResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetStaticWebAppResult", "resourceGroupName");
@@ -254,6 +268,7 @@ public final class GetStaticWebAppResult {
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.previewEnvironmentsEnabled = previewEnvironmentsEnabled;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.skuSize = skuSize;
             _resultValue.skuTier = skuTier;

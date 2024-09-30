@@ -30,6 +30,7 @@ class SharedImageArgs:
                  confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_controller_type_nvme_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
@@ -61,6 +62,7 @@ class SharedImageArgs:
                > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
+        :param pulumi.Input[bool] disk_controller_type_nvme_enabled: Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
@@ -96,6 +98,8 @@ class SharedImageArgs:
             pulumi.set(__self__, "confidential_vm_supported", confidential_vm_supported)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disk_controller_type_nvme_enabled is not None:
+            pulumi.set(__self__, "disk_controller_type_nvme_enabled", disk_controller_type_nvme_enabled)
         if disk_types_not_alloweds is not None:
             pulumi.set(__self__, "disk_types_not_alloweds", disk_types_not_alloweds)
         if end_of_life_date is not None:
@@ -242,6 +246,18 @@ class SharedImageArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="diskControllerTypeNvmeEnabled")
+    def disk_controller_type_nvme_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "disk_controller_type_nvme_enabled")
+
+    @disk_controller_type_nvme_enabled.setter
+    def disk_controller_type_nvme_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disk_controller_type_nvme_enabled", value)
 
     @property
     @pulumi.getter(name="diskTypesNotAlloweds")
@@ -470,6 +486,7 @@ class _SharedImageState:
                  confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_controller_type_nvme_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
@@ -501,6 +518,7 @@ class _SharedImageState:
                > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
+        :param pulumi.Input[bool] disk_controller_type_nvme_enabled: Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
@@ -536,6 +554,8 @@ class _SharedImageState:
             pulumi.set(__self__, "confidential_vm_supported", confidential_vm_supported)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disk_controller_type_nvme_enabled is not None:
+            pulumi.set(__self__, "disk_controller_type_nvme_enabled", disk_controller_type_nvme_enabled)
         if disk_types_not_alloweds is not None:
             pulumi.set(__self__, "disk_types_not_alloweds", disk_types_not_alloweds)
         if end_of_life_date is not None:
@@ -642,6 +662,18 @@ class _SharedImageState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="diskControllerTypeNvmeEnabled")
+    def disk_controller_type_nvme_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "disk_controller_type_nvme_enabled")
+
+    @disk_controller_type_nvme_enabled.setter
+    def disk_controller_type_nvme_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disk_controller_type_nvme_enabled", value)
 
     @property
     @pulumi.getter(name="diskTypesNotAlloweds")
@@ -920,6 +952,7 @@ class SharedImage(pulumi.CustomResource):
                  confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_controller_type_nvme_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
@@ -994,6 +1027,7 @@ class SharedImage(pulumi.CustomResource):
                > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
+        :param pulumi.Input[bool] disk_controller_type_nvme_enabled: Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
@@ -1087,6 +1121,7 @@ class SharedImage(pulumi.CustomResource):
                  confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
                  confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disk_controller_type_nvme_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
@@ -1123,6 +1158,7 @@ class SharedImage(pulumi.CustomResource):
             __props__.__dict__["confidential_vm_enabled"] = confidential_vm_enabled
             __props__.__dict__["confidential_vm_supported"] = confidential_vm_supported
             __props__.__dict__["description"] = description
+            __props__.__dict__["disk_controller_type_nvme_enabled"] = disk_controller_type_nvme_enabled
             __props__.__dict__["disk_types_not_alloweds"] = disk_types_not_alloweds
             __props__.__dict__["end_of_life_date"] = end_of_life_date
             __props__.__dict__["eula"] = eula
@@ -1168,6 +1204,7 @@ class SharedImage(pulumi.CustomResource):
             confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
             confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            disk_controller_type_nvme_enabled: Optional[pulumi.Input[bool]] = None,
             disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             end_of_life_date: Optional[pulumi.Input[str]] = None,
             eula: Optional[pulumi.Input[str]] = None,
@@ -1204,6 +1241,7 @@ class SharedImage(pulumi.CustomResource):
                > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
+        :param pulumi.Input[bool] disk_controller_type_nvme_enabled: Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
@@ -1238,6 +1276,7 @@ class SharedImage(pulumi.CustomResource):
         __props__.__dict__["confidential_vm_enabled"] = confidential_vm_enabled
         __props__.__dict__["confidential_vm_supported"] = confidential_vm_supported
         __props__.__dict__["description"] = description
+        __props__.__dict__["disk_controller_type_nvme_enabled"] = disk_controller_type_nvme_enabled
         __props__.__dict__["disk_types_not_alloweds"] = disk_types_not_alloweds
         __props__.__dict__["end_of_life_date"] = end_of_life_date
         __props__.__dict__["eula"] = eula
@@ -1303,6 +1342,14 @@ class SharedImage(pulumi.CustomResource):
         A description of this Shared Image.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="diskControllerTypeNvmeEnabled")
+    def disk_controller_type_nvme_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "disk_controller_type_nvme_enabled")
 
     @property
     @pulumi.getter(name="diskTypesNotAlloweds")

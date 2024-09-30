@@ -56,6 +56,7 @@ from .get_virtual_network import *
 from .get_virtual_network_gateway import *
 from .get_virtual_wan import *
 from .get_vpn_gateway import *
+from .get_vpn_server_configuration import *
 from .ip_group import *
 from .ip_group_cidr import *
 from .local_network_gateway import *

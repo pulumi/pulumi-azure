@@ -70,6 +70,10 @@ export class CustomDomain extends pulumi.CustomResource {
      */
     public readonly containerAppEnvironmentCertificateId!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the Container App Environment Managed Certificate to use.
+     */
+    public /*out*/ readonly containerAppEnvironmentManagedCertificateId!: pulumi.Output<string>;
+    /**
      * The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
      */
     public readonly containerAppId!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class CustomDomain extends pulumi.CustomResource {
             const state = argsOrState as CustomDomainState | undefined;
             resourceInputs["certificateBindingType"] = state ? state.certificateBindingType : undefined;
             resourceInputs["containerAppEnvironmentCertificateId"] = state ? state.containerAppEnvironmentCertificateId : undefined;
+            resourceInputs["containerAppEnvironmentManagedCertificateId"] = state ? state.containerAppEnvironmentManagedCertificateId : undefined;
             resourceInputs["containerAppId"] = state ? state.containerAppId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
@@ -106,6 +111,7 @@ export class CustomDomain extends pulumi.CustomResource {
             resourceInputs["containerAppEnvironmentCertificateId"] = args ? args.containerAppEnvironmentCertificateId : undefined;
             resourceInputs["containerAppId"] = args ? args.containerAppId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["containerAppEnvironmentManagedCertificateId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomDomain.__pulumiType, name, resourceInputs, opts);
@@ -126,6 +132,10 @@ export interface CustomDomainState {
      * > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      */
     containerAppEnvironmentCertificateId?: pulumi.Input<string>;
+    /**
+     * The ID of the Container App Environment Managed Certificate to use.
+     */
+    containerAppEnvironmentManagedCertificateId?: pulumi.Input<string>;
     /**
      * The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
      */

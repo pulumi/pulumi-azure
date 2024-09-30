@@ -141,7 +141,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<Outputs.SpringCloudGatewayCors?> Cors { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        /// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         /// </summary>
         [Output("environmentVariables")]
         public Output<ImmutableDictionary<string, string>?> EnvironmentVariables { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<Outputs.SpringCloudGatewayQuota> Quota { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        /// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         /// </summary>
         [Output("sensitiveEnvironmentVariables")]
         public Output<ImmutableDictionary<string, string>?> SensitiveEnvironmentVariables { get; private set; } = null!;
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputMap<string>? _environmentVariables;
 
         /// <summary>
-        /// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        /// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         /// </summary>
         public InputMap<string> EnvironmentVariables
         {
@@ -362,7 +362,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputMap<string>? _sensitiveEnvironmentVariables;
 
         /// <summary>
-        /// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        /// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         /// </summary>
         public InputMap<string> SensitiveEnvironmentVariables
         {
@@ -440,7 +440,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputMap<string>? _environmentVariables;
 
         /// <summary>
-        /// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        /// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         /// </summary>
         public InputMap<string> EnvironmentVariables
         {
@@ -494,7 +494,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputMap<string>? _sensitiveEnvironmentVariables;
 
         /// <summary>
-        /// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        /// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         /// </summary>
         public InputMap<string> SensitiveEnvironmentVariables
         {

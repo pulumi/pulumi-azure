@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<string>? CopyBlobsCreatedAfter { get; set; }
 
         /// <summary>
-        /// The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+        /// The destination storage container name.
         /// </summary>
         [Input("destinationContainerName", required: true)]
         public Input<string> DestinationContainerName { get; set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The source storage container name. Changing this forces a new Storage Object Replication to be created.
+        /// The source storage container name.
         /// </summary>
         [Input("sourceContainerName", required: true)]
         public Input<string> SourceContainerName { get; set; } = null!;

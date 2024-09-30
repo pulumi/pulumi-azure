@@ -6842,12 +6842,12 @@ func (o ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput) Index(i pulumi.
 type ObjectReplicationRule struct {
 	// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
 	CopyBlobsCreatedAfter *string `pulumi:"copyBlobsCreatedAfter"`
-	// The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+	// The destination storage container name.
 	DestinationContainerName string `pulumi:"destinationContainerName"`
 	// Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
 	FilterOutBlobsWithPrefixes []string `pulumi:"filterOutBlobsWithPrefixes"`
 	Name                       *string  `pulumi:"name"`
-	// The source storage container name. Changing this forces a new Storage Object Replication to be created.
+	// The source storage container name.
 	SourceContainerName string `pulumi:"sourceContainerName"`
 }
 
@@ -6865,12 +6865,12 @@ type ObjectReplicationRuleInput interface {
 type ObjectReplicationRuleArgs struct {
 	// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
 	CopyBlobsCreatedAfter pulumi.StringPtrInput `pulumi:"copyBlobsCreatedAfter"`
-	// The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+	// The destination storage container name.
 	DestinationContainerName pulumi.StringInput `pulumi:"destinationContainerName"`
 	// Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
 	FilterOutBlobsWithPrefixes pulumi.StringArrayInput `pulumi:"filterOutBlobsWithPrefixes"`
 	Name                       pulumi.StringPtrInput   `pulumi:"name"`
-	// The source storage container name. Changing this forces a new Storage Object Replication to be created.
+	// The source storage container name.
 	SourceContainerName pulumi.StringInput `pulumi:"sourceContainerName"`
 }
 
@@ -6930,7 +6930,7 @@ func (o ObjectReplicationRuleOutput) CopyBlobsCreatedAfter() pulumi.StringPtrOut
 	return o.ApplyT(func(v ObjectReplicationRule) *string { return v.CopyBlobsCreatedAfter }).(pulumi.StringPtrOutput)
 }
 
-// The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+// The destination storage container name.
 func (o ObjectReplicationRuleOutput) DestinationContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectReplicationRule) string { return v.DestinationContainerName }).(pulumi.StringOutput)
 }
@@ -6944,7 +6944,7 @@ func (o ObjectReplicationRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectReplicationRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The source storage container name. Changing this forces a new Storage Object Replication to be created.
+// The source storage container name.
 func (o ObjectReplicationRuleOutput) SourceContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectReplicationRule) string { return v.SourceContainerName }).(pulumi.StringOutput)
 }

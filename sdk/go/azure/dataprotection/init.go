@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BackupPolicyDisk{}
 	case "azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster":
 		r = &BackupPolicyKubernetesCluster{}
+	case "azure:dataprotection/backupPolicyMysqlFlexibleServer:BackupPolicyMysqlFlexibleServer":
+		r = &BackupPolicyMysqlFlexibleServer{}
 	case "azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql":
 		r = &BackupPolicyPostgresql{}
 	case "azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer":
@@ -96,6 +98,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"dataprotection/backupPolicyKubernetesCluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"dataprotection/backupPolicyMysqlFlexibleServer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

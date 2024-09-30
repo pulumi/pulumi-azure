@@ -35,7 +35,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// <summary>
         /// The suffix string to which this `traffic_weight` applies.
         /// 
-        /// &gt; **Note:** `latest_revision` conflicts with `revision_suffix`, which means you shall either set `latest_revision` to `true` or specify `revision_suffix`. Especially for creation, there shall only be one `traffic_weight`, with the `latest_revision` set to `true`, and leave the `revision_suffix` empty.
+        /// &gt; **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
         /// </summary>
         [Input("revisionSuffix")]
         public Input<string>? RevisionSuffix { get; set; }

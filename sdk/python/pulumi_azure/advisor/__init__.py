@@ -6,4 +6,5 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_recommendations import *
+from .suppression import *
 from . import outputs

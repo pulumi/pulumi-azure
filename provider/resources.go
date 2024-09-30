@@ -608,6 +608,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_active_directory_domain_service_trust": {Tok: azureResource(azureDomainServices, "ServiceTrust")},
 
+			"azurerm_advisor_suppression": {Tok: azureResource(advisor, "Suppression"), Docs: &tfbridge.DocInfo{Source: "advisor_suppresion.html.markdown"}},
+
 			// API Mannagement
 			"azurerm_api_management": {
 				Tok: azureResource(azureAPIManagement, "Service"),
@@ -3065,6 +3067,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_application_gateway":         {Tok: azureDataSource(azureNetwork, "getApplicationGateway")},
 			"azurerm_local_network_gateway":       {Tok: azureDataSource(azureNetwork, "getLocalNetworkGateway")},
 			"azurerm_vpn_gateway":                 {Tok: azureDataSource(azureNetwork, "getVpnGateway")},
+			"azurerm_vpn_server_configuration":    {Tok: azureDataSource(azureNetwork, "getVpnServerConfiguration")},
 			"azurerm_signalr_service":             {Tok: azureDataSource(azureSignalr, "getService")},
 			"azurerm_storage_container":           {Tok: azureDataSource(azureStorage, "getStorageContainer")},
 			"azurerm_storage_sync":                {Tok: azureDataSource(azureStorage, "getSync")},

@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()
  *             .name("example-nginx")
  *             .resourceGroupName(example.name())
- *             .sku("standard_Monthly")
+ *             .sku("standardv2_Monthly")
  *             .location(example.location())
  *             .managedResourceGroup("example")
  *             .diagnoseSupportEnabled(true)

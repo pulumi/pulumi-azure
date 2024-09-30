@@ -157,7 +157,9 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** This can only be set to `true` when one or more `zones` are configured.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+               
+               > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         """
         pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "admin_username", admin_username)
@@ -938,7 +940,9 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+
+        > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -1088,7 +1092,9 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** This can only be set to `true` when one or more `zones` are configured.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+               
+               > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         """
         if additional_capabilities is not None:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -1890,7 +1896,9 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+
+        > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -2113,7 +2121,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** This can only be set to `true` when one or more `zones` are configured.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+               
+               > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         """
         ...
     @overload
@@ -2497,7 +2507,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** This can only be set to `true` when one or more `zones` are configured.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+               
+               > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -3028,7 +3040,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+
+        > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         """
         return pulumi.get(self, "zones")
 

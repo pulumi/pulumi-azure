@@ -350,7 +350,9 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+     *
+     * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -744,7 +746,9 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**
-     * Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+     *
+     * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -991,7 +995,9 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**
-     * Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+     *
+     * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

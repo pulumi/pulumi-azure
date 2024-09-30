@@ -30,7 +30,7 @@ class RoleManagementPolicyArgs:
         """
         The set of arguments for constructing a RoleManagementPolicy resource.
         :param pulumi.Input[str] role_definition_id: The scoped Role Definition ID of the role for which this policy will apply. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scope: The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         :param pulumi.Input['RoleManagementPolicyActivationRulesArgs'] activation_rules: An `activation_rules` block as defined below.
         :param pulumi.Input['RoleManagementPolicyActiveAssignmentRulesArgs'] active_assignment_rules: An `active_assignment_rules` block as defined below.
         :param pulumi.Input['RoleManagementPolicyEligibleAssignmentRulesArgs'] eligible_assignment_rules: An `eligible_assignment_rules` block as defined below.
@@ -63,7 +63,7 @@ class RoleManagementPolicyArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
         """
-        The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+        The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
@@ -140,7 +140,7 @@ class _RoleManagementPolicyState:
         :param pulumi.Input[str] name: (String) The name of this policy, which is typically a UUID and may change over time.
         :param pulumi.Input['RoleManagementPolicyNotificationRulesArgs'] notification_rules: A `notification_rules` block as defined below.
         :param pulumi.Input[str] role_definition_id: The scoped Role Definition ID of the role for which this policy will apply. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scope: The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         """
         if activation_rules is not None:
             pulumi.set(__self__, "activation_rules", activation_rules)
@@ -247,7 +247,7 @@ class _RoleManagementPolicyState:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+        The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 
@@ -321,7 +321,7 @@ class RoleManagementPolicy(pulumi.CustomResource):
         :param pulumi.Input[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict']] eligible_assignment_rules: An `eligible_assignment_rules` block as defined below.
         :param pulumi.Input[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict']] notification_rules: A `notification_rules` block as defined below.
         :param pulumi.Input[str] role_definition_id: The scoped Role Definition ID of the role for which this policy will apply. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scope: The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -449,7 +449,7 @@ class RoleManagementPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: (String) The name of this policy, which is typically a UUID and may change over time.
         :param pulumi.Input[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict']] notification_rules: A `notification_rules` block as defined below.
         :param pulumi.Input[str] role_definition_id: The scoped Role Definition ID of the role for which this policy will apply. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scope: The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -525,7 +525,7 @@ class RoleManagementPolicy(pulumi.CustomResource):
     @pulumi.getter
     def scope(self) -> pulumi.Output[str]:
         """
-        The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+        The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
 

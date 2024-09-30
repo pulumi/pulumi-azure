@@ -27,7 +27,7 @@ class GetStaticWebAppResult:
     """
     A collection of values returned by getStaticWebApp.
     """
-    def __init__(__self__, api_key=None, app_settings=None, basic_auths=None, configuration_file_changes_enabled=None, default_host_name=None, id=None, identities=None, location=None, name=None, preview_environments_enabled=None, resource_group_name=None, sku_size=None, sku_tier=None, tags=None):
+    def __init__(__self__, api_key=None, app_settings=None, basic_auths=None, configuration_file_changes_enabled=None, default_host_name=None, id=None, identities=None, location=None, name=None, preview_environments_enabled=None, public_network_access_enabled=None, resource_group_name=None, sku_size=None, sku_tier=None, tags=None):
         if api_key and not isinstance(api_key, str):
             raise TypeError("Expected argument 'api_key' to be a str")
         pulumi.set(__self__, "api_key", api_key)
@@ -58,6 +58,9 @@ class GetStaticWebAppResult:
         if preview_environments_enabled and not isinstance(preview_environments_enabled, bool):
             raise TypeError("Expected argument 'preview_environments_enabled' to be a bool")
         pulumi.set(__self__, "preview_environments_enabled", preview_environments_enabled)
+        if public_network_access_enabled and not isinstance(public_network_access_enabled, bool):
+            raise TypeError("Expected argument 'public_network_access_enabled' to be a bool")
+        pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -125,6 +128,11 @@ class GetStaticWebAppResult:
         return pulumi.get(self, "preview_environments_enabled")
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> bool:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -161,6 +169,7 @@ class AwaitableGetStaticWebAppResult(GetStaticWebAppResult):
             location=self.location,
             name=self.name,
             preview_environments_enabled=self.preview_environments_enabled,
+            public_network_access_enabled=self.public_network_access_enabled,
             resource_group_name=self.resource_group_name,
             sku_size=self.sku_size,
             sku_tier=self.sku_tier,
@@ -204,6 +213,7 @@ def get_static_web_app(name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         preview_environments_enabled=pulumi.get(__ret__, 'preview_environments_enabled'),
+        public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku_size=pulumi.get(__ret__, 'sku_size'),
         sku_tier=pulumi.get(__ret__, 'sku_tier'),

@@ -29,6 +29,7 @@ class StaticWebAppArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -42,6 +43,7 @@ class StaticWebAppArgs:
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[bool] preview_environments_enabled: Are Preview (Staging) environments enabled. Defaults to `true`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Static Web App. Defaults to `true`.
         :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -61,6 +63,8 @@ class StaticWebAppArgs:
             pulumi.set(__self__, "name", name)
         if preview_environments_enabled is not None:
             pulumi.set(__self__, "preview_environments_enabled", preview_environments_enabled)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if sku_size is not None:
             pulumi.set(__self__, "sku_size", sku_size)
         if sku_tier is not None:
@@ -165,6 +169,18 @@ class StaticWebAppArgs:
         pulumi.set(self, "preview_environments_enabled", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should public network access be enabled for the Static Web App. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="skuSize")
     def sku_size(self) -> Optional[pulumi.Input[str]]:
         """
@@ -213,6 +229,7 @@ class _StaticWebAppState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
@@ -228,6 +245,7 @@ class _StaticWebAppState:
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[bool] preview_environments_enabled: Are Preview (Staging) environments enabled. Defaults to `true`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Static Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -251,6 +269,8 @@ class _StaticWebAppState:
             pulumi.set(__self__, "name", name)
         if preview_environments_enabled is not None:
             pulumi.set(__self__, "preview_environments_enabled", preview_environments_enabled)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_size is not None:
@@ -369,6 +389,18 @@ class _StaticWebAppState:
         pulumi.set(self, "preview_environments_enabled", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should public network access be enabled for the Static Web App. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -429,6 +461,7 @@ class StaticWebApp(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
@@ -469,6 +502,7 @@ class StaticWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[bool] preview_environments_enabled: Are Preview (Staging) environments enabled. Defaults to `true`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Static Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -528,6 +562,7 @@ class StaticWebApp(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
@@ -548,6 +583,7 @@ class StaticWebApp(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["preview_environments_enabled"] = preview_environments_enabled
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -577,6 +613,7 @@ class StaticWebApp(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_size: Optional[pulumi.Input[str]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
@@ -597,6 +634,7 @@ class StaticWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[bool] preview_environments_enabled: Are Preview (Staging) environments enabled. Defaults to `true`.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Static Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -615,6 +653,7 @@ class StaticWebApp(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["preview_environments_enabled"] = preview_environments_enabled
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_size"] = sku_size
         __props__.__dict__["sku_tier"] = sku_tier
@@ -692,6 +731,14 @@ class StaticWebApp(pulumi.CustomResource):
         Are Preview (Staging) environments enabled. Defaults to `true`.
         """
         return pulumi.get(self, "preview_environments_enabled")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should public network access be enabled for the Static Web App. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

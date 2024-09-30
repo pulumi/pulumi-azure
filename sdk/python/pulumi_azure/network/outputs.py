@@ -261,6 +261,14 @@ __all__ = [
     'GetVpnGatewayBgpSettingResult',
     'GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult',
     'GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult',
+    'GetVpnServerConfigurationAzureActiveDirectoryAuthenticationResult',
+    'GetVpnServerConfigurationClientRevokedCertificateResult',
+    'GetVpnServerConfigurationClientRootCertificateResult',
+    'GetVpnServerConfigurationIpsecPolicyResult',
+    'GetVpnServerConfigurationRadiusResult',
+    'GetVpnServerConfigurationRadiusClientRootCertificateResult',
+    'GetVpnServerConfigurationRadiusServerResult',
+    'GetVpnServerConfigurationRadiusServerRootCertificateResult',
 ]
 
 @pulumi.output_type
@@ -17429,5 +17437,336 @@ class GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult(dict):
         The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
         """
         return pulumi.get(self, "tunnel_ips")
+
+
+@pulumi.output_type
+class GetVpnServerConfigurationAzureActiveDirectoryAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 audience: str,
+                 issuer: str,
+                 tenant: str):
+        """
+        :param str audience: The Audience which should be used for authentication.
+        :param str issuer: The Issuer which should be used for authentication.
+        :param str tenant: The Tenant which should be used for authentication.
+        """
+        pulumi.set(__self__, "audience", audience)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "tenant", tenant)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> str:
+        """
+        The Audience which should be used for authentication.
+        """
+        return pulumi.get(self, "audience")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        """
+        The Issuer which should be used for authentication.
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter
+    def tenant(self) -> str:
+        """
+        The Tenant which should be used for authentication.
+        """
+        return pulumi.get(self, "tenant")
+
+
+@pulumi.output_type
+class GetVpnServerConfigurationClientRevokedCertificateResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 thumbprint: str):
+        """
+        :param str name: The Name of the VPN Server Configuration.
+        :param str thumbprint: The Thumbprint of the Certificate.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name of the VPN Server Configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        The Thumbprint of the Certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+
+@pulumi.output_type
+class GetVpnServerConfigurationClientRootCertificateResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 public_cert_data: str):
+        """
+        :param str name: The Name of the VPN Server Configuration.
+        :param str public_cert_data: The Public Key Data associated with the Certificate.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "public_cert_data", public_cert_data)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name of the VPN Server Configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicCertData")
+    def public_cert_data(self) -> str:
+        """
+        The Public Key Data associated with the Certificate.
+        """
+        return pulumi.get(self, "public_cert_data")
+
+
+@pulumi.output_type
+class GetVpnServerConfigurationIpsecPolicyResult(dict):
+    def __init__(__self__, *,
+                 dh_group: str,
+                 ike_encryption: str,
+                 ike_integrity: str,
+                 ipsec_encryption: str,
+                 ipsec_integrity: str,
+                 pfs_group: str,
+                 sa_data_size_kilobytes: int,
+                 sa_lifetime_seconds: int):
+        """
+        :param str dh_group: The DH Group, used in IKE Phase 1.
+        :param str ike_encryption: The IKE encryption algorithm, used for IKE Phase 2.
+        :param str ike_integrity: The IKE encryption integrity algorithm, used for IKE Phase 2.
+        :param str ipsec_encryption: The IPSec encryption algorithm, used for IKE phase 1.
+        :param str ipsec_integrity: The IPSec integrity algorithm, used for IKE phase 1.
+        :param str pfs_group: The Pfs Group, used in IKE Phase 2.
+        :param int sa_data_size_kilobytes: The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+        :param int sa_lifetime_seconds: The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+        """
+        pulumi.set(__self__, "dh_group", dh_group)
+        pulumi.set(__self__, "ike_encryption", ike_encryption)
+        pulumi.set(__self__, "ike_integrity", ike_integrity)
+        pulumi.set(__self__, "ipsec_encryption", ipsec_encryption)
+        pulumi.set(__self__, "ipsec_integrity", ipsec_integrity)
+        pulumi.set(__self__, "pfs_group", pfs_group)
+        pulumi.set(__self__, "sa_data_size_kilobytes", sa_data_size_kilobytes)
+        pulumi.set(__self__, "sa_lifetime_seconds", sa_lifetime_seconds)
+
+    @property
+    @pulumi.getter(name="dhGroup")
+    def dh_group(self) -> str:
+        """
+        The DH Group, used in IKE Phase 1.
+        """
+        return pulumi.get(self, "dh_group")
+
+    @property
+    @pulumi.getter(name="ikeEncryption")
+    def ike_encryption(self) -> str:
+        """
+        The IKE encryption algorithm, used for IKE Phase 2.
+        """
+        return pulumi.get(self, "ike_encryption")
+
+    @property
+    @pulumi.getter(name="ikeIntegrity")
+    def ike_integrity(self) -> str:
+        """
+        The IKE encryption integrity algorithm, used for IKE Phase 2.
+        """
+        return pulumi.get(self, "ike_integrity")
+
+    @property
+    @pulumi.getter(name="ipsecEncryption")
+    def ipsec_encryption(self) -> str:
+        """
+        The IPSec encryption algorithm, used for IKE phase 1.
+        """
+        return pulumi.get(self, "ipsec_encryption")
+
+    @property
+    @pulumi.getter(name="ipsecIntegrity")
+    def ipsec_integrity(self) -> str:
+        """
+        The IPSec integrity algorithm, used for IKE phase 1.
+        """
+        return pulumi.get(self, "ipsec_integrity")
+
+    @property
+    @pulumi.getter(name="pfsGroup")
+    def pfs_group(self) -> str:
+        """
+        The Pfs Group, used in IKE Phase 2.
+        """
+        return pulumi.get(self, "pfs_group")
+
+    @property
+    @pulumi.getter(name="saDataSizeKilobytes")
+    def sa_data_size_kilobytes(self) -> int:
+        """
+        The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+        """
+        return pulumi.get(self, "sa_data_size_kilobytes")
+
+    @property
+    @pulumi.getter(name="saLifetimeSeconds")
+    def sa_lifetime_seconds(self) -> int:
+        """
+        The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+        """
+        return pulumi.get(self, "sa_lifetime_seconds")
+
+
+@pulumi.output_type
+class GetVpnServerConfigurationRadiusResult(dict):
+    def __init__(__self__, *,
+                 client_root_certificates: Sequence['outputs.GetVpnServerConfigurationRadiusClientRootCertificateResult'],
+                 server_root_certificates: Sequence['outputs.GetVpnServerConfigurationRadiusServerRootCertificateResult'],
+                 servers: Sequence['outputs.GetVpnServerConfigurationRadiusServerResult']):
+        """
+        :param Sequence['GetVpnServerConfigurationRadiusClientRootCertificateArgs'] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
+        :param Sequence['GetVpnServerConfigurationRadiusServerRootCertificateArgs'] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
+        :param Sequence['GetVpnServerConfigurationRadiusServerArgs'] servers: One or more `server` blocks as defined below.
+        """
+        pulumi.set(__self__, "client_root_certificates", client_root_certificates)
+        pulumi.set(__self__, "server_root_certificates", server_root_certificates)
+        pulumi.set(__self__, "servers", servers)
+
+    @property
+    @pulumi.getter(name="clientRootCertificates")
+    def client_root_certificates(self) -> Sequence['outputs.GetVpnServerConfigurationRadiusClientRootCertificateResult']:
+        """
+        One or more `client_root_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "client_root_certificates")
+
+    @property
+    @pulumi.getter(name="serverRootCertificates")
+    def server_root_certificates(self) -> Sequence['outputs.GetVpnServerConfigurationRadiusServerRootCertificateResult']:
+        """
+        One or more `server_root_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "server_root_certificates")
+
+    @property
+    @pulumi.getter
+    def servers(self) -> Sequence['outputs.GetVpnServerConfigurationRadiusServerResult']:
+        """
+        One or more `server` blocks as defined below.
+        """
+        return pulumi.get(self, "servers")
+
+
+@pulumi.output_type
+class GetVpnServerConfigurationRadiusClientRootCertificateResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 thumbprint: str):
+        """
+        :param str name: The Name of the VPN Server Configuration.
+        :param str thumbprint: The Thumbprint of the Certificate.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name of the VPN Server Configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        The Thumbprint of the Certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+
+@pulumi.output_type
+class GetVpnServerConfigurationRadiusServerResult(dict):
+    def __init__(__self__, *,
+                 address: str,
+                 score: int,
+                 secret: str):
+        """
+        :param str address: The Address of the Radius Server.
+        :param int score: The Score of the Radius Server determines the priority of the server.
+        :param str secret: The Secret used to communicate with the Radius Server.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "score", score)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def address(self) -> str:
+        """
+        The Address of the Radius Server.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def score(self) -> int:
+        """
+        The Score of the Radius Server determines the priority of the server.
+        """
+        return pulumi.get(self, "score")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Secret used to communicate with the Radius Server.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetVpnServerConfigurationRadiusServerRootCertificateResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 public_cert_data: str):
+        """
+        :param str name: The Name of the VPN Server Configuration.
+        :param str public_cert_data: The Public Key Data associated with the Certificate.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "public_cert_data", public_cert_data)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name of the VPN Server Configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicCertData")
+    def public_cert_data(self) -> str:
+        """
+        The Public Key Data associated with the Certificate.
+        """
+        return pulumi.get(self, "public_cert_data")
 
 

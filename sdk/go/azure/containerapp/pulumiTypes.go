@@ -927,7 +927,7 @@ type AppIngressTrafficWeight struct {
 	Percentage int `pulumi:"percentage"`
 	// The suffix string to which this `trafficWeight` applies.
 	//
-	// > **Note:** `latestRevision` conflicts with `revisionSuffix`, which means you shall either set `latestRevision` to `true` or specify `revisionSuffix`. Especially for creation, there shall only be one `trafficWeight`, with the `latestRevision` set to `true`, and leave the `revisionSuffix` empty.
+	// > **Note:** If `latestRevision` is `false`, the `revisionSuffix` shall be specified.
 	RevisionSuffix *string `pulumi:"revisionSuffix"`
 }
 
@@ -953,7 +953,7 @@ type AppIngressTrafficWeightArgs struct {
 	Percentage pulumi.IntInput `pulumi:"percentage"`
 	// The suffix string to which this `trafficWeight` applies.
 	//
-	// > **Note:** `latestRevision` conflicts with `revisionSuffix`, which means you shall either set `latestRevision` to `true` or specify `revisionSuffix`. Especially for creation, there shall only be one `trafficWeight`, with the `latestRevision` set to `true`, and leave the `revisionSuffix` empty.
+	// > **Note:** If `latestRevision` is `false`, the `revisionSuffix` shall be specified.
 	RevisionSuffix pulumi.StringPtrInput `pulumi:"revisionSuffix"`
 }
 
@@ -1027,7 +1027,7 @@ func (o AppIngressTrafficWeightOutput) Percentage() pulumi.IntOutput {
 
 // The suffix string to which this `trafficWeight` applies.
 //
-// > **Note:** `latestRevision` conflicts with `revisionSuffix`, which means you shall either set `latestRevision` to `true` or specify `revisionSuffix`. Especially for creation, there shall only be one `trafficWeight`, with the `latestRevision` set to `true`, and leave the `revisionSuffix` empty.
+// > **Note:** If `latestRevision` is `false`, the `revisionSuffix` shall be specified.
 func (o AppIngressTrafficWeightOutput) RevisionSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIngressTrafficWeight) *string { return v.RevisionSuffix }).(pulumi.StringPtrOutput)
 }

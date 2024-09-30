@@ -59,6 +59,10 @@
                 "current": "azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection",
                 "majorVersion": 6
             },
+            "azurerm_advisor_suppression": {
+                "current": "azure:advisor/suppression:Suppression",
+                "majorVersion": 6
+            },
             "azurerm_ai_services": {
                 "current": "azure:cognitive/aIServices:AIServices",
                 "majorVersion": 6,
@@ -5941,6 +5945,54 @@
                     }
                 }
             },
+            "azurerm_data_protection_backup_policy_mysql_flexible_server": {
+                "current": "azure:dataprotection/backupPolicyMysqlFlexibleServer:BackupPolicyMysqlFlexibleServer",
+                "majorVersion": 6,
+                "fields": {
+                    "backup_repeating_time_intervals": {
+                        "maxItemsOne": false
+                    },
+                    "default_retention_rule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "life_cycle": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "retention_rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "criteria": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "days_of_week": {
+                                                "maxItemsOne": false
+                                            },
+                                            "months_of_year": {
+                                                "maxItemsOne": false
+                                            },
+                                            "scheduled_backup_times": {
+                                                "maxItemsOne": false
+                                            },
+                                            "weeks_of_month": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "life_cycle": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_data_protection_backup_policy_postgresql": {
                 "current": "azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql",
                 "majorVersion": 6,
@@ -9946,6 +9998,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_key_vault_managed_hardware_security_module_key_rotation_policy": {
+                "current": "azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy",
+                "majorVersion": 6
             },
             "azurerm_key_vault_managed_hardware_security_module_role_assignment": {
                 "current": "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment",
@@ -18777,6 +18833,79 @@
                     }
                 }
             },
+            "azurerm_stack_hci_deployment_setting": {
+                "current": "azure:stack/hciDeploymentSetting:HciDeploymentSetting",
+                "majorVersion": 6,
+                "fields": {
+                    "arc_resource_ids": {
+                        "maxItemsOne": false
+                    },
+                    "scale_unit": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "cluster": {
+                                    "maxItemsOne": true
+                                },
+                                "host_network": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "intent": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "adapter": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "adapter_property_override": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "qos_policy_override": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "traffic_type": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "virtual_switch_configuration_override": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "storage_network": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "infrastructure_network": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "dns_server": {
+                                                "maxItemsOne": false
+                                            },
+                                            "ip_pool": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "optional_service": {
+                                    "maxItemsOne": true
+                                },
+                                "physical_node": {
+                                    "maxItemsOne": false
+                                },
+                                "storage": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_stack_hci_logical_network": {
                 "current": "azure:stack/hciLogicalNetwork:HciLogicalNetwork",
                 "majorVersion": 6,
@@ -18798,6 +18927,10 @@
                         }
                     }
                 }
+            },
+            "azurerm_stack_hci_storage_path": {
+                "current": "azure:stack/hciStoragePath:HciStoragePath",
+                "majorVersion": 6
             },
             "azurerm_static_site": {
                 "current": "azure:appservice/staticSite:StaticSite",
@@ -29449,6 +29582,46 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "azurerm_vpn_server_configuration": {
+                "current": "azure:network/getVpnServerConfiguration:getVpnServerConfiguration",
+                "majorVersion": 6,
+                "fields": {
+                    "azure_active_directory_authentication": {
+                        "maxItemsOne": false
+                    },
+                    "client_revoked_certificate": {
+                        "maxItemsOne": false
+                    },
+                    "client_root_certificate": {
+                        "maxItemsOne": false
+                    },
+                    "ipsec_policy": {
+                        "maxItemsOne": false
+                    },
+                    "radius": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "client_root_certificate": {
+                                    "maxItemsOne": false
+                                },
+                                "server": {
+                                    "maxItemsOne": false
+                                },
+                                "server_root_certificate": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "vpn_authentication_types": {
+                        "maxItemsOne": false
+                    },
+                    "vpn_protocols": {
+                        "maxItemsOne": false
                     }
                 }
             },

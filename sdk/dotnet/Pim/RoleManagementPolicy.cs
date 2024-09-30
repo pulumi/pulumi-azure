@@ -126,7 +126,7 @@ namespace Pulumi.Azure.Pim
         public Output<string> RoleDefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+        /// The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Pim
         public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+        /// The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Pim
         public Input<string>? RoleDefinitionId { get; set; }
 
         /// <summary>
-        /// The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription or a resource group. Changing this forces a new resource to be created.
+        /// The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }

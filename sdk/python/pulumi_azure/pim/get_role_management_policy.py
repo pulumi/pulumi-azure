@@ -176,7 +176,7 @@ def get_role_management_policy(role_definition_id: Optional[str] = None,
 
 
     :param str role_definition_id: The scoped Role Definition ID of the role for which this policy applies.
-    :param str scope: The scope to which this Role Management Policy applies. Can refer to a management group, a subscription or a resource group.
+    :param str scope: The scope to which this Role Management Policy applies. Can refer to a management group, a subscription, a resource group or a resource.
     """
     __args__ = dict()
     __args__['roleDefinitionId'] = role_definition_id
@@ -233,6 +233,6 @@ def get_role_management_policy_output(role_definition_id: Optional[pulumi.Input[
 
 
     :param str role_definition_id: The scoped Role Definition ID of the role for which this policy applies.
-    :param str scope: The scope to which this Role Management Policy applies. Can refer to a management group, a subscription or a resource group.
+    :param str scope: The scope to which this Role Management Policy applies. Can refer to a management group, a subscription, a resource group or a resource.
     """
     ...

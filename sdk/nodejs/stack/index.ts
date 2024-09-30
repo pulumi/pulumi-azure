@@ -15,10 +15,20 @@ export type HciCluster = import("./hciCluster").HciCluster;
 export const HciCluster: typeof import("./hciCluster").HciCluster = null as any;
 utilities.lazyLoad(exports, ["HciCluster"], () => require("./hciCluster"));
 
+export { HciDeploymentSettingArgs, HciDeploymentSettingState } from "./hciDeploymentSetting";
+export type HciDeploymentSetting = import("./hciDeploymentSetting").HciDeploymentSetting;
+export const HciDeploymentSetting: typeof import("./hciDeploymentSetting").HciDeploymentSetting = null as any;
+utilities.lazyLoad(exports, ["HciDeploymentSetting"], () => require("./hciDeploymentSetting"));
+
 export { HciLogicalNetworkArgs, HciLogicalNetworkState } from "./hciLogicalNetwork";
 export type HciLogicalNetwork = import("./hciLogicalNetwork").HciLogicalNetwork;
 export const HciLogicalNetwork: typeof import("./hciLogicalNetwork").HciLogicalNetwork = null as any;
 utilities.lazyLoad(exports, ["HciLogicalNetwork"], () => require("./hciLogicalNetwork"));
+
+export { HciStoragePathArgs, HciStoragePathState } from "./hciStoragePath";
+export type HciStoragePath = import("./hciStoragePath").HciStoragePath;
+export const HciStoragePath: typeof import("./hciStoragePath").HciStoragePath = null as any;
+utilities.lazyLoad(exports, ["HciStoragePath"], () => require("./hciStoragePath"));
 
 
 const _module = {
@@ -27,12 +37,18 @@ const _module = {
         switch (type) {
             case "azure:stack/hciCluster:HciCluster":
                 return new HciCluster(name, <any>undefined, { urn })
+            case "azure:stack/hciDeploymentSetting:HciDeploymentSetting":
+                return new HciDeploymentSetting(name, <any>undefined, { urn })
             case "azure:stack/hciLogicalNetwork:HciLogicalNetwork":
                 return new HciLogicalNetwork(name, <any>undefined, { urn })
+            case "azure:stack/hciStoragePath:HciStoragePath":
+                return new HciStoragePath(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "stack/hciCluster", _module)
+pulumi.runtime.registerResourceModule("azure", "stack/hciDeploymentSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciLogicalNetwork", _module)
+pulumi.runtime.registerResourceModule("azure", "stack/hciStoragePath", _module)

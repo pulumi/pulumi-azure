@@ -221,7 +221,9 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+     *
+     * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      *
      * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
@@ -481,7 +483,9 @@ export interface OrchestratedVirtualMachineScaleSetState {
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**
-     * Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+     *
+     * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      *
      * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
@@ -639,7 +643,9 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**
-     * Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+     *
+     * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      *
      * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */

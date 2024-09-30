@@ -909,14 +909,18 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     }
 
     /**
-     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+     * 
+     * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     * @return Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+     * 
+     * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -2268,7 +2272,9 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+         * @param zones Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+         * 
+         * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
          * 
          * @return builder
          * 
@@ -2279,7 +2285,9 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+         * @param zones Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+         * 
+         * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
          * 
          * @return builder
          * 
@@ -2289,7 +2297,9 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+         * @param zones Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+         * 
+         * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
          * 
          * @return builder
          * 

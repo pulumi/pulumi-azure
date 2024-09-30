@@ -103,6 +103,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("diskControllerTypeNvmeEnabled")]
+        public Output<bool?> DiskControllerTypeNvmeEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         /// </summary>
         [Output("diskTypesNotAlloweds")]
@@ -314,6 +320,12 @@ namespace Pulumi.Azure.Compute
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("diskControllerTypeNvmeEnabled")]
+        public Input<bool>? DiskControllerTypeNvmeEnabled { get; set; }
+
         [Input("diskTypesNotAlloweds")]
         private InputList<string>? _diskTypesNotAlloweds;
 
@@ -499,6 +511,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("diskControllerTypeNvmeEnabled")]
+        public Input<bool>? DiskControllerTypeNvmeEnabled { get; set; }
 
         [Input("diskTypesNotAlloweds")]
         private InputList<string>? _diskTypesNotAlloweds;

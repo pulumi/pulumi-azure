@@ -196,6 +196,1749 @@ func (o HciClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type HciDeploymentSettingScaleUnit struct {
+	// Specify the full name of the Active Directory Organizational Unit container object prepared for the deployment, including the domain components. For example:`OU=HCI01,DC=contoso,DC=com`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	ActiveDirectoryOrganizationalUnitPath string `pulumi:"activeDirectoryOrganizationalUnitPath"`
+	// Whether to enable BitLocker for boot volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	BitlockerBootVolumeEnabled *bool `pulumi:"bitlockerBootVolumeEnabled"`
+	// Whether to enable BitLocker for data volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	BitlockerDataVolumeEnabled *bool `pulumi:"bitlockerDataVolumeEnabled"`
+	// A `cluster` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Cluster HciDeploymentSettingScaleUnitCluster `pulumi:"cluster"`
+	// Whether to enable credential guard. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	CredentialGuardEnabled *bool `pulumi:"credentialGuardEnabled"`
+	// Specifies the FQDN for deploying cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+	DomainFqdn string `pulumi:"domainFqdn"`
+	// Whether to enable drift control. Possible values are `true` and `false`. When set to `true`, the security baseline is re-applied regularly. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	DriftControlEnabled *bool `pulumi:"driftControlEnabled"`
+	// Whether to enable DRTM protection. Possible values are `true` and `false`. When set to `true`, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	DrtmProtectionEnabled *bool `pulumi:"drtmProtectionEnabled"`
+	// Whether to collect log data to facilitate quicker issue resolution. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	EpisodicDataUploadEnabled *bool `pulumi:"episodicDataUploadEnabled"`
+	// Whether to store data sent to Microsoft in EU. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to `false` results in all data sent to Microsoft to be stored outside of the EU. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	EuLocationEnabled *bool `pulumi:"euLocationEnabled"`
+	// A `hostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	HostNetwork HciDeploymentSettingScaleUnitHostNetwork `pulumi:"hostNetwork"`
+	// Whether to enable HVCI protection. Possible values are `true` and `false`. When set to `true`, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	HvciProtectionEnabled *bool `pulumi:"hvciProtectionEnabled"`
+	// One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	InfrastructureNetworks []HciDeploymentSettingScaleUnitInfrastructureNetwork `pulumi:"infrastructureNetworks"`
+	// Specifies the name prefix to deploy cluster. It must be 1-8 characters long and contain only letters, numbers and hyphens Changing this forces a new Stack HCI Deployment Setting to be created.
+	NamePrefix string `pulumi:"namePrefix"`
+	// A `optionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	OptionalService HciDeploymentSettingScaleUnitOptionalService `pulumi:"optionalService"`
+	// One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	PhysicalNodes []HciDeploymentSettingScaleUnitPhysicalNode `pulumi:"physicalNodes"`
+	// The URI to the Key Vault or secret store. Changing this forces a new Stack HCI Deployment Setting to be created.
+	SecretsLocation string `pulumi:"secretsLocation"`
+	// Whether to enable side channel mitigation. Possible values are `true` and `false`. When set to `true`, all side channel mitigations are enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	SideChannelMitigationEnabled *bool `pulumi:"sideChannelMitigationEnabled"`
+	// Whether to enable SMB cluster encryption. Possible values are `true` and `false`. When set to `true`, cluster east-west traffic is encrypted. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	SmbClusterEncryptionEnabled *bool `pulumi:"smbClusterEncryptionEnabled"`
+	// Whether to enable SMB signing. Possible values are `true` and `false`. When set to `true`, the SMB default instance requires sign in for the client and server services. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	SmbSigningEnabled *bool `pulumi:"smbSigningEnabled"`
+	// A `storage` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Storage HciDeploymentSettingScaleUnitStorage `pulumi:"storage"`
+	// Whether the telemetry data will be sent to Microsoft. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	StreamingDataClientEnabled *bool `pulumi:"streamingDataClientEnabled"`
+	// Whether to enable WDAC. Possible values are `true` and `false`. When set to `true`, applications and the code that you can run on your Azure Stack HCI cluster are limited. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	WdacEnabled *bool `pulumi:"wdacEnabled"`
+}
+
+// HciDeploymentSettingScaleUnitInput is an input type that accepts HciDeploymentSettingScaleUnitArgs and HciDeploymentSettingScaleUnitOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitInput` via:
+//
+//	HciDeploymentSettingScaleUnitArgs{...}
+type HciDeploymentSettingScaleUnitInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitOutput() HciDeploymentSettingScaleUnitOutput
+	ToHciDeploymentSettingScaleUnitOutputWithContext(context.Context) HciDeploymentSettingScaleUnitOutput
+}
+
+type HciDeploymentSettingScaleUnitArgs struct {
+	// Specify the full name of the Active Directory Organizational Unit container object prepared for the deployment, including the domain components. For example:`OU=HCI01,DC=contoso,DC=com`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	ActiveDirectoryOrganizationalUnitPath pulumi.StringInput `pulumi:"activeDirectoryOrganizationalUnitPath"`
+	// Whether to enable BitLocker for boot volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	BitlockerBootVolumeEnabled pulumi.BoolPtrInput `pulumi:"bitlockerBootVolumeEnabled"`
+	// Whether to enable BitLocker for data volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	BitlockerDataVolumeEnabled pulumi.BoolPtrInput `pulumi:"bitlockerDataVolumeEnabled"`
+	// A `cluster` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Cluster HciDeploymentSettingScaleUnitClusterInput `pulumi:"cluster"`
+	// Whether to enable credential guard. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	CredentialGuardEnabled pulumi.BoolPtrInput `pulumi:"credentialGuardEnabled"`
+	// Specifies the FQDN for deploying cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+	DomainFqdn pulumi.StringInput `pulumi:"domainFqdn"`
+	// Whether to enable drift control. Possible values are `true` and `false`. When set to `true`, the security baseline is re-applied regularly. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	DriftControlEnabled pulumi.BoolPtrInput `pulumi:"driftControlEnabled"`
+	// Whether to enable DRTM protection. Possible values are `true` and `false`. When set to `true`, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	DrtmProtectionEnabled pulumi.BoolPtrInput `pulumi:"drtmProtectionEnabled"`
+	// Whether to collect log data to facilitate quicker issue resolution. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	EpisodicDataUploadEnabled pulumi.BoolPtrInput `pulumi:"episodicDataUploadEnabled"`
+	// Whether to store data sent to Microsoft in EU. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to `false` results in all data sent to Microsoft to be stored outside of the EU. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	EuLocationEnabled pulumi.BoolPtrInput `pulumi:"euLocationEnabled"`
+	// A `hostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	HostNetwork HciDeploymentSettingScaleUnitHostNetworkInput `pulumi:"hostNetwork"`
+	// Whether to enable HVCI protection. Possible values are `true` and `false`. When set to `true`, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	HvciProtectionEnabled pulumi.BoolPtrInput `pulumi:"hvciProtectionEnabled"`
+	// One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	InfrastructureNetworks HciDeploymentSettingScaleUnitInfrastructureNetworkArrayInput `pulumi:"infrastructureNetworks"`
+	// Specifies the name prefix to deploy cluster. It must be 1-8 characters long and contain only letters, numbers and hyphens Changing this forces a new Stack HCI Deployment Setting to be created.
+	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
+	// A `optionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	OptionalService HciDeploymentSettingScaleUnitOptionalServiceInput `pulumi:"optionalService"`
+	// One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	PhysicalNodes HciDeploymentSettingScaleUnitPhysicalNodeArrayInput `pulumi:"physicalNodes"`
+	// The URI to the Key Vault or secret store. Changing this forces a new Stack HCI Deployment Setting to be created.
+	SecretsLocation pulumi.StringInput `pulumi:"secretsLocation"`
+	// Whether to enable side channel mitigation. Possible values are `true` and `false`. When set to `true`, all side channel mitigations are enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	SideChannelMitigationEnabled pulumi.BoolPtrInput `pulumi:"sideChannelMitigationEnabled"`
+	// Whether to enable SMB cluster encryption. Possible values are `true` and `false`. When set to `true`, cluster east-west traffic is encrypted. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	SmbClusterEncryptionEnabled pulumi.BoolPtrInput `pulumi:"smbClusterEncryptionEnabled"`
+	// Whether to enable SMB signing. Possible values are `true` and `false`. When set to `true`, the SMB default instance requires sign in for the client and server services. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	SmbSigningEnabled pulumi.BoolPtrInput `pulumi:"smbSigningEnabled"`
+	// A `storage` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Storage HciDeploymentSettingScaleUnitStorageInput `pulumi:"storage"`
+	// Whether the telemetry data will be sent to Microsoft. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	StreamingDataClientEnabled pulumi.BoolPtrInput `pulumi:"streamingDataClientEnabled"`
+	// Whether to enable WDAC. Possible values are `true` and `false`. When set to `true`, applications and the code that you can run on your Azure Stack HCI cluster are limited. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	WdacEnabled pulumi.BoolPtrInput `pulumi:"wdacEnabled"`
+}
+
+func (HciDeploymentSettingScaleUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnit)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitArgs) ToHciDeploymentSettingScaleUnitOutput() HciDeploymentSettingScaleUnitOutput {
+	return i.ToHciDeploymentSettingScaleUnitOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitArgs) ToHciDeploymentSettingScaleUnitOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitOutput)
+}
+
+// HciDeploymentSettingScaleUnitArrayInput is an input type that accepts HciDeploymentSettingScaleUnitArray and HciDeploymentSettingScaleUnitArrayOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitArrayInput` via:
+//
+//	HciDeploymentSettingScaleUnitArray{ HciDeploymentSettingScaleUnitArgs{...} }
+type HciDeploymentSettingScaleUnitArrayInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitArrayOutput() HciDeploymentSettingScaleUnitArrayOutput
+	ToHciDeploymentSettingScaleUnitArrayOutputWithContext(context.Context) HciDeploymentSettingScaleUnitArrayOutput
+}
+
+type HciDeploymentSettingScaleUnitArray []HciDeploymentSettingScaleUnitInput
+
+func (HciDeploymentSettingScaleUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnit)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitArray) ToHciDeploymentSettingScaleUnitArrayOutput() HciDeploymentSettingScaleUnitArrayOutput {
+	return i.ToHciDeploymentSettingScaleUnitArrayOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitArray) ToHciDeploymentSettingScaleUnitArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitArrayOutput)
+}
+
+type HciDeploymentSettingScaleUnitOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnit)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitOutput) ToHciDeploymentSettingScaleUnitOutput() HciDeploymentSettingScaleUnitOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitOutput) ToHciDeploymentSettingScaleUnitOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitOutput {
+	return o
+}
+
+// Specify the full name of the Active Directory Organizational Unit container object prepared for the deployment, including the domain components. For example:`OU=HCI01,DC=contoso,DC=com`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) ActiveDirectoryOrganizationalUnitPath() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) string { return v.ActiveDirectoryOrganizationalUnitPath }).(pulumi.StringOutput)
+}
+
+// Whether to enable BitLocker for boot volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) BitlockerBootVolumeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.BitlockerBootVolumeEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable BitLocker for data volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) BitlockerDataVolumeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.BitlockerDataVolumeEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `cluster` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) Cluster() HciDeploymentSettingScaleUnitClusterOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) HciDeploymentSettingScaleUnitCluster { return v.Cluster }).(HciDeploymentSettingScaleUnitClusterOutput)
+}
+
+// Whether to enable credential guard. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) CredentialGuardEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.CredentialGuardEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the FQDN for deploying cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) DomainFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) string { return v.DomainFqdn }).(pulumi.StringOutput)
+}
+
+// Whether to enable drift control. Possible values are `true` and `false`. When set to `true`, the security baseline is re-applied regularly. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) DriftControlEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.DriftControlEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable DRTM protection. Possible values are `true` and `false`. When set to `true`, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) DrtmProtectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.DrtmProtectionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to collect log data to facilitate quicker issue resolution. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) EpisodicDataUploadEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.EpisodicDataUploadEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to store data sent to Microsoft in EU. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to `false` results in all data sent to Microsoft to be stored outside of the EU. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) EuLocationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.EuLocationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `hostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) HostNetwork() HciDeploymentSettingScaleUnitHostNetworkOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) HciDeploymentSettingScaleUnitHostNetwork { return v.HostNetwork }).(HciDeploymentSettingScaleUnitHostNetworkOutput)
+}
+
+// Whether to enable HVCI protection. Possible values are `true` and `false`. When set to `true`, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) HvciProtectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.HvciProtectionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) InfrastructureNetworks() HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) []HciDeploymentSettingScaleUnitInfrastructureNetwork {
+		return v.InfrastructureNetworks
+	}).(HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput)
+}
+
+// Specifies the name prefix to deploy cluster. It must be 1-8 characters long and contain only letters, numbers and hyphens Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) string { return v.NamePrefix }).(pulumi.StringOutput)
+}
+
+// A `optionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) OptionalService() HciDeploymentSettingScaleUnitOptionalServiceOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) HciDeploymentSettingScaleUnitOptionalService {
+		return v.OptionalService
+	}).(HciDeploymentSettingScaleUnitOptionalServiceOutput)
+}
+
+// One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) PhysicalNodes() HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) []HciDeploymentSettingScaleUnitPhysicalNode {
+		return v.PhysicalNodes
+	}).(HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput)
+}
+
+// The URI to the Key Vault or secret store. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) SecretsLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) string { return v.SecretsLocation }).(pulumi.StringOutput)
+}
+
+// Whether to enable side channel mitigation. Possible values are `true` and `false`. When set to `true`, all side channel mitigations are enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) SideChannelMitigationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.SideChannelMitigationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable SMB cluster encryption. Possible values are `true` and `false`. When set to `true`, cluster east-west traffic is encrypted. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) SmbClusterEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.SmbClusterEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable SMB signing. Possible values are `true` and `false`. When set to `true`, the SMB default instance requires sign in for the client and server services. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) SmbSigningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.SmbSigningEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `storage` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) Storage() HciDeploymentSettingScaleUnitStorageOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) HciDeploymentSettingScaleUnitStorage { return v.Storage }).(HciDeploymentSettingScaleUnitStorageOutput)
+}
+
+// Whether the telemetry data will be sent to Microsoft. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) StreamingDataClientEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.StreamingDataClientEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable WDAC. Possible values are `true` and `false`. When set to `true`, applications and the code that you can run on your Azure Stack HCI cluster are limited. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOutput) WdacEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnit) *bool { return v.WdacEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type HciDeploymentSettingScaleUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnit)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitArrayOutput) ToHciDeploymentSettingScaleUnitArrayOutput() HciDeploymentSettingScaleUnitArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitArrayOutput) ToHciDeploymentSettingScaleUnitArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitArrayOutput) Index(i pulumi.IntInput) HciDeploymentSettingScaleUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HciDeploymentSettingScaleUnit {
+		return vs[0].([]HciDeploymentSettingScaleUnit)[vs[1].(int)]
+	}).(HciDeploymentSettingScaleUnitOutput)
+}
+
+type HciDeploymentSettingScaleUnitCluster struct {
+	// Specifies the Azure blob service endpoint, for example, `core.windows.net`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	AzureServiceEndpoint string `pulumi:"azureServiceEndpoint"`
+	// Specifies the Azure Storage account name of the cloud witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+	CloudAccountName string `pulumi:"cloudAccountName"`
+	// Specifies the name of the cluster. It must be 3-15 characters long and contain only letters, numbers and hyphens. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Name string `pulumi:"name"`
+	// Specifies the fileshare path of the local witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+	WitnessPath string `pulumi:"witnessPath"`
+	// Specifies the type of the witness. Possible values are `Cloud`, `FileShare`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	WitnessType string `pulumi:"witnessType"`
+}
+
+// HciDeploymentSettingScaleUnitClusterInput is an input type that accepts HciDeploymentSettingScaleUnitClusterArgs and HciDeploymentSettingScaleUnitClusterOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitClusterInput` via:
+//
+//	HciDeploymentSettingScaleUnitClusterArgs{...}
+type HciDeploymentSettingScaleUnitClusterInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitClusterOutput() HciDeploymentSettingScaleUnitClusterOutput
+	ToHciDeploymentSettingScaleUnitClusterOutputWithContext(context.Context) HciDeploymentSettingScaleUnitClusterOutput
+}
+
+type HciDeploymentSettingScaleUnitClusterArgs struct {
+	// Specifies the Azure blob service endpoint, for example, `core.windows.net`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	AzureServiceEndpoint pulumi.StringInput `pulumi:"azureServiceEndpoint"`
+	// Specifies the Azure Storage account name of the cloud witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+	CloudAccountName pulumi.StringInput `pulumi:"cloudAccountName"`
+	// Specifies the name of the cluster. It must be 3-15 characters long and contain only letters, numbers and hyphens. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the fileshare path of the local witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+	WitnessPath pulumi.StringInput `pulumi:"witnessPath"`
+	// Specifies the type of the witness. Possible values are `Cloud`, `FileShare`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	WitnessType pulumi.StringInput `pulumi:"witnessType"`
+}
+
+func (HciDeploymentSettingScaleUnitClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitCluster)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitClusterArgs) ToHciDeploymentSettingScaleUnitClusterOutput() HciDeploymentSettingScaleUnitClusterOutput {
+	return i.ToHciDeploymentSettingScaleUnitClusterOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitClusterArgs) ToHciDeploymentSettingScaleUnitClusterOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitClusterOutput)
+}
+
+type HciDeploymentSettingScaleUnitClusterOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitCluster)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitClusterOutput) ToHciDeploymentSettingScaleUnitClusterOutput() HciDeploymentSettingScaleUnitClusterOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitClusterOutput) ToHciDeploymentSettingScaleUnitClusterOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitClusterOutput {
+	return o
+}
+
+// Specifies the Azure blob service endpoint, for example, `core.windows.net`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitClusterOutput) AzureServiceEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitCluster) string { return v.AzureServiceEndpoint }).(pulumi.StringOutput)
+}
+
+// Specifies the Azure Storage account name of the cloud witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitClusterOutput) CloudAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitCluster) string { return v.CloudAccountName }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the cluster. It must be 3-15 characters long and contain only letters, numbers and hyphens. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitCluster) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the fileshare path of the local witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitClusterOutput) WitnessPath() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitCluster) string { return v.WitnessPath }).(pulumi.StringOutput)
+}
+
+// Specifies the type of the witness. Possible values are `Cloud`, `FileShare`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitClusterOutput) WitnessType() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitCluster) string { return v.WitnessType }).(pulumi.StringOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetwork struct {
+	// One or more `intent` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Intents []HciDeploymentSettingScaleUnitHostNetworkIntent `pulumi:"intents"`
+	// Whether allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically. Optional parameter required only for [3 nodes switchless deployments](https://learn.microsoft.com/azure-stack/hci/concepts/physical-network-requirements?tabs=overview%2C23H2reqs#using-switchless). Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	StorageAutoIpEnabled *bool `pulumi:"storageAutoIpEnabled"`
+	// Defines how the storage adapters between nodes are connected either switch or switch less. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	StorageConnectivitySwitchlessEnabled *bool `pulumi:"storageConnectivitySwitchlessEnabled"`
+	// One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	StorageNetworks []HciDeploymentSettingScaleUnitHostNetworkStorageNetwork `pulumi:"storageNetworks"`
+}
+
+// HciDeploymentSettingScaleUnitHostNetworkInput is an input type that accepts HciDeploymentSettingScaleUnitHostNetworkArgs and HciDeploymentSettingScaleUnitHostNetworkOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitHostNetworkInput` via:
+//
+//	HciDeploymentSettingScaleUnitHostNetworkArgs{...}
+type HciDeploymentSettingScaleUnitHostNetworkInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitHostNetworkOutput() HciDeploymentSettingScaleUnitHostNetworkOutput
+	ToHciDeploymentSettingScaleUnitHostNetworkOutputWithContext(context.Context) HciDeploymentSettingScaleUnitHostNetworkOutput
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkArgs struct {
+	// One or more `intent` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Intents HciDeploymentSettingScaleUnitHostNetworkIntentArrayInput `pulumi:"intents"`
+	// Whether allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically. Optional parameter required only for [3 nodes switchless deployments](https://learn.microsoft.com/azure-stack/hci/concepts/physical-network-requirements?tabs=overview%2C23H2reqs#using-switchless). Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	StorageAutoIpEnabled pulumi.BoolPtrInput `pulumi:"storageAutoIpEnabled"`
+	// Defines how the storage adapters between nodes are connected either switch or switch less. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	StorageConnectivitySwitchlessEnabled pulumi.BoolPtrInput `pulumi:"storageConnectivitySwitchlessEnabled"`
+	// One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	StorageNetworks HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayInput `pulumi:"storageNetworks"`
+}
+
+func (HciDeploymentSettingScaleUnitHostNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetwork)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkArgs) ToHciDeploymentSettingScaleUnitHostNetworkOutput() HciDeploymentSettingScaleUnitHostNetworkOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkArgs) ToHciDeploymentSettingScaleUnitHostNetworkOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitHostNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetwork)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkOutput) ToHciDeploymentSettingScaleUnitHostNetworkOutput() HciDeploymentSettingScaleUnitHostNetworkOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkOutput) ToHciDeploymentSettingScaleUnitHostNetworkOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkOutput {
+	return o
+}
+
+// One or more `intent` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkOutput) Intents() HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetwork) []HciDeploymentSettingScaleUnitHostNetworkIntent {
+		return v.Intents
+	}).(HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput)
+}
+
+// Whether allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically. Optional parameter required only for [3 nodes switchless deployments](https://learn.microsoft.com/azure-stack/hci/concepts/physical-network-requirements?tabs=overview%2C23H2reqs#using-switchless). Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkOutput) StorageAutoIpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetwork) *bool { return v.StorageAutoIpEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Defines how the storage adapters between nodes are connected either switch or switch less. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkOutput) StorageConnectivitySwitchlessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetwork) *bool { return v.StorageConnectivitySwitchlessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkOutput) StorageNetworks() HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetwork) []HciDeploymentSettingScaleUnitHostNetworkStorageNetwork {
+		return v.StorageNetworks
+	}).(HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntent struct {
+	// A `adapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	AdapterPropertyOverride *HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride `pulumi:"adapterPropertyOverride"`
+	// Whether to override adapter properties. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	AdapterPropertyOverrideEnabled *bool `pulumi:"adapterPropertyOverrideEnabled"`
+	// Specifies a list of ID of network interfaces used for the network intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Adapters []string `pulumi:"adapters"`
+	// Specifies the name of the intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Name string `pulumi:"name"`
+	// A `qosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	QosPolicyOverride *HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride `pulumi:"qosPolicyOverride"`
+	// Whether to override QoS policy. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	QosPolicyOverrideEnabled *bool `pulumi:"qosPolicyOverrideEnabled"`
+	// Specifies a list of network traffic types. Possible values are `Compute`, `Storage`, `Management`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	TrafficTypes []string `pulumi:"trafficTypes"`
+	// A `virtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	VirtualSwitchConfigurationOverride *HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride `pulumi:"virtualSwitchConfigurationOverride"`
+	// Whether to override virtual switch configuration. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	VirtualSwitchConfigurationOverrideEnabled *bool `pulumi:"virtualSwitchConfigurationOverrideEnabled"`
+}
+
+// HciDeploymentSettingScaleUnitHostNetworkIntentInput is an input type that accepts HciDeploymentSettingScaleUnitHostNetworkIntentArgs and HciDeploymentSettingScaleUnitHostNetworkIntentOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitHostNetworkIntentInput` via:
+//
+//	HciDeploymentSettingScaleUnitHostNetworkIntentArgs{...}
+type HciDeploymentSettingScaleUnitHostNetworkIntentInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentOutput() HciDeploymentSettingScaleUnitHostNetworkIntentOutput
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentOutputWithContext(context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentOutput
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentArgs struct {
+	// A `adapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+	AdapterPropertyOverride HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrInput `pulumi:"adapterPropertyOverride"`
+	// Whether to override adapter properties. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	AdapterPropertyOverrideEnabled pulumi.BoolPtrInput `pulumi:"adapterPropertyOverrideEnabled"`
+	// Specifies a list of ID of network interfaces used for the network intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Adapters pulumi.StringArrayInput `pulumi:"adapters"`
+	// Specifies the name of the intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `qosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	QosPolicyOverride HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrInput `pulumi:"qosPolicyOverride"`
+	// Whether to override QoS policy. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	QosPolicyOverrideEnabled pulumi.BoolPtrInput `pulumi:"qosPolicyOverrideEnabled"`
+	// Specifies a list of network traffic types. Possible values are `Compute`, `Storage`, `Management`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	TrafficTypes pulumi.StringArrayInput `pulumi:"trafficTypes"`
+	// A `virtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	VirtualSwitchConfigurationOverride HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrInput `pulumi:"virtualSwitchConfigurationOverride"`
+	// Whether to override virtual switch configuration. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	VirtualSwitchConfigurationOverrideEnabled pulumi.BoolPtrInput `pulumi:"virtualSwitchConfigurationOverrideEnabled"`
+}
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntent)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentOutput() HciDeploymentSettingScaleUnitHostNetworkIntentOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkIntentOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkIntentOutput)
+}
+
+// HciDeploymentSettingScaleUnitHostNetworkIntentArrayInput is an input type that accepts HciDeploymentSettingScaleUnitHostNetworkIntentArray and HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitHostNetworkIntentArrayInput` via:
+//
+//	HciDeploymentSettingScaleUnitHostNetworkIntentArray{ HciDeploymentSettingScaleUnitHostNetworkIntentArgs{...} }
+type HciDeploymentSettingScaleUnitHostNetworkIntentArrayInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput() HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentArrayOutputWithContext(context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentArray []HciDeploymentSettingScaleUnitHostNetworkIntentInput
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnitHostNetworkIntent)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentArray) ToHciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput() HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkIntentArrayOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentArray) ToHciDeploymentSettingScaleUnitHostNetworkIntentArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntent)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentOutput() HciDeploymentSettingScaleUnitHostNetworkIntentOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentOutput {
+	return o
+}
+
+// A `adapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentOutput) AdapterPropertyOverride() HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntent) *HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride {
+		return v.AdapterPropertyOverride
+	}).(HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput)
+}
+
+// Whether to override adapter properties. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentOutput) AdapterPropertyOverrideEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntent) *bool { return v.AdapterPropertyOverrideEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a list of ID of network interfaces used for the network intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentOutput) Adapters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntent) []string { return v.Adapters }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the name of the intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntent) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `qosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentOutput) QosPolicyOverride() HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntent) *HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride {
+		return v.QosPolicyOverride
+	}).(HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput)
+}
+
+// Whether to override QoS policy. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentOutput) QosPolicyOverrideEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntent) *bool { return v.QosPolicyOverrideEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a list of network traffic types. Possible values are `Compute`, `Storage`, `Management`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentOutput) TrafficTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntent) []string { return v.TrafficTypes }).(pulumi.StringArrayOutput)
+}
+
+// A `virtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentOutput) VirtualSwitchConfigurationOverride() HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntent) *HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride {
+		return v.VirtualSwitchConfigurationOverride
+	}).(HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput)
+}
+
+// Whether to override virtual switch configuration. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentOutput) VirtualSwitchConfigurationOverrideEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntent) *bool {
+		return v.VirtualSwitchConfigurationOverrideEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnitHostNetworkIntent)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput() HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput) Index(i pulumi.IntInput) HciDeploymentSettingScaleUnitHostNetworkIntentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HciDeploymentSettingScaleUnitHostNetworkIntent {
+		return vs[0].([]HciDeploymentSettingScaleUnitHostNetworkIntent)[vs[1].(int)]
+	}).(HciDeploymentSettingScaleUnitHostNetworkIntentOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride struct {
+	// The jumbo frame size of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	JumboPacket *string `pulumi:"jumboPacket"`
+	// The network direct of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	NetworkDirect *string `pulumi:"networkDirect"`
+	// The network direct technology of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	NetworkDirectTechnology *string `pulumi:"networkDirectTechnology"`
+}
+
+// HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideInput is an input type that accepts HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs and HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideInput` via:
+//
+//	HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs{...}
+type HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput() HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutputWithContext(context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs struct {
+	// The jumbo frame size of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	JumboPacket pulumi.StringPtrInput `pulumi:"jumboPacket"`
+	// The network direct of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	NetworkDirect pulumi.StringPtrInput `pulumi:"networkDirect"`
+	// The network direct technology of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	NetworkDirectTechnology pulumi.StringPtrInput `pulumi:"networkDirectTechnology"`
+}
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput() HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput)
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput).ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutputWithContext(ctx)
+}
+
+// HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrInput is an input type that accepts HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs, HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtr and HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrInput` via:
+//
+//	        HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs{...}
+//
+//	or:
+//
+//	        nil
+type HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutputWithContext(context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput
+}
+
+type hciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrType HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs
+
+func HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtr(v *HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs) HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrInput {
+	return (*hciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrType)(v)
+}
+
+func (*hciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride)(nil)).Elem()
+}
+
+func (i *hciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrType) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutputWithContext(context.Background())
+}
+
+func (i *hciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrType) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput() HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput {
+	return o.ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutputWithContext(context.Background())
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride) *HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride {
+		return &v
+	}).(HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput)
+}
+
+// The jumbo frame size of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput) JumboPacket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride) *string {
+		return v.JumboPacket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network direct of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput) NetworkDirect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride) *string {
+		return v.NetworkDirect
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network direct technology of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput) NetworkDirectTechnology() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride) *string {
+		return v.NetworkDirectTechnology
+	}).(pulumi.StringPtrOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput) Elem() HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput {
+	return o.ApplyT(func(v *HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride) HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride {
+		if v != nil {
+			return *v
+		}
+		var ret HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride
+		return ret
+	}).(HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput)
+}
+
+// The jumbo frame size of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput) JumboPacket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JumboPacket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network direct of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput) NetworkDirect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkDirect
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network direct technology of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput) NetworkDirectTechnology() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkDirectTechnology
+	}).(pulumi.StringPtrOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride struct {
+	// Specifies the percentage of the allocated storage traffic bandwidth. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	BandwidthPercentageSmb *string `pulumi:"bandwidthPercentageSmb"`
+	// Specifies the Cluster traffic priority. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	PriorityValue8021ActionCluster *string `pulumi:"priorityValue8021ActionCluster"`
+	// Specifies the Priority Flow Control where Data Center Bridging (DCB) is used. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	PriorityValue8021ActionSmb *string `pulumi:"priorityValue8021ActionSmb"`
+}
+
+// HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideInput is an input type that accepts HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs and HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideInput` via:
+//
+//	HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs{...}
+type HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput() HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutputWithContext(context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs struct {
+	// Specifies the percentage of the allocated storage traffic bandwidth. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	BandwidthPercentageSmb pulumi.StringPtrInput `pulumi:"bandwidthPercentageSmb"`
+	// Specifies the Cluster traffic priority. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	PriorityValue8021ActionCluster pulumi.StringPtrInput `pulumi:"priorityValue8021ActionCluster"`
+	// Specifies the Priority Flow Control where Data Center Bridging (DCB) is used. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+	PriorityValue8021ActionSmb pulumi.StringPtrInput `pulumi:"priorityValue8021ActionSmb"`
+}
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput() HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput)
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput).ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutputWithContext(ctx)
+}
+
+// HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrInput is an input type that accepts HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs, HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtr and HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrInput` via:
+//
+//	        HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs{...}
+//
+//	or:
+//
+//	        nil
+type HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutputWithContext(context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput
+}
+
+type hciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrType HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs
+
+func HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtr(v *HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs) HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrInput {
+	return (*hciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrType)(v)
+}
+
+func (*hciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride)(nil)).Elem()
+}
+
+func (i *hciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrType) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutputWithContext(context.Background())
+}
+
+func (i *hciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrType) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput() HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput {
+	return o.ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutputWithContext(context.Background())
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride) *HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride {
+		return &v
+	}).(HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput)
+}
+
+// Specifies the percentage of the allocated storage traffic bandwidth. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput) BandwidthPercentageSmb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride) *string {
+		return v.BandwidthPercentageSmb
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Cluster traffic priority. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput) PriorityValue8021ActionCluster() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride) *string {
+		return v.PriorityValue8021ActionCluster
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Priority Flow Control where Data Center Bridging (DCB) is used. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput) PriorityValue8021ActionSmb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride) *string {
+		return v.PriorityValue8021ActionSmb
+	}).(pulumi.StringPtrOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput) Elem() HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput {
+	return o.ApplyT(func(v *HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride) HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride {
+		if v != nil {
+			return *v
+		}
+		var ret HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride
+		return ret
+	}).(HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput)
+}
+
+// Specifies the percentage of the allocated storage traffic bandwidth. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput) BandwidthPercentageSmb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BandwidthPercentageSmb
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Cluster traffic priority. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput) PriorityValue8021ActionCluster() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriorityValue8021ActionCluster
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Priority Flow Control where Data Center Bridging (DCB) is used. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput) PriorityValue8021ActionSmb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriorityValue8021ActionSmb
+	}).(pulumi.StringPtrOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride struct {
+	// Specifies the IoV enable status for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+	EnableIov *string `pulumi:"enableIov"`
+	// Specifies the load balancing algorithm for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+	LoadBalancingAlgorithm *string `pulumi:"loadBalancingAlgorithm"`
+}
+
+// HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideInput is an input type that accepts HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs and HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideInput` via:
+//
+//	HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs{...}
+type HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput() HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutputWithContext(context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs struct {
+	// Specifies the IoV enable status for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+	EnableIov pulumi.StringPtrInput `pulumi:"enableIov"`
+	// Specifies the load balancing algorithm for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+	LoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"loadBalancingAlgorithm"`
+}
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput() HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput)
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput).ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutputWithContext(ctx)
+}
+
+// HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrInput is an input type that accepts HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs, HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtr and HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrInput` via:
+//
+//	        HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs{...}
+//
+//	or:
+//
+//	        nil
+type HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput
+	ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutputWithContext(context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput
+}
+
+type hciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrType HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs
+
+func HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtr(v *HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs) HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrInput {
+	return (*hciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrType)(v)
+}
+
+func (*hciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride)(nil)).Elem()
+}
+
+func (i *hciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrType) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutputWithContext(context.Background())
+}
+
+func (i *hciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrType) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput() HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput {
+	return o.ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutputWithContext(context.Background())
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride) *HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride {
+		return &v
+	}).(HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput)
+}
+
+// Specifies the IoV enable status for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput) EnableIov() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride) *string {
+		return v.EnableIov
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the load balancing algorithm for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput) LoadBalancingAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride) *string {
+		return v.LoadBalancingAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput() HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput) ToHciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput) Elem() HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput {
+	return o.ApplyT(func(v *HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride) HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride {
+		if v != nil {
+			return *v
+		}
+		var ret HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride
+		return ret
+	}).(HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput)
+}
+
+// Specifies the IoV enable status for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput) EnableIov() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnableIov
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the load balancing algorithm for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput) LoadBalancingAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancingAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkStorageNetwork struct {
+	// The name of the storage network. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Name string `pulumi:"name"`
+	// The name of the network adapter. Changing this forces a new Stack HCI Deployment Setting to be created.
+	NetworkAdapterName string `pulumi:"networkAdapterName"`
+	// Specifies the ID for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. Changing this forces a new Stack HCI Deployment Setting to be created.
+	VlanId string `pulumi:"vlanId"`
+}
+
+// HciDeploymentSettingScaleUnitHostNetworkStorageNetworkInput is an input type that accepts HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs and HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitHostNetworkStorageNetworkInput` via:
+//
+//	HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs{...}
+type HciDeploymentSettingScaleUnitHostNetworkStorageNetworkInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput() HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput
+	ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutputWithContext(context.Context) HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs struct {
+	// The name of the storage network. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the network adapter. Changing this forces a new Stack HCI Deployment Setting to be created.
+	NetworkAdapterName pulumi.StringInput `pulumi:"networkAdapterName"`
+	// Specifies the ID for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. Changing this forces a new Stack HCI Deployment Setting to be created.
+	VlanId pulumi.StringInput `pulumi:"vlanId"`
+}
+
+func (HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkStorageNetwork)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs) ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput() HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs) ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput)
+}
+
+// HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayInput is an input type that accepts HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArray and HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayInput` via:
+//
+//	HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArray{ HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs{...} }
+type HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput() HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput
+	ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutputWithContext(context.Context) HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArray []HciDeploymentSettingScaleUnitHostNetworkStorageNetworkInput
+
+func (HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnitHostNetworkStorageNetwork)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArray) ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput() HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput {
+	return i.ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArray) ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkStorageNetwork)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput) ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput() HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput) ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput {
+	return o
+}
+
+// The name of the storage network. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkStorageNetwork) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the network adapter. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput) NetworkAdapterName() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkStorageNetwork) string { return v.NetworkAdapterName }).(pulumi.StringOutput)
+}
+
+// Specifies the ID for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput) VlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitHostNetworkStorageNetwork) string { return v.VlanId }).(pulumi.StringOutput)
+}
+
+type HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnitHostNetworkStorageNetwork)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput) ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput() HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput) ToHciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput) Index(i pulumi.IntInput) HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HciDeploymentSettingScaleUnitHostNetworkStorageNetwork {
+		return vs[0].([]HciDeploymentSettingScaleUnitHostNetworkStorageNetwork)[vs[1].(int)]
+	}).(HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput)
+}
+
+type HciDeploymentSettingScaleUnitInfrastructureNetwork struct {
+	// Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	//
+	// > **NOTE:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+	DhcpEnabled *bool `pulumi:"dhcpEnabled"`
+	// Specifies a list of IPv4 addresses of the DNS servers in your environment. Changing this forces a new Stack HCI Deployment Setting to be created.
+	DnsServers []string `pulumi:"dnsServers"`
+	// Specifies the default gateway that should be used for the provided IP address space. It should be in the format of an IPv4 IP address. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Gateway string `pulumi:"gateway"`
+	// One or more `ipPool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	IpPools []HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool `pulumi:"ipPools"`
+	// Specifies the subnet mask that matches the provided IP address space. Changing this forces a new Stack HCI Deployment Setting to be created.
+	SubnetMask string `pulumi:"subnetMask"`
+}
+
+// HciDeploymentSettingScaleUnitInfrastructureNetworkInput is an input type that accepts HciDeploymentSettingScaleUnitInfrastructureNetworkArgs and HciDeploymentSettingScaleUnitInfrastructureNetworkOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitInfrastructureNetworkInput` via:
+//
+//	HciDeploymentSettingScaleUnitInfrastructureNetworkArgs{...}
+type HciDeploymentSettingScaleUnitInfrastructureNetworkInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitInfrastructureNetworkOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkOutput
+	ToHciDeploymentSettingScaleUnitInfrastructureNetworkOutputWithContext(context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkOutput
+}
+
+type HciDeploymentSettingScaleUnitInfrastructureNetworkArgs struct {
+	// Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	//
+	// > **NOTE:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+	DhcpEnabled pulumi.BoolPtrInput `pulumi:"dhcpEnabled"`
+	// Specifies a list of IPv4 addresses of the DNS servers in your environment. Changing this forces a new Stack HCI Deployment Setting to be created.
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// Specifies the default gateway that should be used for the provided IP address space. It should be in the format of an IPv4 IP address. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Gateway pulumi.StringInput `pulumi:"gateway"`
+	// One or more `ipPool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+	IpPools HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayInput `pulumi:"ipPools"`
+	// Specifies the subnet mask that matches the provided IP address space. Changing this forces a new Stack HCI Deployment Setting to be created.
+	SubnetMask pulumi.StringInput `pulumi:"subnetMask"`
+}
+
+func (HciDeploymentSettingScaleUnitInfrastructureNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitInfrastructureNetwork)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitInfrastructureNetworkArgs) ToHciDeploymentSettingScaleUnitInfrastructureNetworkOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkOutput {
+	return i.ToHciDeploymentSettingScaleUnitInfrastructureNetworkOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitInfrastructureNetworkArgs) ToHciDeploymentSettingScaleUnitInfrastructureNetworkOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitInfrastructureNetworkOutput)
+}
+
+// HciDeploymentSettingScaleUnitInfrastructureNetworkArrayInput is an input type that accepts HciDeploymentSettingScaleUnitInfrastructureNetworkArray and HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitInfrastructureNetworkArrayInput` via:
+//
+//	HciDeploymentSettingScaleUnitInfrastructureNetworkArray{ HciDeploymentSettingScaleUnitInfrastructureNetworkArgs{...} }
+type HciDeploymentSettingScaleUnitInfrastructureNetworkArrayInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput
+	ToHciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutputWithContext(context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput
+}
+
+type HciDeploymentSettingScaleUnitInfrastructureNetworkArray []HciDeploymentSettingScaleUnitInfrastructureNetworkInput
+
+func (HciDeploymentSettingScaleUnitInfrastructureNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnitInfrastructureNetwork)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitInfrastructureNetworkArray) ToHciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput {
+	return i.ToHciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitInfrastructureNetworkArray) ToHciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput)
+}
+
+type HciDeploymentSettingScaleUnitInfrastructureNetworkOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitInfrastructureNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitInfrastructureNetwork)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkOutput) ToHciDeploymentSettingScaleUnitInfrastructureNetworkOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkOutput) ToHciDeploymentSettingScaleUnitInfrastructureNetworkOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkOutput {
+	return o
+}
+
+// Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+//
+// > **NOTE:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkOutput) DhcpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitInfrastructureNetwork) *bool { return v.DhcpEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a list of IPv4 addresses of the DNS servers in your environment. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitInfrastructureNetwork) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the default gateway that should be used for the provided IP address space. It should be in the format of an IPv4 IP address. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkOutput) Gateway() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitInfrastructureNetwork) string { return v.Gateway }).(pulumi.StringOutput)
+}
+
+// One or more `ipPool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkOutput) IpPools() HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitInfrastructureNetwork) []HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool {
+		return v.IpPools
+	}).(HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput)
+}
+
+// Specifies the subnet mask that matches the provided IP address space. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkOutput) SubnetMask() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitInfrastructureNetwork) string { return v.SubnetMask }).(pulumi.StringOutput)
+}
+
+type HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnitInfrastructureNetwork)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput) ToHciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput) ToHciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput) Index(i pulumi.IntInput) HciDeploymentSettingScaleUnitInfrastructureNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HciDeploymentSettingScaleUnitInfrastructureNetwork {
+		return vs[0].([]HciDeploymentSettingScaleUnitInfrastructureNetwork)[vs[1].(int)]
+	}).(HciDeploymentSettingScaleUnitInfrastructureNetworkOutput)
+}
+
+type HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool struct {
+	// Specifies starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+	EndingAddress string `pulumi:"endingAddress"`
+	// Specifies ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+	StartingAddress string `pulumi:"startingAddress"`
+}
+
+// HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolInput is an input type that accepts HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs and HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolInput` via:
+//
+//	HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs{...}
+type HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput
+	ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutputWithContext(context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput
+}
+
+type HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs struct {
+	// Specifies starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+	EndingAddress pulumi.StringInput `pulumi:"endingAddress"`
+	// Specifies ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+	StartingAddress pulumi.StringInput `pulumi:"startingAddress"`
+}
+
+func (HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs) ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput {
+	return i.ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs) ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput)
+}
+
+// HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayInput is an input type that accepts HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArray and HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayInput` via:
+//
+//	HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArray{ HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs{...} }
+type HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput
+	ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutputWithContext(context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput
+}
+
+type HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArray []HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolInput
+
+func (HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArray) ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput {
+	return i.ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArray) ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput)
+}
+
+type HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput) ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput) ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput {
+	return o
+}
+
+// Specifies starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput) EndingAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool) string { return v.EndingAddress }).(pulumi.StringOutput)
+}
+
+// Specifies ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput) StartingAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool) string { return v.StartingAddress }).(pulumi.StringOutput)
+}
+
+type HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput) ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput() HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput) ToHciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput) Index(i pulumi.IntInput) HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool {
+		return vs[0].([]HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool)[vs[1].(int)]
+	}).(HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput)
+}
+
+type HciDeploymentSettingScaleUnitOptionalService struct {
+	// Specifies the name of custom location. A custom location will be created after the deployment is completed. Changing this forces a new Stack HCI Deployment Setting to be created.
+	CustomLocation string `pulumi:"customLocation"`
+}
+
+// HciDeploymentSettingScaleUnitOptionalServiceInput is an input type that accepts HciDeploymentSettingScaleUnitOptionalServiceArgs and HciDeploymentSettingScaleUnitOptionalServiceOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitOptionalServiceInput` via:
+//
+//	HciDeploymentSettingScaleUnitOptionalServiceArgs{...}
+type HciDeploymentSettingScaleUnitOptionalServiceInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitOptionalServiceOutput() HciDeploymentSettingScaleUnitOptionalServiceOutput
+	ToHciDeploymentSettingScaleUnitOptionalServiceOutputWithContext(context.Context) HciDeploymentSettingScaleUnitOptionalServiceOutput
+}
+
+type HciDeploymentSettingScaleUnitOptionalServiceArgs struct {
+	// Specifies the name of custom location. A custom location will be created after the deployment is completed. Changing this forces a new Stack HCI Deployment Setting to be created.
+	CustomLocation pulumi.StringInput `pulumi:"customLocation"`
+}
+
+func (HciDeploymentSettingScaleUnitOptionalServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitOptionalService)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitOptionalServiceArgs) ToHciDeploymentSettingScaleUnitOptionalServiceOutput() HciDeploymentSettingScaleUnitOptionalServiceOutput {
+	return i.ToHciDeploymentSettingScaleUnitOptionalServiceOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitOptionalServiceArgs) ToHciDeploymentSettingScaleUnitOptionalServiceOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitOptionalServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitOptionalServiceOutput)
+}
+
+type HciDeploymentSettingScaleUnitOptionalServiceOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitOptionalServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitOptionalService)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitOptionalServiceOutput) ToHciDeploymentSettingScaleUnitOptionalServiceOutput() HciDeploymentSettingScaleUnitOptionalServiceOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitOptionalServiceOutput) ToHciDeploymentSettingScaleUnitOptionalServiceOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitOptionalServiceOutput {
+	return o
+}
+
+// Specifies the name of custom location. A custom location will be created after the deployment is completed. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitOptionalServiceOutput) CustomLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitOptionalService) string { return v.CustomLocation }).(pulumi.StringOutput)
+}
+
+type HciDeploymentSettingScaleUnitPhysicalNode struct {
+	// Specifies the IPv4 address assigned to each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Ipv4Address string `pulumi:"ipv4Address"`
+	// The NETBIOS name of each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Name string `pulumi:"name"`
+}
+
+// HciDeploymentSettingScaleUnitPhysicalNodeInput is an input type that accepts HciDeploymentSettingScaleUnitPhysicalNodeArgs and HciDeploymentSettingScaleUnitPhysicalNodeOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitPhysicalNodeInput` via:
+//
+//	HciDeploymentSettingScaleUnitPhysicalNodeArgs{...}
+type HciDeploymentSettingScaleUnitPhysicalNodeInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitPhysicalNodeOutput() HciDeploymentSettingScaleUnitPhysicalNodeOutput
+	ToHciDeploymentSettingScaleUnitPhysicalNodeOutputWithContext(context.Context) HciDeploymentSettingScaleUnitPhysicalNodeOutput
+}
+
+type HciDeploymentSettingScaleUnitPhysicalNodeArgs struct {
+	// Specifies the IPv4 address assigned to each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Ipv4Address pulumi.StringInput `pulumi:"ipv4Address"`
+	// The NETBIOS name of each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (HciDeploymentSettingScaleUnitPhysicalNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitPhysicalNode)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitPhysicalNodeArgs) ToHciDeploymentSettingScaleUnitPhysicalNodeOutput() HciDeploymentSettingScaleUnitPhysicalNodeOutput {
+	return i.ToHciDeploymentSettingScaleUnitPhysicalNodeOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitPhysicalNodeArgs) ToHciDeploymentSettingScaleUnitPhysicalNodeOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitPhysicalNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitPhysicalNodeOutput)
+}
+
+// HciDeploymentSettingScaleUnitPhysicalNodeArrayInput is an input type that accepts HciDeploymentSettingScaleUnitPhysicalNodeArray and HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitPhysicalNodeArrayInput` via:
+//
+//	HciDeploymentSettingScaleUnitPhysicalNodeArray{ HciDeploymentSettingScaleUnitPhysicalNodeArgs{...} }
+type HciDeploymentSettingScaleUnitPhysicalNodeArrayInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitPhysicalNodeArrayOutput() HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput
+	ToHciDeploymentSettingScaleUnitPhysicalNodeArrayOutputWithContext(context.Context) HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput
+}
+
+type HciDeploymentSettingScaleUnitPhysicalNodeArray []HciDeploymentSettingScaleUnitPhysicalNodeInput
+
+func (HciDeploymentSettingScaleUnitPhysicalNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnitPhysicalNode)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitPhysicalNodeArray) ToHciDeploymentSettingScaleUnitPhysicalNodeArrayOutput() HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput {
+	return i.ToHciDeploymentSettingScaleUnitPhysicalNodeArrayOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitPhysicalNodeArray) ToHciDeploymentSettingScaleUnitPhysicalNodeArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput)
+}
+
+type HciDeploymentSettingScaleUnitPhysicalNodeOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitPhysicalNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitPhysicalNode)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitPhysicalNodeOutput) ToHciDeploymentSettingScaleUnitPhysicalNodeOutput() HciDeploymentSettingScaleUnitPhysicalNodeOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitPhysicalNodeOutput) ToHciDeploymentSettingScaleUnitPhysicalNodeOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitPhysicalNodeOutput {
+	return o
+}
+
+// Specifies the IPv4 address assigned to each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitPhysicalNodeOutput) Ipv4Address() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitPhysicalNode) string { return v.Ipv4Address }).(pulumi.StringOutput)
+}
+
+// The NETBIOS name of each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitPhysicalNodeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitPhysicalNode) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciDeploymentSettingScaleUnitPhysicalNode)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput) ToHciDeploymentSettingScaleUnitPhysicalNodeArrayOutput() HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput) ToHciDeploymentSettingScaleUnitPhysicalNodeArrayOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput) Index(i pulumi.IntInput) HciDeploymentSettingScaleUnitPhysicalNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HciDeploymentSettingScaleUnitPhysicalNode {
+		return vs[0].([]HciDeploymentSettingScaleUnitPhysicalNode)[vs[1].(int)]
+	}).(HciDeploymentSettingScaleUnitPhysicalNodeOutput)
+}
+
+type HciDeploymentSettingScaleUnitStorage struct {
+	// The configuration mode of storage. If set to `Express` and your storage is configured as per best practices based on the number of nodes in the cluster. Possible values are `Express`, `InfraOnly` and `KeepStorage`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	ConfigurationMode string `pulumi:"configurationMode"`
+}
+
+// HciDeploymentSettingScaleUnitStorageInput is an input type that accepts HciDeploymentSettingScaleUnitStorageArgs and HciDeploymentSettingScaleUnitStorageOutput values.
+// You can construct a concrete instance of `HciDeploymentSettingScaleUnitStorageInput` via:
+//
+//	HciDeploymentSettingScaleUnitStorageArgs{...}
+type HciDeploymentSettingScaleUnitStorageInput interface {
+	pulumi.Input
+
+	ToHciDeploymentSettingScaleUnitStorageOutput() HciDeploymentSettingScaleUnitStorageOutput
+	ToHciDeploymentSettingScaleUnitStorageOutputWithContext(context.Context) HciDeploymentSettingScaleUnitStorageOutput
+}
+
+type HciDeploymentSettingScaleUnitStorageArgs struct {
+	// The configuration mode of storage. If set to `Express` and your storage is configured as per best practices based on the number of nodes in the cluster. Possible values are `Express`, `InfraOnly` and `KeepStorage`. Changing this forces a new Stack HCI Deployment Setting to be created.
+	ConfigurationMode pulumi.StringInput `pulumi:"configurationMode"`
+}
+
+func (HciDeploymentSettingScaleUnitStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitStorage)(nil)).Elem()
+}
+
+func (i HciDeploymentSettingScaleUnitStorageArgs) ToHciDeploymentSettingScaleUnitStorageOutput() HciDeploymentSettingScaleUnitStorageOutput {
+	return i.ToHciDeploymentSettingScaleUnitStorageOutputWithContext(context.Background())
+}
+
+func (i HciDeploymentSettingScaleUnitStorageArgs) ToHciDeploymentSettingScaleUnitStorageOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciDeploymentSettingScaleUnitStorageOutput)
+}
+
+type HciDeploymentSettingScaleUnitStorageOutput struct{ *pulumi.OutputState }
+
+func (HciDeploymentSettingScaleUnitStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciDeploymentSettingScaleUnitStorage)(nil)).Elem()
+}
+
+func (o HciDeploymentSettingScaleUnitStorageOutput) ToHciDeploymentSettingScaleUnitStorageOutput() HciDeploymentSettingScaleUnitStorageOutput {
+	return o
+}
+
+func (o HciDeploymentSettingScaleUnitStorageOutput) ToHciDeploymentSettingScaleUnitStorageOutputWithContext(ctx context.Context) HciDeploymentSettingScaleUnitStorageOutput {
+	return o
+}
+
+// The configuration mode of storage. If set to `Express` and your storage is configured as per best practices based on the number of nodes in the cluster. Possible values are `Express`, `InfraOnly` and `KeepStorage`. Changing this forces a new Stack HCI Deployment Setting to be created.
+func (o HciDeploymentSettingScaleUnitStorageOutput) ConfigurationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v HciDeploymentSettingScaleUnitStorage) string { return v.ConfigurationMode }).(pulumi.StringOutput)
+}
+
 type HciLogicalNetworkSubnet struct {
 	// The address prefix in CIDR notation. Changing this forces a new resource to be created.
 	AddressPrefix *string `pulumi:"addressPrefix"`
@@ -748,6 +2491,28 @@ func (o GetHciClusterIdentityArrayOutput) Index(i pulumi.IntInput) GetHciCluster
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterIdentityInput)(nil)).Elem(), HciClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterIdentityPtrInput)(nil)).Elem(), HciClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitInput)(nil)).Elem(), HciDeploymentSettingScaleUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitArrayInput)(nil)).Elem(), HciDeploymentSettingScaleUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitClusterInput)(nil)).Elem(), HciDeploymentSettingScaleUnitClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkInput)(nil)).Elem(), HciDeploymentSettingScaleUnitHostNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentInput)(nil)).Elem(), HciDeploymentSettingScaleUnitHostNetworkIntentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentArrayInput)(nil)).Elem(), HciDeploymentSettingScaleUnitHostNetworkIntentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideInput)(nil)).Elem(), HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrInput)(nil)).Elem(), HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideInput)(nil)).Elem(), HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrInput)(nil)).Elem(), HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideInput)(nil)).Elem(), HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrInput)(nil)).Elem(), HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkStorageNetworkInput)(nil)).Elem(), HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayInput)(nil)).Elem(), HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitInfrastructureNetworkInput)(nil)).Elem(), HciDeploymentSettingScaleUnitInfrastructureNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitInfrastructureNetworkArrayInput)(nil)).Elem(), HciDeploymentSettingScaleUnitInfrastructureNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolInput)(nil)).Elem(), HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayInput)(nil)).Elem(), HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitOptionalServiceInput)(nil)).Elem(), HciDeploymentSettingScaleUnitOptionalServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitPhysicalNodeInput)(nil)).Elem(), HciDeploymentSettingScaleUnitPhysicalNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitPhysicalNodeArrayInput)(nil)).Elem(), HciDeploymentSettingScaleUnitPhysicalNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciDeploymentSettingScaleUnitStorageInput)(nil)).Elem(), HciDeploymentSettingScaleUnitStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetInput)(nil)).Elem(), HciLogicalNetworkSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetPtrInput)(nil)).Elem(), HciLogicalNetworkSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetIpPoolInput)(nil)).Elem(), HciLogicalNetworkSubnetIpPoolArgs{})
@@ -758,6 +2523,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHciClusterIdentityArrayInput)(nil)).Elem(), GetHciClusterIdentityArray{})
 	pulumi.RegisterOutputType(HciClusterIdentityOutput{})
 	pulumi.RegisterOutputType(HciClusterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitArrayOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitClusterOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitHostNetworkOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitHostNetworkIntentOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitHostNetworkIntentArrayOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverridePtrOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverridePtrOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverridePtrOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitHostNetworkStorageNetworkOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArrayOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitInfrastructureNetworkOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitInfrastructureNetworkArrayOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitInfrastructureNetworkIpPoolArrayOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitOptionalServiceOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitPhysicalNodeOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitPhysicalNodeArrayOutput{})
+	pulumi.RegisterOutputType(HciDeploymentSettingScaleUnitStorageOutput{})
 	pulumi.RegisterOutputType(HciLogicalNetworkSubnetOutput{})
 	pulumi.RegisterOutputType(HciLogicalNetworkSubnetPtrOutput{})
 	pulumi.RegisterOutputType(HciLogicalNetworkSubnetIpPoolOutput{})

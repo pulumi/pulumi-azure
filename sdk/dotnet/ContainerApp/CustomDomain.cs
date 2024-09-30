@@ -62,6 +62,12 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string?> ContainerAppEnvironmentCertificateId { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Container App Environment Managed Certificate to use.
+        /// </summary>
+        [Output("containerAppEnvironmentManagedCertificateId")]
+        public Output<string> ContainerAppEnvironmentManagedCertificateId { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
         /// </summary>
         [Output("containerAppId")]
@@ -170,6 +176,12 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Input("containerAppEnvironmentCertificateId")]
         public Input<string>? ContainerAppEnvironmentCertificateId { get; set; }
+
+        /// <summary>
+        /// The ID of the Container App Environment Managed Certificate to use.
+        /// </summary>
+        [Input("containerAppEnvironmentManagedCertificateId")]
+        public Input<string>? ContainerAppEnvironmentManagedCertificateId { get; set; }
 
         /// <summary>
         /// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.

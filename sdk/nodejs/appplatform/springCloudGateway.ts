@@ -122,7 +122,7 @@ export class SpringCloudGateway extends pulumi.CustomResource {
      */
     public readonly cors!: pulumi.Output<outputs.appplatform.SpringCloudGatewayCors | undefined>;
     /**
-     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
     public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -154,7 +154,7 @@ export class SpringCloudGateway extends pulumi.CustomResource {
      */
     public readonly quota!: pulumi.Output<outputs.appplatform.SpringCloudGatewayQuota>;
     /**
-     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
     public readonly sensitiveEnvironmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -255,7 +255,7 @@ export interface SpringCloudGatewayState {
      */
     cors?: pulumi.Input<inputs.appplatform.SpringCloudGatewayCors>;
     /**
-     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -287,7 +287,7 @@ export interface SpringCloudGatewayState {
      */
     quota?: pulumi.Input<inputs.appplatform.SpringCloudGatewayQuota>;
     /**
-     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
     sensitiveEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -329,7 +329,7 @@ export interface SpringCloudGatewayArgs {
      */
     cors?: pulumi.Input<inputs.appplatform.SpringCloudGatewayCors>;
     /**
-     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -361,7 +361,7 @@ export interface SpringCloudGatewayArgs {
      */
     quota?: pulumi.Input<inputs.appplatform.SpringCloudGatewayQuota>;
     /**
-     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
     sensitiveEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

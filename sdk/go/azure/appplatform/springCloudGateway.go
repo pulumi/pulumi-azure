@@ -122,7 +122,7 @@ type SpringCloudGateway struct {
 	ClientAuthorization SpringCloudGatewayClientAuthorizationPtrOutput `pulumi:"clientAuthorization"`
 	// A `cors` block as defined below.
 	Cors SpringCloudGatewayCorsPtrOutput `pulumi:"cors"`
-	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
 	// is only https is allowed?
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
@@ -138,7 +138,7 @@ type SpringCloudGateway struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A `quota` block as defined below.
 	Quota SpringCloudGatewayQuotaOutput `pulumi:"quota"`
-	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 	SensitiveEnvironmentVariables pulumi.StringMapOutput `pulumi:"sensitiveEnvironmentVariables"`
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
 	SpringCloudServiceId pulumi.StringOutput `pulumi:"springCloudServiceId"`
@@ -198,7 +198,7 @@ type springCloudGatewayState struct {
 	ClientAuthorization *SpringCloudGatewayClientAuthorization `pulumi:"clientAuthorization"`
 	// A `cors` block as defined below.
 	Cors *SpringCloudGatewayCors `pulumi:"cors"`
-	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// is only https is allowed?
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -214,7 +214,7 @@ type springCloudGatewayState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `quota` block as defined below.
 	Quota *SpringCloudGatewayQuota `pulumi:"quota"`
-	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 	SensitiveEnvironmentVariables map[string]string `pulumi:"sensitiveEnvironmentVariables"`
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
 	SpringCloudServiceId *string `pulumi:"springCloudServiceId"`
@@ -235,7 +235,7 @@ type SpringCloudGatewayState struct {
 	ClientAuthorization SpringCloudGatewayClientAuthorizationPtrInput
 	// A `cors` block as defined below.
 	Cors SpringCloudGatewayCorsPtrInput
-	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 	EnvironmentVariables pulumi.StringMapInput
 	// is only https is allowed?
 	HttpsOnly pulumi.BoolPtrInput
@@ -251,7 +251,7 @@ type SpringCloudGatewayState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `quota` block as defined below.
 	Quota SpringCloudGatewayQuotaPtrInput
-	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 	SensitiveEnvironmentVariables pulumi.StringMapInput
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
 	SpringCloudServiceId pulumi.StringPtrInput
@@ -276,7 +276,7 @@ type springCloudGatewayArgs struct {
 	ClientAuthorization *SpringCloudGatewayClientAuthorization `pulumi:"clientAuthorization"`
 	// A `cors` block as defined below.
 	Cors *SpringCloudGatewayCors `pulumi:"cors"`
-	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// is only https is allowed?
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -292,7 +292,7 @@ type springCloudGatewayArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `quota` block as defined below.
 	Quota *SpringCloudGatewayQuota `pulumi:"quota"`
-	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 	SensitiveEnvironmentVariables map[string]string `pulumi:"sensitiveEnvironmentVariables"`
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
 	SpringCloudServiceId string `pulumi:"springCloudServiceId"`
@@ -312,7 +312,7 @@ type SpringCloudGatewayArgs struct {
 	ClientAuthorization SpringCloudGatewayClientAuthorizationPtrInput
 	// A `cors` block as defined below.
 	Cors SpringCloudGatewayCorsPtrInput
-	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+	// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 	EnvironmentVariables pulumi.StringMapInput
 	// is only https is allowed?
 	HttpsOnly pulumi.BoolPtrInput
@@ -328,7 +328,7 @@ type SpringCloudGatewayArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `quota` block as defined below.
 	Quota SpringCloudGatewayQuotaPtrInput
-	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+	// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 	SensitiveEnvironmentVariables pulumi.StringMapInput
 	// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
 	SpringCloudServiceId pulumi.StringInput
@@ -450,7 +450,7 @@ func (o SpringCloudGatewayOutput) Cors() SpringCloudGatewayCorsPtrOutput {
 	return o.ApplyT(func(v *SpringCloudGateway) SpringCloudGatewayCorsPtrOutput { return v.Cors }).(SpringCloudGatewayCorsPtrOutput)
 }
 
-// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+// Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 func (o SpringCloudGatewayOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SpringCloudGateway) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
@@ -494,7 +494,7 @@ func (o SpringCloudGatewayOutput) Quota() SpringCloudGatewayQuotaOutput {
 	return o.ApplyT(func(v *SpringCloudGateway) SpringCloudGatewayQuotaOutput { return v.Quota }).(SpringCloudGatewayQuotaOutput)
 }
 
-// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+// Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
 func (o SpringCloudGatewayOutput) SensitiveEnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SpringCloudGateway) pulumi.StringMapOutput { return v.SensitiveEnvironmentVariables }).(pulumi.StringMapOutput)
 }
