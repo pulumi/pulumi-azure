@@ -208,9 +208,6 @@ def get_static_web_app(name: Optional[str] = None,
         sku_size=pulumi.get(__ret__, 'sku_size'),
         sku_tier=pulumi.get(__ret__, 'sku_tier'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_static_web_app)
 def get_static_web_app_output(name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticWebAppResult]:
@@ -231,4 +228,23 @@ def get_static_web_app_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Static Web App.
     :param str resource_group_name: The name of the Resource Group where the Static Web App exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appservice/getStaticWebApp:getStaticWebApp', __args__, opts=opts, typ=GetStaticWebAppResult)
+    return __ret__.apply(lambda __response__: GetStaticWebAppResult(
+        api_key=pulumi.get(__response__, 'api_key'),
+        app_settings=pulumi.get(__response__, 'app_settings'),
+        basic_auths=pulumi.get(__response__, 'basic_auths'),
+        configuration_file_changes_enabled=pulumi.get(__response__, 'configuration_file_changes_enabled'),
+        default_host_name=pulumi.get(__response__, 'default_host_name'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        preview_environments_enabled=pulumi.get(__response__, 'preview_environments_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_size=pulumi.get(__response__, 'sku_size'),
+        sku_tier=pulumi.get(__response__, 'sku_tier'),
+        tags=pulumi.get(__response__, 'tags')))

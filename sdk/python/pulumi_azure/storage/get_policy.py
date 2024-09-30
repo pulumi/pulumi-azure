@@ -99,9 +99,6 @@ def get_policy(storage_account_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         rules=pulumi.get(__ret__, 'rules'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
-
-
-@_utilities.lift_output_func(get_policy)
 def get_policy_output(storage_account_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
@@ -121,4 +118,11 @@ def get_policy_output(storage_account_id: Optional[pulumi.Input[str]] = None,
 
     :param str storage_account_id: Specifies the id of the storage account to retrieve the management policy for.
     """
-    ...
+    __args__ = dict()
+    __args__['storageAccountId'] = storage_account_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
+    return __ret__.apply(lambda __response__: GetPolicyResult(
+        id=pulumi.get(__response__, 'id'),
+        rules=pulumi.get(__response__, 'rules'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id')))
