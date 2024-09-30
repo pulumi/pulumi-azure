@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Specifies a suppression for an Azure Advisor recommendation.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const example = azure.advisor.getRecommendations({});
+ * const exampleSuppression = new azure.advisor.Suppression("example", {
+ *     name: "HardcodedSuppressionName",
+ *     recommendationId: test.recommendations[0].recommendationName,
+ *     resourceId: current.then(current => `/subscriptions/${current.subscriptionId}`),
+ *     ttl: "01:00:00:00",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Advisor suppressions can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure:advisor/suppression:Suppression example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Advisor/recommendations/00000000-0000-0000-0000-000000000000/suppressions/name
+ * ```
+ */
 export class Suppression extends pulumi.CustomResource {
     /**
      * Get an existing Suppression resource's state with the given name, ID, and optional extra
@@ -32,10 +59,25 @@ export class Suppression extends pulumi.CustomResource {
         return obj['__pulumiType'] === Suppression.__pulumiType;
     }
 
+    /**
+     * The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+     */
     public readonly recommendationId!: pulumi.Output<string>;
+    /**
+     * The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+     */
     public readonly resourceId!: pulumi.Output<string>;
+    /**
+     * The GUID of the suppression.
+     */
     public /*out*/ readonly suppressionId!: pulumi.Output<string>;
+    /**
+     * A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+     */
     public readonly ttl!: pulumi.Output<string | undefined>;
 
     /**
@@ -79,10 +121,25 @@ export class Suppression extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Suppression resources.
  */
 export interface SuppressionState {
+    /**
+     * The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+     */
     recommendationId?: pulumi.Input<string>;
+    /**
+     * The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+     */
     resourceId?: pulumi.Input<string>;
+    /**
+     * The GUID of the suppression.
+     */
     suppressionId?: pulumi.Input<string>;
+    /**
+     * A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+     */
     ttl?: pulumi.Input<string>;
 }
 
@@ -90,8 +147,20 @@ export interface SuppressionState {
  * The set of arguments for constructing a Suppression resource.
  */
 export interface SuppressionArgs {
+    /**
+     * The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+     */
     recommendationId: pulumi.Input<string>;
+    /**
+     * The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+     */
     resourceId: pulumi.Input<string>;
+    /**
+     * A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+     */
     ttl?: pulumi.Input<string>;
 }

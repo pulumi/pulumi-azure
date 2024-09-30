@@ -25,6 +25,10 @@ class SuppressionArgs:
                  ttl: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Suppression resource.
+        :param pulumi.Input[str] recommendation_id: The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] resource_id: The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] name: The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] ttl: A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
         """
         pulumi.set(__self__, "recommendation_id", recommendation_id)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -36,6 +40,9 @@ class SuppressionArgs:
     @property
     @pulumi.getter(name="recommendationId")
     def recommendation_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "recommendation_id")
 
     @recommendation_id.setter
@@ -45,6 +52,9 @@ class SuppressionArgs:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -54,6 +64,9 @@ class SuppressionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -63,6 +76,9 @@ class SuppressionArgs:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[str]]:
+        """
+        A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -80,6 +96,11 @@ class _SuppressionState:
                  ttl: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Suppression resources.
+        :param pulumi.Input[str] name: The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] recommendation_id: The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] resource_id: The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] suppression_id: The GUID of the suppression.
+        :param pulumi.Input[str] ttl: A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -95,6 +116,9 @@ class _SuppressionState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -104,6 +128,9 @@ class _SuppressionState:
     @property
     @pulumi.getter(name="recommendationId")
     def recommendation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "recommendation_id")
 
     @recommendation_id.setter
@@ -113,6 +140,9 @@ class _SuppressionState:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -122,6 +152,9 @@ class _SuppressionState:
     @property
     @pulumi.getter(name="suppressionId")
     def suppression_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GUID of the suppression.
+        """
         return pulumi.get(self, "suppression_id")
 
     @suppression_id.setter
@@ -131,6 +164,9 @@ class _SuppressionState:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[str]]:
+        """
+        A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -149,9 +185,37 @@ class Suppression(pulumi.CustomResource):
                  ttl: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Suppression resource with the given unique name, props, and options.
+        Specifies a suppression for an Azure Advisor recommendation.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.advisor.get_recommendations()
+        example_suppression = azure.advisor.Suppression("example",
+            name="HardcodedSuppressionName",
+            recommendation_id=test["recommendations"][0]["recommendationName"],
+            resource_id=f"/subscriptions/{current.subscription_id}",
+            ttl="01:00:00:00")
+        ```
+
+        ## Import
+
+        Advisor suppressions can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:advisor/suppression:Suppression example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Advisor/recommendations/00000000-0000-0000-0000-000000000000/suppressions/name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] recommendation_id: The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] resource_id: The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] ttl: A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
         """
         ...
     @overload
@@ -160,7 +224,31 @@ class Suppression(pulumi.CustomResource):
                  args: SuppressionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Suppression resource with the given unique name, props, and options.
+        Specifies a suppression for an Azure Advisor recommendation.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.advisor.get_recommendations()
+        example_suppression = azure.advisor.Suppression("example",
+            name="HardcodedSuppressionName",
+            recommendation_id=test["recommendations"][0]["recommendationName"],
+            resource_id=f"/subscriptions/{current.subscription_id}",
+            ttl="01:00:00:00")
+        ```
+
+        ## Import
+
+        Advisor suppressions can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:advisor/suppression:Suppression example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Advisor/recommendations/00000000-0000-0000-0000-000000000000/suppressions/name
+        ```
+
         :param str resource_name: The name of the resource.
         :param SuppressionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,6 +308,11 @@ class Suppression(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] recommendation_id: The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] resource_id: The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+        :param pulumi.Input[str] suppression_id: The GUID of the suppression.
+        :param pulumi.Input[str] ttl: A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -235,25 +328,40 @@ class Suppression(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="recommendationId")
     def recommendation_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "recommendation_id")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="suppressionId")
     def suppression_id(self) -> pulumi.Output[str]:
+        """
+        The GUID of the suppression.
+        """
         return pulumi.get(self, "suppression_id")
 
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Output[Optional[str]]:
+        """
+        A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+        """
         return pulumi.get(self, "ttl")
 

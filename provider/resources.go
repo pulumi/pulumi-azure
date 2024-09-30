@@ -608,7 +608,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_active_directory_domain_service_trust": {Tok: azureResource(azureDomainServices, "ServiceTrust")},
 
-			"azurerm_advisor_suppression": {Tok: azureResource(advisor, "Suppression"), Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"azurerm_advisor_suppression": {Tok: azureResource(advisor, "Suppression"), Docs: &tfbridge.DocInfo{Source: "advisor_suppresion.html.markdown"}},
 
 			// API Mannagement
 			"azurerm_api_management": {

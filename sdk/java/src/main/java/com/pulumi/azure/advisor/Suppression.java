@@ -14,35 +14,132 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Specifies a suppression for an Azure Advisor recommendation.
+ * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.advisor.AdvisorFunctions;
+ * import com.pulumi.azure.advisor.inputs.GetRecommendationsArgs;
+ * import com.pulumi.azure.advisor.Suppression;
+ * import com.pulumi.azure.advisor.SuppressionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         final var example = AdvisorFunctions.getRecommendations();
+ * 
+ *         var exampleSuppression = new Suppression("exampleSuppression", SuppressionArgs.builder()
+ *             .name("HardcodedSuppressionName")
+ *             .recommendationId(test.recommendations()[0].recommendationName())
+ *             .resourceId(String.format("/subscriptions/%s", current.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId())))
+ *             .ttl("01:00:00:00")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * Advisor suppressions can be imported using the `resource id`, e.g.
+ * 
+ * ```sh
+ * $ pulumi import azure:advisor/suppression:Suppression example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Advisor/recommendations/00000000-0000-0000-0000-000000000000/suppressions/name
+ * ```
+ * 
+ */
 @ResourceType(type="azure:advisor/suppression:Suppression")
 public class Suppression extends com.pulumi.resources.CustomResource {
+    /**
+     * The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Export(name="recommendationId", refs={String.class}, tree="[0]")
     private Output<String> recommendationId;
 
+    /**
+     * @return The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Output<String> recommendationId() {
         return this.recommendationId;
     }
+    /**
+     * The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
+    /**
+     * The GUID of the suppression.
+     * 
+     */
     @Export(name="suppressionId", refs={String.class}, tree="[0]")
     private Output<String> suppressionId;
 
+    /**
+     * @return The GUID of the suppression.
+     * 
+     */
     public Output<String> suppressionId() {
         return this.suppressionId;
     }
+    /**
+     * A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Export(name="ttl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ttl;
 
+    /**
+     * @return A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Output<Optional<String>> ttl() {
         return Codegen.optional(this.ttl);
     }

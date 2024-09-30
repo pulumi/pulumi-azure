@@ -9,21 +9,72 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Advisor
 {
+    /// <summary>
+    /// Specifies a suppression for an Azure Advisor recommendation.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var example = Azure.Advisor.GetRecommendations.Invoke();
+    /// 
+    ///     var exampleSuppression = new Azure.Advisor.Suppression("example", new()
+    ///     {
+    ///         Name = "HardcodedSuppressionName",
+    ///         RecommendationId = test.Recommendations[0].RecommendationName,
+    ///         ResourceId = $"/subscriptions/{current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId)}",
+    ///         Ttl = "01:00:00:00",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Advisor suppressions can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure:advisor/suppression:Suppression example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Advisor/recommendations/00000000-0000-0000-0000-000000000000/suppressions/name
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:advisor/suppression:Suppression")]
     public partial class Suppression : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Output("recommendationId")]
         public Output<string> RecommendationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The GUID of the suppression.
+        /// </summary>
         [Output("suppressionId")]
         public Output<string> SuppressionId { get; private set; } = null!;
 
+        /// <summary>
+        /// A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Output("ttl")]
         public Output<string?> Ttl { get; private set; } = null!;
 
@@ -73,15 +124,27 @@ namespace Pulumi.Azure.Advisor
 
     public sealed class SuppressionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Input("recommendationId", required: true)]
         public Input<string> RecommendationId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Input("ttl")]
         public Input<string>? Ttl { get; set; }
 
@@ -93,18 +156,33 @@ namespace Pulumi.Azure.Advisor
 
     public sealed class SuppressionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Input("recommendationId")]
         public Input<string>? RecommendationId { get; set; }
 
+        /// <summary>
+        /// The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
+        /// <summary>
+        /// The GUID of the suppression.
+        /// </summary>
         [Input("suppressionId")]
         public Input<string>? SuppressionId { get; set; }
 
+        /// <summary>
+        /// A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+        /// </summary>
         [Input("ttl")]
         public Input<string>? Ttl { get; set; }
 

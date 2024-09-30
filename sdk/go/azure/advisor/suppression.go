@@ -12,14 +12,68 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Specifies a suppression for an Azure Advisor recommendation.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/advisor"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = advisor.GetRecommendations(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = advisor.NewSuppression(ctx, "example", &advisor.SuppressionArgs{
+//				Name:             pulumi.String("HardcodedSuppressionName"),
+//				RecommendationId: pulumi.Any(test.Recommendations[0].RecommendationName),
+//				ResourceId:       pulumi.Sprintf("/subscriptions/%v", current.SubscriptionId),
+//				Ttl:              pulumi.String("01:00:00:00"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Advisor suppressions can be imported using the `resource id`, e.g.
+//
+// ```sh
+// $ pulumi import azure:advisor/suppression:Suppression example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Advisor/recommendations/00000000-0000-0000-0000-000000000000/suppressions/name
+// ```
 type Suppression struct {
 	pulumi.CustomResourceState
 
-	Name             pulumi.StringOutput    `pulumi:"name"`
-	RecommendationId pulumi.StringOutput    `pulumi:"recommendationId"`
-	ResourceId       pulumi.StringOutput    `pulumi:"resourceId"`
-	SuppressionId    pulumi.StringOutput    `pulumi:"suppressionId"`
-	Ttl              pulumi.StringPtrOutput `pulumi:"ttl"`
+	// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+	RecommendationId pulumi.StringOutput `pulumi:"recommendationId"`
+	// The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// The GUID of the suppression.
+	SuppressionId pulumi.StringOutput `pulumi:"suppressionId"`
+	// A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+	Ttl pulumi.StringPtrOutput `pulumi:"ttl"`
 }
 
 // NewSuppression registers a new resource with the given unique name, arguments, and options.
@@ -58,19 +112,29 @@ func GetSuppression(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Suppression resources.
 type suppressionState struct {
-	Name             *string `pulumi:"name"`
+	// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+	Name *string `pulumi:"name"`
+	// The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
 	RecommendationId *string `pulumi:"recommendationId"`
-	ResourceId       *string `pulumi:"resourceId"`
-	SuppressionId    *string `pulumi:"suppressionId"`
-	Ttl              *string `pulumi:"ttl"`
+	// The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+	ResourceId *string `pulumi:"resourceId"`
+	// The GUID of the suppression.
+	SuppressionId *string `pulumi:"suppressionId"`
+	// A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+	Ttl *string `pulumi:"ttl"`
 }
 
 type SuppressionState struct {
-	Name             pulumi.StringPtrInput
+	// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+	Name pulumi.StringPtrInput
+	// The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
 	RecommendationId pulumi.StringPtrInput
-	ResourceId       pulumi.StringPtrInput
-	SuppressionId    pulumi.StringPtrInput
-	Ttl              pulumi.StringPtrInput
+	// The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+	ResourceId pulumi.StringPtrInput
+	// The GUID of the suppression.
+	SuppressionId pulumi.StringPtrInput
+	// A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+	Ttl pulumi.StringPtrInput
 }
 
 func (SuppressionState) ElementType() reflect.Type {
@@ -78,18 +142,26 @@ func (SuppressionState) ElementType() reflect.Type {
 }
 
 type suppressionArgs struct {
-	Name             *string `pulumi:"name"`
-	RecommendationId string  `pulumi:"recommendationId"`
-	ResourceId       string  `pulumi:"resourceId"`
-	Ttl              *string `pulumi:"ttl"`
+	// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+	Name *string `pulumi:"name"`
+	// The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+	RecommendationId string `pulumi:"recommendationId"`
+	// The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+	ResourceId string `pulumi:"resourceId"`
+	// A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+	Ttl *string `pulumi:"ttl"`
 }
 
 // The set of arguments for constructing a Suppression resource.
 type SuppressionArgs struct {
-	Name             pulumi.StringPtrInput
+	// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+	Name pulumi.StringPtrInput
+	// The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
 	RecommendationId pulumi.StringInput
-	ResourceId       pulumi.StringInput
-	Ttl              pulumi.StringPtrInput
+	// The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+	ResourceId pulumi.StringInput
+	// A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+	Ttl pulumi.StringPtrInput
 }
 
 func (SuppressionArgs) ElementType() reflect.Type {
@@ -179,22 +251,27 @@ func (o SuppressionOutput) ToSuppressionOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
 func (o SuppressionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Suppression) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
 func (o SuppressionOutput) RecommendationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Suppression) pulumi.StringOutput { return v.RecommendationId }).(pulumi.StringOutput)
 }
 
+// The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
 func (o SuppressionOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Suppression) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
+// The GUID of the suppression.
 func (o SuppressionOutput) SuppressionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Suppression) pulumi.StringOutput { return v.SuppressionId }).(pulumi.StringOutput)
 }
 
+// A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
 func (o SuppressionOutput) Ttl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Suppression) pulumi.StringPtrOutput { return v.Ttl }).(pulumi.StringPtrOutput)
 }

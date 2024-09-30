@@ -16,30 +16,62 @@ public final class SuppressionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SuppressionArgs Empty = new SuppressionArgs();
 
+    /**
+     * The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Import(name="recommendationId", required=true)
     private Output<String> recommendationId;
 
+    /**
+     * @return The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Output<String> recommendationId() {
         return this.recommendationId;
     }
 
+    /**
+     * The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
+    /**
+     * @return The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
 
+    /**
+     * A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Import(name="ttl")
     private @Nullable Output<String> ttl;
 
+    /**
+     * @return A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Optional<Output<String>> ttl() {
         return Optional.ofNullable(this.ttl);
     }
@@ -71,38 +103,86 @@ public final class SuppressionArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SuppressionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param recommendationId The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recommendationId(Output<String> recommendationId) {
             $.recommendationId = recommendationId;
             return this;
         }
 
+        /**
+         * @param recommendationId The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recommendationId(String recommendationId) {
             return recommendationId(Output.of(recommendationId));
         }
 
+        /**
+         * @param resourceId The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
+        /**
+         * @param resourceId The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }
 
+        /**
+         * @param ttl A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ttl(@Nullable Output<String> ttl) {
             $.ttl = ttl;
             return this;
         }
 
+        /**
+         * @param ttl A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ttl(String ttl) {
             return ttl(Output.of(ttl));
         }

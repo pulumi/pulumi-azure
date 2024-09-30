@@ -15,37 +15,77 @@ public final class SuppressionState extends com.pulumi.resources.ResourceArgs {
 
     public static final SuppressionState Empty = new SuppressionState();
 
+    /**
+     * The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Import(name="recommendationId")
     private @Nullable Output<String> recommendationId;
 
+    /**
+     * @return The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Optional<Output<String>> recommendationId() {
         return Optional.ofNullable(this.recommendationId);
     }
 
+    /**
+     * The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
+    /**
+     * @return The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Optional<Output<String>> resourceId() {
         return Optional.ofNullable(this.resourceId);
     }
 
+    /**
+     * The GUID of the suppression.
+     * 
+     */
     @Import(name="suppressionId")
     private @Nullable Output<String> suppressionId;
 
+    /**
+     * @return The GUID of the suppression.
+     * 
+     */
     public Optional<Output<String>> suppressionId() {
         return Optional.ofNullable(this.suppressionId);
     }
 
+    /**
+     * A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     @Import(name="ttl")
     private @Nullable Output<String> ttl;
 
+    /**
+     * @return A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+     * 
+     */
     public Optional<Output<String>> ttl() {
         return Optional.ofNullable(this.ttl);
     }
@@ -78,47 +118,107 @@ public final class SuppressionState extends com.pulumi.resources.ResourceArgs {
             $ = new SuppressionState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param recommendationId The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recommendationId(@Nullable Output<String> recommendationId) {
             $.recommendationId = recommendationId;
             return this;
         }
 
+        /**
+         * @param recommendationId The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recommendationId(String recommendationId) {
             return recommendationId(Output.of(recommendationId));
         }
 
+        /**
+         * @param resourceId The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(@Nullable Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
+        /**
+         * @param resourceId The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }
 
+        /**
+         * @param suppressionId The GUID of the suppression.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suppressionId(@Nullable Output<String> suppressionId) {
             $.suppressionId = suppressionId;
             return this;
         }
 
+        /**
+         * @param suppressionId The GUID of the suppression.
+         * 
+         * @return builder
+         * 
+         */
         public Builder suppressionId(String suppressionId) {
             return suppressionId(Output.of(suppressionId));
         }
 
+        /**
+         * @param ttl A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ttl(@Nullable Output<String> ttl) {
             $.ttl = ttl;
             return this;
         }
 
+        /**
+         * @param ttl A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ttl(String ttl) {
             return ttl(Output.of(ttl));
         }
