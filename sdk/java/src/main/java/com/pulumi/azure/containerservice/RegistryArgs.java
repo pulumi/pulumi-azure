@@ -104,7 +104,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `georeplications` block as documented below.
+     * One or more `georeplications` blocks as documented below.
      * 
      * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      * 
@@ -117,7 +117,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<RegistryGeoreplicationArgs>> georeplications;
 
     /**
-     * @return A `georeplications` block as documented below.
+     * @return One or more `georeplications` blocks as documented below.
      * 
      * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      * 
@@ -477,7 +477,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param georeplications A `georeplications` block as documented below.
+         * @param georeplications One or more `georeplications` blocks as documented below.
          * 
          * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
          * 
@@ -494,7 +494,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param georeplications A `georeplications` block as documented below.
+         * @param georeplications One or more `georeplications` blocks as documented below.
          * 
          * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
          * 
@@ -510,7 +510,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param georeplications A `georeplications` block as documented below.
+         * @param georeplications One or more `georeplications` blocks as documented below.
          * 
          * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
          * 

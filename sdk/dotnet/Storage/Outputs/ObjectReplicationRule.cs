@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly string? CopyBlobsCreatedAfter;
         /// <summary>
-        /// The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+        /// The destination storage container name.
         /// </summary>
         public readonly string DestinationContainerName;
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Storage.Outputs
         public readonly ImmutableArray<string> FilterOutBlobsWithPrefixes;
         public readonly string? Name;
         /// <summary>
-        /// The source storage container name. Changing this forces a new Storage Object Replication to be created.
+        /// The source storage container name.
         /// </summary>
         public readonly string SourceContainerName;
 

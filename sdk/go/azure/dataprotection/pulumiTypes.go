@@ -1305,6 +1305,573 @@ func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput) Index(i 
 	}).(BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput)
 }
 
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRule struct {
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles []BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle `pulumi:"lifeCycles"`
+}
+
+// BackupPolicyMysqlFlexibleServerDefaultRetentionRuleInput is an input type that accepts BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs and BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyMysqlFlexibleServerDefaultRetentionRuleInput` via:
+//
+//	BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs{...}
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput
+	ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutputWithContext(context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput
+}
+
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs struct {
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayInput `pulumi:"lifeCycles"`
+}
+
+func (BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyMysqlFlexibleServerDefaultRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput {
+	return i.ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput)
+}
+
+func (i BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return i.ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput).ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(ctx)
+}
+
+// BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrInput is an input type that accepts BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs, BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtr and BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput values.
+// You can construct a concrete instance of `BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrInput` via:
+//
+//	        BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrInput interface {
+	pulumi.Input
+
+	ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput
+	ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput
+}
+
+type backupPolicyMysqlFlexibleServerDefaultRetentionRulePtrType BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs
+
+func BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtr(v *BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs) BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrInput {
+	return (*backupPolicyMysqlFlexibleServerDefaultRetentionRulePtrType)(v)
+}
+
+func (*backupPolicyMysqlFlexibleServerDefaultRetentionRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyMysqlFlexibleServerDefaultRetentionRule)(nil)).Elem()
+}
+
+func (i *backupPolicyMysqlFlexibleServerDefaultRetentionRulePtrType) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return i.ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i *backupPolicyMysqlFlexibleServerDefaultRetentionRulePtrType) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyMysqlFlexibleServerDefaultRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return o.ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyMysqlFlexibleServerDefaultRetentionRule) *BackupPolicyMysqlFlexibleServerDefaultRetentionRule {
+		return &v
+	}).(BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput)
+}
+
+// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput) LifeCycles() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerDefaultRetentionRule) []BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle {
+		return v.LifeCycles
+	}).(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyMysqlFlexibleServerDefaultRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput) Elem() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput {
+	return o.ApplyT(func(v *BackupPolicyMysqlFlexibleServerDefaultRetentionRule) BackupPolicyMysqlFlexibleServerDefaultRetentionRule {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicyMysqlFlexibleServerDefaultRetentionRule
+		return ret
+	}).(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput)
+}
+
+// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput) LifeCycles() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyMysqlFlexibleServerDefaultRetentionRule) []BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle {
+		if v == nil {
+			return nil
+		}
+		return v.LifeCycles
+	}).(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle struct {
+	// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+	DataStoreType string `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration string `pulumi:"duration"`
+}
+
+// BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleInput is an input type that accepts BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs and BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput values.
+// You can construct a concrete instance of `BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleInput` via:
+//
+//	BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs{...}
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput
+	ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutputWithContext(context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput
+}
+
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs struct {
+	// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput {
+	return i.ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput)
+}
+
+// BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayInput is an input type that accepts BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArray and BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayInput` via:
+//
+//	BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArray{ BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs{...} }
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput
+	ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutputWithContext(context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput
+}
+
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArray []BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleInput
+
+func (BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArray) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return i.ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArray) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput {
+	return o
+}
+
+// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput) DataStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle) string { return v.DataStoreType }).(pulumi.StringOutput)
+}
+
+// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput() BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput) ToBackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput) Index(i pulumi.IntInput) BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle {
+		return vs[0].([]BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle)[vs[1].(int)]
+	}).(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRule struct {
+	// A `criteria` block as defined below. Changing this forces a new resource to be created.
+	Criteria BackupPolicyMysqlFlexibleServerRetentionRuleCriteria `pulumi:"criteria"`
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles []BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle `pulumi:"lifeCycles"`
+	// Specifies the name of the retention rule. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+	Priority int `pulumi:"priority"`
+}
+
+// BackupPolicyMysqlFlexibleServerRetentionRuleInput is an input type that accepts BackupPolicyMysqlFlexibleServerRetentionRuleArgs and BackupPolicyMysqlFlexibleServerRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyMysqlFlexibleServerRetentionRuleInput` via:
+//
+//	BackupPolicyMysqlFlexibleServerRetentionRuleArgs{...}
+type BackupPolicyMysqlFlexibleServerRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyMysqlFlexibleServerRetentionRuleOutput() BackupPolicyMysqlFlexibleServerRetentionRuleOutput
+	ToBackupPolicyMysqlFlexibleServerRetentionRuleOutputWithContext(context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleOutput
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleArgs struct {
+	// A `criteria` block as defined below. Changing this forces a new resource to be created.
+	Criteria BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaInput `pulumi:"criteria"`
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayInput `pulumi:"lifeCycles"`
+	// Specifies the name of the retention rule. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (BackupPolicyMysqlFlexibleServerRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyMysqlFlexibleServerRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyMysqlFlexibleServerRetentionRuleArgs) ToBackupPolicyMysqlFlexibleServerRetentionRuleOutput() BackupPolicyMysqlFlexibleServerRetentionRuleOutput {
+	return i.ToBackupPolicyMysqlFlexibleServerRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyMysqlFlexibleServerRetentionRuleArgs) ToBackupPolicyMysqlFlexibleServerRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyMysqlFlexibleServerRetentionRuleOutput)
+}
+
+// BackupPolicyMysqlFlexibleServerRetentionRuleArrayInput is an input type that accepts BackupPolicyMysqlFlexibleServerRetentionRuleArray and BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyMysqlFlexibleServerRetentionRuleArrayInput` via:
+//
+//	BackupPolicyMysqlFlexibleServerRetentionRuleArray{ BackupPolicyMysqlFlexibleServerRetentionRuleArgs{...} }
+type BackupPolicyMysqlFlexibleServerRetentionRuleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput() BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput
+	ToBackupPolicyMysqlFlexibleServerRetentionRuleArrayOutputWithContext(context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleArray []BackupPolicyMysqlFlexibleServerRetentionRuleInput
+
+func (BackupPolicyMysqlFlexibleServerRetentionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyMysqlFlexibleServerRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyMysqlFlexibleServerRetentionRuleArray) ToBackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput() BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput {
+	return i.ToBackupPolicyMysqlFlexibleServerRetentionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyMysqlFlexibleServerRetentionRuleArray) ToBackupPolicyMysqlFlexibleServerRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyMysqlFlexibleServerRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyMysqlFlexibleServerRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleOutput) ToBackupPolicyMysqlFlexibleServerRetentionRuleOutput() BackupPolicyMysqlFlexibleServerRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleOutput) ToBackupPolicyMysqlFlexibleServerRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleOutput {
+	return o
+}
+
+// A `criteria` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleOutput) Criteria() BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRule) BackupPolicyMysqlFlexibleServerRetentionRuleCriteria {
+		return v.Criteria
+	}).(BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput)
+}
+
+// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleOutput) LifeCycles() BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRule) []BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle {
+		return v.LifeCycles
+	}).(BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput)
+}
+
+// Specifies the name of the retention rule. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyMysqlFlexibleServerRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput) ToBackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput() BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput) ToBackupPolicyMysqlFlexibleServerRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput) Index(i pulumi.IntInput) BackupPolicyMysqlFlexibleServerRetentionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyMysqlFlexibleServerRetentionRule {
+		return vs[0].([]BackupPolicyMysqlFlexibleServerRetentionRule)[vs[1].(int)]
+	}).(BackupPolicyMysqlFlexibleServerRetentionRuleOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleCriteria struct {
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+	AbsoluteCriteria *string `pulumi:"absoluteCriteria"`
+	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+	MonthsOfYears []string `pulumi:"monthsOfYears"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
+}
+
+// BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaInput is an input type that accepts BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs and BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput values.
+// You can construct a concrete instance of `BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaInput` via:
+//
+//	BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs{...}
+type BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaInput interface {
+	pulumi.Input
+
+	ToBackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput() BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput
+	ToBackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutputWithContext(context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs struct {
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+	AbsoluteCriteria pulumi.StringPtrInput `pulumi:"absoluteCriteria"`
+	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+	MonthsOfYears pulumi.StringArrayInput `pulumi:"monthsOfYears"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
+}
+
+func (BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyMysqlFlexibleServerRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (i BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs) ToBackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput() BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput {
+	return i.ToBackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs) ToBackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyMysqlFlexibleServerRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) ToBackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput() BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) ToBackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput {
+	return o
+}
+
+// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) AbsoluteCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRuleCriteria) *string { return v.AbsoluteCriteria }).(pulumi.StringPtrOutput)
+}
+
+// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRuleCriteria) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) MonthsOfYears() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRuleCriteria) []string { return v.MonthsOfYears }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) ScheduledBackupTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRuleCriteria) []string { return v.ScheduledBackupTimes }).(pulumi.StringArrayOutput)
+}
+
+// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) WeeksOfMonths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRuleCriteria) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle struct {
+	// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+	DataStoreType string `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration string `pulumi:"duration"`
+}
+
+// BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleInput is an input type that accepts BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs and BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput values.
+// You can construct a concrete instance of `BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleInput` via:
+//
+//	BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs{...}
+type BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput() BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput
+	ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutputWithContext(context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs struct {
+	// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs) ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput() BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput {
+	return i.ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs) ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput)
+}
+
+// BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayInput is an input type that accepts BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArray and BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayInput` via:
+//
+//	BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArray{ BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs{...} }
+type BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput() BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput
+	ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutputWithContext(context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArray []BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleInput
+
+func (BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArray) ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput() BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput {
+	return i.ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArray) ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput) ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput() BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput) ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput {
+	return o
+}
+
+// The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput) DataStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle) string { return v.DataStoreType }).(pulumi.StringOutput)
+}
+
+// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+type BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput) ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput() BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput) ToBackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput) Index(i pulumi.IntInput) BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle {
+		return vs[0].([]BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle)[vs[1].(int)]
+	}).(BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput)
+}
+
 type BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule struct {
 	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
 	LifeCycles []BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle `pulumi:"lifeCycles"`
@@ -2399,6 +2966,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayInput)(nil)).Elem(), BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyMysqlFlexibleServerDefaultRetentionRuleInput)(nil)).Elem(), BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrInput)(nil)).Elem(), BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayInput)(nil)).Elem(), BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyMysqlFlexibleServerRetentionRuleInput)(nil)).Elem(), BackupPolicyMysqlFlexibleServerRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyMysqlFlexibleServerRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyMysqlFlexibleServerRetentionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayInput)(nil)).Elem(), BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs{})
@@ -2433,6 +3009,15 @@ func init() {
 	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput{})
 	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyMysqlFlexibleServerDefaultRetentionRulePtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyMysqlFlexibleServerRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyMysqlFlexibleServerRetentionRuleArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput{})
+	pulumi.RegisterOutputType(BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRulePtrOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleOutput{})

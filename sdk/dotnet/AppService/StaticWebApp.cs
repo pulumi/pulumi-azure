@@ -104,6 +104,12 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> PreviewEnvironmentsEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Should public network access be enabled for the Static Web App. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -237,6 +243,12 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? PreviewEnvironmentsEnabled { get; set; }
 
         /// <summary>
+        /// Should public network access be enabled for the Static Web App. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -353,6 +365,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("previewEnvironmentsEnabled")]
         public Input<bool>? PreviewEnvironmentsEnabled { get; set; }
+
+        /// <summary>
+        /// Should public network access be enabled for the Static Web App. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.

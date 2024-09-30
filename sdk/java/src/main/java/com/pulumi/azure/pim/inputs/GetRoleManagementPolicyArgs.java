@@ -30,14 +30,14 @@ public final class GetRoleManagementPolicyArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * The scope to which this Role Management Policy applies. Can refer to a management group, a subscription or a resource group.
+     * The scope to which this Role Management Policy applies. Can refer to a management group, a subscription, a resource group or a resource.
      * 
      */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
     /**
-     * @return The scope to which this Role Management Policy applies. Can refer to a management group, a subscription or a resource group.
+     * @return The scope to which this Role Management Policy applies. Can refer to a management group, a subscription, a resource group or a resource.
      * 
      */
     public Output<String> scope() {
@@ -91,7 +91,7 @@ public final class GetRoleManagementPolicyArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param scope The scope to which this Role Management Policy applies. Can refer to a management group, a subscription or a resource group.
+         * @param scope The scope to which this Role Management Policy applies. Can refer to a management group, a subscription, a resource group or a resource.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetRoleManagementPolicyArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param scope The scope to which this Role Management Policy applies. Can refer to a management group, a subscription or a resource group.
+         * @param scope The scope to which this Role Management Policy applies. Can refer to a management group, a subscription, a resource group or a resource.
          * 
          * @return builder
          * 

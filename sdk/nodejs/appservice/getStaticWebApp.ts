@@ -60,6 +60,7 @@ export interface GetStaticWebAppResult {
     readonly location: string;
     readonly name: string;
     readonly previewEnvironmentsEnabled: boolean;
+    readonly publicNetworkAccessEnabled: boolean;
     readonly resourceGroupName: string;
     readonly skuSize: string;
     readonly skuTier: string;

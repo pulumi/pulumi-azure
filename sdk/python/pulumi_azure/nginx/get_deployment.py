@@ -223,7 +223,7 @@ class GetDeploymentResult:
     @pulumi.getter
     def sku(self) -> str:
         """
-        The NGINX Deployment SKU. Possible values include `standard_Monthly`.
+        The NGINX Deployment SKU.
         """
         return pulumi.get(self, "sku")
 

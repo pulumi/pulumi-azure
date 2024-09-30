@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * const exampleDeployment = new azure.nginx.Deployment("example", {
  *     name: "example-nginx",
  *     resourceGroupName: example.name,
- *     sku: "standard_Monthly",
+ *     sku: "standardv2_Monthly",
  *     location: example.location,
  *     managedResourceGroup: "example",
  *     diagnoseSupportEnabled: true,

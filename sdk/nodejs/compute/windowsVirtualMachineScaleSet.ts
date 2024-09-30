@@ -354,7 +354,9 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+     *
+     * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -762,7 +764,9 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**
-     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+     *
+     * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -1011,7 +1015,9 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**
-     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+     *
+     * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

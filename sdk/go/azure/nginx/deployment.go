@@ -86,7 +86,7 @@ import (
 //			_, err = nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
 //				Name:                    pulumi.String("example-nginx"),
 //				ResourceGroupName:       example.Name,
-//				Sku:                     pulumi.String("standard_Monthly"),
+//				Sku:                     pulumi.String("standardv2_Monthly"),
 //				Location:                example.Location,
 //				ManagedResourceGroup:    pulumi.String("example"),
 //				DiagnoseSupportEnabled:  pulumi.Bool(true),

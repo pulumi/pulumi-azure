@@ -342,7 +342,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.exportPolicyEnabled);
     }
     /**
-     * A `georeplications` block as documented below.
+     * One or more `georeplications` blocks as documented below.
      * 
      * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      * 
@@ -355,7 +355,7 @@ public class Registry extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<RegistryGeoreplication>> georeplications;
 
     /**
-     * @return A `georeplications` block as documented below.
+     * @return One or more `georeplications` blocks as documented below.
      * 
      * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      * 

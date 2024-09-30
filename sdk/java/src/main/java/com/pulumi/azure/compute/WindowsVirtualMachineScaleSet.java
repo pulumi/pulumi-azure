@@ -968,14 +968,18 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.zoneBalance);
     }
     /**
-     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+     * 
+     * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     * @return Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
+     * 
+     * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      * 
      */
     public Output<Optional<List<String>>> zones() {

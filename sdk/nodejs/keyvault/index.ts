@@ -110,6 +110,11 @@ export type ManagedHardwareSecurityModuleKey = import("./managedHardwareSecurity
 export const ManagedHardwareSecurityModuleKey: typeof import("./managedHardwareSecurityModuleKey").ManagedHardwareSecurityModuleKey = null as any;
 utilities.lazyLoad(exports, ["ManagedHardwareSecurityModuleKey"], () => require("./managedHardwareSecurityModuleKey"));
 
+export { ManagedHardwareSecurityModuleKeyRotationPolicyArgs, ManagedHardwareSecurityModuleKeyRotationPolicyState } from "./managedHardwareSecurityModuleKeyRotationPolicy";
+export type ManagedHardwareSecurityModuleKeyRotationPolicy = import("./managedHardwareSecurityModuleKeyRotationPolicy").ManagedHardwareSecurityModuleKeyRotationPolicy;
+export const ManagedHardwareSecurityModuleKeyRotationPolicy: typeof import("./managedHardwareSecurityModuleKeyRotationPolicy").ManagedHardwareSecurityModuleKeyRotationPolicy = null as any;
+utilities.lazyLoad(exports, ["ManagedHardwareSecurityModuleKeyRotationPolicy"], () => require("./managedHardwareSecurityModuleKeyRotationPolicy"));
+
 export { ManagedHardwareSecurityModuleRoleAssignmentArgs, ManagedHardwareSecurityModuleRoleAssignmentState } from "./managedHardwareSecurityModuleRoleAssignment";
 export type ManagedHardwareSecurityModuleRoleAssignment = import("./managedHardwareSecurityModuleRoleAssignment").ManagedHardwareSecurityModuleRoleAssignment;
 export const ManagedHardwareSecurityModuleRoleAssignment: typeof import("./managedHardwareSecurityModuleRoleAssignment").ManagedHardwareSecurityModuleRoleAssignment = null as any;
@@ -158,6 +163,8 @@ const _module = {
                 return new ManagedHardwareSecurityModule(name, <any>undefined, { urn })
             case "azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey":
                 return new ManagedHardwareSecurityModuleKey(name, <any>undefined, { urn })
+            case "azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy":
+                return new ManagedHardwareSecurityModuleKeyRotationPolicy(name, <any>undefined, { urn })
             case "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment":
                 return new ManagedHardwareSecurityModuleRoleAssignment(name, <any>undefined, { urn })
             case "azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition":
@@ -182,6 +189,7 @@ pulumi.runtime.registerResourceModule("azure", "keyvault/key", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/keyVault", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModule", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModuleKey", _module)
+pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModuleKeyRotationPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModuleRoleAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModuleRoleDefinition", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedStorageAccount", _module)

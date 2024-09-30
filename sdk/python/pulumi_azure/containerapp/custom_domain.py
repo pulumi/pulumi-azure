@@ -100,6 +100,7 @@ class _CustomDomainState:
     def __init__(__self__, *,
                  certificate_binding_type: Optional[pulumi.Input[str]] = None,
                  container_app_environment_certificate_id: Optional[pulumi.Input[str]] = None,
+                 container_app_environment_managed_certificate_id: Optional[pulumi.Input[str]] = None,
                  container_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -108,6 +109,7 @@ class _CustomDomainState:
         :param pulumi.Input[str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
                
                > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+        :param pulumi.Input[str] container_app_environment_managed_certificate_id: The ID of the Container App Environment Managed Certificate to use.
         :param pulumi.Input[str] container_app_id: The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
                
@@ -117,6 +119,8 @@ class _CustomDomainState:
             pulumi.set(__self__, "certificate_binding_type", certificate_binding_type)
         if container_app_environment_certificate_id is not None:
             pulumi.set(__self__, "container_app_environment_certificate_id", container_app_environment_certificate_id)
+        if container_app_environment_managed_certificate_id is not None:
+            pulumi.set(__self__, "container_app_environment_managed_certificate_id", container_app_environment_managed_certificate_id)
         if container_app_id is not None:
             pulumi.set(__self__, "container_app_id", container_app_id)
         if name is not None:
@@ -147,6 +151,18 @@ class _CustomDomainState:
     @container_app_environment_certificate_id.setter
     def container_app_environment_certificate_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "container_app_environment_certificate_id", value)
+
+    @property
+    @pulumi.getter(name="containerAppEnvironmentManagedCertificateId")
+    def container_app_environment_managed_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Container App Environment Managed Certificate to use.
+        """
+        return pulumi.get(self, "container_app_environment_managed_certificate_id")
+
+    @container_app_environment_managed_certificate_id.setter
+    def container_app_environment_managed_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_app_environment_managed_certificate_id", value)
 
     @property
     @pulumi.getter(name="containerAppId")
@@ -284,6 +300,7 @@ class CustomDomain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'container_app_id'")
             __props__.__dict__["container_app_id"] = container_app_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["container_app_environment_managed_certificate_id"] = None
         super(CustomDomain, __self__).__init__(
             'azure:containerapp/customDomain:CustomDomain',
             resource_name,
@@ -296,6 +313,7 @@ class CustomDomain(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate_binding_type: Optional[pulumi.Input[str]] = None,
             container_app_environment_certificate_id: Optional[pulumi.Input[str]] = None,
+            container_app_environment_managed_certificate_id: Optional[pulumi.Input[str]] = None,
             container_app_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'CustomDomain':
         """
@@ -309,6 +327,7 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] container_app_environment_certificate_id: The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
                
                > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+        :param pulumi.Input[str] container_app_environment_managed_certificate_id: The ID of the Container App Environment Managed Certificate to use.
         :param pulumi.Input[str] container_app_id: The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
                
@@ -320,6 +339,7 @@ class CustomDomain(pulumi.CustomResource):
 
         __props__.__dict__["certificate_binding_type"] = certificate_binding_type
         __props__.__dict__["container_app_environment_certificate_id"] = container_app_environment_certificate_id
+        __props__.__dict__["container_app_environment_managed_certificate_id"] = container_app_environment_managed_certificate_id
         __props__.__dict__["container_app_id"] = container_app_id
         __props__.__dict__["name"] = name
         return CustomDomain(resource_name, opts=opts, __props__=__props__)
@@ -341,6 +361,14 @@ class CustomDomain(pulumi.CustomResource):
         > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         """
         return pulumi.get(self, "container_app_environment_certificate_id")
+
+    @property
+    @pulumi.getter(name="containerAppEnvironmentManagedCertificateId")
+    def container_app_environment_managed_certificate_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Container App Environment Managed Certificate to use.
+        """
+        return pulumi.get(self, "container_app_environment_managed_certificate_id")
 
     @property
     @pulumi.getter(name="containerAppId")

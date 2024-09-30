@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Nginx
     ///     {
     ///         Name = "example-nginx",
     ///         ResourceGroupName = example.Name,
-    ///         Sku = "standard_Monthly",
+    ///         Sku = "standardv2_Monthly",
     ///         Location = example.Location,
     ///         ManagedResourceGroup = "example",
     ///         DiagnoseSupportEnabled = true,

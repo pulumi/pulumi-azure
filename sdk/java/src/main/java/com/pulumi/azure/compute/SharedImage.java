@@ -174,6 +174,20 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
+     * Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="diskControllerTypeNvmeEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> diskControllerTypeNvmeEnabled;
+
+    /**
+     * @return Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> diskControllerTypeNvmeEnabled() {
+        return Codegen.optional(this.diskControllerTypeNvmeEnabled);
+    }
+    /**
      * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
      * 
      */

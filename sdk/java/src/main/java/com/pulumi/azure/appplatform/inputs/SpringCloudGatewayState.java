@@ -102,14 +102,14 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      * 
      */
     @Import(name="environmentVariables")
     private @Nullable Output<Map<String,String>> environmentVariables;
 
     /**
-     * @return Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+     * @return Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      * 
      */
     public Optional<Output<Map<String,String>>> environmentVariables() {
@@ -222,14 +222,14 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      * 
      */
     @Import(name="sensitiveEnvironmentVariables")
     private @Nullable Output<Map<String,String>> sensitiveEnvironmentVariables;
 
     /**
-     * @return Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+     * @return Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      * 
      */
     public Optional<Output<Map<String,String>>> sensitiveEnvironmentVariables() {
@@ -447,7 +447,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param environmentVariables Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+         * @param environmentVariables Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param environmentVariables Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+         * @param environmentVariables Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sensitiveEnvironmentVariables Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+         * @param sensitiveEnvironmentVariables Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
          * 
          * @return builder
          * 
@@ -626,7 +626,7 @@ public final class SpringCloudGatewayState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sensitiveEnvironmentVariables Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+         * @param sensitiveEnvironmentVariables Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
          * 
          * @return builder
          * 

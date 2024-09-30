@@ -66,7 +66,7 @@ export interface GetRoleManagementPolicyArgs {
      */
     roleDefinitionId: string;
     /**
-     * The scope to which this Role Management Policy applies. Can refer to a management group, a subscription or a resource group.
+     * The scope to which this Role Management Policy applies. Can refer to a management group, a subscription, a resource group or a resource.
      */
     scope: string;
 }
@@ -166,7 +166,7 @@ export interface GetRoleManagementPolicyOutputArgs {
      */
     roleDefinitionId: pulumi.Input<string>;
     /**
-     * The scope to which this Role Management Policy applies. Can refer to a management group, a subscription or a resource group.
+     * The scope to which this Role Management Policy applies. Can refer to a management group, a subscription, a resource group or a resource.
      */
     scope: pulumi.Input<string>;
 }

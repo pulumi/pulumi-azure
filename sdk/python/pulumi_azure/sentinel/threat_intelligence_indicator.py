@@ -825,6 +825,31 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         """
         Manages a Sentinel Threat Intelligence Indicator.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="east us")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-law",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_threat_intelligence_indicator = azure.sentinel.ThreatIntelligenceIndicator("example",
+            workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            pattern_type="domain-name",
+            pattern="http://example.com",
+            source="Microsoft Sentinel",
+            validate_from_utc="2022-12-14T16:00:00Z",
+            display_name="example-indicator")
+        ```
+
         ## Import
 
         Sentinel Threat Intelligence Indicators can be imported using the `resource id`, e.g.
@@ -864,6 +889,31 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Threat Intelligence Indicator.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="east us")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-law",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_threat_intelligence_indicator = azure.sentinel.ThreatIntelligenceIndicator("example",
+            workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            pattern_type="domain-name",
+            pattern="http://example.com",
+            source="Microsoft Sentinel",
+            validate_from_utc="2022-12-14T16:00:00Z",
+            display_name="example-indicator")
+        ```
 
         ## Import
 

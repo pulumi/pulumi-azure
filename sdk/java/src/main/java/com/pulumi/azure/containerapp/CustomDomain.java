@@ -105,6 +105,20 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.containerAppEnvironmentCertificateId);
     }
     /**
+     * The ID of the Container App Environment Managed Certificate to use.
+     * 
+     */
+    @Export(name="containerAppEnvironmentManagedCertificateId", refs={String.class}, tree="[0]")
+    private Output<String> containerAppEnvironmentManagedCertificateId;
+
+    /**
+     * @return The ID of the Container App Environment Managed Certificate to use.
+     * 
+     */
+    public Output<String> containerAppEnvironmentManagedCertificateId() {
+        return this.containerAppEnvironmentManagedCertificateId;
+    }
+    /**
      * The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
      * 
      */

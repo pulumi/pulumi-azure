@@ -102,6 +102,21 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="diskControllerTypeNvmeEnabled")
+    private @Nullable Output<Boolean> diskControllerTypeNvmeEnabled;
+
+    /**
+     * @return Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> diskControllerTypeNvmeEnabled() {
+        return Optional.ofNullable(this.diskControllerTypeNvmeEnabled);
+    }
+
+    /**
      * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
      * 
      */
@@ -443,6 +458,7 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
         this.confidentialVmEnabled = $.confidentialVmEnabled;
         this.confidentialVmSupported = $.confidentialVmSupported;
         this.description = $.description;
+        this.diskControllerTypeNvmeEnabled = $.diskControllerTypeNvmeEnabled;
         this.diskTypesNotAlloweds = $.diskTypesNotAlloweds;
         this.endOfLifeDate = $.endOfLifeDate;
         this.eula = $.eula;
@@ -592,6 +608,27 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param diskControllerTypeNvmeEnabled Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskControllerTypeNvmeEnabled(@Nullable Output<Boolean> diskControllerTypeNvmeEnabled) {
+            $.diskControllerTypeNvmeEnabled = diskControllerTypeNvmeEnabled;
+            return this;
+        }
+
+        /**
+         * @param diskControllerTypeNvmeEnabled Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskControllerTypeNvmeEnabled(Boolean diskControllerTypeNvmeEnabled) {
+            return diskControllerTypeNvmeEnabled(Output.of(diskControllerTypeNvmeEnabled));
         }
 
         /**

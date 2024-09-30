@@ -409,6 +409,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "advisor/suppression",
+  "fqn": "pulumi_azure.advisor",
+  "classes": {
+   "azure:advisor/suppression:Suppression": "Suppression"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "analysisservices/server",
   "fqn": "pulumi_azure.analysisservices",
   "classes": {
@@ -3785,6 +3793,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "dataprotection/backupPolicyMysqlFlexibleServer",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupPolicyMysqlFlexibleServer:BackupPolicyMysqlFlexibleServer": "BackupPolicyMysqlFlexibleServer"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "dataprotection/backupPolicyPostgresql",
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
@@ -4893,6 +4909,14 @@ _utilities.register(
   "fqn": "pulumi_azure.keyvault",
   "classes": {
    "azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey": "ManagedHardwareSecurityModuleKey"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "keyvault/managedHardwareSecurityModuleKeyRotationPolicy",
+  "fqn": "pulumi_azure.keyvault",
+  "classes": {
+   "azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy": "ManagedHardwareSecurityModuleKeyRotationPolicy"
   }
  },
  {
@@ -8145,10 +8169,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "stack/hciDeploymentSetting",
+  "fqn": "pulumi_azure.stack",
+  "classes": {
+   "azure:stack/hciDeploymentSetting:HciDeploymentSetting": "HciDeploymentSetting"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "stack/hciLogicalNetwork",
   "fqn": "pulumi_azure.stack",
   "classes": {
    "azure:stack/hciLogicalNetwork:HciLogicalNetwork": "HciLogicalNetwork"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "stack/hciStoragePath",
+  "fqn": "pulumi_azure.stack",
+  "classes": {
+   "azure:stack/hciStoragePath:HciStoragePath": "HciStoragePath"
   }
  },
  {

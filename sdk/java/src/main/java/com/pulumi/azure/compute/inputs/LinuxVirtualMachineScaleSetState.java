@@ -883,14 +883,18 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
     }
 
     /**
-     * Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     * Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+     * 
+     * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     * @return Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+     * 
+     * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -2188,7 +2192,9 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+         * @param zones Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+         * 
+         * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
          * 
          * @return builder
          * 
@@ -2199,7 +2205,9 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+         * @param zones Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+         * 
+         * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
          * 
          * @return builder
          * 
@@ -2209,7 +2217,9 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+         * @param zones Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+         * 
+         * &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
          * 
          * @return builder
          * 

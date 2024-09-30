@@ -126,7 +126,7 @@ namespace Pulumi.Azure.Storage
         public Output<int?> Size { get; private set; } = null!;
 
         /// <summary>
-        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         /// </summary>
         [Output("source")]
         public Output<AssetOrArchive?> Source { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.Storage
         public Input<int>? Size { get; set; }
 
         /// <summary>
-        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         /// </summary>
         [Input("source")]
         public Input<AssetOrArchive>? Source { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.Storage
         public Input<int>? Size { get; set; }
 
         /// <summary>
-        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         /// </summary>
         [Input("source")]
         public Input<AssetOrArchive>? Source { get; set; }

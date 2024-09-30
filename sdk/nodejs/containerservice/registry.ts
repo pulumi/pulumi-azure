@@ -148,7 +148,7 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly exportPolicyEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A `georeplications` block as documented below.
+     * One or more `georeplications` blocks as documented below.
      *
      * > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      *
@@ -322,7 +322,7 @@ export interface RegistryState {
      */
     exportPolicyEnabled?: pulumi.Input<boolean>;
     /**
-     * A `georeplications` block as documented below.
+     * One or more `georeplications` blocks as documented below.
      *
      * > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      *
@@ -416,7 +416,7 @@ export interface RegistryArgs {
      */
     exportPolicyEnabled?: pulumi.Input<boolean>;
     /**
-     * A `georeplications` block as documented below.
+     * One or more `georeplications` blocks as documented below.
      *
      * > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
      *

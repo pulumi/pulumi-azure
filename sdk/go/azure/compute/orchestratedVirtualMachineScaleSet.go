@@ -152,7 +152,9 @@ type OrchestratedVirtualMachineScaleSet struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
-	// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	//
 	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
@@ -283,7 +285,9 @@ type orchestratedVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
-	// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	//
 	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones []string `pulumi:"zones"`
@@ -372,7 +376,9 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrInput
-	// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	//
 	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayInput
@@ -463,7 +469,9 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
-	// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	//
 	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones []string `pulumi:"zones"`
@@ -551,7 +559,9 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrInput
-	// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	//
 	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayInput
@@ -856,7 +866,9 @@ func (o OrchestratedVirtualMachineScaleSetOutput) ZoneBalance() pulumi.BoolPtrOu
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.ZoneBalance }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
+// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
+//
+// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 //
 // > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 func (o OrchestratedVirtualMachineScaleSetOutput) Zones() pulumi.StringArrayOutput {

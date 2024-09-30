@@ -26,6 +26,7 @@ from .key import *
 from .key_vault import *
 from .managed_hardware_security_module import *
 from .managed_hardware_security_module_key import *
+from .managed_hardware_security_module_key_rotation_policy import *
 from .managed_hardware_security_module_role_assignment import *
 from .managed_hardware_security_module_role_definition import *
 from .managed_storage_account import *

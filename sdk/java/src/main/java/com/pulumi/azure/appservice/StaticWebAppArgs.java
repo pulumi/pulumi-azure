@@ -126,6 +126,21 @@ public final class StaticWebAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Should public network access be enabled for the Static Web App. Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Should public network access be enabled for the Static Web App. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
+    /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      * 
      */
@@ -195,6 +210,7 @@ public final class StaticWebAppArgs extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.name = $.name;
         this.previewEnvironmentsEnabled = $.previewEnvironmentsEnabled;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.skuSize = $.skuSize;
         this.skuTier = $.skuTier;
@@ -364,6 +380,27 @@ public final class StaticWebAppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder previewEnvironmentsEnabled(Boolean previewEnvironmentsEnabled) {
             return previewEnvironmentsEnabled(Output.of(previewEnvironmentsEnabled));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Should public network access be enabled for the Static Web App. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Should public network access be enabled for the Static Web App. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

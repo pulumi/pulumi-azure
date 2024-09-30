@@ -27,6 +27,11 @@ __all__ = [
     'BackupPolicyKubernetesClusterRetentionRule',
     'BackupPolicyKubernetesClusterRetentionRuleCriteria',
     'BackupPolicyKubernetesClusterRetentionRuleLifeCycle',
+    'BackupPolicyMysqlFlexibleServerDefaultRetentionRule',
+    'BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle',
+    'BackupPolicyMysqlFlexibleServerRetentionRule',
+    'BackupPolicyMysqlFlexibleServerRetentionRuleCriteria',
+    'BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle',
     'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule',
     'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle',
     'BackupPolicyPostgresqlFlexibleServerRetentionRule',
@@ -740,6 +745,293 @@ class BackupPolicyKubernetesClusterRetentionRuleLifeCycle(dict):
     def data_store_type(self) -> str:
         """
         The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "data_store_type")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "duration")
+
+
+@pulumi.output_type
+class BackupPolicyMysqlFlexibleServerDefaultRetentionRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lifeCycles":
+            suggest = "life_cycles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyMysqlFlexibleServerDefaultRetentionRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyMysqlFlexibleServerDefaultRetentionRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyMysqlFlexibleServerDefaultRetentionRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 life_cycles: Sequence['outputs.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle']):
+        """
+        :param Sequence['BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs'] life_cycles: A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "life_cycles", life_cycles)
+
+    @property
+    @pulumi.getter(name="lifeCycles")
+    def life_cycles(self) -> Sequence['outputs.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle']:
+        """
+        A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "life_cycles")
+
+
+@pulumi.output_type
+class BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataStoreType":
+            suggest = "data_store_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_store_type: str,
+                 duration: str):
+        """
+        :param str data_store_type: The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+        :param str duration: The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "data_store_type", data_store_type)
+        pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter(name="dataStoreType")
+    def data_store_type(self) -> str:
+        """
+        The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "data_store_type")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "duration")
+
+
+@pulumi.output_type
+class BackupPolicyMysqlFlexibleServerRetentionRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lifeCycles":
+            suggest = "life_cycles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyMysqlFlexibleServerRetentionRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyMysqlFlexibleServerRetentionRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyMysqlFlexibleServerRetentionRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 criteria: 'outputs.BackupPolicyMysqlFlexibleServerRetentionRuleCriteria',
+                 life_cycles: Sequence['outputs.BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle'],
+                 name: str,
+                 priority: int):
+        """
+        :param 'BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs' criteria: A `criteria` block as defined below. Changing this forces a new resource to be created.
+        :param Sequence['BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs'] life_cycles: A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the retention rule. Changing this forces a new resource to be created.
+        :param int priority: Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "life_cycles", life_cycles)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> 'outputs.BackupPolicyMysqlFlexibleServerRetentionRuleCriteria':
+        """
+        A `criteria` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "criteria")
+
+    @property
+    @pulumi.getter(name="lifeCycles")
+    def life_cycles(self) -> Sequence['outputs.BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle']:
+        """
+        A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "life_cycles")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the retention rule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "priority")
+
+
+@pulumi.output_type
+class BackupPolicyMysqlFlexibleServerRetentionRuleCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "absoluteCriteria":
+            suggest = "absolute_criteria"
+        elif key == "daysOfWeeks":
+            suggest = "days_of_weeks"
+        elif key == "monthsOfYears":
+            suggest = "months_of_years"
+        elif key == "scheduledBackupTimes":
+            suggest = "scheduled_backup_times"
+        elif key == "weeksOfMonths":
+            suggest = "weeks_of_months"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyMysqlFlexibleServerRetentionRuleCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyMysqlFlexibleServerRetentionRuleCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyMysqlFlexibleServerRetentionRuleCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 absolute_criteria: Optional[str] = None,
+                 days_of_weeks: Optional[Sequence[str]] = None,
+                 months_of_years: Optional[Sequence[str]] = None,
+                 scheduled_backup_times: Optional[Sequence[str]] = None,
+                 weeks_of_months: Optional[Sequence[str]] = None):
+        """
+        :param str absolute_criteria: Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+        :param Sequence[str] days_of_weeks: Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        :param Sequence[str] months_of_years: Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+        :param Sequence[str] scheduled_backup_times: Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+        :param Sequence[str] weeks_of_months: Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+        """
+        if absolute_criteria is not None:
+            pulumi.set(__self__, "absolute_criteria", absolute_criteria)
+        if days_of_weeks is not None:
+            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        if months_of_years is not None:
+            pulumi.set(__self__, "months_of_years", months_of_years)
+        if scheduled_backup_times is not None:
+            pulumi.set(__self__, "scheduled_backup_times", scheduled_backup_times)
+        if weeks_of_months is not None:
+            pulumi.set(__self__, "weeks_of_months", weeks_of_months)
+
+    @property
+    @pulumi.getter(name="absoluteCriteria")
+    def absolute_criteria(self) -> Optional[str]:
+        """
+        Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "absolute_criteria")
+
+    @property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> Optional[Sequence[str]]:
+        """
+        Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @property
+    @pulumi.getter(name="monthsOfYears")
+    def months_of_years(self) -> Optional[Sequence[str]]:
+        """
+        Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "months_of_years")
+
+    @property
+    @pulumi.getter(name="scheduledBackupTimes")
+    def scheduled_backup_times(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "scheduled_backup_times")
+
+    @property
+    @pulumi.getter(name="weeksOfMonths")
+    def weeks_of_months(self) -> Optional[Sequence[str]]:
+        """
+        Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "weeks_of_months")
+
+
+@pulumi.output_type
+class BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataStoreType":
+            suggest = "data_store_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_store_type: str,
+                 duration: str):
+        """
+        :param str data_store_type: The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+        :param str duration: The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "data_store_type", data_store_type)
+        pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter(name="dataStoreType")
+    def data_store_type(self) -> str:
+        """
+        The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_store_type")
 

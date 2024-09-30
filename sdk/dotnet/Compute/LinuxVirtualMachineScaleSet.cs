@@ -466,7 +466,9 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> ZoneBalance { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+        /// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+        /// 
+        /// &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -927,7 +929,9 @@ namespace Pulumi.Azure.Compute
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+        /// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+        /// 
+        /// &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -1354,7 +1358,9 @@ namespace Pulumi.Azure.Compute
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+        /// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+        /// 
+        /// &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         /// </summary>
         public InputList<string> Zones
         {

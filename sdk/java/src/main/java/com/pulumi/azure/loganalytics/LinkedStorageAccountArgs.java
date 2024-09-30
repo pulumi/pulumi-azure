@@ -18,16 +18,12 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
     /**
      * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
-     * &gt; **Note:** The `data_source_type` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
-     * 
      */
     @Import(name="dataSourceType", required=true)
     private Output<String> dataSourceType;
 
     /**
      * @return The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
-     * 
-     * &gt; **Note:** The `data_source_type` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
      * 
      */
     public Output<String> dataSourceType() {
@@ -109,8 +105,6 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
         /**
          * @param dataSourceType The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
          * 
-         * &gt; **Note:** The `data_source_type` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
-         * 
          * @return builder
          * 
          */
@@ -121,8 +115,6 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param dataSourceType The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
-         * 
-         * &gt; **Note:** The `data_source_type` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
          * 
          * @return builder
          * 

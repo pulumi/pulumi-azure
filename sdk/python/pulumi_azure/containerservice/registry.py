@@ -51,7 +51,7 @@ class RegistryArgs:
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
                
                > **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: One or more `georeplications` blocks as documented below.
                
                > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
                
@@ -197,7 +197,7 @@ class RegistryArgs:
     @pulumi.getter
     def georeplications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
         """
-        A `georeplications` block as documented below.
+        One or more `georeplications` blocks as documented below.
 
         > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 
@@ -380,7 +380,7 @@ class _RegistryState:
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
                
                > **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: One or more `georeplications` blocks as documented below.
                
                > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
                
@@ -537,7 +537,7 @@ class _RegistryState:
     @pulumi.getter
     def georeplications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
         """
-        A `georeplications` block as documented below.
+        One or more `georeplications` blocks as documented below.
 
         > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 
@@ -831,7 +831,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
                
                > **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]] georeplications: A `georeplications` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]] georeplications: One or more `georeplications` blocks as documented below.
                
                > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
                
@@ -1054,7 +1054,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
                
                > **NOTE:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]] georeplications: A `georeplications` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]] georeplications: One or more `georeplications` blocks as documented below.
                
                > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
                
@@ -1166,7 +1166,7 @@ class Registry(pulumi.CustomResource):
     @pulumi.getter
     def georeplications(self) -> pulumi.Output[Optional[Sequence['outputs.RegistryGeoreplication']]]:
         """
-        A `georeplications` block as documented below.
+        One or more `georeplications` blocks as documented below.
 
         > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 

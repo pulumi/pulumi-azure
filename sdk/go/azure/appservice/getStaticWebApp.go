@@ -70,6 +70,7 @@ type LookupStaticWebAppResult struct {
 	Location                   string                    `pulumi:"location"`
 	Name                       string                    `pulumi:"name"`
 	PreviewEnvironmentsEnabled bool                      `pulumi:"previewEnvironmentsEnabled"`
+	PublicNetworkAccessEnabled bool                      `pulumi:"publicNetworkAccessEnabled"`
 	ResourceGroupName          string                    `pulumi:"resourceGroupName"`
 	SkuSize                    string                    `pulumi:"skuSize"`
 	SkuTier                    string                    `pulumi:"skuTier"`
@@ -161,6 +162,10 @@ func (o LookupStaticWebAppResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupStaticWebAppResultOutput) PreviewEnvironmentsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) bool { return v.PreviewEnvironmentsEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupStaticWebAppResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupStaticWebAppResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupStaticWebAppResultOutput) ResourceGroupName() pulumi.StringOutput {

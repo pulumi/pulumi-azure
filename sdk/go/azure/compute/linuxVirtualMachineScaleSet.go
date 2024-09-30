@@ -262,7 +262,9 @@ type LinuxVirtualMachineScaleSet struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
-	// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -461,7 +463,9 @@ type linuxVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
-	// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -605,7 +609,9 @@ type LinuxVirtualMachineScaleSetState struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrInput
-	// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -751,7 +757,9 @@ type linuxVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
-	// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -894,7 +902,9 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	//
 	// > **Note:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrInput
-	// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+	// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+	//
+	// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -1308,7 +1318,9 @@ func (o LinuxVirtualMachineScaleSetOutput) ZoneBalance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.ZoneBalance }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+// Specifies a list of Availability Zones in which this Linux Virtual Machine Scale Set should be located.
+//
+// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
 func (o LinuxVirtualMachineScaleSetOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

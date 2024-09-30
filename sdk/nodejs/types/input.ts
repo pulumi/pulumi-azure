@@ -21946,7 +21946,7 @@ export namespace containerapp {
         /**
          * The suffix string to which this `trafficWeight` applies.
          *
-         * > **Note:** `latestRevision` conflicts with `revisionSuffix`, which means you shall either set `latestRevision` to `true` or specify `revisionSuffix`. Especially for creation, there shall only be one `trafficWeight`, with the `latestRevision` set to `true`, and leave the `revisionSuffix` empty.
+         * > **Note:** If `latestRevision` is `false`, the `revisionSuffix` shall be specified.
          */
         revisionSuffix?: pulumi.Input<string>;
     }
@@ -28834,6 +28834,77 @@ export namespace dataprotection {
     export interface BackupPolicyKubernetesClusterRetentionRuleLifeCycle {
         /**
          * The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+         */
+        dataStoreType: pulumi.Input<string>;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+         */
+        duration: pulumi.Input<string>;
+    }
+
+    export interface BackupPolicyMysqlFlexibleServerDefaultRetentionRule {
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+         */
+        lifeCycles: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle>[]>;
+    }
+
+    export interface BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+         */
+        dataStoreType: pulumi.Input<string>;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+         */
+        duration: pulumi.Input<string>;
+    }
+
+    export interface BackupPolicyMysqlFlexibleServerRetentionRule {
+        /**
+         * A `criteria` block as defined below. Changing this forces a new resource to be created.
+         */
+        criteria: pulumi.Input<inputs.dataprotection.BackupPolicyMysqlFlexibleServerRetentionRuleCriteria>;
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+         */
+        lifeCycles: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle>[]>;
+        /**
+         * Specifies the name of the retention rule. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+         */
+        priority: pulumi.Input<number>;
+    }
+
+    export interface BackupPolicyMysqlFlexibleServerRetentionRuleCriteria {
+        /**
+         * Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+         */
+        absoluteCriteria?: pulumi.Input<string>;
+        /**
+         * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+         */
+        daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+         */
+        monthsOfYears?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+         */
+        scheduledBackupTimes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         */
+        weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
          */
         dataStoreType: pulumi.Input<string>;
         /**
@@ -48588,6 +48659,299 @@ export namespace stack {
         type: pulumi.Input<string>;
     }
 
+    export interface HciDeploymentSettingScaleUnit {
+        /**
+         * Specify the full name of the Active Directory Organizational Unit container object prepared for the deployment, including the domain components. For example:`OU=HCI01,DC=contoso,DC=com`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        activeDirectoryOrganizationalUnitPath: pulumi.Input<string>;
+        /**
+         * Whether to enable BitLocker for boot volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        bitlockerBootVolumeEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether to enable BitLocker for data volume. Possible values are `true` and `false`. When set to `true`, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        bitlockerDataVolumeEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `cluster` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        cluster: pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitCluster>;
+        /**
+         * Whether to enable credential guard. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        credentialGuardEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the FQDN for deploying cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        domainFqdn: pulumi.Input<string>;
+        /**
+         * Whether to enable drift control. Possible values are `true` and `false`. When set to `true`, the security baseline is re-applied regularly. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        driftControlEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether to enable DRTM protection. Possible values are `true` and `false`. When set to `true`, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        drtmProtectionEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether to collect log data to facilitate quicker issue resolution. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        episodicDataUploadEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether to store data sent to Microsoft in EU. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to `false` results in all data sent to Microsoft to be stored outside of the EU. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        euLocationEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `hostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        hostNetwork: pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitHostNetwork>;
+        /**
+         * Whether to enable HVCI protection. Possible values are `true` and `false`. When set to `true`, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        hvciProtectionEnabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        infrastructureNetworks: pulumi.Input<pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitInfrastructureNetwork>[]>;
+        /**
+         * Specifies the name prefix to deploy cluster. It must be 1-8 characters long and contain only letters, numbers and hyphens Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        namePrefix: pulumi.Input<string>;
+        /**
+         * A `optionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        optionalService: pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitOptionalService>;
+        /**
+         * One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        physicalNodes: pulumi.Input<pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitPhysicalNode>[]>;
+        /**
+         * The URI to the Key Vault or secret store. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        secretsLocation: pulumi.Input<string>;
+        /**
+         * Whether to enable side channel mitigation. Possible values are `true` and `false`. When set to `true`, all side channel mitigations are enabled on your Azure HCI cluster. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        sideChannelMitigationEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether to enable SMB cluster encryption. Possible values are `true` and `false`. When set to `true`, cluster east-west traffic is encrypted. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        smbClusterEncryptionEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether to enable SMB signing. Possible values are `true` and `false`. When set to `true`, the SMB default instance requires sign in for the client and server services. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        smbSigningEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `storage` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        storage: pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitStorage>;
+        /**
+         * Whether the telemetry data will be sent to Microsoft. Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        streamingDataClientEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether to enable WDAC. Possible values are `true` and `false`. When set to `true`, applications and the code that you can run on your Azure Stack HCI cluster are limited. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        wdacEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitCluster {
+        /**
+         * Specifies the Azure blob service endpoint, for example, `core.windows.net`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        azureServiceEndpoint: pulumi.Input<string>;
+        /**
+         * Specifies the Azure Storage account name of the cloud witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        cloudAccountName: pulumi.Input<string>;
+        /**
+         * Specifies the name of the cluster. It must be 3-15 characters long and contain only letters, numbers and hyphens. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the fileshare path of the local witness for the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        witnessPath: pulumi.Input<string>;
+        /**
+         * Specifies the type of the witness. Possible values are `Cloud`, `FileShare`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        witnessType: pulumi.Input<string>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetwork {
+        /**
+         * One or more `intent` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        intents: pulumi.Input<pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitHostNetworkIntent>[]>;
+        /**
+         * Whether allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically. Optional parameter required only for [3 nodes switchless deployments](https://learn.microsoft.com/azure-stack/hci/concepts/physical-network-requirements?tabs=overview%2C23H2reqs#using-switchless). Possible values are `true` and `false`. Defaults to `true`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        storageAutoIpEnabled?: pulumi.Input<boolean>;
+        /**
+         * Defines how the storage adapters between nodes are connected either switch or switch less. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        storageConnectivitySwitchlessEnabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        storageNetworks: pulumi.Input<pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitHostNetworkStorageNetwork>[]>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetworkIntent {
+        /**
+         * A `adapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        adapterPropertyOverride?: pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride>;
+        /**
+         * Whether to override adapter properties. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        adapterPropertyOverrideEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies a list of ID of network interfaces used for the network intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        adapters: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the name of the intent. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `qosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        qosPolicyOverride?: pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride>;
+        /**
+         * Whether to override QoS policy. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        qosPolicyOverrideEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies a list of network traffic types. Possible values are `Compute`, `Storage`, `Management`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        trafficTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `virtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        virtualSwitchConfigurationOverride?: pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride>;
+        /**
+         * Whether to override virtual switch configuration. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        virtualSwitchConfigurationOverrideEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride {
+        /**
+         * The jumbo frame size of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        jumboPacket?: pulumi.Input<string>;
+        /**
+         * The network direct of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        networkDirect?: pulumi.Input<string>;
+        /**
+         * The network direct technology of the adapter. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        networkDirectTechnology?: pulumi.Input<string>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride {
+        /**
+         * Specifies the percentage of the allocated storage traffic bandwidth. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        bandwidthPercentageSmb?: pulumi.Input<string>;
+        /**
+         * Specifies the Cluster traffic priority. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        priorityValue8021ActionCluster?: pulumi.Input<string>;
+        /**
+         * Specifies the Priority Flow Control where Data Center Bridging (DCB) is used. This parameter should only be modified based on your OEM guidance. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        priorityValue8021ActionSmb?: pulumi.Input<string>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride {
+        /**
+         * Specifies the IoV enable status for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        enableIov?: pulumi.Input<string>;
+        /**
+         * Specifies the load balancing algorithm for Virtual Switch. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        loadBalancingAlgorithm?: pulumi.Input<string>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitHostNetworkStorageNetwork {
+        /**
+         * The name of the storage network. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name of the network adapter. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        networkAdapterName: pulumi.Input<string>;
+        /**
+         * Specifies the ID for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        vlanId: pulumi.Input<string>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitInfrastructureNetwork {
+        /**
+         * Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         *
+         * > **NOTE:** If `dhcpEnabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+         */
+        dhcpEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies a list of IPv4 addresses of the DNS servers in your environment. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        dnsServers: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the default gateway that should be used for the provided IP address space. It should be in the format of an IPv4 IP address. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        gateway: pulumi.Input<string>;
+        /**
+         * One or more `ipPool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        ipPools: pulumi.Input<pulumi.Input<inputs.stack.HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool>[]>;
+        /**
+         * Specifies the subnet mask that matches the provided IP address space. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        subnetMask: pulumi.Input<string>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool {
+        /**
+         * Specifies starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        endingAddress: pulumi.Input<string>;
+        /**
+         * Specifies ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        startingAddress: pulumi.Input<string>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitOptionalService {
+        /**
+         * Specifies the name of custom location. A custom location will be created after the deployment is completed. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        customLocation: pulumi.Input<string>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitPhysicalNode {
+        /**
+         * Specifies the IPv4 address assigned to each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        ipv4Address: pulumi.Input<string>;
+        /**
+         * The NETBIOS name of each physical server on your Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface HciDeploymentSettingScaleUnitStorage {
+        /**
+         * The configuration mode of storage. If set to `Express` and your storage is configured as per best practices based on the number of nodes in the cluster. Possible values are `Express`, `InfraOnly` and `KeepStorage`. Changing this forces a new Stack HCI Deployment Setting to be created.
+         */
+        configurationMode: pulumi.Input<string>;
+    }
+
     export interface HciLogicalNetworkSubnet {
         /**
          * The address prefix in CIDR notation. Changing this forces a new resource to be created.
@@ -49725,7 +50089,7 @@ export namespace storage {
          */
         copyBlobsCreatedAfter?: pulumi.Input<string>;
         /**
-         * The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+         * The destination storage container name.
          */
         destinationContainerName: pulumi.Input<string>;
         /**
@@ -49734,7 +50098,7 @@ export namespace storage {
         filterOutBlobsWithPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
         name?: pulumi.Input<string>;
         /**
-         * The source storage container name. Changing this forces a new Storage Object Replication to be created.
+         * The source storage container name.
          */
         sourceContainerName: pulumi.Input<string>;
     }

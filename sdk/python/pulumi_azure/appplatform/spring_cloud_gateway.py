@@ -45,7 +45,7 @@ class SpringCloudGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_types: Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         :param pulumi.Input['SpringCloudGatewayClientAuthorizationArgs'] client_authorization: A `client_authorization` block as defined below.
         :param pulumi.Input['SpringCloudGatewayCorsArgs'] cors: A `cors` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input['SpringCloudGatewayLocalResponseCachePerInstanceArgs'] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
@@ -53,7 +53,7 @@ class SpringCloudGatewayArgs:
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input['SpringCloudGatewayQuotaArgs'] quota: A `quota` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] sensitive_environment_variables: Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] sensitive_environment_variables: Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         :param pulumi.Input['SpringCloudGatewaySsoArgs'] sso: A `sso` block as defined below.
         """
         pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
@@ -164,7 +164,7 @@ class SpringCloudGatewayArgs:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -260,7 +260,7 @@ class SpringCloudGatewayArgs:
     @pulumi.getter(name="sensitiveEnvironmentVariables")
     def sensitive_environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         """
         return pulumi.get(self, "sensitive_environment_variables")
 
@@ -308,7 +308,7 @@ class _SpringCloudGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_types: Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         :param pulumi.Input['SpringCloudGatewayClientAuthorizationArgs'] client_authorization: A `client_authorization` block as defined below.
         :param pulumi.Input['SpringCloudGatewayCorsArgs'] cors: A `cors` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input['SpringCloudGatewayLocalResponseCachePerInstanceArgs'] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
@@ -316,7 +316,7 @@ class _SpringCloudGatewayState:
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input['SpringCloudGatewayQuotaArgs'] quota: A `quota` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] sensitive_environment_variables: Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] sensitive_environment_variables: Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
         :param pulumi.Input['SpringCloudGatewaySsoArgs'] sso: A `sso` block as defined below.
         :param pulumi.Input[str] url: URL of the Spring Cloud Gateway, exposed when 'public_network_access_enabled' is true.
@@ -420,7 +420,7 @@ class _SpringCloudGatewayState:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -516,7 +516,7 @@ class _SpringCloudGatewayState:
     @pulumi.getter(name="sensitiveEnvironmentVariables")
     def sensitive_environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         """
         return pulumi.get(self, "sensitive_environment_variables")
 
@@ -654,7 +654,7 @@ class SpringCloudGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_types: Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         :param pulumi.Input[Union['SpringCloudGatewayClientAuthorizationArgs', 'SpringCloudGatewayClientAuthorizationArgsDict']] client_authorization: A `client_authorization` block as defined below.
         :param pulumi.Input[Union['SpringCloudGatewayCorsArgs', 'SpringCloudGatewayCorsArgsDict']] cors: A `cors` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerInstanceArgs', 'SpringCloudGatewayLocalResponseCachePerInstanceArgsDict']] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
@@ -662,7 +662,7 @@ class SpringCloudGateway(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input[Union['SpringCloudGatewayQuotaArgs', 'SpringCloudGatewayQuotaArgsDict']] quota: A `quota` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] sensitive_environment_variables: Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] sensitive_environment_variables: Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
         :param pulumi.Input[Union['SpringCloudGatewaySsoArgs', 'SpringCloudGatewaySsoArgsDict']] sso: A `sso` block as defined below.
         """
@@ -836,7 +836,7 @@ class SpringCloudGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_types: Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         :param pulumi.Input[Union['SpringCloudGatewayClientAuthorizationArgs', 'SpringCloudGatewayClientAuthorizationArgsDict']] client_authorization: A `client_authorization` block as defined below.
         :param pulumi.Input[Union['SpringCloudGatewayCorsArgs', 'SpringCloudGatewayCorsArgsDict']] cors: A `cors` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[Union['SpringCloudGatewayLocalResponseCachePerInstanceArgs', 'SpringCloudGatewayLocalResponseCachePerInstanceArgsDict']] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
@@ -844,7 +844,7 @@ class SpringCloudGateway(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input[Union['SpringCloudGatewayQuotaArgs', 'SpringCloudGatewayQuotaArgsDict']] quota: A `quota` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] sensitive_environment_variables: Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] sensitive_environment_variables: Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
         :param pulumi.Input[Union['SpringCloudGatewaySsoArgs', 'SpringCloudGatewaySsoArgsDict']] sso: A `sso` block as defined below.
         :param pulumi.Input[str] url: URL of the Spring Cloud Gateway, exposed when 'public_network_access_enabled' is true.
@@ -916,7 +916,7 @@ class SpringCloudGateway(pulumi.CustomResource):
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -980,7 +980,7 @@ class SpringCloudGateway(pulumi.CustomResource):
     @pulumi.getter(name="sensitiveEnvironmentVariables")
     def sensitive_environment_variables(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
+        Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
         """
         return pulumi.get(self, "sensitive_environment_variables")
 

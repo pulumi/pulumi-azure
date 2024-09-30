@@ -36366,6 +36366,939 @@ func (o GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput) Index(i pu
 	}).(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput)
 }
 
+type GetVpnServerConfigurationAzureActiveDirectoryAuthentication struct {
+	// The Audience which should be used for authentication.
+	Audience string `pulumi:"audience"`
+	// The Issuer which should be used for authentication.
+	Issuer string `pulumi:"issuer"`
+	// The Tenant which should be used for authentication.
+	Tenant string `pulumi:"tenant"`
+}
+
+// GetVpnServerConfigurationAzureActiveDirectoryAuthenticationInput is an input type that accepts GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArgs and GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationAzureActiveDirectoryAuthenticationInput` via:
+//
+//	GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArgs{...}
+type GetVpnServerConfigurationAzureActiveDirectoryAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput() GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput
+	ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutputWithContext(context.Context) GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput
+}
+
+type GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArgs struct {
+	// The Audience which should be used for authentication.
+	Audience pulumi.StringInput `pulumi:"audience"`
+	// The Issuer which should be used for authentication.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// The Tenant which should be used for authentication.
+	Tenant pulumi.StringInput `pulumi:"tenant"`
+}
+
+func (GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationAzureActiveDirectoryAuthentication)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArgs) ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput() GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput {
+	return i.ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArgs) ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutputWithContext(ctx context.Context) GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput)
+}
+
+// GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput is an input type that accepts GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArray and GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput` via:
+//
+//	GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArray{ GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArgs{...} }
+type GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput() GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput
+	ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutputWithContext(context.Context) GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput
+}
+
+type GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArray []GetVpnServerConfigurationAzureActiveDirectoryAuthenticationInput
+
+func (GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationAzureActiveDirectoryAuthentication)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArray) ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput() GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput {
+	return i.ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArray) ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput)
+}
+
+type GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationAzureActiveDirectoryAuthentication)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput) ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput() GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput) ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutputWithContext(ctx context.Context) GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput {
+	return o
+}
+
+// The Audience which should be used for authentication.
+func (o GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput) Audience() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationAzureActiveDirectoryAuthentication) string { return v.Audience }).(pulumi.StringOutput)
+}
+
+// The Issuer which should be used for authentication.
+func (o GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationAzureActiveDirectoryAuthentication) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// The Tenant which should be used for authentication.
+func (o GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput) Tenant() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationAzureActiveDirectoryAuthentication) string { return v.Tenant }).(pulumi.StringOutput)
+}
+
+type GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationAzureActiveDirectoryAuthentication)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput) ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput() GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput) ToGetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput) Index(i pulumi.IntInput) GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnServerConfigurationAzureActiveDirectoryAuthentication {
+		return vs[0].([]GetVpnServerConfigurationAzureActiveDirectoryAuthentication)[vs[1].(int)]
+	}).(GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput)
+}
+
+type GetVpnServerConfigurationClientRevokedCertificate struct {
+	// The Name of the VPN Server Configuration.
+	Name string `pulumi:"name"`
+	// The Thumbprint of the Certificate.
+	Thumbprint string `pulumi:"thumbprint"`
+}
+
+// GetVpnServerConfigurationClientRevokedCertificateInput is an input type that accepts GetVpnServerConfigurationClientRevokedCertificateArgs and GetVpnServerConfigurationClientRevokedCertificateOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationClientRevokedCertificateInput` via:
+//
+//	GetVpnServerConfigurationClientRevokedCertificateArgs{...}
+type GetVpnServerConfigurationClientRevokedCertificateInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationClientRevokedCertificateOutput() GetVpnServerConfigurationClientRevokedCertificateOutput
+	ToGetVpnServerConfigurationClientRevokedCertificateOutputWithContext(context.Context) GetVpnServerConfigurationClientRevokedCertificateOutput
+}
+
+type GetVpnServerConfigurationClientRevokedCertificateArgs struct {
+	// The Name of the VPN Server Configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Thumbprint of the Certificate.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+}
+
+func (GetVpnServerConfigurationClientRevokedCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationClientRevokedCertificate)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationClientRevokedCertificateArgs) ToGetVpnServerConfigurationClientRevokedCertificateOutput() GetVpnServerConfigurationClientRevokedCertificateOutput {
+	return i.ToGetVpnServerConfigurationClientRevokedCertificateOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationClientRevokedCertificateArgs) ToGetVpnServerConfigurationClientRevokedCertificateOutputWithContext(ctx context.Context) GetVpnServerConfigurationClientRevokedCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationClientRevokedCertificateOutput)
+}
+
+// GetVpnServerConfigurationClientRevokedCertificateArrayInput is an input type that accepts GetVpnServerConfigurationClientRevokedCertificateArray and GetVpnServerConfigurationClientRevokedCertificateArrayOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationClientRevokedCertificateArrayInput` via:
+//
+//	GetVpnServerConfigurationClientRevokedCertificateArray{ GetVpnServerConfigurationClientRevokedCertificateArgs{...} }
+type GetVpnServerConfigurationClientRevokedCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationClientRevokedCertificateArrayOutput() GetVpnServerConfigurationClientRevokedCertificateArrayOutput
+	ToGetVpnServerConfigurationClientRevokedCertificateArrayOutputWithContext(context.Context) GetVpnServerConfigurationClientRevokedCertificateArrayOutput
+}
+
+type GetVpnServerConfigurationClientRevokedCertificateArray []GetVpnServerConfigurationClientRevokedCertificateInput
+
+func (GetVpnServerConfigurationClientRevokedCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationClientRevokedCertificate)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationClientRevokedCertificateArray) ToGetVpnServerConfigurationClientRevokedCertificateArrayOutput() GetVpnServerConfigurationClientRevokedCertificateArrayOutput {
+	return i.ToGetVpnServerConfigurationClientRevokedCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationClientRevokedCertificateArray) ToGetVpnServerConfigurationClientRevokedCertificateArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationClientRevokedCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationClientRevokedCertificateArrayOutput)
+}
+
+type GetVpnServerConfigurationClientRevokedCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationClientRevokedCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationClientRevokedCertificate)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationClientRevokedCertificateOutput) ToGetVpnServerConfigurationClientRevokedCertificateOutput() GetVpnServerConfigurationClientRevokedCertificateOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationClientRevokedCertificateOutput) ToGetVpnServerConfigurationClientRevokedCertificateOutputWithContext(ctx context.Context) GetVpnServerConfigurationClientRevokedCertificateOutput {
+	return o
+}
+
+// The Name of the VPN Server Configuration.
+func (o GetVpnServerConfigurationClientRevokedCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationClientRevokedCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Thumbprint of the Certificate.
+func (o GetVpnServerConfigurationClientRevokedCertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationClientRevokedCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+type GetVpnServerConfigurationClientRevokedCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationClientRevokedCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationClientRevokedCertificate)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationClientRevokedCertificateArrayOutput) ToGetVpnServerConfigurationClientRevokedCertificateArrayOutput() GetVpnServerConfigurationClientRevokedCertificateArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationClientRevokedCertificateArrayOutput) ToGetVpnServerConfigurationClientRevokedCertificateArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationClientRevokedCertificateArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationClientRevokedCertificateArrayOutput) Index(i pulumi.IntInput) GetVpnServerConfigurationClientRevokedCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnServerConfigurationClientRevokedCertificate {
+		return vs[0].([]GetVpnServerConfigurationClientRevokedCertificate)[vs[1].(int)]
+	}).(GetVpnServerConfigurationClientRevokedCertificateOutput)
+}
+
+type GetVpnServerConfigurationClientRootCertificate struct {
+	// The Name of the VPN Server Configuration.
+	Name string `pulumi:"name"`
+	// The Public Key Data associated with the Certificate.
+	PublicCertData string `pulumi:"publicCertData"`
+}
+
+// GetVpnServerConfigurationClientRootCertificateInput is an input type that accepts GetVpnServerConfigurationClientRootCertificateArgs and GetVpnServerConfigurationClientRootCertificateOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationClientRootCertificateInput` via:
+//
+//	GetVpnServerConfigurationClientRootCertificateArgs{...}
+type GetVpnServerConfigurationClientRootCertificateInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationClientRootCertificateOutput() GetVpnServerConfigurationClientRootCertificateOutput
+	ToGetVpnServerConfigurationClientRootCertificateOutputWithContext(context.Context) GetVpnServerConfigurationClientRootCertificateOutput
+}
+
+type GetVpnServerConfigurationClientRootCertificateArgs struct {
+	// The Name of the VPN Server Configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Public Key Data associated with the Certificate.
+	PublicCertData pulumi.StringInput `pulumi:"publicCertData"`
+}
+
+func (GetVpnServerConfigurationClientRootCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationClientRootCertificate)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationClientRootCertificateArgs) ToGetVpnServerConfigurationClientRootCertificateOutput() GetVpnServerConfigurationClientRootCertificateOutput {
+	return i.ToGetVpnServerConfigurationClientRootCertificateOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationClientRootCertificateArgs) ToGetVpnServerConfigurationClientRootCertificateOutputWithContext(ctx context.Context) GetVpnServerConfigurationClientRootCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationClientRootCertificateOutput)
+}
+
+// GetVpnServerConfigurationClientRootCertificateArrayInput is an input type that accepts GetVpnServerConfigurationClientRootCertificateArray and GetVpnServerConfigurationClientRootCertificateArrayOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationClientRootCertificateArrayInput` via:
+//
+//	GetVpnServerConfigurationClientRootCertificateArray{ GetVpnServerConfigurationClientRootCertificateArgs{...} }
+type GetVpnServerConfigurationClientRootCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationClientRootCertificateArrayOutput() GetVpnServerConfigurationClientRootCertificateArrayOutput
+	ToGetVpnServerConfigurationClientRootCertificateArrayOutputWithContext(context.Context) GetVpnServerConfigurationClientRootCertificateArrayOutput
+}
+
+type GetVpnServerConfigurationClientRootCertificateArray []GetVpnServerConfigurationClientRootCertificateInput
+
+func (GetVpnServerConfigurationClientRootCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationClientRootCertificate)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationClientRootCertificateArray) ToGetVpnServerConfigurationClientRootCertificateArrayOutput() GetVpnServerConfigurationClientRootCertificateArrayOutput {
+	return i.ToGetVpnServerConfigurationClientRootCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationClientRootCertificateArray) ToGetVpnServerConfigurationClientRootCertificateArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationClientRootCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationClientRootCertificateArrayOutput)
+}
+
+type GetVpnServerConfigurationClientRootCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationClientRootCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationClientRootCertificate)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationClientRootCertificateOutput) ToGetVpnServerConfigurationClientRootCertificateOutput() GetVpnServerConfigurationClientRootCertificateOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationClientRootCertificateOutput) ToGetVpnServerConfigurationClientRootCertificateOutputWithContext(ctx context.Context) GetVpnServerConfigurationClientRootCertificateOutput {
+	return o
+}
+
+// The Name of the VPN Server Configuration.
+func (o GetVpnServerConfigurationClientRootCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationClientRootCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Public Key Data associated with the Certificate.
+func (o GetVpnServerConfigurationClientRootCertificateOutput) PublicCertData() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationClientRootCertificate) string { return v.PublicCertData }).(pulumi.StringOutput)
+}
+
+type GetVpnServerConfigurationClientRootCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationClientRootCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationClientRootCertificate)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationClientRootCertificateArrayOutput) ToGetVpnServerConfigurationClientRootCertificateArrayOutput() GetVpnServerConfigurationClientRootCertificateArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationClientRootCertificateArrayOutput) ToGetVpnServerConfigurationClientRootCertificateArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationClientRootCertificateArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationClientRootCertificateArrayOutput) Index(i pulumi.IntInput) GetVpnServerConfigurationClientRootCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnServerConfigurationClientRootCertificate {
+		return vs[0].([]GetVpnServerConfigurationClientRootCertificate)[vs[1].(int)]
+	}).(GetVpnServerConfigurationClientRootCertificateOutput)
+}
+
+type GetVpnServerConfigurationIpsecPolicy struct {
+	// The DH Group, used in IKE Phase 1.
+	DhGroup string `pulumi:"dhGroup"`
+	// The IKE encryption algorithm, used for IKE Phase 2.
+	IkeEncryption string `pulumi:"ikeEncryption"`
+	// The IKE encryption integrity algorithm, used for IKE Phase 2.
+	IkeIntegrity string `pulumi:"ikeIntegrity"`
+	// The IPSec encryption algorithm, used for IKE phase 1.
+	IpsecEncryption string `pulumi:"ipsecEncryption"`
+	// The IPSec integrity algorithm, used for IKE phase 1.
+	IpsecIntegrity string `pulumi:"ipsecIntegrity"`
+	// The Pfs Group, used in IKE Phase 2.
+	PfsGroup string `pulumi:"pfsGroup"`
+	// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+	SaDataSizeKilobytes int `pulumi:"saDataSizeKilobytes"`
+	// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+	SaLifetimeSeconds int `pulumi:"saLifetimeSeconds"`
+}
+
+// GetVpnServerConfigurationIpsecPolicyInput is an input type that accepts GetVpnServerConfigurationIpsecPolicyArgs and GetVpnServerConfigurationIpsecPolicyOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationIpsecPolicyInput` via:
+//
+//	GetVpnServerConfigurationIpsecPolicyArgs{...}
+type GetVpnServerConfigurationIpsecPolicyInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationIpsecPolicyOutput() GetVpnServerConfigurationIpsecPolicyOutput
+	ToGetVpnServerConfigurationIpsecPolicyOutputWithContext(context.Context) GetVpnServerConfigurationIpsecPolicyOutput
+}
+
+type GetVpnServerConfigurationIpsecPolicyArgs struct {
+	// The DH Group, used in IKE Phase 1.
+	DhGroup pulumi.StringInput `pulumi:"dhGroup"`
+	// The IKE encryption algorithm, used for IKE Phase 2.
+	IkeEncryption pulumi.StringInput `pulumi:"ikeEncryption"`
+	// The IKE encryption integrity algorithm, used for IKE Phase 2.
+	IkeIntegrity pulumi.StringInput `pulumi:"ikeIntegrity"`
+	// The IPSec encryption algorithm, used for IKE phase 1.
+	IpsecEncryption pulumi.StringInput `pulumi:"ipsecEncryption"`
+	// The IPSec integrity algorithm, used for IKE phase 1.
+	IpsecIntegrity pulumi.StringInput `pulumi:"ipsecIntegrity"`
+	// The Pfs Group, used in IKE Phase 2.
+	PfsGroup pulumi.StringInput `pulumi:"pfsGroup"`
+	// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+	SaDataSizeKilobytes pulumi.IntInput `pulumi:"saDataSizeKilobytes"`
+	// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+	SaLifetimeSeconds pulumi.IntInput `pulumi:"saLifetimeSeconds"`
+}
+
+func (GetVpnServerConfigurationIpsecPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationIpsecPolicy)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationIpsecPolicyArgs) ToGetVpnServerConfigurationIpsecPolicyOutput() GetVpnServerConfigurationIpsecPolicyOutput {
+	return i.ToGetVpnServerConfigurationIpsecPolicyOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationIpsecPolicyArgs) ToGetVpnServerConfigurationIpsecPolicyOutputWithContext(ctx context.Context) GetVpnServerConfigurationIpsecPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationIpsecPolicyOutput)
+}
+
+// GetVpnServerConfigurationIpsecPolicyArrayInput is an input type that accepts GetVpnServerConfigurationIpsecPolicyArray and GetVpnServerConfigurationIpsecPolicyArrayOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationIpsecPolicyArrayInput` via:
+//
+//	GetVpnServerConfigurationIpsecPolicyArray{ GetVpnServerConfigurationIpsecPolicyArgs{...} }
+type GetVpnServerConfigurationIpsecPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationIpsecPolicyArrayOutput() GetVpnServerConfigurationIpsecPolicyArrayOutput
+	ToGetVpnServerConfigurationIpsecPolicyArrayOutputWithContext(context.Context) GetVpnServerConfigurationIpsecPolicyArrayOutput
+}
+
+type GetVpnServerConfigurationIpsecPolicyArray []GetVpnServerConfigurationIpsecPolicyInput
+
+func (GetVpnServerConfigurationIpsecPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationIpsecPolicy)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationIpsecPolicyArray) ToGetVpnServerConfigurationIpsecPolicyArrayOutput() GetVpnServerConfigurationIpsecPolicyArrayOutput {
+	return i.ToGetVpnServerConfigurationIpsecPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationIpsecPolicyArray) ToGetVpnServerConfigurationIpsecPolicyArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationIpsecPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationIpsecPolicyArrayOutput)
+}
+
+type GetVpnServerConfigurationIpsecPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationIpsecPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationIpsecPolicy)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationIpsecPolicyOutput) ToGetVpnServerConfigurationIpsecPolicyOutput() GetVpnServerConfigurationIpsecPolicyOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationIpsecPolicyOutput) ToGetVpnServerConfigurationIpsecPolicyOutputWithContext(ctx context.Context) GetVpnServerConfigurationIpsecPolicyOutput {
+	return o
+}
+
+// The DH Group, used in IKE Phase 1.
+func (o GetVpnServerConfigurationIpsecPolicyOutput) DhGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationIpsecPolicy) string { return v.DhGroup }).(pulumi.StringOutput)
+}
+
+// The IKE encryption algorithm, used for IKE Phase 2.
+func (o GetVpnServerConfigurationIpsecPolicyOutput) IkeEncryption() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationIpsecPolicy) string { return v.IkeEncryption }).(pulumi.StringOutput)
+}
+
+// The IKE encryption integrity algorithm, used for IKE Phase 2.
+func (o GetVpnServerConfigurationIpsecPolicyOutput) IkeIntegrity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationIpsecPolicy) string { return v.IkeIntegrity }).(pulumi.StringOutput)
+}
+
+// The IPSec encryption algorithm, used for IKE phase 1.
+func (o GetVpnServerConfigurationIpsecPolicyOutput) IpsecEncryption() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationIpsecPolicy) string { return v.IpsecEncryption }).(pulumi.StringOutput)
+}
+
+// The IPSec integrity algorithm, used for IKE phase 1.
+func (o GetVpnServerConfigurationIpsecPolicyOutput) IpsecIntegrity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationIpsecPolicy) string { return v.IpsecIntegrity }).(pulumi.StringOutput)
+}
+
+// The Pfs Group, used in IKE Phase 2.
+func (o GetVpnServerConfigurationIpsecPolicyOutput) PfsGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationIpsecPolicy) string { return v.PfsGroup }).(pulumi.StringOutput)
+}
+
+// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+func (o GetVpnServerConfigurationIpsecPolicyOutput) SaDataSizeKilobytes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationIpsecPolicy) int { return v.SaDataSizeKilobytes }).(pulumi.IntOutput)
+}
+
+// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+func (o GetVpnServerConfigurationIpsecPolicyOutput) SaLifetimeSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationIpsecPolicy) int { return v.SaLifetimeSeconds }).(pulumi.IntOutput)
+}
+
+type GetVpnServerConfigurationIpsecPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationIpsecPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationIpsecPolicy)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationIpsecPolicyArrayOutput) ToGetVpnServerConfigurationIpsecPolicyArrayOutput() GetVpnServerConfigurationIpsecPolicyArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationIpsecPolicyArrayOutput) ToGetVpnServerConfigurationIpsecPolicyArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationIpsecPolicyArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationIpsecPolicyArrayOutput) Index(i pulumi.IntInput) GetVpnServerConfigurationIpsecPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnServerConfigurationIpsecPolicy {
+		return vs[0].([]GetVpnServerConfigurationIpsecPolicy)[vs[1].(int)]
+	}).(GetVpnServerConfigurationIpsecPolicyOutput)
+}
+
+type GetVpnServerConfigurationRadius struct {
+	// One or more `clientRootCertificate` blocks as defined below.
+	ClientRootCertificates []GetVpnServerConfigurationRadiusClientRootCertificate `pulumi:"clientRootCertificates"`
+	// One or more `serverRootCertificate` blocks as defined below.
+	ServerRootCertificates []GetVpnServerConfigurationRadiusServerRootCertificate `pulumi:"serverRootCertificates"`
+	// One or more `server` blocks as defined below.
+	Servers []GetVpnServerConfigurationRadiusServer `pulumi:"servers"`
+}
+
+// GetVpnServerConfigurationRadiusInput is an input type that accepts GetVpnServerConfigurationRadiusArgs and GetVpnServerConfigurationRadiusOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationRadiusInput` via:
+//
+//	GetVpnServerConfigurationRadiusArgs{...}
+type GetVpnServerConfigurationRadiusInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationRadiusOutput() GetVpnServerConfigurationRadiusOutput
+	ToGetVpnServerConfigurationRadiusOutputWithContext(context.Context) GetVpnServerConfigurationRadiusOutput
+}
+
+type GetVpnServerConfigurationRadiusArgs struct {
+	// One or more `clientRootCertificate` blocks as defined below.
+	ClientRootCertificates GetVpnServerConfigurationRadiusClientRootCertificateArrayInput `pulumi:"clientRootCertificates"`
+	// One or more `serverRootCertificate` blocks as defined below.
+	ServerRootCertificates GetVpnServerConfigurationRadiusServerRootCertificateArrayInput `pulumi:"serverRootCertificates"`
+	// One or more `server` blocks as defined below.
+	Servers GetVpnServerConfigurationRadiusServerArrayInput `pulumi:"servers"`
+}
+
+func (GetVpnServerConfigurationRadiusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationRadius)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationRadiusArgs) ToGetVpnServerConfigurationRadiusOutput() GetVpnServerConfigurationRadiusOutput {
+	return i.ToGetVpnServerConfigurationRadiusOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationRadiusArgs) ToGetVpnServerConfigurationRadiusOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationRadiusOutput)
+}
+
+// GetVpnServerConfigurationRadiusArrayInput is an input type that accepts GetVpnServerConfigurationRadiusArray and GetVpnServerConfigurationRadiusArrayOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationRadiusArrayInput` via:
+//
+//	GetVpnServerConfigurationRadiusArray{ GetVpnServerConfigurationRadiusArgs{...} }
+type GetVpnServerConfigurationRadiusArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationRadiusArrayOutput() GetVpnServerConfigurationRadiusArrayOutput
+	ToGetVpnServerConfigurationRadiusArrayOutputWithContext(context.Context) GetVpnServerConfigurationRadiusArrayOutput
+}
+
+type GetVpnServerConfigurationRadiusArray []GetVpnServerConfigurationRadiusInput
+
+func (GetVpnServerConfigurationRadiusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationRadius)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationRadiusArray) ToGetVpnServerConfigurationRadiusArrayOutput() GetVpnServerConfigurationRadiusArrayOutput {
+	return i.ToGetVpnServerConfigurationRadiusArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationRadiusArray) ToGetVpnServerConfigurationRadiusArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationRadiusArrayOutput)
+}
+
+type GetVpnServerConfigurationRadiusOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationRadiusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationRadius)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationRadiusOutput) ToGetVpnServerConfigurationRadiusOutput() GetVpnServerConfigurationRadiusOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusOutput) ToGetVpnServerConfigurationRadiusOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusOutput {
+	return o
+}
+
+// One or more `clientRootCertificate` blocks as defined below.
+func (o GetVpnServerConfigurationRadiusOutput) ClientRootCertificates() GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationRadius) []GetVpnServerConfigurationRadiusClientRootCertificate {
+		return v.ClientRootCertificates
+	}).(GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput)
+}
+
+// One or more `serverRootCertificate` blocks as defined below.
+func (o GetVpnServerConfigurationRadiusOutput) ServerRootCertificates() GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationRadius) []GetVpnServerConfigurationRadiusServerRootCertificate {
+		return v.ServerRootCertificates
+	}).(GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput)
+}
+
+// One or more `server` blocks as defined below.
+func (o GetVpnServerConfigurationRadiusOutput) Servers() GetVpnServerConfigurationRadiusServerArrayOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationRadius) []GetVpnServerConfigurationRadiusServer { return v.Servers }).(GetVpnServerConfigurationRadiusServerArrayOutput)
+}
+
+type GetVpnServerConfigurationRadiusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationRadiusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationRadius)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationRadiusArrayOutput) ToGetVpnServerConfigurationRadiusArrayOutput() GetVpnServerConfigurationRadiusArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusArrayOutput) ToGetVpnServerConfigurationRadiusArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusArrayOutput) Index(i pulumi.IntInput) GetVpnServerConfigurationRadiusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnServerConfigurationRadius {
+		return vs[0].([]GetVpnServerConfigurationRadius)[vs[1].(int)]
+	}).(GetVpnServerConfigurationRadiusOutput)
+}
+
+type GetVpnServerConfigurationRadiusClientRootCertificate struct {
+	// The Name of the VPN Server Configuration.
+	Name string `pulumi:"name"`
+	// The Thumbprint of the Certificate.
+	Thumbprint string `pulumi:"thumbprint"`
+}
+
+// GetVpnServerConfigurationRadiusClientRootCertificateInput is an input type that accepts GetVpnServerConfigurationRadiusClientRootCertificateArgs and GetVpnServerConfigurationRadiusClientRootCertificateOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationRadiusClientRootCertificateInput` via:
+//
+//	GetVpnServerConfigurationRadiusClientRootCertificateArgs{...}
+type GetVpnServerConfigurationRadiusClientRootCertificateInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationRadiusClientRootCertificateOutput() GetVpnServerConfigurationRadiusClientRootCertificateOutput
+	ToGetVpnServerConfigurationRadiusClientRootCertificateOutputWithContext(context.Context) GetVpnServerConfigurationRadiusClientRootCertificateOutput
+}
+
+type GetVpnServerConfigurationRadiusClientRootCertificateArgs struct {
+	// The Name of the VPN Server Configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Thumbprint of the Certificate.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+}
+
+func (GetVpnServerConfigurationRadiusClientRootCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationRadiusClientRootCertificate)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationRadiusClientRootCertificateArgs) ToGetVpnServerConfigurationRadiusClientRootCertificateOutput() GetVpnServerConfigurationRadiusClientRootCertificateOutput {
+	return i.ToGetVpnServerConfigurationRadiusClientRootCertificateOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationRadiusClientRootCertificateArgs) ToGetVpnServerConfigurationRadiusClientRootCertificateOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusClientRootCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationRadiusClientRootCertificateOutput)
+}
+
+// GetVpnServerConfigurationRadiusClientRootCertificateArrayInput is an input type that accepts GetVpnServerConfigurationRadiusClientRootCertificateArray and GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationRadiusClientRootCertificateArrayInput` via:
+//
+//	GetVpnServerConfigurationRadiusClientRootCertificateArray{ GetVpnServerConfigurationRadiusClientRootCertificateArgs{...} }
+type GetVpnServerConfigurationRadiusClientRootCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationRadiusClientRootCertificateArrayOutput() GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput
+	ToGetVpnServerConfigurationRadiusClientRootCertificateArrayOutputWithContext(context.Context) GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput
+}
+
+type GetVpnServerConfigurationRadiusClientRootCertificateArray []GetVpnServerConfigurationRadiusClientRootCertificateInput
+
+func (GetVpnServerConfigurationRadiusClientRootCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationRadiusClientRootCertificate)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationRadiusClientRootCertificateArray) ToGetVpnServerConfigurationRadiusClientRootCertificateArrayOutput() GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput {
+	return i.ToGetVpnServerConfigurationRadiusClientRootCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationRadiusClientRootCertificateArray) ToGetVpnServerConfigurationRadiusClientRootCertificateArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput)
+}
+
+type GetVpnServerConfigurationRadiusClientRootCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationRadiusClientRootCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationRadiusClientRootCertificate)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationRadiusClientRootCertificateOutput) ToGetVpnServerConfigurationRadiusClientRootCertificateOutput() GetVpnServerConfigurationRadiusClientRootCertificateOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusClientRootCertificateOutput) ToGetVpnServerConfigurationRadiusClientRootCertificateOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusClientRootCertificateOutput {
+	return o
+}
+
+// The Name of the VPN Server Configuration.
+func (o GetVpnServerConfigurationRadiusClientRootCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationRadiusClientRootCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Thumbprint of the Certificate.
+func (o GetVpnServerConfigurationRadiusClientRootCertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationRadiusClientRootCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+type GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationRadiusClientRootCertificate)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput) ToGetVpnServerConfigurationRadiusClientRootCertificateArrayOutput() GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput) ToGetVpnServerConfigurationRadiusClientRootCertificateArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput) Index(i pulumi.IntInput) GetVpnServerConfigurationRadiusClientRootCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnServerConfigurationRadiusClientRootCertificate {
+		return vs[0].([]GetVpnServerConfigurationRadiusClientRootCertificate)[vs[1].(int)]
+	}).(GetVpnServerConfigurationRadiusClientRootCertificateOutput)
+}
+
+type GetVpnServerConfigurationRadiusServer struct {
+	// The Address of the Radius Server.
+	Address string `pulumi:"address"`
+	// The Score of the Radius Server determines the priority of the server.
+	Score int `pulumi:"score"`
+	// The Secret used to communicate with the Radius Server.
+	Secret string `pulumi:"secret"`
+}
+
+// GetVpnServerConfigurationRadiusServerInput is an input type that accepts GetVpnServerConfigurationRadiusServerArgs and GetVpnServerConfigurationRadiusServerOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationRadiusServerInput` via:
+//
+//	GetVpnServerConfigurationRadiusServerArgs{...}
+type GetVpnServerConfigurationRadiusServerInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationRadiusServerOutput() GetVpnServerConfigurationRadiusServerOutput
+	ToGetVpnServerConfigurationRadiusServerOutputWithContext(context.Context) GetVpnServerConfigurationRadiusServerOutput
+}
+
+type GetVpnServerConfigurationRadiusServerArgs struct {
+	// The Address of the Radius Server.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The Score of the Radius Server determines the priority of the server.
+	Score pulumi.IntInput `pulumi:"score"`
+	// The Secret used to communicate with the Radius Server.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetVpnServerConfigurationRadiusServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationRadiusServer)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationRadiusServerArgs) ToGetVpnServerConfigurationRadiusServerOutput() GetVpnServerConfigurationRadiusServerOutput {
+	return i.ToGetVpnServerConfigurationRadiusServerOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationRadiusServerArgs) ToGetVpnServerConfigurationRadiusServerOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationRadiusServerOutput)
+}
+
+// GetVpnServerConfigurationRadiusServerArrayInput is an input type that accepts GetVpnServerConfigurationRadiusServerArray and GetVpnServerConfigurationRadiusServerArrayOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationRadiusServerArrayInput` via:
+//
+//	GetVpnServerConfigurationRadiusServerArray{ GetVpnServerConfigurationRadiusServerArgs{...} }
+type GetVpnServerConfigurationRadiusServerArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationRadiusServerArrayOutput() GetVpnServerConfigurationRadiusServerArrayOutput
+	ToGetVpnServerConfigurationRadiusServerArrayOutputWithContext(context.Context) GetVpnServerConfigurationRadiusServerArrayOutput
+}
+
+type GetVpnServerConfigurationRadiusServerArray []GetVpnServerConfigurationRadiusServerInput
+
+func (GetVpnServerConfigurationRadiusServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationRadiusServer)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationRadiusServerArray) ToGetVpnServerConfigurationRadiusServerArrayOutput() GetVpnServerConfigurationRadiusServerArrayOutput {
+	return i.ToGetVpnServerConfigurationRadiusServerArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationRadiusServerArray) ToGetVpnServerConfigurationRadiusServerArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationRadiusServerArrayOutput)
+}
+
+type GetVpnServerConfigurationRadiusServerOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationRadiusServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationRadiusServer)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationRadiusServerOutput) ToGetVpnServerConfigurationRadiusServerOutput() GetVpnServerConfigurationRadiusServerOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusServerOutput) ToGetVpnServerConfigurationRadiusServerOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusServerOutput {
+	return o
+}
+
+// The Address of the Radius Server.
+func (o GetVpnServerConfigurationRadiusServerOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationRadiusServer) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// The Score of the Radius Server determines the priority of the server.
+func (o GetVpnServerConfigurationRadiusServerOutput) Score() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationRadiusServer) int { return v.Score }).(pulumi.IntOutput)
+}
+
+// The Secret used to communicate with the Radius Server.
+func (o GetVpnServerConfigurationRadiusServerOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationRadiusServer) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetVpnServerConfigurationRadiusServerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationRadiusServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationRadiusServer)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationRadiusServerArrayOutput) ToGetVpnServerConfigurationRadiusServerArrayOutput() GetVpnServerConfigurationRadiusServerArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusServerArrayOutput) ToGetVpnServerConfigurationRadiusServerArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusServerArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusServerArrayOutput) Index(i pulumi.IntInput) GetVpnServerConfigurationRadiusServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnServerConfigurationRadiusServer {
+		return vs[0].([]GetVpnServerConfigurationRadiusServer)[vs[1].(int)]
+	}).(GetVpnServerConfigurationRadiusServerOutput)
+}
+
+type GetVpnServerConfigurationRadiusServerRootCertificate struct {
+	// The Name of the VPN Server Configuration.
+	Name string `pulumi:"name"`
+	// The Public Key Data associated with the Certificate.
+	PublicCertData string `pulumi:"publicCertData"`
+}
+
+// GetVpnServerConfigurationRadiusServerRootCertificateInput is an input type that accepts GetVpnServerConfigurationRadiusServerRootCertificateArgs and GetVpnServerConfigurationRadiusServerRootCertificateOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationRadiusServerRootCertificateInput` via:
+//
+//	GetVpnServerConfigurationRadiusServerRootCertificateArgs{...}
+type GetVpnServerConfigurationRadiusServerRootCertificateInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationRadiusServerRootCertificateOutput() GetVpnServerConfigurationRadiusServerRootCertificateOutput
+	ToGetVpnServerConfigurationRadiusServerRootCertificateOutputWithContext(context.Context) GetVpnServerConfigurationRadiusServerRootCertificateOutput
+}
+
+type GetVpnServerConfigurationRadiusServerRootCertificateArgs struct {
+	// The Name of the VPN Server Configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Public Key Data associated with the Certificate.
+	PublicCertData pulumi.StringInput `pulumi:"publicCertData"`
+}
+
+func (GetVpnServerConfigurationRadiusServerRootCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationRadiusServerRootCertificate)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationRadiusServerRootCertificateArgs) ToGetVpnServerConfigurationRadiusServerRootCertificateOutput() GetVpnServerConfigurationRadiusServerRootCertificateOutput {
+	return i.ToGetVpnServerConfigurationRadiusServerRootCertificateOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationRadiusServerRootCertificateArgs) ToGetVpnServerConfigurationRadiusServerRootCertificateOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusServerRootCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationRadiusServerRootCertificateOutput)
+}
+
+// GetVpnServerConfigurationRadiusServerRootCertificateArrayInput is an input type that accepts GetVpnServerConfigurationRadiusServerRootCertificateArray and GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput values.
+// You can construct a concrete instance of `GetVpnServerConfigurationRadiusServerRootCertificateArrayInput` via:
+//
+//	GetVpnServerConfigurationRadiusServerRootCertificateArray{ GetVpnServerConfigurationRadiusServerRootCertificateArgs{...} }
+type GetVpnServerConfigurationRadiusServerRootCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetVpnServerConfigurationRadiusServerRootCertificateArrayOutput() GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput
+	ToGetVpnServerConfigurationRadiusServerRootCertificateArrayOutputWithContext(context.Context) GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput
+}
+
+type GetVpnServerConfigurationRadiusServerRootCertificateArray []GetVpnServerConfigurationRadiusServerRootCertificateInput
+
+func (GetVpnServerConfigurationRadiusServerRootCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationRadiusServerRootCertificate)(nil)).Elem()
+}
+
+func (i GetVpnServerConfigurationRadiusServerRootCertificateArray) ToGetVpnServerConfigurationRadiusServerRootCertificateArrayOutput() GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput {
+	return i.ToGetVpnServerConfigurationRadiusServerRootCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpnServerConfigurationRadiusServerRootCertificateArray) ToGetVpnServerConfigurationRadiusServerRootCertificateArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput)
+}
+
+type GetVpnServerConfigurationRadiusServerRootCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationRadiusServerRootCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnServerConfigurationRadiusServerRootCertificate)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationRadiusServerRootCertificateOutput) ToGetVpnServerConfigurationRadiusServerRootCertificateOutput() GetVpnServerConfigurationRadiusServerRootCertificateOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusServerRootCertificateOutput) ToGetVpnServerConfigurationRadiusServerRootCertificateOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusServerRootCertificateOutput {
+	return o
+}
+
+// The Name of the VPN Server Configuration.
+func (o GetVpnServerConfigurationRadiusServerRootCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationRadiusServerRootCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Public Key Data associated with the Certificate.
+func (o GetVpnServerConfigurationRadiusServerRootCertificateOutput) PublicCertData() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnServerConfigurationRadiusServerRootCertificate) string { return v.PublicCertData }).(pulumi.StringOutput)
+}
+
+type GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpnServerConfigurationRadiusServerRootCertificate)(nil)).Elem()
+}
+
+func (o GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput) ToGetVpnServerConfigurationRadiusServerRootCertificateArrayOutput() GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput) ToGetVpnServerConfigurationRadiusServerRootCertificateArrayOutputWithContext(ctx context.Context) GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput {
+	return o
+}
+
+func (o GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput) Index(i pulumi.IntInput) GetVpnServerConfigurationRadiusServerRootCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpnServerConfigurationRadiusServerRootCertificate {
+		return vs[0].([]GetVpnServerConfigurationRadiusServerRootCertificate)[vs[1].(int)]
+	}).(GetVpnServerConfigurationRadiusServerRootCertificateOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayAuthenticationCertificateInput)(nil)).Elem(), ApplicationGatewayAuthenticationCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayAuthenticationCertificateArrayInput)(nil)).Elem(), ApplicationGatewayAuthenticationCertificateArray{})
@@ -36854,6 +37787,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayInput)(nil)).Elem(), GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayBgpSettingInstance1BgpPeeringAddressInput)(nil)).Elem(), GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayInput)(nil)).Elem(), GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationAzureActiveDirectoryAuthenticationInput)(nil)).Elem(), GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput)(nil)).Elem(), GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationClientRevokedCertificateInput)(nil)).Elem(), GetVpnServerConfigurationClientRevokedCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationClientRevokedCertificateArrayInput)(nil)).Elem(), GetVpnServerConfigurationClientRevokedCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationClientRootCertificateInput)(nil)).Elem(), GetVpnServerConfigurationClientRootCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationClientRootCertificateArrayInput)(nil)).Elem(), GetVpnServerConfigurationClientRootCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationIpsecPolicyInput)(nil)).Elem(), GetVpnServerConfigurationIpsecPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationIpsecPolicyArrayInput)(nil)).Elem(), GetVpnServerConfigurationIpsecPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationRadiusInput)(nil)).Elem(), GetVpnServerConfigurationRadiusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationRadiusArrayInput)(nil)).Elem(), GetVpnServerConfigurationRadiusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationRadiusClientRootCertificateInput)(nil)).Elem(), GetVpnServerConfigurationRadiusClientRootCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationRadiusClientRootCertificateArrayInput)(nil)).Elem(), GetVpnServerConfigurationRadiusClientRootCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationRadiusServerInput)(nil)).Elem(), GetVpnServerConfigurationRadiusServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationRadiusServerArrayInput)(nil)).Elem(), GetVpnServerConfigurationRadiusServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationRadiusServerRootCertificateInput)(nil)).Elem(), GetVpnServerConfigurationRadiusServerRootCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationRadiusServerRootCertificateArrayInput)(nil)).Elem(), GetVpnServerConfigurationRadiusServerRootCertificateArray{})
 	pulumi.RegisterOutputType(ApplicationGatewayAuthenticationCertificateOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayAuthenticationCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayAutoscaleConfigurationOutput{})
@@ -37341,4 +38290,20 @@ func init() {
 	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrayOutput{})
 	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressOutput{})
 	pulumi.RegisterOutputType(GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationAzureActiveDirectoryAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationClientRevokedCertificateOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationClientRevokedCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationClientRootCertificateOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationClientRootCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationIpsecPolicyOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationIpsecPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationRadiusOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationRadiusArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationRadiusClientRootCertificateOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationRadiusClientRootCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationRadiusServerOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationRadiusServerArrayOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationRadiusServerRootCertificateOutput{})
+	pulumi.RegisterOutputType(GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput{})
 }

@@ -204,6 +204,20 @@ public class StaticWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.previewEnvironmentsEnabled);
     }
     /**
+     * Should public network access be enabled for the Static Web App. Defaults to `true`.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Should public network access be enabled for the Static Web App. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
+    }
+    /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      * 
      */

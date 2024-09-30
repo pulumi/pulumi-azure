@@ -159,7 +159,7 @@ type Registry struct {
 	//
 	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	ExportPolicyEnabled pulumi.BoolPtrOutput `pulumi:"exportPolicyEnabled"`
-	// A `georeplications` block as documented below.
+	// One or more `georeplications` blocks as documented below.
 	//
 	// > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 	//
@@ -253,7 +253,7 @@ type registryState struct {
 	//
 	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	ExportPolicyEnabled *bool `pulumi:"exportPolicyEnabled"`
-	// A `georeplications` block as documented below.
+	// One or more `georeplications` blocks as documented below.
 	//
 	// > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 	//
@@ -308,7 +308,7 @@ type RegistryState struct {
 	//
 	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	ExportPolicyEnabled pulumi.BoolPtrInput
-	// A `georeplications` block as documented below.
+	// One or more `georeplications` blocks as documented below.
 	//
 	// > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 	//
@@ -363,7 +363,7 @@ type registryArgs struct {
 	//
 	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	ExportPolicyEnabled *bool `pulumi:"exportPolicyEnabled"`
-	// A `georeplications` block as documented below.
+	// One or more `georeplications` blocks as documented below.
 	//
 	// > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 	//
@@ -413,7 +413,7 @@ type RegistryArgs struct {
 	//
 	// > **NOTE:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	ExportPolicyEnabled pulumi.BoolPtrInput
-	// A `georeplications` block as documented below.
+	// One or more `georeplications` blocks as documented below.
 	//
 	// > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 	//
@@ -573,7 +573,7 @@ func (o RegistryOutput) ExportPolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.ExportPolicyEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `georeplications` block as documented below.
+// One or more `georeplications` blocks as documented below.
 //
 // > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
 //

@@ -102,6 +102,10 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+     */
+    public readonly diskControllerTypeNvmeEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
      */
     public readonly diskTypesNotAlloweds!: pulumi.Output<string[] | undefined>;
@@ -210,6 +214,7 @@ export class SharedImage extends pulumi.CustomResource {
             resourceInputs["confidentialVmEnabled"] = state ? state.confidentialVmEnabled : undefined;
             resourceInputs["confidentialVmSupported"] = state ? state.confidentialVmSupported : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["diskControllerTypeNvmeEnabled"] = state ? state.diskControllerTypeNvmeEnabled : undefined;
             resourceInputs["diskTypesNotAlloweds"] = state ? state.diskTypesNotAlloweds : undefined;
             resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
             resourceInputs["eula"] = state ? state.eula : undefined;
@@ -251,6 +256,7 @@ export class SharedImage extends pulumi.CustomResource {
             resourceInputs["confidentialVmEnabled"] = args ? args.confidentialVmEnabled : undefined;
             resourceInputs["confidentialVmSupported"] = args ? args.confidentialVmSupported : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["diskControllerTypeNvmeEnabled"] = args ? args.diskControllerTypeNvmeEnabled : undefined;
             resourceInputs["diskTypesNotAlloweds"] = args ? args.diskTypesNotAlloweds : undefined;
             resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
             resourceInputs["eula"] = args ? args.eula : undefined;
@@ -305,6 +311,10 @@ export interface SharedImageState {
      * A description of this Shared Image.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+     */
+    diskControllerTypeNvmeEnabled?: pulumi.Input<boolean>;
     /**
      * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
      */
@@ -423,6 +433,10 @@ export interface SharedImageArgs {
      * A description of this Shared Image.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
+     */
+    diskControllerTypeNvmeEnabled?: pulumi.Input<boolean>;
     /**
      * One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
      */
