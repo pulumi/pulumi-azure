@@ -997,7 +997,7 @@ index ed1f00c577..a4568c1ce0 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index 01a845deab..6d790e8b1a 100644
+index caea0a5547..24ef646efd 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1011,7 +1011,7 @@ index 01a845deab..6d790e8b1a 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index a9a31d7c49..c66eae0fc0 100644
+index 64b2e38ac6..2eca0a52b4 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -1874,7 +1874,7 @@ index 9a6128b0cf..98691c4977 100644
  ```hcl
  resource "azurerm_resource_group" "example" {
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index 096a2239d2..82264e43b7 100644
+index 767e1f5694..74a0645cdf 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -13,14 +13,11 @@ Manages a Linux Virtual Machine Scale Set.
@@ -1903,7 +1903,7 @@ index 096a2239d2..82264e43b7 100644
  
  * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
  
-@@ -354,8 +351,6 @@ An `extension` block supports the following:
+@@ -356,8 +353,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
@@ -1912,7 +1912,7 @@ index 096a2239d2..82264e43b7 100644
  * `protected_settings_from_key_vault` - (Optional) A `protected_settings_from_key_vault` block as defined below.
  
  ~> **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
-@@ -366,8 +361,6 @@ An `extension` block supports the following:
+@@ -368,8 +363,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
@@ -2619,7 +2619,7 @@ index 90c61ffe39..0bcae5bfb2 100644
  
  resource "azurerm_signalr_service" "example" {
 diff --git a/website/docs/r/storage_blob.html.markdown b/website/docs/r/storage_blob.html.markdown
-index d5b970d394..34cf87d1ae 100644
+index bdc3186e4c..f20305321e 100644
 --- a/website/docs/r/storage_blob.html.markdown
 +++ b/website/docs/r/storage_blob.html.markdown
 @@ -65,8 +65,6 @@ The following arguments are supported:
@@ -2630,7 +2630,7 @@ index d5b970d394..34cf87d1ae 100644
 -
  * `encryption_scope` - (Optional) The encryption scope to use for this blob.
  
- * `source` - (Optional) An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+ * `source` - (Optional) An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
 diff --git a/website/docs/r/storage_data_lake_gen2_path.html.markdown b/website/docs/r/storage_data_lake_gen2_path.html.markdown
 index 6786f8eb01..38823a0fd4 100644
 --- a/website/docs/r/storage_data_lake_gen2_path.html.markdown
@@ -2871,7 +2871,7 @@ index 45781e8d0b..7a87d33337 100644
  ```hcl
  provider "azurerm" {
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index ea1c14e83e..2ba2c339ad 100644
+index 56f2efcd7d..29d7c7e31f 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,17 @@ Manages a Windows Virtual Machine Scale Set.
@@ -2904,7 +2904,7 @@ index ea1c14e83e..2ba2c339ad 100644
  
  * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
  
-@@ -343,8 +343,6 @@ An `extension` block supports the following:
+@@ -345,8 +345,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
@@ -2913,7 +2913,7 @@ index ea1c14e83e..2ba2c339ad 100644
  * `protected_settings_from_key_vault` - (Optional) A `protected_settings_from_key_vault` block as defined below.
  
  ~> **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
-@@ -355,8 +353,6 @@ An `extension` block supports the following:
+@@ -357,8 +355,6 @@ An `extension` block supports the following:
  
  -> **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  

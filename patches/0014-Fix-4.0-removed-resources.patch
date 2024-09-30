@@ -16,23 +16,11 @@ index c1bf344a2b..dee7927610 100644
  		"azurerm_databricks_workspace_root_dbfs_customer_managed_key": resourceDatabricksWorkspaceRootDbfsCustomerManagedKey(),
  		"azurerm_databricks_virtual_network_peering":                  resourceDatabricksVirtualNetworkPeering(),
  	}
-diff --git a/internal/services/monitor/registration.go b/internal/services/monitor/registration.go
-index 269a7ee157..dfe684d0c2 100644
---- a/internal/services/monitor/registration.go
-+++ b/internal/services/monitor/registration.go
-@@ -77,7 +77,6 @@ func (r Registration) SupportedResources() map[string]*pluginsdk.Resource {
- 		"azurerm_monitor_action_group":                resourceMonitorActionGroup(),
- 		"azurerm_monitor_activity_log_alert":          resourceMonitorActivityLogAlert(),
- 		"azurerm_monitor_diagnostic_setting":          resourceMonitorDiagnosticSetting(),
--		"azurerm_monitor_log_profile":                 resourceMonitorLogProfile(),
- 		"azurerm_monitor_metric_alert":                resourceMonitorMetricAlert(),
- 		"azurerm_monitor_private_link_scope":          resourceMonitorPrivateLinkScope(),
- 		"azurerm_monitor_private_link_scoped_service": resourceMonitorPrivateLinkScopedService(),
 diff --git a/internal/services/network/registration.go b/internal/services/network/registration.go
-index 02205df6e2..da3e36ea42 100644
+index e3b217bfb4..c89871dbbe 100644
 --- a/internal/services/network/registration.go
 +++ b/internal/services/network/registration.go
-@@ -127,7 +127,6 @@ func (r Registration) SupportedResources() map[string]*pluginsdk.Resource {
+@@ -128,7 +128,6 @@ func (r Registration) SupportedResources() map[string]*pluginsdk.Resource {
  		"azurerm_network_interface_nat_rule_association":                                 resourceNetworkInterfaceNatRuleAssociation(),
  		"azurerm_network_interface_security_group_association":                           resourceNetworkInterfaceSecurityGroupAssociation(),
  
