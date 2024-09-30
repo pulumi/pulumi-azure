@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.LookupSubscription(ctx, nil, nil)
+//			current, err := core.LookupSubscription(ctx, &core.LookupSubscriptionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

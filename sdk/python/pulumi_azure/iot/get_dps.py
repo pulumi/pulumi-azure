@@ -174,9 +174,6 @@ def get_dps(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         service_operations_host_name=pulumi.get(__ret__, 'service_operations_host_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_dps)
 def get_dps_output(name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -198,4 +195,19 @@ def get_dps_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Iot Device Provisioning Service resource.
     :param str resource_group_name: The name of the resource group under which the Iot Device Provisioning Service is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:iot/getDps:getDps', __args__, opts=opts, typ=GetDpsResult)
+    return __ret__.apply(lambda __response__: GetDpsResult(
+        allocation_policy=pulumi.get(__response__, 'allocation_policy'),
+        device_provisioning_host_name=pulumi.get(__response__, 'device_provisioning_host_name'),
+        id=pulumi.get(__response__, 'id'),
+        id_scope=pulumi.get(__response__, 'id_scope'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        service_operations_host_name=pulumi.get(__response__, 'service_operations_host_name'),
+        tags=pulumi.get(__response__, 'tags')))

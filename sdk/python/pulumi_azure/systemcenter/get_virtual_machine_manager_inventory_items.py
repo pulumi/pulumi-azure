@@ -111,9 +111,6 @@ def get_virtual_machine_manager_inventory_items(inventory_type: Optional[str] = 
         inventory_items=pulumi.get(__ret__, 'inventory_items'),
         inventory_type=pulumi.get(__ret__, 'inventory_type'),
         system_center_virtual_machine_manager_server_id=pulumi.get(__ret__, 'system_center_virtual_machine_manager_server_id'))
-
-
-@_utilities.lift_output_func(get_virtual_machine_manager_inventory_items)
 def get_virtual_machine_manager_inventory_items_output(inventory_type: Optional[pulumi.Input[str]] = None,
                                                        system_center_virtual_machine_manager_server_id: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineManagerInventoryItemsResult]:
@@ -134,4 +131,13 @@ def get_virtual_machine_manager_inventory_items_output(inventory_type: Optional[
     :param str inventory_type: The inventory type of the System Center Virtual Machine Manager Inventory Item. Possible values are `Cloud`, `VirtualMachine`, `VirtualMachineTemplate` and `VirtualNetwork`.
     :param str system_center_virtual_machine_manager_server_id: The ID of the System Center Virtual Machine Manager Server.
     """
-    ...
+    __args__ = dict()
+    __args__['inventoryType'] = inventory_type
+    __args__['systemCenterVirtualMachineManagerServerId'] = system_center_virtual_machine_manager_server_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems', __args__, opts=opts, typ=GetVirtualMachineManagerInventoryItemsResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineManagerInventoryItemsResult(
+        id=pulumi.get(__response__, 'id'),
+        inventory_items=pulumi.get(__response__, 'inventory_items'),
+        inventory_type=pulumi.get(__response__, 'inventory_type'),
+        system_center_virtual_machine_manager_server_id=pulumi.get(__response__, 'system_center_virtual_machine_manager_server_id')))
