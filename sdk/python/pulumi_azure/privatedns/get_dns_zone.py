@@ -168,9 +168,6 @@ def get_dns_zone(name: Optional[str] = None,
         number_of_record_sets=pulumi.get(__ret__, 'number_of_record_sets'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_dns_zone)
 def get_dns_zone_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -196,4 +193,18 @@ def get_dns_zone_output(name: Optional[pulumi.Input[str]] = None,
            DNS Zones in your subscription that matches `name` will be returned.
     :param Mapping[str, str] tags: A mapping of tags for the zone.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:privatedns/getDnsZone:getDnsZone', __args__, opts=opts, typ=GetDnsZoneResult)
+    return __ret__.apply(lambda __response__: GetDnsZoneResult(
+        id=pulumi.get(__response__, 'id'),
+        max_number_of_record_sets=pulumi.get(__response__, 'max_number_of_record_sets'),
+        max_number_of_virtual_network_links=pulumi.get(__response__, 'max_number_of_virtual_network_links'),
+        max_number_of_virtual_network_links_with_registration=pulumi.get(__response__, 'max_number_of_virtual_network_links_with_registration'),
+        name=pulumi.get(__response__, 'name'),
+        number_of_record_sets=pulumi.get(__response__, 'number_of_record_sets'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

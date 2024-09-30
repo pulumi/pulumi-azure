@@ -169,9 +169,6 @@ def get_network_service(mobile_network_id: Optional[str] = None,
         service_precedence=pulumi.get(__ret__, 'service_precedence'),
         service_qos_policies=pulumi.get(__ret__, 'service_qos_policies'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_network_service)
 def get_network_service_output(mobile_network_id: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkServiceResult]:
@@ -195,4 +192,17 @@ def get_network_service_output(mobile_network_id: Optional[pulumi.Input[str]] = 
     :param str mobile_network_id: Specifies the ID of the Mobile Network Service.
     :param str name: Specifies the name which should be used for this Mobile Network Service.
     """
-    ...
+    __args__ = dict()
+    __args__['mobileNetworkId'] = mobile_network_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkService:getNetworkService', __args__, opts=opts, typ=GetNetworkServiceResult)
+    return __ret__.apply(lambda __response__: GetNetworkServiceResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        mobile_network_id=pulumi.get(__response__, 'mobile_network_id'),
+        name=pulumi.get(__response__, 'name'),
+        pcc_rules=pulumi.get(__response__, 'pcc_rules'),
+        service_precedence=pulumi.get(__response__, 'service_precedence'),
+        service_qos_policies=pulumi.get(__response__, 'service_qos_policies'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -167,9 +167,6 @@ def get_spring_cloud_service(name: Optional[str] = None,
         required_network_traffic_rules=pulumi.get(__ret__, 'required_network_traffic_rules'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_spring_cloud_service)
 def get_spring_cloud_service_output(name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpringCloudServiceResult]:
@@ -191,4 +188,17 @@ def get_spring_cloud_service_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies The name of the Spring Cloud Service resource.
     :param str resource_group_name: Specifies the name of the Resource Group where the Spring Cloud Service exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appplatform/getSpringCloudService:getSpringCloudService', __args__, opts=opts, typ=GetSpringCloudServiceResult)
+    return __ret__.apply(lambda __response__: GetSpringCloudServiceResult(
+        config_server_git_settings=pulumi.get(__response__, 'config_server_git_settings'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_public_ip_addresses=pulumi.get(__response__, 'outbound_public_ip_addresses'),
+        required_network_traffic_rules=pulumi.get(__response__, 'required_network_traffic_rules'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))
