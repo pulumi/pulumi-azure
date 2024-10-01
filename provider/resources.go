@@ -3310,6 +3310,9 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			RespectSchemaVersion: true,
+			PackageReferences: map[string]string{
+				"Pulumi": "3.*",
+			},
 			Overlay: &tfbridge.OverlayInfo{
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"Storage": {
