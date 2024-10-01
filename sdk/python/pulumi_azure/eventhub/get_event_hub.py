@@ -138,9 +138,6 @@ def get_event_hub(name: Optional[str] = None,
         partition_count=pulumi.get(__ret__, 'partition_count'),
         partition_ids=pulumi.get(__ret__, 'partition_ids'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-
-
-@_utilities.lift_output_func(get_event_hub)
 def get_event_hub_output(name: Optional[pulumi.Input[str]] = None,
                          namespace_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -165,4 +162,16 @@ def get_event_hub_output(name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: The name of the EventHub Namespace where the EventHub exists.
     :param str resource_group_name: The name of the Resource Group where the EventHub exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:eventhub/getEventHub:getEventHub', __args__, opts=opts, typ=GetEventHubResult)
+    return __ret__.apply(lambda __response__: GetEventHubResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        partition_count=pulumi.get(__response__, 'partition_count'),
+        partition_ids=pulumi.get(__response__, 'partition_ids'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name')))

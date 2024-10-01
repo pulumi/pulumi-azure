@@ -120,9 +120,6 @@ def get_resource_group(name: Optional[str] = None,
         managed_by=pulumi.get(__ret__, 'managed_by'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_resource_group)
 def get_resource_group_output(name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGroupResult]:
     """
@@ -141,4 +138,13 @@ def get_resource_group_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The Name of this Resource Group.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:core/getResourceGroup:getResourceGroup', __args__, opts=opts, typ=GetResourceGroupResult)
+    return __ret__.apply(lambda __response__: GetResourceGroupResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

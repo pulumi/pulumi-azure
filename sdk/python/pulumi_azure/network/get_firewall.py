@@ -258,9 +258,6 @@ def get_firewall(dns_proxy_enabled: Optional[bool] = None,
         threat_intel_mode=pulumi.get(__ret__, 'threat_intel_mode'),
         virtual_hubs=pulumi.get(__ret__, 'virtual_hubs'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_firewall)
 def get_firewall_output(dns_proxy_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
                         name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -284,4 +281,25 @@ def get_firewall_output(dns_proxy_enabled: Optional[pulumi.Input[Optional[bool]]
     :param str name: The name of the Azure Firewall.
     :param str resource_group_name: The name of the Resource Group in which the Azure Firewall exists.
     """
-    ...
+    __args__ = dict()
+    __args__['dnsProxyEnabled'] = dns_proxy_enabled
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getFirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult)
+    return __ret__.apply(lambda __response__: GetFirewallResult(
+        dns_proxy_enabled=pulumi.get(__response__, 'dns_proxy_enabled'),
+        dns_servers=pulumi.get(__response__, 'dns_servers'),
+        firewall_policy_id=pulumi.get(__response__, 'firewall_policy_id'),
+        id=pulumi.get(__response__, 'id'),
+        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
+        location=pulumi.get(__response__, 'location'),
+        management_ip_configurations=pulumi.get(__response__, 'management_ip_configurations'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        sku_tier=pulumi.get(__response__, 'sku_tier'),
+        tags=pulumi.get(__response__, 'tags'),
+        threat_intel_mode=pulumi.get(__response__, 'threat_intel_mode'),
+        virtual_hubs=pulumi.get(__response__, 'virtual_hubs'),
+        zones=pulumi.get(__response__, 'zones')))
