@@ -173,9 +173,6 @@ def get_cname_record(name: Optional[str] = None,
         target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
         ttl=pulumi.get(__ret__, 'ttl'),
         zone_name=pulumi.get(__ret__, 'zone_name'))
-
-
-@_utilities.lift_output_func(get_cname_record)
 def get_cname_record_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             zone_name: Optional[pulumi.Input[str]] = None,
@@ -199,4 +196,19 @@ def get_cname_record_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Specifies the resource group where the Private DNS Zone (parent resource) exists.
     :param str zone_name: Specifies the Private DNS Zone where the resource exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['zoneName'] = zone_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:privatedns/getCnameRecord:getCnameRecord', __args__, opts=opts, typ=GetCnameRecordResult)
+    return __ret__.apply(lambda __response__: GetCnameRecordResult(
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        record=pulumi.get(__response__, 'record'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_resource_id=pulumi.get(__response__, 'target_resource_id'),
+        ttl=pulumi.get(__response__, 'ttl'),
+        zone_name=pulumi.get(__response__, 'zone_name')))

@@ -123,9 +123,6 @@ def get_account_encryption(encryption_key: Optional[str] = None,
         netapp_account_id=pulumi.get(__ret__, 'netapp_account_id'),
         system_assigned_identity_principal_id=pulumi.get(__ret__, 'system_assigned_identity_principal_id'),
         user_assigned_identity_id=pulumi.get(__ret__, 'user_assigned_identity_id'))
-
-
-@_utilities.lift_output_func(get_account_encryption)
 def get_account_encryption_output(encryption_key: Optional[pulumi.Input[Optional[str]]] = None,
                                   netapp_account_id: Optional[pulumi.Input[str]] = None,
                                   system_assigned_identity_principal_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -150,4 +147,16 @@ def get_account_encryption_output(encryption_key: Optional[pulumi.Input[Optional
     :param str system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity.
     :param str user_assigned_identity_id: The ID of the User Assigned Managed Identity.
     """
-    ...
+    __args__ = dict()
+    __args__['encryptionKey'] = encryption_key
+    __args__['netappAccountId'] = netapp_account_id
+    __args__['systemAssignedIdentityPrincipalId'] = system_assigned_identity_principal_id
+    __args__['userAssignedIdentityId'] = user_assigned_identity_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:netapp/getAccountEncryption:getAccountEncryption', __args__, opts=opts, typ=GetAccountEncryptionResult)
+    return __ret__.apply(lambda __response__: GetAccountEncryptionResult(
+        encryption_key=pulumi.get(__response__, 'encryption_key'),
+        id=pulumi.get(__response__, 'id'),
+        netapp_account_id=pulumi.get(__response__, 'netapp_account_id'),
+        system_assigned_identity_principal_id=pulumi.get(__response__, 'system_assigned_identity_principal_id'),
+        user_assigned_identity_id=pulumi.get(__response__, 'user_assigned_identity_id')))
