@@ -129,9 +129,6 @@ def get_gateway(api_management_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         location_datas=pulumi.get(__ret__, 'location_datas'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_gateway)
 def get_gateway_output(api_management_id: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
@@ -154,4 +151,14 @@ def get_gateway_output(api_management_id: Optional[pulumi.Input[str]] = None,
     :param str api_management_id: The ID of the API Management Service in which the Gateway exists.
     :param str name: The name of the API Management Gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['apiManagementId'] = api_management_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:apimanagement/getGateway:getGateway', __args__, opts=opts, typ=GetGatewayResult)
+    return __ret__.apply(lambda __response__: GetGatewayResult(
+        api_management_id=pulumi.get(__response__, 'api_management_id'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        location_datas=pulumi.get(__response__, 'location_datas'),
+        name=pulumi.get(__response__, 'name')))

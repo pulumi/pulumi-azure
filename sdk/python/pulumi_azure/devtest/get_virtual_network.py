@@ -152,9 +152,6 @@ def get_virtual_network(lab_name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         subnet_overrides=pulumi.get(__ret__, 'subnet_overrides'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
-
-
-@_utilities.lift_output_func(get_virtual_network)
 def get_virtual_network_output(lab_name: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -179,4 +176,17 @@ def get_virtual_network_output(lab_name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Virtual Network.
     :param str resource_group_name: Specifies the name of the resource group that contains the Virtual Network.
     """
-    ...
+    __args__ = dict()
+    __args__['labName'] = lab_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:devtest/getVirtualNetwork:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
+    return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
+        allowed_subnets=pulumi.get(__response__, 'allowed_subnets'),
+        id=pulumi.get(__response__, 'id'),
+        lab_name=pulumi.get(__response__, 'lab_name'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        subnet_overrides=pulumi.get(__response__, 'subnet_overrides'),
+        unique_identifier=pulumi.get(__response__, 'unique_identifier')))
