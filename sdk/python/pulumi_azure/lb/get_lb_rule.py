@@ -230,9 +230,6 @@ def get_lb_rule(loadbalancer_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         probe_id=pulumi.get(__ret__, 'probe_id'),
         protocol=pulumi.get(__ret__, 'protocol'))
-
-
-@_utilities.lift_output_func(get_lb_rule)
 def get_lb_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLBRuleResult]:
@@ -243,4 +240,23 @@ def get_lb_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = None,
     :param str loadbalancer_id: The ID of the Load Balancer Rule.
     :param str name: The name of this Load Balancer Rule.
     """
-    ...
+    __args__ = dict()
+    __args__['loadbalancerId'] = loadbalancer_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:lb/getLBRule:getLBRule', __args__, opts=opts, typ=GetLBRuleResult)
+    return __ret__.apply(lambda __response__: GetLBRuleResult(
+        backend_address_pool_id=pulumi.get(__response__, 'backend_address_pool_id'),
+        backend_port=pulumi.get(__response__, 'backend_port'),
+        disable_outbound_snat=pulumi.get(__response__, 'disable_outbound_snat'),
+        enable_floating_ip=pulumi.get(__response__, 'enable_floating_ip'),
+        enable_tcp_reset=pulumi.get(__response__, 'enable_tcp_reset'),
+        frontend_ip_configuration_name=pulumi.get(__response__, 'frontend_ip_configuration_name'),
+        frontend_port=pulumi.get(__response__, 'frontend_port'),
+        id=pulumi.get(__response__, 'id'),
+        idle_timeout_in_minutes=pulumi.get(__response__, 'idle_timeout_in_minutes'),
+        load_distribution=pulumi.get(__response__, 'load_distribution'),
+        loadbalancer_id=pulumi.get(__response__, 'loadbalancer_id'),
+        name=pulumi.get(__response__, 'name'),
+        probe_id=pulumi.get(__response__, 'probe_id'),
+        protocol=pulumi.get(__response__, 'protocol')))
