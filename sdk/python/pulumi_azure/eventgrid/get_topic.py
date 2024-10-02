@@ -156,9 +156,6 @@ def get_topic(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_topic)
 def get_topic_output(name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
@@ -179,4 +176,17 @@ def get_topic_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the EventGrid Topic resource.
     :param str resource_group_name: The name of the resource group in which the EventGrid Topic exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:eventgrid/getTopic:getTopic', __args__, opts=opts, typ=GetTopicResult)
+    return __ret__.apply(lambda __response__: GetTopicResult(
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        primary_access_key=pulumi.get(__response__, 'primary_access_key'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__response__, 'secondary_access_key'),
+        tags=pulumi.get(__response__, 'tags')))
