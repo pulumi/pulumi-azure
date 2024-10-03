@@ -51,7 +51,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID(),
-//				SiteConfig:        nil,
+//				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
@@ -59,7 +59,7 @@ import (
 //			exampleLinuxWebAppSlot, err := appservice.NewLinuxWebAppSlot(ctx, "example", &appservice.LinuxWebAppSlotArgs{
 //				Name:         pulumi.String("example-slot"),
 //				AppServiceId: exampleLinuxWebApp.ID(),
-//				SiteConfig:   nil,
+//				SiteConfig:   &appservice.LinuxWebAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

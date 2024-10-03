@@ -202,9 +202,6 @@ def get_data_collection_endpoint(name: Optional[str] = None,
         public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_data_collection_endpoint)
 def get_data_collection_endpoint_output(name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
@@ -226,4 +223,20 @@ def get_data_collection_endpoint_output(name: Optional[pulumi.Input[str]] = None
     :param str name: Specifies the name of the Data Collection Endpoint.
     :param str resource_group_name: Specifies the name of the resource group the Data Collection Endpoint is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint', __args__, opts=opts, typ=GetDataCollectionEndpointResult)
+    return __ret__.apply(lambda __response__: GetDataCollectionEndpointResult(
+        configuration_access_endpoint=pulumi.get(__response__, 'configuration_access_endpoint'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        immutable_id=pulumi.get(__response__, 'immutable_id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        logs_ingestion_endpoint=pulumi.get(__response__, 'logs_ingestion_endpoint'),
+        name=pulumi.get(__response__, 'name'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

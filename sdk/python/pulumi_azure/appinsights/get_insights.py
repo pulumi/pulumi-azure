@@ -202,9 +202,6 @@ def get_insights(name: Optional[str] = None,
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-
-
-@_utilities.lift_output_func(get_insights)
 def get_insights_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInsightsResult]:
@@ -226,4 +223,20 @@ def get_insights_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Application Insights component.
     :param str resource_group_name: Specifies the name of the resource group the Application Insights component is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appinsights/getInsights:getInsights', __args__, opts=opts, typ=GetInsightsResult)
+    return __ret__.apply(lambda __response__: GetInsightsResult(
+        app_id=pulumi.get(__response__, 'app_id'),
+        application_type=pulumi.get(__response__, 'application_type'),
+        connection_string=pulumi.get(__response__, 'connection_string'),
+        id=pulumi.get(__response__, 'id'),
+        instrumentation_key=pulumi.get(__response__, 'instrumentation_key'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        retention_in_days=pulumi.get(__response__, 'retention_in_days'),
+        tags=pulumi.get(__response__, 'tags'),
+        workspace_id=pulumi.get(__response__, 'workspace_id')))

@@ -205,9 +205,6 @@ def get_blob(metadata: Optional[Mapping[str, str]] = None,
         storage_container_name=pulumi.get(__ret__, 'storage_container_name'),
         type=pulumi.get(__ret__, 'type'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_blob)
 def get_blob_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -233,4 +230,22 @@ def get_blob_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]
     :param str storage_account_name: The name of the Storage Account where the Container exists.
     :param str storage_container_name: The name of the Storage Container where the Blob exists.
     """
-    ...
+    __args__ = dict()
+    __args__['metadata'] = metadata
+    __args__['name'] = name
+    __args__['storageAccountName'] = storage_account_name
+    __args__['storageContainerName'] = storage_container_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getBlob:getBlob', __args__, opts=opts, typ=GetBlobResult)
+    return __ret__.apply(lambda __response__: GetBlobResult(
+        access_tier=pulumi.get(__response__, 'access_tier'),
+        content_md5=pulumi.get(__response__, 'content_md5'),
+        content_type=pulumi.get(__response__, 'content_type'),
+        encryption_scope=pulumi.get(__response__, 'encryption_scope'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        storage_account_name=pulumi.get(__response__, 'storage_account_name'),
+        storage_container_name=pulumi.get(__response__, 'storage_container_name'),
+        type=pulumi.get(__response__, 'type'),
+        url=pulumi.get(__response__, 'url')))

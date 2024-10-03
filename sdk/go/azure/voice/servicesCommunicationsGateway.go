@@ -42,7 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(nil)
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{})
 //			if err != nil {
 //				return err
 //			}
