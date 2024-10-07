@@ -57,7 +57,7 @@ class JobArgs:
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
         :param pulumi.Input[str] sku_name: The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
-        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
                
                > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
@@ -282,7 +282,7 @@ class JobArgs:
     @pulumi.getter(name="streamingUnits")
     def streaming_units(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
 
         > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         """
@@ -357,7 +357,7 @@ class _JobState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
-        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
                
                > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
@@ -589,7 +589,7 @@ class _JobState:
     @pulumi.getter(name="streamingUnits")
     def streaming_units(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
 
         > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         """
@@ -679,6 +679,7 @@ class Job(pulumi.CustomResource):
             events_out_of_order_policy="Adjust",
             output_error_policy="Drop",
             streaming_units=3,
+            sku_name="StandardV2",
             tags={
                 "environment": "Example",
             },
@@ -714,7 +715,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
-        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
                
                > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
@@ -750,6 +751,7 @@ class Job(pulumi.CustomResource):
             events_out_of_order_policy="Adjust",
             output_error_policy="Drop",
             streaming_units=3,
+            sku_name="StandardV2",
             tags={
                 "environment": "Example",
             },
@@ -885,7 +887,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
         :param pulumi.Input[str] stream_analytics_cluster_id: The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
-        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
                
                > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         :param pulumi.Input[str] type: The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
@@ -1043,7 +1045,7 @@ class Job(pulumi.CustomResource):
     @pulumi.getter(name="streamingUnits")
     def streaming_units(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
 
         > **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
         """

@@ -573,6 +573,20 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.targetVirtualMachineScaleSetId);
     }
     /**
+     * Specifies the size the Virtual Machine should have.
+     * 
+     */
+    @Export(name="targetVirtualMachineSize", refs={String.class}, tree="[0]")
+    private Output<String> targetVirtualMachineSize;
+
+    /**
+     * @return Specifies the size the Virtual Machine should have.
+     * 
+     */
+    public Output<String> targetVirtualMachineSize() {
+        return this.targetVirtualMachineSize;
+    }
+    /**
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      * 
      */

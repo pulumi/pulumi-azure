@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
@@ -28,32 +27,29 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     serviceName: exampleSpringCloudService.name,
  * });
- * const exampleMysqlServer = new azurerm.index.MysqlServer("example", {
- *     name: "example-mysqlserver",
- *     location: example.location,
+ * const exampleFlexibleServer = new azure.mysql.FlexibleServer("example", {
+ *     name: "example-fsserver",
  *     resourceGroupName: example.name,
- *     administratorLogin: "mysqladminun",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     skuName: "B_Gen5_2",
- *     storageMb: 5120,
- *     version: "5.7",
- *     sslEnforcementEnabled: true,
- *     sslMinimalTlsVersionEnforced: "TLS1_2",
+ *     location: example.location,
+ *     administratorLogin: "adminTerraform",
+ *     administratorPassword: "QAZwsx123",
+ *     skuName: "B_Standard_B1s",
+ *     zone: "2",
  * });
- * const exampleMysqlDatabase = new azurerm.index.MysqlDatabase("example", {
+ * const exampleFlexibleDatabase = new azure.mysql.FlexibleDatabase("example", {
  *     name: "exampledb",
  *     resourceGroupName: example.name,
- *     serverName: exampleMysqlServer.name,
+ *     serverName: exampleFlexibleServer.name,
  *     charset: "utf8",
  *     collation: "utf8_unicode_ci",
  * });
  * const exampleSpringCloudAppMysqlAssociation = new azure.appplatform.SpringCloudAppMysqlAssociation("example", {
  *     name: "example-bind",
  *     springCloudAppId: exampleSpringCloudApp.id,
- *     mysqlServerId: exampleMysqlServer.id,
- *     databaseName: exampleMysqlDatabase.name,
- *     username: exampleMysqlServer.administratorLogin,
- *     password: exampleMysqlServer.administratorLoginPassword,
+ *     mysqlServerId: exampleFlexibleServer.id,
+ *     databaseName: exampleFlexibleDatabase.name,
+ *     username: exampleFlexibleServer.administratorLogin,
+ *     password: exampleFlexibleServer.administratorLoginPassword,
  * });
  * ```
  *

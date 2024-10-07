@@ -341,6 +341,8 @@ type ReplicatedVM struct {
 	TargetResourceGroupId pulumi.StringOutput `pulumi:"targetResourceGroupId"`
 	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
 	TargetVirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"targetVirtualMachineScaleSetId"`
+	// Specifies the size the Virtual Machine should have.
+	TargetVirtualMachineSize pulumi.StringOutput `pulumi:"targetVirtualMachineSize"`
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
 	TargetZone pulumi.StringPtrOutput `pulumi:"targetZone"`
 	// Network to use when a test failover is done.
@@ -446,6 +448,8 @@ type replicatedVMState struct {
 	TargetResourceGroupId *string `pulumi:"targetResourceGroupId"`
 	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
 	TargetVirtualMachineScaleSetId *string `pulumi:"targetVirtualMachineScaleSetId"`
+	// Specifies the size the Virtual Machine should have.
+	TargetVirtualMachineSize *string `pulumi:"targetVirtualMachineSize"`
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
 	TargetZone *string `pulumi:"targetZone"`
 	// Network to use when a test failover is done.
@@ -495,6 +499,8 @@ type ReplicatedVMState struct {
 	TargetResourceGroupId pulumi.StringPtrInput
 	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
 	TargetVirtualMachineScaleSetId pulumi.StringPtrInput
+	// Specifies the size the Virtual Machine should have.
+	TargetVirtualMachineSize pulumi.StringPtrInput
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
 	TargetZone pulumi.StringPtrInput
 	// Network to use when a test failover is done.
@@ -548,6 +554,8 @@ type replicatedVMArgs struct {
 	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
 	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
 	TargetVirtualMachineScaleSetId *string `pulumi:"targetVirtualMachineScaleSetId"`
+	// Specifies the size the Virtual Machine should have.
+	TargetVirtualMachineSize *string `pulumi:"targetVirtualMachineSize"`
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
 	TargetZone *string `pulumi:"targetZone"`
 	// Network to use when a test failover is done.
@@ -598,6 +606,8 @@ type ReplicatedVMArgs struct {
 	TargetResourceGroupId pulumi.StringInput
 	// Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
 	TargetVirtualMachineScaleSetId pulumi.StringPtrInput
+	// Specifies the size the Virtual Machine should have.
+	TargetVirtualMachineSize pulumi.StringPtrInput
 	// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
 	TargetZone pulumi.StringPtrInput
 	// Network to use when a test failover is done.
@@ -791,6 +801,11 @@ func (o ReplicatedVMOutput) TargetResourceGroupId() pulumi.StringOutput {
 // Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
 func (o ReplicatedVMOutput) TargetVirtualMachineScaleSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringPtrOutput { return v.TargetVirtualMachineScaleSetId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the size the Virtual Machine should have.
+func (o ReplicatedVMOutput) TargetVirtualMachineSize() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringOutput { return v.TargetVirtualMachineSize }).(pulumi.StringOutput)
 }
 
 // Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.

@@ -23,7 +23,7 @@ public final class AutoscaleSettingProfileFixedDate {
      */
     private String start;
     /**
-     * @return The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+     * @return The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&amp;tabs=HTTP#recurrentschedule). Defaults to `UTC`.
      * 
      */
     private @Nullable String timezone;
@@ -44,7 +44,7 @@ public final class AutoscaleSettingProfileFixedDate {
         return this.start;
     }
     /**
-     * @return The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+     * @return The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&amp;tabs=HTTP#recurrentschedule). Defaults to `UTC`.
      * 
      */
     public Optional<String> timezone() {

@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var approvers = AzureadFunctions.getGroup(GetGroupArgs.builder()
- *             .name("Example Approver Group")
+ *             .displayName("Example Approver Group")
  *             .build());
  * 
  *         var exampleRoleManagementPolicy = new RoleManagementPolicy("exampleRoleManagementPolicy", RoleManagementPolicyArgs.builder()

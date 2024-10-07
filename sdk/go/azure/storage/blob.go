@@ -102,7 +102,7 @@ type Blob struct {
 	//
 	// > **Note:** `size` is required if `sourceUri` is not set.
 	Size pulumi.IntPtrOutput `pulumi:"size"`
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchiveOutput `pulumi:"source"`
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	SourceContent pulumi.StringPtrOutput `pulumi:"sourceContent"`
@@ -179,7 +179,7 @@ type blobState struct {
 	//
 	// > **Note:** `size` is required if `sourceUri` is not set.
 	Size *int `pulumi:"size"`
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchive `pulumi:"source"`
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	SourceContent *string `pulumi:"sourceContent"`
@@ -218,7 +218,7 @@ type BlobState struct {
 	//
 	// > **Note:** `size` is required if `sourceUri` is not set.
 	Size pulumi.IntPtrInput
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchiveInput
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	SourceContent pulumi.StringPtrInput
@@ -261,7 +261,7 @@ type blobArgs struct {
 	//
 	// > **Note:** `size` is required if `sourceUri` is not set.
 	Size *int `pulumi:"size"`
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchive `pulumi:"source"`
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	SourceContent *string `pulumi:"sourceContent"`
@@ -299,7 +299,7 @@ type BlobArgs struct {
 	//
 	// > **Note:** `size` is required if `sourceUri` is not set.
 	Size pulumi.IntPtrInput
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchiveInput
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	SourceContent pulumi.StringPtrInput
@@ -449,7 +449,7 @@ func (o BlobOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Blob) pulumi.IntPtrOutput { return v.Size }).(pulumi.IntPtrOutput)
 }
 
-// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 func (o BlobOutput) Source() pulumi.AssetOrArchiveOutput {
 	return o.ApplyT(func(v *Blob) pulumi.AssetOrArchiveOutput { return v.Source }).(pulumi.AssetOrArchiveOutput)
 }

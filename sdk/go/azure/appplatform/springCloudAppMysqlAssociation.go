@@ -23,7 +23,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appplatform"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mysql"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,27 +53,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleMysqlServer, err := azurerm.NewMysqlServer(ctx, "example", &azurerm.MysqlServerArgs{
-//				Name:                         "example-mysqlserver",
-//				Location:                     example.Location,
-//				ResourceGroupName:            example.Name,
-//				AdministratorLogin:           "mysqladminun",
-//				AdministratorLoginPassword:   "H@Sh1CoR3!",
-//				SkuName:                      "B_Gen5_2",
-//				StorageMb:                    5120,
-//				Version:                      "5.7",
-//				SslEnforcementEnabled:        true,
-//				SslMinimalTlsVersionEnforced: "TLS1_2",
+//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "example", &mysql.FlexibleServerArgs{
+//				Name:                  pulumi.String("example-fsserver"),
+//				ResourceGroupName:     example.Name,
+//				Location:              example.Location,
+//				AdministratorLogin:    pulumi.String("adminTerraform"),
+//				AdministratorPassword: pulumi.String("QAZwsx123"),
+//				SkuName:               pulumi.String("B_Standard_B1s"),
+//				Zone:                  pulumi.String("2"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleMysqlDatabase, err := azurerm.NewMysqlDatabase(ctx, "example", &azurerm.MysqlDatabaseArgs{
-//				Name:              "exampledb",
+//			exampleFlexibleDatabase, err := mysql.NewFlexibleDatabase(ctx, "example", &mysql.FlexibleDatabaseArgs{
+//				Name:              pulumi.String("exampledb"),
 //				ResourceGroupName: example.Name,
-//				ServerName:        exampleMysqlServer.Name,
-//				Charset:           "utf8",
-//				Collation:         "utf8_unicode_ci",
+//				ServerName:        exampleFlexibleServer.Name,
+//				Charset:           pulumi.String("utf8"),
+//				Collation:         pulumi.String("utf8_unicode_ci"),
 //			})
 //			if err != nil {
 //				return err
@@ -81,10 +78,10 @@ import (
 //			_, err = appplatform.NewSpringCloudAppMysqlAssociation(ctx, "example", &appplatform.SpringCloudAppMysqlAssociationArgs{
 //				Name:             pulumi.String("example-bind"),
 //				SpringCloudAppId: exampleSpringCloudApp.ID(),
-//				MysqlServerId:    exampleMysqlServer.Id,
-//				DatabaseName:     exampleMysqlDatabase.Name,
-//				Username:         exampleMysqlServer.AdministratorLogin,
-//				Password:         exampleMysqlServer.AdministratorLoginPassword,
+//				MysqlServerId:    exampleFlexibleServer.ID(),
+//				DatabaseName:     exampleFlexibleDatabase.Name,
+//				Username:         exampleFlexibleServer.AdministratorLogin,
+//				Password:         exampleFlexibleServer.AdministratorLoginPassword,
 //			})
 //			if err != nil {
 //				return err

@@ -162,14 +162,14 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="source")
     private @Nullable Output<AssetOrArchive> source;
 
     /**
-     * @return An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+     * @return An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<AssetOrArchive>> source() {
@@ -503,7 +503,7 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+         * @param source An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class BlobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+         * @param source An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

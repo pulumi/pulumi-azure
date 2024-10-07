@@ -321,6 +321,54 @@ class DatastoreFileshare(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### With Azure File Share
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="workspace-example-ai",
+            location=example.location,
+            resource_group_name=example.name,
+            application_type="web")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="workspaceexamplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium")
+        example_account = azure.storage.Account("example",
+            name="workspacestorageaccount",
+            location=example.location,
+            resource_group_name=example.name,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_workspace = azure.machinelearning.Workspace("example",
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
+            application_insights_id=example_insights.id,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            identity={
+                "type": "SystemAssigned",
+            })
+        example_share = azure.storage.Share("example",
+            name="example",
+            storage_account_name=example_account.name,
+            quota=1)
+        example_datastore_fileshare = azure.machinelearning.DatastoreFileshare("example",
+            name="example-datastore",
+            workspace_id=example_workspace.id,
+            storage_fileshare_id=example_share.resource_manager_id,
+            account_key=example_account.primary_access_key)
+        ```
+
         ## Import
 
         Machine Learning DataStores can be imported using the `resource id`, e.g.
@@ -350,6 +398,54 @@ class DatastoreFileshare(pulumi.CustomResource):
         Manages a Machine Learning File Share DataStore.
 
         ## Example Usage
+
+        ### With Azure File Share
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="workspace-example-ai",
+            location=example.location,
+            resource_group_name=example.name,
+            application_type="web")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="workspaceexamplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium")
+        example_account = azure.storage.Account("example",
+            name="workspacestorageaccount",
+            location=example.location,
+            resource_group_name=example.name,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_workspace = azure.machinelearning.Workspace("example",
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
+            application_insights_id=example_insights.id,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            identity={
+                "type": "SystemAssigned",
+            })
+        example_share = azure.storage.Share("example",
+            name="example",
+            storage_account_name=example_account.name,
+            quota=1)
+        example_datastore_fileshare = azure.machinelearning.DatastoreFileshare("example",
+            name="example-datastore",
+            workspace_id=example_workspace.id,
+            storage_fileshare_id=example_share.resource_manager_id,
+            account_key=example_account.primary_access_key)
+        ```
 
         ## Import
 

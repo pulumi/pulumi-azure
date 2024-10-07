@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  *     eventsOutOfOrderPolicy: "Adjust",
  *     outputErrorPolicy: "Drop",
  *     streamingUnits: 3,
+ *     skuName: "StandardV2",
  *     tags: {
  *         environment: "Example",
  *     },
@@ -139,7 +140,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly streamAnalyticsClusterId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+     * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
      *
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
      */
@@ -285,7 +286,7 @@ export interface JobState {
      */
     streamAnalyticsClusterId?: pulumi.Input<string>;
     /**
-     * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+     * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
      *
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
      */
@@ -363,7 +364,7 @@ export interface JobArgs {
      */
     streamAnalyticsClusterId?: pulumi.Input<string>;
     /**
-     * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+     * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
      *
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
      */

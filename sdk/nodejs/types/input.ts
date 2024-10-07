@@ -29166,7 +29166,7 @@ export namespace desktopvirtualization {
          */
         rampDownCapacityThresholdPercent: pulumi.Input<number>;
         /**
-         * Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible
+         * Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
          */
         rampDownForceLogoffUsers: pulumi.Input<boolean>;
         /**
@@ -39186,7 +39186,7 @@ export namespace monitoring {
          */
         start: pulumi.Input<string>;
         /**
-         * The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+         * The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
          */
         timezone?: pulumi.Input<string>;
     }
@@ -39205,7 +39205,7 @@ export namespace monitoring {
          */
         minutes: pulumi.Input<number>;
         /**
-         * The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+         * The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
          */
         timezone?: pulumi.Input<string>;
     }

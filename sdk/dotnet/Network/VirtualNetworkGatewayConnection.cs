@@ -618,7 +618,7 @@ namespace Pulumi.Azure.Network
         [Input("routingWeight")]
         public Input<int>? RoutingWeight { get; set; }
 
-        [Input("sharedKey", required: true)]
+        [Input("sharedKey")]
         private Input<string>? _sharedKey;
 
         /// <summary>

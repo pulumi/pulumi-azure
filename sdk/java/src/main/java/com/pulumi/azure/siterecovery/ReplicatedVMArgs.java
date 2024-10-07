@@ -321,6 +321,21 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the size the Virtual Machine should have.
+     * 
+     */
+    @Import(name="targetVirtualMachineSize")
+    private @Nullable Output<String> targetVirtualMachineSize;
+
+    /**
+     * @return Specifies the size the Virtual Machine should have.
+     * 
+     */
+    public Optional<Output<String>> targetVirtualMachineSize() {
+        return Optional.ofNullable(this.targetVirtualMachineSize);
+    }
+
+    /**
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -388,6 +403,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         this.targetRecoveryProtectionContainerId = $.targetRecoveryProtectionContainerId;
         this.targetResourceGroupId = $.targetResourceGroupId;
         this.targetVirtualMachineScaleSetId = $.targetVirtualMachineScaleSetId;
+        this.targetVirtualMachineSize = $.targetVirtualMachineSize;
         this.targetZone = $.targetZone;
         this.testNetworkId = $.testNetworkId;
         this.unmanagedDisks = $.unmanagedDisks;
@@ -849,6 +865,27 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder targetVirtualMachineScaleSetId(String targetVirtualMachineScaleSetId) {
             return targetVirtualMachineScaleSetId(Output.of(targetVirtualMachineScaleSetId));
+        }
+
+        /**
+         * @param targetVirtualMachineSize Specifies the size the Virtual Machine should have.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetVirtualMachineSize(@Nullable Output<String> targetVirtualMachineSize) {
+            $.targetVirtualMachineSize = targetVirtualMachineSize;
+            return this;
+        }
+
+        /**
+         * @param targetVirtualMachineSize Specifies the size the Virtual Machine should have.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetVirtualMachineSize(String targetVirtualMachineSize) {
+            return targetVirtualMachineSize(Output.of(targetVirtualMachineSize));
         }
 
         /**

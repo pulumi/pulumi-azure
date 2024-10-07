@@ -41,6 +41,7 @@ class ReplicatedVMArgs:
                  target_network_id: Optional[pulumi.Input[str]] = None,
                  target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  target_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 target_virtual_machine_size: Optional[pulumi.Input[str]] = None,
                  target_zone: Optional[pulumi.Input[str]] = None,
                  test_network_id: Optional[pulumi.Input[str]] = None,
                  unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None):
@@ -66,6 +67,7 @@ class ReplicatedVMArgs:
         :param pulumi.Input[str] target_network_id: Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
         :param pulumi.Input[str] target_proximity_placement_group_id: Id of Proximity Placement Group the new VM should belong to when a failover is done.
         :param pulumi.Input[str] target_virtual_machine_scale_set_id: Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+        :param pulumi.Input[str] target_virtual_machine_size: Specifies the size the Virtual Machine should have.
         :param pulumi.Input[str] target_zone: Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] test_network_id: Network to use when a test failover is done.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
@@ -101,6 +103,8 @@ class ReplicatedVMArgs:
             pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "target_virtual_machine_scale_set_id", target_virtual_machine_scale_set_id)
+        if target_virtual_machine_size is not None:
+            pulumi.set(__self__, "target_virtual_machine_size", target_virtual_machine_size)
         if target_zone is not None:
             pulumi.set(__self__, "target_zone", target_zone)
         if test_network_id is not None:
@@ -349,6 +353,18 @@ class ReplicatedVMArgs:
         pulumi.set(self, "target_virtual_machine_scale_set_id", value)
 
     @property
+    @pulumi.getter(name="targetVirtualMachineSize")
+    def target_virtual_machine_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the size the Virtual Machine should have.
+        """
+        return pulumi.get(self, "target_virtual_machine_size")
+
+    @target_virtual_machine_size.setter
+    def target_virtual_machine_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_virtual_machine_size", value)
+
+    @property
     @pulumi.getter(name="targetZone")
     def target_zone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -408,6 +424,7 @@ class _ReplicatedVMState:
                  target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
                  target_resource_group_id: Optional[pulumi.Input[str]] = None,
                  target_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 target_virtual_machine_size: Optional[pulumi.Input[str]] = None,
                  target_zone: Optional[pulumi.Input[str]] = None,
                  test_network_id: Optional[pulumi.Input[str]] = None,
                  unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None):
@@ -433,6 +450,7 @@ class _ReplicatedVMState:
         :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_virtual_machine_scale_set_id: Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+        :param pulumi.Input[str] target_virtual_machine_size: Specifies the size the Virtual Machine should have.
         :param pulumi.Input[str] target_zone: Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] test_network_id: Network to use when a test failover is done.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
@@ -477,6 +495,8 @@ class _ReplicatedVMState:
             pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
         if target_virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "target_virtual_machine_scale_set_id", target_virtual_machine_scale_set_id)
+        if target_virtual_machine_size is not None:
+            pulumi.set(__self__, "target_virtual_machine_size", target_virtual_machine_size)
         if target_zone is not None:
             pulumi.set(__self__, "target_zone", target_zone)
         if test_network_id is not None:
@@ -725,6 +745,18 @@ class _ReplicatedVMState:
         pulumi.set(self, "target_virtual_machine_scale_set_id", value)
 
     @property
+    @pulumi.getter(name="targetVirtualMachineSize")
+    def target_virtual_machine_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the size the Virtual Machine should have.
+        """
+        return pulumi.get(self, "target_virtual_machine_size")
+
+    @target_virtual_machine_size.setter
+    def target_virtual_machine_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_virtual_machine_size", value)
+
+    @property
     @pulumi.getter(name="targetZone")
     def target_zone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -786,6 +818,7 @@ class ReplicatedVM(pulumi.CustomResource):
                  target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
                  target_resource_group_id: Optional[pulumi.Input[str]] = None,
                  target_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 target_virtual_machine_size: Optional[pulumi.Input[str]] = None,
                  target_zone: Optional[pulumi.Input[str]] = None,
                  test_network_id: Optional[pulumi.Input[str]] = None,
                  unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None,
@@ -986,6 +1019,7 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_virtual_machine_scale_set_id: Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+        :param pulumi.Input[str] target_virtual_machine_size: Specifies the size the Virtual Machine should have.
         :param pulumi.Input[str] target_zone: Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] test_network_id: Network to use when a test failover is done.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
@@ -1205,6 +1239,7 @@ class ReplicatedVM(pulumi.CustomResource):
                  target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
                  target_resource_group_id: Optional[pulumi.Input[str]] = None,
                  target_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 target_virtual_machine_size: Optional[pulumi.Input[str]] = None,
                  target_zone: Optional[pulumi.Input[str]] = None,
                  test_network_id: Optional[pulumi.Input[str]] = None,
                  unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None,
@@ -1255,6 +1290,7 @@ class ReplicatedVM(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_resource_group_id'")
             __props__.__dict__["target_resource_group_id"] = target_resource_group_id
             __props__.__dict__["target_virtual_machine_scale_set_id"] = target_virtual_machine_scale_set_id
+            __props__.__dict__["target_virtual_machine_size"] = target_virtual_machine_size
             __props__.__dict__["target_zone"] = target_zone
             __props__.__dict__["test_network_id"] = test_network_id
             __props__.__dict__["unmanaged_disks"] = unmanaged_disks
@@ -1288,6 +1324,7 @@ class ReplicatedVM(pulumi.CustomResource):
             target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
             target_resource_group_id: Optional[pulumi.Input[str]] = None,
             target_virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+            target_virtual_machine_size: Optional[pulumi.Input[str]] = None,
             target_zone: Optional[pulumi.Input[str]] = None,
             test_network_id: Optional[pulumi.Input[str]] = None,
             unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None) -> 'ReplicatedVM':
@@ -1318,6 +1355,7 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_virtual_machine_scale_set_id: Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
+        :param pulumi.Input[str] target_virtual_machine_size: Specifies the size the Virtual Machine should have.
         :param pulumi.Input[str] target_zone: Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] test_network_id: Network to use when a test failover is done.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
@@ -1346,6 +1384,7 @@ class ReplicatedVM(pulumi.CustomResource):
         __props__.__dict__["target_recovery_protection_container_id"] = target_recovery_protection_container_id
         __props__.__dict__["target_resource_group_id"] = target_resource_group_id
         __props__.__dict__["target_virtual_machine_scale_set_id"] = target_virtual_machine_scale_set_id
+        __props__.__dict__["target_virtual_machine_size"] = target_virtual_machine_size
         __props__.__dict__["target_zone"] = target_zone
         __props__.__dict__["test_network_id"] = test_network_id
         __props__.__dict__["unmanaged_disks"] = unmanaged_disks
@@ -1510,6 +1549,14 @@ class ReplicatedVM(pulumi.CustomResource):
         Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
         """
         return pulumi.get(self, "target_virtual_machine_scale_set_id")
+
+    @property
+    @pulumi.getter(name="targetVirtualMachineSize")
+    def target_virtual_machine_size(self) -> pulumi.Output[str]:
+        """
+        Specifies the size the Virtual Machine should have.
+        """
+        return pulumi.get(self, "target_virtual_machine_size")
 
     @property
     @pulumi.getter(name="targetZone")

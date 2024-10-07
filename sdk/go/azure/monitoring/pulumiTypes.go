@@ -9609,7 +9609,7 @@ type AutoscaleSettingProfileFixedDate struct {
 	End string `pulumi:"end"`
 	// Specifies the start date for the profile, formatted as an RFC3339 date string.
 	Start string `pulumi:"start"`
-	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -9629,7 +9629,7 @@ type AutoscaleSettingProfileFixedDateArgs struct {
 	End pulumi.StringInput `pulumi:"end"`
 	// Specifies the start date for the profile, formatted as an RFC3339 date string.
 	Start pulumi.StringInput `pulumi:"start"`
-	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -9720,7 +9720,7 @@ func (o AutoscaleSettingProfileFixedDateOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.Start }).(pulumi.StringOutput)
 }
 
-// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 func (o AutoscaleSettingProfileFixedDateOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -9769,7 +9769,7 @@ func (o AutoscaleSettingProfileFixedDatePtrOutput) Start() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
 func (o AutoscaleSettingProfileFixedDatePtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoscaleSettingProfileFixedDate) *string {
 		if v == nil {
@@ -9786,7 +9786,7 @@ type AutoscaleSettingProfileRecurrence struct {
 	Hours int `pulumi:"hours"`
 	// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
 	Minutes int `pulumi:"minutes"`
-	// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+	// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -9808,7 +9808,7 @@ type AutoscaleSettingProfileRecurrenceArgs struct {
 	Hours pulumi.IntInput `pulumi:"hours"`
 	// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
 	Minutes pulumi.IntInput `pulumi:"minutes"`
-	// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+	// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -9904,7 +9904,7 @@ func (o AutoscaleSettingProfileRecurrenceOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
-// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
 func (o AutoscaleSettingProfileRecurrenceOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -9963,7 +9963,7 @@ func (o AutoscaleSettingProfileRecurrencePtrOutput) Minutes() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoscaleSettingProfileRecurrence) *string {
 		if v == nil {

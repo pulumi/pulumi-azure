@@ -42,7 +42,7 @@ namespace Pulumi.Azure.DesktopVirtualization.Outputs
         /// </summary>
         public readonly int RampDownCapacityThresholdPercent;
         /// <summary>
-        /// Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible
+        /// Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
         /// </summary>
         public readonly bool RampDownForceLogoffUsers;
         /// <summary>
