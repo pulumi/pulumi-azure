@@ -55,6 +55,7 @@ jobs:
       with:
         tool-cache: false
         swap-storage: false
+        dotnet: false
     - name: Checkout Repo
       uses: actions/checkout@v4
     - uses: pulumi/provider-version-action@v1
