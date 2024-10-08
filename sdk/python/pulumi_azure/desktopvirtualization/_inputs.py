@@ -257,7 +257,7 @@ if not MYPY:
         """
         ramp_down_force_logoff_users: pulumi.Input[bool]
         """
-        Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible
+        Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
         """
         ramp_down_load_balancing_algorithm: pulumi.Input[str]
         """
@@ -331,7 +331,7 @@ class ScalingPlanScheduleArgs:
         :param pulumi.Input[str] peak_load_balancing_algorithm: The load Balancing Algorithm to use during Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
         :param pulumi.Input[str] peak_start_time: The time at which Peak scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
         :param pulumi.Input[int] ramp_down_capacity_threshold_percent: This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
-        :param pulumi.Input[bool] ramp_down_force_logoff_users: Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible
+        :param pulumi.Input[bool] ramp_down_force_logoff_users: Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
         :param pulumi.Input[str] ramp_down_load_balancing_algorithm: The load Balancing Algorithm to use during the Ramp-Down period. Possible values are `DepthFirst` and `BreadthFirst`.
         :param pulumi.Input[int] ramp_down_minimum_hosts_percent: The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
         :param pulumi.Input[str] ramp_down_notification_message: The notification message to send to users during Ramp-Down period when they are required to log-off.
@@ -452,7 +452,7 @@ class ScalingPlanScheduleArgs:
     @pulumi.getter(name="rampDownForceLogoffUsers")
     def ramp_down_force_logoff_users(self) -> pulumi.Input[bool]:
         """
-        Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible
+        Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
         """
         return pulumi.get(self, "ramp_down_force_logoff_users")
 

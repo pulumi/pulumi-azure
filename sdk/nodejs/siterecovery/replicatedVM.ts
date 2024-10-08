@@ -310,6 +310,10 @@ export class ReplicatedVM extends pulumi.CustomResource {
      */
     public readonly targetVirtualMachineScaleSetId!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the size the Virtual Machine should have.
+     */
+    public readonly targetVirtualMachineSize!: pulumi.Output<string>;
+    /**
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */
     public readonly targetZone!: pulumi.Output<string | undefined>;
@@ -355,6 +359,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
             resourceInputs["targetRecoveryProtectionContainerId"] = state ? state.targetRecoveryProtectionContainerId : undefined;
             resourceInputs["targetResourceGroupId"] = state ? state.targetResourceGroupId : undefined;
             resourceInputs["targetVirtualMachineScaleSetId"] = state ? state.targetVirtualMachineScaleSetId : undefined;
+            resourceInputs["targetVirtualMachineSize"] = state ? state.targetVirtualMachineSize : undefined;
             resourceInputs["targetZone"] = state ? state.targetZone : undefined;
             resourceInputs["testNetworkId"] = state ? state.testNetworkId : undefined;
             resourceInputs["unmanagedDisks"] = state ? state.unmanagedDisks : undefined;
@@ -407,6 +412,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
             resourceInputs["targetRecoveryProtectionContainerId"] = args ? args.targetRecoveryProtectionContainerId : undefined;
             resourceInputs["targetResourceGroupId"] = args ? args.targetResourceGroupId : undefined;
             resourceInputs["targetVirtualMachineScaleSetId"] = args ? args.targetVirtualMachineScaleSetId : undefined;
+            resourceInputs["targetVirtualMachineSize"] = args ? args.targetVirtualMachineSize : undefined;
             resourceInputs["targetZone"] = args ? args.targetZone : undefined;
             resourceInputs["testNetworkId"] = args ? args.testNetworkId : undefined;
             resourceInputs["unmanagedDisks"] = args ? args.unmanagedDisks : undefined;
@@ -500,6 +506,10 @@ export interface ReplicatedVMState {
      * Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
      */
     targetVirtualMachineScaleSetId?: pulumi.Input<string>;
+    /**
+     * Specifies the size the Virtual Machine should have.
+     */
+    targetVirtualMachineSize?: pulumi.Input<string>;
     /**
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */
@@ -598,6 +608,10 @@ export interface ReplicatedVMArgs {
      * Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
      */
     targetVirtualMachineScaleSetId?: pulumi.Input<string>;
+    /**
+     * Specifies the size the Virtual Machine should have.
+     */
+    targetVirtualMachineSize?: pulumi.Input<string>;
     /**
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */

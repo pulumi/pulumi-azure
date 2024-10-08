@@ -14,6 +14,82 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     /// ## Example Usage
     /// 
+    /// ### With Azure File Share
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
+    ///     {
+    ///         Name = "workspace-example-ai",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
+    ///     {
+    ///         Name = "workspaceexamplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     {
+    ///         Name = "workspacestorageaccount",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
+    ///     {
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.Storage.Share("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         Quota = 1,
+    ///     });
+    /// 
+    ///     var exampleDatastoreFileshare = new Azure.MachineLearning.DatastoreFileshare("example", new()
+    ///     {
+    ///         Name = "example-datastore",
+    ///         WorkspaceId = exampleWorkspace.Id,
+    ///         StorageFileshareId = exampleShare.ResourceManagerId,
+    ///         AccountKey = exampleAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Machine Learning DataStores can be imported using the `resource id`, e.g.

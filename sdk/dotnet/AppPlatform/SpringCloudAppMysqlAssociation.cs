@@ -19,7 +19,6 @@ namespace Pulumi.Azure.AppPlatform
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -43,25 +42,22 @@ namespace Pulumi.Azure.AppPlatform
     ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
-    ///     var exampleMysqlServer = new Azurerm.Index.MysqlServer("example", new()
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("example", new()
     ///     {
-    ///         Name = "example-mysqlserver",
-    ///         Location = example.Location,
+    ///         Name = "example-fsserver",
     ///         ResourceGroupName = example.Name,
-    ///         AdministratorLogin = "mysqladminun",
-    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         SkuName = "B_Gen5_2",
-    ///         StorageMb = 5120,
-    ///         Version = "5.7",
-    ///         SslEnforcementEnabled = true,
-    ///         SslMinimalTlsVersionEnforced = "TLS1_2",
+    ///         Location = example.Location,
+    ///         AdministratorLogin = "adminTerraform",
+    ///         AdministratorPassword = "QAZwsx123",
+    ///         SkuName = "B_Standard_B1s",
+    ///         Zone = "2",
     ///     });
     /// 
-    ///     var exampleMysqlDatabase = new Azurerm.Index.MysqlDatabase("example", new()
+    ///     var exampleFlexibleDatabase = new Azure.MySql.FlexibleDatabase("example", new()
     ///     {
     ///         Name = "exampledb",
     ///         ResourceGroupName = example.Name,
-    ///         ServerName = exampleMysqlServer.Name,
+    ///         ServerName = exampleFlexibleServer.Name,
     ///         Charset = "utf8",
     ///         Collation = "utf8_unicode_ci",
     ///     });
@@ -70,10 +66,10 @@ namespace Pulumi.Azure.AppPlatform
     ///     {
     ///         Name = "example-bind",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///         MysqlServerId = exampleMysqlServer.Id,
-    ///         DatabaseName = exampleMysqlDatabase.Name,
-    ///         Username = exampleMysqlServer.AdministratorLogin,
-    ///         Password = exampleMysqlServer.AdministratorLoginPassword,
+    ///         MysqlServerId = exampleFlexibleServer.Id,
+    ///         DatabaseName = exampleFlexibleDatabase.Name,
+    ///         Username = exampleFlexibleServer.AdministratorLogin,
+    ///         Password = exampleFlexibleServer.AdministratorLoginPassword,
     ///     });
     /// 
     /// });

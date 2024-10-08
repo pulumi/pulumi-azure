@@ -9,6 +9,61 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### With Azure File Share
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "workspace-example-ai",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     applicationType: "web",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "workspaceexamplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "workspacestorageaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "GRS",
+ * });
+ * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     name: "example-workspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     applicationInsightsId: exampleInsights.id,
+ *     keyVaultId: exampleKeyVault.id,
+ *     storageAccountId: exampleAccount.id,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleShare = new azure.storage.Share("example", {
+ *     name: "example",
+ *     storageAccountName: exampleAccount.name,
+ *     quota: 1,
+ * });
+ * const exampleDatastoreFileshare = new azure.machinelearning.DatastoreFileshare("example", {
+ *     name: "example-datastore",
+ *     workspaceId: exampleWorkspace.id,
+ *     storageFileshareId: exampleShare.resourceManagerId,
+ *     accountKey: exampleAccount.primaryAccessKey,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Machine Learning DataStores can be imported using the `resource id`, e.g.

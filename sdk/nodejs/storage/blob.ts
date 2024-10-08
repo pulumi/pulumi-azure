@@ -115,7 +115,7 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly size!: pulumi.Output<number | undefined>;
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
     public readonly source!: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface BlobState {
      */
     size?: pulumi.Input<number>;
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
     source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
@@ -324,7 +324,7 @@ export interface BlobArgs {
      */
     size?: pulumi.Input<number>;
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
     source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**

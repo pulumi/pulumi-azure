@@ -2619,7 +2619,7 @@ index 90c61ffe39..0bcae5bfb2 100644
  
  resource "azurerm_signalr_service" "example" {
 diff --git a/website/docs/r/storage_blob.html.markdown b/website/docs/r/storage_blob.html.markdown
-index bdc3186e4c..f20305321e 100644
+index d5b970d394..34cf87d1ae 100644
 --- a/website/docs/r/storage_blob.html.markdown
 +++ b/website/docs/r/storage_blob.html.markdown
 @@ -65,8 +65,6 @@ The following arguments are supported:
@@ -2630,7 +2630,7 @@ index bdc3186e4c..f20305321e 100644
 -
  * `encryption_scope` - (Optional) The encryption scope to use for this blob.
  
- * `source` - (Optional) An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+ * `source` - (Optional) An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
 diff --git a/website/docs/r/storage_data_lake_gen2_path.html.markdown b/website/docs/r/storage_data_lake_gen2_path.html.markdown
 index 6786f8eb01..38823a0fd4 100644
 --- a/website/docs/r/storage_data_lake_gen2_path.html.markdown

@@ -33,10 +33,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
  * import com.pulumi.azure.appplatform.SpringCloudApp;
  * import com.pulumi.azure.appplatform.SpringCloudAppArgs;
- * import com.pulumi.azurerm.mysqlServer;
- * import com.pulumi.azurerm.MysqlServerArgs;
- * import com.pulumi.azurerm.mysqlDatabase;
- * import com.pulumi.azurerm.MysqlDatabaseArgs;
+ * import com.pulumi.azure.mysql.FlexibleServer;
+ * import com.pulumi.azure.mysql.FlexibleServerArgs;
+ * import com.pulumi.azure.mysql.FlexibleDatabase;
+ * import com.pulumi.azure.mysql.FlexibleDatabaseArgs;
  * import com.pulumi.azure.appplatform.SpringCloudAppMysqlAssociation;
  * import com.pulumi.azure.appplatform.SpringCloudAppMysqlAssociationArgs;
  * import java.util.List;
@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
+ * public class App {
+ *     public static void main(String[] args) {
  *         Pulumi.run(App::stack);
- *     }}{@code
+ *     }
  * 
- *     public static void stack(Context ctx) }{{@code
+ *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -69,23 +69,20 @@ import javax.annotation.Nullable;
  *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
- *         var exampleMysqlServer = new MysqlServer("exampleMysqlServer", MysqlServerArgs.builder()
- *             .name("example-mysqlserver")
- *             .location(example.location())
+ *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
+ *             .name("example-fsserver")
  *             .resourceGroupName(example.name())
- *             .administratorLogin("mysqladminun")
- *             .administratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
- *             .skuName("B_Gen5_2")
- *             .storageMb(5120)
- *             .version("5.7")
- *             .sslEnforcementEnabled(true)
- *             .sslMinimalTlsVersionEnforced("TLS1_2")
+ *             .location(example.location())
+ *             .administratorLogin("adminTerraform")
+ *             .administratorPassword("QAZwsx123")
+ *             .skuName("B_Standard_B1s")
+ *             .zone("2")
  *             .build());
  * 
- *         var exampleMysqlDatabase = new MysqlDatabase("exampleMysqlDatabase", MysqlDatabaseArgs.builder()
+ *         var exampleFlexibleDatabase = new FlexibleDatabase("exampleFlexibleDatabase", FlexibleDatabaseArgs.builder()
  *             .name("exampledb")
  *             .resourceGroupName(example.name())
- *             .serverName(exampleMysqlServer.name())
+ *             .serverName(exampleFlexibleServer.name())
  *             .charset("utf8")
  *             .collation("utf8_unicode_ci")
  *             .build());
@@ -93,14 +90,14 @@ import javax.annotation.Nullable;
  *         var exampleSpringCloudAppMysqlAssociation = new SpringCloudAppMysqlAssociation("exampleSpringCloudAppMysqlAssociation", SpringCloudAppMysqlAssociationArgs.builder()
  *             .name("example-bind")
  *             .springCloudAppId(exampleSpringCloudApp.id())
- *             .mysqlServerId(exampleMysqlServer.id())
- *             .databaseName(exampleMysqlDatabase.name())
- *             .username(exampleMysqlServer.administratorLogin())
- *             .password(exampleMysqlServer.administratorLoginPassword())
+ *             .mysqlServerId(exampleFlexibleServer.id())
+ *             .databaseName(exampleFlexibleDatabase.name())
+ *             .username(exampleFlexibleServer.administratorLogin())
+ *             .password(exampleFlexibleServer.administratorLoginPassword())
  *             .build());
  * 
- *     }}{@code
- * }}{@code
+ *     }
+ * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;

@@ -14,6 +14,94 @@ namespace Pulumi.Azure.Pim
     /// 
     /// ## Example Usage
     /// 
+    /// ### Resource Group
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-rg",
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var rgContributor = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     {
+    ///         Name = "Contributor",
+    ///         Scope = example.Id,
+    ///     });
+    /// 
+    ///     var approvers = AzureAD.GetGroup.Invoke(new()
+    ///     {
+    ///         DisplayName = "Example Approver Group",
+    ///     });
+    /// 
+    ///     var exampleRoleManagementPolicy = new Azure.Pim.RoleManagementPolicy("example", new()
+    ///     {
+    ///         Scope = test.Id,
+    ///         RoleDefinitionId = contributor.Id,
+    ///         ActiveAssignmentRules = new Azure.Pim.Inputs.RoleManagementPolicyActiveAssignmentRulesArgs
+    ///         {
+    ///             ExpireAfter = "P365D",
+    ///         },
+    ///         EligibleAssignmentRules = new Azure.Pim.Inputs.RoleManagementPolicyEligibleAssignmentRulesArgs
+    ///         {
+    ///             ExpirationRequired = false,
+    ///         },
+    ///         ActivationRules = new Azure.Pim.Inputs.RoleManagementPolicyActivationRulesArgs
+    ///         {
+    ///             MaximumDuration = "PT1H",
+    ///             RequireApproval = true,
+    ///             ApprovalStage = new Azure.Pim.Inputs.RoleManagementPolicyActivationRulesApprovalStageArgs
+    ///             {
+    ///                 PrimaryApprovers = new[]
+    ///                 {
+    ///                     new Azure.Pim.Inputs.RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs
+    ///                     {
+    ///                         ObjectId = approvers.Apply(getGroupResult =&gt; getGroupResult.ObjectId),
+    ///                         Type = "Group",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         NotificationRules = new Azure.Pim.Inputs.RoleManagementPolicyNotificationRulesArgs
+    ///         {
+    ///             EligibleAssignments = new Azure.Pim.Inputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs
+    ///             {
+    ///                 ApproverNotifications = new Azure.Pim.Inputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs
+    ///                 {
+    ///                     NotificationLevel = "Critical",
+    ///                     DefaultRecipients = false,
+    ///                     AdditionalRecipients = new[]
+    ///                     {
+    ///                         "someone@example.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             EligibleActivations = new Azure.Pim.Inputs.RoleManagementPolicyNotificationRulesEligibleActivationsArgs
+    ///             {
+    ///                 AssigneeNotifications = new Azure.Pim.Inputs.RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs
+    ///                 {
+    ///                     NotificationLevel = "All",
+    ///                     DefaultRecipients = true,
+    ///                     AdditionalRecipients = new[]
+    ///                     {
+    ///                         "someone.else@example.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Management Group
     /// 
     /// ```csharp

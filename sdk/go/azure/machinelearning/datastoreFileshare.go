@@ -16,6 +16,101 @@ import (
 //
 // ## Example Usage
 //
+// ### With Azure File Share
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/machinelearning"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("workspace-example-ai"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("workspaceexamplekeyvault"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				TenantId:          pulumi.String(current.TenantId),
+//				SkuName:           pulumi.String("premium"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("workspacestorageaccount"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "example", &machinelearning.WorkspaceArgs{
+//				Name:                  pulumi.String("example-workspace"),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				KeyVaultId:            exampleKeyVault.ID(),
+//				StorageAccountId:      exampleAccount.ID(),
+//				Identity: &machinelearning.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleShare, err := storage.NewShare(ctx, "example", &storage.ShareArgs{
+//				Name:               pulumi.String("example"),
+//				StorageAccountName: exampleAccount.Name,
+//				Quota:              pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = machinelearning.NewDatastoreFileshare(ctx, "example", &machinelearning.DatastoreFileshareArgs{
+//				Name:               pulumi.String("example-datastore"),
+//				WorkspaceId:        exampleWorkspace.ID(),
+//				StorageFileshareId: exampleShare.ResourceManagerId,
+//				AccountKey:         exampleAccount.PrimaryAccessKey,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Machine Learning DataStores can be imported using the `resource id`, e.g.

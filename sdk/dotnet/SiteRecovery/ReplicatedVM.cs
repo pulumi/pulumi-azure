@@ -406,6 +406,12 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string?> TargetVirtualMachineScaleSetId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the size the Virtual Machine should have.
+        /// </summary>
+        [Output("targetVirtualMachineSize")]
+        public Output<string> TargetVirtualMachineSize { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("targetZone")]
@@ -602,6 +608,12 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? TargetVirtualMachineScaleSetId { get; set; }
 
         /// <summary>
+        /// Specifies the size the Virtual Machine should have.
+        /// </summary>
+        [Input("targetVirtualMachineSize")]
+        public Input<string>? TargetVirtualMachineSize { get; set; }
+
+        /// <summary>
         /// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetZone")]
@@ -764,6 +776,12 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         [Input("targetVirtualMachineScaleSetId")]
         public Input<string>? TargetVirtualMachineScaleSetId { get; set; }
+
+        /// <summary>
+        /// Specifies the size the Virtual Machine should have.
+        /// </summary>
+        [Input("targetVirtualMachineSize")]
+        public Input<string>? TargetVirtualMachineSize { get; set; }
 
         /// <summary>
         /// Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.

@@ -3766,7 +3766,7 @@ class AutoscaleSettingProfileFixedDate(dict):
         """
         :param str end: Specifies the end date for the profile, formatted as an RFC3339 date string.
         :param str start: Specifies the start date for the profile, formatted as an RFC3339 date string.
-        :param str timezone: The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        :param str timezone: The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
         """
         pulumi.set(__self__, "end", end)
         pulumi.set(__self__, "start", start)
@@ -3793,7 +3793,7 @@ class AutoscaleSettingProfileFixedDate(dict):
     @pulumi.getter
     def timezone(self) -> Optional[str]:
         """
-        The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&tabs=HTTP#recurrentschedule). Defaults to `UTC`.
         """
         return pulumi.get(self, "timezone")
 
@@ -3809,7 +3809,7 @@ class AutoscaleSettingProfileRecurrence(dict):
         :param Sequence[str] days: A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         :param int hours: A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
         :param int minutes: A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
-        :param str timezone: The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        :param str timezone: The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
         """
         pulumi.set(__self__, "days", days)
         pulumi.set(__self__, "hours", hours)
@@ -3845,7 +3845,7 @@ class AutoscaleSettingProfileRecurrence(dict):
     @pulumi.getter
     def timezone(self) -> Optional[str]:
         """
-        The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
         """
         return pulumi.get(self, "timezone")
 

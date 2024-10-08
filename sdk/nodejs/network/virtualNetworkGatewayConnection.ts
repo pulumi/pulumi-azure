@@ -361,9 +361,6 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sharedKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sharedKey'");
-            }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -604,7 +601,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      */
-    sharedKey: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

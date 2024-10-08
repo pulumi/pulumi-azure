@@ -322,15 +322,15 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
      * The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      * 
      */
-    @Import(name="sharedKey", required=true)
-    private Output<String> sharedKey;
+    @Import(name="sharedKey")
+    private @Nullable Output<String> sharedKey;
 
     /**
      * @return The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      * 
      */
-    public Output<String> sharedKey() {
-        return this.sharedKey;
+    public Optional<Output<String>> sharedKey() {
+        return Optional.ofNullable(this.sharedKey);
     }
 
     /**
@@ -895,7 +895,7 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder sharedKey(Output<String> sharedKey) {
+        public Builder sharedKey(@Nullable Output<String> sharedKey) {
             $.sharedKey = sharedKey;
             return this;
         }
@@ -1022,9 +1022,6 @@ public final class VirtualNetworkGatewayConnectionArgs extends com.pulumi.resour
         public VirtualNetworkGatewayConnectionArgs build() {
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionArgs", "resourceGroupName");
-            }
-            if ($.sharedKey == null) {
-                throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionArgs", "sharedKey");
             }
             if ($.type == null) {
                 throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionArgs", "type");

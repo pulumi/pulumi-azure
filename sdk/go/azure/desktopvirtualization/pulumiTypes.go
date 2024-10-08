@@ -442,7 +442,7 @@ type ScalingPlanSchedule struct {
 	PeakStartTime string `pulumi:"peakStartTime"`
 	// This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
 	RampDownCapacityThresholdPercent int `pulumi:"rampDownCapacityThresholdPercent"`
-	// Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible
+	// Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
 	RampDownForceLogoffUsers bool `pulumi:"rampDownForceLogoffUsers"`
 	// The load Balancing Algorithm to use during the Ramp-Down period. Possible values are `DepthFirst` and `BreadthFirst`.
 	RampDownLoadBalancingAlgorithm string `pulumi:"rampDownLoadBalancingAlgorithm"`
@@ -492,7 +492,7 @@ type ScalingPlanScheduleArgs struct {
 	PeakStartTime pulumi.StringInput `pulumi:"peakStartTime"`
 	// This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
 	RampDownCapacityThresholdPercent pulumi.IntInput `pulumi:"rampDownCapacityThresholdPercent"`
-	// Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible
+	// Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
 	RampDownForceLogoffUsers pulumi.BoolInput `pulumi:"rampDownForceLogoffUsers"`
 	// The load Balancing Algorithm to use during the Ramp-Down period. Possible values are `DepthFirst` and `BreadthFirst`.
 	RampDownLoadBalancingAlgorithm pulumi.StringInput `pulumi:"rampDownLoadBalancingAlgorithm"`
@@ -602,7 +602,7 @@ func (o ScalingPlanScheduleOutput) RampDownCapacityThresholdPercent() pulumi.Int
 	return o.ApplyT(func(v ScalingPlanSchedule) int { return v.RampDownCapacityThresholdPercent }).(pulumi.IntOutput)
 }
 
-// Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible
+// Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
 func (o ScalingPlanScheduleOutput) RampDownForceLogoffUsers() pulumi.BoolOutput {
 	return o.ApplyT(func(v ScalingPlanSchedule) bool { return v.RampDownForceLogoffUsers }).(pulumi.BoolOutput)
 }

@@ -47,6 +47,7 @@ import (
 //				EventsOutOfOrderPolicy:             pulumi.String("Adjust"),
 //				OutputErrorPolicy:                  pulumi.String("Drop"),
 //				StreamingUnits:                     pulumi.Int(3),
+//				SkuName:                            pulumi.String("StandardV2"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Example"),
 //				},
@@ -103,7 +104,7 @@ type Job struct {
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId pulumi.StringPtrOutput `pulumi:"streamAnalyticsClusterId"`
-	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 	StreamingUnits      pulumi.IntPtrOutput    `pulumi:"streamingUnits"`
@@ -183,7 +184,7 @@ type jobState struct {
 	SkuName *string `pulumi:"skuName"`
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId *string `pulumi:"streamAnalyticsClusterId"`
-	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 	StreamingUnits      *int              `pulumi:"streamingUnits"`
@@ -228,7 +229,7 @@ type JobState struct {
 	SkuName pulumi.StringPtrInput
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId pulumi.StringPtrInput
-	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 	StreamingUnits      pulumi.IntPtrInput
@@ -275,7 +276,7 @@ type jobArgs struct {
 	SkuName *string `pulumi:"skuName"`
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId *string `pulumi:"streamAnalyticsClusterId"`
-	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 	StreamingUnits      *int              `pulumi:"streamingUnits"`
@@ -319,7 +320,7 @@ type JobArgs struct {
 	SkuName pulumi.StringPtrInput
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId pulumi.StringPtrInput
-	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 	StreamingUnits      pulumi.IntPtrInput
@@ -495,7 +496,7 @@ func (o JobOutput) StreamAnalyticsClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.StreamAnalyticsClusterId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
 //
 // > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 func (o JobOutput) StreamingUnits() pulumi.IntPtrOutput {
