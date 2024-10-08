@@ -137,9 +137,6 @@ def get_public_i_ps(allocation_type: Optional[str] = None,
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
         public_ips=pulumi.get(__ret__, 'public_ips'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-
-
-@_utilities.lift_output_func(get_public_i_ps)
 def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]] = None,
                            attachment_status: Optional[pulumi.Input[Optional[str]]] = None,
                            name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
@@ -164,4 +161,17 @@ def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]
     :param str name_prefix: A prefix match used for the IP Addresses `name` field, case sensitive.
     :param str resource_group_name: Specifies the name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['allocationType'] = allocation_type
+    __args__['attachmentStatus'] = attachment_status
+    __args__['namePrefix'] = name_prefix
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getPublicIPs:getPublicIPs', __args__, opts=opts, typ=GetPublicIPsResult)
+    return __ret__.apply(lambda __response__: GetPublicIPsResult(
+        allocation_type=pulumi.get(__response__, 'allocation_type'),
+        attachment_status=pulumi.get(__response__, 'attachment_status'),
+        id=pulumi.get(__response__, 'id'),
+        name_prefix=pulumi.get(__response__, 'name_prefix'),
+        public_ips=pulumi.get(__response__, 'public_ips'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name')))

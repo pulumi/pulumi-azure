@@ -317,9 +317,6 @@ def get_environment_v3(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         windows_outbound_ip_addresses=pulumi.get(__ret__, 'windows_outbound_ip_addresses'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-
-
-@_utilities.lift_output_func(get_environment_v3)
 def get_environment_v3_output(name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentV3Result]:
@@ -341,4 +338,29 @@ def get_environment_v3_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this v3 App Service Environment.
     :param str resource_group_name: The name of the Resource Group where the v3 App Service Environment exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appservice/getEnvironmentV3:getEnvironmentV3', __args__, opts=opts, typ=GetEnvironmentV3Result)
+    return __ret__.apply(lambda __response__: GetEnvironmentV3Result(
+        allow_new_private_endpoint_connections=pulumi.get(__response__, 'allow_new_private_endpoint_connections'),
+        cluster_settings=pulumi.get(__response__, 'cluster_settings'),
+        dedicated_host_count=pulumi.get(__response__, 'dedicated_host_count'),
+        dns_suffix=pulumi.get(__response__, 'dns_suffix'),
+        external_inbound_ip_addresses=pulumi.get(__response__, 'external_inbound_ip_addresses'),
+        id=pulumi.get(__response__, 'id'),
+        inbound_network_dependencies=pulumi.get(__response__, 'inbound_network_dependencies'),
+        internal_inbound_ip_addresses=pulumi.get(__response__, 'internal_inbound_ip_addresses'),
+        internal_load_balancing_mode=pulumi.get(__response__, 'internal_load_balancing_mode'),
+        ip_ssl_address_count=pulumi.get(__response__, 'ip_ssl_address_count'),
+        linux_outbound_ip_addresses=pulumi.get(__response__, 'linux_outbound_ip_addresses'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        pricing_tier=pulumi.get(__response__, 'pricing_tier'),
+        remote_debugging_enabled=pulumi.get(__response__, 'remote_debugging_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        windows_outbound_ip_addresses=pulumi.get(__response__, 'windows_outbound_ip_addresses'),
+        zone_redundant=pulumi.get(__response__, 'zone_redundant')))

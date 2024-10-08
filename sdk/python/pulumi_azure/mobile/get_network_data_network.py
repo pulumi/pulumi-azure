@@ -138,9 +138,6 @@ def get_network_data_network(mobile_network_id: Optional[str] = None,
         mobile_network_id=pulumi.get(__ret__, 'mobile_network_id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_network_data_network)
 def get_network_data_network_output(mobile_network_id: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkDataNetworkResult]:
@@ -163,4 +160,15 @@ def get_network_data_network_output(mobile_network_id: Optional[pulumi.Input[str
     :param str mobile_network_id: Specifies the ID of the Mobile Network.
     :param str name: Specifies the name which should be used for this Mobile Network Data Network.
     """
-    ...
+    __args__ = dict()
+    __args__['mobileNetworkId'] = mobile_network_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork', __args__, opts=opts, typ=GetNetworkDataNetworkResult)
+    return __ret__.apply(lambda __response__: GetNetworkDataNetworkResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        mobile_network_id=pulumi.get(__response__, 'mobile_network_id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))
