@@ -163,9 +163,6 @@ def get_dataset_data_lake_gen2(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         share_id=pulumi.get(__ret__, 'share_id'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
-
-
-@_utilities.lift_output_func(get_dataset_data_lake_gen2)
 def get_dataset_data_lake_gen2_output(name: Optional[pulumi.Input[str]] = None,
                                       share_id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetDataLakeGen2Result]:
@@ -187,4 +184,17 @@ def get_dataset_data_lake_gen2_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Data Share Data Lake Gen2 Dataset.
     :param str share_id: The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['shareId'] = share_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2', __args__, opts=opts, typ=GetDatasetDataLakeGen2Result)
+    return __ret__.apply(lambda __response__: GetDatasetDataLakeGen2Result(
+        display_name=pulumi.get(__response__, 'display_name'),
+        file_path=pulumi.get(__response__, 'file_path'),
+        file_system_name=pulumi.get(__response__, 'file_system_name'),
+        folder_path=pulumi.get(__response__, 'folder_path'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        share_id=pulumi.get(__response__, 'share_id'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id')))
