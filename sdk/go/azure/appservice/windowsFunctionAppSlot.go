@@ -63,7 +63,7 @@ import (
 //				Location:           example.Location,
 //				StorageAccountName: exampleAccount.Name,
 //				ServicePlanId:      exampleServicePlan.ID(),
-//				SiteConfig:         nil,
+//				SiteConfig:         &appservice.WindowsFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
@@ -72,7 +72,7 @@ import (
 //				Name:               pulumi.String("example-slot"),
 //				FunctionAppId:      exampleWindowsFunctionApp.ID(),
 //				StorageAccountName: exampleAccount.Name,
-//				SiteConfig:         nil,
+//				SiteConfig:         &appservice.WindowsFunctionAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

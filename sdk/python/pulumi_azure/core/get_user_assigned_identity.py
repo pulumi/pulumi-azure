@@ -170,9 +170,6 @@ def get_user_assigned_identity(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
-
-
-@_utilities.lift_output_func(get_user_assigned_identity)
 def get_user_assigned_identity_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserAssignedIdentityResult]:
@@ -199,4 +196,17 @@ def get_user_assigned_identity_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the Resource Group in which the User Assigned Identity exists.
     """
     pulumi.log.warn("""get_user_assigned_identity is deprecated: azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity""")
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:core/getUserAssignedIdentity:getUserAssignedIdentity', __args__, opts=opts, typ=GetUserAssignedIdentityResult)
+    return __ret__.apply(lambda __response__: GetUserAssignedIdentityResult(
+        client_id=pulumi.get(__response__, 'client_id'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        principal_id=pulumi.get(__response__, 'principal_id'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        tenant_id=pulumi.get(__response__, 'tenant_id')))

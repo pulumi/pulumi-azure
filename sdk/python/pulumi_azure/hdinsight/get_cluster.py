@@ -272,9 +272,6 @@ def get_cluster(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'),
         tls_min_version=pulumi.get(__ret__, 'tls_min_version'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -297,4 +294,25 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of this HDInsight Cluster.
     :param str resource_group_name: Specifies the name of the Resource Group in which this HDInsight Cluster exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:hdinsight/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        cluster_id=pulumi.get(__response__, 'cluster_id'),
+        cluster_version=pulumi.get(__response__, 'cluster_version'),
+        component_versions=pulumi.get(__response__, 'component_versions'),
+        edge_ssh_endpoint=pulumi.get(__response__, 'edge_ssh_endpoint'),
+        gateways=pulumi.get(__response__, 'gateways'),
+        https_endpoint=pulumi.get(__response__, 'https_endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        kafka_rest_proxy_endpoint=pulumi.get(__response__, 'kafka_rest_proxy_endpoint'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        ssh_endpoint=pulumi.get(__response__, 'ssh_endpoint'),
+        tags=pulumi.get(__response__, 'tags'),
+        tier=pulumi.get(__response__, 'tier'),
+        tls_min_version=pulumi.get(__response__, 'tls_min_version')))
