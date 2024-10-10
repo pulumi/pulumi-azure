@@ -284,9 +284,6 @@ def get_network_packet_core_control_plane(name: Optional[str] = None,
         software_version=pulumi.get(__ret__, 'software_version'),
         tags=pulumi.get(__ret__, 'tags'),
         user_equipment_mtu_in_bytes=pulumi.get(__ret__, 'user_equipment_mtu_in_bytes'))
-
-
-@_utilities.lift_output_func(get_network_packet_core_control_plane)
 def get_network_packet_core_control_plane_output(name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkPacketCoreControlPlaneResult]:
@@ -307,4 +304,27 @@ def get_network_packet_core_control_plane_output(name: Optional[pulumi.Input[str
     :param str name: The name of the Mobile Network Packet Core Control Plane.
     :param str resource_group_name: The name of the Resource Group where the Mobile Network Packet Core Control Plane exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane', __args__, opts=opts, typ=GetNetworkPacketCoreControlPlaneResult)
+    return __ret__.apply(lambda __response__: GetNetworkPacketCoreControlPlaneResult(
+        control_plane_access_ipv4_address=pulumi.get(__response__, 'control_plane_access_ipv4_address'),
+        control_plane_access_ipv4_gateway=pulumi.get(__response__, 'control_plane_access_ipv4_gateway'),
+        control_plane_access_ipv4_subnet=pulumi.get(__response__, 'control_plane_access_ipv4_subnet'),
+        control_plane_access_name=pulumi.get(__response__, 'control_plane_access_name'),
+        core_network_technology=pulumi.get(__response__, 'core_network_technology'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        interoperability_settings_json=pulumi.get(__response__, 'interoperability_settings_json'),
+        local_diagnostics_accesses=pulumi.get(__response__, 'local_diagnostics_accesses'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        platforms=pulumi.get(__response__, 'platforms'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        site_ids=pulumi.get(__response__, 'site_ids'),
+        sku=pulumi.get(__response__, 'sku'),
+        software_version=pulumi.get(__response__, 'software_version'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_equipment_mtu_in_bytes=pulumi.get(__response__, 'user_equipment_mtu_in_bytes')))

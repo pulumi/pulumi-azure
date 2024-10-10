@@ -115,9 +115,6 @@ def get_recommendations(filter_by_categories: Optional[Sequence[str]] = None,
         filter_by_resource_groups=pulumi.get(__ret__, 'filter_by_resource_groups'),
         id=pulumi.get(__ret__, 'id'),
         recommendations=pulumi.get(__ret__, 'recommendations'))
-
-
-@_utilities.lift_output_func(get_recommendations)
 def get_recommendations_output(filter_by_categories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                filter_by_resource_groups: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecommendationsResult]:
@@ -142,4 +139,13 @@ def get_recommendations_output(filter_by_categories: Optional[pulumi.Input[Optio
     :param Sequence[str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
     :param Sequence[str] filter_by_resource_groups: Specifies a list of resource groups about which the Advisor Recommendations will be listed.
     """
-    ...
+    __args__ = dict()
+    __args__['filterByCategories'] = filter_by_categories
+    __args__['filterByResourceGroups'] = filter_by_resource_groups
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:advisor/getRecommendations:getRecommendations', __args__, opts=opts, typ=GetRecommendationsResult)
+    return __ret__.apply(lambda __response__: GetRecommendationsResult(
+        filter_by_categories=pulumi.get(__response__, 'filter_by_categories'),
+        filter_by_resource_groups=pulumi.get(__response__, 'filter_by_resource_groups'),
+        id=pulumi.get(__response__, 'id'),
+        recommendations=pulumi.get(__response__, 'recommendations')))

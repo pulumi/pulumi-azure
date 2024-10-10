@@ -174,9 +174,6 @@ def get_frontdoor_origin_group(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         restore_traffic_time_to_healed_or_new_endpoint_in_minutes=pulumi.get(__ret__, 'restore_traffic_time_to_healed_or_new_endpoint_in_minutes'),
         session_affinity_enabled=pulumi.get(__ret__, 'session_affinity_enabled'))
-
-
-@_utilities.lift_output_func(get_frontdoor_origin_group)
 def get_frontdoor_origin_group_output(name: Optional[pulumi.Input[str]] = None,
                                       profile_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -200,4 +197,19 @@ def get_frontdoor_origin_group_output(name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: The name of the Front Door Profile within which Front Door Origin Group exists.
     :param str resource_group_name: The name of the Resource Group where the Front Door Profile exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup', __args__, opts=opts, typ=GetFrontdoorOriginGroupResult)
+    return __ret__.apply(lambda __response__: GetFrontdoorOriginGroupResult(
+        cdn_frontdoor_profile_id=pulumi.get(__response__, 'cdn_frontdoor_profile_id'),
+        health_probes=pulumi.get(__response__, 'health_probes'),
+        id=pulumi.get(__response__, 'id'),
+        load_balancings=pulumi.get(__response__, 'load_balancings'),
+        name=pulumi.get(__response__, 'name'),
+        profile_name=pulumi.get(__response__, 'profile_name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        restore_traffic_time_to_healed_or_new_endpoint_in_minutes=pulumi.get(__response__, 'restore_traffic_time_to_healed_or_new_endpoint_in_minutes'),
+        session_affinity_enabled=pulumi.get(__response__, 'session_affinity_enabled')))

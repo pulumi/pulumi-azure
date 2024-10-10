@@ -241,9 +241,6 @@ def get_flexible_server(name: Optional[str] = None,
         storage_mb=pulumi.get(__ret__, 'storage_mb'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_flexible_server)
 def get_flexible_server_output(name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlexibleServerResult]:
@@ -265,4 +262,23 @@ def get_flexible_server_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this PostgreSQL Flexible Server.
     :param str resource_group_name: The name of the Resource Group where the PostgreSQL Flexible Server exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:postgresql/getFlexibleServer:getFlexibleServer', __args__, opts=opts, typ=GetFlexibleServerResult)
+    return __ret__.apply(lambda __response__: GetFlexibleServerResult(
+        administrator_login=pulumi.get(__response__, 'administrator_login'),
+        auto_grow_enabled=pulumi.get(__response__, 'auto_grow_enabled'),
+        backup_retention_days=pulumi.get(__response__, 'backup_retention_days'),
+        delegated_subnet_id=pulumi.get(__response__, 'delegated_subnet_id'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        storage_mb=pulumi.get(__response__, 'storage_mb'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

@@ -165,9 +165,6 @@ def get_service_tags(location: Optional[str] = None,
         location_filter=pulumi.get(__ret__, 'location_filter'),
         name=pulumi.get(__ret__, 'name'),
         service=pulumi.get(__ret__, 'service'))
-
-
-@_utilities.lift_output_func(get_service_tags)
 def get_service_tags_output(location: Optional[pulumi.Input[str]] = None,
                             location_filter: Optional[pulumi.Input[Optional[str]]] = None,
                             service: Optional[pulumi.Input[str]] = None,
@@ -193,4 +190,18 @@ def get_service_tags_output(location: Optional[pulumi.Input[str]] = None,
     :param str location_filter: Changes the scope of the service tags. Can be any value that is also valid for `location`. If this field is empty then all address prefixes are considered instead of only location specific ones.
     :param str service: The type of the service for which address prefixes will be fetched. Available service tags can be found here: [Available service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
     """
-    ...
+    __args__ = dict()
+    __args__['location'] = location
+    __args__['locationFilter'] = location_filter
+    __args__['service'] = service
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getServiceTags:getServiceTags', __args__, opts=opts, typ=GetServiceTagsResult)
+    return __ret__.apply(lambda __response__: GetServiceTagsResult(
+        address_prefixes=pulumi.get(__response__, 'address_prefixes'),
+        id=pulumi.get(__response__, 'id'),
+        ipv4_cidrs=pulumi.get(__response__, 'ipv4_cidrs'),
+        ipv6_cidrs=pulumi.get(__response__, 'ipv6_cidrs'),
+        location=pulumi.get(__response__, 'location'),
+        location_filter=pulumi.get(__response__, 'location_filter'),
+        name=pulumi.get(__response__, 'name'),
+        service=pulumi.get(__response__, 'service')))

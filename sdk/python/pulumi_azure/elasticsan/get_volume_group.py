@@ -166,9 +166,6 @@ def get_volume_group(elastic_san_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         network_rules=pulumi.get(__ret__, 'network_rules'),
         protocol_type=pulumi.get(__ret__, 'protocol_type'))
-
-
-@_utilities.lift_output_func(get_volume_group)
 def get_volume_group_output(elastic_san_id: Optional[pulumi.Input[str]] = None,
                             name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeGroupResult]:
@@ -192,4 +189,17 @@ def get_volume_group_output(elastic_san_id: Optional[pulumi.Input[str]] = None,
     :param str elastic_san_id: The Elastic SAN ID within which the Elastic SAN Volume Group exists.
     :param str name: The name of the Elastic SAN Volume Group.
     """
-    ...
+    __args__ = dict()
+    __args__['elasticSanId'] = elastic_san_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:elasticsan/getVolumeGroup:getVolumeGroup', __args__, opts=opts, typ=GetVolumeGroupResult)
+    return __ret__.apply(lambda __response__: GetVolumeGroupResult(
+        elastic_san_id=pulumi.get(__response__, 'elastic_san_id'),
+        encryption_type=pulumi.get(__response__, 'encryption_type'),
+        encryptions=pulumi.get(__response__, 'encryptions'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        name=pulumi.get(__response__, 'name'),
+        network_rules=pulumi.get(__response__, 'network_rules'),
+        protocol_type=pulumi.get(__response__, 'protocol_type')))

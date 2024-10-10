@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example, err := core.GetClientConfig(ctx, nil, nil)
+//			example, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

@@ -125,9 +125,6 @@ def get_mongo_database(account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_mongo_database)
 def get_mongo_database_output(account_name: Optional[pulumi.Input[str]] = None,
                               name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -152,4 +149,15 @@ def get_mongo_database_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Cosmos DB Mongo Database.
     :param str resource_group_name: The name of the Resource Group where the Cosmos DB Mongo Database exists.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:cosmosdb/getMongoDatabase:getMongoDatabase', __args__, opts=opts, typ=GetMongoDatabaseResult)
+    return __ret__.apply(lambda __response__: GetMongoDatabaseResult(
+        account_name=pulumi.get(__response__, 'account_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -177,9 +177,6 @@ def get_environment_certificate(container_app_environment_id: Optional[str] = No
         subject_name=pulumi.get(__ret__, 'subject_name'),
         tags=pulumi.get(__ret__, 'tags'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'))
-
-
-@_utilities.lift_output_func(get_environment_certificate)
 def get_environment_certificate_output(container_app_environment_id: Optional[pulumi.Input[str]] = None,
                                        name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentCertificateResult]:
@@ -202,4 +199,18 @@ def get_environment_certificate_output(container_app_environment_id: Optional[pu
     :param str container_app_environment_id: The ID of the Container App Environment to configure this Certificate on. Changing this forces a new resource to be created.
     :param str name: The name of the Container Apps Certificate. Changing this forces a new resource to be created.
     """
-    ...
+    __args__ = dict()
+    __args__['containerAppEnvironmentId'] = container_app_environment_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate', __args__, opts=opts, typ=GetEnvironmentCertificateResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentCertificateResult(
+        container_app_environment_id=pulumi.get(__response__, 'container_app_environment_id'),
+        expiration_date=pulumi.get(__response__, 'expiration_date'),
+        id=pulumi.get(__response__, 'id'),
+        issue_date=pulumi.get(__response__, 'issue_date'),
+        issuer=pulumi.get(__response__, 'issuer'),
+        name=pulumi.get(__response__, 'name'),
+        subject_name=pulumi.get(__response__, 'subject_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        thumbprint=pulumi.get(__response__, 'thumbprint')))

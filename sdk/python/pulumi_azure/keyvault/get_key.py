@@ -295,9 +295,6 @@ def get_key(key_vault_id: Optional[str] = None,
         versionless_id=pulumi.get(__ret__, 'versionless_id'),
         x=pulumi.get(__ret__, 'x'),
         y=pulumi.get(__ret__, 'y'))
-
-
-@_utilities.lift_output_func(get_key)
 def get_key_output(key_vault_id: Optional[pulumi.Input[str]] = None,
                    name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
@@ -321,4 +318,27 @@ def get_key_output(key_vault_id: Optional[pulumi.Input[str]] = None,
            **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     :param str name: Specifies the name of the Key Vault Key.
     """
-    ...
+    __args__ = dict()
+    __args__['keyVaultId'] = key_vault_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getKey:getKey', __args__, opts=opts, typ=GetKeyResult)
+    return __ret__.apply(lambda __response__: GetKeyResult(
+        curve=pulumi.get(__response__, 'curve'),
+        e=pulumi.get(__response__, 'e'),
+        id=pulumi.get(__response__, 'id'),
+        key_opts=pulumi.get(__response__, 'key_opts'),
+        key_size=pulumi.get(__response__, 'key_size'),
+        key_type=pulumi.get(__response__, 'key_type'),
+        key_vault_id=pulumi.get(__response__, 'key_vault_id'),
+        n=pulumi.get(__response__, 'n'),
+        name=pulumi.get(__response__, 'name'),
+        public_key_openssh=pulumi.get(__response__, 'public_key_openssh'),
+        public_key_pem=pulumi.get(__response__, 'public_key_pem'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        resource_versionless_id=pulumi.get(__response__, 'resource_versionless_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version'),
+        versionless_id=pulumi.get(__response__, 'versionless_id'),
+        x=pulumi.get(__response__, 'x'),
+        y=pulumi.get(__response__, 'y')))

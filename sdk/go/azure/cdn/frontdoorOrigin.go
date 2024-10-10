@@ -49,7 +49,7 @@ import (
 //			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
 //				Name:                  pulumi.String("example-origingroup"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				LoadBalancing:         nil,
+//				LoadBalancing:         &cdn.FrontdoorOriginGroupLoadBalancingArgs{},
 //			})
 //			if err != nil {
 //				return err
@@ -126,7 +126,7 @@ import (
 //			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
 //				Name:                  pulumi.String("example-origin-group"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				LoadBalancing:         nil,
+//				LoadBalancing:         &cdn.FrontdoorOriginGroupLoadBalancingArgs{},
 //			})
 //			if err != nil {
 //				return err
@@ -174,7 +174,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			current, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

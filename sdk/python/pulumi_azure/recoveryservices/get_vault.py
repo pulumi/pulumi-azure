@@ -150,9 +150,6 @@ def get_vault(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_vault)
 def get_vault_output(name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVaultResult]:
@@ -173,4 +170,16 @@ def get_vault_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Recovery Services Vault.
     :param str resource_group_name: The name of the resource group in which the Recovery Services Vault resides.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:recoveryservices/getVault:getVault', __args__, opts=opts, typ=GetVaultResult)
+    return __ret__.apply(lambda __response__: GetVaultResult(
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -111,9 +111,6 @@ def get_containers(name_prefix: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
-
-
-@_utilities.lift_output_func(get_containers)
 def get_containers_output(name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                           storage_account_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainersResult]:
@@ -134,4 +131,13 @@ def get_containers_output(name_prefix: Optional[pulumi.Input[Optional[str]]] = N
     :param str name_prefix: A prefix match used for the Storage Container `name` field.
     :param str storage_account_id: The ID of the Storage Account that the Storage Containers reside in.
     """
-    ...
+    __args__ = dict()
+    __args__['namePrefix'] = name_prefix
+    __args__['storageAccountId'] = storage_account_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getContainers:getContainers', __args__, opts=opts, typ=GetContainersResult)
+    return __ret__.apply(lambda __response__: GetContainersResult(
+        containers=pulumi.get(__response__, 'containers'),
+        id=pulumi.get(__response__, 'id'),
+        name_prefix=pulumi.get(__response__, 'name_prefix'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id')))

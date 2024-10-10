@@ -187,9 +187,6 @@ def get_virtual_machine(name: Optional[str] = None,
         public_ip_address=pulumi.get(__ret__, 'public_ip_address'),
         public_ip_addresses=pulumi.get(__ret__, 'public_ip_addresses'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-
-
-@_utilities.lift_output_func(get_virtual_machine)
 def get_virtual_machine_output(name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
@@ -211,4 +208,19 @@ def get_virtual_machine_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Virtual Machine.
     :param str resource_group_name: Specifies the name of the resource group the Virtual Machine is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getVirtualMachine:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineResult(
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        power_state=pulumi.get(__response__, 'power_state'),
+        private_ip_address=pulumi.get(__response__, 'private_ip_address'),
+        private_ip_addresses=pulumi.get(__response__, 'private_ip_addresses'),
+        public_ip_address=pulumi.get(__response__, 'public_ip_address'),
+        public_ip_addresses=pulumi.get(__response__, 'public_ip_addresses'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name')))

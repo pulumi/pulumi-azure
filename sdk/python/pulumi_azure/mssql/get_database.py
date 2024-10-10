@@ -304,9 +304,6 @@ def get_database(name: Optional[str] = None,
         transparent_data_encryption_key_automatic_rotation_enabled=pulumi.get(__ret__, 'transparent_data_encryption_key_automatic_rotation_enabled'),
         transparent_data_encryption_key_vault_key_id=pulumi.get(__ret__, 'transparent_data_encryption_key_vault_key_id'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-
-
-@_utilities.lift_output_func(get_database)
 def get_database_output(name: Optional[pulumi.Input[str]] = None,
                         server_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
@@ -338,4 +335,27 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the MS SQL Database.
     :param str server_id: The id of the MS SQL Server on which to read the database.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['serverId'] = server_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mssql/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
+    return __ret__.apply(lambda __response__: GetDatabaseResult(
+        collation=pulumi.get(__response__, 'collation'),
+        elastic_pool_id=pulumi.get(__response__, 'elastic_pool_id'),
+        enclave_type=pulumi.get(__response__, 'enclave_type'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        license_type=pulumi.get(__response__, 'license_type'),
+        max_size_gb=pulumi.get(__response__, 'max_size_gb'),
+        name=pulumi.get(__response__, 'name'),
+        read_replica_count=pulumi.get(__response__, 'read_replica_count'),
+        read_scale=pulumi.get(__response__, 'read_scale'),
+        server_id=pulumi.get(__response__, 'server_id'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        storage_account_type=pulumi.get(__response__, 'storage_account_type'),
+        tags=pulumi.get(__response__, 'tags'),
+        transparent_data_encryption_enabled=pulumi.get(__response__, 'transparent_data_encryption_enabled'),
+        transparent_data_encryption_key_automatic_rotation_enabled=pulumi.get(__response__, 'transparent_data_encryption_key_automatic_rotation_enabled'),
+        transparent_data_encryption_key_vault_key_id=pulumi.get(__response__, 'transparent_data_encryption_key_vault_key_id'),
+        zone_redundant=pulumi.get(__response__, 'zone_redundant')))

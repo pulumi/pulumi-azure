@@ -136,9 +136,6 @@ def get_resolver_dns_forwarding_ruleset(name: Optional[str] = None,
         private_dns_resolver_outbound_endpoint_ids=pulumi.get(__ret__, 'private_dns_resolver_outbound_endpoint_ids'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_resolver_dns_forwarding_ruleset)
 def get_resolver_dns_forwarding_ruleset_output(name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverDnsForwardingRulesetResult]:
@@ -159,4 +156,15 @@ def get_resolver_dns_forwarding_ruleset_output(name: Optional[pulumi.Input[str]]
     :param str name: Name of the existing Private DNS Resolver Dns Forwarding Ruleset.
     :param str resource_group_name: Name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:privatedns/getResolverDnsForwardingRuleset:getResolverDnsForwardingRuleset', __args__, opts=opts, typ=GetResolverDnsForwardingRulesetResult)
+    return __ret__.apply(lambda __response__: GetResolverDnsForwardingRulesetResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        private_dns_resolver_outbound_endpoint_ids=pulumi.get(__response__, 'private_dns_resolver_outbound_endpoint_ids'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

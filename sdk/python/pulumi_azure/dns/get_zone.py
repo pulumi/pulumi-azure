@@ -152,9 +152,6 @@ def get_zone(name: Optional[str] = None,
         number_of_record_sets=pulumi.get(__ret__, 'number_of_record_sets'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_zone)
 def get_zone_output(name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZoneResult]:
@@ -178,4 +175,16 @@ def get_zone_output(name: Optional[pulumi.Input[str]] = None,
            If the Name of the Resource Group is not provided, the first DNS Zone from the list of DNS Zones
            in your subscription that matches `name` will be returned.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:dns/getZone:getZone', __args__, opts=opts, typ=GetZoneResult)
+    return __ret__.apply(lambda __response__: GetZoneResult(
+        id=pulumi.get(__response__, 'id'),
+        max_number_of_record_sets=pulumi.get(__response__, 'max_number_of_record_sets'),
+        name=pulumi.get(__response__, 'name'),
+        name_servers=pulumi.get(__response__, 'name_servers'),
+        number_of_record_sets=pulumi.get(__response__, 'number_of_record_sets'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -242,9 +242,6 @@ def get_domain(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_domain)
 def get_domain_output(name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
@@ -266,4 +263,23 @@ def get_domain_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the EventGrid Domain resource.
     :param str resource_group_name: The name of the resource group in which the EventGrid Domain exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:eventgrid/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult)
+    return __ret__.apply(lambda __response__: GetDomainResult(
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        inbound_ip_rules=pulumi.get(__response__, 'inbound_ip_rules'),
+        input_mapping_default_values=pulumi.get(__response__, 'input_mapping_default_values'),
+        input_mapping_fields=pulumi.get(__response__, 'input_mapping_fields'),
+        input_schema=pulumi.get(__response__, 'input_schema'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        primary_access_key=pulumi.get(__response__, 'primary_access_key'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__response__, 'secondary_access_key'),
+        tags=pulumi.get(__response__, 'tags')))

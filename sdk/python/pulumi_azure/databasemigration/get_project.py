@@ -164,9 +164,6 @@ def get_project(name: Optional[str] = None,
         source_platform=pulumi.get(__ret__, 'source_platform'),
         tags=pulumi.get(__ret__, 'tags'),
         target_platform=pulumi.get(__ret__, 'target_platform'))
-
-
-@_utilities.lift_output_func(get_project)
 def get_project_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
@@ -191,4 +188,18 @@ def get_project_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the resource group where resource belongs to.
     :param str service_name: Name of the database migration service where resource belongs to.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:databasemigration/getProject:getProject', __args__, opts=opts, typ=GetProjectResult)
+    return __ret__.apply(lambda __response__: GetProjectResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        service_name=pulumi.get(__response__, 'service_name'),
+        source_platform=pulumi.get(__response__, 'source_platform'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_platform=pulumi.get(__response__, 'target_platform')))

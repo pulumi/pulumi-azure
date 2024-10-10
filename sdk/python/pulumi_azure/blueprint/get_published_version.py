@@ -186,9 +186,6 @@ def get_published_version(blueprint_name: Optional[str] = None,
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_published_version)
 def get_published_version_output(blueprint_name: Optional[pulumi.Input[str]] = None,
                                  scope_id: Optional[pulumi.Input[str]] = None,
                                  version: Optional[pulumi.Input[str]] = None,
@@ -215,4 +212,20 @@ def get_published_version_output(blueprint_name: Optional[pulumi.Input[str]] = N
     :param str scope_id: The ID of the Management Group / Subscription where this Blueprint Definition is stored.
     :param str version: The Version name of the Published Version of the Blueprint Definition
     """
-    ...
+    __args__ = dict()
+    __args__['blueprintName'] = blueprint_name
+    __args__['scopeId'] = scope_id
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:blueprint/getPublishedVersion:getPublishedVersion', __args__, opts=opts, typ=GetPublishedVersionResult)
+    return __ret__.apply(lambda __response__: GetPublishedVersionResult(
+        blueprint_name=pulumi.get(__response__, 'blueprint_name'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        scope_id=pulumi.get(__response__, 'scope_id'),
+        target_scope=pulumi.get(__response__, 'target_scope'),
+        time_created=pulumi.get(__response__, 'time_created'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

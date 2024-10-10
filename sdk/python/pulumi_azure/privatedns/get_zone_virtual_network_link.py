@@ -151,9 +151,6 @@ def get_zone_virtual_network_link(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
-
-
-@_utilities.lift_output_func(get_zone_virtual_network_link)
 def get_zone_virtual_network_link_output(name: Optional[pulumi.Input[str]] = None,
                                          private_dns_zone_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -178,4 +175,17 @@ def get_zone_virtual_network_link_output(name: Optional[pulumi.Input[str]] = Non
     :param str private_dns_zone_name: The name of the Private DNS zone (without a terminating dot).
     :param str resource_group_name: Specifies the resource group where the Private DNS Zone exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['privateDnsZoneName'] = private_dns_zone_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink', __args__, opts=opts, typ=GetZoneVirtualNetworkLinkResult)
+    return __ret__.apply(lambda __response__: GetZoneVirtualNetworkLinkResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        private_dns_zone_name=pulumi.get(__response__, 'private_dns_zone_name'),
+        registration_enabled=pulumi.get(__response__, 'registration_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        virtual_network_id=pulumi.get(__response__, 'virtual_network_id')))

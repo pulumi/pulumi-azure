@@ -163,9 +163,6 @@ def get_caa_record(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         ttl=pulumi.get(__ret__, 'ttl'),
         zone_name=pulumi.get(__ret__, 'zone_name'))
-
-
-@_utilities.lift_output_func(get_caa_record)
 def get_caa_record_output(name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           zone_name: Optional[pulumi.Input[str]] = None,
@@ -188,4 +185,18 @@ def get_caa_record_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists.
     :param str zone_name: Specifies the DNS Zone where the resource exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['zoneName'] = zone_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:dns/getCAARecord:getCAARecord', __args__, opts=opts, typ=GetCAARecordResult)
+    return __ret__.apply(lambda __response__: GetCAARecordResult(
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        records=pulumi.get(__response__, 'records'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        ttl=pulumi.get(__response__, 'ttl'),
+        zone_name=pulumi.get(__response__, 'zone_name')))

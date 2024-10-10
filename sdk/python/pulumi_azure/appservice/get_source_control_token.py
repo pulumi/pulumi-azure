@@ -105,9 +105,6 @@ def get_source_control_token(type: Optional[str] = None,
         token=pulumi.get(__ret__, 'token'),
         token_secret=pulumi.get(__ret__, 'token_secret'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_source_control_token)
 def get_source_control_token_output(type: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlTokenResult]:
     """
@@ -124,4 +121,12 @@ def get_source_control_token_output(type: Optional[pulumi.Input[str]] = None,
 
     :param str type: The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
     """
-    ...
+    __args__ = dict()
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appservice/getSourceControlToken:getSourceControlToken', __args__, opts=opts, typ=GetSourceControlTokenResult)
+    return __ret__.apply(lambda __response__: GetSourceControlTokenResult(
+        id=pulumi.get(__response__, 'id'),
+        token=pulumi.get(__response__, 'token'),
+        token_secret=pulumi.get(__response__, 'token_secret'),
+        type=pulumi.get(__response__, 'type')))
