@@ -100,9 +100,6 @@ def get_group_template_deployment(management_group_id: Optional[str] = None,
         management_group_id=pulumi.get(__ret__, 'management_group_id'),
         name=pulumi.get(__ret__, 'name'),
         output_content=pulumi.get(__ret__, 'output_content'))
-
-
-@_utilities.lift_output_func(get_group_template_deployment)
 def get_group_template_deployment_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                          name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupTemplateDeploymentResult]:
@@ -113,4 +110,13 @@ def get_group_template_deployment_output(management_group_id: Optional[pulumi.In
     :param str management_group_id: The ID of the Management Group to which this template was applied.
     :param str name: The name of this Management Group Template Deployment.
     """
-    ...
+    __args__ = dict()
+    __args__['managementGroupId'] = management_group_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment', __args__, opts=opts, typ=GetGroupTemplateDeploymentResult)
+    return __ret__.apply(lambda __response__: GetGroupTemplateDeploymentResult(
+        id=pulumi.get(__response__, 'id'),
+        management_group_id=pulumi.get(__response__, 'management_group_id'),
+        name=pulumi.get(__response__, 'name'),
+        output_content=pulumi.get(__response__, 'output_content')))

@@ -199,9 +199,6 @@ def get_analytics_workspace(name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-
-
-@_utilities.lift_output_func(get_analytics_workspace)
 def get_analytics_workspace_output(name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalyticsWorkspaceResult]:
@@ -223,4 +220,20 @@ def get_analytics_workspace_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Log Analytics Workspace.
     :param str resource_group_name: The name of the resource group in which the Log Analytics workspace is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace', __args__, opts=opts, typ=GetAnalyticsWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetAnalyticsWorkspaceResult(
+        daily_quota_gb=pulumi.get(__response__, 'daily_quota_gb'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        primary_shared_key=pulumi.get(__response__, 'primary_shared_key'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        retention_in_days=pulumi.get(__response__, 'retention_in_days'),
+        secondary_shared_key=pulumi.get(__response__, 'secondary_shared_key'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        workspace_id=pulumi.get(__response__, 'workspace_id')))

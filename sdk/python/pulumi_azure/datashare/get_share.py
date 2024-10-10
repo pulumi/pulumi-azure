@@ -156,9 +156,6 @@ def get_share(account_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         snapshot_schedules=pulumi.get(__ret__, 'snapshot_schedules'),
         terms=pulumi.get(__ret__, 'terms'))
-
-
-@_utilities.lift_output_func(get_share)
 def get_share_output(account_id: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareResult]:
@@ -182,4 +179,16 @@ def get_share_output(account_id: Optional[pulumi.Input[str]] = None,
     :param str account_id: The ID of the Data Share account in which the Data Share is created.
     :param str name: The name of this Data Share.
     """
-    ...
+    __args__ = dict()
+    __args__['accountId'] = account_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:datashare/getShare:getShare', __args__, opts=opts, typ=GetShareResult)
+    return __ret__.apply(lambda __response__: GetShareResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        name=pulumi.get(__response__, 'name'),
+        snapshot_schedules=pulumi.get(__response__, 'snapshot_schedules'),
+        terms=pulumi.get(__response__, 'terms')))

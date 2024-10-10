@@ -80,7 +80,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				ServicePlanId:     exampleServicePlan.ID(),
-//				SiteConfig:        nil,
+//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
@@ -92,7 +92,7 @@ import (
 //				ServicePlanId:           exampleServicePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				SiteConfig:              nil,
+//				SiteConfig:              &appservice.WindowsFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

@@ -242,9 +242,6 @@ def get_data_collection_rule(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         stream_declarations=pulumi.get(__ret__, 'stream_declarations'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_data_collection_rule)
 def get_data_collection_rule_output(name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionRuleResult]:
@@ -266,4 +263,23 @@ def get_data_collection_rule_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Data Collection Rule.
     :param str resource_group_name: Specifies the name of the resource group the Data Collection Rule is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:monitoring/getDataCollectionRule:getDataCollectionRule', __args__, opts=opts, typ=GetDataCollectionRuleResult)
+    return __ret__.apply(lambda __response__: GetDataCollectionRuleResult(
+        data_collection_endpoint_id=pulumi.get(__response__, 'data_collection_endpoint_id'),
+        data_flows=pulumi.get(__response__, 'data_flows'),
+        data_sources=pulumi.get(__response__, 'data_sources'),
+        description=pulumi.get(__response__, 'description'),
+        destinations=pulumi.get(__response__, 'destinations'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        immutable_id=pulumi.get(__response__, 'immutable_id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        stream_declarations=pulumi.get(__response__, 'stream_declarations'),
+        tags=pulumi.get(__response__, 'tags')))

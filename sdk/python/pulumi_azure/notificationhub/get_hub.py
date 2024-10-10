@@ -165,9 +165,6 @@ def get_hub(name: Optional[str] = None,
         namespace_name=pulumi.get(__ret__, 'namespace_name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_hub)
 def get_hub_output(name: Optional[pulumi.Input[str]] = None,
                    namespace_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -192,4 +189,18 @@ def get_hub_output(name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: Specifies the Name of the Notification Hub Namespace which contains the Notification Hub.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the Notification Hub exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:notificationhub/getHub:getHub', __args__, opts=opts, typ=GetHubResult)
+    return __ret__.apply(lambda __response__: GetHubResult(
+        apns_credentials=pulumi.get(__response__, 'apns_credentials'),
+        gcm_credentials=pulumi.get(__response__, 'gcm_credentials'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

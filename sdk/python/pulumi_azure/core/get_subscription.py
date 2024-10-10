@@ -178,9 +178,6 @@ def get_subscription(subscription_id: Optional[str] = None,
         subscription_id=pulumi.get(__ret__, 'subscription_id'),
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
-
-
-@_utilities.lift_output_func(get_subscription)
 def get_subscription_output(subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
@@ -199,4 +196,17 @@ def get_subscription_output(subscription_id: Optional[pulumi.Input[Optional[str]
 
     :param str subscription_id: Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
     """
-    ...
+    __args__ = dict()
+    __args__['subscriptionId'] = subscription_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:core/getSubscription:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult)
+    return __ret__.apply(lambda __response__: GetSubscriptionResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        location_placement_id=pulumi.get(__response__, 'location_placement_id'),
+        quota_id=pulumi.get(__response__, 'quota_id'),
+        spending_limit=pulumi.get(__response__, 'spending_limit'),
+        state=pulumi.get(__response__, 'state'),
+        subscription_id=pulumi.get(__response__, 'subscription_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        tenant_id=pulumi.get(__response__, 'tenant_id')))

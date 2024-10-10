@@ -163,9 +163,6 @@ def get_availability_set(name: Optional[str] = None,
         platform_update_domain_count=pulumi.get(__ret__, 'platform_update_domain_count'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_availability_set)
 def get_availability_set_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilitySetResult]:
@@ -187,4 +184,17 @@ def get_availability_set_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Availability Set.
     :param str resource_group_name: The name of the resource group in which the Availability Set exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getAvailabilitySet:getAvailabilitySet', __args__, opts=opts, typ=GetAvailabilitySetResult)
+    return __ret__.apply(lambda __response__: GetAvailabilitySetResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        managed=pulumi.get(__response__, 'managed'),
+        name=pulumi.get(__response__, 'name'),
+        platform_fault_domain_count=pulumi.get(__response__, 'platform_fault_domain_count'),
+        platform_update_domain_count=pulumi.get(__response__, 'platform_update_domain_count'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -132,9 +132,6 @@ def get_configuration_keys(configuration_store_id: Optional[str] = None,
         items=pulumi.get(__ret__, 'items'),
         key=pulumi.get(__ret__, 'key'),
         label=pulumi.get(__ret__, 'label'))
-
-
-@_utilities.lift_output_func(get_configuration_keys)
 def get_configuration_keys_output(configuration_store_id: Optional[pulumi.Input[str]] = None,
                                   key: Optional[pulumi.Input[Optional[str]]] = None,
                                   label: Optional[pulumi.Input[Optional[str]]] = None,
@@ -159,4 +156,15 @@ def get_configuration_keys_output(configuration_store_id: Optional[pulumi.Input[
     :param str key: The name of the App Configuration Keys to look up.
     :param str label: The label of the App Configuration Keys tp look up.
     """
-    ...
+    __args__ = dict()
+    __args__['configurationStoreId'] = configuration_store_id
+    __args__['key'] = key
+    __args__['label'] = label
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appconfiguration/getConfigurationKeys:getConfigurationKeys', __args__, opts=opts, typ=GetConfigurationKeysResult)
+    return __ret__.apply(lambda __response__: GetConfigurationKeysResult(
+        configuration_store_id=pulumi.get(__response__, 'configuration_store_id'),
+        id=pulumi.get(__response__, 'id'),
+        items=pulumi.get(__response__, 'items'),
+        key=pulumi.get(__response__, 'key'),
+        label=pulumi.get(__response__, 'label')))

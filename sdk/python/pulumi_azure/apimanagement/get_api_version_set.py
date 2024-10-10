@@ -174,9 +174,6 @@ def get_api_version_set(api_management_name: Optional[str] = None,
         version_header_name=pulumi.get(__ret__, 'version_header_name'),
         version_query_name=pulumi.get(__ret__, 'version_query_name'),
         versioning_scheme=pulumi.get(__ret__, 'versioning_scheme'))
-
-
-@_utilities.lift_output_func(get_api_version_set)
 def get_api_version_set_output(api_management_name: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -201,4 +198,19 @@ def get_api_version_set_output(api_management_name: Optional[pulumi.Input[str]] 
     :param str name: The name of the API Version Set.
     :param str resource_group_name: The name of the Resource Group in which the parent API Management Service exists.
     """
-    ...
+    __args__ = dict()
+    __args__['apiManagementName'] = api_management_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:apimanagement/getApiVersionSet:getApiVersionSet', __args__, opts=opts, typ=GetApiVersionSetResult)
+    return __ret__.apply(lambda __response__: GetApiVersionSetResult(
+        api_management_name=pulumi.get(__response__, 'api_management_name'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        version_header_name=pulumi.get(__response__, 'version_header_name'),
+        version_query_name=pulumi.get(__response__, 'version_query_name'),
+        versioning_scheme=pulumi.get(__response__, 'versioning_scheme')))

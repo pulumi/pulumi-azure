@@ -134,9 +134,6 @@ def get_configuration(nginx_deployment_id: Optional[str] = None,
         package_data=pulumi.get(__ret__, 'package_data'),
         protected_files=pulumi.get(__ret__, 'protected_files'),
         root_file=pulumi.get(__ret__, 'root_file'))
-
-
-@_utilities.lift_output_func(get_configuration)
 def get_configuration_output(nginx_deployment_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
     """
@@ -155,4 +152,14 @@ def get_configuration_output(nginx_deployment_id: Optional[pulumi.Input[str]] = 
 
     :param str nginx_deployment_id: The ID of the Nginx Deployment.
     """
-    ...
+    __args__ = dict()
+    __args__['nginxDeploymentId'] = nginx_deployment_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:nginx/getConfiguration:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult)
+    return __ret__.apply(lambda __response__: GetConfigurationResult(
+        config_files=pulumi.get(__response__, 'config_files'),
+        id=pulumi.get(__response__, 'id'),
+        nginx_deployment_id=pulumi.get(__response__, 'nginx_deployment_id'),
+        package_data=pulumi.get(__response__, 'package_data'),
+        protected_files=pulumi.get(__response__, 'protected_files'),
+        root_file=pulumi.get(__response__, 'root_file')))

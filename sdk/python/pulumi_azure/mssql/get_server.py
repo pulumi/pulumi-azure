@@ -203,9 +203,6 @@ def get_server(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transparent_data_encryption_key_vault_key_id=pulumi.get(__ret__, 'transparent_data_encryption_key_vault_key_id'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_server)
 def get_server_output(name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
@@ -227,4 +224,20 @@ def get_server_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Microsoft SQL Server.
     :param str resource_group_name: The name of the Resource Group where the Microsoft SQL Server exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mssql/getServer:getServer', __args__, opts=opts, typ=GetServerResult)
+    return __ret__.apply(lambda __response__: GetServerResult(
+        administrator_login=pulumi.get(__response__, 'administrator_login'),
+        fully_qualified_domain_name=pulumi.get(__response__, 'fully_qualified_domain_name'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        restorable_dropped_database_ids=pulumi.get(__response__, 'restorable_dropped_database_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        transparent_data_encryption_key_vault_key_id=pulumi.get(__response__, 'transparent_data_encryption_key_vault_key_id'),
+        version=pulumi.get(__response__, 'version')))

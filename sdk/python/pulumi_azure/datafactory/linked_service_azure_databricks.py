@@ -550,8 +550,8 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                     "config2": "value2",
                 },
                 "spark_environment_variables": {
-                    "env_var1": "value1",
-                    "env_var2": "value2",
+                    "envVar1": "value1",
+                    "envVar2": "value2",
                 },
                 "init_scripts": [
                     "init.sh",
@@ -670,8 +670,8 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                     "config2": "value2",
                 },
                 "spark_environment_variables": {
-                    "env_var1": "value1",
-                    "env_var2": "value2",
+                    "envVar1": "value1",
+                    "envVar2": "value2",
                 },
                 "init_scripts": [
                     "init.sh",

@@ -138,9 +138,6 @@ def get_network_site(mobile_network_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         network_function_ids=pulumi.get(__ret__, 'network_function_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_network_site)
 def get_network_site_output(mobile_network_id: Optional[pulumi.Input[str]] = None,
                             name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSiteResult]:
@@ -163,4 +160,15 @@ def get_network_site_output(mobile_network_id: Optional[pulumi.Input[str]] = Non
     :param str mobile_network_id: the ID of the Mobile Network which the Mobile Network Site belongs to.
     :param str name: The name which should be used for this Mobile Network Site.
     """
-    ...
+    __args__ = dict()
+    __args__['mobileNetworkId'] = mobile_network_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkSite:getNetworkSite', __args__, opts=opts, typ=GetNetworkSiteResult)
+    return __ret__.apply(lambda __response__: GetNetworkSiteResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        mobile_network_id=pulumi.get(__response__, 'mobile_network_id'),
+        name=pulumi.get(__response__, 'name'),
+        network_function_ids=pulumi.get(__response__, 'network_function_ids'),
+        tags=pulumi.get(__response__, 'tags')))

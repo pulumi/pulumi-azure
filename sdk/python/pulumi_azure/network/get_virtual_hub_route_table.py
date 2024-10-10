@@ -155,9 +155,6 @@ def get_virtual_hub_route_table(name: Optional[str] = None,
         routes=pulumi.get(__ret__, 'routes'),
         virtual_hub_id=pulumi.get(__ret__, 'virtual_hub_id'),
         virtual_hub_name=pulumi.get(__ret__, 'virtual_hub_name'))
-
-
-@_utilities.lift_output_func(get_virtual_hub_route_table)
 def get_virtual_hub_route_table_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        virtual_hub_name: Optional[pulumi.Input[str]] = None,
@@ -182,4 +179,17 @@ def get_virtual_hub_route_table_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The Name of the Resource Group where the Virtual Hub Route Table exists.
     :param str virtual_hub_name: The name which should be used for Virtual Hub Route Table.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualHubName'] = virtual_hub_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable', __args__, opts=opts, typ=GetVirtualHubRouteTableResult)
+    return __ret__.apply(lambda __response__: GetVirtualHubRouteTableResult(
+        id=pulumi.get(__response__, 'id'),
+        labels=pulumi.get(__response__, 'labels'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        routes=pulumi.get(__response__, 'routes'),
+        virtual_hub_id=pulumi.get(__response__, 'virtual_hub_id'),
+        virtual_hub_name=pulumi.get(__response__, 'virtual_hub_name')))

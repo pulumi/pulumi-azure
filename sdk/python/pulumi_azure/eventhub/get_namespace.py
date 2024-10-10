@@ -281,9 +281,6 @@ def get_namespace(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_namespace)
 def get_namespace_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
@@ -305,4 +302,26 @@ def get_namespace_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the EventHub Namespace.
     :param str resource_group_name: The Name of the Resource Group where the EventHub Namespace exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:eventhub/getNamespace:getNamespace', __args__, opts=opts, typ=GetNamespaceResult)
+    return __ret__.apply(lambda __response__: GetNamespaceResult(
+        auto_inflate_enabled=pulumi.get(__response__, 'auto_inflate_enabled'),
+        capacity=pulumi.get(__response__, 'capacity'),
+        dedicated_cluster_id=pulumi.get(__response__, 'dedicated_cluster_id'),
+        default_primary_connection_string=pulumi.get(__response__, 'default_primary_connection_string'),
+        default_primary_connection_string_alias=pulumi.get(__response__, 'default_primary_connection_string_alias'),
+        default_primary_key=pulumi.get(__response__, 'default_primary_key'),
+        default_secondary_connection_string=pulumi.get(__response__, 'default_secondary_connection_string'),
+        default_secondary_connection_string_alias=pulumi.get(__response__, 'default_secondary_connection_string_alias'),
+        default_secondary_key=pulumi.get(__response__, 'default_secondary_key'),
+        id=pulumi.get(__response__, 'id'),
+        kafka_enabled=pulumi.get(__response__, 'kafka_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        maximum_throughput_units=pulumi.get(__response__, 'maximum_throughput_units'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags')))

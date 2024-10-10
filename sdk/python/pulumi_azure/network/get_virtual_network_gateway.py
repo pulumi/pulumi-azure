@@ -282,9 +282,6 @@ def get_virtual_network_gateway(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         vpn_client_configurations=pulumi.get(__ret__, 'vpn_client_configurations'),
         vpn_type=pulumi.get(__ret__, 'vpn_type'))
-
-
-@_utilities.lift_output_func(get_virtual_network_gateway)
 def get_virtual_network_gateway_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayResult]:
@@ -306,4 +303,26 @@ def get_virtual_network_gateway_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Virtual Network Gateway.
     :param str resource_group_name: Specifies the name of the resource group the Virtual Network Gateway is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway', __args__, opts=opts, typ=GetVirtualNetworkGatewayResult)
+    return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayResult(
+        active_active=pulumi.get(__response__, 'active_active'),
+        bgp_settings=pulumi.get(__response__, 'bgp_settings'),
+        custom_routes=pulumi.get(__response__, 'custom_routes'),
+        default_local_network_gateway_id=pulumi.get(__response__, 'default_local_network_gateway_id'),
+        enable_bgp=pulumi.get(__response__, 'enable_bgp'),
+        generation=pulumi.get(__response__, 'generation'),
+        id=pulumi.get(__response__, 'id'),
+        ip_configurations=pulumi.get(__response__, 'ip_configurations'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        private_ip_address_enabled=pulumi.get(__response__, 'private_ip_address_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        vpn_client_configurations=pulumi.get(__response__, 'vpn_client_configurations'),
+        vpn_type=pulumi.get(__response__, 'vpn_type')))

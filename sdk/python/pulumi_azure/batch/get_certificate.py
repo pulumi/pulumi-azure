@@ -164,9 +164,6 @@ def get_certificate(account_name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         thumbprint_algorithm=pulumi.get(__ret__, 'thumbprint_algorithm'))
-
-
-@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
                            name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -191,4 +188,18 @@ def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Batch certificate.
     :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:batch/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
+    return __ret__.apply(lambda __response__: GetCertificateResult(
+        account_name=pulumi.get(__response__, 'account_name'),
+        format=pulumi.get(__response__, 'format'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        public_data=pulumi.get(__response__, 'public_data'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        thumbprint=pulumi.get(__response__, 'thumbprint'),
+        thumbprint_algorithm=pulumi.get(__response__, 'thumbprint_algorithm')))

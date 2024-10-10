@@ -203,9 +203,6 @@ def get_snapshot(name: Optional[str] = None,
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
         time_created=pulumi.get(__ret__, 'time_created'),
         trusted_launch_enabled=pulumi.get(__ret__, 'trusted_launch_enabled'))
-
-
-@_utilities.lift_output_func(get_snapshot)
 def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
@@ -226,4 +223,21 @@ def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Snapshot.
     :param str resource_group_name: Specifies the name of the resource group the Snapshot is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
+    return __ret__.apply(lambda __response__: GetSnapshotResult(
+        creation_option=pulumi.get(__response__, 'creation_option'),
+        disk_size_gb=pulumi.get(__response__, 'disk_size_gb'),
+        encryption_settings=pulumi.get(__response__, 'encryption_settings'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        source_resource_id=pulumi.get(__response__, 'source_resource_id'),
+        source_uri=pulumi.get(__response__, 'source_uri'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
+        time_created=pulumi.get(__response__, 'time_created'),
+        trusted_launch_enabled=pulumi.get(__response__, 'trusted_launch_enabled')))

@@ -178,9 +178,6 @@ def get_express_route_circuit(name: Optional[str] = None,
         service_provider_properties=pulumi.get(__ret__, 'service_provider_properties'),
         service_provider_provisioning_state=pulumi.get(__ret__, 'service_provider_provisioning_state'),
         sku=pulumi.get(__ret__, 'sku'))
-
-
-@_utilities.lift_output_func(get_express_route_circuit)
 def get_express_route_circuit_output(name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitResult]:
@@ -203,4 +200,18 @@ def get_express_route_circuit_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the ExpressRoute circuit.
     :param str resource_group_name: The Name of the Resource Group where the ExpressRoute circuit exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getExpressRouteCircuit:getExpressRouteCircuit', __args__, opts=opts, typ=GetExpressRouteCircuitResult)
+    return __ret__.apply(lambda __response__: GetExpressRouteCircuitResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        peerings=pulumi.get(__response__, 'peerings'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        service_key=pulumi.get(__response__, 'service_key'),
+        service_provider_properties=pulumi.get(__response__, 'service_provider_properties'),
+        service_provider_provisioning_state=pulumi.get(__response__, 'service_provider_provisioning_state'),
+        sku=pulumi.get(__response__, 'sku')))

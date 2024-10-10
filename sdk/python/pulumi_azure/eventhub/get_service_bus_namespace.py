@@ -233,9 +233,6 @@ def get_service_bus_namespace(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_service_bus_namespace)
 def get_service_bus_namespace_output(name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceBusNamespaceResult]:
@@ -258,4 +255,22 @@ def get_service_bus_namespace_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
     """
     pulumi.log.warn("""get_service_bus_namespace is deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace""")
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:eventhub/getServiceBusNamespace:getServiceBusNamespace', __args__, opts=opts, typ=GetServiceBusNamespaceResult)
+    return __ret__.apply(lambda __response__: GetServiceBusNamespaceResult(
+        capacity=pulumi.get(__response__, 'capacity'),
+        default_primary_connection_string=pulumi.get(__response__, 'default_primary_connection_string'),
+        default_primary_key=pulumi.get(__response__, 'default_primary_key'),
+        default_secondary_connection_string=pulumi.get(__response__, 'default_secondary_connection_string'),
+        default_secondary_key=pulumi.get(__response__, 'default_secondary_key'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        premium_messaging_partitions=pulumi.get(__response__, 'premium_messaging_partitions'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags')))

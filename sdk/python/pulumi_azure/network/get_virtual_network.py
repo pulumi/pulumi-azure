@@ -202,9 +202,6 @@ def get_virtual_network(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vnet_peerings=pulumi.get(__ret__, 'vnet_peerings'),
         vnet_peerings_addresses=pulumi.get(__ret__, 'vnet_peerings_addresses'))
-
-
-@_utilities.lift_output_func(get_virtual_network)
 def get_virtual_network_output(name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
@@ -226,4 +223,20 @@ def get_virtual_network_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Virtual Network.
     :param str resource_group_name: Specifies the name of the resource group the Virtual Network is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getVirtualNetwork:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
+    return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
+        address_spaces=pulumi.get(__response__, 'address_spaces'),
+        dns_servers=pulumi.get(__response__, 'dns_servers'),
+        guid=pulumi.get(__response__, 'guid'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        subnets=pulumi.get(__response__, 'subnets'),
+        tags=pulumi.get(__response__, 'tags'),
+        vnet_peerings=pulumi.get(__response__, 'vnet_peerings'),
+        vnet_peerings_addresses=pulumi.get(__response__, 'vnet_peerings_addresses')))

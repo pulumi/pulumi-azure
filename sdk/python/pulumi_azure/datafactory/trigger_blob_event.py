@@ -485,7 +485,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
             pipelines=[{
                 "name": example_pipeline.name,
                 "parameters": {
-                    "env": "Prod",
+                    "Env": "Prod",
                 },
             }],
             additional_properties={
@@ -570,7 +570,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
             pipelines=[{
                 "name": example_pipeline.name,
                 "parameters": {
-                    "env": "Prod",
+                    "Env": "Prod",
                 },
             }],
             additional_properties={

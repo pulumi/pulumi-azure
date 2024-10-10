@@ -168,9 +168,6 @@ def get_virtual_hub_connection(name: Optional[str] = None,
         routings=pulumi.get(__ret__, 'routings'),
         virtual_hub_id=pulumi.get(__ret__, 'virtual_hub_id'),
         virtual_hub_name=pulumi.get(__ret__, 'virtual_hub_name'))
-
-
-@_utilities.lift_output_func(get_virtual_hub_connection)
 def get_virtual_hub_connection_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       virtual_hub_name: Optional[pulumi.Input[str]] = None,
@@ -195,4 +192,18 @@ def get_virtual_hub_connection_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The Name of the Resource Group where the Virtual Hub Connection exists.
     :param str virtual_hub_name: The name of the Virtual Hub where this Connection exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualHubName'] = virtual_hub_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getVirtualHubConnection:getVirtualHubConnection', __args__, opts=opts, typ=GetVirtualHubConnectionResult)
+    return __ret__.apply(lambda __response__: GetVirtualHubConnectionResult(
+        id=pulumi.get(__response__, 'id'),
+        internet_security_enabled=pulumi.get(__response__, 'internet_security_enabled'),
+        name=pulumi.get(__response__, 'name'),
+        remote_virtual_network_id=pulumi.get(__response__, 'remote_virtual_network_id'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        routings=pulumi.get(__response__, 'routings'),
+        virtual_hub_id=pulumi.get(__response__, 'virtual_hub_id'),
+        virtual_hub_name=pulumi.get(__response__, 'virtual_hub_name')))

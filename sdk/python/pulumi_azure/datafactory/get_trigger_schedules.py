@@ -97,9 +97,6 @@ def get_trigger_schedules(data_factory_id: Optional[str] = None,
         data_factory_id=pulumi.get(__ret__, 'data_factory_id'),
         id=pulumi.get(__ret__, 'id'),
         items=pulumi.get(__ret__, 'items'))
-
-
-@_utilities.lift_output_func(get_trigger_schedules)
 def get_trigger_schedules_output(data_factory_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerSchedulesResult]:
     """
@@ -118,4 +115,11 @@ def get_trigger_schedules_output(data_factory_id: Optional[pulumi.Input[str]] = 
 
     :param str data_factory_id: The ID of the Azure Data Factory to fetch trigger schedules from.
     """
-    ...
+    __args__ = dict()
+    __args__['dataFactoryId'] = data_factory_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:datafactory/getTriggerSchedules:getTriggerSchedules', __args__, opts=opts, typ=GetTriggerSchedulesResult)
+    return __ret__.apply(lambda __response__: GetTriggerSchedulesResult(
+        data_factory_id=pulumi.get(__response__, 'data_factory_id'),
+        id=pulumi.get(__response__, 'id'),
+        items=pulumi.get(__response__, 'items')))

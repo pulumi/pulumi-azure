@@ -167,9 +167,6 @@ def get_budget_subscription(name: Optional[str] = None,
         subscription_id=pulumi.get(__ret__, 'subscription_id'),
         time_grain=pulumi.get(__ret__, 'time_grain'),
         time_periods=pulumi.get(__ret__, 'time_periods'))
-
-
-@_utilities.lift_output_func(get_budget_subscription)
 def get_budget_subscription_output(name: Optional[pulumi.Input[str]] = None,
                                    subscription_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetSubscriptionResult]:
@@ -191,4 +188,17 @@ def get_budget_subscription_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Consumption Budget.
     :param str subscription_id: The ID of the subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['subscriptionId'] = subscription_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:consumption/getBudgetSubscription:getBudgetSubscription', __args__, opts=opts, typ=GetBudgetSubscriptionResult)
+    return __ret__.apply(lambda __response__: GetBudgetSubscriptionResult(
+        amount=pulumi.get(__response__, 'amount'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        notifications=pulumi.get(__response__, 'notifications'),
+        subscription_id=pulumi.get(__response__, 'subscription_id'),
+        time_grain=pulumi.get(__response__, 'time_grain'),
+        time_periods=pulumi.get(__response__, 'time_periods')))

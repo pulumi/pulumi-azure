@@ -204,9 +204,6 @@ def get_service(location: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(location: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -231,4 +228,21 @@ def get_service_output(location: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Healthcare Service.
     :param str resource_group_name: The name of the Resource Group in which the Healthcare Service exists.
     """
-    ...
+    __args__ = dict()
+    __args__['location'] = location
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:healthcare/getService:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        access_policy_object_ids=pulumi.get(__response__, 'access_policy_object_ids'),
+        authentication_configurations=pulumi.get(__response__, 'authentication_configurations'),
+        cors_configurations=pulumi.get(__response__, 'cors_configurations'),
+        cosmosdb_key_vault_key_versionless_id=pulumi.get(__response__, 'cosmosdb_key_vault_key_versionless_id'),
+        cosmosdb_throughput=pulumi.get(__response__, 'cosmosdb_throughput'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

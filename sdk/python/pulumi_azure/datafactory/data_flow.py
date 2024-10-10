@@ -479,7 +479,7 @@ class DataFlow(pulumi.CustomResource):
                 "flowlet": {
                     "name": example1_flowlet_data_flow.name,
                     "parameters": {
-                        "key1": "value1",
+                        "Key1": "value1",
                     },
                 },
                 "dataset": {
@@ -491,7 +491,7 @@ class DataFlow(pulumi.CustomResource):
                 "flowlet": {
                     "name": example2_flowlet_data_flow.name,
                     "parameters": {
-                        "key1": "value1",
+                        "Key1": "value1",
                     },
                 },
                 "dataset": {
@@ -651,7 +651,7 @@ class DataFlow(pulumi.CustomResource):
                 "flowlet": {
                     "name": example1_flowlet_data_flow.name,
                     "parameters": {
-                        "key1": "value1",
+                        "Key1": "value1",
                     },
                 },
                 "dataset": {
@@ -663,7 +663,7 @@ class DataFlow(pulumi.CustomResource):
                 "flowlet": {
                     "name": example2_flowlet_data_flow.name,
                     "parameters": {
-                        "key1": "value1",
+                        "Key1": "value1",
                     },
                 },
                 "dataset": {
