@@ -583,9 +583,6 @@ def get_windows_function_app(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'),
         webdeploy_publish_basic_authentication_enabled=pulumi.get(__ret__, 'webdeploy_publish_basic_authentication_enabled'))
-
-
-@_utilities.lift_output_func(get_windows_function_app)
 def get_windows_function_app_output(name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWindowsFunctionAppResult]:
@@ -607,4 +604,49 @@ def get_windows_function_app_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Windows Function App.
     :param str resource_group_name: The name of the Resource Group where the Windows Function App exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp', __args__, opts=opts, typ=GetWindowsFunctionAppResult)
+    return __ret__.apply(lambda __response__: GetWindowsFunctionAppResult(
+        app_settings=pulumi.get(__response__, 'app_settings'),
+        auth_settings=pulumi.get(__response__, 'auth_settings'),
+        auth_settings_v2s=pulumi.get(__response__, 'auth_settings_v2s'),
+        backups=pulumi.get(__response__, 'backups'),
+        builtin_logging_enabled=pulumi.get(__response__, 'builtin_logging_enabled'),
+        client_certificate_enabled=pulumi.get(__response__, 'client_certificate_enabled'),
+        client_certificate_exclusion_paths=pulumi.get(__response__, 'client_certificate_exclusion_paths'),
+        client_certificate_mode=pulumi.get(__response__, 'client_certificate_mode'),
+        connection_strings=pulumi.get(__response__, 'connection_strings'),
+        content_share_force_disabled=pulumi.get(__response__, 'content_share_force_disabled'),
+        custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
+        daily_memory_time_quota=pulumi.get(__response__, 'daily_memory_time_quota'),
+        default_hostname=pulumi.get(__response__, 'default_hostname'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        ftp_publish_basic_authentication_enabled=pulumi.get(__response__, 'ftp_publish_basic_authentication_enabled'),
+        functions_extension_version=pulumi.get(__response__, 'functions_extension_version'),
+        hosting_environment_id=pulumi.get(__response__, 'hosting_environment_id'),
+        https_only=pulumi.get(__response__, 'https_only'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_ip_address_lists=pulumi.get(__response__, 'outbound_ip_address_lists'),
+        outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        possible_outbound_ip_address_lists=pulumi.get(__response__, 'possible_outbound_ip_address_lists'),
+        possible_outbound_ip_addresses=pulumi.get(__response__, 'possible_outbound_ip_addresses'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        service_plan_id=pulumi.get(__response__, 'service_plan_id'),
+        site_configs=pulumi.get(__response__, 'site_configs'),
+        site_credentials=pulumi.get(__response__, 'site_credentials'),
+        sticky_settings=pulumi.get(__response__, 'sticky_settings'),
+        storage_account_access_key=pulumi.get(__response__, 'storage_account_access_key'),
+        storage_account_name=pulumi.get(__response__, 'storage_account_name'),
+        storage_key_vault_secret_id=pulumi.get(__response__, 'storage_key_vault_secret_id'),
+        storage_uses_managed_identity=pulumi.get(__response__, 'storage_uses_managed_identity'),
+        tags=pulumi.get(__response__, 'tags'),
+        virtual_network_subnet_id=pulumi.get(__response__, 'virtual_network_subnet_id'),
+        webdeploy_publish_basic_authentication_enabled=pulumi.get(__response__, 'webdeploy_publish_basic_authentication_enabled')))

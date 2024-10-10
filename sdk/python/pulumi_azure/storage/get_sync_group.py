@@ -98,9 +98,6 @@ def get_sync_group(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         storage_sync_id=pulumi.get(__ret__, 'storage_sync_id'))
-
-
-@_utilities.lift_output_func(get_sync_group)
 def get_sync_group_output(name: Optional[pulumi.Input[str]] = None,
                           storage_sync_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncGroupResult]:
@@ -122,4 +119,12 @@ def get_sync_group_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Storage Sync Group.
     :param str storage_sync_id: The resource ID of the Storage Sync where this Storage Sync Group is.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['storageSyncId'] = storage_sync_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getSyncGroup:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult)
+    return __ret__.apply(lambda __response__: GetSyncGroupResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        storage_sync_id=pulumi.get(__response__, 'storage_sync_id')))

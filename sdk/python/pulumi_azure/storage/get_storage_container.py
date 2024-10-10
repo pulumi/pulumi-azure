@@ -191,9 +191,6 @@ def get_storage_container(metadata: Optional[Mapping[str, str]] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
-
-
-@_utilities.lift_output_func(get_storage_container)
 def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  name: Optional[pulumi.Input[str]] = None,
                                  storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -216,4 +213,20 @@ def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mappin
     :param str name: The name of the Container.
     :param str storage_account_name: The name of the Storage Account where the Container exists.
     """
-    ...
+    __args__ = dict()
+    __args__['metadata'] = metadata
+    __args__['name'] = name
+    __args__['storageAccountName'] = storage_account_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getStorageContainer:getStorageContainer', __args__, opts=opts, typ=GetStorageContainerResult)
+    return __ret__.apply(lambda __response__: GetStorageContainerResult(
+        container_access_type=pulumi.get(__response__, 'container_access_type'),
+        default_encryption_scope=pulumi.get(__response__, 'default_encryption_scope'),
+        encryption_scope_override_enabled=pulumi.get(__response__, 'encryption_scope_override_enabled'),
+        has_immutability_policy=pulumi.get(__response__, 'has_immutability_policy'),
+        has_legal_hold=pulumi.get(__response__, 'has_legal_hold'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
+        storage_account_name=pulumi.get(__response__, 'storage_account_name')))

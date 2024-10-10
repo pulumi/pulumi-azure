@@ -208,9 +208,6 @@ def get_fhir_service(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-
-
-@_utilities.lift_output_func(get_fhir_service)
 def get_fhir_service_output(name: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             workspace_id: Optional[pulumi.Input[str]] = None,
@@ -223,4 +220,22 @@ def get_fhir_service_output(name: Optional[pulumi.Input[str]] = None,
     :param Mapping[str, str] tags: The map of tags assigned to the Healthcare FHIR Service.
     :param str workspace_id: The id of the Healthcare Workspace in which the Healthcare FHIR Service exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:healthcare/getFhirService:getFhirService', __args__, opts=opts, typ=GetFhirServiceResult)
+    return __ret__.apply(lambda __response__: GetFhirServiceResult(
+        access_policy_object_ids=pulumi.get(__response__, 'access_policy_object_ids'),
+        authentications=pulumi.get(__response__, 'authentications'),
+        configuration_export_storage_account_name=pulumi.get(__response__, 'configuration_export_storage_account_name'),
+        container_registry_login_server_urls=pulumi.get(__response__, 'container_registry_login_server_urls'),
+        cors=pulumi.get(__response__, 'cors'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        workspace_id=pulumi.get(__response__, 'workspace_id')))

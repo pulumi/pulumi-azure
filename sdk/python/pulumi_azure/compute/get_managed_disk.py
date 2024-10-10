@@ -304,9 +304,6 @@ def get_managed_disk(name: Optional[str] = None,
         storage_account_type=pulumi.get(__ret__, 'storage_account_type'),
         tags=pulumi.get(__ret__, 'tags'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_managed_disk)
 def get_managed_disk_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedDiskResult]:
@@ -328,4 +325,28 @@ def get_managed_disk_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Managed Disk.
     :param str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getManagedDisk:getManagedDisk', __args__, opts=opts, typ=GetManagedDiskResult)
+    return __ret__.apply(lambda __response__: GetManagedDiskResult(
+        create_option=pulumi.get(__response__, 'create_option'),
+        disk_access_id=pulumi.get(__response__, 'disk_access_id'),
+        disk_encryption_set_id=pulumi.get(__response__, 'disk_encryption_set_id'),
+        disk_iops_read_write=pulumi.get(__response__, 'disk_iops_read_write'),
+        disk_mbps_read_write=pulumi.get(__response__, 'disk_mbps_read_write'),
+        disk_size_gb=pulumi.get(__response__, 'disk_size_gb'),
+        encryption_settings=pulumi.get(__response__, 'encryption_settings'),
+        id=pulumi.get(__response__, 'id'),
+        image_reference_id=pulumi.get(__response__, 'image_reference_id'),
+        name=pulumi.get(__response__, 'name'),
+        network_access_policy=pulumi.get(__response__, 'network_access_policy'),
+        os_type=pulumi.get(__response__, 'os_type'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        source_resource_id=pulumi.get(__response__, 'source_resource_id'),
+        source_uri=pulumi.get(__response__, 'source_uri'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
+        storage_account_type=pulumi.get(__response__, 'storage_account_type'),
+        tags=pulumi.get(__response__, 'tags'),
+        zones=pulumi.get(__response__, 'zones')))

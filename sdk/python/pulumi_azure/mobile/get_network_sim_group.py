@@ -152,9 +152,6 @@ def get_network_sim_group(mobile_network_id: Optional[str] = None,
         mobile_network_id=pulumi.get(__ret__, 'mobile_network_id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_network_sim_group)
 def get_network_sim_group_output(mobile_network_id: Optional[pulumi.Input[str]] = None,
                                  name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSimGroupResult]:
@@ -177,4 +174,16 @@ def get_network_sim_group_output(mobile_network_id: Optional[pulumi.Input[str]] 
     :param str mobile_network_id: The ID of Mobile Network which the Mobile Network Sim Group belongs to.
     :param str name: Specifies the name which should be used for this Mobile Network Sim Groups.
     """
-    ...
+    __args__ = dict()
+    __args__['mobileNetworkId'] = mobile_network_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkSimGroup:getNetworkSimGroup', __args__, opts=opts, typ=GetNetworkSimGroupResult)
+    return __ret__.apply(lambda __response__: GetNetworkSimGroupResult(
+        encryption_key_url=pulumi.get(__response__, 'encryption_key_url'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        mobile_network_id=pulumi.get(__response__, 'mobile_network_id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

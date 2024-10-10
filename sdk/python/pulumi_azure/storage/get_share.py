@@ -157,9 +157,6 @@ def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsD
         quota=pulumi.get(__ret__, 'quota'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
-
-
-@_utilities.lift_output_func(get_share)
 def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']]]]] = None,
                      metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      name: Optional[pulumi.Input[str]] = None,
@@ -187,4 +184,18 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[Union['GetSha
     :param str name: The name of the share.
     :param str storage_account_name: The name of the storage account.
     """
-    ...
+    __args__ = dict()
+    __args__['acls'] = acls
+    __args__['metadata'] = metadata
+    __args__['name'] = name
+    __args__['storageAccountName'] = storage_account_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getShare:getShare', __args__, opts=opts, typ=GetShareResult)
+    return __ret__.apply(lambda __response__: GetShareResult(
+        acls=pulumi.get(__response__, 'acls'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        quota=pulumi.get(__response__, 'quota'),
+        resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
+        storage_account_name=pulumi.get(__response__, 'storage_account_name')))

@@ -193,9 +193,6 @@ def get_workspace(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'),
         workspace_url=pulumi.get(__ret__, 'workspace_url'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -219,4 +216,20 @@ def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The Name of the Resource Group where the Databricks Workspace exists.
     :param Mapping[str, str] tags: A mapping of tags to assign to the Databricks Workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:databricks/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        managed_disk_identities=pulumi.get(__response__, 'managed_disk_identities'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        storage_account_identities=pulumi.get(__response__, 'storage_account_identities'),
+        tags=pulumi.get(__response__, 'tags'),
+        workspace_id=pulumi.get(__response__, 'workspace_id'),
+        workspace_url=pulumi.get(__response__, 'workspace_url')))

@@ -180,9 +180,6 @@ def get_lb_outbound_rule(loadbalancer_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         protocol=pulumi.get(__ret__, 'protocol'),
         tcp_reset_enabled=pulumi.get(__ret__, 'tcp_reset_enabled'))
-
-
-@_utilities.lift_output_func(get_lb_outbound_rule)
 def get_lb_outbound_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = None,
                                 name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLBOutboundRuleResult]:
@@ -204,4 +201,18 @@ def get_lb_outbound_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = N
     :param str loadbalancer_id: The ID of the Load Balancer in which the Outbound Rule exists.
     :param str name: The name of this Load Balancer Outbound Rule.
     """
-    ...
+    __args__ = dict()
+    __args__['loadbalancerId'] = loadbalancer_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:lb/getLBOutboundRule:getLBOutboundRule', __args__, opts=opts, typ=GetLBOutboundRuleResult)
+    return __ret__.apply(lambda __response__: GetLBOutboundRuleResult(
+        allocated_outbound_ports=pulumi.get(__response__, 'allocated_outbound_ports'),
+        backend_address_pool_id=pulumi.get(__response__, 'backend_address_pool_id'),
+        frontend_ip_configurations=pulumi.get(__response__, 'frontend_ip_configurations'),
+        id=pulumi.get(__response__, 'id'),
+        idle_timeout_in_minutes=pulumi.get(__response__, 'idle_timeout_in_minutes'),
+        loadbalancer_id=pulumi.get(__response__, 'loadbalancer_id'),
+        name=pulumi.get(__response__, 'name'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        tcp_reset_enabled=pulumi.get(__response__, 'tcp_reset_enabled')))

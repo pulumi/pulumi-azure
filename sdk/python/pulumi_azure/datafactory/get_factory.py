@@ -164,9 +164,6 @@ def get_factory(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'),
         vsts_configurations=pulumi.get(__ret__, 'vsts_configurations'))
-
-
-@_utilities.lift_output_func(get_factory)
 def get_factory_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryResult]:
@@ -188,4 +185,17 @@ def get_factory_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Azure Data Factory.
     :param str resource_group_name: The name of the Resource Group where the Azure Data Factory exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:datafactory/getFactory:getFactory', __args__, opts=opts, typ=GetFactoryResult)
+    return __ret__.apply(lambda __response__: GetFactoryResult(
+        github_configurations=pulumi.get(__response__, 'github_configurations'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        vsts_configurations=pulumi.get(__response__, 'vsts_configurations')))

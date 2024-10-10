@@ -162,9 +162,6 @@ def get_frontdoor_firewall_policy(name: Optional[str] = None,
         redirect_url=pulumi.get(__ret__, 'redirect_url'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku_name=pulumi.get(__ret__, 'sku_name'))
-
-
-@_utilities.lift_output_func(get_frontdoor_firewall_policy)
 def get_frontdoor_firewall_policy_output(name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorFirewallPolicyResult]:
@@ -185,4 +182,17 @@ def get_frontdoor_firewall_policy_output(name: Optional[pulumi.Input[str]] = Non
     :param str name: The name of the Front Door Firewall Policy.
     :param str resource_group_name: The name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy', __args__, opts=opts, typ=GetFrontdoorFirewallPolicyResult)
+    return __ret__.apply(lambda __response__: GetFrontdoorFirewallPolicyResult(
+        enabled=pulumi.get(__response__, 'enabled'),
+        frontend_endpoint_ids=pulumi.get(__response__, 'frontend_endpoint_ids'),
+        id=pulumi.get(__response__, 'id'),
+        mode=pulumi.get(__response__, 'mode'),
+        name=pulumi.get(__response__, 'name'),
+        redirect_url=pulumi.get(__response__, 'redirect_url'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_name=pulumi.get(__response__, 'sku_name')))

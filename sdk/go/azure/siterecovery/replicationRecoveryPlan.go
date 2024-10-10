@@ -290,8 +290,8 @@ import (
 //				RecoveryVaultId:        vault.ID(),
 //				SourceRecoveryFabricId: primaryFabric.ID(),
 //				TargetRecoveryFabricId: secondaryFabric.ID(),
-//				ShutdownRecoveryGroup:  nil,
-//				FailoverRecoveryGroup:  nil,
+//				ShutdownRecoveryGroup:  &siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroupArgs{},
+//				FailoverRecoveryGroup:  &siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroupArgs{},
 //				BootRecoveryGroups: siterecovery.ReplicationRecoveryPlanBootRecoveryGroupArray{
 //					&siterecovery.ReplicationRecoveryPlanBootRecoveryGroupArgs{
 //						ReplicatedProtectedItems: pulumi.StringArray{

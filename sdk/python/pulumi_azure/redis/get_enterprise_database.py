@@ -145,9 +145,6 @@ def get_enterprise_database(cluster_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'))
-
-
-@_utilities.lift_output_func(get_enterprise_database)
 def get_enterprise_database_output(cluster_id: Optional[pulumi.Input[str]] = None,
                                    name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseDatabaseResult]:
@@ -158,4 +155,16 @@ def get_enterprise_database_output(cluster_id: Optional[pulumi.Input[str]] = Non
     :param str cluster_id: The resource ID of Redis Enterprise Cluster which hosts the Redis Enterprise Database instance.
     :param str name: The name of the Redis Enterprise Database.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterId'] = cluster_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:redis/getEnterpriseDatabase:getEnterpriseDatabase', __args__, opts=opts, typ=GetEnterpriseDatabaseResult)
+    return __ret__.apply(lambda __response__: GetEnterpriseDatabaseResult(
+        cluster_id=pulumi.get(__response__, 'cluster_id'),
+        id=pulumi.get(__response__, 'id'),
+        linked_database_group_nickname=pulumi.get(__response__, 'linked_database_group_nickname'),
+        linked_database_ids=pulumi.get(__response__, 'linked_database_ids'),
+        name=pulumi.get(__response__, 'name'),
+        primary_access_key=pulumi.get(__response__, 'primary_access_key'),
+        secondary_access_key=pulumi.get(__response__, 'secondary_access_key')))

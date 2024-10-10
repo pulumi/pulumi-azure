@@ -189,9 +189,6 @@ def get_virtual_hub(name: Optional[str] = None,
         virtual_router_asn=pulumi.get(__ret__, 'virtual_router_asn'),
         virtual_router_ips=pulumi.get(__ret__, 'virtual_router_ips'),
         virtual_wan_id=pulumi.get(__ret__, 'virtual_wan_id'))
-
-
-@_utilities.lift_output_func(get_virtual_hub)
 def get_virtual_hub_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubResult]:
@@ -213,4 +210,19 @@ def get_virtual_hub_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Virtual Hub.
     :param str resource_group_name: The Name of the Resource Group where the Virtual Hub exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getVirtualHub:getVirtualHub', __args__, opts=opts, typ=GetVirtualHubResult)
+    return __ret__.apply(lambda __response__: GetVirtualHubResult(
+        address_prefix=pulumi.get(__response__, 'address_prefix'),
+        default_route_table_id=pulumi.get(__response__, 'default_route_table_id'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        virtual_router_asn=pulumi.get(__response__, 'virtual_router_asn'),
+        virtual_router_ips=pulumi.get(__response__, 'virtual_router_ips'),
+        virtual_wan_id=pulumi.get(__response__, 'virtual_wan_id')))

@@ -330,9 +330,6 @@ def get_flexible_server(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'),
         zone=pulumi.get(__ret__, 'zone'))
-
-
-@_utilities.lift_output_func(get_flexible_server)
 def get_flexible_server_output(name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlexibleServerResult]:
@@ -354,4 +351,30 @@ def get_flexible_server_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the MySQL Flexible Server.
     :param str resource_group_name: The name of the resource group for the MySQL Flexible Server.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mysql/getFlexibleServer:getFlexibleServer', __args__, opts=opts, typ=GetFlexibleServerResult)
+    return __ret__.apply(lambda __response__: GetFlexibleServerResult(
+        administrator_login=pulumi.get(__response__, 'administrator_login'),
+        backup_retention_days=pulumi.get(__response__, 'backup_retention_days'),
+        delegated_subnet_id=pulumi.get(__response__, 'delegated_subnet_id'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        geo_redundant_backup_enabled=pulumi.get(__response__, 'geo_redundant_backup_enabled'),
+        high_availabilities=pulumi.get(__response__, 'high_availabilities'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        maintenance_windows=pulumi.get(__response__, 'maintenance_windows'),
+        name=pulumi.get(__response__, 'name'),
+        private_dns_zone_id=pulumi.get(__response__, 'private_dns_zone_id'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        replica_capacity=pulumi.get(__response__, 'replica_capacity'),
+        replication_role=pulumi.get(__response__, 'replication_role'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        restore_point_in_time=pulumi.get(__response__, 'restore_point_in_time'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        storages=pulumi.get(__response__, 'storages'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version'),
+        zone=pulumi.get(__response__, 'zone')))

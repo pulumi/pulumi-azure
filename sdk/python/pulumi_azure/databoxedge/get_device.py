@@ -150,9 +150,6 @@ def get_device(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_device)
 def get_device_output(name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
@@ -173,4 +170,16 @@ def get_device_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.
     :param str resource_group_name: The name of the Resource Group where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:databoxedge/getDevice:getDevice', __args__, opts=opts, typ=GetDeviceResult)
+    return __ret__.apply(lambda __response__: GetDeviceResult(
+        device_properties=pulumi.get(__response__, 'device_properties'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        tags=pulumi.get(__response__, 'tags')))

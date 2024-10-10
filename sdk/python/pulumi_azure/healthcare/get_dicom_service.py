@@ -171,9 +171,6 @@ def get_dicom_service(name: Optional[str] = None,
         service_url=pulumi.get(__ret__, 'service_url'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-
-
-@_utilities.lift_output_func(get_dicom_service)
 def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
                              workspace_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDicomServiceResult]:
@@ -195,4 +192,18 @@ def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Healthcare DICOM Service
     :param str workspace_id: The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:healthcare/getDicomService:getDicomService', __args__, opts=opts, typ=GetDicomServiceResult)
+    return __ret__.apply(lambda __response__: GetDicomServiceResult(
+        authentications=pulumi.get(__response__, 'authentications'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        private_endpoints=pulumi.get(__response__, 'private_endpoints'),
+        service_url=pulumi.get(__response__, 'service_url'),
+        tags=pulumi.get(__response__, 'tags'),
+        workspace_id=pulumi.get(__response__, 'workspace_id')))

@@ -184,9 +184,6 @@ def get_confidential_ledger(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_confidential_ledger)
 def get_confidential_ledger_output(name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfidentialLedgerResult]:
@@ -208,4 +205,19 @@ def get_confidential_ledger_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of this Confidential Ledger.
     :param str resource_group_name: Specifies the name of the Resource Group where this Confidential Ledger exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getConfidentialLedger:getConfidentialLedger', __args__, opts=opts, typ=GetConfidentialLedgerResult)
+    return __ret__.apply(lambda __response__: GetConfidentialLedgerResult(
+        azuread_based_service_principals=pulumi.get(__response__, 'azuread_based_service_principals'),
+        certificate_based_security_principals=pulumi.get(__response__, 'certificate_based_security_principals'),
+        id=pulumi.get(__response__, 'id'),
+        identity_service_endpoint=pulumi.get(__response__, 'identity_service_endpoint'),
+        ledger_endpoint=pulumi.get(__response__, 'ledger_endpoint'),
+        ledger_type=pulumi.get(__response__, 'ledger_type'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

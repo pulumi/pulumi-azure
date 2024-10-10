@@ -124,9 +124,6 @@ def get_table_entities(filter: Optional[str] = None,
         items=pulumi.get(__ret__, 'items'),
         selects=pulumi.get(__ret__, 'selects'),
         storage_table_id=pulumi.get(__ret__, 'storage_table_id'))
-
-
-@_utilities.lift_output_func(get_table_entities)
 def get_table_entities_output(filter: Optional[pulumi.Input[str]] = None,
                               selects: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                               storage_table_id: Optional[pulumi.Input[str]] = None,
@@ -149,4 +146,15 @@ def get_table_entities_output(filter: Optional[pulumi.Input[str]] = None,
     :param Sequence[str] selects: A list of properties to select from the returned Storage Table Entities.
     :param str storage_table_id: The Storage Table ID where the entities exist.
     """
-    ...
+    __args__ = dict()
+    __args__['filter'] = filter
+    __args__['selects'] = selects
+    __args__['storageTableId'] = storage_table_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getTableEntities:getTableEntities', __args__, opts=opts, typ=GetTableEntitiesResult)
+    return __ret__.apply(lambda __response__: GetTableEntitiesResult(
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id'),
+        items=pulumi.get(__response__, 'items'),
+        selects=pulumi.get(__response__, 'selects'),
+        storage_table_id=pulumi.get(__response__, 'storage_table_id')))

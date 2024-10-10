@@ -135,9 +135,6 @@ def get_endpoint_connection(name: Optional[str] = None,
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
         private_service_connections=pulumi.get(__ret__, 'private_service_connections'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-
-
-@_utilities.lift_output_func(get_endpoint_connection)
 def get_endpoint_connection_output(name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointConnectionResult]:
@@ -159,4 +156,15 @@ def get_endpoint_connection_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the Name of the private endpoint.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the private endpoint exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:privatelink/getEndpointConnection:getEndpointConnection', __args__, opts=opts, typ=GetEndpointConnectionResult)
+    return __ret__.apply(lambda __response__: GetEndpointConnectionResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
+        private_service_connections=pulumi.get(__response__, 'private_service_connections'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name')))

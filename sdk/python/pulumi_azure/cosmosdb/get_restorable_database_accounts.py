@@ -115,9 +115,6 @@ def get_restorable_database_accounts(location: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_restorable_database_accounts)
 def get_restorable_database_accounts_output(location: Optional[pulumi.Input[str]] = None,
                                             name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestorableDatabaseAccountsResult]:
@@ -139,4 +136,13 @@ def get_restorable_database_accounts_output(location: Optional[pulumi.Input[str]
     :param str location: The location where the Cosmos DB Database Account.
     :param str name: The name of this Cosmos DB Database Account.
     """
-    ...
+    __args__ = dict()
+    __args__['location'] = location
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts', __args__, opts=opts, typ=GetRestorableDatabaseAccountsResult)
+    return __ret__.apply(lambda __response__: GetRestorableDatabaseAccountsResult(
+        accounts=pulumi.get(__response__, 'accounts'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name')))

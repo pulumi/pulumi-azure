@@ -152,9 +152,6 @@ def get_network_slice(mobile_network_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         single_network_slice_selection_assistance_informations=pulumi.get(__ret__, 'single_network_slice_selection_assistance_informations'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_network_slice)
 def get_network_slice_output(mobile_network_id: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSliceResult]:
@@ -177,4 +174,16 @@ def get_network_slice_output(mobile_network_id: Optional[pulumi.Input[str]] = No
     :param str mobile_network_id: The ID of Mobile Network which the Mobile Network Slice belongs to.
     :param str name: Specifies the name which should be used for this Mobile Network Slice.
     """
-    ...
+    __args__ = dict()
+    __args__['mobileNetworkId'] = mobile_network_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkSlice:getNetworkSlice', __args__, opts=opts, typ=GetNetworkSliceResult)
+    return __ret__.apply(lambda __response__: GetNetworkSliceResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        mobile_network_id=pulumi.get(__response__, 'mobile_network_id'),
+        name=pulumi.get(__response__, 'name'),
+        single_network_slice_selection_assistance_informations=pulumi.get(__response__, 'single_network_slice_selection_assistance_informations'),
+        tags=pulumi.get(__response__, 'tags')))

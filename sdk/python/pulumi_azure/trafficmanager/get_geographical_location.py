@@ -89,9 +89,6 @@ def get_geographical_location(name: Optional[str] = None,
     return AwaitableGetGeographicalLocationResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_geographical_location)
 def get_geographical_location_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGeographicalLocationResult]:
     """
@@ -113,4 +110,10 @@ def get_geographical_location_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
     """
     pulumi.log.warn("""get_geographical_location is deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager""")
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:trafficmanager/getGeographicalLocation:getGeographicalLocation', __args__, opts=opts, typ=GetGeographicalLocationResult)
+    return __ret__.apply(lambda __response__: GetGeographicalLocationResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))

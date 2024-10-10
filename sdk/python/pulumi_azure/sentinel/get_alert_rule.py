@@ -100,9 +100,6 @@ def get_alert_rule(log_analytics_workspace_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         log_analytics_workspace_id=pulumi.get(__ret__, 'log_analytics_workspace_id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_alert_rule)
 def get_alert_rule_output(log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                           name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertRuleResult]:
@@ -126,4 +123,12 @@ def get_alert_rule_output(log_analytics_workspace_id: Optional[pulumi.Input[str]
     :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.
     :param str name: The name which should be used for this Sentinel Alert Rule.
     """
-    ...
+    __args__ = dict()
+    __args__['logAnalyticsWorkspaceId'] = log_analytics_workspace_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:sentinel/getAlertRule:getAlertRule', __args__, opts=opts, typ=GetAlertRuleResult)
+    return __ret__.apply(lambda __response__: GetAlertRuleResult(
+        id=pulumi.get(__response__, 'id'),
+        log_analytics_workspace_id=pulumi.get(__response__, 'log_analytics_workspace_id'),
+        name=pulumi.get(__response__, 'name')))

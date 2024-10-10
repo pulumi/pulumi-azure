@@ -153,9 +153,6 @@ def get_alert_rule_template(display_name: Optional[str] = None,
         nrt_templates=pulumi.get(__ret__, 'nrt_templates'),
         scheduled_templates=pulumi.get(__ret__, 'scheduled_templates'),
         security_incident_templates=pulumi.get(__ret__, 'security_incident_templates'))
-
-
-@_utilities.lift_output_func(get_alert_rule_template)
 def get_alert_rule_template_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                    log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                                    name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -181,4 +178,17 @@ def get_alert_rule_template_output(display_name: Optional[pulumi.Input[Optional[
     :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace.
     :param str name: The name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['logAnalyticsWorkspaceId'] = log_analytics_workspace_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate', __args__, opts=opts, typ=GetAlertRuleTemplateResult)
+    return __ret__.apply(lambda __response__: GetAlertRuleTemplateResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        log_analytics_workspace_id=pulumi.get(__response__, 'log_analytics_workspace_id'),
+        name=pulumi.get(__response__, 'name'),
+        nrt_templates=pulumi.get(__response__, 'nrt_templates'),
+        scheduled_templates=pulumi.get(__response__, 'scheduled_templates'),
+        security_incident_templates=pulumi.get(__response__, 'security_incident_templates')))

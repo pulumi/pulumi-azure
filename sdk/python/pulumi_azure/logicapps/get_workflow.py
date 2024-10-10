@@ -255,9 +255,6 @@ def get_workflow(name: Optional[str] = None,
         workflow_outbound_ip_addresses=pulumi.get(__ret__, 'workflow_outbound_ip_addresses'),
         workflow_schema=pulumi.get(__ret__, 'workflow_schema'),
         workflow_version=pulumi.get(__ret__, 'workflow_version'))
-
-
-@_utilities.lift_output_func(get_workflow)
 def get_workflow_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowResult]:
@@ -279,4 +276,24 @@ def get_workflow_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Logic App Workflow.
     :param str resource_group_name: The name of the Resource Group in which the Logic App Workflow exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:logicapps/getWorkflow:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult)
+    return __ret__.apply(lambda __response__: GetWorkflowResult(
+        access_endpoint=pulumi.get(__response__, 'access_endpoint'),
+        connector_endpoint_ip_addresses=pulumi.get(__response__, 'connector_endpoint_ip_addresses'),
+        connector_outbound_ip_addresses=pulumi.get(__response__, 'connector_outbound_ip_addresses'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        logic_app_integration_account_id=pulumi.get(__response__, 'logic_app_integration_account_id'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        workflow_endpoint_ip_addresses=pulumi.get(__response__, 'workflow_endpoint_ip_addresses'),
+        workflow_outbound_ip_addresses=pulumi.get(__response__, 'workflow_outbound_ip_addresses'),
+        workflow_schema=pulumi.get(__response__, 'workflow_schema'),
+        workflow_version=pulumi.get(__response__, 'workflow_version')))

@@ -567,9 +567,6 @@ def get_linux_web_app(name: Optional[str] = None,
         usage=pulumi.get(__ret__, 'usage'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'),
         webdeploy_publish_basic_authentication_enabled=pulumi.get(__ret__, 'webdeploy_publish_basic_authentication_enabled'))
-
-
-@_utilities.lift_output_func(get_linux_web_app)
 def get_linux_web_app_output(name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinuxWebAppResult]:
@@ -591,4 +588,48 @@ def get_linux_web_app_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Linux Web App.
     :param str resource_group_name: The name of the Resource Group where the Linux Web App exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appservice/getLinuxWebApp:getLinuxWebApp', __args__, opts=opts, typ=GetLinuxWebAppResult)
+    return __ret__.apply(lambda __response__: GetLinuxWebAppResult(
+        app_metadata=pulumi.get(__response__, 'app_metadata'),
+        app_settings=pulumi.get(__response__, 'app_settings'),
+        auth_settings=pulumi.get(__response__, 'auth_settings'),
+        auth_settings_v2s=pulumi.get(__response__, 'auth_settings_v2s'),
+        availability=pulumi.get(__response__, 'availability'),
+        backups=pulumi.get(__response__, 'backups'),
+        client_affinity_enabled=pulumi.get(__response__, 'client_affinity_enabled'),
+        client_certificate_enabled=pulumi.get(__response__, 'client_certificate_enabled'),
+        client_certificate_exclusion_paths=pulumi.get(__response__, 'client_certificate_exclusion_paths'),
+        client_certificate_mode=pulumi.get(__response__, 'client_certificate_mode'),
+        connection_strings=pulumi.get(__response__, 'connection_strings'),
+        custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
+        default_hostname=pulumi.get(__response__, 'default_hostname'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        ftp_publish_basic_authentication_enabled=pulumi.get(__response__, 'ftp_publish_basic_authentication_enabled'),
+        hosting_environment_id=pulumi.get(__response__, 'hosting_environment_id'),
+        https_only=pulumi.get(__response__, 'https_only'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        key_vault_reference_identity_id=pulumi.get(__response__, 'key_vault_reference_identity_id'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        logs=pulumi.get(__response__, 'logs'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_ip_address_lists=pulumi.get(__response__, 'outbound_ip_address_lists'),
+        outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        possible_outbound_ip_address_lists=pulumi.get(__response__, 'possible_outbound_ip_address_lists'),
+        possible_outbound_ip_addresses=pulumi.get(__response__, 'possible_outbound_ip_addresses'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        service_plan_id=pulumi.get(__response__, 'service_plan_id'),
+        site_configs=pulumi.get(__response__, 'site_configs'),
+        site_credentials=pulumi.get(__response__, 'site_credentials'),
+        sticky_settings=pulumi.get(__response__, 'sticky_settings'),
+        storage_accounts=pulumi.get(__response__, 'storage_accounts'),
+        tags=pulumi.get(__response__, 'tags'),
+        usage=pulumi.get(__response__, 'usage'),
+        virtual_network_subnet_id=pulumi.get(__response__, 'virtual_network_subnet_id'),
+        webdeploy_publish_basic_authentication_enabled=pulumi.get(__response__, 'webdeploy_publish_basic_authentication_enabled')))
