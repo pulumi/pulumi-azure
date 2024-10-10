@@ -112,9 +112,6 @@ def get_mca_account_scope(billing_account_name: Optional[str] = None,
         billing_profile_name=pulumi.get(__ret__, 'billing_profile_name'),
         id=pulumi.get(__ret__, 'id'),
         invoice_section_name=pulumi.get(__ret__, 'invoice_section_name'))
-
-
-@_utilities.lift_output_func(get_mca_account_scope)
 def get_mca_account_scope_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                  billing_profile_name: Optional[pulumi.Input[str]] = None,
                                  invoice_section_name: Optional[pulumi.Input[str]] = None,
@@ -139,4 +136,14 @@ def get_mca_account_scope_output(billing_account_name: Optional[pulumi.Input[str
     :param str billing_profile_name: The Billing Profile Name in the above Billing Account.
     :param str invoice_section_name: The Invoice Section Name in the above Billing Profile.
     """
-    ...
+    __args__ = dict()
+    __args__['billingAccountName'] = billing_account_name
+    __args__['billingProfileName'] = billing_profile_name
+    __args__['invoiceSectionName'] = invoice_section_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:billing/getMcaAccountScope:getMcaAccountScope', __args__, opts=opts, typ=GetMcaAccountScopeResult)
+    return __ret__.apply(lambda __response__: GetMcaAccountScopeResult(
+        billing_account_name=pulumi.get(__response__, 'billing_account_name'),
+        billing_profile_name=pulumi.get(__response__, 'billing_profile_name'),
+        id=pulumi.get(__response__, 'id'),
+        invoice_section_name=pulumi.get(__response__, 'invoice_section_name')))

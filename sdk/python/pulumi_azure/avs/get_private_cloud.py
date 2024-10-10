@@ -296,9 +296,6 @@ def get_private_cloud(name: Optional[str] = None,
         vcenter_certificate_thumbprint=pulumi.get(__ret__, 'vcenter_certificate_thumbprint'),
         vcsa_endpoint=pulumi.get(__ret__, 'vcsa_endpoint'),
         vmotion_subnet_cidr=pulumi.get(__ret__, 'vmotion_subnet_cidr'))
-
-
-@_utilities.lift_output_func(get_private_cloud)
 def get_private_cloud_output(name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateCloudResult]:
@@ -322,4 +319,27 @@ def get_private_cloud_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Azure VMware Solution Private Cloud.
     :param str resource_group_name: The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:avs/getPrivateCloud:getPrivateCloud', __args__, opts=opts, typ=GetPrivateCloudResult)
+    return __ret__.apply(lambda __response__: GetPrivateCloudResult(
+        circuits=pulumi.get(__response__, 'circuits'),
+        hcx_cloud_manager_endpoint=pulumi.get(__response__, 'hcx_cloud_manager_endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        internet_connection_enabled=pulumi.get(__response__, 'internet_connection_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        management_clusters=pulumi.get(__response__, 'management_clusters'),
+        management_subnet_cidr=pulumi.get(__response__, 'management_subnet_cidr'),
+        name=pulumi.get(__response__, 'name'),
+        network_subnet_cidr=pulumi.get(__response__, 'network_subnet_cidr'),
+        nsxt_certificate_thumbprint=pulumi.get(__response__, 'nsxt_certificate_thumbprint'),
+        nsxt_manager_endpoint=pulumi.get(__response__, 'nsxt_manager_endpoint'),
+        provisioning_subnet_cidr=pulumi.get(__response__, 'provisioning_subnet_cidr'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        vcenter_certificate_thumbprint=pulumi.get(__response__, 'vcenter_certificate_thumbprint'),
+        vcsa_endpoint=pulumi.get(__response__, 'vcsa_endpoint'),
+        vmotion_subnet_cidr=pulumi.get(__response__, 'vmotion_subnet_cidr')))

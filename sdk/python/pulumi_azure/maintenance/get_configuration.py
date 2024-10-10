@@ -203,9 +203,6 @@ def get_configuration(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         visibility=pulumi.get(__ret__, 'visibility'),
         windows=pulumi.get(__ret__, 'windows'))
-
-
-@_utilities.lift_output_func(get_configuration)
 def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
@@ -227,4 +224,20 @@ def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Maintenance Configuration.
     :param str resource_group_name: Specifies the name of the Resource Group where this Maintenance Configuration exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:maintenance/getConfiguration:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult)
+    return __ret__.apply(lambda __response__: GetConfigurationResult(
+        id=pulumi.get(__response__, 'id'),
+        in_guest_user_patch_mode=pulumi.get(__response__, 'in_guest_user_patch_mode'),
+        install_patches=pulumi.get(__response__, 'install_patches'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        scope=pulumi.get(__response__, 'scope'),
+        tags=pulumi.get(__response__, 'tags'),
+        visibility=pulumi.get(__response__, 'visibility'),
+        windows=pulumi.get(__response__, 'windows')))
