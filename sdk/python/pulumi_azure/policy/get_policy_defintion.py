@@ -216,9 +216,6 @@ def get_policy_defintion(display_name: Optional[str] = None,
         policy_type=pulumi.get(__ret__, 'policy_type'),
         role_definition_ids=pulumi.get(__ret__, 'role_definition_ids'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_policy_defintion)
 def get_policy_defintion_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                 management_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -243,4 +240,22 @@ def get_policy_defintion_output(display_name: Optional[pulumi.Input[Optional[str
     :param str management_group_name: Only retrieve Policy Definitions from this Management Group.
     :param str name: Specifies the name of the Policy Definition. Conflicts with `display_name`.
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['managementGroupName'] = management_group_name
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:policy/getPolicyDefintion:getPolicyDefintion', __args__, opts=opts, typ=GetPolicyDefintionResult)
+    return __ret__.apply(lambda __response__: GetPolicyDefintionResult(
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        management_group_name=pulumi.get(__response__, 'management_group_name'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        mode=pulumi.get(__response__, 'mode'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        policy_rule=pulumi.get(__response__, 'policy_rule'),
+        policy_type=pulumi.get(__response__, 'policy_type'),
+        role_definition_ids=pulumi.get(__response__, 'role_definition_ids'),
+        type=pulumi.get(__response__, 'type')))

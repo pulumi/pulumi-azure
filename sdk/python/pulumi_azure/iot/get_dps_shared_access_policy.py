@@ -163,9 +163,6 @@ def get_dps_shared_access_policy(iothub_dps_name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-
-
-@_utilities.lift_output_func(get_dps_shared_access_policy)
 def get_dps_shared_access_policy_output(iothub_dps_name: Optional[pulumi.Input[str]] = None,
                                         name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -189,4 +186,18 @@ def get_dps_shared_access_policy_output(iothub_dps_name: Optional[pulumi.Input[s
     :param str name: Specifies the name of the IotHub Shared Access Policy.
     :param str resource_group_name: Specifies the name of the resource group under which the IotHub Shared Access Policy resource exists.
     """
-    ...
+    __args__ = dict()
+    __args__['iothubDpsName'] = iothub_dps_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy', __args__, opts=opts, typ=GetDpsSharedAccessPolicyResult)
+    return __ret__.apply(lambda __response__: GetDpsSharedAccessPolicyResult(
+        id=pulumi.get(__response__, 'id'),
+        iothub_dps_name=pulumi.get(__response__, 'iothub_dps_name'),
+        name=pulumi.get(__response__, 'name'),
+        primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
+        primary_key=pulumi.get(__response__, 'primary_key'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
+        secondary_key=pulumi.get(__response__, 'secondary_key')))

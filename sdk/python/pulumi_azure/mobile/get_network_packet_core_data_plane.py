@@ -177,9 +177,6 @@ def get_network_packet_core_data_plane(mobile_network_packet_core_control_plane_
         user_plane_access_ipv4_gateway=pulumi.get(__ret__, 'user_plane_access_ipv4_gateway'),
         user_plane_access_ipv4_subnet=pulumi.get(__ret__, 'user_plane_access_ipv4_subnet'),
         user_plane_access_name=pulumi.get(__ret__, 'user_plane_access_name'))
-
-
-@_utilities.lift_output_func(get_network_packet_core_data_plane)
 def get_network_packet_core_data_plane_output(mobile_network_packet_core_control_plane_id: Optional[pulumi.Input[str]] = None,
                                               name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkPacketCoreDataPlaneResult]:
@@ -202,4 +199,18 @@ def get_network_packet_core_data_plane_output(mobile_network_packet_core_control
     :param str mobile_network_packet_core_control_plane_id: The ID of the Mobile Network Packet Core Data Plane.
     :param str name: The name of the Mobile Network Packet Core Data Plane.
     """
-    ...
+    __args__ = dict()
+    __args__['mobileNetworkPacketCoreControlPlaneId'] = mobile_network_packet_core_control_plane_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane', __args__, opts=opts, typ=GetNetworkPacketCoreDataPlaneResult)
+    return __ret__.apply(lambda __response__: GetNetworkPacketCoreDataPlaneResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        mobile_network_packet_core_control_plane_id=pulumi.get(__response__, 'mobile_network_packet_core_control_plane_id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_plane_access_ipv4_address=pulumi.get(__response__, 'user_plane_access_ipv4_address'),
+        user_plane_access_ipv4_gateway=pulumi.get(__response__, 'user_plane_access_ipv4_gateway'),
+        user_plane_access_ipv4_subnet=pulumi.get(__response__, 'user_plane_access_ipv4_subnet'),
+        user_plane_access_name=pulumi.get(__response__, 'user_plane_access_name')))

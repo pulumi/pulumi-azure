@@ -240,9 +240,6 @@ def get_environment(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         static_ip_address=pulumi.get(__ret__, 'static_ip_address'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_environment)
 def get_environment_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
@@ -263,4 +260,23 @@ def get_environment_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Container Apps Managed Environment.
     :param str resource_group_name: The name of the Resource Group where this Container App Environment exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:containerapp/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentResult(
+        custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
+        default_domain=pulumi.get(__response__, 'default_domain'),
+        docker_bridge_cidr=pulumi.get(__response__, 'docker_bridge_cidr'),
+        id=pulumi.get(__response__, 'id'),
+        infrastructure_subnet_id=pulumi.get(__response__, 'infrastructure_subnet_id'),
+        internal_load_balancer_enabled=pulumi.get(__response__, 'internal_load_balancer_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        log_analytics_workspace_name=pulumi.get(__response__, 'log_analytics_workspace_name'),
+        name=pulumi.get(__response__, 'name'),
+        platform_reserved_cidr=pulumi.get(__response__, 'platform_reserved_cidr'),
+        platform_reserved_dns_ip_address=pulumi.get(__response__, 'platform_reserved_dns_ip_address'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        static_ip_address=pulumi.get(__response__, 'static_ip_address'),
+        tags=pulumi.get(__response__, 'tags')))

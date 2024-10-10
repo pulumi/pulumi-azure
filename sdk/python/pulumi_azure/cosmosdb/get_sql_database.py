@@ -138,9 +138,6 @@ def get_sql_database(account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         throughput=pulumi.get(__ret__, 'throughput'))
-
-
-@_utilities.lift_output_func(get_sql_database)
 def get_sql_database_output(account_name: Optional[pulumi.Input[str]] = None,
                             name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -164,4 +161,16 @@ def get_sql_database_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Cosmos DB SQL Database.
     :param str resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:cosmosdb/getSqlDatabase:getSqlDatabase', __args__, opts=opts, typ=GetSqlDatabaseResult)
+    return __ret__.apply(lambda __response__: GetSqlDatabaseResult(
+        account_name=pulumi.get(__response__, 'account_name'),
+        autoscale_settings=pulumi.get(__response__, 'autoscale_settings'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        throughput=pulumi.get(__response__, 'throughput')))

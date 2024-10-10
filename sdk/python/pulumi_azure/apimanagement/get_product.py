@@ -203,9 +203,6 @@ def get_product(api_management_name: Optional[str] = None,
         subscription_required=pulumi.get(__ret__, 'subscription_required'),
         subscriptions_limit=pulumi.get(__ret__, 'subscriptions_limit'),
         terms=pulumi.get(__ret__, 'terms'))
-
-
-@_utilities.lift_output_func(get_product)
 def get_product_output(api_management_name: Optional[pulumi.Input[str]] = None,
                        product_id: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -230,4 +227,21 @@ def get_product_output(api_management_name: Optional[pulumi.Input[str]] = None,
     :param str product_id: The Identifier for the API Management Product.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
     """
-    ...
+    __args__ = dict()
+    __args__['apiManagementName'] = api_management_name
+    __args__['productId'] = product_id
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:apimanagement/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult)
+    return __ret__.apply(lambda __response__: GetProductResult(
+        api_management_name=pulumi.get(__response__, 'api_management_name'),
+        approval_required=pulumi.get(__response__, 'approval_required'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        product_id=pulumi.get(__response__, 'product_id'),
+        published=pulumi.get(__response__, 'published'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        subscription_required=pulumi.get(__response__, 'subscription_required'),
+        subscriptions_limit=pulumi.get(__response__, 'subscriptions_limit'),
+        terms=pulumi.get(__response__, 'terms')))

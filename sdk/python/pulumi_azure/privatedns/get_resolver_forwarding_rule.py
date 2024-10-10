@@ -150,9 +150,6 @@ def get_resolver_forwarding_rule(dns_forwarding_ruleset_id: Optional[str] = None
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
         target_dns_servers=pulumi.get(__ret__, 'target_dns_servers'))
-
-
-@_utilities.lift_output_func(get_resolver_forwarding_rule)
 def get_resolver_forwarding_rule_output(dns_forwarding_ruleset_id: Optional[pulumi.Input[str]] = None,
                                         name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverForwardingRuleResult]:
@@ -173,4 +170,16 @@ def get_resolver_forwarding_rule_output(dns_forwarding_ruleset_id: Optional[pulu
     :param str dns_forwarding_ruleset_id: ID of the Private DNS Resolver Forwarding Ruleset.
     :param str name: Name of the Private DNS Resolver Forwarding Rule.
     """
-    ...
+    __args__ = dict()
+    __args__['dnsForwardingRulesetId'] = dns_forwarding_ruleset_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:privatedns/getResolverForwardingRule:getResolverForwardingRule', __args__, opts=opts, typ=GetResolverForwardingRuleResult)
+    return __ret__.apply(lambda __response__: GetResolverForwardingRuleResult(
+        dns_forwarding_ruleset_id=pulumi.get(__response__, 'dns_forwarding_ruleset_id'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        target_dns_servers=pulumi.get(__response__, 'target_dns_servers')))

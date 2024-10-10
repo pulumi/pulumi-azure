@@ -267,9 +267,6 @@ def get_subscription(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         topic_id=pulumi.get(__ret__, 'topic_id'),
         topic_name=pulumi.get(__ret__, 'topic_name'))
-
-
-@_utilities.lift_output_func(get_subscription)
 def get_subscription_output(name: Optional[pulumi.Input[str]] = None,
                             namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
                             resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -294,4 +291,28 @@ def get_subscription_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the ServiceBus Subscription.
     :param str topic_id: The ID of the ServiceBus Topic where the Service Bus Subscription exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['topicId'] = topic_id
+    __args__['topicName'] = topic_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getSubscription:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult)
+    return __ret__.apply(lambda __response__: GetSubscriptionResult(
+        auto_delete_on_idle=pulumi.get(__response__, 'auto_delete_on_idle'),
+        dead_lettering_on_filter_evaluation_error=pulumi.get(__response__, 'dead_lettering_on_filter_evaluation_error'),
+        dead_lettering_on_message_expiration=pulumi.get(__response__, 'dead_lettering_on_message_expiration'),
+        default_message_ttl=pulumi.get(__response__, 'default_message_ttl'),
+        enable_batched_operations=pulumi.get(__response__, 'enable_batched_operations'),
+        forward_dead_lettered_messages_to=pulumi.get(__response__, 'forward_dead_lettered_messages_to'),
+        forward_to=pulumi.get(__response__, 'forward_to'),
+        id=pulumi.get(__response__, 'id'),
+        lock_duration=pulumi.get(__response__, 'lock_duration'),
+        max_delivery_count=pulumi.get(__response__, 'max_delivery_count'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        requires_session=pulumi.get(__response__, 'requires_session'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        topic_id=pulumi.get(__response__, 'topic_id'),
+        topic_name=pulumi.get(__response__, 'topic_name')))

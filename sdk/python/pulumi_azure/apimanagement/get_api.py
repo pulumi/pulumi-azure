@@ -283,9 +283,6 @@ def get_api(api_management_name: Optional[str] = None,
         subscription_required=pulumi.get(__ret__, 'subscription_required'),
         version=pulumi.get(__ret__, 'version'),
         version_set_id=pulumi.get(__ret__, 'version_set_id'))
-
-
-@_utilities.lift_output_func(get_api)
 def get_api_output(api_management_name: Optional[pulumi.Input[str]] = None,
                    name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -313,4 +310,28 @@ def get_api_output(api_management_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
     :param str revision: The Revision of the API Management API.
     """
-    ...
+    __args__ = dict()
+    __args__['apiManagementName'] = api_management_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['revision'] = revision
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:apimanagement/getApi:getApi', __args__, opts=opts, typ=GetApiResult)
+    return __ret__.apply(lambda __response__: GetApiResult(
+        api_management_name=pulumi.get(__response__, 'api_management_name'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        is_current=pulumi.get(__response__, 'is_current'),
+        is_online=pulumi.get(__response__, 'is_online'),
+        name=pulumi.get(__response__, 'name'),
+        path=pulumi.get(__response__, 'path'),
+        protocols=pulumi.get(__response__, 'protocols'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        revision=pulumi.get(__response__, 'revision'),
+        service_url=pulumi.get(__response__, 'service_url'),
+        soap_pass_through=pulumi.get(__response__, 'soap_pass_through'),
+        subscription_key_parameter_names=pulumi.get(__response__, 'subscription_key_parameter_names'),
+        subscription_required=pulumi.get(__response__, 'subscription_required'),
+        version=pulumi.get(__response__, 'version'),
+        version_set_id=pulumi.get(__response__, 'version_set_id')))

@@ -63,7 +63,7 @@ import (
 //				Location:           example.Location,
 //				ServicePlanId:      exampleServicePlan.ID(),
 //				StorageAccountName: exampleAccount.Name,
-//				SiteConfig:         nil,
+//				SiteConfig:         &appservice.LinuxFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
@@ -72,7 +72,7 @@ import (
 //				Name:               pulumi.String("example-linux-function-app-slot"),
 //				FunctionAppId:      exampleLinuxFunctionApp.ID(),
 //				StorageAccountName: exampleAccount.Name,
-//				SiteConfig:         nil,
+//				SiteConfig:         &appservice.LinuxFunctionAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

@@ -49,7 +49,7 @@ import (
 //						"name": "text - 2",
 //					},
 //				},
-//				"styleSettings": nil,
+//				"styleSettings": map[string]interface{}{},
 //				"$schema":       "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
 //			})
 //			if err != nil {
@@ -79,7 +79,7 @@ import (
 //									"name": "text - 2",
 //								},
 //							},
-//							"styleSettings": nil,
+//							"styleSettings": map[string]interface{}{},
 //							"$schema":       "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
 //						},
 //					},

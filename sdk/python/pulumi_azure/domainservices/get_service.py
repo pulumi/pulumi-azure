@@ -286,9 +286,6 @@ def get_service(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -313,4 +310,28 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
     :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:domainservices/getService:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        deployment_id=pulumi.get(__response__, 'deployment_id'),
+        domain_configuration_type=pulumi.get(__response__, 'domain_configuration_type'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        filtered_sync_enabled=pulumi.get(__response__, 'filtered_sync_enabled'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        notifications=pulumi.get(__response__, 'notifications'),
+        replica_sets=pulumi.get(__response__, 'replica_sets'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        secure_ldaps=pulumi.get(__response__, 'secure_ldaps'),
+        securities=pulumi.get(__response__, 'securities'),
+        sku=pulumi.get(__response__, 'sku'),
+        sync_owner=pulumi.get(__response__, 'sync_owner'),
+        tags=pulumi.get(__response__, 'tags'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
+        version=pulumi.get(__response__, 'version')))

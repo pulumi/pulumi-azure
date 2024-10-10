@@ -190,9 +190,6 @@ def get_scheduled_query_rules_log(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_scheduled_query_rules_log)
 def get_scheduled_query_rules_log_output(name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRulesLogResult]:
@@ -214,4 +211,19 @@ def get_scheduled_query_rules_log_output(name: Optional[pulumi.Input[str]] = Non
     :param str name: Specifies the name of the scheduled query rule.
     :param str resource_group_name: Specifies the name of the resource group where the scheduled query rule is located.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog', __args__, opts=opts, typ=GetScheduledQueryRulesLogResult)
+    return __ret__.apply(lambda __response__: GetScheduledQueryRulesLogResult(
+        authorized_resource_ids=pulumi.get(__response__, 'authorized_resource_ids'),
+        criterias=pulumi.get(__response__, 'criterias'),
+        data_source_id=pulumi.get(__response__, 'data_source_id'),
+        description=pulumi.get(__response__, 'description'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

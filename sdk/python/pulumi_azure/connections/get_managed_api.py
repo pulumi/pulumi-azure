@@ -108,9 +108,6 @@ def get_managed_api(location: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_managed_api)
 def get_managed_api_output(location: Optional[pulumi.Input[str]] = None,
                            name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedApiResult]:
@@ -132,4 +129,13 @@ def get_managed_api_output(location: Optional[pulumi.Input[str]] = None,
     :param str location: The Azure location for this Managed API.
     :param str name: Specifies the name of the Managed API.
     """
-    ...
+    __args__ = dict()
+    __args__['location'] = location
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:connections/getManagedApi:getManagedApi', __args__, opts=opts, typ=GetManagedApiResult)
+    return __ret__.apply(lambda __response__: GetManagedApiResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -164,9 +164,6 @@ def get_group(api_management_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_group)
 def get_group_output(api_management_name: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -191,4 +188,18 @@ def get_group_output(api_management_name: Optional[pulumi.Input[str]] = None,
     :param str name: The Name of the API Management Group.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
     """
-    ...
+    __args__ = dict()
+    __args__['apiManagementName'] = api_management_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:apimanagement/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
+    return __ret__.apply(lambda __response__: GetGroupResult(
+        api_management_name=pulumi.get(__response__, 'api_management_name'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        external_id=pulumi.get(__response__, 'external_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        type=pulumi.get(__response__, 'type')))

@@ -175,9 +175,6 @@ def get_variables(automation_account_id: Optional[str] = None,
         nulls=pulumi.get(__ret__, 'nulls'),
         objects=pulumi.get(__ret__, 'objects'),
         strings=pulumi.get(__ret__, 'strings'))
-
-
-@_utilities.lift_output_func(get_variables)
 def get_variables_output(automation_account_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariablesResult]:
     """
@@ -198,4 +195,17 @@ def get_variables_output(automation_account_id: Optional[pulumi.Input[str]] = No
 
     :param str automation_account_id: The resource ID of the automation account.
     """
-    ...
+    __args__ = dict()
+    __args__['automationAccountId'] = automation_account_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:automation/getVariables:getVariables', __args__, opts=opts, typ=GetVariablesResult)
+    return __ret__.apply(lambda __response__: GetVariablesResult(
+        automation_account_id=pulumi.get(__response__, 'automation_account_id'),
+        bools=pulumi.get(__response__, 'bools'),
+        datetimes=pulumi.get(__response__, 'datetimes'),
+        encrypteds=pulumi.get(__response__, 'encrypteds'),
+        id=pulumi.get(__response__, 'id'),
+        ints=pulumi.get(__response__, 'ints'),
+        nulls=pulumi.get(__response__, 'nulls'),
+        objects=pulumi.get(__response__, 'objects'),
+        strings=pulumi.get(__response__, 'strings')))

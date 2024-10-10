@@ -307,9 +307,6 @@ def get_alert_rule_anomaly(display_name: Optional[str] = None,
         tactics=pulumi.get(__ret__, 'tactics'),
         techniques=pulumi.get(__ret__, 'techniques'),
         threshold_observations=pulumi.get(__ret__, 'threshold_observations'))
-
-
-@_utilities.lift_output_func(get_alert_rule_anomaly)
 def get_alert_rule_anomaly_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                   log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -346,4 +343,28 @@ def get_alert_rule_anomaly_output(display_name: Optional[pulumi.Input[Optional[s
     :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace.
     :param str name: The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['logAnalyticsWorkspaceId'] = log_analytics_workspace_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly', __args__, opts=opts, typ=GetAlertRuleAnomalyResult)
+    return __ret__.apply(lambda __response__: GetAlertRuleAnomalyResult(
+        anomaly_settings_version=pulumi.get(__response__, 'anomaly_settings_version'),
+        anomaly_version=pulumi.get(__response__, 'anomaly_version'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        frequency=pulumi.get(__response__, 'frequency'),
+        id=pulumi.get(__response__, 'id'),
+        log_analytics_workspace_id=pulumi.get(__response__, 'log_analytics_workspace_id'),
+        mode=pulumi.get(__response__, 'mode'),
+        multi_select_observations=pulumi.get(__response__, 'multi_select_observations'),
+        name=pulumi.get(__response__, 'name'),
+        prioritized_exclude_observations=pulumi.get(__response__, 'prioritized_exclude_observations'),
+        required_data_connectors=pulumi.get(__response__, 'required_data_connectors'),
+        settings_definition_id=pulumi.get(__response__, 'settings_definition_id'),
+        single_select_observations=pulumi.get(__response__, 'single_select_observations'),
+        tactics=pulumi.get(__response__, 'tactics'),
+        techniques=pulumi.get(__response__, 'techniques'),
+        threshold_observations=pulumi.get(__response__, 'threshold_observations')))

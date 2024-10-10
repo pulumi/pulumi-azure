@@ -59,7 +59,7 @@ import (
 //				},
 //				TimeZoneId:           pulumi.String("Pacific Standard Time"),
 //				TaskType:             pulumi.String("LabVmsStartupTask"),
-//				NotificationSettings: nil,
+//				NotificationSettings: &devtest.ScheduleNotificationSettingsArgs{},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

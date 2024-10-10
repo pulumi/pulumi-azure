@@ -110,9 +110,6 @@ def get_images(resource_group_name: Optional[str] = None,
         images=pulumi.get(__ret__, 'images'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags_filter=pulumi.get(__ret__, 'tags_filter'))
-
-
-@_utilities.lift_output_func(get_images)
 def get_images_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       tags_filter: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagesResult]:
@@ -132,4 +129,13 @@ def get_images_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the Resource Group in which the Image exists.
     :param Mapping[str, str] tags_filter: A mapping of tags to filter the list of images against.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tagsFilter'] = tags_filter
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getImages:getImages', __args__, opts=opts, typ=GetImagesResult)
+    return __ret__.apply(lambda __response__: GetImagesResult(
+        id=pulumi.get(__response__, 'id'),
+        images=pulumi.get(__response__, 'images'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags_filter=pulumi.get(__response__, 'tags_filter')))

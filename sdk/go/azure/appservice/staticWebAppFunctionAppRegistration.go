@@ -74,7 +74,7 @@ import (
 //				ServicePlanId:           exampleServicePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				SiteConfig:              nil,
+//				SiteConfig:              &appservice.LinuxFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

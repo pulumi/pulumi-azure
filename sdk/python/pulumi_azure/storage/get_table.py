@@ -124,9 +124,6 @@ def get_table(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
-
-
-@_utilities.lift_output_func(get_table)
 def get_table_output(name: Optional[pulumi.Input[str]] = None,
                      storage_account_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
@@ -147,4 +144,14 @@ def get_table_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Table.
     :param str storage_account_name: The name of the Storage Account where the Table exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['storageAccountName'] = storage_account_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getTable:getTable', __args__, opts=opts, typ=GetTableResult)
+    return __ret__.apply(lambda __response__: GetTableResult(
+        acls=pulumi.get(__response__, 'acls'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
+        storage_account_name=pulumi.get(__response__, 'storage_account_name')))

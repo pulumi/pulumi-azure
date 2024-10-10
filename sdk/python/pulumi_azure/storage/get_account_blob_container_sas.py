@@ -277,9 +277,6 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
         permissions=pulumi.get(__ret__, 'permissions'),
         sas=pulumi.get(__ret__, 'sas'),
         start=pulumi.get(__ret__, 'start'))
-
-
-@_utilities.lift_output_func(get_account_blob_container_sas)
 def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[Optional[str]]] = None,
                                           connection_string: Optional[pulumi.Input[str]] = None,
                                           container_name: Optional[pulumi.Input[str]] = None,
@@ -355,4 +352,33 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
     :param Union['GetAccountBlobContainerSASPermissionsArgs', 'GetAccountBlobContainerSASPermissionsArgsDict'] permissions: A `permissions` block as defined below.
     :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
     """
-    ...
+    __args__ = dict()
+    __args__['cacheControl'] = cache_control
+    __args__['connectionString'] = connection_string
+    __args__['containerName'] = container_name
+    __args__['contentDisposition'] = content_disposition
+    __args__['contentEncoding'] = content_encoding
+    __args__['contentLanguage'] = content_language
+    __args__['contentType'] = content_type
+    __args__['expiry'] = expiry
+    __args__['httpsOnly'] = https_only
+    __args__['ipAddress'] = ip_address
+    __args__['permissions'] = permissions
+    __args__['start'] = start
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS', __args__, opts=opts, typ=GetAccountBlobContainerSASResult)
+    return __ret__.apply(lambda __response__: GetAccountBlobContainerSASResult(
+        cache_control=pulumi.get(__response__, 'cache_control'),
+        connection_string=pulumi.get(__response__, 'connection_string'),
+        container_name=pulumi.get(__response__, 'container_name'),
+        content_disposition=pulumi.get(__response__, 'content_disposition'),
+        content_encoding=pulumi.get(__response__, 'content_encoding'),
+        content_language=pulumi.get(__response__, 'content_language'),
+        content_type=pulumi.get(__response__, 'content_type'),
+        expiry=pulumi.get(__response__, 'expiry'),
+        https_only=pulumi.get(__response__, 'https_only'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address=pulumi.get(__response__, 'ip_address'),
+        permissions=pulumi.get(__response__, 'permissions'),
+        sas=pulumi.get(__response__, 'sas'),
+        start=pulumi.get(__response__, 'start')))

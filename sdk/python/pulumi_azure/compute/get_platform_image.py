@@ -139,9 +139,6 @@ def get_platform_image(location: Optional[str] = None,
         publisher=pulumi.get(__ret__, 'publisher'),
         sku=pulumi.get(__ret__, 'sku'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_platform_image)
 def get_platform_image_output(location: Optional[pulumi.Input[str]] = None,
                               offer: Optional[pulumi.Input[str]] = None,
                               publisher: Optional[pulumi.Input[str]] = None,
@@ -171,4 +168,18 @@ def get_platform_image_output(location: Optional[pulumi.Input[str]] = None,
     :param str sku: Specifies the SKU of the Platform Image.
     :param str version: The version of the Platform Image.
     """
-    ...
+    __args__ = dict()
+    __args__['location'] = location
+    __args__['offer'] = offer
+    __args__['publisher'] = publisher
+    __args__['sku'] = sku
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts, typ=GetPlatformImageResult)
+    return __ret__.apply(lambda __response__: GetPlatformImageResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        offer=pulumi.get(__response__, 'offer'),
+        publisher=pulumi.get(__response__, 'publisher'),
+        sku=pulumi.get(__response__, 'sku'),
+        version=pulumi.get(__response__, 'version')))

@@ -349,9 +349,6 @@ def get_service(name: Optional[str] = None,
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'),
         tenant_accesses=pulumi.get(__ret__, 'tenant_accesses'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -375,4 +372,32 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
     :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:apimanagement/getService:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        additional_locations=pulumi.get(__response__, 'additional_locations'),
+        developer_portal_url=pulumi.get(__response__, 'developer_portal_url'),
+        gateway_regional_url=pulumi.get(__response__, 'gateway_regional_url'),
+        gateway_url=pulumi.get(__response__, 'gateway_url'),
+        hostname_configurations=pulumi.get(__response__, 'hostname_configurations'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        management_api_url=pulumi.get(__response__, 'management_api_url'),
+        name=pulumi.get(__response__, 'name'),
+        notification_sender_email=pulumi.get(__response__, 'notification_sender_email'),
+        portal_url=pulumi.get(__response__, 'portal_url'),
+        private_ip_addresses=pulumi.get(__response__, 'private_ip_addresses'),
+        public_ip_address_id=pulumi.get(__response__, 'public_ip_address_id'),
+        public_ip_addresses=pulumi.get(__response__, 'public_ip_addresses'),
+        publisher_email=pulumi.get(__response__, 'publisher_email'),
+        publisher_name=pulumi.get(__response__, 'publisher_name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        scm_url=pulumi.get(__response__, 'scm_url'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        tenant_accesses=pulumi.get(__response__, 'tenant_accesses')))

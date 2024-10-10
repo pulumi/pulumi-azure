@@ -129,9 +129,6 @@ def get_network_manager_network_group(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         network_manager_id=pulumi.get(__ret__, 'network_manager_id'))
-
-
-@_utilities.lift_output_func(get_network_manager_network_group)
 def get_network_manager_network_group_output(name: Optional[pulumi.Input[str]] = None,
                                              network_manager_id: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkManagerNetworkGroupResult]:
@@ -171,4 +168,13 @@ def get_network_manager_network_group_output(name: Optional[pulumi.Input[str]] =
     :param str name: Specifies the name of the Network Manager Network Group.
     :param str network_manager_id: Specifies the ID of the Network Manager.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['networkManagerId'] = network_manager_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup', __args__, opts=opts, typ=GetNetworkManagerNetworkGroupResult)
+    return __ret__.apply(lambda __response__: GetNetworkManagerNetworkGroupResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        network_manager_id=pulumi.get(__response__, 'network_manager_id')))

@@ -86,9 +86,6 @@ def get_traffic_manager(name: Optional[str] = None,
     return AwaitableGetTrafficManagerResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_traffic_manager)
 def get_traffic_manager_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficManagerResult]:
     """
@@ -109,4 +106,10 @@ def get_traffic_manager_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getTrafficManager:getTrafficManager', __args__, opts=opts, typ=GetTrafficManagerResult)
+    return __ret__.apply(lambda __response__: GetTrafficManagerResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))

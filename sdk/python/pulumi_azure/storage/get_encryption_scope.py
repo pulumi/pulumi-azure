@@ -126,9 +126,6 @@ def get_encryption_scope(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         source=pulumi.get(__ret__, 'source'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
-
-
-@_utilities.lift_output_func(get_encryption_scope)
 def get_encryption_scope_output(name: Optional[pulumi.Input[str]] = None,
                                 storage_account_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEncryptionScopeResult]:
@@ -152,4 +149,14 @@ def get_encryption_scope_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Storage Encryption Scope.
     :param str storage_account_id: The ID of the Storage Account where this Storage Encryption Scope exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['storageAccountId'] = storage_account_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getEncryptionScope:getEncryptionScope', __args__, opts=opts, typ=GetEncryptionScopeResult)
+    return __ret__.apply(lambda __response__: GetEncryptionScopeResult(
+        id=pulumi.get(__response__, 'id'),
+        key_vault_key_id=pulumi.get(__response__, 'key_vault_key_id'),
+        name=pulumi.get(__response__, 'name'),
+        source=pulumi.get(__response__, 'source'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id')))

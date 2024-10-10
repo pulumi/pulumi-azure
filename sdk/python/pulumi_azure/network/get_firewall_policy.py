@@ -192,9 +192,6 @@ def get_firewall_policy(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         threat_intelligence_allowlists=pulumi.get(__ret__, 'threat_intelligence_allowlists'),
         threat_intelligence_mode=pulumi.get(__ret__, 'threat_intelligence_mode'))
-
-
-@_utilities.lift_output_func(get_firewall_policy)
 def get_firewall_policy_output(name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyResult]:
@@ -216,4 +213,21 @@ def get_firewall_policy_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Firewall Policy.
     :param str resource_group_name: The name of the Resource Group where the Firewall Policy exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getFirewallPolicy:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult)
+    return __ret__.apply(lambda __response__: GetFirewallPolicyResult(
+        base_policy_id=pulumi.get(__response__, 'base_policy_id'),
+        child_policies=pulumi.get(__response__, 'child_policies'),
+        dns=pulumi.get(__response__, 'dns'),
+        firewalls=pulumi.get(__response__, 'firewalls'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        rule_collection_groups=pulumi.get(__response__, 'rule_collection_groups'),
+        tags=pulumi.get(__response__, 'tags'),
+        threat_intelligence_allowlists=pulumi.get(__response__, 'threat_intelligence_allowlists'),
+        threat_intelligence_mode=pulumi.get(__response__, 'threat_intelligence_mode')))
