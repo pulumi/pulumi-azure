@@ -69,7 +69,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				ServicePlanId:     exampleServicePlan.ID(),
-//				SiteConfig:        nil,
+//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

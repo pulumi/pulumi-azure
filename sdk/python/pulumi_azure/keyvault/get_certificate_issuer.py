@@ -153,9 +153,6 @@ def get_certificate_issuer(key_vault_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         org_id=pulumi.get(__ret__, 'org_id'),
         provider_name=pulumi.get(__ret__, 'provider_name'))
-
-
-@_utilities.lift_output_func(get_certificate_issuer)
 def get_certificate_issuer_output(key_vault_id: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateIssuerResult]:
@@ -179,4 +176,16 @@ def get_certificate_issuer_output(key_vault_id: Optional[pulumi.Input[str]] = No
     :param str key_vault_id: The ID of the Key Vault in which to locate the Certificate Issuer.
     :param str name: The name of the Key Vault Certificate Issuer.
     """
-    ...
+    __args__ = dict()
+    __args__['keyVaultId'] = key_vault_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getCertificateIssuer:getCertificateIssuer', __args__, opts=opts, typ=GetCertificateIssuerResult)
+    return __ret__.apply(lambda __response__: GetCertificateIssuerResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        admins=pulumi.get(__response__, 'admins'),
+        id=pulumi.get(__response__, 'id'),
+        key_vault_id=pulumi.get(__response__, 'key_vault_id'),
+        name=pulumi.get(__response__, 'name'),
+        org_id=pulumi.get(__response__, 'org_id'),
+        provider_name=pulumi.get(__response__, 'provider_name')))

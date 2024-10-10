@@ -126,9 +126,6 @@ def get_queue(metadata: Optional[Mapping[str, str]] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
-
-
-@_utilities.lift_output_func(get_queue)
 def get_queue_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,15 @@ def get_queue_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]
     :param str name: The name of the Queue.
     :param str storage_account_name: The name of the Storage Account where the Queue exists.
     """
-    ...
+    __args__ = dict()
+    __args__['metadata'] = metadata
+    __args__['name'] = name
+    __args__['storageAccountName'] = storage_account_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:storage/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult)
+    return __ret__.apply(lambda __response__: GetQueueResult(
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
+        storage_account_name=pulumi.get(__response__, 'storage_account_name')))

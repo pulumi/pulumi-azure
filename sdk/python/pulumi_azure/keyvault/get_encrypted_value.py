@@ -128,9 +128,6 @@ def get_encrypted_value(algorithm: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         key_vault_key_id=pulumi.get(__ret__, 'key_vault_key_id'),
         plain_text_value=pulumi.get(__ret__, 'plain_text_value'))
-
-
-@_utilities.lift_output_func(get_encrypted_value)
 def get_encrypted_value_output(algorithm: Optional[pulumi.Input[str]] = None,
                                encrypted_data: Optional[pulumi.Input[Optional[str]]] = None,
                                key_vault_key_id: Optional[pulumi.Input[str]] = None,
@@ -147,4 +144,17 @@ def get_encrypted_value_output(algorithm: Optional[pulumi.Input[str]] = None,
            
            > **Note:** One of either `encrypted_data` or `plain_text_value` must be specified and is used to populate the encrypted/decrypted value for the other field.
     """
-    ...
+    __args__ = dict()
+    __args__['algorithm'] = algorithm
+    __args__['encryptedData'] = encrypted_data
+    __args__['keyVaultKeyId'] = key_vault_key_id
+    __args__['plainTextValue'] = plain_text_value
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getEncryptedValue:getEncryptedValue', __args__, opts=opts, typ=GetEncryptedValueResult)
+    return __ret__.apply(lambda __response__: GetEncryptedValueResult(
+        algorithm=pulumi.get(__response__, 'algorithm'),
+        decoded_plain_text_value=pulumi.get(__response__, 'decoded_plain_text_value'),
+        encrypted_data=pulumi.get(__response__, 'encrypted_data'),
+        id=pulumi.get(__response__, 'id'),
+        key_vault_key_id=pulumi.get(__response__, 'key_vault_key_id'),
+        plain_text_value=pulumi.get(__response__, 'plain_text_value')))

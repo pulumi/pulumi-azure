@@ -204,9 +204,6 @@ def get_spring_cloud_app(name: Optional[str] = None,
         service_name=pulumi.get(__ret__, 'service_name'),
         tls_enabled=pulumi.get(__ret__, 'tls_enabled'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_spring_cloud_app)
 def get_spring_cloud_app_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 service_name: Optional[pulumi.Input[str]] = None,
@@ -231,4 +228,21 @@ def get_spring_cloud_app_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the Resource Group where the Spring Cloud Application exists.
     :param str service_name: The name of the Spring Cloud Service.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appplatform/getSpringCloudApp:getSpringCloudApp', __args__, opts=opts, typ=GetSpringCloudAppResult)
+    return __ret__.apply(lambda __response__: GetSpringCloudAppResult(
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        https_only=pulumi.get(__response__, 'https_only'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        is_public=pulumi.get(__response__, 'is_public'),
+        name=pulumi.get(__response__, 'name'),
+        persistent_disks=pulumi.get(__response__, 'persistent_disks'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        service_name=pulumi.get(__response__, 'service_name'),
+        tls_enabled=pulumi.get(__response__, 'tls_enabled'),
+        url=pulumi.get(__response__, 'url')))

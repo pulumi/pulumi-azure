@@ -217,9 +217,6 @@ def get_secret(key_vault_id: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'),
         version=pulumi.get(__ret__, 'version'),
         versionless_id=pulumi.get(__ret__, 'versionless_id'))
-
-
-@_utilities.lift_output_func(get_secret)
 def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
                       name: Optional[pulumi.Input[str]] = None,
                       version: Optional[pulumi.Input[Optional[str]]] = None,
@@ -245,4 +242,22 @@ def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
            
            **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['keyVaultId'] = key_vault_id
+    __args__['name'] = name
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult)
+    return __ret__.apply(lambda __response__: GetSecretResult(
+        content_type=pulumi.get(__response__, 'content_type'),
+        expiration_date=pulumi.get(__response__, 'expiration_date'),
+        id=pulumi.get(__response__, 'id'),
+        key_vault_id=pulumi.get(__response__, 'key_vault_id'),
+        name=pulumi.get(__response__, 'name'),
+        not_before_date=pulumi.get(__response__, 'not_before_date'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        resource_versionless_id=pulumi.get(__response__, 'resource_versionless_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        value=pulumi.get(__response__, 'value'),
+        version=pulumi.get(__response__, 'version'),
+        versionless_id=pulumi.get(__response__, 'versionless_id')))

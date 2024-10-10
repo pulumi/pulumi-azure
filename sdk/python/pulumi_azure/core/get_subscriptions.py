@@ -112,9 +112,6 @@ def get_subscriptions(display_name_contains: Optional[str] = None,
         display_name_prefix=pulumi.get(__ret__, 'display_name_prefix'),
         id=pulumi.get(__ret__, 'id'),
         subscriptions=pulumi.get(__ret__, 'subscriptions'))
-
-
-@_utilities.lift_output_func(get_subscriptions)
 def get_subscriptions_output(display_name_contains: Optional[pulumi.Input[Optional[str]]] = None,
                              display_name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionsResult]:
@@ -136,4 +133,13 @@ def get_subscriptions_output(display_name_contains: Optional[pulumi.Input[Option
     :param str display_name_contains: A case-insensitive value which must be contained within the `display_name` field, used to filter the results
     :param str display_name_prefix: A case-insensitive prefix which can be used to filter on the `display_name` field
     """
-    ...
+    __args__ = dict()
+    __args__['displayNameContains'] = display_name_contains
+    __args__['displayNamePrefix'] = display_name_prefix
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:core/getSubscriptions:getSubscriptions', __args__, opts=opts, typ=GetSubscriptionsResult)
+    return __ret__.apply(lambda __response__: GetSubscriptionsResult(
+        display_name_contains=pulumi.get(__response__, 'display_name_contains'),
+        display_name_prefix=pulumi.get(__response__, 'display_name_prefix'),
+        id=pulumi.get(__response__, 'id'),
+        subscriptions=pulumi.get(__response__, 'subscriptions')))

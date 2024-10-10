@@ -190,9 +190,6 @@ def get_virtual_machine_configuration_assignment(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         virtual_machine_name=pulumi.get(__ret__, 'virtual_machine_name'))
-
-
-@_utilities.lift_output_func(get_virtual_machine_configuration_assignment)
 def get_virtual_machine_configuration_assignment_output(name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         virtual_machine_name: Optional[pulumi.Input[str]] = None,
@@ -217,4 +214,20 @@ def get_virtual_machine_configuration_assignment_output(name: Optional[pulumi.In
     :param str resource_group_name: Specifies the Name of the Resource Group where the Guest Configuration Assignment exists.
     :param str virtual_machine_name: Only retrieve Policy Set Definitions from this Management Group.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualMachineName'] = virtual_machine_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment', __args__, opts=opts, typ=GetVirtualMachineConfigurationAssignmentResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineConfigurationAssignmentResult(
+        assignment_hash=pulumi.get(__response__, 'assignment_hash'),
+        compliance_status=pulumi.get(__response__, 'compliance_status'),
+        content_hash=pulumi.get(__response__, 'content_hash'),
+        content_uri=pulumi.get(__response__, 'content_uri'),
+        id=pulumi.get(__response__, 'id'),
+        last_compliance_status_checked=pulumi.get(__response__, 'last_compliance_status_checked'),
+        latest_report_id=pulumi.get(__response__, 'latest_report_id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        virtual_machine_name=pulumi.get(__response__, 'virtual_machine_name')))

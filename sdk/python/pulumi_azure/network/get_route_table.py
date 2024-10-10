@@ -166,9 +166,6 @@ def get_route_table(name: Optional[str] = None,
         routes=pulumi.get(__ret__, 'routes'),
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_route_table)
 def get_route_table_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableResult]:
@@ -189,4 +186,17 @@ def get_route_table_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Route Table.
     :param str resource_group_name: The name of the Resource Group in which the Route Table exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getRouteTable:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult)
+    return __ret__.apply(lambda __response__: GetRouteTableResult(
+        bgp_route_propagation_enabled=pulumi.get(__response__, 'bgp_route_propagation_enabled'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        routes=pulumi.get(__response__, 'routes'),
+        subnets=pulumi.get(__response__, 'subnets'),
+        tags=pulumi.get(__response__, 'tags')))

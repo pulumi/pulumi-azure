@@ -282,9 +282,6 @@ def get_grafana(identity: Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaId
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         zone_redundancy_enabled=pulumi.get(__ret__, 'zone_redundancy_enabled'))
-
-
-@_utilities.lift_output_func(get_grafana)
 def get_grafana_output(identity: Optional[pulumi.Input[Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict']]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -308,4 +305,27 @@ def get_grafana_output(identity: Optional[pulumi.Input[Optional[Union['GetGrafan
     :param str name: Name of the grafana dashboard.
     :param str resource_group_name: Name of the resource group where resource belongs to.
     """
-    ...
+    __args__ = dict()
+    __args__['identity'] = identity
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:dashboard/getGrafana:getGrafana', __args__, opts=opts, typ=GetGrafanaResult)
+    return __ret__.apply(lambda __response__: GetGrafanaResult(
+        api_key_enabled=pulumi.get(__response__, 'api_key_enabled'),
+        auto_generated_domain_name_label_scope=pulumi.get(__response__, 'auto_generated_domain_name_label_scope'),
+        azure_monitor_workspace_integrations=pulumi.get(__response__, 'azure_monitor_workspace_integrations'),
+        deterministic_outbound_ip_enabled=pulumi.get(__response__, 'deterministic_outbound_ip_enabled'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        grafana_major_version=pulumi.get(__response__, 'grafana_major_version'),
+        grafana_version=pulumi.get(__response__, 'grafana_version'),
+        id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_ips=pulumi.get(__response__, 'outbound_ips'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        zone_redundancy_enabled=pulumi.get(__response__, 'zone_redundancy_enabled')))

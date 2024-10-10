@@ -216,9 +216,6 @@ def get_snapshot_policy(account_name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'),
         weekly_schedules=pulumi.get(__ret__, 'weekly_schedules'))
-
-
-@_utilities.lift_output_func(get_snapshot_policy)
 def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -249,4 +246,21 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the NetApp Snapshot Policy.
     :param str resource_group_name: The Name of the Resource Group where the NetApp Snapshot Policy exists.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:netapp/getSnapshotPolicy:getSnapshotPolicy', __args__, opts=opts, typ=GetSnapshotPolicyResult)
+    return __ret__.apply(lambda __response__: GetSnapshotPolicyResult(
+        account_name=pulumi.get(__response__, 'account_name'),
+        daily_schedules=pulumi.get(__response__, 'daily_schedules'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        hourly_schedules=pulumi.get(__response__, 'hourly_schedules'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        monthly_schedules=pulumi.get(__response__, 'monthly_schedules'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        weekly_schedules=pulumi.get(__response__, 'weekly_schedules')))

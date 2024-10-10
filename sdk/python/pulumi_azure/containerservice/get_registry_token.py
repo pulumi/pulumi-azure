@@ -138,9 +138,6 @@ def get_registry_token(container_registry_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         scope_map_id=pulumi.get(__ret__, 'scope_map_id'))
-
-
-@_utilities.lift_output_func(get_registry_token)
 def get_registry_token_output(container_registry_name: Optional[pulumi.Input[str]] = None,
                               name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -165,4 +162,16 @@ def get_registry_token_output(container_registry_name: Optional[pulumi.Input[str
     :param str name: The name of the Container Registry token.
     :param str resource_group_name: The Name of the Resource Group where this Container Registry token exists.
     """
-    ...
+    __args__ = dict()
+    __args__['containerRegistryName'] = container_registry_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:containerservice/getRegistryToken:getRegistryToken', __args__, opts=opts, typ=GetRegistryTokenResult)
+    return __ret__.apply(lambda __response__: GetRegistryTokenResult(
+        container_registry_name=pulumi.get(__response__, 'container_registry_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        scope_map_id=pulumi.get(__response__, 'scope_map_id')))

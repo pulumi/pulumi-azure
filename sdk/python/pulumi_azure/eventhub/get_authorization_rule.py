@@ -239,9 +239,6 @@ def get_authorization_rule(eventhub_name: Optional[str] = None,
         secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'),
         send=pulumi.get(__ret__, 'send'))
-
-
-@_utilities.lift_output_func(get_authorization_rule)
 def get_authorization_rule_output(eventhub_name: Optional[pulumi.Input[str]] = None,
                                   listen: Optional[pulumi.Input[Optional[bool]]] = None,
                                   manage: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -271,4 +268,28 @@ def get_authorization_rule_output(eventhub_name: Optional[pulumi.Input[str]] = N
     :param str namespace_name: Specifies the name of the grandparent EventHub Namespace.
     :param str resource_group_name: The name of the resource group in which the EventHub Authorization Rule's grandparent Namespace exists.
     """
-    ...
+    __args__ = dict()
+    __args__['eventhubName'] = eventhub_name
+    __args__['listen'] = listen
+    __args__['manage'] = manage
+    __args__['name'] = name
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['send'] = send
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:eventhub/getAuthorizationRule:getAuthorizationRule', __args__, opts=opts, typ=GetAuthorizationRuleResult)
+    return __ret__.apply(lambda __response__: GetAuthorizationRuleResult(
+        eventhub_name=pulumi.get(__response__, 'eventhub_name'),
+        id=pulumi.get(__response__, 'id'),
+        listen=pulumi.get(__response__, 'listen'),
+        manage=pulumi.get(__response__, 'manage'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
+        primary_connection_string_alias=pulumi.get(__response__, 'primary_connection_string_alias'),
+        primary_key=pulumi.get(__response__, 'primary_key'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
+        secondary_connection_string_alias=pulumi.get(__response__, 'secondary_connection_string_alias'),
+        secondary_key=pulumi.get(__response__, 'secondary_key'),
+        send=pulumi.get(__response__, 'send')))

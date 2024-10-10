@@ -224,9 +224,6 @@ def get_network_attached_data_network(mobile_network_data_network_name: Optional
         user_plane_access_ipv4_gateway=pulumi.get(__ret__, 'user_plane_access_ipv4_gateway'),
         user_plane_access_ipv4_subnet=pulumi.get(__ret__, 'user_plane_access_ipv4_subnet'),
         user_plane_access_name=pulumi.get(__ret__, 'user_plane_access_name'))
-
-
-@_utilities.lift_output_func(get_network_attached_data_network)
 def get_network_attached_data_network_output(mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
                                              mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkAttachedDataNetworkResult]:
@@ -249,4 +246,22 @@ def get_network_attached_data_network_output(mobile_network_data_network_name: O
     :param str mobile_network_data_network_name: The Name of the `mobile.NetworkDataNetwork` this resource belongs to.
     :param str mobile_network_packet_core_data_plane_id: The ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to.
     """
-    ...
+    __args__ = dict()
+    __args__['mobileNetworkDataNetworkName'] = mobile_network_data_network_name
+    __args__['mobileNetworkPacketCoreDataPlaneId'] = mobile_network_packet_core_data_plane_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork', __args__, opts=opts, typ=GetNetworkAttachedDataNetworkResult)
+    return __ret__.apply(lambda __response__: GetNetworkAttachedDataNetworkResult(
+        dns_addresses=pulumi.get(__response__, 'dns_addresses'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        mobile_network_data_network_name=pulumi.get(__response__, 'mobile_network_data_network_name'),
+        mobile_network_packet_core_data_plane_id=pulumi.get(__response__, 'mobile_network_packet_core_data_plane_id'),
+        network_address_port_translations=pulumi.get(__response__, 'network_address_port_translations'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_equipment_address_pool_prefixes=pulumi.get(__response__, 'user_equipment_address_pool_prefixes'),
+        user_equipment_static_address_pool_prefixes=pulumi.get(__response__, 'user_equipment_static_address_pool_prefixes'),
+        user_plane_access_ipv4_address=pulumi.get(__response__, 'user_plane_access_ipv4_address'),
+        user_plane_access_ipv4_gateway=pulumi.get(__response__, 'user_plane_access_ipv4_gateway'),
+        user_plane_access_ipv4_subnet=pulumi.get(__response__, 'user_plane_access_ipv4_subnet'),
+        user_plane_access_name=pulumi.get(__response__, 'user_plane_access_name')))

@@ -219,9 +219,6 @@ def get_account(name: Optional[str] = None,
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_account)
 def get_account_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -245,4 +242,22 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Specifies the name of the resource group where the Cognitive Services Account resides.
     :param Mapping[str, str] tags: A mapping of tags to assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:cognitive/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
+    return __ret__.apply(lambda __response__: GetAccountResult(
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        kind=pulumi.get(__response__, 'kind'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        primary_access_key=pulumi.get(__response__, 'primary_access_key'),
+        qna_runtime_endpoint=pulumi.get(__response__, 'qna_runtime_endpoint'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__response__, 'secondary_access_key'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        tags=pulumi.get(__response__, 'tags')))

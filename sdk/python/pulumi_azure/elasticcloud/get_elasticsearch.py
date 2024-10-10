@@ -263,9 +263,6 @@ def get_elasticsearch(logs: Optional[Sequence[Union['GetElasticsearchLogArgs', '
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_elasticsearch)
 def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']]]]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -290,4 +287,25 @@ def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[Union
     :param str name: The name of the Elasticsearch resource.
     :param str resource_group_name: The name of the resource group in which the Elasticsearch exists.
     """
-    ...
+    __args__ = dict()
+    __args__['logs'] = logs
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:elasticcloud/getElasticsearch:getElasticsearch', __args__, opts=opts, typ=GetElasticsearchResult)
+    return __ret__.apply(lambda __response__: GetElasticsearchResult(
+        elastic_cloud_deployment_id=pulumi.get(__response__, 'elastic_cloud_deployment_id'),
+        elastic_cloud_email_address=pulumi.get(__response__, 'elastic_cloud_email_address'),
+        elastic_cloud_sso_default_url=pulumi.get(__response__, 'elastic_cloud_sso_default_url'),
+        elastic_cloud_user_id=pulumi.get(__response__, 'elastic_cloud_user_id'),
+        elasticsearch_service_url=pulumi.get(__response__, 'elasticsearch_service_url'),
+        id=pulumi.get(__response__, 'id'),
+        kibana_service_url=pulumi.get(__response__, 'kibana_service_url'),
+        kibana_sso_uri=pulumi.get(__response__, 'kibana_sso_uri'),
+        location=pulumi.get(__response__, 'location'),
+        logs=pulumi.get(__response__, 'logs'),
+        monitoring_enabled=pulumi.get(__response__, 'monitoring_enabled'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        tags=pulumi.get(__response__, 'tags')))

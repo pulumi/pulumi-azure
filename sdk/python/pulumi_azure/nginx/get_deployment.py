@@ -310,9 +310,6 @@ def get_deployment(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_deployment)
 def get_deployment_output(name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
@@ -334,4 +331,28 @@ def get_deployment_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this NGINX Deployment.
     :param str resource_group_name: The name of the Resource Group where the NGINX Deployment exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:nginx/getDeployment:getDeployment', __args__, opts=opts, typ=GetDeploymentResult)
+    return __ret__.apply(lambda __response__: GetDeploymentResult(
+        auto_scale_profiles=pulumi.get(__response__, 'auto_scale_profiles'),
+        automatic_upgrade_channel=pulumi.get(__response__, 'automatic_upgrade_channel'),
+        capacity=pulumi.get(__response__, 'capacity'),
+        diagnose_support_enabled=pulumi.get(__response__, 'diagnose_support_enabled'),
+        email=pulumi.get(__response__, 'email'),
+        frontend_privates=pulumi.get(__response__, 'frontend_privates'),
+        frontend_publics=pulumi.get(__response__, 'frontend_publics'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        ip_address=pulumi.get(__response__, 'ip_address'),
+        location=pulumi.get(__response__, 'location'),
+        logging_storage_accounts=pulumi.get(__response__, 'logging_storage_accounts'),
+        managed_resource_group=pulumi.get(__response__, 'managed_resource_group'),
+        name=pulumi.get(__response__, 'name'),
+        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
+        nginx_version=pulumi.get(__response__, 'nginx_version'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags')))

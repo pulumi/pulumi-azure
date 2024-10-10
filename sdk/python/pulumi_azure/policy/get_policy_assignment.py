@@ -229,9 +229,6 @@ def get_policy_assignment(name: Optional[str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         policy_definition_id=pulumi.get(__ret__, 'policy_definition_id'),
         scope_id=pulumi.get(__ret__, 'scope_id'))
-
-
-@_utilities.lift_output_func(get_policy_assignment)
 def get_policy_assignment_output(name: Optional[pulumi.Input[str]] = None,
                                  scope_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
@@ -253,4 +250,22 @@ def get_policy_assignment_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.
     :param str scope_id: The ID of the scope this Policy Assignment is assigned to. The `scope_id` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['scopeId'] = scope_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:policy/getPolicyAssignment:getPolicyAssignment', __args__, opts=opts, typ=GetPolicyAssignmentResult)
+    return __ret__.apply(lambda __response__: GetPolicyAssignmentResult(
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        enforce=pulumi.get(__response__, 'enforce'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        location=pulumi.get(__response__, 'location'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        non_compliance_messages=pulumi.get(__response__, 'non_compliance_messages'),
+        not_scopes=pulumi.get(__response__, 'not_scopes'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        policy_definition_id=pulumi.get(__response__, 'policy_definition_id'),
+        scope_id=pulumi.get(__response__, 'scope_id')))

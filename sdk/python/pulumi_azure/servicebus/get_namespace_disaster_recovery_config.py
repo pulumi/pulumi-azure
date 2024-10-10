@@ -171,9 +171,6 @@ def get_namespace_disaster_recovery_config(alias_authorization_rule_id: Optional
         primary_connection_string_alias=pulumi.get(__ret__, 'primary_connection_string_alias'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'))
-
-
-@_utilities.lift_output_func(get_namespace_disaster_recovery_config)
 def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: Optional[pulumi.Input[Optional[str]]] = None,
                                                   name: Optional[pulumi.Input[str]] = None,
                                                   namespace_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -183,4 +180,23 @@ def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: O
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    __args__['aliasAuthorizationRuleId'] = alias_authorization_rule_id
+    __args__['name'] = name
+    __args__['namespaceId'] = namespace_id
+    __args__['namespaceName'] = namespace_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig', __args__, opts=opts, typ=GetNamespaceDisasterRecoveryConfigResult)
+    return __ret__.apply(lambda __response__: GetNamespaceDisasterRecoveryConfigResult(
+        alias_authorization_rule_id=pulumi.get(__response__, 'alias_authorization_rule_id'),
+        default_primary_key=pulumi.get(__response__, 'default_primary_key'),
+        default_secondary_key=pulumi.get(__response__, 'default_secondary_key'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_id=pulumi.get(__response__, 'namespace_id'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        partner_namespace_id=pulumi.get(__response__, 'partner_namespace_id'),
+        primary_connection_string_alias=pulumi.get(__response__, 'primary_connection_string_alias'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_connection_string_alias=pulumi.get(__response__, 'secondary_connection_string_alias')))

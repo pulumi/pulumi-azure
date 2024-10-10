@@ -240,9 +240,6 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
         sort_versions_by_semver=pulumi.get(__ret__, 'sort_versions_by_semver'),
         tags=pulumi.get(__ret__, 'tags'),
         target_regions=pulumi.get(__ret__, 'target_regions'))
-
-
-@_utilities.lift_output_func(get_shared_image_version)
 def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[str]] = None,
                                     image_name: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[str]] = None,
@@ -277,4 +274,26 @@ def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[str]] = 
     :param bool sort_versions_by_semver: Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
     :param Mapping[str, str] tags: A mapping of tags assigned to the Shared Image.
     """
-    ...
+    __args__ = dict()
+    __args__['galleryName'] = gallery_name
+    __args__['imageName'] = image_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['sortVersionsBySemver'] = sort_versions_by_semver
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getSharedImageVersion:getSharedImageVersion', __args__, opts=opts, typ=GetSharedImageVersionResult)
+    return __ret__.apply(lambda __response__: GetSharedImageVersionResult(
+        exclude_from_latest=pulumi.get(__response__, 'exclude_from_latest'),
+        gallery_name=pulumi.get(__response__, 'gallery_name'),
+        id=pulumi.get(__response__, 'id'),
+        image_name=pulumi.get(__response__, 'image_name'),
+        location=pulumi.get(__response__, 'location'),
+        managed_image_id=pulumi.get(__response__, 'managed_image_id'),
+        name=pulumi.get(__response__, 'name'),
+        os_disk_image_size_gb=pulumi.get(__response__, 'os_disk_image_size_gb'),
+        os_disk_snapshot_id=pulumi.get(__response__, 'os_disk_snapshot_id'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sort_versions_by_semver=pulumi.get(__response__, 'sort_versions_by_semver'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_regions=pulumi.get(__response__, 'target_regions')))

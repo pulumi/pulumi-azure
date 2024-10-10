@@ -121,9 +121,6 @@ def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
         object_id=pulumi.get(__ret__, 'object_id'),
         subscription_id=pulumi.get(__ret__, 'subscription_id'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
-
-
-@_utilities.lift_output_func(get_client_config)
 def get_client_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientConfigResult]:
     """
     Use this data source to access the configuration of the AzureRM provider.
@@ -138,4 +135,12 @@ def get_client_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pul
     pulumi.export("accountId", current.client_id)
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:core/getClientConfig:getClientConfig', __args__, opts=opts, typ=GetClientConfigResult)
+    return __ret__.apply(lambda __response__: GetClientConfigResult(
+        client_id=pulumi.get(__response__, 'client_id'),
+        id=pulumi.get(__response__, 'id'),
+        object_id=pulumi.get(__response__, 'object_id'),
+        subscription_id=pulumi.get(__response__, 'subscription_id'),
+        tenant_id=pulumi.get(__response__, 'tenant_id')))

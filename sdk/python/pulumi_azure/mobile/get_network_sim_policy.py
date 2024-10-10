@@ -191,9 +191,6 @@ def get_network_sim_policy(mobile_network_id: Optional[str] = None,
         slices=pulumi.get(__ret__, 'slices'),
         tags=pulumi.get(__ret__, 'tags'),
         user_equipment_aggregate_maximum_bit_rates=pulumi.get(__ret__, 'user_equipment_aggregate_maximum_bit_rates'))
-
-
-@_utilities.lift_output_func(get_network_sim_policy)
 def get_network_sim_policy_output(mobile_network_id: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSimPolicyResult]:
@@ -216,4 +213,19 @@ def get_network_sim_policy_output(mobile_network_id: Optional[pulumi.Input[str]]
     :param str mobile_network_id: The ID of the Mobile Network which the Sim Policy belongs to.
     :param str name: The name which should be used for this Mobile Network Sim Policies.
     """
-    ...
+    __args__ = dict()
+    __args__['mobileNetworkId'] = mobile_network_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy', __args__, opts=opts, typ=GetNetworkSimPolicyResult)
+    return __ret__.apply(lambda __response__: GetNetworkSimPolicyResult(
+        default_slice_id=pulumi.get(__response__, 'default_slice_id'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        mobile_network_id=pulumi.get(__response__, 'mobile_network_id'),
+        name=pulumi.get(__response__, 'name'),
+        rat_frequency_selection_priority_index=pulumi.get(__response__, 'rat_frequency_selection_priority_index'),
+        registration_timer_in_seconds=pulumi.get(__response__, 'registration_timer_in_seconds'),
+        slices=pulumi.get(__response__, 'slices'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_equipment_aggregate_maximum_bit_rates=pulumi.get(__response__, 'user_equipment_aggregate_maximum_bit_rates')))

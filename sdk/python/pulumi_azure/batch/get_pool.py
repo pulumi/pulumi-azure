@@ -407,9 +407,6 @@ def get_pool(account_name: Optional[str] = None,
         user_accounts=pulumi.get(__ret__, 'user_accounts'),
         vm_size=pulumi.get(__ret__, 'vm_size'),
         windows=pulumi.get(__ret__, 'windows'))
-
-
-@_utilities.lift_output_func(get_pool)
 def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -432,4 +429,37 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: The Azure Storage Account name.
     :param str name: The name of the user account.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:batch/getPool:getPool', __args__, opts=opts, typ=GetPoolResult)
+    return __ret__.apply(lambda __response__: GetPoolResult(
+        account_name=pulumi.get(__response__, 'account_name'),
+        auto_scales=pulumi.get(__response__, 'auto_scales'),
+        certificates=pulumi.get(__response__, 'certificates'),
+        container_configurations=pulumi.get(__response__, 'container_configurations'),
+        data_disks=pulumi.get(__response__, 'data_disks'),
+        disk_encryptions=pulumi.get(__response__, 'disk_encryptions'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        extensions=pulumi.get(__response__, 'extensions'),
+        fixed_scales=pulumi.get(__response__, 'fixed_scales'),
+        id=pulumi.get(__response__, 'id'),
+        inter_node_communication=pulumi.get(__response__, 'inter_node_communication'),
+        license_type=pulumi.get(__response__, 'license_type'),
+        max_tasks_per_node=pulumi.get(__response__, 'max_tasks_per_node'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        mounts=pulumi.get(__response__, 'mounts'),
+        name=pulumi.get(__response__, 'name'),
+        network_configurations=pulumi.get(__response__, 'network_configurations'),
+        node_agent_sku_id=pulumi.get(__response__, 'node_agent_sku_id'),
+        node_placements=pulumi.get(__response__, 'node_placements'),
+        os_disk_placement=pulumi.get(__response__, 'os_disk_placement'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        start_tasks=pulumi.get(__response__, 'start_tasks'),
+        storage_image_references=pulumi.get(__response__, 'storage_image_references'),
+        task_scheduling_policies=pulumi.get(__response__, 'task_scheduling_policies'),
+        user_accounts=pulumi.get(__response__, 'user_accounts'),
+        vm_size=pulumi.get(__response__, 'vm_size'),
+        windows=pulumi.get(__response__, 'windows')))

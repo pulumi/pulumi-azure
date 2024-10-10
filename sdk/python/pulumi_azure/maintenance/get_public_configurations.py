@@ -132,9 +132,6 @@ def get_public_configurations(location: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         recur_every=pulumi.get(__ret__, 'recur_every'),
         scope=pulumi.get(__ret__, 'scope'))
-
-
-@_utilities.lift_output_func(get_public_configurations)
 def get_public_configurations_output(location: Optional[pulumi.Input[Optional[str]]] = None,
                                      recur_every: Optional[pulumi.Input[Optional[str]]] = None,
                                      scope: Optional[pulumi.Input[Optional[str]]] = None,
@@ -159,4 +156,15 @@ def get_public_configurations_output(location: Optional[pulumi.Input[Optional[st
     :param str recur_every: The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
     :param str scope: The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
     """
-    ...
+    __args__ = dict()
+    __args__['location'] = location
+    __args__['recurEvery'] = recur_every
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:maintenance/getPublicConfigurations:getPublicConfigurations', __args__, opts=opts, typ=GetPublicConfigurationsResult)
+    return __ret__.apply(lambda __response__: GetPublicConfigurationsResult(
+        configs=pulumi.get(__response__, 'configs'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        recur_every=pulumi.get(__response__, 'recur_every'),
+        scope=pulumi.get(__response__, 'scope')))

@@ -197,9 +197,6 @@ def get_nat_gateway(name: Optional[str] = None,
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_nat_gateway)
 def get_nat_gateway_output(name: Optional[pulumi.Input[str]] = None,
                            public_ip_address_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            public_ip_prefix_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -214,4 +211,22 @@ def get_nat_gateway_output(name: Optional[pulumi.Input[str]] = None,
     :param Sequence[str] public_ip_prefix_ids: A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
     :param str resource_group_name: Specifies the name of the Resource Group where the NAT Gateway exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['publicIpAddressIds'] = public_ip_address_ids
+    __args__['publicIpPrefixIds'] = public_ip_prefix_ids
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getNatGateway:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult)
+    return __ret__.apply(lambda __response__: GetNatGatewayResult(
+        id=pulumi.get(__response__, 'id'),
+        idle_timeout_in_minutes=pulumi.get(__response__, 'idle_timeout_in_minutes'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        public_ip_address_ids=pulumi.get(__response__, 'public_ip_address_ids'),
+        public_ip_prefix_ids=pulumi.get(__response__, 'public_ip_prefix_ids'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        zones=pulumi.get(__response__, 'zones')))

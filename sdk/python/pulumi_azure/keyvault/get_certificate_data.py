@@ -208,9 +208,6 @@ def get_certificate_data(key_vault_id: Optional[str] = None,
         pem=pulumi.get(__ret__, 'pem'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_certificate_data)
 def get_certificate_data_output(key_vault_id: Optional[pulumi.Input[str]] = None,
                                 name: Optional[pulumi.Input[str]] = None,
                                 version: Optional[pulumi.Input[Optional[str]]] = None,
@@ -240,4 +237,21 @@ def get_certificate_data_output(key_vault_id: Optional[pulumi.Input[str]] = None
            
            > **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['keyVaultId'] = key_vault_id
+    __args__['name'] = name
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getCertificateData:getCertificateData', __args__, opts=opts, typ=GetCertificateDataResult)
+    return __ret__.apply(lambda __response__: GetCertificateDataResult(
+        certificates_count=pulumi.get(__response__, 'certificates_count'),
+        expires=pulumi.get(__response__, 'expires'),
+        hex=pulumi.get(__response__, 'hex'),
+        id=pulumi.get(__response__, 'id'),
+        key=pulumi.get(__response__, 'key'),
+        key_vault_id=pulumi.get(__response__, 'key_vault_id'),
+        name=pulumi.get(__response__, 'name'),
+        not_before=pulumi.get(__response__, 'not_before'),
+        pem=pulumi.get(__response__, 'pem'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

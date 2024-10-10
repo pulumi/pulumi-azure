@@ -177,9 +177,6 @@ def get_group(display_name: Optional[str] = None,
         parent_management_group_id=pulumi.get(__ret__, 'parent_management_group_id'),
         subscription_ids=pulumi.get(__ret__, 'subscription_ids'),
         tenant_scoped_id=pulumi.get(__ret__, 'tenant_scoped_id'))
-
-
-@_utilities.lift_output_func(get_group)
 def get_group_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                      name: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
@@ -202,4 +199,18 @@ def get_group_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
            > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
     :param str name: Specifies the name or UUID of this Management Group.
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:management/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
+    return __ret__.apply(lambda __response__: GetGroupResult(
+        all_management_group_ids=pulumi.get(__response__, 'all_management_group_ids'),
+        all_subscription_ids=pulumi.get(__response__, 'all_subscription_ids'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        management_group_ids=pulumi.get(__response__, 'management_group_ids'),
+        name=pulumi.get(__response__, 'name'),
+        parent_management_group_id=pulumi.get(__response__, 'parent_management_group_id'),
+        subscription_ids=pulumi.get(__response__, 'subscription_ids'),
+        tenant_scoped_id=pulumi.get(__response__, 'tenant_scoped_id')))

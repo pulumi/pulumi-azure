@@ -187,9 +187,6 @@ def get_frontdoor_custom_domain(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tls=pulumi.get(__ret__, 'tls'),
         validation_token=pulumi.get(__ret__, 'validation_token'))
-
-
-@_utilities.lift_output_func(get_frontdoor_custom_domain)
 def get_frontdoor_custom_domain_output(name: Optional[pulumi.Input[str]] = None,
                                        profile_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -213,4 +210,20 @@ def get_frontdoor_custom_domain_output(name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: The name of the Front Door Profile which the Front Door Custom Domain is bound to.
     :param str resource_group_name: The name of the Resource Group where the Front Door Profile exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain', __args__, opts=opts, typ=GetFrontdoorCustomDomainResult)
+    return __ret__.apply(lambda __response__: GetFrontdoorCustomDomainResult(
+        cdn_frontdoor_profile_id=pulumi.get(__response__, 'cdn_frontdoor_profile_id'),
+        dns_zone_id=pulumi.get(__response__, 'dns_zone_id'),
+        expiration_date=pulumi.get(__response__, 'expiration_date'),
+        host_name=pulumi.get(__response__, 'host_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        profile_name=pulumi.get(__response__, 'profile_name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tls=pulumi.get(__response__, 'tls'),
+        validation_token=pulumi.get(__response__, 'validation_token')))
