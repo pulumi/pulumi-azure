@@ -178,9 +178,6 @@ def get_public_ip_prefix(name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_public_ip_prefix)
 def get_public_ip_prefix_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIpPrefixResult]:
@@ -204,4 +201,18 @@ def get_public_ip_prefix_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the public IP prefix.
     :param str resource_group_name: Specifies the name of the resource group.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getPublicIpPrefix:getPublicIpPrefix', __args__, opts=opts, typ=GetPublicIpPrefixResult)
+    return __ret__.apply(lambda __response__: GetPublicIpPrefixResult(
+        id=pulumi.get(__response__, 'id'),
+        ip_prefix=pulumi.get(__response__, 'ip_prefix'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        prefix_length=pulumi.get(__response__, 'prefix_length'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        zones=pulumi.get(__response__, 'zones')))
