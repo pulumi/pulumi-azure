@@ -136,9 +136,6 @@ def get_resolver(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
-
-
-@_utilities.lift_output_func(get_resolver)
 def get_resolver_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverResult]:
@@ -159,4 +156,15 @@ def get_resolver_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the Private DNS Resolver.
     :param str resource_group_name: Name of the Resource Group where the Private DNS Resolver exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:privatedns/getResolver:getResolver', __args__, opts=opts, typ=GetResolverResult)
+    return __ret__.apply(lambda __response__: GetResolverResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        virtual_network_id=pulumi.get(__response__, 'virtual_network_id')))

@@ -162,9 +162,6 @@ def get_account(name: Optional[str] = None,
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'),
         x_ms_client_id=pulumi.get(__ret__, 'x_ms_client_id'))
-
-
-@_utilities.lift_output_func(get_account)
 def get_account_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -187,4 +184,18 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Maps Account.
     :param str resource_group_name: Specifies the name of the Resource Group in which the Maps Account is located.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:maps/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
+    return __ret__.apply(lambda __response__: GetAccountResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        primary_access_key=pulumi.get(__response__, 'primary_access_key'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__response__, 'secondary_access_key'),
+        sku_name=pulumi.get(__response__, 'sku_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        x_ms_client_id=pulumi.get(__response__, 'x_ms_client_id')))

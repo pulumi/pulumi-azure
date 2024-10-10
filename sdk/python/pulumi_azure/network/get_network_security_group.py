@@ -141,9 +141,6 @@ def get_network_security_group(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         security_rules=pulumi.get(__ret__, 'security_rules'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_network_security_group)
 def get_network_security_group_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSecurityGroupResult]:
@@ -165,4 +162,15 @@ def get_network_security_group_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the Name of the Network Security Group.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the Network Security Group exists
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup', __args__, opts=opts, typ=GetNetworkSecurityGroupResult)
+    return __ret__.apply(lambda __response__: GetNetworkSecurityGroupResult(
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        security_rules=pulumi.get(__response__, 'security_rules'),
+        tags=pulumi.get(__response__, 'tags')))
