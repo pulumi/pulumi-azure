@@ -291,9 +291,6 @@ def get_service(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tls_client_cert_enabled=pulumi.get(__ret__, 'tls_client_cert_enabled'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
@@ -314,4 +311,29 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Web Pubsub service.
     :param str resource_group_name: Specifies the name of the resource group the Web Pubsub service is located in.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:webpubsub/getService:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        aad_auth_enabled=pulumi.get(__response__, 'aad_auth_enabled'),
+        capacity=pulumi.get(__response__, 'capacity'),
+        external_ip=pulumi.get(__response__, 'external_ip'),
+        hostname=pulumi.get(__response__, 'hostname'),
+        id=pulumi.get(__response__, 'id'),
+        local_auth_enabled=pulumi.get(__response__, 'local_auth_enabled'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        primary_access_key=pulumi.get(__response__, 'primary_access_key'),
+        primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
+        public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        public_port=pulumi.get(__response__, 'public_port'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        secondary_access_key=pulumi.get(__response__, 'secondary_access_key'),
+        secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
+        server_port=pulumi.get(__response__, 'server_port'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags'),
+        tls_client_cert_enabled=pulumi.get(__response__, 'tls_client_cert_enabled'),
+        version=pulumi.get(__response__, 'version')))

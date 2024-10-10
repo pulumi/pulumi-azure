@@ -183,13 +183,28 @@ def get_local_rulestack(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         url_filtering_profile=pulumi.get(__ret__, 'url_filtering_profile'),
         vulnerability_profile=pulumi.get(__ret__, 'vulnerability_profile'))
-
-
-@_utilities.lift_output_func(get_local_rulestack)
 def get_local_rulestack_output(name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalRulestackResult]:
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:paloalto/getLocalRulestack:getLocalRulestack', __args__, opts=opts, typ=GetLocalRulestackResult)
+    return __ret__.apply(lambda __response__: GetLocalRulestackResult(
+        anti_spyware_profile=pulumi.get(__response__, 'anti_spyware_profile'),
+        anti_virus_profile=pulumi.get(__response__, 'anti_virus_profile'),
+        description=pulumi.get(__response__, 'description'),
+        dns_subscription=pulumi.get(__response__, 'dns_subscription'),
+        file_blocking_profile=pulumi.get(__response__, 'file_blocking_profile'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_trust_certificate=pulumi.get(__response__, 'outbound_trust_certificate'),
+        outbound_untrust_certificate=pulumi.get(__response__, 'outbound_untrust_certificate'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        url_filtering_profile=pulumi.get(__response__, 'url_filtering_profile'),
+        vulnerability_profile=pulumi.get(__response__, 'vulnerability_profile')))
