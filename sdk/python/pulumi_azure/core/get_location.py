@@ -110,9 +110,6 @@ def get_location(location: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         zone_mappings=pulumi.get(__ret__, 'zone_mappings'))
-
-
-@_utilities.lift_output_func(get_location)
 def get_location_output(location: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
     """
@@ -130,4 +127,12 @@ def get_location_output(location: Optional[pulumi.Input[str]] = None,
 
     :param str location: Specifies the supported Azure location where the resource exists.
     """
-    ...
+    __args__ = dict()
+    __args__['location'] = location
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:core/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult)
+    return __ret__.apply(lambda __response__: GetLocationResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        zone_mappings=pulumi.get(__response__, 'zone_mappings')))

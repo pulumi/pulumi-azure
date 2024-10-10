@@ -154,9 +154,6 @@ def get_application(account_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-
-
-@_utilities.lift_output_func(get_application)
 def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
                            name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -181,4 +178,17 @@ def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the Application.
     :param str resource_group_name: The name of the Resource Group where this Batch account exists.
     """
-    ...
+    __args__ = dict()
+    __args__['accountName'] = account_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:batch/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult)
+    return __ret__.apply(lambda __response__: GetApplicationResult(
+        account_name=pulumi.get(__response__, 'account_name'),
+        allow_updates=pulumi.get(__response__, 'allow_updates'),
+        default_version=pulumi.get(__response__, 'default_version'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name')))

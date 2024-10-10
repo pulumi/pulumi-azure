@@ -124,9 +124,6 @@ def get_frontdoor_rule_set(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         profile_name=pulumi.get(__ret__, 'profile_name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-
-
-@_utilities.lift_output_func(get_frontdoor_rule_set)
 def get_frontdoor_rule_set_output(name: Optional[pulumi.Input[str]] = None,
                                   profile_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -150,4 +147,15 @@ def get_frontdoor_rule_set_output(name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Specifies the name of the Front Door Profile where this Front Door Rule Set exists.
     :param str resource_group_name: Specifies the name of the Resource Group where the Front Door Profile exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['profileName'] = profile_name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet', __args__, opts=opts, typ=GetFrontdoorRuleSetResult)
+    return __ret__.apply(lambda __response__: GetFrontdoorRuleSetResult(
+        cdn_frontdoor_profile_id=pulumi.get(__response__, 'cdn_frontdoor_profile_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        profile_name=pulumi.get(__response__, 'profile_name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name')))
