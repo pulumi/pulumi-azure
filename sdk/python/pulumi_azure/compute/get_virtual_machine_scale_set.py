@@ -154,9 +154,6 @@ def get_virtual_machine_scale_set(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-
-
-@_utilities.lift_output_func(get_virtual_machine_scale_set)
 def get_virtual_machine_scale_set_output(name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetResult]:
@@ -178,4 +175,16 @@ def get_virtual_machine_scale_set_output(name: Optional[pulumi.Input[str]] = Non
     :param str name: The name of this Virtual Machine Scale Set.
     :param str resource_group_name: The name of the Resource Group where the Virtual Machine Scale Set exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet', __args__, opts=opts, typ=GetVirtualMachineScaleSetResult)
+    return __ret__.apply(lambda __response__: GetVirtualMachineScaleSetResult(
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        instances=pulumi.get(__response__, 'instances'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name')))

@@ -132,9 +132,6 @@ def get_agreement(offer: Optional[str] = None,
         plan=pulumi.get(__ret__, 'plan'),
         privacy_policy_link=pulumi.get(__ret__, 'privacy_policy_link'),
         publisher=pulumi.get(__ret__, 'publisher'))
-
-
-@_utilities.lift_output_func(get_agreement)
 def get_agreement_output(offer: Optional[pulumi.Input[str]] = None,
                          plan: Optional[pulumi.Input[str]] = None,
                          publisher: Optional[pulumi.Input[str]] = None,
@@ -159,4 +156,16 @@ def get_agreement_output(offer: Optional[pulumi.Input[str]] = None,
     :param str plan: The Plan of the Marketplace Image.
     :param str publisher: The Publisher of the Marketplace Image.
     """
-    ...
+    __args__ = dict()
+    __args__['offer'] = offer
+    __args__['plan'] = plan
+    __args__['publisher'] = publisher
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:marketplace/getAgreement:getAgreement', __args__, opts=opts, typ=GetAgreementResult)
+    return __ret__.apply(lambda __response__: GetAgreementResult(
+        id=pulumi.get(__response__, 'id'),
+        license_text_link=pulumi.get(__response__, 'license_text_link'),
+        offer=pulumi.get(__response__, 'offer'),
+        plan=pulumi.get(__response__, 'plan'),
+        privacy_policy_link=pulumi.get(__response__, 'privacy_policy_link'),
+        publisher=pulumi.get(__response__, 'publisher')))
