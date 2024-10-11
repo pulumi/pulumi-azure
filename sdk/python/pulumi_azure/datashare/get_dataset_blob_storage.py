@@ -167,9 +167,6 @@ def get_dataset_blob_storage(data_share_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         storage_accounts=pulumi.get(__ret__, 'storage_accounts'))
-
-
-@_utilities.lift_output_func(get_dataset_blob_storage)
 def get_dataset_blob_storage_output(data_share_id: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetBlobStorageResult]:
@@ -191,4 +188,17 @@ def get_dataset_blob_storage_output(data_share_id: Optional[pulumi.Input[str]] =
     :param str data_share_id: The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.
     :param str name: The name of this Data Share Blob Storage Dataset.
     """
-    ...
+    __args__ = dict()
+    __args__['dataShareId'] = data_share_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage', __args__, opts=opts, typ=GetDatasetBlobStorageResult)
+    return __ret__.apply(lambda __response__: GetDatasetBlobStorageResult(
+        container_name=pulumi.get(__response__, 'container_name'),
+        data_share_id=pulumi.get(__response__, 'data_share_id'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        file_path=pulumi.get(__response__, 'file_path'),
+        folder_path=pulumi.get(__response__, 'folder_path'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        storage_accounts=pulumi.get(__response__, 'storage_accounts')))

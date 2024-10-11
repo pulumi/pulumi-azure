@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			current, err := core.LookupSubscription(ctx, nil, nil)
+//			current, err := core.LookupSubscription(ctx, &core.LookupSubscriptionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

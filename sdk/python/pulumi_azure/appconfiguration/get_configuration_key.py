@@ -205,9 +205,6 @@ def get_configuration_key(configuration_store_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'),
         vault_key_reference=pulumi.get(__ret__, 'vault_key_reference'))
-
-
-@_utilities.lift_output_func(get_configuration_key)
 def get_configuration_key_output(configuration_store_id: Optional[pulumi.Input[str]] = None,
                                  key: Optional[pulumi.Input[str]] = None,
                                  label: Optional[pulumi.Input[Optional[str]]] = None,
@@ -234,4 +231,21 @@ def get_configuration_key_output(configuration_store_id: Optional[pulumi.Input[s
     :param str key: The name of the App Configuration Key.
     :param str label: The label of the App Configuration Key.
     """
-    ...
+    __args__ = dict()
+    __args__['configurationStoreId'] = configuration_store_id
+    __args__['key'] = key
+    __args__['label'] = label
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:appconfiguration/getConfigurationKey:getConfigurationKey', __args__, opts=opts, typ=GetConfigurationKeyResult)
+    return __ret__.apply(lambda __response__: GetConfigurationKeyResult(
+        configuration_store_id=pulumi.get(__response__, 'configuration_store_id'),
+        content_type=pulumi.get(__response__, 'content_type'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        key=pulumi.get(__response__, 'key'),
+        label=pulumi.get(__response__, 'label'),
+        locked=pulumi.get(__response__, 'locked'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        value=pulumi.get(__response__, 'value'),
+        vault_key_reference=pulumi.get(__response__, 'vault_key_reference')))
