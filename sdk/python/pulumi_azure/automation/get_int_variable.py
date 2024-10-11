@@ -151,9 +151,6 @@ def get_int_variable(automation_account_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_int_variable)
 def get_int_variable_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                             name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -178,4 +175,17 @@ def get_int_variable_output(automation_account_name: Optional[pulumi.Input[str]]
     :param str name: The name of the Automation Variable.
     :param str resource_group_name: The Name of the Resource Group where the automation account exists.
     """
-    ...
+    __args__ = dict()
+    __args__['automationAccountName'] = automation_account_name
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:automation/getIntVariable:getIntVariable', __args__, opts=opts, typ=GetIntVariableResult)
+    return __ret__.apply(lambda __response__: GetIntVariableResult(
+        automation_account_name=pulumi.get(__response__, 'automation_account_name'),
+        description=pulumi.get(__response__, 'description'),
+        encrypted=pulumi.get(__response__, 'encrypted'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        value=pulumi.get(__response__, 'value')))

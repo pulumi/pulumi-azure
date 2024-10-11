@@ -180,9 +180,6 @@ def get_lb(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_lb)
 def get_lb_output(name: Optional[pulumi.Input[str]] = None,
                   resource_group_name: Optional[pulumi.Input[str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLBResult]:
@@ -204,4 +201,18 @@ def get_lb_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Load Balancer.
     :param str resource_group_name: The name of the Resource Group in which the Load Balancer exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:lb/getLB:getLB', __args__, opts=opts, typ=GetLBResult)
+    return __ret__.apply(lambda __response__: GetLBResult(
+        frontend_ip_configurations=pulumi.get(__response__, 'frontend_ip_configurations'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        private_ip_address=pulumi.get(__response__, 'private_ip_address'),
+        private_ip_addresses=pulumi.get(__response__, 'private_ip_addresses'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku=pulumi.get(__response__, 'sku'),
+        tags=pulumi.get(__response__, 'tags')))

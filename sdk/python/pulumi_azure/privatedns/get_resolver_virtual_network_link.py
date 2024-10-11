@@ -123,9 +123,6 @@ def get_resolver_virtual_network_link(dns_forwarding_ruleset_id: Optional[str] =
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
-
-
-@_utilities.lift_output_func(get_resolver_virtual_network_link)
 def get_resolver_virtual_network_link_output(dns_forwarding_ruleset_id: Optional[pulumi.Input[str]] = None,
                                              name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverVirtualNetworkLinkResult]:
@@ -146,4 +143,14 @@ def get_resolver_virtual_network_link_output(dns_forwarding_ruleset_id: Optional
     :param str dns_forwarding_ruleset_id: ID of the Private DNS Resolver DNS Forwarding Ruleset.
     :param str name: Name of the Private DNS Resolver Virtual Network Link.
     """
-    ...
+    __args__ = dict()
+    __args__['dnsForwardingRulesetId'] = dns_forwarding_ruleset_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink', __args__, opts=opts, typ=GetResolverVirtualNetworkLinkResult)
+    return __ret__.apply(lambda __response__: GetResolverVirtualNetworkLinkResult(
+        dns_forwarding_ruleset_id=pulumi.get(__response__, 'dns_forwarding_ruleset_id'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        name=pulumi.get(__response__, 'name'),
+        virtual_network_id=pulumi.get(__response__, 'virtual_network_id')))

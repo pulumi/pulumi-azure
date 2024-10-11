@@ -50,7 +50,7 @@ import (
 //				SkuName:            pulumi.String("Standard"),
 //				NonSslPortEnabled:  pulumi.Bool(false),
 //				MinimumTlsVersion:  pulumi.String("1.2"),
-//				RedisConfiguration: nil,
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{},
 //			})
 //			if err != nil {
 //				return err

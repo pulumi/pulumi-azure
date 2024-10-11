@@ -605,9 +605,6 @@ def get_kubernetes_cluster(name: Optional[str] = None,
         storage_profiles=pulumi.get(__ret__, 'storage_profiles'),
         tags=pulumi.get(__ret__, 'tags'),
         windows_profiles=pulumi.get(__ret__, 'windows_profiles'))
-
-
-@_utilities.lift_output_func(get_kubernetes_cluster)
 def get_kubernetes_cluster_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesClusterResult]:
@@ -628,4 +625,51 @@ def get_kubernetes_cluster_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the managed Kubernetes Cluster.
     :param str resource_group_name: The name of the Resource Group in which the managed Kubernetes Cluster exists.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('azure:containerservice/getKubernetesCluster:getKubernetesCluster', __args__, opts=opts, typ=GetKubernetesClusterResult)
+    return __ret__.apply(lambda __response__: GetKubernetesClusterResult(
+        aci_connector_linuxes=pulumi.get(__response__, 'aci_connector_linuxes'),
+        agent_pool_profiles=pulumi.get(__response__, 'agent_pool_profiles'),
+        api_server_authorized_ip_ranges=pulumi.get(__response__, 'api_server_authorized_ip_ranges'),
+        azure_active_directory_role_based_access_controls=pulumi.get(__response__, 'azure_active_directory_role_based_access_controls'),
+        azure_policy_enabled=pulumi.get(__response__, 'azure_policy_enabled'),
+        current_kubernetes_version=pulumi.get(__response__, 'current_kubernetes_version'),
+        disk_encryption_set_id=pulumi.get(__response__, 'disk_encryption_set_id'),
+        dns_prefix=pulumi.get(__response__, 'dns_prefix'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        http_application_routing_enabled=pulumi.get(__response__, 'http_application_routing_enabled'),
+        http_application_routing_zone_name=pulumi.get(__response__, 'http_application_routing_zone_name'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        ingress_application_gateways=pulumi.get(__response__, 'ingress_application_gateways'),
+        key_management_services=pulumi.get(__response__, 'key_management_services'),
+        key_vault_secrets_providers=pulumi.get(__response__, 'key_vault_secrets_providers'),
+        kube_admin_config_raw=pulumi.get(__response__, 'kube_admin_config_raw'),
+        kube_admin_configs=pulumi.get(__response__, 'kube_admin_configs'),
+        kube_config_raw=pulumi.get(__response__, 'kube_config_raw'),
+        kube_configs=pulumi.get(__response__, 'kube_configs'),
+        kubelet_identities=pulumi.get(__response__, 'kubelet_identities'),
+        kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
+        linux_profiles=pulumi.get(__response__, 'linux_profiles'),
+        location=pulumi.get(__response__, 'location'),
+        microsoft_defenders=pulumi.get(__response__, 'microsoft_defenders'),
+        name=pulumi.get(__response__, 'name'),
+        network_profiles=pulumi.get(__response__, 'network_profiles'),
+        node_resource_group=pulumi.get(__response__, 'node_resource_group'),
+        node_resource_group_id=pulumi.get(__response__, 'node_resource_group_id'),
+        oidc_issuer_enabled=pulumi.get(__response__, 'oidc_issuer_enabled'),
+        oidc_issuer_url=pulumi.get(__response__, 'oidc_issuer_url'),
+        oms_agents=pulumi.get(__response__, 'oms_agents'),
+        open_service_mesh_enabled=pulumi.get(__response__, 'open_service_mesh_enabled'),
+        private_cluster_enabled=pulumi.get(__response__, 'private_cluster_enabled'),
+        private_fqdn=pulumi.get(__response__, 'private_fqdn'),
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        role_based_access_control_enabled=pulumi.get(__response__, 'role_based_access_control_enabled'),
+        service_mesh_profiles=pulumi.get(__response__, 'service_mesh_profiles'),
+        service_principals=pulumi.get(__response__, 'service_principals'),
+        storage_profiles=pulumi.get(__response__, 'storage_profiles'),
+        tags=pulumi.get(__response__, 'tags'),
+        windows_profiles=pulumi.get(__response__, 'windows_profiles')))
