@@ -18932,6 +18932,10 @@
                 "current": "azure:stack/hciStoragePath:HciStoragePath",
                 "majorVersion": 6
             },
+            "azurerm_stack_hci_virtual_hard_disk": {
+                "current": "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk",
+                "majorVersion": 6
+            },
             "azurerm_static_site": {
                 "current": "azure:appservice/staticSite:StaticSite",
                 "majorVersion": 6,
