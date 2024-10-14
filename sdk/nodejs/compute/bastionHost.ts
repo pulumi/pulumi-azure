@@ -137,13 +137,19 @@ export class BastionHost extends pulumi.CustomResource {
      */
     public readonly scaleUnits!: pulumi.Output<number | undefined>;
     /**
+     * Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `sessionRecordingEnabled` is only supported when `sku` is `Premium`.
+     */
+    public readonly sessionRecordingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
      */
     public readonly shareableLinkEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      *
      * > **Note** Downgrading the SKU will force a new resource to be created.
      */
@@ -186,6 +192,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["scaleUnits"] = state ? state.scaleUnits : undefined;
+            resourceInputs["sessionRecordingEnabled"] = state ? state.sessionRecordingEnabled : undefined;
             resourceInputs["shareableLinkEnabled"] = state ? state.shareableLinkEnabled : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -205,6 +212,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
+            resourceInputs["sessionRecordingEnabled"] = args ? args.sessionRecordingEnabled : undefined;
             resourceInputs["shareableLinkEnabled"] = args ? args.shareableLinkEnabled : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -270,13 +278,19 @@ export interface BastionHostState {
      */
     scaleUnits?: pulumi.Input<number>;
     /**
+     * Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `sessionRecordingEnabled` is only supported when `sku` is `Premium`.
+     */
+    sessionRecordingEnabled?: pulumi.Input<boolean>;
+    /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
      */
     shareableLinkEnabled?: pulumi.Input<boolean>;
     /**
-     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      *
      * > **Note** Downgrading the SKU will force a new resource to be created.
      */
@@ -346,13 +360,19 @@ export interface BastionHostArgs {
      */
     scaleUnits?: pulumi.Input<number>;
     /**
+     * Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `sessionRecordingEnabled` is only supported when `sku` is `Premium`.
+     */
+    sessionRecordingEnabled?: pulumi.Input<boolean>;
+    /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      *
      * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
      */
     shareableLinkEnabled?: pulumi.Input<boolean>;
     /**
-     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      *
      * > **Note** Downgrading the SKU will force a new resource to be created.
      */

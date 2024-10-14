@@ -152,6 +152,7 @@ namespace Pulumi.Azure.Compute
         /// The number of scale units provisioned for the Bastion Host.
         /// </summary>
         public readonly int ScaleUnits;
+        public readonly bool SessionRecordingEnabled;
         /// <summary>
         /// Is Shareable Link feature enabled for the Bastion Host.
         /// </summary>
@@ -191,6 +192,8 @@ namespace Pulumi.Azure.Compute
 
             int scaleUnits,
 
+            bool sessionRecordingEnabled,
+
             bool shareableLinkEnabled,
 
             string sku,
@@ -209,6 +212,7 @@ namespace Pulumi.Azure.Compute
             Name = name;
             ResourceGroupName = resourceGroupName;
             ScaleUnits = scaleUnits;
+            SessionRecordingEnabled = sessionRecordingEnabled;
             ShareableLinkEnabled = shareableLinkEnabled;
             Sku = sku;
             Tags = tags;

@@ -1456,6 +1456,7 @@
         "stack/hciDeploymentSetting.ts",
         "stack/hciLogicalNetwork.ts",
         "stack/hciStoragePath.ts",
+        "stack/hciVirtualHardDisk.ts",
         "stack/index.ts",
         "storage/account.ts",
         "storage/accountNetworkRules.ts",

@@ -287,6 +287,8 @@ class AppIngress(dict):
         :param str fqdn: The FQDN of the ingress.
         :param Sequence['AppIngressIpSecurityRestrictionArgs'] ip_security_restrictions: One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
         :param str transport: The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
+               
+               > **Note:**  if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
         """
         pulumi.set(__self__, "target_port", target_port)
         pulumi.set(__self__, "traffic_weights", traffic_weights)
@@ -376,6 +378,8 @@ class AppIngress(dict):
     def transport(self) -> Optional[str]:
         """
         The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
+
+        > **Note:**  if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
         """
         return pulumi.get(self, "transport")
 
@@ -1085,7 +1089,7 @@ class AppTemplateContainer(dict):
         :param Sequence[str] args: A list of extra arguments to pass to the container.
         :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
         :param Sequence['AppTemplateContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
-        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App. 
+        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
                
                > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         :param Sequence['AppTemplateContainerLivenessProbeArgs'] liveness_probes: A `liveness_probe` block as detailed below.
@@ -1178,7 +1182,7 @@ class AppTemplateContainer(dict):
     @pulumi.getter(name="ephemeralStorage")
     def ephemeral_storage(self) -> Optional[str]:
         """
-        The amount of ephemeral storage available to the Container App. 
+        The amount of ephemeral storage available to the Container App.
 
         > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """

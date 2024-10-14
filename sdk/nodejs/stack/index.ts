@@ -30,6 +30,11 @@ export type HciStoragePath = import("./hciStoragePath").HciStoragePath;
 export const HciStoragePath: typeof import("./hciStoragePath").HciStoragePath = null as any;
 utilities.lazyLoad(exports, ["HciStoragePath"], () => require("./hciStoragePath"));
 
+export { HciVirtualHardDiskArgs, HciVirtualHardDiskState } from "./hciVirtualHardDisk";
+export type HciVirtualHardDisk = import("./hciVirtualHardDisk").HciVirtualHardDisk;
+export const HciVirtualHardDisk: typeof import("./hciVirtualHardDisk").HciVirtualHardDisk = null as any;
+utilities.lazyLoad(exports, ["HciVirtualHardDisk"], () => require("./hciVirtualHardDisk"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -43,6 +48,8 @@ const _module = {
                 return new HciLogicalNetwork(name, <any>undefined, { urn })
             case "azure:stack/hciStoragePath:HciStoragePath":
                 return new HciStoragePath(name, <any>undefined, { urn })
+            case "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk":
+                return new HciVirtualHardDisk(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -52,3 +59,4 @@ pulumi.runtime.registerResourceModule("azure", "stack/hciCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciDeploymentSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciLogicalNetwork", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciStoragePath", _module)
+pulumi.runtime.registerResourceModule("azure", "stack/hciVirtualHardDisk", _module)

@@ -33,14 +33,14 @@ public final class ElasticPoolSkuArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
+     * The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
      * 
      */
     @Import(name="family")
     private @Nullable Output<String> family;
 
     /**
-     * @return The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
+     * @return The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
      * 
      */
     public Optional<Output<String>> family() {
@@ -126,7 +126,7 @@ public final class ElasticPoolSkuArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param family The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
+         * @param family The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ElasticPoolSkuArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param family The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
+         * @param family The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
          * 
          * @return builder
          * 

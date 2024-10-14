@@ -30,6 +30,7 @@ class BastionHostArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
+                 session_recording_enabled: Optional[pulumi.Input[bool]] = None,
                  shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -54,10 +55,13 @@ class BastionHostArgs:
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
                
                > **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+        :param pulumi.Input[bool] session_recording_enabled: Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+               
+               > **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
-        :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
                > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -83,6 +87,8 @@ class BastionHostArgs:
             pulumi.set(__self__, "name", name)
         if scale_units is not None:
             pulumi.set(__self__, "scale_units", scale_units)
+        if session_recording_enabled is not None:
+            pulumi.set(__self__, "session_recording_enabled", session_recording_enabled)
         if shareable_link_enabled is not None:
             pulumi.set(__self__, "shareable_link_enabled", shareable_link_enabled)
         if sku is not None:
@@ -211,6 +217,20 @@ class BastionHostArgs:
         pulumi.set(self, "scale_units", value)
 
     @property
+    @pulumi.getter(name="sessionRecordingEnabled")
+    def session_recording_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+
+        > **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+        """
+        return pulumi.get(self, "session_recording_enabled")
+
+    @session_recording_enabled.setter
+    def session_recording_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "session_recording_enabled", value)
+
+    @property
     @pulumi.getter(name="shareableLinkEnabled")
     def shareable_link_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -228,7 +248,7 @@ class BastionHostArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+        The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 
         > **Note** Downgrading the SKU will force a new resource to be created.
         """
@@ -290,6 +310,7 @@ class _BastionHostState:
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
+                 session_recording_enabled: Optional[pulumi.Input[bool]] = None,
                  shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -315,10 +336,13 @@ class _BastionHostState:
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
                
                > **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+        :param pulumi.Input[bool] session_recording_enabled: Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+               
+               > **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
-        :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
                > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -347,6 +371,8 @@ class _BastionHostState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scale_units is not None:
             pulumi.set(__self__, "scale_units", scale_units)
+        if session_recording_enabled is not None:
+            pulumi.set(__self__, "session_recording_enabled", session_recording_enabled)
         if shareable_link_enabled is not None:
             pulumi.set(__self__, "shareable_link_enabled", shareable_link_enabled)
         if sku is not None:
@@ -487,6 +513,20 @@ class _BastionHostState:
         pulumi.set(self, "scale_units", value)
 
     @property
+    @pulumi.getter(name="sessionRecordingEnabled")
+    def session_recording_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+
+        > **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+        """
+        return pulumi.get(self, "session_recording_enabled")
+
+    @session_recording_enabled.setter
+    def session_recording_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "session_recording_enabled", value)
+
+    @property
     @pulumi.getter(name="shareableLinkEnabled")
     def shareable_link_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -504,7 +544,7 @@ class _BastionHostState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+        The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 
         > **Note** Downgrading the SKU will force a new resource to be created.
         """
@@ -567,6 +607,7 @@ class BastionHost(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
+                 session_recording_enabled: Optional[pulumi.Input[bool]] = None,
                  shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -641,10 +682,13 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
                
                > **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+        :param pulumi.Input[bool] session_recording_enabled: Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+               
+               > **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
-        :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
                > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -732,6 +776,7 @@ class BastionHost(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
+                 session_recording_enabled: Optional[pulumi.Input[bool]] = None,
                  shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -757,6 +802,7 @@ class BastionHost(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scale_units"] = scale_units
+            __props__.__dict__["session_recording_enabled"] = session_recording_enabled
             __props__.__dict__["shareable_link_enabled"] = shareable_link_enabled
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
@@ -783,6 +829,7 @@ class BastionHost(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             scale_units: Optional[pulumi.Input[int]] = None,
+            session_recording_enabled: Optional[pulumi.Input[bool]] = None,
             shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -813,10 +860,13 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
                
                > **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+        :param pulumi.Input[bool] session_recording_enabled: Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+               
+               > **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
-        :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+        :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
                > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -839,6 +889,7 @@ class BastionHost(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["scale_units"] = scale_units
+        __props__.__dict__["session_recording_enabled"] = session_recording_enabled
         __props__.__dict__["shareable_link_enabled"] = shareable_link_enabled
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
@@ -935,6 +986,16 @@ class BastionHost(pulumi.CustomResource):
         return pulumi.get(self, "scale_units")
 
     @property
+    @pulumi.getter(name="sessionRecordingEnabled")
+    def session_recording_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+
+        > **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+        """
+        return pulumi.get(self, "session_recording_enabled")
+
+    @property
     @pulumi.getter(name="shareableLinkEnabled")
     def shareable_link_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -948,7 +1009,7 @@ class BastionHost(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
-        The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+        The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 
         > **Note** Downgrading the SKU will force a new resource to be created.
         """

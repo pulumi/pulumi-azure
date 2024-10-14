@@ -4572,7 +4572,7 @@ type ApiOperationResponse struct {
 	Description *string `pulumi:"description"`
 	// One or more `header` blocks as defined above.
 	Headers []ApiOperationResponseHeader `pulumi:"headers"`
-	// One or more `representation` blocks as defined below.
+	// One or more `representation` blocks as defined above.
 	Representations []ApiOperationResponseRepresentation `pulumi:"representations"`
 	// The HTTP Status Code.
 	StatusCode int `pulumi:"statusCode"`
@@ -4594,7 +4594,7 @@ type ApiOperationResponseArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// One or more `header` blocks as defined above.
 	Headers ApiOperationResponseHeaderArrayInput `pulumi:"headers"`
-	// One or more `representation` blocks as defined below.
+	// One or more `representation` blocks as defined above.
 	Representations ApiOperationResponseRepresentationArrayInput `pulumi:"representations"`
 	// The HTTP Status Code.
 	StatusCode pulumi.IntInput `pulumi:"statusCode"`
@@ -4661,7 +4661,7 @@ func (o ApiOperationResponseOutput) Headers() ApiOperationResponseHeaderArrayOut
 	return o.ApplyT(func(v ApiOperationResponse) []ApiOperationResponseHeader { return v.Headers }).(ApiOperationResponseHeaderArrayOutput)
 }
 
-// One or more `representation` blocks as defined below.
+// One or more `representation` blocks as defined above.
 func (o ApiOperationResponseOutput) Representations() ApiOperationResponseRepresentationArrayOutput {
 	return o.ApplyT(func(v ApiOperationResponse) []ApiOperationResponseRepresentation { return v.Representations }).(ApiOperationResponseRepresentationArrayOutput)
 }

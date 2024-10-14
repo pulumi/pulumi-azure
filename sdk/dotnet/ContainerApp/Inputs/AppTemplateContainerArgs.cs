@@ -57,7 +57,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         }
 
         /// <summary>
-        /// The amount of ephemeral storage available to the Container App. 
+        /// The amount of ephemeral storage available to the Container App.
         /// 
         /// &gt; **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         /// </summary>

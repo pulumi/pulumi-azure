@@ -8193,6 +8193,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "stack/hciVirtualHardDisk",
+  "fqn": "pulumi_azure.stack",
+  "classes": {
+   "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk": "HciVirtualHardDisk"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "storage/account",
   "fqn": "pulumi_azure.storage",
   "classes": {

@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * Managements can be imported using the `resource id`, e.g.
  * 
  * ```sh
- * $ pulumi import azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation example /managementGroup/MyManagementGroup/subscription/12345678-1234-1234-1234-123456789012
+ * $ pulumi import azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation example /providers/Microsoft.Management/managementGroups/MyManagementGroup/subscriptions/12345678-1234-1234-1234-123456789012
  * ```
  * 
  */

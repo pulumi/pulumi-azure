@@ -269,6 +269,24 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scaleUnits);
     }
     /**
+     * Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+     * 
+     */
+    @Export(name="sessionRecordingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> sessionRecordingEnabled;
+
+    /**
+     * @return Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+     * 
+     */
+    public Output<Optional<Boolean>> sessionRecordingEnabled() {
+        return Codegen.optional(this.sessionRecordingEnabled);
+    }
+    /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      * 
      * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
@@ -287,7 +305,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.shareableLinkEnabled);
     }
     /**
-     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
      * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 
@@ -296,7 +314,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> sku;
 
     /**
-     * @return The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+     * @return The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
      * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 

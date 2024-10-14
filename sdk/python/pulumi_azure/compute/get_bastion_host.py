@@ -27,7 +27,7 @@ class GetBastionHostResult:
     """
     A collection of values returned by getBastionHost.
     """
-    def __init__(__self__, copy_paste_enabled=None, dns_name=None, file_copy_enabled=None, id=None, ip_configurations=None, ip_connect_enabled=None, location=None, name=None, resource_group_name=None, scale_units=None, shareable_link_enabled=None, sku=None, tags=None, tunneling_enabled=None):
+    def __init__(__self__, copy_paste_enabled=None, dns_name=None, file_copy_enabled=None, id=None, ip_configurations=None, ip_connect_enabled=None, location=None, name=None, resource_group_name=None, scale_units=None, session_recording_enabled=None, shareable_link_enabled=None, sku=None, tags=None, tunneling_enabled=None):
         if copy_paste_enabled and not isinstance(copy_paste_enabled, bool):
             raise TypeError("Expected argument 'copy_paste_enabled' to be a bool")
         pulumi.set(__self__, "copy_paste_enabled", copy_paste_enabled)
@@ -58,6 +58,9 @@ class GetBastionHostResult:
         if scale_units and not isinstance(scale_units, int):
             raise TypeError("Expected argument 'scale_units' to be a int")
         pulumi.set(__self__, "scale_units", scale_units)
+        if session_recording_enabled and not isinstance(session_recording_enabled, bool):
+            raise TypeError("Expected argument 'session_recording_enabled' to be a bool")
+        pulumi.set(__self__, "session_recording_enabled", session_recording_enabled)
         if shareable_link_enabled and not isinstance(shareable_link_enabled, bool):
             raise TypeError("Expected argument 'shareable_link_enabled' to be a bool")
         pulumi.set(__self__, "shareable_link_enabled", shareable_link_enabled)
@@ -149,6 +152,11 @@ class GetBastionHostResult:
         return pulumi.get(self, "scale_units")
 
     @property
+    @pulumi.getter(name="sessionRecordingEnabled")
+    def session_recording_enabled(self) -> bool:
+        return pulumi.get(self, "session_recording_enabled")
+
+    @property
     @pulumi.getter(name="shareableLinkEnabled")
     def shareable_link_enabled(self) -> bool:
         """
@@ -197,6 +205,7 @@ class AwaitableGetBastionHostResult(GetBastionHostResult):
             name=self.name,
             resource_group_name=self.resource_group_name,
             scale_units=self.scale_units,
+            session_recording_enabled=self.session_recording_enabled,
             shareable_link_enabled=self.shareable_link_enabled,
             sku=self.sku,
             tags=self.tags,
@@ -241,6 +250,7 @@ def get_bastion_host(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         scale_units=pulumi.get(__ret__, 'scale_units'),
+        session_recording_enabled=pulumi.get(__ret__, 'session_recording_enabled'),
         shareable_link_enabled=pulumi.get(__ret__, 'shareable_link_enabled'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -282,6 +292,7 @@ def get_bastion_host_output(name: Optional[pulumi.Input[str]] = None,
         name=pulumi.get(__response__, 'name'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         scale_units=pulumi.get(__response__, 'scale_units'),
+        session_recording_enabled=pulumi.get(__response__, 'session_recording_enabled'),
         shareable_link_enabled=pulumi.get(__response__, 'shareable_link_enabled'),
         sku=pulumi.get(__response__, 'sku'),
         tags=pulumi.get(__response__, 'tags'),

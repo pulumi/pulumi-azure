@@ -51,14 +51,14 @@ public final class ApiOperationResponseArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * One or more `representation` blocks as defined below.
+     * One or more `representation` blocks as defined above.
      * 
      */
     @Import(name="representations")
     private @Nullable Output<List<ApiOperationResponseRepresentationArgs>> representations;
 
     /**
-     * @return One or more `representation` blocks as defined below.
+     * @return One or more `representation` blocks as defined above.
      * 
      */
     public Optional<Output<List<ApiOperationResponseRepresentationArgs>>> representations() {
@@ -160,7 +160,7 @@ public final class ApiOperationResponseArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param representations One or more `representation` blocks as defined below.
+         * @param representations One or more `representation` blocks as defined above.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class ApiOperationResponseArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param representations One or more `representation` blocks as defined below.
+         * @param representations One or more `representation` blocks as defined above.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class ApiOperationResponseArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param representations One or more `representation` blocks as defined below.
+         * @param representations One or more `representation` blocks as defined above.
          * 
          * @return builder
          * 

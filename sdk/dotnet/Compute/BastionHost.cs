@@ -157,6 +157,14 @@ namespace Pulumi.Azure.Compute
         public Output<int?> ScaleUnits { get; private set; } = null!;
 
         /// <summary>
+        /// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+        /// </summary>
+        [Output("sessionRecordingEnabled")]
+        public Output<bool?> SessionRecordingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
         /// 
         /// &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
@@ -165,7 +173,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> ShareableLinkEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// 
         /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
         /// </summary>
@@ -301,6 +309,14 @@ namespace Pulumi.Azure.Compute
         public Input<int>? ScaleUnits { get; set; }
 
         /// <summary>
+        /// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+        /// </summary>
+        [Input("sessionRecordingEnabled")]
+        public Input<bool>? SessionRecordingEnabled { get; set; }
+
+        /// <summary>
         /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
         /// 
         /// &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
@@ -309,7 +325,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? ShareableLinkEnabled { get; set; }
 
         /// <summary>
-        /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// 
         /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
         /// </summary>
@@ -419,6 +435,14 @@ namespace Pulumi.Azure.Compute
         public Input<int>? ScaleUnits { get; set; }
 
         /// <summary>
+        /// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+        /// </summary>
+        [Input("sessionRecordingEnabled")]
+        public Input<bool>? SessionRecordingEnabled { get; set; }
+
+        /// <summary>
         /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
         /// 
         /// &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
@@ -427,7 +451,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? ShareableLinkEnabled { get; set; }
 
         /// <summary>
-        /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// 
         /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
         /// </summary>

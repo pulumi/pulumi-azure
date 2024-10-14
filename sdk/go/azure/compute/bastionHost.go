@@ -128,11 +128,15 @@ type BastionHost struct {
 	//
 	// > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
 	ScaleUnits pulumi.IntPtrOutput `pulumi:"scaleUnits"`
+	// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `sessionRecordingEnabled` is only supported when `sku` is `Premium`.
+	SessionRecordingEnabled pulumi.BoolPtrOutput `pulumi:"sessionRecordingEnabled"`
 	// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
 	//
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrOutput `pulumi:"shareableLinkEnabled"`
-	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	//
 	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
@@ -207,11 +211,15 @@ type bastionHostState struct {
 	//
 	// > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
 	ScaleUnits *int `pulumi:"scaleUnits"`
+	// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `sessionRecordingEnabled` is only supported when `sku` is `Premium`.
+	SessionRecordingEnabled *bool `pulumi:"sessionRecordingEnabled"`
 	// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
 	//
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled *bool `pulumi:"shareableLinkEnabled"`
-	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	//
 	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku *string `pulumi:"sku"`
@@ -254,11 +262,15 @@ type BastionHostState struct {
 	//
 	// > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
 	ScaleUnits pulumi.IntPtrInput
+	// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `sessionRecordingEnabled` is only supported when `sku` is `Premium`.
+	SessionRecordingEnabled pulumi.BoolPtrInput
 	// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
 	//
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrInput
-	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	//
 	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrInput
@@ -303,11 +315,15 @@ type bastionHostArgs struct {
 	//
 	// > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
 	ScaleUnits *int `pulumi:"scaleUnits"`
+	// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `sessionRecordingEnabled` is only supported when `sku` is `Premium`.
+	SessionRecordingEnabled *bool `pulumi:"sessionRecordingEnabled"`
 	// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
 	//
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled *bool `pulumi:"shareableLinkEnabled"`
-	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	//
 	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku *string `pulumi:"sku"`
@@ -349,11 +365,15 @@ type BastionHostArgs struct {
 	//
 	// > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
 	ScaleUnits pulumi.IntPtrInput
+	// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+	//
+	// > **Note:** `sessionRecordingEnabled` is only supported when `sku` is `Premium`.
+	SessionRecordingEnabled pulumi.BoolPtrInput
 	// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
 	//
 	// > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
 	ShareableLinkEnabled pulumi.BoolPtrInput
-	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+	// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	//
 	// > **Note** Downgrading the SKU will force a new resource to be created.
 	Sku pulumi.StringPtrInput
@@ -512,6 +532,13 @@ func (o BastionHostOutput) ScaleUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.IntPtrOutput { return v.ScaleUnits }).(pulumi.IntPtrOutput)
 }
 
+// Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+//
+// > **Note:** `sessionRecordingEnabled` is only supported when `sku` is `Premium`.
+func (o BastionHostOutput) SessionRecordingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.SessionRecordingEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
 //
 // > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
@@ -519,7 +546,7 @@ func (o BastionHostOutput) ShareableLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.BoolPtrOutput { return v.ShareableLinkEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 //
 // > **Note** Downgrading the SKU will force a new resource to be created.
 func (o BastionHostOutput) Sku() pulumi.StringPtrOutput {

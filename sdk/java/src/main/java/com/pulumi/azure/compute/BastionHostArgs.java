@@ -172,6 +172,25 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+     * 
+     */
+    @Import(name="sessionRecordingEnabled")
+    private @Nullable Output<Boolean> sessionRecordingEnabled;
+
+    /**
+     * @return Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+     * 
+     */
+    public Optional<Output<Boolean>> sessionRecordingEnabled() {
+        return Optional.ofNullable(this.sessionRecordingEnabled);
+    }
+
+    /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      * 
      * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
@@ -191,7 +210,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
      * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 
@@ -200,7 +219,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+     * @return The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
      * &gt; **Note** Downgrading the SKU will force a new resource to be created.
      * 
@@ -270,6 +289,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.scaleUnits = $.scaleUnits;
+        this.sessionRecordingEnabled = $.sessionRecordingEnabled;
         this.shareableLinkEnabled = $.shareableLinkEnabled;
         this.sku = $.sku;
         this.tags = $.tags;
@@ -501,6 +521,31 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param sessionRecordingEnabled Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+         * 
+         * &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionRecordingEnabled(@Nullable Output<Boolean> sessionRecordingEnabled) {
+            $.sessionRecordingEnabled = sessionRecordingEnabled;
+            return this;
+        }
+
+        /**
+         * @param sessionRecordingEnabled Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
+         * 
+         * &gt; **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionRecordingEnabled(Boolean sessionRecordingEnabled) {
+            return sessionRecordingEnabled(Output.of(sessionRecordingEnabled));
+        }
+
+        /**
          * @param shareableLinkEnabled Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
          * 
          * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
@@ -526,7 +571,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+         * @param sku The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
          * 
          * &gt; **Note** Downgrading the SKU will force a new resource to be created.
          * 
@@ -539,7 +584,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Bastion Host. Accepted values are `Developer`, `Basic` and `Standard`. Defaults to `Basic`.
+         * @param sku The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
          * 
          * &gt; **Note** Downgrading the SKU will force a new resource to be created.
          * 

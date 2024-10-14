@@ -2691,7 +2691,7 @@ if not MYPY:
         """
         representations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgsDict']]]]
         """
-        One or more `representation` blocks as defined below.
+        One or more `representation` blocks as defined above.
         """
 elif False:
     ApiOperationResponseArgsDict: TypeAlias = Mapping[str, Any]
@@ -2707,7 +2707,7 @@ class ApiOperationResponseArgs:
         :param pulumi.Input[int] status_code: The HTTP Status Code.
         :param pulumi.Input[str] description: A description of the HTTP Response, which may include HTML tags.
         :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArgs']]] headers: One or more `header` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]] representations: One or more `representation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]] representations: One or more `representation` blocks as defined above.
         """
         pulumi.set(__self__, "status_code", status_code)
         if description is not None:
@@ -2757,7 +2757,7 @@ class ApiOperationResponseArgs:
     @pulumi.getter
     def representations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]]]:
         """
-        One or more `representation` blocks as defined below.
+        One or more `representation` blocks as defined above.
         """
         return pulumi.get(self, "representations")
 
