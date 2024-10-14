@@ -1277,7 +1277,7 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64Ptr
 type ElasticPoolSku struct {
 	// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Capacity int `pulumi:"capacity"`
-	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
+	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
 	Family *string `pulumi:"family"`
 	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
 	Name string `pulumi:"name"`
@@ -1299,7 +1299,7 @@ type ElasticPoolSkuInput interface {
 type ElasticPoolSkuArgs struct {
 	// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
+	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
 	Family pulumi.StringPtrInput `pulumi:"family"`
 	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, `HS_MOPRMS`, or `HS_Gen5`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1389,7 +1389,7 @@ func (o ElasticPoolSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ElasticPoolSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
+// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
 func (o ElasticPoolSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
@@ -1438,7 +1438,7 @@ func (o ElasticPoolSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
+// The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
 func (o ElasticPoolSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticPoolSku) *string {
 		if v == nil {

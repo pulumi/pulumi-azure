@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ApiOperationResponseRepresentationArgs>? _representations;
 
         /// <summary>
-        /// One or more `representation` blocks as defined below.
+        /// One or more `representation` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApiOperationResponseRepresentationArgs> Representations
         {

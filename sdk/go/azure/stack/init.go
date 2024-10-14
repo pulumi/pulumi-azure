@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HciLogicalNetwork{}
 	case "azure:stack/hciStoragePath:HciStoragePath":
 		r = &HciStoragePath{}
+	case "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk":
+		r = &HciVirtualHardDisk{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"stack/hciStoragePath",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"stack/hciVirtualHardDisk",
 		&module{version},
 	)
 }

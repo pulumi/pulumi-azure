@@ -27,7 +27,7 @@ public final class ApiOperationResponse {
      */
     private @Nullable List<ApiOperationResponseHeader> headers;
     /**
-     * @return One or more `representation` blocks as defined below.
+     * @return One or more `representation` blocks as defined above.
      * 
      */
     private @Nullable List<ApiOperationResponseRepresentation> representations;
@@ -53,7 +53,7 @@ public final class ApiOperationResponse {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return One or more `representation` blocks as defined below.
+     * @return One or more `representation` blocks as defined above.
      * 
      */
     public List<ApiOperationResponseRepresentation> representations() {

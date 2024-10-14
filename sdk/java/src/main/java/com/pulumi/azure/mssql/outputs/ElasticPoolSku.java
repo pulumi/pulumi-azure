@@ -19,7 +19,7 @@ public final class ElasticPoolSku {
      */
     private Integer capacity;
     /**
-     * @return The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
+     * @return The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
      * 
      */
     private @Nullable String family;
@@ -43,7 +43,7 @@ public final class ElasticPoolSku {
         return this.capacity;
     }
     /**
-     * @return The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
+     * @return The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
      * 
      */
     public Optional<String> family() {

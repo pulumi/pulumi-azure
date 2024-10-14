@@ -78,7 +78,8 @@ type LookupBastionHostResult struct {
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of scale units provisioned for the Bastion Host.
-	ScaleUnits int `pulumi:"scaleUnits"`
+	ScaleUnits              int  `pulumi:"scaleUnits"`
+	SessionRecordingEnabled bool `pulumi:"sessionRecordingEnabled"`
 	// Is Shareable Link feature enabled for the Bastion Host.
 	ShareableLinkEnabled bool `pulumi:"shareableLinkEnabled"`
 	// The SKU of the Bastion Host.
@@ -182,6 +183,10 @@ func (o LookupBastionHostResultOutput) ResourceGroupName() pulumi.StringOutput {
 // The number of scale units provisioned for the Bastion Host.
 func (o LookupBastionHostResultOutput) ScaleUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupBastionHostResult) int { return v.ScaleUnits }).(pulumi.IntOutput)
+}
+
+func (o LookupBastionHostResultOutput) SessionRecordingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) bool { return v.SessionRecordingEnabled }).(pulumi.BoolOutput)
 }
 
 // Is Shareable Link feature enabled for the Bastion Host.

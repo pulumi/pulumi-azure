@@ -394,6 +394,8 @@ type AppIngress struct {
 	// One or more `trafficWeight` blocks as detailed below.
 	TrafficWeights []AppIngressTrafficWeight `pulumi:"trafficWeights"`
 	// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
+	//
+	// > **Note:**  if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
 	Transport *string `pulumi:"transport"`
 }
 
@@ -428,6 +430,8 @@ type AppIngressArgs struct {
 	// One or more `trafficWeight` blocks as detailed below.
 	TrafficWeights AppIngressTrafficWeightArrayInput `pulumi:"trafficWeights"`
 	// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
+	//
+	// > **Note:**  if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
 	Transport pulumi.StringPtrInput `pulumi:"transport"`
 }
 
@@ -551,6 +555,8 @@ func (o AppIngressOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput {
 }
 
 // The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
+//
+// > **Note:**  if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
 func (o AppIngressOutput) Transport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIngress) *string { return v.Transport }).(pulumi.StringPtrOutput)
 }
@@ -662,6 +668,8 @@ func (o AppIngressPtrOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput
 }
 
 // The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
+//
+// > **Note:**  if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
 func (o AppIngressPtrOutput) Transport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppIngress) *string {
 		if v == nil {

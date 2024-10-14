@@ -693,7 +693,7 @@ export namespace apimanagement {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponseHeader>[]>;
         /**
-         * One or more `representation` blocks as defined below.
+         * One or more `representation` blocks as defined above.
          */
         representations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponseRepresentation>[]>;
         /**
@@ -21888,6 +21888,8 @@ export namespace containerapp {
         trafficWeights: pulumi.Input<pulumi.Input<inputs.containerapp.AppIngressTrafficWeight>[]>;
         /**
          * The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
+         *
+         * > **Note:**  if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
          */
         transport?: pulumi.Input<string>;
     }
@@ -22092,7 +22094,7 @@ export namespace containerapp {
          */
         envs?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainerEnv>[]>;
         /**
-         * The amount of ephemeral storage available to the Container App. 
+         * The amount of ephemeral storage available to the Container App.
          *
          * > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
          */
@@ -40248,7 +40250,7 @@ export namespace mssql {
          */
         capacity: pulumi.Input<number>;
         /**
-         * The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, or `DC`.
+         * The `family` of hardware `Gen4`, `Gen5`, `Fsv2`, `MOPRMS`, `PRMS`, or `DC`.
          */
         family?: pulumi.Input<string>;
         /**

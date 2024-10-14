@@ -75,7 +75,7 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `500`, `1000`, `2000` or `5000`. Defaults to `100`.
+	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, or `50000`. Defaults to `100`.
 	//
 	// > **NOTE:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `100` GB.
 	SizeGb pulumi.IntPtrOutput `pulumi:"sizeGb"`
@@ -129,7 +129,7 @@ type clusterState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `500`, `1000`, `2000` or `5000`. Defaults to `100`.
+	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, or `50000`. Defaults to `100`.
 	//
 	// > **NOTE:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `100` GB.
 	SizeGb *int `pulumi:"sizeGb"`
@@ -148,7 +148,7 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `500`, `1000`, `2000` or `5000`. Defaults to `100`.
+	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, or `50000`. Defaults to `100`.
 	//
 	// > **NOTE:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `100` GB.
 	SizeGb pulumi.IntPtrInput
@@ -169,7 +169,7 @@ type clusterArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `500`, `1000`, `2000` or `5000`. Defaults to `100`.
+	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, or `50000`. Defaults to `100`.
 	//
 	// > **NOTE:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `100` GB.
 	SizeGb *int `pulumi:"sizeGb"`
@@ -187,7 +187,7 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	ResourceGroupName pulumi.StringInput
-	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `500`, `1000`, `2000` or `5000`. Defaults to `100`.
+	// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, or `50000`. Defaults to `100`.
 	//
 	// > **NOTE:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `100` GB.
 	SizeGb pulumi.IntPtrInput
@@ -307,7 +307,7 @@ func (o ClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `500`, `1000`, `2000` or `5000`. Defaults to `100`.
+// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, or `50000`. Defaults to `100`.
 //
 // > **NOTE:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `100` GB.
 func (o ClusterOutput) SizeGb() pulumi.IntPtrOutput {

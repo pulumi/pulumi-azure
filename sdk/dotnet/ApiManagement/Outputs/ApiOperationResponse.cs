@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiOperationResponseHeader> Headers;
         /// <summary>
-        /// One or more `representation` blocks as defined below.
+        /// One or more `representation` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiOperationResponseRepresentation> Representations;
         /// <summary>

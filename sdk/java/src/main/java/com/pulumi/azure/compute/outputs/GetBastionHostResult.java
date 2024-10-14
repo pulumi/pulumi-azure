@@ -61,6 +61,7 @@ public final class GetBastionHostResult {
      * 
      */
     private Integer scaleUnits;
+    private Boolean sessionRecordingEnabled;
     /**
      * @return Is Shareable Link feature enabled for the Bastion Host.
      * 
@@ -149,6 +150,9 @@ public final class GetBastionHostResult {
     public Integer scaleUnits() {
         return this.scaleUnits;
     }
+    public Boolean sessionRecordingEnabled() {
+        return this.sessionRecordingEnabled;
+    }
     /**
      * @return Is Shareable Link feature enabled for the Bastion Host.
      * 
@@ -197,6 +201,7 @@ public final class GetBastionHostResult {
         private String name;
         private String resourceGroupName;
         private Integer scaleUnits;
+        private Boolean sessionRecordingEnabled;
         private Boolean shareableLinkEnabled;
         private String sku;
         private Map<String,String> tags;
@@ -214,6 +219,7 @@ public final class GetBastionHostResult {
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.scaleUnits = defaults.scaleUnits;
+    	      this.sessionRecordingEnabled = defaults.sessionRecordingEnabled;
     	      this.shareableLinkEnabled = defaults.shareableLinkEnabled;
     	      this.sku = defaults.sku;
     	      this.tags = defaults.tags;
@@ -304,6 +310,14 @@ public final class GetBastionHostResult {
             return this;
         }
         @CustomType.Setter
+        public Builder sessionRecordingEnabled(Boolean sessionRecordingEnabled) {
+            if (sessionRecordingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "sessionRecordingEnabled");
+            }
+            this.sessionRecordingEnabled = sessionRecordingEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder shareableLinkEnabled(Boolean shareableLinkEnabled) {
             if (shareableLinkEnabled == null) {
               throw new MissingRequiredPropertyException("GetBastionHostResult", "shareableLinkEnabled");
@@ -347,6 +361,7 @@ public final class GetBastionHostResult {
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.scaleUnits = scaleUnits;
+            _resultValue.sessionRecordingEnabled = sessionRecordingEnabled;
             _resultValue.shareableLinkEnabled = shareableLinkEnabled;
             _resultValue.sku = sku;
             _resultValue.tags = tags;

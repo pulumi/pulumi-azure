@@ -10,5 +10,6 @@ from .hci_cluster import *
 from .hci_deployment_setting import *
 from .hci_logical_network import *
 from .hci_storage_path import *
+from .hci_virtual_hard_disk import *
 from ._inputs import *
 from . import outputs
