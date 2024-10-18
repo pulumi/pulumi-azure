@@ -208,11 +208,11 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
             launch={
                 "properties": {
                     "abc": "def",
-                    "any_string": "any-string",
-                    "sampling_rate": "12.0",
+                    "any-string": "any-string",
+                    "sampling-rate": "12.0",
                 },
                 "secrets": {
-                    "connection_string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+                    "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
                 },
             })
         ```
@@ -275,11 +275,11 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
             launch={
                 "properties": {
                     "abc": "def",
-                    "any_string": "any-string",
-                    "sampling_rate": "12.0",
+                    "any-string": "any-string",
+                    "sampling-rate": "12.0",
                 },
                 "secrets": {
-                    "connection_string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+                    "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
                 },
             })
         ```
